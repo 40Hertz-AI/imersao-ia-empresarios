@@ -6,6 +6,12 @@ Não precisa decorar nada. Na hora, você acompanha na tela grande e faz no seu 
 
 ---
 
+## Baixar tudo de uma vez
+
+[Download da pasta da imersão (ZIP)](https://github.com/santanalc/imersao-ia-empresarios/archive/refs/heads/main.zip): skills, planilha e este guia. Descompacte na Área de Trabalho.
+
+---
+
 ## Antes do dia (leva uns 15 minutos)
 
 1. **Assine o Claude Pro** em [claude.ai](https://claude.ai). O plano gratuito não dá acesso ao Claude Code.
@@ -80,11 +86,11 @@ Tudo o que você criar fica numa pasta só: `imersao`, na sua Área de Trabalho.
    Crie um evento amanhã às 10h chamado "Revisar o que aprendi de IA"
    ```
    Abra a agenda no celular e veja o evento lá.
-3. **Planilha:** abra o link da planilha da **Lanchonete Bom Pedaço** (dados fictícios) que o Lucas vai passar → **Arquivo → Fazer uma cópia**. Depois peça:
-   ```
-   Leia a planilha "Lanchonete Bom Pedaço" no meu Google Drive. Me diga qual lanche mais vende, qual mês caiu, se vende mais no balcão ou no delivery e 3 recomendações para o dono. Gere o arquivo relatorio.html com gráficos e salve também um Google Doc chamado "Relatório Bom Pedaço" no meu Drive.
-   ```
-4. Abra o `relatorio.html` e o Google Doc.
+3. **Planilha:** siga o passo a passo em [`planilha/`](planilha/). Em resumo:
+   - baixe a `lanchonete-bom-pedaco.xlsx` (dados fictícios de uma lanchonete);
+   - importe no Google Planilhas: [sheets.new](https://sheets.new) → **Arquivo → Importar → Fazer upload** → **Substituir planilha**;
+   - copie o link da planilha e mande para o Claude com os pedidos que estão lá: o que ele vê, o que mais vende × o que mais dá lucro, mês a mês, balcão × delivery, o produto novo;
+   - no fim, peça o `relatorio.html` e o Google Doc "Relatório Bom Pedaço" no seu Drive.
 
 ✅ **Pronto quando:** o evento apareceu no celular e o relatório está no seu Drive.
 
