@@ -125,13 +125,61 @@ Aceite quando ele pedir permissão. Depois **feche e abra de novo** a conversa n
 | `skill-creator` | Cria uma skill nova conversando (**já vem** com a sua conta do Claude) |
 | `pdf` | Cria e lê PDFs (**já vem** com a sua conta do Claude) |
 
-### Parte 1: ELI5, três vezes
+Nesta fase você usa **duas conversas**: uma para a apresentação sobre você e outra, nova, para o ELI5. Um assunto por conversa: a IA se confunde menos.
 
-Um de cada vez:
+### Sessão 1: uma apresentação sobre você, por partes
+
+**Passo 1: a entrevista.**
+
+```
+/grill-me Quero criar uma apresentação pessoal. Me entreviste: faça 5 perguntas sobre mim, uma rodada por vez. No fim, salve tudo em sobre-mim.md.
+```
+
+Responda com calma: quanto melhor a resposta, melhor a apresentação. Depois abra o `sobre-mim.md` e leia. É tudo o que a IA sabe sobre você.
+
+**Passo 2: o seu design system.**
+
+Design system é o "manual visual": as cores, as fontes e o estilo que se repetem em tudo.
+
+1. Abra [dribbble.com/search/brand](https://dribbble.com/search/brand).
+2. Procure um trabalho com cores de que você gosta.
+3. Tire um print da tela.
+4. Volte para a **mesma** conversa, cole o print (Ctrl+V no Windows, Cmd+V no Mac) e peça:
+
+```
+Crie um design system sobre mim usando esta paleta de cores: cores, fontes e estilo. Salve em design-system.md.
+```
+
+O Dribbble é só inspiração de cor. Não é para copiar o trabalho de ninguém.
+
+**Passo 3: a apresentação.**
+
+```
+Crie a minha apresentação pessoal de 5 slides com o sobre-mim.md e o design-system.md. Use a skill frontend-design para o visual, a humanizer no texto e a skill pptx para gerar apresentacao.pptx.
+```
+
+Na primeira vez, ele pode pedir para instalar uma biblioteca de PowerPoint (`pptxgenjs`). Aceite. Depois abra o `apresentacao.pptx`.
+
+**Passo 4: mandar para o Google Apresentações (MCP de novo).**
+
+```
+Suba a apresentacao.pptx no meu Google Drive, convertida para Google Apresentações, e me mande o link.
+```
+
+Abra o link. Repare: a skill criou a apresentação e o MCP levou ela para a sua ferramenta.
+
+✅ **Pronto quando:** você tem `sobre-mim.md`, `design-system.md` e a sua apresentação abrindo no Google Apresentações. Dois voluntários mostram no telão.
+
+### Sessão 2: ELI5
+
+Abra uma **conversa nova** e peça:
 
 ```
 /eli5 me explique o relatorio.html
 ```
+
+Depois escolha um assunto:
+
 ```
 /eli5 como funciona uma câmera fotográfica
 ```
@@ -140,22 +188,6 @@ Um de cada vez:
 ```
 
 Repare: o assunto muda, mas o jeito de explicar é sempre o mesmo. Isso é a skill trabalhando.
-
-### Parte 2: juntando skills numa apresentação sobre você
-
-1. A entrevista:
-   ```
-   /grill-me Quero montar uma apresentação pessoal de 5 slides para me apresentar a um cliente novo. Me faça no máximo 7 perguntas sobre mim e salve as respostas em briefing.md.
-   ```
-   Responda as perguntas. Quanto melhor a resposta, melhor a apresentação.
-2. A apresentação:
-   ```
-   Com o briefing.md e o cartao.html, crie a minha apresentação pessoal de 5 slides. Use a skill frontend-design para o visual e a humanizer no texto. Entregue em três formatos: apresentacao.html, apresentacao.pptx (use a skill pptx) e apresentacao.pdf.
-   ```
-   Na primeira vez, ele pode pedir para instalar uma biblioteca de PowerPoint (`pptxgenjs`). Aceite.
-3. Abra o `apresentacao.html` no navegador.
-
-✅ **Pronto quando:** você tem a sua apresentação aberta na tela. Dois voluntários mostram no telão.
 
 ### Parte 3: o Lucas cria uma skill ao vivo
 
@@ -171,7 +203,7 @@ Use a skill-creator para criar a skill post-linkedin: eu passo um assunto, ela p
 
 ## Fase 4: contexto
 
-Nesta parte você só assiste. O Lucas mostra por que tudo o que funcionou hoje funcionou: **porque a IA tinha contexto**. A sua bio no cartão, a explicação da lanchonete, as respostas do grill-me.
+Nesta parte você só assiste. O Lucas mostra por que tudo o que funcionou hoje funcionou: **porque a IA tinha contexto**. A sua bio no cartão, a explicação da lanchonete, as respostas do grill-me, o print das cores.
 
 À tarde, vocês vão dar à IA o contexto da empresa inteira.
 
@@ -183,7 +215,8 @@ Nesta parte você só assiste. O Lucas mostra por que tudo o que funcionou hoje 
 - [ ] Google conectado e evento na agenda
 - [ ] `relatorio.html` e o Google Doc no Drive
 - [ ] Skills instaladas (digite `/` para ver)
-- [ ] `apresentacao.html` (e, se saiu, `.pptx` e `.pdf`)
+- [ ] `sobre-mim.md` e `design-system.md`
+- [ ] Apresentação no Google Apresentações
 
 Faltou algum? Post-it vermelho: um monitor ajuda você no almoço.
 
