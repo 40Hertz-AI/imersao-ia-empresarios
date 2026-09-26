@@ -13,6 +13,7 @@ Não precisa decorar nada. Na hora, você acompanha na tela grande e faz no seu 
 3. **Instale o Node.js** em [nodejs.org](https://nodejs.org) (botão da versão "LTS"). Ele é necessário para instalar as skills.
 4. **Tenha o Google Chrome** e uma **conta Google pessoal**. Conta Google da empresa às vezes é bloqueada pelo administrador.
 5. **Teste:** abra o app do Claude, vá na aba **Code**, escolha qualquer pasta e escreva "oi". Se ele responder, está pronto.
+6. **Confira as skills da Anthropic:** ainda no Claude Code, digite `/skills`. Na parte **claude.ai sync** devem aparecer `skill-creator` e `pdf`. Se o `skill-creator` não aparecer, ligue a skill nas configurações de skills do [claude.ai](https://claude.ai) e abra o Claude Code de novo.
 
 Travou em algum passo? Responda o e-mail da imersão antes do dia.
 
@@ -99,7 +100,7 @@ Tem 3 jeitos de ter uma skill:
 
 1. **Receber pronta**: este repositório.
 2. **Instalar da internet**: no [skills.sh](https://skills.sh) tem milhares. Olhe quem fez e quantas pessoas instalaram antes de confiar.
-3. **Criar a sua**: com a skill `skill-creator`.
+3. **Criar a sua**: com a skill `skill-creator`, que já vem com a sua conta do Claude.
 
 ### Instalar as skills
 
@@ -108,7 +109,7 @@ Cole no Claude Code:
 ```
 Rode estes dois comandos no terminal e me avise quando terminar. Depois liste as skills instaladas.
 1. npx -y skills add https://github.com/santanalc/imersao-ia-empresarios -g -a claude-code -s '*' -y
-2. npx -y skills add https://github.com/anthropics/skills -s pptx -s pdf -g -a claude-code -y
+2. npx -y skills add https://github.com/anthropics/skills -s pptx -g -a claude-code -y
 ```
 
 Aceite quando ele pedir permissão. Depois **feche e abra de novo** a conversa no Claude Code e digite `/`: as skills aparecem na lista.
@@ -120,9 +121,9 @@ Aceite quando ele pedir permissão. Depois **feche e abra de novo** a conversa n
 | `frontend-design` | Deixa páginas e apresentações com visual de designer |
 | `humanizer` | Tira a "cara de IA" do texto |
 | `find-skills` | Procura uma skill para você quando você tem uma ideia |
-| `skill-creator` | Cria uma skill nova conversando |
-| `pptx` | Cria apresentações em PowerPoint (oficial da Anthropic) |
-| `pdf` | Cria e lê PDFs (oficial da Anthropic) |
+| `pptx` | Cria apresentações em PowerPoint (oficial da Anthropic, instalada pelo comando 2) |
+| `skill-creator` | Cria uma skill nova conversando (**já vem** com a sua conta do Claude) |
+| `pdf` | Cria e lê PDFs (**já vem** com a sua conta do Claude) |
 
 ### Parte 1: ELI5, três vezes
 
@@ -204,8 +205,8 @@ As skills deste repositório vêm de projetos abertos, com as licenças originai
 
 - `grill-me` e `grilling`: [mattpocock/skills](https://github.com/mattpocock/skills) (MIT)
 - `find-skills`: [vercel-labs/skills](https://github.com/vercel-labs/skills) (MIT)
-- `frontend-design` e `skill-creator`: [anthropics/skills](https://github.com/anthropics/skills) (Apache 2.0)
+- `frontend-design`: [anthropics/skills](https://github.com/anthropics/skills) (Apache 2.0)
 - `humanizer`: [blader/humanizer](https://github.com/blader/humanizer) (MIT)
 - `eli5`: escrita para esta imersão
 
-As skills `pptx` e `pdf` não ficam aqui: são instaladas direto do repositório oficial da Anthropic.
+Não ficam aqui: `pptx` (instalada direto do repositório oficial da Anthropic) e `skill-creator` e `pdf` (já vêm com a conta do Claude, pela sincronização das skills da Anthropic).
