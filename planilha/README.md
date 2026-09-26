@@ -32,40 +32,29 @@ A aba **Sobre** repete essa explicação dentro da planilha.
 
 Se ainda não fez: [claude.ai](https://claude.ai) → Configurações → **Conectores** → **Google Drive** → conecte com a sua conta Google. Depois volte para o Claude Code.
 
-## Passo 3: conversar com a planilha
+## Passo 3: perguntar para a planilha
 
-Cole os pedidos um de cada vez, na mesma conversa, e troque `[LINK]` pelo link que você copiou.
+Cole uma pergunta de cada vez, na mesma conversa. Troque `[LINK]` pelo link que você copiou.
 
-**1. Ele consegue ler?**
 ```
-Leia esta planilha do meu Google Drive: [LINK]. Me diga em 5 linhas o que tem nela.
+Leia esta planilha do meu Google Drive: [LINK]. O que tem nela?
 ```
-
-**2. O que mais vende é o que mais dá dinheiro?**
 ```
-Qual produto mais vende em quantidade? E qual dá mais lucro? São o mesmo produto? Explique a diferença.
+Qual produto mais vendeu?
 ```
-
-**3. Como foi cada mês?**
 ```
-Como foi o faturamento mês a mês? Algum mês saiu do padrão? Por quê?
+Qual mês vendeu mais e qual vendeu menos?
 ```
-
-**4. Balcão ou delivery?**
 ```
-Balcão ou delivery: qual fatura mais e qual dá mais lucro? O que mudou de janeiro a junho?
+Vende mais no balcão ou no delivery?
 ```
-
-**5. O produto novo está indo bem?**
 ```
-O Smash Duplo começou a ser vendido em março. Ele está indo bem?
+Qual produto dá mais lucro?
+```
+```
+Salve um Google Doc chamado "Resumo Bom Pedaço" no meu Drive com essas respostas.
 ```
 
-**6. O relatório para o dono**
-```
-Com tudo o que você descobriu, gere o arquivo relatorio.html com gráficos e 3 recomendações para o dono da lanchonete. Salve também um Google Doc chamado "Relatório Bom Pedaço" no meu Google Drive.
-```
+Abra o Google Doc no seu Drive. Repare: o Claude **leu** uma ferramenta sua (a planilha) e **escreveu** em outra (o Doc). Isso é o MCP.
 
-Abra o `relatorio.html` e o Google Doc.
-
-**Repare:** em algum momento o Claude não vai saber explicar *por que* algo aconteceu. Guarde isso: é o assunto da última parte da manhã.
+**Curiosidade para guardar:** compare a resposta da pergunta 2 com a da 5.

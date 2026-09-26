@@ -86,13 +86,32 @@ Tudo o que você criar fica numa pasta só: `imersao`, na sua Área de Trabalho.
    Crie um evento amanhã às 10h chamado "Revisar o que aprendi de IA"
    ```
    Abra a agenda no celular e veja o evento lá.
-3. **Planilha:** siga o passo a passo em [`planilha/`](planilha/). Em resumo:
-   - baixe a `lanchonete-bom-pedaco.xlsx` (dados fictícios de uma lanchonete);
-   - importe no Google Planilhas: [sheets.new](https://sheets.new) → **Arquivo → Importar → Fazer upload** → **Substituir planilha**;
-   - copie o link da planilha e mande para o Claude com os pedidos que estão lá: o que ele vê, o que mais vende × o que mais dá lucro, mês a mês, balcão × delivery, o produto novo;
-   - no fim, peça o `relatorio.html` e o Google Doc "Relatório Bom Pedaço" no seu Drive.
+3. **A planilha, em 3 passos** (detalhes em [`planilha/`](planilha/)):
+   1. **Baixar** a `lanchonete-bom-pedaco.xlsx` (dados fictícios de uma lanchonete).
+   2. **Salvar no Google:** abra [sheets.new](https://sheets.new) → **Arquivo → Importar → Fazer upload** → escolha o arquivo → **Substituir planilha** → renomeie para "Lanchonete Bom Pedaço".
+   3. **Copiar o link** da planilha na barra do navegador.
+4. **Pergunte para a planilha**, uma pergunta de cada vez (troque `[LINK]` pelo seu link):
+   ```
+   Leia esta planilha do meu Google Drive: [LINK]. O que tem nela?
+   ```
+   ```
+   Qual produto mais vendeu?
+   ```
+   ```
+   Qual mês vendeu mais e qual vendeu menos?
+   ```
+   ```
+   Vende mais no balcão ou no delivery?
+   ```
+   ```
+   Qual produto dá mais lucro?
+   ```
+   ```
+   Salve um Google Doc chamado "Resumo Bom Pedaço" no meu Drive com essas respostas.
+   ```
+5. Abra o Google Doc no seu Drive.
 
-✅ **Pronto quando:** o evento apareceu no celular e o relatório está no seu Drive.
+✅ **Pronto quando:** o evento apareceu no celular e o "Resumo Bom Pedaço" está no seu Drive.
 
 **O que reparar:** ele pede permissão antes de agir · conecte só o que você precisa · ele lê a sua planilha e cria um arquivo novo, sem mexer no original.
 
@@ -122,7 +141,7 @@ Aceite quando ele pedir permissão. Depois **feche e abra de novo** a conversa n
 
 | Skill | O que faz |
 |---|---|
-| `eli5` | Explica qualquer coisa como se você tivesse 5 anos |
+| `eli5` | Explica qualquer assunto como se você tivesse 5 anos |
 | `grill-me` | Te entrevista com perguntas antes de começar um trabalho |
 | `frontend-design` | Deixa páginas e apresentações com visual de designer |
 | `humanizer` | Tira a "cara de IA" do texto |
@@ -178,19 +197,16 @@ Abra o link. Repare: a skill criou a apresentação e o MCP levou ela para a sua
 
 ### Sessão 2: ELI5
 
-Abra uma **conversa nova** e peça:
+Abra uma **conversa nova** e peça para ele explicar coisas do mundo. Escolha uma ou mais:
 
 ```
-/eli5 me explique o relatorio.html
-```
-
-Depois escolha um assunto:
-
-```
-/eli5 como funciona uma câmera fotográfica
+/eli5 como funciona o mercado financeiro
 ```
 ```
 /eli5 como funciona o motor de um carro
+```
+```
+/eli5 por que as estrelas brilham
 ```
 
 Repare: o assunto muda, mas o jeito de explicar é sempre o mesmo. Isso é a skill trabalhando.
@@ -209,7 +225,7 @@ Use a skill-creator para criar a skill post-linkedin: eu passo um assunto, ela p
 
 ## Fase 4: contexto
 
-Nesta parte você só assiste. O Lucas mostra por que tudo o que funcionou hoje funcionou: **porque a IA tinha contexto**. A sua bio no cartão, a explicação da lanchonete, as respostas do grill-me, o print das cores.
+Nesta parte você só assiste. O Lucas mostra por que tudo o que funcionou hoje funcionou: **porque a IA tinha contexto**. A sua bio no cartão, o link da planilha, as respostas do grill-me, o print das cores.
 
 À tarde, vocês vão dar à IA o contexto da empresa inteira.
 
@@ -219,7 +235,7 @@ Nesta parte você só assiste. O Lucas mostra por que tudo o que funcionou hoje 
 
 - [ ] `cartao.html`
 - [ ] Google conectado e evento na agenda
-- [ ] `relatorio.html` e o Google Doc no Drive
+- [ ] Google Doc "Resumo Bom Pedaço" no Drive
 - [ ] Skills instaladas (digite `/` para ver)
 - [ ] `sobre-mim.md` e `design-system.md`
 - [ ] Apresentação no Google Apresentações
