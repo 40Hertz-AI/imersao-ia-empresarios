@@ -214,6 +214,49 @@
   footer .conteudo{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   [hidden]{display:none!important}
 
+  /* ---------- Porta de entrada (formulário) ---------- */
+  body.trancado{overflow:hidden}
+  body.trancado > aside.lateral, body.trancado > header.topo-mob, body.trancado > main{display:none}
+  #porta{display:none;min-height:100vh}
+  body.trancado #porta{display:block}
+  .porta-topo{border-bottom:1px solid var(--borda);background:var(--faixa)}
+  .porta-topo .dentro{max-width:760px;margin:0 auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .porta-topo b{color:var(--titulo);font-weight:800}
+  .porta{max-width:760px;margin:0 auto;padding:48px 24px 80px}
+  .porta h1{font-size:clamp(34px,5vw,52px);font-weight:800;line-height:1.02;letter-spacing:-.04em;margin:16px 0 14px}
+  .porta .lead{font-size:18px;margin:0 0 28px}
+  .escolha{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px}
+  .escolha button{text-align:left;cursor:pointer;background:var(--painel);border:1px solid var(--borda);border-radius:16px;padding:20px;color:var(--texto);font:inherit}
+  .escolha button:hover{border-color:#444}
+  .escolha button b{display:block;color:var(--titulo);font-size:18px;margin-bottom:4px}
+  .escolha button[aria-pressed=true]{border-color:rgba(251,189,4,.6);background:rgba(251,189,4,.06)}
+  .painel-porta{margin-top:24px}
+  .form-bloco{background:var(--painel);border:1px solid var(--borda);border-radius:20px;padding:28px;margin-bottom:20px}
+  .form-bloco > .rotulo{display:block;margin-bottom:18px}
+  .campo{margin-bottom:22px}
+  .campo:last-child{margin-bottom:0}
+  .campo > label, .campo > .pergunta{display:block;color:var(--titulo);font-weight:600;font-size:16px;margin-bottom:6px}
+  .campo .ajuda{display:block;font-size:14px;color:var(--meta);margin:-2px 0 10px}
+  .obrig{color:var(--amarelo)}
+  .campo input[type=text], .campo input[type=email], .campo input[type=tel], .campo textarea{width:100%;background:var(--canvas);border:1px solid var(--borda);border-radius:12px;color:var(--titulo);font:16px Geist,sans-serif;padding:13px 14px;outline:none}
+  .campo textarea{min-height:110px;resize:vertical;line-height:1.5}
+  .campo input:focus, .campo textarea:focus{border-color:var(--amarelo)}
+  .opcoes{display:flex;flex-wrap:wrap;gap:8px}
+  .opcoes label{position:relative;cursor:pointer}
+  .opcoes input{position:absolute;opacity:0;pointer-events:none}
+  .opcoes span{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border:1px solid var(--borda);border-radius:999px;background:var(--canvas);font-size:14px;color:var(--texto);transition:border-color .12s}
+  .opcoes label:hover span{border-color:#444}
+  .opcoes input:checked + span{border-color:rgba(251,189,4,.7);background:rgba(251,189,4,.1);color:var(--titulo)}
+  .opcoes input:focus-visible + span{outline:2px solid var(--amarelo);outline-offset:2px}
+  .consent{display:flex;gap:12px;align-items:flex-start;font-size:15px;cursor:pointer}
+  .consent input{width:20px;height:20px;margin-top:2px;accent-color:var(--amarelo);flex:none}
+  .campo.erro > label, .campo.erro > .pergunta{color:var(--erro)}
+  .campo.erro input, .campo.erro textarea{border-color:var(--erro)}
+  .msg-erro{min-height:22px;color:var(--erro);font-size:14px;margin:10px 0}
+  .isca{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .btn:disabled{opacity:.6;cursor:wait}
+  @media (max-width:600px){ .escolha{grid-template-columns:1fr} .form-bloco{padding:20px} }
+
   /* ---------- Responsivo ---------- */
   @media (max-width:1080px){
     .c2{grid-column:span 3}.c4{grid-column:span 6}
@@ -244,7 +287,12 @@
   }
 </style>
 </head>
-<body>
+<body class="trancado">
+<script>
+  // URL do Apps Script (termina em /exec). Vazio = formulário ainda não ligado à planilha.
+  window.PORTAL_API = 'https://script.google.com/macros/s/AKfycbwfAQTokba_Ui_GSfp9cs7lYtjd9TbFcMX5siOCKPUpVzcRWnBYYlGdsT0SzF8CjxNcGQ/exec';
+  try { if (localStorage.getItem('portal-acesso')) document.body.classList.remove('trancado'); } catch (e) {}
+</script>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -273,6 +321,160 @@
     <symbol id="i-brilho" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17v4"/><path d="M17 19h4"/></symbol>
   </defs>
 </svg>
+
+<!-- PORTA DE ENTRADA: formulário ou e-mail de quem já respondeu -->
+<div id="porta">
+  <div class="porta-topo"><div class="dentro"><b>IA para empresários</b><span class="rotulo">Portal do aluno</span></div></div>
+  <div class="porta">
+    <span class="rotulo">29 de setembro · Mogi das Cruzes - SP</span>
+    <h1>Antes de entrar, conte um pouco sobre você.</h1>
+    <p class="lead">São uns 3 minutos. Com as respostas, a aula chega mais perto do que a sua empresa precisa. Depois disso o portal abre com o vídeo, a instalação e os materiais.</p>
+
+    <div class="escolha" role="group" aria-label="Como você quer entrar">
+      <button type="button" id="ir-form" aria-pressed="true"><b>É minha primeira vez</b>Responder o formulário</button>
+      <button type="button" id="ir-email" aria-pressed="false"><b>Já respondi</b>Entrar com o meu e-mail</button>
+    </div>
+
+    <!-- Já respondi -->
+    <form id="form-email" class="painel-porta" hidden novalidate>
+      <div class="form-bloco">
+        <div class="campo">
+          <label for="e-email">E-mail que você usou no formulário</label>
+          <input type="email" id="e-email" autocomplete="email" placeholder="voce@empresa.com.br">
+        </div>
+        <div class="msg-erro" id="e-msg" role="alert"></div>
+        <button class="btn amarelo" type="submit" id="e-btn">Entrar no portal <svg class="i"><use href="#i-seta"/></svg></button>
+      </div>
+    </form>
+
+    <!-- Formulário -->
+    <form id="form-cadastro" class="painel-porta" novalidate>
+      <div class="isca" aria-hidden="true"><label>Site <input type="text" name="site" tabindex="-1" autocomplete="off"></label></div>
+
+      <div class="form-bloco">
+        <span class="rotulo">1 · Você</span>
+        <div class="campo"><label for="f-nome">Nome <span class="obrig">*</span></label><input type="text" id="f-nome" name="nome" autocomplete="name" data-obrig></div>
+        <div class="campo"><label for="f-email">E-mail <span class="obrig">*</span></label><input type="email" id="f-email" name="email" autocomplete="email" data-obrig></div>
+        <div class="campo"><label for="f-whats">WhatsApp</label><span class="ajuda">Opcional. Só para ajudar se a instalação travar.</span><input type="tel" id="f-whats" name="whatsapp" autocomplete="tel" placeholder="(11) 90000-0000"></div>
+        <div class="campo"><label for="f-empresa">Empresa e seu cargo <span class="obrig">*</span></label><input type="text" id="f-empresa" name="empresa" placeholder="Ex.: Padaria Silva, sócio" data-obrig></div>
+        <div class="campo" data-grupo="tamanho" data-obrig>
+          <span class="pergunta">Tamanho da empresa <span class="obrig">*</span></span>
+          <div class="opcoes">
+            <label><input type="radio" name="tamanho" value="Só eu"><span>Só eu</span></label>
+            <label><input type="radio" name="tamanho" value="2 a 10"><span>2 a 10</span></label>
+            <label><input type="radio" name="tamanho" value="11 a 50"><span>11 a 50</span></label>
+            <label><input type="radio" name="tamanho" value="51 a 200"><span>51 a 200</span></label>
+            <label><input type="radio" name="tamanho" value="Mais de 200"><span>Mais de 200</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-bloco">
+        <span class="rotulo">2 · Você e a IA</span>
+        <div class="campo" data-grupo="frequencia" data-obrig>
+          <span class="pergunta">Com que frequência você usa IA no trabalho? <span class="obrig">*</span></span>
+          <div class="opcoes">
+            <label><input type="radio" name="frequencia" value="Nunca"><span>Nunca</span></label>
+            <label><input type="radio" name="frequencia" value="Já testei, mas não uso"><span>Já testei, mas não uso</span></label>
+            <label><input type="radio" name="frequencia" value="Algumas vezes por semana"><span>Algumas vezes por semana</span></label>
+            <label><input type="radio" name="frequencia" value="Todo dia"><span>Todo dia</span></label>
+          </div>
+        </div>
+        <div class="campo" data-grupo="ferramentas">
+          <span class="pergunta">Quais você usa?</span><span class="ajuda">Marque quantas quiser.</span>
+          <div class="opcoes">
+            <label><input type="checkbox" name="ferramentas" value="ChatGPT"><span>ChatGPT</span></label>
+            <label><input type="checkbox" name="ferramentas" value="Claude"><span>Claude</span></label>
+            <label><input type="checkbox" name="ferramentas" value="Gemini"><span>Gemini</span></label>
+            <label><input type="checkbox" name="ferramentas" value="Copilot"><span>Copilot</span></label>
+            <label><input type="checkbox" name="ferramentas" value="Meta AI (WhatsApp)"><span>Meta AI (WhatsApp)</span></label>
+            <label><input type="checkbox" name="ferramentas" value="Outra"><span>Outra</span></label>
+            <label><input type="checkbox" name="ferramentas" value="Nenhuma"><span>Nenhuma</span></label>
+          </div>
+        </div>
+        <div class="campo" data-grupo="ja_fez">
+          <span class="pergunta">O que você já fez com IA?</span><span class="ajuda">Marque quantas quiser. Se nunca usou, deixe em branco.</span>
+          <div class="opcoes">
+            <label><input type="checkbox" name="ja_fez" value="Escrever ou revisar texto"><span>Escrever ou revisar texto</span></label>
+            <label><input type="checkbox" name="ja_fez" value="Tirar dúvida ou pesquisar"><span>Tirar dúvida ou pesquisar</span></label>
+            <label><input type="checkbox" name="ja_fez" value="Resumir documento, reunião ou áudio"><span>Resumir documento, reunião ou áudio</span></label>
+            <label><input type="checkbox" name="ja_fez" value="Analisar planilha ou números"><span>Analisar planilha ou números</span></label>
+            <label><input type="checkbox" name="ja_fez" value="Criar imagem ou vídeo"><span>Criar imagem ou vídeo</span></label>
+            <label><input type="checkbox" name="ja_fez" value="Salvar instruções para reutilizar"><span>Salvar instruções para reutilizar</span></label>
+            <label><input type="checkbox" name="ja_fez" value="Ligar a IA a outra ferramenta"><span>Ligar a IA a outra ferramenta</span></label>
+            <label><input type="checkbox" name="ja_fez" value="Montar uma automação ou agente"><span>Montar uma automação ou agente</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-bloco">
+        <span class="rotulo">3 · Sua empresa</span>
+        <div class="campo">
+          <label for="f-tarefa">Qual tarefa da sua semana você mais queria tirar das suas costas? <span class="obrig">*</span></label>
+          <span class="ajuda">Conte como você faz hoje. Ex.: toda segunda eu junto as vendas de 3 planilhas e mando um resumo para os sócios.</span>
+          <textarea id="f-tarefa" name="tarefa" data-obrig></textarea>
+        </div>
+        <div class="campo" data-grupo="tempo">
+          <span class="pergunta">Quanto tempo ela toma por semana?</span>
+          <div class="opcoes">
+            <label><input type="radio" name="tempo" value="Menos de 1h"><span>Menos de 1h</span></label>
+            <label><input type="radio" name="tempo" value="1 a 3h"><span>1 a 3h</span></label>
+            <label><input type="radio" name="tempo" value="3 a 5h"><span>3 a 5h</span></label>
+            <label><input type="radio" name="tempo" value="Mais de 5h"><span>Mais de 5h</span></label>
+          </div>
+        </div>
+        <div class="campo" data-grupo="barreiras">
+          <span class="pergunta">O que mais te segura para usar IA na empresa?</span><span class="ajuda">Marque quantas quiser.</span>
+          <div class="opcoes">
+            <label><input type="checkbox" name="barreiras" value="Não sei por onde começar"><span>Não sei por onde começar</span></label>
+            <label><input type="checkbox" name="barreiras" value="Não confio no resultado"><span>Não confio no resultado</span></label>
+            <label><input type="checkbox" name="barreiras" value="Medo com os dados da empresa"><span>Medo com os dados da empresa</span></label>
+            <label><input type="checkbox" name="barreiras" value="Falta de tempo"><span>Falta de tempo</span></label>
+            <label><input type="checkbox" name="barreiras" value="O time não adota"><span>O time não adota</span></label>
+            <label><input type="checkbox" name="barreiras" value="Custo"><span>Custo</span></label>
+          </div>
+        </div>
+        <div class="campo"><label for="f-expect">O que faria este dia valer a pena para você?</label><span class="ajuda">Opcional.</span><textarea id="f-expect" name="expectativa" style="min-height:80px"></textarea></div>
+      </div>
+
+      <div class="form-bloco">
+        <span class="rotulo">4 · Seu computador</span>
+        <div class="campo" data-grupo="computador" data-obrig>
+          <span class="pergunta">Qual computador você vai levar? <span class="obrig">*</span></span>
+          <div class="opcoes">
+            <label><input type="radio" name="computador" value="Windows"><span>Windows</span></label>
+            <label><input type="radio" name="computador" value="Mac"><span>Mac</span></label>
+            <label><input type="radio" name="computador" value="Não sei"><span>Não sei</span></label>
+          </div>
+        </div>
+        <div class="campo" data-grupo="pc_empresa">
+          <span class="pergunta">É um computador da empresa, que pode bloquear instalação?</span>
+          <div class="opcoes">
+            <label><input type="radio" name="pc_empresa" value="Sim"><span>Sim</span></label>
+            <label><input type="radio" name="pc_empresa" value="Não"><span>Não</span></label>
+            <label><input type="radio" name="pc_empresa" value="Não sei"><span>Não sei</span></label>
+          </div>
+        </div>
+        <div class="campo" data-grupo="claude_pro">
+          <span class="pergunta">Já assinou o Claude Pro?</span>
+          <div class="opcoes">
+            <label><input type="radio" name="claude_pro" value="Sim"><span>Sim</span></label>
+            <label><input type="radio" name="claude_pro" value="Vou assinar"><span>Vou assinar</span></label>
+            <label><input type="radio" name="claude_pro" value="Não sabia que precisava"><span>Não sabia que precisava</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-bloco">
+        <div class="campo" data-grupo="consentimento" data-obrig>
+          <label class="consent"><input type="checkbox" name="consentimento" value="sim"> <span>Autorizo o uso destas respostas para preparar a aula. Elas não serão compartilhadas.</span></label>
+        </div>
+        <div class="msg-erro" id="f-msg" role="alert"></div>
+        <button class="btn amarelo" type="submit" id="f-btn">Enviar e entrar no portal <svg class="i"><use href="#i-seta"/></svg></button>
+      </div>
+    </form>
+  </div>
+</div>
 
 <!-- LATERAL (desktop) -->
 <aside class="lateral">
@@ -775,6 +977,102 @@ git --version</pre><button type="button">Copiar</button></div>
     c.addEventListener('change', function(){ estado[c.dataset.k] = c.checked; localStorage.setItem(CK, JSON.stringify(estado)); atualizar(); });
   });
   atualizar();
+
+  // ---------- Porta de entrada ----------
+  var API = window.PORTAL_API;
+  var CHAVE = 'portal-acesso';
+  var formCad = document.getElementById('form-cadastro');
+  var formEmail = document.getElementById('form-email');
+  var bForm = document.getElementById('ir-form'), bEmail = document.getElementById('ir-email');
+
+  function modo(qual){
+    var cad = qual === 'form';
+    formCad.hidden = !cad; formEmail.hidden = cad;
+    bForm.setAttribute('aria-pressed', cad); bEmail.setAttribute('aria-pressed', !cad);
+    if (!cad) document.getElementById('e-email').focus();
+  }
+  bForm.addEventListener('click', function(){ modo('form'); });
+  bEmail.addEventListener('click', function(){ modo('email'); });
+
+  function liberar(email){
+    try { localStorage.setItem(CHAVE, email); } catch (e) {}
+    document.body.classList.remove('trancado');
+    window.scrollTo(0, 0);
+    if (typeof acender === 'function') acender();
+  }
+  function emailValido(v){ return /^\S+@\S+\.\S+$/.test(v); }
+  function ocupado(btn, sim, texto){
+    btn.disabled = sim;
+    if (sim) { btn.dataset.orig = btn.innerHTML; btn.textContent = texto; }
+    else if (btn.dataset.orig) btn.innerHTML = btn.dataset.orig;
+  }
+  var SEM_API = 'O formulário ainda não está ligado à planilha. Avise o Lucas.';
+  var SEM_REDE = 'Não conseguimos falar com o servidor. Confira a internet e tente de novo.';
+
+  // Já respondi: confere o e-mail na planilha
+  formEmail.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var campo = document.getElementById('e-email'), msg = document.getElementById('e-msg'), btn = document.getElementById('e-btn');
+    var email = campo.value.trim().toLowerCase();
+    campo.parentNode.classList.remove('erro'); msg.textContent = '';
+    if (!emailValido(email)) { campo.parentNode.classList.add('erro'); msg.textContent = 'Digite um e-mail válido.'; return; }
+    if (!API) { msg.textContent = SEM_API; return; }
+    ocupado(btn, true, 'Conferindo...');
+    fetch(API + '?acao=verificar&email=' + encodeURIComponent(email))
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if (d.ok) return liberar(email);
+        msg.innerHTML = 'Não achamos esse e-mail. Confira a digitação ou <a href="#" id="e-para-form">responda o formulário</a>.';
+        document.getElementById('e-para-form').onclick = function(e){ e.preventDefault(); document.getElementById('f-email').value = email; modo('form'); };
+      })
+      .catch(function(){ msg.textContent = SEM_REDE; })
+      .then(function(){ ocupado(btn, false); });
+  });
+
+  // Formulário: valida, grava na planilha, libera
+  formCad.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var msg = document.getElementById('f-msg'), btn = document.getElementById('f-btn');
+    msg.textContent = '';
+    var fd = new FormData(formCad), dados = {};
+    fd.forEach(function(v, k){
+      if (formCad.querySelector('input[type=checkbox][name="' + k + '"]')) (dados[k] = dados[k] || []).push(v);
+      else dados[k] = typeof v === 'string' ? v.trim() : v;
+    });
+    dados.email = (dados.email || '').toLowerCase();
+    dados.consentimento = !!dados.consentimento;
+
+    var primeiro = null;
+    formCad.querySelectorAll('[data-obrig]').forEach(function(el){
+      var campo = el.classList.contains('campo') ? el : el.closest('.campo');
+      var nome = el.dataset.grupo || el.name;
+      var v = dados[nome];
+      var vazio = Array.isArray(v) ? !v.length : !v;
+      if (nome === 'email' && !vazio && !emailValido(v)) vazio = true;
+      campo.classList.toggle('erro', vazio);
+      if (vazio && !primeiro) primeiro = campo;
+    });
+    if (primeiro) {
+      msg.textContent = 'Faltam as perguntas marcadas em vermelho.';
+      primeiro.scrollIntoView({block:'center'});
+      var foco = primeiro.querySelector('input,textarea'); if (foco) foco.focus({preventScroll:true});
+      return;
+    }
+    if (!API) { msg.textContent = SEM_API; return; }
+    ocupado(btn, true, 'Enviando...');
+    // text/plain evita a checagem extra de CORS que o Apps Script não responde
+    fetch(API, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(dados) })
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if (d.ok) return liberar(dados.email);
+        msg.textContent = d.erro === 'email' ? 'Confira o e-mail.' : 'Não deu para salvar. Tente de novo.';
+      })
+      .catch(function(){ msg.textContent = SEM_REDE; })
+      .then(function(){ ocupado(btn, false); });
+  });
+  // Tira o vermelho assim que o aluno corrige
+  formCad.addEventListener('input', function(e){ var c = e.target.closest('.campo'); if (c) c.classList.remove('erro'); });
+  formCad.addEventListener('change', function(e){ var c = e.target.closest('.campo'); if (c) c.classList.remove('erro'); });
 })();
 </script>
 </body>
