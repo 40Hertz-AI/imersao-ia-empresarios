@@ -244,6 +244,42 @@ Faltou algum? Post-it vermelho: um monitor ajuda você no almoço.
 
 ---
 
+## Tarde: o cérebro da sua empresa
+
+À tarde você monta, na sua própria empresa, uma pasta que vira o cérebro dela: a memória, a pesquisa, os números, a marca e tudo o que a IA produz. É uma pasta **nova**, separada da `imersao`.
+
+### Baixar a pasta
+
+No Claude Code (pode ser na conversa da manhã), cole e troque o nome:
+
+```
+Baixe a pasta cerebro-da-empresa do repositório https://github.com/santanalc/imersao-ia-empresarios para a minha Área de Trabalho, com o nome NOME-DA-MINHA-EMPRESA. Use: npx degit santanalc/imersao-ia-empresarios/cerebro-da-empresa
+```
+
+Sem Node.js? Use o link "Baixar tudo de uma vez" lá em cima e copie a pasta `cerebro-da-empresa` para a Área de Trabalho.
+
+Depois: app do Claude → aba **Code** → escolha a pasta nova → digite `/instalar`.
+
+### A trilha, fase por fase
+
+| # | Comando | O que faz |
+|---|---|---|
+| 0 | `/instalar` | 6 perguntas rápidas sobre você e a empresa |
+| 1 | `/mapear-empresa` | Lê o seu site e as redes: o que você vende, a marca, o que falta |
+| 2 | `/mapear-nicho` | O seu cliente ideal, as dores dele, como ele fala |
+| 3 | `/mapear-concorrentes` | Quem disputa o seu cliente e onde está o espaço vazio |
+| 4 | `/mapear-numeros` | Faturamento, ticket, margem: o que você sabe e o que falta medir |
+| 5 | `/mapear-comercial` | Como o cliente chega e onde você perde venda |
+| 6 | `/mapear-equipe` | Quem faz o quê e o que a IA pode assumir |
+| 7 | `/criar-oferta` | Proposta de valor, oferta e roteiro de vendas |
+| 8 | `/mapa-completo` | `MAPA.html`: a sua empresa inteira numa página |
+
+Depois da fase 3, a qualquer hora: `/criar-proposta`, `/criar-carrossel`, `/criar-slides`.
+
+Cada fase termina com um resumo, **um desafio** e o próximo comando. Perdeu o fio? Digite "o que falta?".
+
+**Privacidade:** as fases 4 a 7 guardam números e informações da sua empresa. Ficam só no seu computador: não suba a pasta preenchida para lugar público.
+
 ## Quando travar
 
 1. Leia de novo o passo em que você está.
