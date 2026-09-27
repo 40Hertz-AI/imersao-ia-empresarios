@@ -3,168 +3,470 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>IA para empresários · Portal do aluno</title>
-<meta name="description" content="Guia do aluno da imersão IA para empresários, com Lucas Santana." />
+<title>Portal do aluno · IA para empresários</title>
+<meta name="description" content="Portal do aluno da imersão IA para empresários, com Lucas Santana. 29 de setembro, Museu das Cruzes, São Paulo." />
+<meta property="og:title" content="Portal do aluno · IA para empresários" />
+<meta property="og:description" content="Instalação, materiais e o que você vai fazer na imersão. 29 de setembro, São Paulo." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <style>
   :root{
     --canvas:#0A0A0A; --faixa:#121212; --painel:#1A1A1A; --elevado:#242424; --borda:#2A2A2A;
     --titulo:#E8E3D9; --texto:#CCCCCC; --meta:#909090;
     --amarelo:#FBBD04; --ia:#A78BFA; --humano:#2DD4BF; --info:#7AA2F7; --processo:#818CF8;
     --prazo:#FB923C; --ok:#22C55E; --erro:#FF6B70;
+    --lateral:232px;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;scroll-padding-top:24px}
   body{margin:0;background:var(--canvas);color:var(--texto);font:16px/1.6 Geist,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-  a{color:var(--titulo)}
-  code,.mono{font-family:"Geist Mono",ui-monospace,monospace;font-size:.92em}
+  a{color:inherit}
+  code,.mono{font-family:"Geist Mono",ui-monospace,monospace}
+  code{font-size:.9em;color:var(--titulo)}
   h1,h2,h3{color:var(--titulo);margin:0;letter-spacing:-.03em;text-wrap:balance}
-  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
-  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--meta)}
+  svg.i{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
   .amarelo{color:var(--amarelo)}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:999px;border:1px solid var(--borda);background:var(--painel);color:var(--titulo);font:600 14px Geist,sans-serif;text-decoration:none;cursor:pointer}
-  .btn:hover{border-color:#3a3a3a}
-  .btn.primario{background:var(--amarelo);border-color:var(--amarelo);color:#0A0A0A}
-  .card{background:var(--painel);border:1px solid var(--borda);border-radius:16px;padding:24px}
+  .rotulo{font:700 12px/1 "Geist Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--meta)}
 
+  /* ---------- Lateral ---------- */
+  aside.lateral{position:fixed;inset:0 auto 0 0;width:var(--lateral);background:var(--faixa);border-right:1px solid var(--borda);display:flex;flex-direction:column;z-index:20}
+  .marca{padding:24px 20px 20px}
+  .marca b{display:block;color:var(--titulo);font-size:17px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+  .marca span{display:block;margin-top:8px}
+  nav.secoes{flex:1;overflow-y:auto;padding:4px 12px}
+  nav.secoes a{position:relative;display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:var(--meta);font-size:14px;font-weight:600;text-decoration:none}
+  nav.secoes a:hover{background:var(--painel);color:var(--titulo)}
+  nav.secoes a.aceso{background:var(--painel);color:var(--titulo)}
+  nav.secoes a.aceso::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;border-radius:2px;background:var(--amarelo)}
+  nav.secoes a.aceso svg{color:var(--amarelo)}
+  nav.secoes .tag{margin-left:auto;font:700 10px/1 "Geist Mono",monospace;letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border-radius:6px;background:var(--elevado);color:var(--texto)}
+  nav.secoes .tag.agora{background:rgba(251,189,4,.14);color:var(--amarelo)}
+  .rodape-lateral{padding:16px 20px 20px;border-top:1px solid var(--borda);font-size:13px;color:var(--meta)}
+  .rodape-lateral a{color:var(--titulo);text-decoration:none;font-weight:600}
 
-  /* Portal */
-  header.topo{position:sticky;top:0;z-index:5;background:rgba(10,10,10,.92);border-bottom:1px solid var(--borda)}
-  header.topo .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
-  header.topo .marca{font-size:14px;color:var(--meta)}
-  header.topo .marca b{color:var(--titulo)}
-  nav.menu{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--borda)}
-  nav.menu::-webkit-scrollbar{display:none}
-  nav.menu a{flex:none;padding:12px 14px;font-size:14px;font-weight:600;color:var(--meta);text-decoration:none;border-bottom:2px solid transparent}
-  nav.menu a:hover{color:var(--titulo)}
-  section{padding:56px 0;border-bottom:1px solid var(--borda)}
-  section h2{font-size:clamp(28px,4.5vw,40px);font-weight:800;line-height:1.1;margin:8px 0 12px}
-  section .lead{font-size:18px;max-width:680px;margin:0 0 28px}
-  .hero h1{font-size:clamp(40px,7vw,72px);font-weight:800;line-height:1;margin:12px 0 16px}
-  .hero .lead{font-size:20px}
-  .grid{display:grid;gap:20px}
-  .g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-  .g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-  .card h3{font-size:20px;font-weight:700;margin-bottom:6px}
+  /* Topo mobile */
+  header.topo-mob{display:none}
+
+  main{margin-left:var(--lateral)}
+  .conteudo{max-width:1120px;margin:0 auto;padding:0 40px}
+
+  /* ---------- Faixa de aviso ---------- */
+  .aviso{background:var(--amarelo);color:#0A0A0A}
+  .aviso .conteudo{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:26px;padding-bottom:26px}
+  .aviso h2{color:#0A0A0A;font-size:clamp(24px,3vw,32px);font-weight:800;line-height:1.1}
+  .aviso p{margin:6px 0 0;font-size:16px;max-width:620px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 22px;border-radius:999px;border:1px solid var(--borda);background:var(--elevado);color:var(--titulo);font:700 14px Geist,sans-serif;text-decoration:none;cursor:pointer;white-space:nowrap}
+  .btn:hover{filter:brightness(1.15)}
+  .btn.escuro{background:#0A0A0A;border-color:#0A0A0A;color:var(--titulo)}
+  .btn.amarelo{background:var(--amarelo);border-color:var(--amarelo);color:#0A0A0A}
+  .btn.cheio{width:100%}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--borda)}
+  .hero .conteudo{position:relative;display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;padding-top:56px;padding-bottom:56px}
+  .pilula-data{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--borda);border-radius:999px;background:var(--painel);font:700 12px/1 "Geist Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--titulo)}
+  .pilula-data svg{color:var(--prazo);width:15px;height:15px}
+  .hero h1{font-size:clamp(44px,6.4vw,80px);font-weight:800;line-height:.98;letter-spacing:-.045em;margin:20px 0 18px}
+  .hero p{font-size:19px;max-width:560px;margin:0}
+  .contagem{justify-self:end;display:flex;flex-direction:column;align-items:flex-end;gap:10px;position:relative;z-index:1}
+  .contagem .grande{display:flex;align-items:baseline;gap:10px;font-size:clamp(88px,11vw,148px);font-weight:800;line-height:1;letter-spacing:-.05em;color:var(--titulo);font-variant-numeric:tabular-nums}
+  .contagem .unid{font-size:28px;letter-spacing:-.02em;color:var(--meta);font-weight:700}
+  .contagem .rotulo{display:flex;align-items:center;gap:8px}
+  .ponto{width:8px;height:8px;border-radius:50%;background:var(--prazo)}
+  .contagem .onde{color:var(--meta);font-size:15px}
+  .grafismo{position:absolute;right:-40px;top:-150px;height:calc(100% + 0px);width:560px;opacity:.4;pointer-events:none}
+
+  /* ---------- Grade de cards ---------- */
+  .bloco{padding:40px 0}
+  .grade{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+  .c2{grid-column:span 2}.c3{grid-column:span 3}.c4{grid-column:span 4}.c6{grid-column:span 6}
+  .card{position:relative;background:var(--painel);border:1px solid var(--borda);border-radius:20px;padding:28px;display:flex;flex-direction:column;min-width:0}
+  .card.faixa{background:var(--faixa)}
+  .card h3{font-size:24px;font-weight:700;line-height:1.15;margin:0 0 8px}
   .card p{margin:0}
-  .pilula{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px;border:1px solid}
-  .p-ia{color:var(--ia);border-color:rgba(167,139,250,.35);background:rgba(167,139,250,.1)}
-  .p-info{color:var(--info);border-color:rgba(122,162,247,.35);background:rgba(122,162,247,.1)}
-  .p-proc{color:var(--processo);border-color:rgba(129,140,248,.35);background:rgba(129,140,248,.1)}
-  .p-hum{color:var(--humano);border-color:rgba(45,212,191,.35);background:rgba(45,212,191,.1)}
-  .p-prazo{color:var(--prazo);border-color:rgba(251,146,60,.35);background:rgba(251,146,60,.1)}
+  .card .acoes{margin-top:auto;padding-top:24px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .card-topo{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+  .icone{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;border:1px solid}
+  .icone svg{width:22px;height:22px}
+  .ic-amarelo{color:var(--amarelo);background:rgba(251,189,4,.1);border-color:rgba(251,189,4,.35)}
+  .ic-ia{color:var(--ia);background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.35)}
+  .ic-hum{color:var(--humano);background:rgba(45,212,191,.1);border-color:rgba(45,212,191,.35)}
+  .ic-info{color:var(--info);background:rgba(122,162,247,.1);border-color:rgba(122,162,247,.35)}
+  .ic-proc{color:var(--processo);background:rgba(129,140,248,.1);border-color:rgba(129,140,248,.35)}
+  .ic-prazo{color:var(--prazo);background:rgba(251,146,60,.1);border-color:rgba(251,146,60,.35)}
+  .selo{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;border:1px solid;font:700 11px/1 "Geist Mono",monospace;letter-spacing:.1em;text-transform:uppercase}
+  .selo::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+  .s-amarelo{color:var(--amarelo);border-color:rgba(251,189,4,.35);background:rgba(251,189,4,.08)}
+  .s-prazo{color:var(--prazo);border-color:rgba(251,146,60,.35);background:rgba(251,146,60,.08)}
+  .s-ok{color:var(--ok);border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.08)}
+  .s-meta{color:var(--meta);border-color:var(--borda);background:transparent}
+  .link-texto{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--titulo);text-decoration:none}
+  .link-texto:hover{color:var(--amarelo)}
 
-  .faixa{background:var(--amarelo);color:#0A0A0A;border-radius:16px;padding:20px 24px;font-weight:800;font-size:20px;line-height:1.3;margin-top:28px}
+  /* Card principal: prepare o computador */
+  .prepare{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:stretch}
+  .prepare h3{font-size:34px;letter-spacing:-.035em}
+  .na-maquina{background:var(--canvas);border:1px solid var(--borda);border-radius:16px;padding:20px}
+  .na-maquina ul{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
+  .na-maquina li{display:flex;gap:12px;align-items:center;color:var(--titulo);font-weight:600}
+  .na-maquina li small{display:block;color:var(--meta);font-weight:400;font-size:13px;line-height:1.3}
+  .chk{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:rgba(34,197,94,.12);color:var(--ok);flex:none}
+  .chk svg{width:14px;height:14px;stroke-width:2.6}
 
-  /* Downloads */
-  .dl{display:flex;flex-direction:column;justify-content:space-between;gap:16px}
-  .dl .btn{align-self:flex-start}
+  /* Listas de links (materiais, links úteis) */
+  .lista{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+  .item{display:flex;align-items:center;gap:14px;padding:12px 14px;border:1px solid var(--borda);border-radius:14px;background:var(--faixa);text-decoration:none;color:var(--titulo);font-weight:600;font-size:15px;transition:border-color .15s}
+  a.item:hover{border-color:#444}
+  a.item:hover .seta{color:var(--amarelo);transform:translateX(2px)}
+  .item .mini{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:var(--elevado);color:var(--texto);flex:none}
+  .item .mini svg{width:16px;height:16px}
+  .item .txt{min-width:0;flex:1;line-height:1.3}
+  .item .txt small{display:block;font-weight:400;font-size:13px;color:var(--meta)}
+  .item .seta{color:var(--meta);transition:transform .15s,color .15s}
+  .item.trancado{color:var(--meta);background:transparent;border-style:dashed}
+  .item.trancado .quando{font:500 12px "Geist Mono",monospace;color:var(--meta);display:flex;align-items:center;gap:6px}
+
+  /* Professor */
+  .prof{display:flex;gap:16px;align-items:center}
+  .avatar{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:rgba(45,212,191,.12);border:1px solid rgba(45,212,191,.35);color:var(--humano);font-weight:800;font-size:18px;flex:none}
+  .prof b{display:block;color:var(--titulo);font-size:17px}
+  .prof span{font:13px "Geist Mono",monospace;color:var(--meta)}
+  .credenciais{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-direction:column;gap:8px;font-size:15px}
+  .credenciais li{display:flex;gap:10px}
+  .credenciais li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--humano);margin-top:9px;flex:none}
+
+  /* ---------- Seções longas ---------- */
+  section.secao{padding:64px 0;border-top:1px solid var(--borda)}
+  .secao h2{font-size:clamp(30px,4vw,44px);font-weight:800;line-height:1.08;margin:12px 0 12px}
+  .secao .lead{font-size:18px;max-width:700px;margin:0 0 32px}
+
+  /* Fases */
+  .fases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media (max-width:1080px){.fases{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:600px){.fases{grid-template-columns:1fr}}
+  .fase{background:var(--painel);border:1px solid var(--borda);border-radius:16px;padding:22px}
+  .fase .n{font:700 12px "Geist Mono",monospace;letter-spacing:.1em;text-transform:uppercase}
+  .fase h3{font-size:20px;font-weight:700;margin:10px 0 6px}
+  .fase p{margin:0;font-size:15px}
+  .fase .quem{margin-top:12px;font:600 12px "Geist Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--meta)}
+  .n-ia{color:var(--ia)}.n-info{color:var(--info)}.n-proc{color:var(--processo)}
+  .sai-com{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  .sai-com div{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border:1px solid var(--borda);border-radius:14px;background:var(--faixa);font-size:15px;color:var(--titulo)}
+  .sai-com svg{color:var(--processo);margin-top:3px}
 
   /* Instalação */
-  .abas{display:inline-flex;padding:4px;border:1px solid var(--borda);border-radius:999px;background:var(--faixa);margin-bottom:24px}
-  .abas button{height:40px;padding:0 20px;border-radius:999px;border:0;background:transparent;color:var(--meta);font:600 14px Geist,sans-serif;cursor:pointer}
+  .abas{display:inline-flex;padding:4px;border:1px solid var(--borda);border-radius:999px;background:var(--faixa);margin-bottom:28px}
+  .abas button{height:40px;padding:0 22px;border-radius:999px;border:0;background:transparent;color:var(--meta);font:700 14px Geist,sans-serif;cursor:pointer}
   .abas button[aria-selected=true]{background:var(--elevado);color:var(--titulo)}
-  .passo{display:grid;grid-template-columns:40px 1fr;gap:16px;padding:24px 0;border-top:1px solid var(--borda)}
-  .passo:first-child{border-top:0;padding-top:0}
-  .num{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--elevado);color:var(--titulo);font-weight:800}
-  .passo h3{font-size:20px;font-weight:700;margin-bottom:4px}
-  .passo ol,.passo ul{margin:8px 0 0;padding-left:20px}
+  .passos{background:var(--painel);border:1px solid var(--borda);border-radius:20px;padding:8px 28px}
+  .passo{display:grid;grid-template-columns:44px 1fr;gap:18px;padding:24px 0;border-top:1px solid var(--borda)}
+  .passo:first-child{border-top:0}
+  .num{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--elevado);color:var(--titulo);font-weight:800;font-size:17px}
+  .num.ok{background:rgba(34,197,94,.12);color:var(--ok)}
+  .passo h3{font-size:20px;font-weight:700;margin:8px 0 4px}
+  .passo ol{margin:8px 0 0;padding-left:20px}
   .passo li{margin:4px 0}
-  .porque{font-size:14px;color:var(--meta);margin:4px 0 0}
+  .passo a{color:var(--titulo)}
+  .porque{font-size:14px;color:var(--meta);margin:8px 0 0}
   .confere{margin-top:12px;padding:12px 16px;border-radius:12px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.3);font-size:14px}
   .confere b{color:var(--ok)}
-
-  /* Código copiável */
-  .cod{position:relative;margin:10px 0;background:var(--faixa);border:1px solid var(--borda);border-radius:12px}
-  .cod pre{margin:0;padding:14px 88px 14px 16px;overflow-x:auto;white-space:pre-wrap;word-break:break-word;font:14px/1.55 "Geist Mono",monospace;color:var(--titulo)}
-  .cod button{position:absolute;top:8px;right:8px;height:30px;padding:0 12px;border-radius:999px;border:1px solid var(--borda);background:var(--elevado);color:var(--texto);font:600 12px Geist,sans-serif;cursor:pointer}
+  .cod{position:relative;margin:10px 0;background:var(--canvas);border:1px solid var(--borda);border-radius:12px}
+  .cod pre{margin:0;padding:14px 92px 14px 16px;overflow-x:auto;white-space:pre-wrap;word-break:break-word;font:14px/1.6 "Geist Mono",monospace;color:var(--titulo)}
+  .cod button{position:absolute;top:8px;right:8px;height:30px;padding:0 12px;border-radius:999px;border:1px solid var(--borda);background:var(--elevado);color:var(--texto);font:700 12px Geist,sans-serif;cursor:pointer}
 
   /* Checklist */
+  .check-card{display:grid;grid-template-columns:1fr 1.4fr;gap:28px;align-items:start}
+  .progresso-num{font-size:72px;font-weight:800;letter-spacing:-.05em;line-height:.9;color:var(--titulo);font-variant-numeric:tabular-nums}
+  .progresso-num small{font-size:.35em;color:var(--meta)}
+  .progresso{height:6px;border-radius:999px;background:var(--elevado);overflow:hidden;margin:18px 0 10px}
+  .progresso i{display:block;height:100%;width:0;background:var(--info);transition:width .2s}
   .check{display:flex;flex-direction:column;gap:10px}
-  .check label{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--painel);border:1px solid var(--borda);border-radius:12px;font-size:16px;font-weight:400;color:var(--texto);cursor:pointer}
+  .check label{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--painel);border:1px solid var(--borda);border-radius:14px;cursor:pointer}
   .check input{width:20px;height:20px;margin-top:2px;accent-color:var(--ok);flex:none}
   .check input:checked + span{color:var(--meta);text-decoration:line-through}
-  .progresso{height:6px;border-radius:999px;background:var(--elevado);overflow:hidden;margin:0 0 16px}
-  .progresso i{display:block;height:100%;width:0;background:var(--info);transition:width .2s}
 
-  details{background:var(--painel);border:1px solid var(--borda);border-radius:12px;padding:0 20px;margin-bottom:10px}
-  details summary{cursor:pointer;padding:16px 0;font-weight:600;color:var(--titulo)}
-  details > div{padding:0 0 16px}
+  /* FAQ */
+  details{background:var(--painel);border:1px solid var(--borda);border-radius:14px;padding:0 20px;margin-bottom:10px}
+  details summary{cursor:pointer;padding:16px 0;font-weight:600;color:var(--titulo);list-style:none;display:flex;justify-content:space-between;gap:12px}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";color:var(--meta);font-weight:400;font-size:20px;line-height:1}
+  details[open] summary::after{content:"–"}
+  details > div{padding:0 0 18px}
 
-  footer{padding:40px 0 56px;color:var(--meta);font-size:14px}
-  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer{border-top:1px solid var(--borda);padding:28px 0 40px;color:var(--meta);font-size:14px}
+  footer .conteudo{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   [hidden]{display:none!important}
+
+  /* ---------- Responsivo ---------- */
+  @media (max-width:1080px){
+    .c2{grid-column:span 3}.c4{grid-column:span 6}
+    .grafismo{opacity:.3}
+  }
+  @media (max-width:860px){
+    aside.lateral{display:none}
+    main{margin-left:0}
+    header.topo-mob{display:block;position:sticky;top:0;z-index:20;background:rgba(10,10,10,.94);border-bottom:1px solid var(--borda)}
+    header.topo-mob .l1{display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+    header.topo-mob b{color:var(--titulo);font-weight:800}
+    header.topo-mob nav{display:flex;gap:4px;overflow-x:auto;padding:0 12px 8px;scrollbar-width:none}
+    header.topo-mob nav::-webkit-scrollbar{display:none}
+    header.topo-mob nav a{flex:none;padding:8px 12px;border-radius:999px;font-size:13px;font-weight:600;color:var(--meta);text-decoration:none;border:1px solid var(--borda)}
+    .conteudo{padding:0 20px}
+    .aviso .conteudo{flex-direction:column;align-items:flex-start}
+    .hero .conteudo{grid-template-columns:1fr;padding-top:40px;padding-bottom:40px}
+    .contagem{justify-self:start;align-items:flex-start}
+    .grafismo{display:none}
+    .grade{grid-template-columns:1fr}
+    .c2,.c3,.c4,.c6{grid-column:auto}
+    .prepare,.check-card{grid-template-columns:1fr}
+    .card{padding:22px}
+    .passos{padding:4px 18px}
+    .passo{grid-template-columns:36px 1fr;gap:14px}
+    .num{width:36px;height:36px}
+  }
 </style>
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-grade" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><path d="m4 17 6-6-6-6"/><path d="M12 19h8"/></symbol>
+    <symbol id="i-livro" viewBox="0 0 24 24"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></symbol>
+    <symbol id="i-pasta" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></symbol>
+    <symbol id="i-check-lista" viewBox="0 0 24 24"><path d="m3 7 2 2 4-4"/><path d="m3 17 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></symbol>
+    <symbol id="i-ajuda" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-pessoa" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></symbol>
+    <symbol id="i-mapa" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-externo" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></symbol>
+    <symbol id="i-cadeado" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-planilha" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/></symbol>
+    <symbol id="i-codigo" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+    <symbol id="i-slides" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m10 8 5 2-5 2z"/><path d="M12 17v4"/></symbol>
+    <symbol id="i-caixa" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></symbol>
+    <symbol id="i-mensagem" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-brilho" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17v4"/><path d="M17 19h4"/></symbol>
+  </defs>
+</svg>
 
-<!-- PORTAL -->
-<div id="portal">
-  <header class="topo">
-    <div class="wrap">
-      <div class="marca"><b>Lucas Santana</b> │ IA para empresários</div>
-    </div>
-    <div class="wrap">
-      <nav class="menu">
-        <a href="#inicio">Início</a>
-        <a href="#aula">A aula</a>
-        <a href="#instalar">Instalar</a>
-        <a href="#downloads">Downloads</a>
-        <a href="#checklist">Checklist</a>
-        <a href="#travou">Travou?</a>
-      </nav>
-    </div>
-  </header>
+<!-- LATERAL (desktop) -->
+<aside class="lateral">
+  <div class="marca">
+    <b>IA para<br>empresários</b>
+    <span class="rotulo">Portal do aluno</span>
+  </div>
+  <nav class="secoes" aria-label="Seções do portal">
+    <a href="#inicio" class="aceso"><svg class="i"><use href="#i-grade"/></svg>Início</a>
+    <a href="#instalar"><svg class="i"><use href="#i-terminal"/></svg>Instalação<span class="tag agora">Agora</span></a>
+    <a href="#aula"><svg class="i"><use href="#i-livro"/></svg>A aula<span class="tag">29/09</span></a>
+    <a href="#materiais"><svg class="i"><use href="#i-pasta"/></svg>Materiais</a>
+    <a href="#links"><svg class="i"><use href="#i-link"/></svg>Links úteis</a>
+    <a href="#checklist"><svg class="i"><use href="#i-check-lista"/></svg>Checklist</a>
+    <a href="#ajuda"><svg class="i"><use href="#i-ajuda"/></svg>Ajuda</a>
+    <a href="#professor"><svg class="i"><use href="#i-pessoa"/></svg>Quem dá a aula</a>
+  </nav>
+  <div class="rodape-lateral">
+    Lucas Santana<br><a href="https://www.instagram.com/lucasantanas_/" target="_blank" rel="noopener">@lucasantanas_</a>
+  </div>
+</aside>
 
-  <!-- INÍCIO -->
-  <section id="inicio" class="hero">
-    <div class="wrap">
-      <div class="eyebrow">Imersão · 29 de setembro · São Paulo</div>
-      <h1>Do chat ao agente que <span class="amarelo">trabalha pela sua empresa.</span></h1>
-      <p class="lead">Um dia inteiro, com notebook, aprendendo a usar o Claude Code na prática. Aqui está tudo o que você precisa antes, durante e depois da aula.</p>
-      <div class="grid g3">
-        <div class="card"><span class="pilula p-prazo">Quando</span><h3 style="margin-top:12px">29 de setembro</h3><p>Um dia inteiro de prática, com notebook.</p></div>
-        <div class="card"><span class="pilula p-hum">Onde</span><h3 style="margin-top:12px">Museu das Cruzes</h3><p style="margin-bottom:6px">São Paulo</p><p>Traga o notebook carregado e o carregador.</p></div>
-        <div class="card"><span class="pilula p-info">Antes do dia</span><h3 style="margin-top:12px">Uns 20 minutos</h3><p>Siga a aba <a href="#instalar">Instalar</a> e marque o <a href="#checklist">checklist</a>.</p></div>
+<!-- TOPO (mobile) -->
+<header class="topo-mob">
+  <div class="l1"><b>IA para empresários</b><span class="rotulo">Portal do aluno</span></div>
+  <nav>
+    <a href="#instalar">Instalação</a><a href="#aula">A aula</a><a href="#materiais">Materiais</a><a href="#links">Links</a><a href="#checklist">Checklist</a><a href="#ajuda">Ajuda</a>
+  </nav>
+</header>
+
+<main>
+  <!-- AVISO -->
+  <div class="aviso" id="inicio">
+    <div class="conteudo">
+      <div>
+        <h2 id="aviso-titulo">Antes de tudo: prepare o seu computador.</h2>
+        <p id="aviso-texto">Leva uns 20 minutos. Faça até 3 dias antes, para dar tempo de resolver algum problema.</p>
       </div>
-      <div class="faixa">Não precisa saber programar. Precisa chegar com o computador pronto.</div>
+      <a class="btn escuro" href="#instalar" id="aviso-btn">Começar a instalação <svg class="i"><use href="#i-seta"/></svg></a>
     </div>
-  </section>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <svg class="grafismo" viewBox="0 0 560 420" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+      <g fill="none" stroke="#2A2A2A" stroke-width="1.2">
+        <path d="M0 40 C200 60 300 180 380 210"/><path d="M0 120 C180 130 280 190 380 210"/>
+        <path d="M0 210 L380 210"/><path d="M0 300 C180 290 280 230 380 210"/>
+        <path d="M0 380 C200 360 300 240 380 210"/>
+        <path d="M380 210 C440 200 480 150 560 120"/><path d="M380 210 C440 220 480 270 560 300"/>
+      </g>
+      <g fill="none" stroke="#3a3a3a" stroke-width="1.2" stroke-dasharray="3 6"><circle cx="380" cy="210" r="54"/><circle cx="380" cy="210" r="96"/></g>
+      <circle cx="380" cy="210" r="18" fill="rgba(167,139,250,.14)" stroke="#A78BFA" stroke-width="1.6"/>
+      <circle cx="380" cy="210" r="5" fill="#A78BFA"/>
+      <circle cx="560" cy="120" r="7" fill="none" stroke="#2DD4BF" stroke-width="1.6"/>
+      <circle cx="0" cy="210" r="6" fill="none" stroke="#909090"/>
+    </svg>
+    <div class="conteudo">
+      <div>
+        <span class="pilula-data"><svg class="i"><use href="#i-calendario"/></svg>29 de setembro · São Paulo</span>
+        <h1>Do chat ao agente que <span class="amarelo">trabalha pela sua empresa.</span></h1>
+        <p>Um dia inteiro, com notebook, aprendendo a usar o Claude Code na prática. Tudo o que você precisa antes, durante e depois da aula está aqui.</p>
+      </div>
+      <div class="contagem" aria-live="polite">
+        <div class="rotulo"><span class="ponto"></span><span id="cont-rotulo">Faltam</span></div>
+        <div class="grande"><span id="cont-num">–</span><span class="unid" id="cont-unid"></span></div>
+        <div class="onde">Museu das Cruzes · São Paulo</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAINEL -->
+  <div class="bloco">
+    <div class="conteudo">
+      <div class="grade">
+
+        <!-- Prepare o computador -->
+        <div class="card c4">
+          <div class="card-topo">
+            <div class="icone ic-amarelo"><svg class="i"><use href="#i-monitor"/></svg></div>
+            <span class="selo s-amarelo">Fazer antes do dia</span>
+          </div>
+          <div class="prepare">
+            <div style="display:flex;flex-direction:column">
+              <h3>Prepare o seu computador</h3>
+              <p>Instale tudo o que a gente vai usar e chegue pronto para fazer, não para configurar.</p>
+              <div class="acoes"><a class="btn amarelo" href="#instalar">Começar a instalação <svg class="i"><use href="#i-seta"/></svg></a></div>
+            </div>
+            <div class="na-maquina">
+              <div class="rotulo">O que entra na máquina</div>
+              <ul>
+                <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Claude (plano Pro)<small>o app, com o Claude Code dentro</small></span></li>
+                <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Node.js<small>instala as skills</small></span></li>
+                <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Git<small>baixa as skills do GitHub</small></span></li>
+                <li><span class="chk"><svg class="i"><use href="#i-check"/></svg></span><span>Chrome + conta Google pessoal<small>para conectar Agenda e Drive</small></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pasta da imersão -->
+        <div class="card c2 faixa">
+          <div class="card-topo">
+            <div class="icone ic-proc"><svg class="i"><use href="#i-caixa"/></svg></div>
+            <span class="selo s-ok">Liberado</span>
+          </div>
+          <h3>Pasta da imersão</h3>
+          <p>Skills, a planilha do exercício e o guia com todos os textos para colar. Um ZIP só.</p>
+          <div class="acoes"><a class="btn cheio" href="https://github.com/santanalc/imersao-ia-empresarios/archive/refs/heads/main.zip"><svg class="i"><use href="#i-download"/></svg>Baixar ZIP</a></div>
+        </div>
+
+        <!-- Onde -->
+        <div class="card c2">
+          <div class="card-topo">
+            <div class="icone ic-hum"><svg class="i"><use href="#i-mapa"/></svg></div>
+            <span class="rotulo">Presencial</span>
+          </div>
+          <h3>Museu das Cruzes</h3>
+          <p>São Paulo · 29 de setembro. Traga o notebook carregado e o carregador.</p>
+          <div class="acoes"><a class="link-texto" href="https://www.google.com/maps/search/?api=1&query=Museu+das+Cruzes+S%C3%A3o+Paulo" target="_blank" rel="noopener">Abrir no mapa <svg class="i"><use href="#i-externo"/></svg></a></div>
+        </div>
+
+        <!-- O que vai fazer -->
+        <div class="card c2">
+          <div class="card-topo">
+            <div class="icone ic-ia"><svg class="i"><use href="#i-brilho"/></svg></div>
+            <span class="rotulo">7 fases</span>
+          </div>
+          <h3>O que você vai fazer</h3>
+          <p>De manhã, aprende o Claude Code fazendo coisas para você. À tarde, aplica na sua empresa.</p>
+          <div class="acoes"><a class="link-texto" href="#aula">Ver a aula <svg class="i"><use href="#i-seta"/></svg></a></div>
+        </div>
+
+        <!-- Guia -->
+        <div class="card c2">
+          <div class="card-topo">
+            <div class="icone ic-info"><svg class="i"><use href="#i-livro"/></svg></div>
+            <span class="rotulo">Para o dia</span>
+          </div>
+          <h3>Guia da manhã</h3>
+          <p>Cada exercício com o texto pronto para copiar e colar. Ninguém precisa digitar.</p>
+          <div class="acoes"><a class="link-texto" href="https://github.com/santanalc/imersao-ia-empresarios#readme" target="_blank" rel="noopener">Abrir o guia <svg class="i"><use href="#i-externo"/></svg></a></div>
+        </div>
+
+        <!-- Materiais -->
+        <div class="card c3" id="materiais">
+          <div class="card-topo"><div class="icone ic-proc"><svg class="i"><use href="#i-pasta"/></svg></div></div>
+          <h3>Materiais</h3>
+          <div class="lista" style="margin-top:14px">
+            <a class="item" href="https://github.com/santanalc/imersao-ia-empresarios/archive/refs/heads/main.zip"><span class="mini"><svg class="i"><use href="#i-caixa"/></svg></span><span class="txt">Pasta da imersão (ZIP)<small>skills, planilha e guia</small></span><svg class="i seta"><use href="#i-download"/></svg></a>
+            <a class="item" href="https://github.com/santanalc/imersao-ia-empresarios#readme" target="_blank" rel="noopener"><span class="mini"><svg class="i"><use href="#i-livro"/></svg></span><span class="txt">Guia da manhã<small>os textos de cada exercício</small></span><svg class="i seta"><use href="#i-seta"/></svg></a>
+            <a class="item" href="https://github.com/santanalc/imersao-ia-empresarios/raw/main/planilha/lanchonete-bom-pedaco.xlsx"><span class="mini"><svg class="i"><use href="#i-planilha"/></svg></span><span class="txt">Planilha da lanchonete<small>dados fictícios, exercício da fase 2</small></span><svg class="i seta"><use href="#i-download"/></svg></a>
+            <a class="item" href="#prompt-skills"><span class="mini"><svg class="i"><use href="#i-codigo"/></svg></span><span class="txt">Prompt para instalar as skills<small>você cola no Claude Code, no dia</small></span><svg class="i seta"><use href="#i-seta"/></svg></a>
+            <div class="item trancado"><span class="mini"><svg class="i"><use href="#i-slides"/></svg></span><span class="txt">Apresentação da aula</span><span class="quando">29/09 <svg class="i" style="width:14px;height:14px"><use href="#i-cadeado"/></svg></span></div>
+            <div class="item trancado"><span class="mini"><svg class="i"><use href="#i-caixa"/></svg></span><span class="txt">Pacote da tarde (skills da empresa)</span><span class="quando">29/09 <svg class="i" style="width:14px;height:14px"><use href="#i-cadeado"/></svg></span></div>
+          </div>
+        </div>
+
+        <!-- Links úteis -->
+        <div class="card c3" id="links">
+          <div class="card-topo"><div class="icone ic-info"><svg class="i"><use href="#i-link"/></svg></div></div>
+          <h3>Links úteis</h3>
+          <div class="lista" style="margin-top:14px">
+            <a class="item" href="https://claude.ai" target="_blank" rel="noopener"><span class="mini"><svg class="i"><use href="#i-brilho"/></svg></span><span class="txt">claude.ai<small>conta, plano Pro e conectores</small></span><svg class="i seta"><use href="#i-externo"/></svg></a>
+            <a class="item" href="https://claude.com/download" target="_blank" rel="noopener"><span class="mini"><svg class="i"><use href="#i-download"/></svg></span><span class="txt">claude.com/download<small>o app do Claude (Mac e Windows)</small></span><svg class="i seta"><use href="#i-externo"/></svg></a>
+            <a class="item" href="https://skills.sh" target="_blank" rel="noopener"><span class="mini"><svg class="i"><use href="#i-caixa"/></svg></span><span class="txt">skills.sh<small>onde achar skills prontas</small></span><svg class="i seta"><use href="#i-externo"/></svg></a>
+            <a class="item" href="https://dribbble.com/search/brand" target="_blank" rel="noopener"><span class="mini"><svg class="i"><use href="#i-grade"/></svg></span><span class="txt">dribbble.com<small>referência de cores para o seu design system</small></span><svg class="i seta"><use href="#i-externo"/></svg></a>
+            <a class="item" href="https://sheets.new" target="_blank" rel="noopener"><span class="mini"><svg class="i"><use href="#i-planilha"/></svg></span><span class="txt">sheets.new<small>abre uma Planilha Google nova</small></span><svg class="i seta"><use href="#i-externo"/></svg></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <!-- A AULA -->
-  <section id="aula">
-    <div class="wrap">
-      <div class="eyebrow">A aula</div>
+  <section class="secao" id="aula">
+    <div class="conteudo">
+      <div class="rotulo">A aula</div>
       <h2>De manhã você aprende fazendo. <span class="amarelo">À tarde, aplica na sua empresa.</span></h2>
-      <p class="lead">O dia segue 7 fases. De manhã, você faz as 3 primeiras no seu computador, com coisas sobre você mesmo. A empresa entra à tarde, numa pasta separada.</p>
-
-      <div class="grid g3" style="margin-bottom:40px">
-        <div class="card"><span class="pilula p-ia">Fase 1</span><h3 style="margin-top:12px">Modelo</h3><p>O motor da IA e o básico do Claude Code: uma pasta é um projeto.</p></div>
-        <div class="card"><span class="pilula p-info">Fase 2</span><h3 style="margin-top:12px">MCP</h3><p>O "cabo USB" que liga a IA ao seu Google: Agenda, Drive, Planilhas.</p></div>
-        <div class="card"><span class="pilula p-proc">Fase 3</span><h3 style="margin-top:12px">Skills</h3><p>Habilidades que você ensina uma vez e usa sempre.</p></div>
-        <div class="card"><span class="pilula p-proc">Fase 4</span><h3 style="margin-top:12px">Contexto</h3><p>Sem contexto, sem resultado. Na empresa, isso vira o segundo cérebro.</p></div>
-        <div class="card"><span class="pilula p-ia">Fases 5 e 6</span><h3 style="margin-top:12px">Agentes e orquestração</h3><p>Vários agentes trabalhando juntos, com você no comando.</p></div>
-        <div class="card"><span class="pilula p-ia">Fase 7</span><h3 style="margin-top:12px">Uso do computador</h3><p>A IA mexendo no navegador como você. Essa o Lucas mostra.</p></div>
+      <p class="lead">O dia segue 7 fases. De manhã você faz as primeiras no seu computador, com coisas sobre você mesmo. A empresa entra à tarde, numa pasta separada.</p>
+      <div class="fases">
+        <div class="fase"><div class="n n-ia">Fase 1</div><h3>Modelo</h3><p>O motor da IA e o básico do Claude Code: uma pasta é um projeto.</p><div class="quem">Você faz</div></div>
+        <div class="fase"><div class="n n-info">Fase 2</div><h3>MCP</h3><p>O "cabo USB" que liga a IA ao seu Google: Agenda, Drive, Planilhas.</p><div class="quem">Você faz</div></div>
+        <div class="fase"><div class="n n-proc">Fase 3</div><h3>Skills</h3><p>Habilidades que você ensina uma vez e usa sempre.</p><div class="quem">Você faz</div></div>
+        <div class="fase"><div class="n n-proc">Fase 4</div><h3>Contexto</h3><p>Sem contexto, sem resultado. Na empresa, isso vira o segundo cérebro.</p><div class="quem">O Lucas explica</div></div>
+        <div class="fase"><div class="n n-ia">Fases 5 e 6</div><h3>Agentes e orquestração</h3><p>Vários agentes trabalhando juntos, com você no comando.</p><div class="quem">Você faz, na sua empresa</div></div>
+        <div class="fase"><div class="n n-ia">Fase 7</div><h3>Uso do computador</h3><p>A IA mexendo no navegador como você.</p><div class="quem">O Lucas mostra</div></div>
       </div>
 
+      <h3 style="font-size:22px;margin:40px 0 0">Você sai da manhã com</h3>
+      <div class="sai-com">
+        <div><svg class="i"><use href="#i-check"/></svg>Um cartão de visita digital</div>
+        <div><svg class="i"><use href="#i-check"/></svg>Um relatório de planilha no seu Google Drive</div>
+        <div><svg class="i"><use href="#i-check"/></svg>A sua apresentação pessoal no Google Apresentações</div>
+        <div><svg class="i"><use href="#i-check"/></svg>9 skills instaladas no seu Claude Code</div>
+      </div>
 
-      <h3 style="font-size:22px;margin:8px 0 14px">Como funciona a prática</h3>
-      <div class="grid g2">
-        <div class="card"><h3>Um passo por vez</h3><p>O Lucas explica em poucos minutos, e todos fazem junto. Os textos para colar ficam no guia do material. Não precisa digitar nada.</p></div>
-        <div class="card"><h3>Post-it verde e vermelho</h3><p>Verde na tampa do notebook: deu certo. Vermelho: travou. Um monitor vai até você.</p></div>
+      <h3 style="font-size:22px;margin:40px 0 14px">Como funciona a prática</h3>
+      <div class="grade">
+        <div class="card c3"><h3 style="font-size:20px">Um passo por vez</h3><p>O Lucas explica em poucos minutos e todo mundo faz junto. Os textos ficam no guia, prontos para colar.</p></div>
+        <div class="card c3"><h3 style="font-size:20px">Post-it verde e vermelho</h3><p>Verde na tampa do notebook: deu certo. Vermelho: travou. Um monitor vai até você.</p></div>
       </div>
     </div>
   </section>
 
   <!-- INSTALAR -->
-  <section id="instalar">
-    <div class="wrap">
-      <div class="eyebrow">Instalar</div>
+  <section class="secao" id="instalar">
+    <div class="conteudo">
+      <div class="rotulo">Instalação</div>
       <h2>Deixe o computador pronto <span class="amarelo">antes do dia.</span></h2>
-      <p class="lead">São 4 passos. Faça com calma, de preferência até 3 dias antes, para dar tempo de resolver algum problema.</p>
+      <p class="lead">São 4 passos e uma conferência. Escolha o seu sistema.</p>
 
       <div class="abas" role="tablist">
         <button role="tab" aria-selected="true" data-so="win">Windows</button>
@@ -172,22 +474,20 @@
       </div>
 
       <!-- WINDOWS -->
-      <div data-painel="win">
+      <div class="passos" data-painel="win">
         <div class="passo"><div class="num">1</div><div>
           <h3>Assine o Claude Pro</h3>
           <p>Entre em <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>, crie a conta e assine o plano <b>Pro</b>. O plano gratuito não dá acesso ao Claude Code.</p>
         </div></div>
-
         <div class="passo"><div class="num">2</div><div>
           <h3>Instale o app do Claude</h3>
           <ol>
-            <li>Baixe o instalador: <a href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a> (versão Windows).</li>
+            <li>Baixe o instalador em <a href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a> (versão Windows).</li>
             <li>Abra o arquivo baixado e siga a instalação.</li>
             <li>Abra o Claude pelo menu Iniciar e entre com a sua conta.</li>
           </ol>
           <p class="porque">O Claude Code já vem dentro do app, na aba <b>Code</b>. Não precisa de terminal para usar.</p>
         </div></div>
-
         <div class="passo"><div class="num">3</div><div>
           <h3>Instale o Node.js</h3>
           <ol>
@@ -196,17 +496,15 @@
           </ol>
           <p class="porque">Por quê: é o que instala as skills da aula e gera a apresentação em PowerPoint.</p>
         </div></div>
-
         <div class="passo"><div class="num">4</div><div>
-          <h3>Instale o Git (o programa que baixa arquivos do GitHub)</h3>
+          <h3>Instale o Git</h3>
           <ol>
             <li>Entre em <a href="https://git-scm.com/install/windows" target="_blank" rel="noopener">git-scm.com/install/windows</a> e clique em <b>Click here to download</b>.</li>
             <li>Abra o instalador e clique em <b>Next</b> até o fim, sem mudar nada.</li>
           </ol>
           <p class="porque">Por quê: as skills da aula ficam no GitHub, e é o Git que as baixa. No Windows, o Claude Code também usa o Git para rodar comandos. <b>Não precisa criar conta no GitHub.</b></p>
         </div></div>
-
-        <div class="passo"><div class="num">✓</div><div>
+        <div class="passo"><div class="num ok"><svg class="i"><use href="#i-check"/></svg></div><div>
           <h3>Confira se deu certo</h3>
           <ol>
             <li>Aperte a tecla <b>Windows</b>, digite <b>PowerShell</b> e abra.</li>
@@ -214,27 +512,25 @@
           </ol>
           <div class="cod"><pre>node -v
 git --version</pre><button type="button">Copiar</button></div>
-          <div class="confere"><b>Deu certo</b> se aparecer um número de versão em cada linha (tipo <code>v24...</code> e <code>git version 2...</code>). Se aparecer "não é reconhecido", feche e abra o PowerShell de novo; se continuar, reinicie o computador.</div>
+          <div class="confere"><b>Deu certo</b> se aparecer um número de versão em cada linha (tipo <code>v24...</code> e <code>git version 2...</code>). Se aparecer "não é reconhecido", feche e abra o PowerShell de novo. Se continuar, reinicie o computador.</div>
         </div></div>
       </div>
 
       <!-- MAC -->
-      <div data-painel="mac" hidden>
+      <div class="passos" data-painel="mac" hidden>
         <div class="passo"><div class="num">1</div><div>
           <h3>Assine o Claude Pro</h3>
           <p>Entre em <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>, crie a conta e assine o plano <b>Pro</b>. O plano gratuito não dá acesso ao Claude Code.</p>
         </div></div>
-
         <div class="passo"><div class="num">2</div><div>
           <h3>Instale o app do Claude</h3>
           <ol>
-            <li>Baixe o instalador: <a href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a> (versão Mac, serve para chip Intel e Apple).</li>
+            <li>Baixe o instalador em <a href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a> (versão Mac, serve para chip Intel e Apple).</li>
             <li>Abra o arquivo baixado e arraste o Claude para a pasta <b>Aplicativos</b>.</li>
             <li>Abra o Claude e entre com a sua conta.</li>
           </ol>
           <p class="porque">O Claude Code já vem dentro do app, na aba <b>Code</b>. Não precisa de terminal para usar.</p>
         </div></div>
-
         <div class="passo"><div class="num">3</div><div>
           <h3>Instale o Node.js</h3>
           <ol>
@@ -243,21 +539,17 @@ git --version</pre><button type="button">Copiar</button></div>
           </ol>
           <p class="porque">Por quê: é o que instala as skills da aula e gera a apresentação em PowerPoint.</p>
         </div></div>
-
         <div class="passo"><div class="num">4</div><div>
-          <h3>Instale o Git (o programa que baixa arquivos do GitHub)</h3>
+          <h3>Instale o Git</h3>
           <ol>
             <li>Abra o <b>Terminal</b> (Cmd + Espaço, digite "Terminal", Enter).</li>
             <li>Cole o comando abaixo e aperte Enter:</li>
           </ol>
           <div class="cod"><pre>xcode-select --install</pre><button type="button">Copiar</button></div>
-          <ol start="3">
-            <li>Vai abrir uma janela da Apple. Clique em <b>Instalar</b> e espere terminar (pode levar alguns minutos).</li>
-          </ol>
+          <ol start="3"><li>Vai abrir uma janela da Apple. Clique em <b>Instalar</b> e espere terminar (pode levar alguns minutos).</li></ol>
           <p class="porque">Por quê: as skills da aula ficam no GitHub, e é o Git que as baixa. Esse comando instala o Git oficial da Apple. Se aparecer "already installed", já está pronto. <b>Não precisa criar conta no GitHub.</b></p>
         </div></div>
-
-        <div class="passo"><div class="num">✓</div><div>
+        <div class="passo"><div class="num ok"><svg class="i"><use href="#i-check"/></svg></div><div>
           <h3>Confira se deu certo</h3>
           <p>No Terminal, cole os dois comandos e aperte Enter:</p>
           <div class="cod"><pre>node -v
@@ -267,40 +559,13 @@ git --version</pre><button type="button">Copiar</button></div>
       </div>
 
       <h3 style="font-size:22px;margin:40px 0 14px">Os dois últimos ajustes (Windows e Mac)</h3>
-      <div class="grid g2">
-        <div class="card"><h3>Chrome e conta Google pessoal</h3><p>Tenha o Google Chrome instalado e uma conta Google pessoal. Conta da empresa às vezes é bloqueada pelo administrador para conectar ferramentas.</p></div>
-        <div class="card"><h3>Teste de 1 minuto</h3><p>Abra o app do Claude → aba <b>Code</b> → escolha qualquer pasta → escreva "oi". Se ele responder, está pronto. Depois digite <code>/skills</code>: em "claude.ai sync" devem aparecer <code>skill-creator</code> e <code>pdf</code>.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DOWNLOADS -->
-  <section id="downloads">
-    <div class="wrap">
-      <div class="eyebrow">Downloads</div>
-      <h2>O material da aula, <span class="amarelo">em um lugar só.</span></h2>
-      <p class="lead">O pacote completo tem as skills, a planilha do exercício e o guia com todos os textos para colar.</p>
-      <div class="grid g2">
-        <div class="card dl">
-          <div><span class="pilula p-proc">Pacote</span><h3 style="margin-top:12px">Pasta da imersão (ZIP)</h3><p>Skills, planilha e guia. Descompacte na Área de Trabalho.</p></div>
-          <a class="btn primario" href="https://github.com/santanalc/imersao-ia-empresarios/archive/refs/heads/main.zip">Baixar ZIP</a>
-        </div>
-        <div class="card dl">
-          <div><span class="pilula p-proc">Guia</span><h3 style="margin-top:12px">Roteiro e prompts da manhã</h3><p>Cada fase com os textos para copiar e colar no Claude Code.</p></div>
-          <a class="btn" href="https://github.com/santanalc/imersao-ia-empresarios#readme" target="_blank" rel="noopener">Abrir o guia</a>
-        </div>
-        <div class="card dl">
-          <div><span class="pilula p-info">Exercício</span><h3 style="margin-top:12px">Planilha da lanchonete</h3><p>Vendas fictícias de uma lanchonete. Você usa na fase 2.</p></div>
-          <a class="btn" href="https://github.com/santanalc/imersao-ia-empresarios/raw/main/planilha/lanchonete-bom-pedaco.xlsx">Baixar planilha</a>
-        </div>
-        <div class="card dl">
-          <div><span class="pilula p-ia">Programas</span><h3 style="margin-top:12px">Claude, Node.js e Git</h3><p>Os links oficiais estão na aba <a href="#instalar">Instalar</a>, com o passo a passo.</p></div>
-          <a class="btn" href="#instalar">Ir para Instalar</a>
-        </div>
+      <div class="grade">
+        <div class="card c3"><h3 style="font-size:20px">Chrome e conta Google pessoal</h3><p>Tenha o Google Chrome e uma conta Google pessoal. Conta da empresa às vezes é bloqueada pelo administrador para conectar ferramentas.</p></div>
+        <div class="card c3"><h3 style="font-size:20px">Teste de 1 minuto</h3><p>Abra o app do Claude → aba <b>Code</b> → escolha qualquer pasta → escreva "oi". Se ele responder, está pronto. Depois digite <code>/skills</code>: em "claude.ai sync" devem aparecer <code>skill-creator</code> e <code>pdf</code>.</p></div>
       </div>
 
-      <h3 style="font-size:22px;margin:40px 0 14px">Instalar as skills (no dia, junto com a turma)</h3>
-      <p style="margin:0 0 8px">Você cola isto no Claude Code. Ele roda os comandos e avisa quando terminar.</p>
+      <h3 style="font-size:22px;margin:40px 0 8px" id="prompt-skills">No dia: instalar as skills</h3>
+      <p style="margin:0 0 8px">Você não precisa fazer isso antes. Na aula, todo mundo cola este texto no Claude Code junto, e ele roda os comandos.</p>
       <div class="cod"><pre>Rode estes dois comandos no terminal e me avise quando terminar. Depois liste as skills instaladas.
 1. npx -y skills add https://github.com/santanalc/imersao-ia-empresarios -g -a claude-code -s '*' -y
 2. npx -y skills add https://github.com/anthropics/skills -s pptx -g -a claude-code -y</pre><button type="button">Copiar</button></div>
@@ -309,78 +574,148 @@ git --version</pre><button type="button">Copiar</button></div>
   </section>
 
   <!-- CHECKLIST -->
-  <section id="checklist">
-    <div class="wrap">
-      <div class="eyebrow">Checklist</div>
-      <h2>Chegou aqui com tudo marcado? <span class="amarelo">Você está pronto.</span></h2>
-      <p class="lead">Fica salvo neste navegador.</p>
-      <div class="progresso"><i id="barra"></i></div>
-      <div class="check" id="lista-check">
-        <label><input type="checkbox" data-k="pro" /><span>Assinei o Claude Pro</span></label>
-        <label><input type="checkbox" data-k="app" /><span>Instalei o app do Claude e entrei com a minha conta</span></label>
-        <label><input type="checkbox" data-k="node" /><span>Instalei o Node.js (<code>node -v</code> mostra a versão)</span></label>
-        <label><input type="checkbox" data-k="git" /><span>Instalei o Git (<code>git --version</code> mostra a versão)</span></label>
-        <label><input type="checkbox" data-k="chrome" /><span>Tenho o Chrome e uma conta Google pessoal</span></label>
-        <label><input type="checkbox" data-k="teste" /><span>Fiz o teste: aba Code, escrevi "oi" e ele respondeu</span></label>
-        <label><input type="checkbox" data-k="zip" /><span>Baixei a pasta da imersão (ZIP)</span></label>
+  <section class="secao" id="checklist">
+    <div class="conteudo">
+      <div class="check-card">
+        <div>
+          <div class="rotulo">Checklist</div>
+          <h2>Tudo marcado? <span class="amarelo">Você está pronto.</span></h2>
+          <div class="progresso-num"><span id="feitos">0</span><small>/<span id="total">7</span></small></div>
+          <div class="progresso"><i id="barra"></i></div>
+          <p class="porque">Fica salvo neste navegador.</p>
+        </div>
+        <div class="check" id="lista-check">
+          <label><input type="checkbox" data-k="pro" /><span>Assinei o Claude Pro</span></label>
+          <label><input type="checkbox" data-k="app" /><span>Instalei o app do Claude e entrei com a minha conta</span></label>
+          <label><input type="checkbox" data-k="node" /><span>Instalei o Node.js (<code>node -v</code> mostra a versão)</span></label>
+          <label><input type="checkbox" data-k="git" /><span>Instalei o Git (<code>git --version</code> mostra a versão)</span></label>
+          <label><input type="checkbox" data-k="chrome" /><span>Tenho o Chrome e uma conta Google pessoal</span></label>
+          <label><input type="checkbox" data-k="teste" /><span>Fiz o teste: aba Code, escrevi "oi" e ele respondeu</span></label>
+          <label><input type="checkbox" data-k="zip" /><span>Baixei a pasta da imersão (ZIP)</span></label>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- TRAVOU -->
-  <section id="travou">
-    <div class="wrap">
-      <div class="eyebrow">Travou?</div>
+  <!-- AJUDA -->
+  <section class="secao" id="ajuda">
+    <div class="conteudo">
+      <div class="rotulo">Ajuda</div>
       <h2>Os tropeços mais comuns.</h2>
-      <p class="lead" style="margin-bottom:20px">Se nada disso resolver, responda o e-mail da imersão antes do dia.</p>
+      <p class="lead">Se nada disso resolver, fale com a gente antes do dia.</p>
       <details><summary>Clico na aba Code e ele pede para assinar</summary><div>A conta ainda está no plano gratuito. Assine o Pro em claude.ai, feche o app e abra de novo.</div></details>
       <details><summary>"node" ou "git" não é reconhecido</summary><div>Feche e abra o PowerShell (ou o Terminal) depois de instalar. Se continuar, reinicie o computador. Se ainda assim não der, instale de novo sem mudar nenhuma opção.</div></details>
       <details><summary>Não consigo conectar a conta Google</summary><div>Conta Google da empresa às vezes é bloqueada pelo administrador. Use a sua conta pessoal.</div></details>
       <details><summary>O computador é da empresa e não deixa instalar nada</summary><div>Peça a liberação para a TI antes do dia, ou traga um computador pessoal. No dia, não dá tempo de resolver permissão de administrador.</div></details>
+      <details><summary>Preciso saber programar?</summary><div>Não. Você conversa com o Claude em português, e ele faz. Os textos de cada exercício ficam prontos para colar.</div></details>
       <details><summary>Dica que resolve muita coisa</summary><div>Pergunte ao próprio Claude: "deu este erro, o que eu faço?" e cole a mensagem de erro.</div></details>
     </div>
   </section>
 
+  <!-- PROFESSOR + CONTATO -->
+  <section class="secao" id="professor">
+    <div class="conteudo">
+      <div class="grade">
+        <div class="card c4">
+          <div class="rotulo" style="margin-bottom:18px">Quem dá a aula</div>
+          <div class="prof">
+            <div class="avatar">LS</div>
+            <div><b>Lucas Santana</b><span>@lucasantanas_</span></div>
+          </div>
+          <ul class="credenciais">
+            <li>Engenheiro de software há mais de 7 anos</li>
+            <li>CTO do Empregga, plataforma de contratação para pequenas e médias empresas</li>
+            <li>Ensina IA para empresas com o que usa no dia a dia construindo</li>
+          </ul>
+        </div>
+        <div class="card c2">
+          <div class="card-topo"><div class="icone ic-hum"><svg class="i"><use href="#i-mensagem"/></svg></div></div>
+          <h3>Falar com o Lucas</h3>
+          <p>Dúvida antes do dia? Mande uma mensagem no Instagram.</p>
+          <div class="acoes"><a class="link-texto" href="https://www.instagram.com/lucasantanas_/" target="_blank" rel="noopener">Abrir o Instagram <svg class="i"><use href="#i-externo"/></svg></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <div class="wrap">
+    <div class="conteudo">
       <span>Lucas Santana · IA para empresários</span>
       <span>@lucasantanas_</span>
     </div>
   </footer>
-</div>
+</main>
 
 <script>
 (function(){
+  // Contagem até 29/09/2026 (horário de Brasília)
+  var agora = new Date();
+  var hojeBR = new Date(agora.toLocaleString('en-US',{timeZone:'America/Sao_Paulo'}));
+  var hoje0 = new Date(hojeBR.getFullYear(), hojeBR.getMonth(), hojeBR.getDate());
+  var dia0 = new Date(2026, 8, 29);
+  var faltam = Math.round((dia0 - hoje0) / 86400000);
+  var rot = document.getElementById('cont-rotulo'), num = document.getElementById('cont-num');
+  var unid = document.getElementById('cont-unid');
+  if (faltam > 1) { rot.textContent = 'Faltam'; num.textContent = faltam; unid.textContent = 'dias'; }
+  else if (faltam === 1) { rot.textContent = 'Falta'; num.textContent = '1'; unid.textContent = 'dia'; }
+  else if (faltam === 0) {
+    rot.textContent = 'Acontecendo'; num.textContent = 'Hoje';
+    document.getElementById('aviso-titulo').textContent = 'É hoje. Abra o guia e acompanhe.';
+    document.getElementById('aviso-texto').textContent = 'Os textos de cada exercício estão no guia, prontos para colar no Claude Code.';
+    var b = document.getElementById('aviso-btn'); b.href = 'https://github.com/santanalc/imersao-ia-empresarios#readme'; b.target = '_blank';
+    b.firstChild.textContent = 'Abrir o guia ';
+  } else {
+    rot.textContent = 'Aconteceu em'; num.textContent = '29/09';
+    document.getElementById('aviso-titulo').textContent = 'Obrigado por participar.';
+    document.getElementById('aviso-texto').textContent = 'Os materiais continuam aqui. Refaça os exercícios quando quiser.';
+    var b2 = document.getElementById('aviso-btn'); b2.href = '#materiais'; b2.firstChild.textContent = 'Ver os materiais ';
+  }
+
+  // Menu lateral: acende a seção visível
+  var links = document.querySelectorAll('nav.secoes a');
+  var alvos = Array.prototype.map.call(links, function(a){ return document.querySelector(a.getAttribute('href')); });
+  function acender(){
+    var y = window.scrollY + 120, atual = 0, melhor = -Infinity;
+    alvos.forEach(function(el, i){
+      if (!el) return;
+      var topo = el.getBoundingClientRect().top + window.scrollY;
+      if (topo <= y && topo > melhor) { melhor = topo; atual = i; }
+    });
+    links.forEach(function(a, i){ a.classList.toggle('aceso', i === atual); });
+  }
+  window.addEventListener('scroll', acender, {passive:true}); acender();
 
   // Abas Windows / Mac (abre no sistema do aluno)
   var abas = document.querySelectorAll('.abas button');
   function abrir(so){
-    abas.forEach(function(b){ b.setAttribute('aria-selected', b.dataset.so===so); });
-    document.querySelectorAll('[data-painel]').forEach(function(p){ p.hidden = p.dataset.painel!==so; });
+    abas.forEach(function(b){ b.setAttribute('aria-selected', b.dataset.so === so); });
+    document.querySelectorAll('[data-painel]').forEach(function(p){ p.hidden = p.dataset.painel !== so; });
   }
   abas.forEach(function(b){ b.addEventListener('click', function(){ abrir(b.dataset.so); }); });
-  if(/Mac/i.test(navigator.platform || navigator.userAgent)) abrir('mac');
+  if (/Mac/i.test(navigator.platform || navigator.userAgent)) abrir('mac');
 
   // Copiar
   document.querySelectorAll('.cod button').forEach(function(b){
     b.addEventListener('click', function(){
       navigator.clipboard.writeText(b.previousElementSibling.textContent).then(function(){
-        b.textContent='Copiado'; setTimeout(function(){ b.textContent='Copiar'; }, 1500);
+        b.textContent = 'Copiado'; setTimeout(function(){ b.textContent = 'Copiar'; }, 1500);
       });
     });
   });
 
   // Checklist
-  var CK = 'imersao_ia_check';
-  var estado = {}; try{ estado = JSON.parse(localStorage.getItem(CK)||'{}'); }catch(e){}
+  var CK = 'imersao_ia_check', estado = {};
+  try { estado = JSON.parse(localStorage.getItem(CK) || '{}'); } catch(e) {}
   var caixas = document.querySelectorAll('#lista-check input');
+  document.getElementById('total').textContent = caixas.length;
   function atualizar(){
-    var n = 0; caixas.forEach(function(c){ if(c.checked) n++; });
-    document.getElementById('barra').style.width = (100*n/caixas.length)+'%';
+    var n = 0; caixas.forEach(function(c){ if (c.checked) n++; });
+    document.getElementById('feitos').textContent = n;
+    document.getElementById('barra').style.width = (100 * n / caixas.length) + '%';
   }
   caixas.forEach(function(c){
     c.checked = !!estado[c.dataset.k];
-    c.addEventListener('change', function(){ estado[c.dataset.k]=c.checked; localStorage.setItem(CK, JSON.stringify(estado)); atualizar(); });
+    c.addEventListener('change', function(){ estado[c.dataset.k] = c.checked; localStorage.setItem(CK, JSON.stringify(estado)); atualizar(); });
   });
   atualizar();
 })();
