@@ -16,6 +16,8 @@
 
 A aba **Sobre** repete essa explicação dentro da planilha.
 
+A aba **Buffet** traz o outro serviço da lanchonete: buffet para festas. Tem os pacotes (preço por convidado), os extras e 11 regras para montar um orçamento (mínimo de convidados, acréscimo de fim de semana, desconto por volume, equipe, horas extras, deslocamento e sinal).
+
 ---
 
 ## Passo 1: levar a planilha para o Google Planilhas
@@ -58,3 +60,19 @@ Salve um Google Doc chamado "Resumo Bom Pedaço" no meu Drive com essas resposta
 Abra o Google Doc no seu Drive. Repare: o Claude **leu** uma ferramenta sua (a planilha) e **escreveu** em outra (o Doc). Isso é o MCP.
 
 **Curiosidade para guardar:** compare a resposta da pergunta 2 com a da 5.
+
+## Passo 4: criar um orçamento
+
+Agora o Claude não só responde: ele aplica as regras da empresa. Na mesma conversa:
+
+```
+Um cliente pediu orçamento de buffet: aniversário no sábado, 17/10/2026, para 120 convidados, pacote Festa completa, com mesa de doces, 5 horas de festa, a 18 km da lanchonete. Consulte a aba Buffet da planilha e monte o orçamento seguindo as regras. Mostre a conta de cada item.
+```
+```
+E se a festa fosse na quarta-feira, 21/10?
+```
+```
+Salve esse orçamento como um Google Doc chamado "Orçamento Buffet 17/10" no meu Drive.
+```
+
+Repare: você não explicou nenhuma regra de preço. Ele leu da planilha. Mudou o preço na planilha, o próximo orçamento já sai com o preço novo.

@@ -110,8 +110,18 @@ Tudo o que você criar fica numa pasta só: `imersao`, na sua Área de Trabalho.
    Salve um Google Doc chamado "Resumo Bom Pedaço" no meu Drive com essas respostas.
    ```
 5. Abra o Google Doc no seu Drive.
+6. **Crie um orçamento.** A lanchonete também faz buffet para festas. Os pacotes, os extras e as regras de preço estão na aba **Buffet** da mesma planilha. Você passa o pedido do cliente, o Claude consulta as regras e devolve o orçamento. Na mesma conversa:
+   ```
+   Um cliente pediu orçamento de buffet: aniversário no sábado, 17/10/2026, para 120 convidados, pacote Festa completa, com mesa de doces, 5 horas de festa, a 18 km da lanchonete. Consulte a aba Buffet da planilha e monte o orçamento seguindo as regras. Mostre a conta de cada item.
+   ```
+   ```
+   E se a festa fosse na quarta-feira, 21/10?
+   ```
+   ```
+   Salve esse orçamento como um Google Doc chamado "Orçamento Buffet 17/10" no meu Drive.
+   ```
 
-✅ **Pronto quando:** o evento apareceu no celular e o "Resumo Bom Pedaço" está no seu Drive.
+✅ **Pronto quando:** o evento apareceu no celular e o "Resumo Bom Pedaço" e o "Orçamento Buffet 17/10" estão no seu Drive.
 
 **O que reparar:** ele pede permissão antes de agir · conecte só o que você precisa · ele lê a sua planilha e cria um arquivo novo, sem mexer no original.
 
@@ -235,7 +245,7 @@ Nesta parte você só assiste. O Lucas mostra por que tudo o que funcionou hoje 
 
 - [ ] `cartao.html`
 - [ ] Google conectado e evento na agenda
-- [ ] Google Doc "Resumo Bom Pedaço" no Drive
+- [ ] Google Docs "Resumo Bom Pedaço" e "Orçamento Buffet 17/10" no Drive
 - [ ] Skills instaladas (digite `/` para ver)
 - [ ] `sobre-mim.md` e `design-system.md`
 - [ ] Apresentação no Google Apresentações
