@@ -12,8 +12,8 @@ Dizer em 1 linha: "Procurando os concorrentes da <nome>. Uns 6 min."
 ## Pesquisar
 
 1. Montar a lista de **4 a 6 concorrentes diretos** (mesmo produto, mesma região ou mesmo canal). Fontes: quem apareceu nas buscas de `pesquisa/mercado.md`, buscas `"<produto>" <cidade>` e `"<produto>" site:instagram.com`, e concorrentes que o dono citou. Se o dono citou, entra.
-2. Para cada um: abrir o site (home + 1 página: sobre, produtos ou depoimentos). Registrar: promessa principal, para quem, diferencial, preço se visível, chamada para ação, provas (nota no Google, depoimentos, clientes), canais. Página que não abre: anotar e seguir.
-3. **Força digital de 1 a 5**, mesma régua para todos, inclusive a empresa: +1 site que funciona no celular · +1 preço ou orçamento fácil de achar · +1 prova social visível · +1 Instagram com post nos últimos 30 dias · +1 aparece nas buscas de compra.
+2. Para cada um: abrir o site (home + 1 página: sobre, produtos ou depoimentos). Registrar: promessa principal, para quem, diferencial, preço se visível, chamada para ação, provas (nota no Google, depoimentos, clientes), canais. Sem site: usar Instagram, Linktree, Google Maps, iFood ou guias (Tripadvisor, Restaurant Guru). Página que não abre: anotar e seguir.
+3. **Força digital de 1 a 5**, mesma régua para todos, inclusive a empresa: +1 site que funciona no celular · +1 preço ou orçamento fácil de achar · +1 prova social visível · +1 Instagram com post nos últimos 30 dias · +1 aparece nas buscas de compra. Critério que não deu para checar (ex.: Instagram bloqueado) não soma para ninguém, e a nota diz isso.
 4. **Mapa de posicionamento:** escolher 2 eixos que o cliente dessa categoria valoriza (ex.: preço × atendimento, pronta-entrega × personalizado). Posicionar todos, de 0 a 100 em cada eixo, com a justificativa em 1 linha por empresa.
 5. **Espaços vazios (3 a 4):** o que ninguém faz ou faz mal e a empresa poderia ocupar, cada um ligado a uma dor de `pesquisa/cliente.md`.
 6. **O que aprender de método** (nunca de identidade): 3 coisas que os concorrentes fazem bem.
@@ -35,7 +35,7 @@ Tudo com link. Sem fonte: `[a confirmar]`.
 
 ## Atualizar o RESULTADO.html
 
-Trocar os blocos `concorrentes`, `proximos` e `atualizado` seguindo `controle/componentes.md`: tabela com a linha `nos`, `.barras` de força digital, `.mapa` 2x2 e os espaços vazios em cartões (o mais promissor em cartão `forte`). Acrescentar em `memoria/foco.md` → "Próximas ações" a ação do espaço vazio principal.
+Trocar os blocos `concorrentes`, `proximos` e `atualizado` seguindo `controle/componentes.md`: tabela com a linha `nos`, `.barras` de força digital, `.mapa` 2x2 e os espaços vazios em cartões (o mais promissor em cartão `forte`). Acrescentar em `memoria/foco.md` → "Próximas ações" a ação do espaço vazio principal, na posição da prioridade dela (o bloco `proximos` mostra as 3 primeiras).
 
 ## Fechar
 

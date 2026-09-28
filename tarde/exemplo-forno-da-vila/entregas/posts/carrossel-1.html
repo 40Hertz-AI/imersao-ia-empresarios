@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Forno da Vila · Carrossel 1 · Coffee break sem correr atrás de confirmação (exemplo fictício)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=block" rel="stylesheet">
+<style>
+  :root{
+    --oliva:#4A5230;
+    --terracota:#9A4A26;
+    --farinha:#F1EFE7;
+    --forno:#25231D;
+    --farinha-2:#E6E3D6;   /* farinha um tom abaixo, para superfícies */
+    --linha:#CFCBBB;       /* traço fino sobre farinha */
+    --m:96px;              /* margem lateral única do sistema */
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#d9d6cc;font-family:"Figtree",sans-serif;color:var(--forno);
+       display:flex;flex-direction:column;align-items:center;gap:48px;padding:48px 0}
+  body.print{background:none;padding:0;gap:0}
+
+  .lamina{position:relative;width:1080px;height:1350px;overflow:hidden;flex:none;
+          background:var(--farinha);color:var(--forno)}
+  .lamina.escura{background:var(--oliva);color:var(--farinha)}
+  /* grão de farinha: ruído SVG inline, bem sutil */
+  .lamina::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.10;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .3  0 0 0 0 .28  0 0 0 0 .2  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>")}
+  .lamina.escura::after{opacity:.16;mix-blend-mode:soft-light}
+
+  /* moldura fixa: marca, contador, arraste */
+  .topo{position:absolute;left:var(--m);right:var(--m);top:72px;display:flex;justify-content:space-between;align-items:center;
+        font-size:26px;font-weight:500;letter-spacing:.01em;opacity:.72;z-index:2}
+  .marca{display:flex;align-items:center;gap:14px}
+  .marca svg{width:30px;height:30px}
+  .contador{font-variant-numeric:tabular-nums}
+  .arraste{position:absolute;right:var(--m);bottom:72px;display:flex;align-items:center;gap:16px;
+           font-size:26px;font-weight:500;opacity:.72;z-index:2}
+  .arraste svg{width:72px;height:18px}
+
+  /* tipografia do sistema */
+  .titulo{font-family:"Newsreader",serif;font-weight:400;letter-spacing:-.022em;line-height:1.04;
+          font-variation-settings:"opsz" 72}
+  .apoio{font-size:40px;line-height:1.35;font-weight:400;max-width:820px}
+  .escura .apoio{color:#E4E1D4}
+
+  .conteudo{position:absolute;left:var(--m);right:var(--m)}
+
+  /* 1 · gancho */
+  .l1 .titulo{font-size:118px;line-height:1.0}
+  .l1 .conteudo{bottom:220px}
+  .l1 .apoio{margin-top:56px}
+  .l1 .vapor{position:absolute;right:120px;top:190px;width:260px;height:360px}
+
+  /* 2 · problema: calendário */
+  .l2 .conteudo{top:210px}
+  .l2 .titulo{font-size:104px}
+  .semana{position:absolute;left:var(--m);right:var(--m);top:560px;height:340px;display:grid;grid-template-columns:1fr 1fr 1fr;
+          border-top:2px solid var(--forno);}
+  .dia{position:relative;padding-top:30px;border-right:2px solid var(--linha)}
+  .dia:last-child{border-right:none}
+  .dia .nome{font-family:"Newsreader",serif;font-size:64px;padding-left:28px;font-weight:400}
+  .dia .nota{position:absolute;left:28px;bottom:36px;font-size:36px;font-weight:500}
+  .dia.hoje .nome{color:var(--forno)}
+  .dia.hoje .ponto{position:absolute;left:28px;top:132px;width:22px;height:22px;border-radius:50%;background:var(--forno)}
+  .dia.vazio .nome{color:#9d9887}
+  .dia.reuniao .anel{position:absolute;left:4px;top:14px;width:190px;height:110px}
+  .dia.reuniao .nota{color:var(--terracota)}
+  .l2 .apoio.baixo{position:absolute;left:var(--m);bottom:200px;max-width:880px;font-size:44px}
+
+  /* 3 · problema: mensagens */
+  .conversa{position:absolute;left:var(--m);right:var(--m);top:190px;height:600px;
+            background:var(--farinha-2);border-radius:28px;padding:56px 56px 0}
+  .bolha{margin-left:auto;width:fit-content;max-width:690px;background:#DCDFCB;border-radius:30px 30px 8px 30px;
+         padding:26px 34px 18px;font-size:36px;line-height:1.3;margin-bottom:22px;color:var(--forno)}
+  .bolha .meta{display:flex;justify-content:flex-end;align-items:center;gap:8px;font-size:24px;color:#5f6150;margin-top:6px}
+  .bolha .meta svg{width:34px;height:20px}
+  .visto{text-align:right;font-size:26px;color:#6c6a5d;margin-top:4px}
+  .aguardando{position:absolute;left:56px;bottom:56px;display:flex;gap:14px}
+  .aguardando i{width:18px;height:18px;border-radius:50%;border:2px solid #aaa594}
+  .l3 .conteudo{top:870px}
+  .l3 .titulo{font-size:86px}
+  .l3 .apoio{margin-top:30px}
+
+  /* 4 · método: 5 perguntas */
+  .l4 .conteudo{top:196px}
+  .l4 .titulo{font-size:96px}
+  .perguntas{position:absolute;left:var(--m);right:var(--m);top:470px;list-style:none;border-top:2px solid var(--forno)}
+  .perguntas li{display:flex;align-items:center;gap:44px;height:148px;border-bottom:2px solid var(--linha)}
+  .perguntas svg{width:72px;height:72px;flex:none;color:var(--oliva)}
+  .perguntas span{font-family:"Newsreader",serif;font-size:68px;letter-spacing:-.015em}
+
+  /* 5 · prazo: relógio */
+  .relogio{position:absolute;left:50%;top:200px;width:560px;height:560px;margin-left:-280px}
+  .l5 .conteudo{top:850px}
+  .l5 .titulo{font-size:128px}
+  .l5 .apoio{margin-top:30px;font-size:44px}
+
+  /* 6 · virada: carimbo */
+  .l6 .conteudo{top:210px}
+  .l6 .titulo{font-size:108px}
+  .l6 .apoio{margin-top:36px;font-size:44px}
+  .carimbo{position:absolute;right:86px;bottom:150px;width:560px;height:560px;transform:rotate(-9deg)}
+
+  /* 7 · chamada */
+  .l7 .conteudo{top:250px}
+  .l7 .titulo{font-size:84px}
+  .l7 .comente{margin-top:150px;font-size:44px;font-weight:500;color:#E4E1D4}
+  .l7 .cafe{font-family:"Newsreader",serif;font-weight:400;font-size:300px;line-height:.9;letter-spacing:-.03em;
+            margin-top:36px;margin-left:-12px;color:var(--farinha)}
+  .l7 .sublinha{display:block;width:620px;height:30px;margin-top:-6px}
+  .l7 .apoio{margin-top:48px;font-size:44px}
+  .l7 .vapor{position:absolute;left:540px;top:470px;width:200px;height:190px}
+
+  /* impressão de uma lâmina: ?n=3 */
+  body.print .lamina{display:none}
+  body.print .lamina.ativa{display:block}
+</style>
+</head>
+<body>
+
+<!-- símbolo da marca: o corte (pestana) na casca do pão -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="corte" viewBox="0 0 30 30">
+      <ellipse cx="15" cy="15" rx="13" ry="13" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M8 21 C11 13, 16 9, 22 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="seta" viewBox="0 0 72 18">
+      <path d="M0 9 H68 M60 2 L69 9 L60 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- 1 · GANCHO -->
+<section class="lamina escura l1" data-n="1">
+  <div class="topo"><span class="marca"><svg><use href="#corte"/></svg>@fornodavila.exemplo</span><span class="contador">1/7</span></div>
+  <svg class="vapor" viewBox="0 0 260 360" fill="none" stroke="#F1EFE7" stroke-width="2.4" stroke-linecap="round" opacity=".38" aria-hidden="true">
+    <path d="M60 350 C20 290, 100 250, 60 190 S40 90, 80 20"/>
+    <path d="M130 350 C90 280, 170 240, 130 170 S110 70, 150 0"/>
+    <path d="M200 350 C160 295, 240 255, 200 200 S180 110, 220 50"/>
+  </svg>
+  <div class="conteudo">
+    <h1 class="titulo">Mandou mensagem pedindo coffee break e ninguém respondeu?</h1>
+    <p class="apoio">Isso acontece mais do que deveria.</p>
+  </div>
+  <div class="arraste">arraste<svg><use href="#seta"/></svg></div>
+</section>
+
+<!-- 2 · PROBLEMA: calendário terça → quinta -->
+<section class="lamina l2" data-n="2">
+  <div class="topo"><span class="marca"><svg><use href="#corte"/></svg>@fornodavila.exemplo</span><span class="contador">2/7</span></div>
+  <div class="conteudo">
+    <h2 class="titulo">A reunião é quinta.<br>É terça.</h2>
+  </div>
+  <div class="semana" aria-hidden="true">
+    <div class="dia hoje"><div class="nome">ter</div><span class="ponto"></span><div class="nota">hoje</div></div>
+    <div class="dia vazio"><div class="nome">qua</div></div>
+    <div class="dia reuniao">
+      <svg class="anel" viewBox="0 0 190 110" fill="none" stroke="#9A4A26" stroke-width="3" stroke-linecap="round">
+        <path d="M40 22 C80 4, 160 6, 178 44 C192 80, 130 104, 80 100 C30 96, 6 74, 12 50 C18 30, 44 16, 70 12"/>
+      </svg>
+      <div class="nome">qui</div><div class="nota">reunião</div>
+    </div>
+  </div>
+  <p class="apoio baixo">E você ainda não sabe se vai ter café.</p>
+  <div class="arraste">arraste<svg><use href="#seta"/></svg></div>
+</section>
+
+<!-- 3 · PROBLEMA: mensagem vista, sem resposta -->
+<section class="lamina l3" data-n="3">
+  <div class="topo"><span class="marca"><svg><use href="#corte"/></svg>@fornodavila.exemplo</span><span class="contador">3/7</span></div>
+  <div class="conversa" aria-hidden="true">
+    <div class="bolha">Bom dia! Vocês fazem coffee break?
+      <div class="meta">09:12 <svg viewBox="0 0 34 20" fill="none" stroke="#9A4A26" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11 L8 17 L20 3 M14 14 L17 17 L29 3"/></svg></div>
+    </div>
+    <div class="bolha">É para quinta. Consegue me confirmar hoje?
+      <div class="meta">09:13 <svg viewBox="0 0 34 20" fill="none" stroke="#9A4A26" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11 L8 17 L20 3 M14 14 L17 17 L29 3"/></svg></div>
+    </div>
+    <div class="visto">visto</div>
+    <div class="aguardando"><i></i><i></i><i></i></div>
+  </div>
+  <div class="conteudo">
+    <h2 class="titulo">O pedido se perde no meio das mensagens.</h2>
+    <p class="apoio">Do seu lado e do lado de quem vende.</p>
+  </div>
+</section>
+
+<!-- 4 · MÉTODO: as 5 perguntas -->
+<section class="lamina l4" data-n="4">
+  <div class="topo"><span class="marca"><svg><use href="#corte"/></svg>@fornodavila.exemplo</span><span class="contador">4/7</span></div>
+  <div class="conteudo">
+    <h2 class="titulo">Aqui, são 5 perguntas:</h2>
+  </div>
+  <ul class="perguntas">
+    <li><svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 62 V16 L40 8 V62 M40 26 H58 V62 M8 62 H64"/><path d="M22 24 H32 M22 34 H32 M22 44 H32 M48 36 H52 M48 46 H52"/></svg><span>empresa</span></li>
+    <li><svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="14" width="52" height="48" rx="4"/><path d="M10 28 H62 M24 8 V20 M48 8 V20"/><circle cx="46" cy="46" r="4" fill="currentColor" stroke="none"/></svg><span>data</span></li>
+    <li><svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="36" cy="36" r="26"/><path d="M36 20 V36 L46 42"/></svg><span>horário</span></li>
+    <li><svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="26" cy="24" r="9"/><path d="M8 60 C8 46, 16 38, 26 38 C36 38, 44 46, 44 60"/><circle cx="49" cy="26" r="7"/><path d="M48 40 C58 40, 64 48, 64 60"/></svg><span>pessoas</span></li>
+    <li><svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M36 64 V14"/><path d="M36 20 C28 18, 26 12, 28 8 C34 9, 37 14, 36 20 C44 18, 46 12, 44 8 C38 9, 35 14, 36 20"/><path d="M36 32 C28 30, 26 24, 28 20 M36 32 C44 30, 46 24, 44 20 M36 44 C28 42, 26 36, 28 32 M36 44 C44 42, 46 36, 44 32"/><path d="M12 60 L60 12"/></svg><span>restrições</span></li>
+  </ul>
+</section>
+
+<!-- 5 · MÉTODO: prazo de 2 horas -->
+<section class="lamina l5" data-n="5">
+  <div class="topo"><span class="marca"><svg><use href="#corte"/></svg>@fornodavila.exemplo</span><span class="contador">5/7</span></div>
+  <svg class="relogio" viewBox="0 0 560 560" aria-hidden="true">
+    <!-- setor de 2 horas (60°), das 12 às 2 -->
+    <path d="M280 280 L280 50 A230 230 0 0 1 479.2 165 Z" fill="#9A4A26" opacity=".12"/>
+    <path d="M280 50 A230 230 0 0 1 479.2 165" fill="none" stroke="#9A4A26" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="280" cy="280" r="256" fill="none" stroke="#25231D" stroke-width="2.4"/>
+    <g stroke="#25231D" stroke-width="2.4" stroke-linecap="round">
+      <line x1="280" y1="36" x2="280" y2="62"/><line x1="402" y1="69" x2="395" y2="82"/><line x1="491" y1="158" x2="478" y2="165"/>
+      <line x1="524" y1="280" x2="498" y2="280"/><line x1="491" y1="402" x2="478" y2="395"/><line x1="402" y1="491" x2="395" y2="478"/>
+      <line x1="280" y1="524" x2="280" y2="498"/><line x1="158" y1="491" x2="165" y2="478"/><line x1="69" y1="402" x2="82" y2="395"/>
+      <line x1="36" y1="280" x2="62" y2="280"/><line x1="69" y1="158" x2="82" y2="165"/><line x1="158" y1="69" x2="165" y2="82"/>
+    </g>
+    <line x1="280" y1="280" x2="280" y2="96" stroke="#25231D" stroke-width="5" stroke-linecap="round"/>
+    <line x1="280" y1="280" x2="400" y2="211" stroke="#4A5230" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="280" cy="280" r="10" fill="#25231D"/>
+  </svg>
+  <div class="conteudo">
+    <h2 class="titulo">Em até 2 horas,</h2>
+    <p class="apoio">o orçamento chega por escrito, com preço fechado.</p>
+  </div>
+</section>
+
+<!-- 6 · VIRADA: confirmado -->
+<section class="lamina l6" data-n="6">
+  <div class="topo"><span class="marca"><svg><use href="#corte"/></svg>@fornodavila.exemplo</span><span class="contador">6/7</span></div>
+  <div class="conteudo">
+    <h2 class="titulo">Confirmado é confirmado:</h2>
+    <p class="apoio">o pedido entra na agenda e você recebe o horário.</p>
+  </div>
+  <svg class="carimbo" viewBox="0 0 560 560" aria-hidden="true">
+    <defs>
+      <filter id="tinta" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="2" seed="4" result="r"/>
+        <feColorMatrix in="r" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.4 1.55" result="m"/>
+        <feComposite in="SourceGraphic" in2="m" operator="in"/>
+      </filter>
+      <path id="aro" d="M280 280 m-196 0 a196 196 0 1 1 392 0 a196 196 0 1 1 -392 0"/>
+    </defs>
+    <g filter="url(#tinta)" fill="none" stroke="#9A4A26" opacity=".92">
+      <circle cx="280" cy="280" r="250" stroke-width="7"/>
+      <circle cx="280" cy="280" r="232" stroke-width="2.5"/>
+      <circle cx="280" cy="280" r="150" stroke-width="2.5"/>
+      <text font-family="Figtree" font-weight="600" font-size="28" fill="#9A4A26" stroke="none">
+        <textPath href="#aro" startOffset="0" textLength="1215" lengthAdjust="spacing">FORNO DA VILA · PEDIDO NA AGENDA · FORNO DA VILA · PEDIDO NA AGENDA ·</textPath>
+      </text>
+      <text x="280" y="296" text-anchor="middle" font-family="Newsreader" font-style="italic" font-size="70" fill="#9A4A26" stroke="none">confirmado</text>
+    </g>
+  </svg>
+</section>
+
+<!-- 7 · CHAMADA -->
+<section class="lamina escura l7" data-n="7">
+  <div class="topo"><span class="marca"><svg><use href="#corte"/></svg>@fornodavila.exemplo</span><span class="contador">7/7</span></div>
+  <div class="conteudo">
+    <h2 class="titulo">Tem reunião esta semana?</h2>
+    <p class="comente">Comente</p>
+    <div class="cafe">CAFÉ</div>
+    <svg class="sublinha" viewBox="0 0 620 30" fill="none" stroke="#C98A63" stroke-width="5" stroke-linecap="round" aria-hidden="true"><path d="M8 18 C120 6, 300 26, 612 10"/></svg>
+    <p class="apoio">que eu mando as 5 perguntas.</p>
+  </div>
+</section>
+
+<script>
+  // ?n=3 mostra só a lâmina 3, sem margens (para exportar PNG)
+  const n = new URLSearchParams(location.search).get("n");
+  if (n) {
+    document.body.classList.add("print");
+    const alvo = document.querySelector('.lamina[data-n="' + n + '"]');
+    if (alvo) alvo.classList.add("ativa");
+  }
+</script>
+</body>
+</html>

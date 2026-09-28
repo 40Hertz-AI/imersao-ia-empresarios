@@ -6,3 +6,4 @@ node_modules/
 /dados/*
 !/dados/README.md
 /memoria/numeros.md
+/controle/prints/

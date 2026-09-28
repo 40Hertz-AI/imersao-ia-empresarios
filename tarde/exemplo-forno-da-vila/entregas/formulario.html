@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedir orçamento de coffee break | Forno da Vila</title>
+<meta name="description" content="Cinco perguntas e o seu pedido de coffee break vai pronto para o WhatsApp da Forno da Vila. Orçamento em até 2 horas.">
+<!-- Exemplo com empresa fictícia, criado para a imersão de IA (29/09/2026). -->
+<!-- WhatsApp: número fictício, então o envio abre o WhatsApp para escolher o contato.
+     trocar pelo número real: https://wa.me/55DDDNUMERO?text= -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --oliva:#4A5230;
+  --tostado:#9A4A26;
+  --tostado-escuro:#7C3A1D;
+  --farinha:#F1EFE7;
+  --papel:#FAF8F2;
+  --trigo:#E4DDCB;
+  --trigo-linha:#CFC5AB;
+  --forno:#25231D;
+  --suave:#5B574B;
+  --titulo:'Newsreader', Georgia, serif;
+  --texto:'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+#t-fim:focus{outline:none}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;min-height:100dvh;background:var(--farinha);color:var(--forno);font-family:var(--texto);font-size:17px;line-height:1.55;display:flex;flex-direction:column;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--tostado);outline-offset:3px;border-radius:3px}
+a{color:var(--tostado);text-underline-offset:3px}
+
+.topo{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 22px}
+.nome{font-family:var(--titulo);font-size:1.4rem;color:var(--oliva);text-decoration:none;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.nome svg{width:18px;height:18px}
+.topo a.sair{font-size:.9rem;color:var(--suave)}
+.barra{height:3px;background:var(--trigo)}
+.barra i{display:block;height:100%;width:0;background:var(--tostado);transition:width .35s var(--ease)}
+
+main{flex:1;display:flex;align-items:center;padding:40px 22px 56px}
+.palco{width:100%;max-width:680px;margin:0 auto}
+.contexto{font-size:.95rem;color:var(--suave);margin:0 0 30px;max-width:46ch}
+.contexto b{color:var(--forno);font-weight:600}
+
+.passo{border:0;margin:0 0 44px;padding:0;min-width:0}
+.passo .conta{font-family:var(--texto);font-weight:400;letter-spacing:0;line-height:1.2;display:flex;align-items:center;gap:10px;font-size:.9rem;color:var(--suave);margin-bottom:14px}
+.passo .conta span{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--oliva);color:var(--farinha);font-family:var(--titulo);font-size:1rem}
+.passo legend{font-family:var(--titulo);font-weight:350;font-size:clamp(2rem,6vw,3.3rem);line-height:1.08;letter-spacing:-.02em;color:var(--oliva);padding:0;margin:0 0 12px;text-wrap:balance}
+.dica{color:var(--suave);margin:0 0 26px;max-width:44ch}
+.campo{width:100%;background:transparent;border:0;border-bottom:2px solid var(--trigo-linha);border-radius:0;padding:10px 2px;font-size:clamp(1.3rem,3.6vw,1.7rem);min-height:56px;transition:border-color .2s}
+.campo::placeholder{color:#9D977F}
+.campo:focus{outline:none;border-bottom-color:var(--oliva)}
+.campo[aria-invalid="true"]{border-bottom-color:var(--tostado)}
+.erro{color:var(--tostado);font-size:.95rem;min-height:1.5em;margin:10px 0 0}
+.atalhos{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.chip{border:1px solid var(--trigo-linha);background:transparent;border-radius:999px;padding:9px 16px;cursor:pointer;font-size:.95rem;transition:background-color .2s,border-color .2s,color .2s}
+.chip:hover{border-color:var(--oliva)}
+.chip[aria-pressed="true"]{background:var(--oliva);border-color:var(--oliva);color:var(--farinha)}
+.tamanho{margin:14px 0 0;font-size:1rem;color:var(--suave);min-height:1.6em}
+.tamanho b{font-family:var(--titulo);font-weight:500;font-size:1.2em;color:var(--oliva)}
+
+.acoes{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.botao{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--tostado);color:#fff;border:0;text-decoration:none;font-weight:600;padding:16px 28px;border-radius:999px;font-size:1rem;line-height:1.2;cursor:pointer;transition:background-color .2s}
+.botao:hover{background:var(--tostado-escuro)}
+.tecla{font-size:.85rem;color:var(--suave)}
+.tecla kbd{font-family:inherit;font-weight:600;border:1px solid var(--trigo-linha);border-bottom-width:2px;border-radius:4px;padding:1px 6px;background:var(--papel)}
+.voltar{border:0;background:none;color:var(--suave);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:10px 4px;margin-left:auto}
+.voltar[hidden]{display:none}
+
+/* resumo editável */
+.fim{display:none}
+.fim h1{font-family:var(--titulo);font-weight:350;font-size:clamp(2rem,6vw,3.1rem);line-height:1.08;letter-spacing:-.02em;color:var(--oliva);margin:0 0 10px}
+.fim .dica{margin-bottom:22px}
+.bilhete{background:var(--papel);border:1px solid var(--trigo);border-radius:4px;padding:10px 22px 18px;margin:0 0 26px;position:relative;box-shadow:0 30px 60px -44px rgba(37,35,29,.5)}
+.bilhete::before{content:"";position:absolute;left:-1px;right:-1px;top:-7px;height:14px;background:radial-gradient(circle at 7px 0,var(--farinha) 6px,transparent 6.5px) 0 0/14px 14px repeat-x}
+.linha{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:center;padding:8px 0;border-bottom:1px dashed var(--trigo-linha)}
+.linha:last-child{border-bottom:0}
+.linha label{font-size:.9rem;color:var(--suave)}
+.linha input{width:100%;border:0;border-bottom:1px solid transparent;background:transparent;padding:8px 2px;font-weight:600;font-size:1.05rem;min-height:44px;border-radius:0}
+.linha input:hover{border-bottom-color:var(--trigo-linha)}
+.linha input:focus{outline:none;border-bottom-color:var(--oliva)}
+.linha input[aria-invalid="true"]{border-bottom-color:var(--tostado)}
+.nota{display:block;margin-top:14px;font-size:.9rem;color:var(--suave)}
+.pronto{display:flex;align-items:center;gap:10px;margin:0 0 18px;color:var(--oliva);font-weight:600}
+.pronto svg{width:26px;height:26px}
+.pronto .v{stroke-dasharray:20;stroke-dashoffset:0}
+
+/* estados com JS: uma pergunta por tela */
+.js .passo{display:none}
+.js .passo.atual{display:block;animation:entra .24s var(--ease) both}
+.js .passo.atual.volta{animation-name:entraVolta}
+.js .fim.atual{display:block;animation:entra .24s var(--ease) both}
+.js .fim.atual .v{animation:risca .45s .15s var(--ease) both}
+@keyframes entra{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes entraVolta{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:none}}
+@keyframes risca{from{stroke-dashoffset:20}to{stroke-dashoffset:0}}
+.sem-js{margin-top:10px;font-size:.92rem;color:var(--suave)}
+.js .sem-js{display:none}
+html:not(.js) .acoes .voltar,html:not(.js) .tecla{display:none}
+
+.rodape{padding:18px 22px 22px;font-size:.82rem;color:var(--suave);display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;border-top:1px solid var(--trigo)}
+
+@media (min-width:760px){
+  .topo{padding:22px 40px}
+  main{padding:56px 40px 72px}
+  .rodape{padding:20px 40px 24px}
+}
+@media (max-width:480px){
+  .tecla{display:none}
+  .linha{grid-template-columns:1fr;gap:0;padding:10px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="topo">
+    <a class="nome" href="pagina-de-vendas.html">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2c3 3 3 13 0 16C7 15 7 5 10 2Z" fill="none" stroke="#9A4A26" stroke-width="1.4"/><path d="M10 5v12" stroke="#9A4A26" stroke-width="1"/></svg>
+      Forno da Vila
+    </a>
+    <a class="sair" href="pagina-de-vendas.html">Ver a página completa</a>
+  </div>
+  <div class="barra" aria-hidden="true"><i data-barra></i></div>
+</header>
+
+<main>
+  <form class="palco" id="pedido" novalidate>
+    <p class="contexto" data-contexto>Pedido de coffee break. <b>5 perguntas</b>, e o orçamento fechado chega em até 2 horas, em horário comercial.</p>
+
+    <fieldset class="passo atual" data-campo="empresa">
+      <legend><span class="conta"><span>1</span> de 5</span>Qual é o nome da empresa?</legend>
+      <p class="dica">É assim que o pedido aparece na nossa agenda.</p>
+      <input class="campo" id="empresa" name="empresa" type="text" autocomplete="organization" placeholder="Ex.: Contabilidade Silva" aria-describedby="e-empresa">
+      <p class="erro" id="e-empresa" aria-live="polite"></p>
+    </fieldset>
+
+    <fieldset class="passo" data-campo="data">
+      <legend><span class="conta"><span>2</span> de 5</span>Para que dia é o café?</legend>
+      <p class="dica">Para mais de 25 pessoas, pedimos 48 horas de antecedência.</p>
+      <div class="atalhos" data-atalhos-data></div>
+      <input class="campo" id="data" name="data" type="date" aria-describedby="e-data">
+      <p class="erro" id="e-data" aria-live="polite"></p>
+    </fieldset>
+
+    <fieldset class="passo" data-campo="horario">
+      <legend><span class="conta"><span>3</span> de 5</span>A que horas o café precisa estar na mesa?</legend>
+      <p class="dica">Chegamos com folga antes desse horário.</p>
+      <div class="atalhos" data-atalhos-hora>
+        <button type="button" class="chip" aria-pressed="false" data-hora="08:00">8h</button>
+        <button type="button" class="chip" aria-pressed="false" data-hora="09:00">9h</button>
+        <button type="button" class="chip" aria-pressed="false" data-hora="10:00">10h</button>
+        <button type="button" class="chip" aria-pressed="false" data-hora="15:00">15h</button>
+      </div>
+      <input class="campo" id="horario" name="horario" type="time" step="900" aria-describedby="e-horario">
+      <p class="erro" id="e-horario" aria-live="polite"></p>
+    </fieldset>
+
+    <fieldset class="passo" data-campo="pessoas">
+      <legend><span class="conta"><span>4</span> de 5</span>Quantas pessoas vão à mesa?</legend>
+      <p class="dica">Até 10 é o tamanho Reunião, até 25 é Equipe, até 40 é Treinamento.</p>
+      <input class="campo" id="pessoas" name="pessoas" type="number" inputmode="numeric" min="1" max="40" placeholder="Ex.: 18" aria-describedby="e-pessoas t-pessoas">
+      <p class="tamanho" id="t-pessoas" aria-live="polite"></p>
+      <p class="erro" id="e-pessoas" aria-live="polite"></p>
+    </fieldset>
+
+    <fieldset class="passo" data-campo="restricoes">
+      <legend><span class="conta"><span>5</span> de 5</span>Alguém tem restrição?</legend>
+      <p class="dica">Marque o que vale para o grupo, ou escreva outra.</p>
+      <div class="atalhos" data-chips>
+        <button type="button" class="chip" aria-pressed="false" data-valor="nenhuma">Nenhuma</button>
+        <button type="button" class="chip" aria-pressed="false" data-valor="sem glúten">Sem glúten</button>
+        <button type="button" class="chip" aria-pressed="false" data-valor="sem lactose">Sem lactose</button>
+      </div>
+      <input class="campo" id="restricoes" name="restricoes" type="text" placeholder="Outra restrição (opcional)">
+    </fieldset>
+
+    <section class="fim" data-fim aria-labelledby="t-fim">
+      <p class="pronto"><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="12" fill="#4A5230"/><path class="v" d="M7.5 13.5 11 17l7.5-8" fill="none" stroke="#F1EFE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" pathLength="20"/></svg>Pedido pronto</p>
+      <h1 id="t-fim" tabindex="-1">Confira antes de enviar</h1>
+      <p class="dica">Toque em qualquer linha para corrigir. A mensagem sai exatamente assim.</p>
+      <div class="bilhete">
+        <div class="linha"><label for="r-empresa">Empresa</label><input id="r-empresa" data-espelho="empresa" type="text"></div>
+        <div class="linha"><label for="r-data">Data</label><input id="r-data" data-espelho="data" type="date"></div>
+        <div class="linha"><label for="r-horario">Horário</label><input id="r-horario" data-espelho="horario" type="time" step="900"></div>
+        <div class="linha"><label for="r-pessoas">Pessoas</label><input id="r-pessoas" data-espelho="pessoas" type="number" inputmode="numeric" min="1" max="40"></div>
+        <div class="linha"><label for="r-restricoes">Restrições</label><input id="r-restricoes" data-espelho="restricoes-final" type="text"></div>
+      </div>
+      <p class="erro" data-erro-fim aria-live="polite"></p>
+      <a class="botao" data-enviar href="https://wa.me/" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.8-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></svg>
+        Enviar pedido pelo WhatsApp
+      </a>
+      <span class="nota">Abre o WhatsApp com a mensagem pronta. Nada é enviado antes de você tocar em enviar.</span>
+    </section>
+
+    <div class="acoes" data-acoes>
+      <button type="submit" class="botao" data-avancar>Continuar</button>
+      <span class="tecla">ou aperte <kbd>Enter</kbd></span>
+      <button type="button" class="voltar" data-voltar hidden>Voltar</button>
+    </div>
+    <p class="sem-js">Sem JavaScript, preencha as 5 respostas e mande direto no WhatsApp.</p>
+  </form>
+</main>
+
+<footer class="rodape">
+  <span>Forno da Vila, Mogi das Cruzes (empresa fictícia).</span>
+  <span>Exemplo fictício criado para a imersão de IA · Lucas Santana</span>
+</footer>
+
+<script>
+(function(){
+  var raiz = document.documentElement;
+  raiz.classList.add('js');
+
+  var form = document.getElementById('pedido');
+  var passos = Array.prototype.slice.call(form.querySelectorAll('.passo'));
+  var fim = form.querySelector('[data-fim]');
+  var barra = document.querySelector('[data-barra]');
+  var avancar = form.querySelector('[data-avancar]');
+  var voltar = form.querySelector('[data-voltar]');
+  var acoes = form.querySelector('[data-acoes]');
+  var contexto = form.querySelector('[data-contexto]');
+  var enviar = form.querySelector('[data-enviar]');
+  var erroFim = form.querySelector('[data-erro-fim]');
+  var c = {
+    empresa: document.getElementById('empresa'),
+    data: document.getElementById('data'),
+    horario: document.getElementById('horario'),
+    pessoas: document.getElementById('pessoas'),
+    restricoes: document.getElementById('restricoes')
+  };
+  var chips = Array.prototype.slice.call(form.querySelectorAll('[data-chips] .chip'));
+  var tamanhoTxt = document.getElementById('t-pessoas');
+  var atual = 0;
+
+  /* datas */
+  function iso(d){ var x = new Date(d); x.setMinutes(x.getMinutes() - x.getTimezoneOffset()); return x.toISOString().slice(0,10); }
+  var hoje = iso(new Date());
+  c.data.min = hoje;
+  var dias = ['domingo','segunda','terça','quarta','quinta','sexta','sábado'];
+  function dataBonita(v){
+    if (!v) return '';
+    var p = v.split('-'), d = new Date(+p[0], +p[1]-1, +p[2]);
+    return p[2] + '/' + p[1] + '/' + p[0] + ' (' + dias[d.getDay()] + (d.getDay() > 0 && d.getDay() < 6 ? '-feira' : '') + ')';
+  }
+  /* atalhos: amanhã e os próximos dias úteis */
+  var atalhosData = form.querySelector('[data-atalhos-data]');
+  var base = new Date(), achados = 0;
+  for (var k = 1; k < 10 && achados < 3; k++){
+    var d = new Date(base.getFullYear(), base.getMonth(), base.getDate() + k);
+    if (d.getDay() === 0) continue;
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.setAttribute('aria-pressed','false');
+    b.dataset.data = iso(d);
+    b.textContent = (k === 1 ? 'Amanhã, ' : '') + dias[d.getDay()] + ' ' + d.getDate() + '/' + (d.getMonth()+1);
+    atalhosData.appendChild(b); achados++;
+  }
+  function ligaAtalhos(grupo, attr, campo){
+    var bs = Array.prototype.slice.call(grupo.querySelectorAll('.chip'));
+    function sinc(){ bs.forEach(function(x){ x.setAttribute('aria-pressed', String(x.dataset[attr] === campo.value)); }); }
+    bs.forEach(function(x){ x.addEventListener('click', function(){ campo.value = x.dataset[attr]; sinc(); valida(campo.name); campo.focus(); }); });
+    campo.addEventListener('input', sinc);
+  }
+  ligaAtalhos(atalhosData, 'data', c.data);
+  ligaAtalhos(form.querySelector('[data-atalhos-hora]'), 'hora', c.horario);
+
+  /* tamanhos */
+  function tamanho(n){ return n <= 10 ? {nome:'Reunião',max:10} : n <= 25 ? {nome:'Equipe',max:25} : {nome:'Treinamento',max:40}; }
+  function mostraTamanho(){
+    var n = parseInt(c.pessoas.value, 10);
+    if (!n || n < 1 || n > 40){ tamanhoTxt.textContent = ''; return; }
+    var t = tamanho(n);
+    tamanhoTxt.innerHTML = 'Tamanho indicado: <b>' + t.nome + '</b>, até ' + t.max + ' pessoas.' + (n > 25 ? ' Peça com 48 horas de antecedência.' : '');
+  }
+  c.pessoas.addEventListener('input', mostraTamanho);
+
+  /* restrições */
+  function restricoesTexto(){
+    var marc = chips.filter(function(x){ return x.getAttribute('aria-pressed') === 'true'; }).map(function(x){ return x.dataset.valor; });
+    var extra = c.restricoes.value.trim();
+    if (extra) marc = marc.filter(function(v){ return v !== 'nenhuma'; }).concat(extra);
+    return marc.length ? marc.join(', ') : 'nenhuma';
+  }
+  chips.forEach(function(x){
+    x.addEventListener('click', function(){
+      var liga = x.getAttribute('aria-pressed') !== 'true';
+      if (liga && x.dataset.valor === 'nenhuma') chips.forEach(function(o){ o.setAttribute('aria-pressed','false'); });
+      if (liga && x.dataset.valor !== 'nenhuma') chips[0].setAttribute('aria-pressed','false');
+      x.setAttribute('aria-pressed', String(liga));
+    });
+  });
+
+  /* validação */
+  function erro(campo, alvo, msg){
+    if (alvo) alvo.textContent = msg || '';
+    campo.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    return !msg;
+  }
+  function regra(nome, v){
+    v = (v || '').trim();
+    if (nome === 'empresa') return v ? '' : 'Escreva o nome da empresa para seguir.';
+    if (nome === 'data') return !v ? 'Escolha a data do café.' : (v < hoje ? 'Essa data já passou. Escolha hoje ou um dia à frente.' : '');
+    if (nome === 'horario') return v ? '' : 'Escolha o horário em que o café precisa estar na mesa.';
+    if (nome === 'pessoas'){
+      var n = parseInt(v, 10);
+      if (!v || isNaN(n) || n < 1) return 'Informe quantas pessoas, em número.';
+      if (n > 40) return 'Atendemos até 40 pessoas. Para mais, fale com a gente direto no WhatsApp.';
+    }
+    return '';
+  }
+  function valida(nome){
+    if (!c[nome] || nome === 'restricoes') return true;
+    return erro(c[nome], document.getElementById('e-' + nome), regra(nome, c[nome].value));
+  }
+  Object.keys(c).forEach(function(nome){
+    c[nome].addEventListener('input', function(){ if (c[nome].getAttribute('aria-invalid') === 'true') valida(nome); });
+  });
+
+  /* resumo editável: espelha os campos e remonta a mensagem */
+  var espelhos = Array.prototype.slice.call(form.querySelectorAll('[data-espelho]'));
+  var restFinal = null;
+  function preencheResumo(){
+    restFinal = restricoesTexto();
+    espelhos.forEach(function(e){
+      var k = e.dataset.espelho;
+      e.value = k === 'restricoes-final' ? restFinal : c[k].value;
+    });
+    document.getElementById('r-data').min = hoje;
+    montaLink();
+  }
+  function montaLink(){
+    var v = {};
+    espelhos.forEach(function(e){ v[e.dataset.espelho] = e.value.trim(); });
+    var falta = '';
+    ['empresa','data','horario','pessoas'].forEach(function(k){
+      var el = document.getElementById('r-' + k), m = regra(k, v[k]);
+      el.setAttribute('aria-invalid', m ? 'true' : 'false');
+      if (m && !falta) falta = m;
+    });
+    erroFim.textContent = falta;
+    enviar.setAttribute('aria-disabled', falta ? 'true' : 'false');
+    var n = parseInt(v.pessoas, 10);
+    var msg = 'Olá, Forno da Vila! Quero um orçamento de coffee break.\n' +
+      'Empresa: ' + v.empresa + '\n' +
+      'Data: ' + dataBonita(v.data) + '\n' +
+      'Horário: ' + v.horario + '\n' +
+      'Pessoas: ' + v.pessoas + (n ? ' (tamanho ' + tamanho(n).nome + ')' : '') + '\n' +
+      'Restrições: ' + (v['restricoes-final'] || 'nenhuma');
+    /* trocar pelo número real: 'https://wa.me/55DDDNUMERO?text=' */
+    enviar.href = 'https://wa.me/?text=' + encodeURIComponent(msg);
+  }
+  espelhos.forEach(function(e){ e.addEventListener('input', montaLink); });
+  enviar.addEventListener('click', function(ev){
+    if (enviar.getAttribute('aria-disabled') === 'true'){ ev.preventDefault(); var inv = form.querySelector('.bilhete [aria-invalid="true"]'); inv && inv.focus(); }
+  });
+
+  /* navegação */
+  function mostra(i, sentido){
+    atual = i;
+    var noFim = i >= passos.length;
+    passos.forEach(function(p, j){
+      p.classList.toggle('atual', j === i);
+      p.classList.toggle('volta', j === i && sentido < 0);
+    });
+    fim.classList.toggle('atual', noFim);
+    contexto.hidden = i !== 0;
+    avancar.hidden = noFim;
+    acoes.querySelector('.tecla').hidden = noFim;
+    voltar.hidden = i === 0;
+    avancar.textContent = i === passos.length - 1 ? 'Ver o pedido' : 'Continuar';
+    barra.style.width = (noFim ? 100 : (i / passos.length) * 100 + 4) + '%';
+    if (noFim){ preencheResumo(); document.getElementById('t-fim').focus({preventScroll:true}); }
+    else if (sentido !== 0){ var el = passos[i].querySelector('input'); el && el.focus({preventScroll:true}); }
+    window.scrollTo(0, 0);
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (atual >= passos.length) return;
+    var nome = passos[atual].dataset.campo;
+    if (!valida(nome)){ c[nome].focus(); return; }
+    mostra(atual + 1, 1);
+  });
+  voltar.addEventListener('click', function(){ if (atual > 0) mostra(atual - 1, -1); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && atual > 0 && atual < passos.length) mostra(atual - 1, -1);
+  });
+  mostra(0, 0);
+  if (window.matchMedia('(pointer:fine)').matches) c.empresa.focus({preventScroll:true});
+})();
+</script>
+</body>
+</html>

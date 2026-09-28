@@ -26,8 +26,10 @@ Parou no meio? Digite `o que falta?`.
 | 2 | `/mapear-empresa` | Estudo a fundo: a empresa, o mercado, o cliente, gargalos e oportunidades | 10 min |
 | 3 | `/mapear-concorrentes` | Quem disputa o seu cliente e onde está o espaço vazio | 6 min |
 | 4 | `/criar-oferta` | Proposta de valor, oferta e roteiro de venda | 6 min |
-| 5 | `/criar-pagina` | Página de vendas com a sua marca | 8 min |
-| 6 | `/criar-conteudo` | Pilares, 12 pautas, calendário e 1 carrossel pronto | 8 min |
+| 5 | `/criar-pagina` | Página de vendas completa com a sua marca, formulário de pedido e mapa | 10 min |
+| 6 | `/criar-conteudo` | Pilares, 12 pautas, calendário e 1 carrossel em imagens prontas para postar | 10 min |
+
+Sem site? Arraste um print do Instagram ou o logo para a conversa e digite `/marca`: tudo sai com as cores da sua empresa.
 
 Depois da fase 2, as fases 3 a 6 rodam em qualquer ordem. A cada fase, atualize o `RESULTADO.html` no navegador: uma seção nova aparece.
 
@@ -58,7 +60,6 @@ exemplo-forno-da-vila/  o exemplo pronto, só para consulta
 
 - Crie uma skill para a tarefa que você mais repete: `Use a skill-creator para criar uma skill que…`
 - Conecte a sua planilha de vendas pelo Google Drive (MCP) e solte relatórios em `dados/`.
-- Peça o carrossel em imagens: `gera as lâminas do carrossel em PNG`.
 - Corrija algo numa fase, rode de novo e veja o relatório mudar.
 - Ache skills prontas em [skills.sh](https://skills.sh).
 

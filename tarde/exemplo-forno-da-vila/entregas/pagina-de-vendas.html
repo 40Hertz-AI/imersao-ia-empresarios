@@ -5,208 +5,778 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Coffee break para empresas em Mogi das Cruzes | Forno da Vila</title>
 <meta name="description" content="Coffee break e cestas para empresas de Mogi das Cruzes, com pão de fermentação natural. Orçamento fechado em até 2 horas pelo WhatsApp.">
+<!-- Exemplo com empresa fictícia, criado para a imersão de IA (29/09/2026). -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --oliva:#4A5230;
+  --oliva-escuro:#3B4126;
   --tostado:#9A4A26;
+  --tostado-escuro:#7C3A1D;
   --farinha:#F1EFE7;
+  --papel:#FAF8F2;
+  --trigo:#E4DDCB;
+  --trigo-linha:#D3C9B0;
   --forno:#25231D;
-  --trigo:#E4DAC2;
-  --suave:#5E5A4E;
-  --titulo:'Newsreader', Georgia, serif;
-  --texto:'Figtree', system-ui, sans-serif;
+  --suave:#5B574B;
+  --claro:#E8E5D8;
+  --titulo:'Newsreader', Georgia, 'Times New Roman', serif;
+  --texto:'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --topo:64px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  interpolate-size:allow-keywords;
 }
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--farinha);color:var(--forno);font-family:var(--texto);font-size:17px;line-height:1.6}
-h1,h2,h3{font-family:var(--titulo);font-weight:500;line-height:1.12;margin:0;letter-spacing:-.01em}
-p{margin:0 0 1em}
-a{color:var(--tostado)}
-:focus-visible{outline:3px solid var(--tostado);outline-offset:3px}
-.faixa{padding:56px 22px}
-.miolo{max-width:980px;margin:0 auto}
-.estreito{max-width:620px}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+.fim-form h3:focus{outline:none}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--topo) + 16px)}
+body{margin:0;background:var(--farinha);color:var(--forno);font-family:var(--texto);font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--titulo);font-weight:400;line-height:1.08;margin:0;letter-spacing:-.015em;text-wrap:balance}
+p{margin:0 0 1em;text-wrap:pretty}
+a{color:var(--tostado);text-underline-offset:3px}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--tostado);outline-offset:3px;border-radius:3px}
+.miolo{max-width:1180px;margin:0 auto;padding:0 22px}
+.secao{padding:84px 0}
+.secao h2{font-size:clamp(2rem,4.4vw,3.3rem);color:var(--oliva);margin-bottom:18px}
+.lead{font-size:1.1rem;color:var(--suave);max-width:46ch}
+.confirmar{font-size:.8em;color:var(--suave);font-style:italic;white-space:nowrap}
+.pular{position:absolute;left:12px;top:-60px;background:var(--forno);color:#fff;padding:10px 14px;z-index:100;border-radius:4px}
+.pular:focus{top:12px}
 
-/* topo */
-.topo{padding:18px 22px;border-bottom:1px solid var(--trigo)}
-.topo .miolo{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
-.marca{font-family:var(--titulo);font-size:1.35rem;color:var(--oliva);text-decoration:none}
-.topo small{color:var(--suave);font-size:.85rem}
+/* botões */
+.botao{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--tostado);color:#fff;text-decoration:none;font-weight:600;padding:16px 26px;border-radius:999px;font-size:1rem;line-height:1.2;border:0;cursor:pointer;transition:background-color .2s}
+.botao:hover{background:var(--tostado-escuro)}
+.botao svg{flex:none}
+.botao-linha{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--oliva);border:1px solid var(--oliva);text-decoration:none;font-weight:600;padding:12px 20px;border-radius:999px;font-size:.95rem;cursor:pointer;transition:background-color .2s,color .2s}
+.botao-linha:hover{background:var(--oliva);color:var(--farinha)}
+.nota{display:block;margin-top:14px;font-size:.9rem;color:var(--suave)}
 
-.abre{padding-top:48px;padding-bottom:64px}
-.abre h1{font-size:clamp(2.3rem,8vw,4.4rem);color:var(--oliva);max-width:15ch;margin-bottom:22px}
-.abre .sub{font-size:1.12rem;color:var(--suave);max-width:46ch;margin-bottom:30px}
-.botao{display:inline-block;background:var(--tostado);color:#fff;text-decoration:none;font-weight:600;padding:16px 26px;border-radius:6px;font-size:1.02rem;text-align:center}
-.botao:hover{background:#7F3C1E}
-.nota-botao{display:block;margin-top:12px;font-size:.88rem;color:var(--suave)}
+/* topo fixo */
+.topo{position:fixed;inset:0 0 auto 0;height:var(--topo);z-index:50;background:rgba(241,239,231,.9);backdrop-filter:saturate(1.2) blur(10px);-webkit-backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+.topo.rolou{border-bottom-color:var(--trigo)}
+.topo .miolo{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nome{font-family:var(--titulo);font-size:1.45rem;color:var(--oliva);text-decoration:none;letter-spacing:-.01em;white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
+.nome svg{width:18px;height:18px}
+.topo nav{display:none;gap:26px;margin-left:auto}
+.topo nav a{color:var(--forno);text-decoration:none;font-size:.93rem}
+.topo nav a:hover{color:var(--tostado)}
+.topo .botao{padding:10px 18px;font-size:.9rem}
+main{padding-top:var(--topo)}
+
+/* hero */
+.hero{padding:56px 0 72px}
+.hero-grade{display:grid;gap:48px}
+.hero h1{font-size:clamp(2.55rem,6.2vw,5.1rem);color:var(--oliva);font-weight:350;line-height:1.02;letter-spacing:-.025em;max-width:13.5ch;margin-bottom:26px}
+.hero .sub{font-size:1.14rem;color:var(--suave);max-width:44ch;margin-bottom:32px}
+
+/* comanda do hero: o momento de motion */
+.comanda{position:relative;background:var(--papel);border:1px solid var(--trigo);border-radius:4px;padding:26px 24px 26px;box-shadow:0 30px 60px -40px rgba(37,35,29,.45);max-width:460px;width:100%;justify-self:start}
+.comanda::before{content:"";position:absolute;left:-1px;right:-1px;top:-7px;height:14px;background:radial-gradient(circle at 7px 0,var(--farinha) 6px,transparent 6.5px) 0 0/14px 14px repeat-x}
+.comanda-cab{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:18px;border-bottom:1px dashed var(--trigo-linha);margin-bottom:22px}
+.comanda-cab h2{font-size:1.35rem;color:var(--forno);margin:0}
+.comanda-cab p{margin:2px 0 0;font-size:.85rem;color:var(--suave)}
+.relogio{width:74px;height:74px;flex:none}
+.relogio .arco{stroke-dasharray:100;stroke-dashoffset:83.33;animation:arco 2.4s .35s var(--ease) both}
+.relogio .ponteiro{transform-origin:40px 40px;transform:rotate(60deg);animation:ponteiro 2.4s .35s var(--ease) both}
+@keyframes arco{from{stroke-dashoffset:100}to{stroke-dashoffset:83.33}}
+@keyframes ponteiro{from{transform:rotate(0)}to{transform:rotate(60deg)}}
+.linha{list-style:none;margin:0;padding:0;position:relative}
+.linha::before,.linha::after{content:"";position:absolute;left:9px;top:10px;width:2px;border-radius:2px}
+.linha::before{bottom:34px;background:var(--trigo)}
+.linha::after{bottom:34px;background:var(--oliva);transform-origin:top;animation:trilho 2.4s .35s var(--ease) both}
+@keyframes trilho{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.linha li{position:relative;padding:0 0 20px 38px;animation:acende .4s calc(.35s + var(--t)) ease-out both}
+.linha li:last-child{padding-bottom:0}
+.linha b{display:block;font-weight:600;font-size:1rem;line-height:1.35}
+.linha small{display:block;color:var(--suave);font-size:.88rem;line-height:1.45}
+.linha .ponto{position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;border:2px solid var(--oliva);background:var(--papel);display:grid;place-items:center;animation:ponto .35s calc(.35s + var(--t)) ease-out both}
+.linha .ponto svg{width:10px;height:10px;opacity:1}
+@keyframes acende{from{opacity:.35}to{opacity:1}}
+@keyframes ponto{from{background:var(--papel);transform:scale(.8)}to{background:var(--oliva);transform:scale(1)}}
+.linha li.conf b{color:var(--oliva)}
+.carimbo{display:inline-block;vertical-align:middle;margin:0 0 4px 12px;font-weight:400;line-height:1.1;font-family:var(--titulo);font-style:italic;font-size:1.15rem;color:var(--tostado);border:2px solid var(--tostado);border-radius:6px;padding:1px 10px 3px;transform:rotate(-7deg);opacity:.92;animation:carimbo .45s 2.55s cubic-bezier(.3,1.6,.5,1) both;background:rgba(250,248,242,.85)}
+@keyframes carimbo{from{opacity:0;transform:rotate(-7deg) scale(1.6)}to{opacity:.92;transform:rotate(-7deg) scale(1)}}
+.linha li.ultimo{animation-delay:2.95s}
+.linha li.ultimo .ponto{animation-delay:2.95s}
 
 /* problema */
-.dor{background:var(--oliva);color:var(--farinha)}
-.dor blockquote{margin:0 0 20px;font-family:var(--titulo);font-size:clamp(1.5rem,5vw,2.2rem);line-height:1.25;max-width:26ch}
-.dor cite{display:block;font-style:normal;font-size:.85rem;opacity:.75;margin-bottom:20px}
-.dor p{max-width:48ch;color:#E6E3D6}
+.dor{background:var(--oliva);color:var(--farinha);padding:96px 0}
+.dor-grade{display:grid;gap:36px}
+.dor blockquote{margin:0;font-family:var(--titulo);font-weight:300;font-size:clamp(1.8rem,4.2vw,3.1rem);line-height:1.18;letter-spacing:-.015em;max-width:24ch}
+.dor blockquote::before{content:"“";display:block;font-size:2.2em;line-height:.6;color:#C9C7A8;margin-bottom:6px}
+.dor cite{display:block;font-style:normal;font-size:.88rem;color:#CFCDB9;margin-top:22px}
+.dor .resposta{font-size:1.15rem;color:var(--claro);max-width:34ch;align-self:end}
 
-/* comanda: o elemento memorável */
-.pedido{display:grid;gap:36px}
-.pedido h2{font-size:clamp(1.8rem,5.5vw,2.6rem);color:var(--oliva);margin-bottom:14px}
-.comanda{background:#FBFAF6;border:1px solid var(--trigo);padding:26px 22px 22px;border-radius:4px;box-shadow:0 1px 0 var(--trigo),0 12px 30px -18px rgba(37,35,29,.35);position:relative}
-.comanda::before{content:"";position:absolute;left:0;right:0;top:-6px;height:12px;background:radial-gradient(circle at 6px 0,var(--farinha) 5px,transparent 5.5px) 0 0/12px 12px repeat-x}
-.comanda h3{font-size:1.25rem;margin-bottom:4px}
-.comanda .quem{font-size:.85rem;color:var(--suave);margin-bottom:18px}
-.comanda ol{margin:0 0 22px;padding:0;list-style:none;counter-reset:q}
-.comanda li{counter-increment:q;display:grid;grid-template-columns:28px 1fr;gap:8px;padding:11px 0;border-bottom:1px dashed #CFC4A8}
-.comanda li::before{content:counter(q);font-family:var(--titulo);color:var(--tostado);font-size:1.15rem;line-height:1.3}
-.comanda .botao{width:100%}
+/* como funciona */
+.funciona-grade{display:grid;gap:40px}
+.etapas{position:relative}
+.etapas ol{list-style:none;margin:0;padding:0}
+.etapas::before,.etapas .preenche{content:"";position:absolute;left:21px;top:22px;width:2px;background:var(--trigo);bottom:40px}
+.etapas .preenche{background:var(--oliva);bottom:auto;height:calc(100% - 62px);transform-origin:top;transform:scaleY(var(--p,1));transition:transform .6s var(--ease)}
+.etapa{position:relative;padding:0 0 36px 68px;transition:opacity .4s}
+.etapa:last-child{padding-bottom:0}
+.etapa-botao{all:unset;cursor:pointer;display:block;border-radius:4px}
+.etapa-botao:focus-visible{outline:2px solid var(--tostado);outline-offset:4px}
+.etapa .num{position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--farinha);border:2px solid var(--oliva);color:var(--oliva);font-family:var(--titulo);font-size:1.25rem;display:grid;place-items:center;transition:background-color .35s,color .35s}
+.etapa.acesa .num{background:var(--oliva);color:var(--farinha)}
+.etapa h3{font-size:clamp(1.45rem,2.4vw,1.9rem);color:var(--forno);padding-top:4px;margin-bottom:8px}
+.etapa p{color:var(--suave);max-width:44ch;margin:0}
+.js .etapa:not(.acesa){opacity:.45}
+.etapa.conf.acesa .num{background:var(--tostado);border-color:var(--tostado)}
 
-/* etapas */
-.etapas{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:0}
-.etapas li{padding:18px 0;border-top:1px solid var(--trigo);display:grid;gap:4px}
-.etapas b{font-family:var(--titulo);font-weight:500;font-size:1.3rem;color:var(--oliva)}
-.etapas span{color:var(--suave)}
-
-/* mesa */
+/* mesa / tamanhos */
 .mesa{background:var(--trigo)}
-.mesa h2{font-size:clamp(1.7rem,5vw,2.4rem);color:var(--oliva);margin-bottom:14px}
-.tamanhos{display:grid;gap:12px;margin:24px 0 18px}
-.tamanho{background:var(--farinha);border-radius:6px;padding:16px 18px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-.tamanho b{font-family:var(--titulo);font-weight:500;font-size:1.25rem}
-.tamanho span{color:var(--suave);font-size:.95rem;white-space:nowrap}
-.preco{font-size:.98rem}
+.mesa-grade{display:grid;gap:44px}
+.cardapio{list-style:none;padding:0;margin:26px 0 0;border-top:1px solid var(--trigo-linha)}
+.cardapio li{padding:12px 0;border-bottom:1px solid var(--trigo-linha);display:flex;justify-content:space-between;gap:16px}
+.pao{width:100%;max-width:320px;height:auto;margin-top:34px;display:block}
+.seletor{background:var(--papel);border-radius:6px;padding:28px 24px;box-shadow:0 30px 60px -45px rgba(37,35,29,.5)}
+.abas{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--farinha);border-radius:999px;padding:4px;margin-bottom:28px}
+.aba{border:0;background:transparent;border-radius:999px;padding:10px 6px;cursor:pointer;font-weight:600;font-size:.95rem;color:var(--suave);transition:background-color .25s,color .25s}
+.aba[aria-selected="true"]{background:var(--oliva);color:var(--farinha)}
+.aba small{display:block;font-weight:400;font-size:.76rem;opacity:.85}
+.contador{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.contador label{font-weight:600}
+.contador output{font-family:var(--titulo);font-size:2.6rem;line-height:1;color:var(--oliva)}
+input[type=range]{width:100%;accent-color:var(--oliva);height:28px;margin:0 0 18px;cursor:pointer}
+.lugares{display:grid;grid-template-columns:repeat(10,1fr);gap:8px;margin:0 0 22px;max-width:360px}
+.lugares span{aspect-ratio:1;border-radius:50%;background:transparent;border:1.5px solid var(--trigo-linha);transition:background-color .2s,border-color .2s}
+.lugares span.cap{border-color:var(--oliva)}
+.lugares span.on{background:var(--oliva);border-color:var(--oliva)}
+.indicado{font-size:1.08rem;margin-bottom:6px}
+.indicado b{font-family:var(--titulo);font-weight:500;font-size:1.3em;color:var(--oliva)}
+.aviso48{font-size:.92rem;color:var(--tostado);min-height:1.5em;margin-bottom:12px}
+.preco{font-size:.95rem;color:var(--suave);border-top:1px dashed var(--trigo-linha);padding-top:16px;margin:10px 0 18px}
 
-.prova{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-.prova b{font-family:var(--titulo);font-weight:500;font-size:3rem;color:var(--oliva);line-height:1}
+/* provas + oferta de entrada */
+.antes-grade{display:grid;gap:48px}
+.nota-google{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap}
+.nota-google .n{font-family:var(--titulo);font-weight:300;font-size:clamp(5rem,11vw,8.5rem);line-height:.85;color:var(--oliva);letter-spacing:-.03em}
+.nota-google p{margin:0;max-width:22ch;color:var(--suave)}
+.nota-google p b{color:var(--forno);font-weight:600}
+.estrelas{display:flex;gap:3px;margin-bottom:6px}
+.estrelas svg{width:16px;height:16px}
+.oferta{border-left:2px solid var(--tostado);padding:6px 0 6px 26px}
+.oferta h2{font-size:clamp(1.8rem,3.4vw,2.6rem)}
+.oferta p{max-width:44ch}
+
+/* formulário */
+.pedido{background:var(--oliva);color:var(--farinha)}
+.pedido h2{color:var(--farinha)}
+.pedido .lead{color:var(--claro)}
+.pedido-grade{display:grid;gap:40px;align-items:start}
+.pedido-lado a{color:#F3D9C8}
+.form{background:var(--papel);color:var(--forno);border-radius:6px;padding:28px 24px;box-shadow:0 40px 80px -50px rgba(0,0,0,.6)}
+.progresso{display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:.88rem;color:var(--suave);margin-bottom:10px}
+.barra{height:4px;background:var(--trigo);border-radius:4px;overflow:hidden;margin-bottom:26px}
+.barra i{display:block;height:100%;width:20%;background:var(--tostado);border-radius:4px;transition:width .4s var(--ease)}
+.passo{border:0;margin:0 0 26px;padding:0;min-width:0}
+.passo legend{font-family:var(--titulo);font-size:clamp(1.5rem,2.6vw,1.9rem);line-height:1.15;padding:0;margin-bottom:6px;color:var(--oliva)}
+.passo .dica{font-size:.9rem;color:var(--suave);margin:0 0 16px}
+.campo{width:100%;background:transparent;border:0;border-bottom:2px solid var(--trigo-linha);padding:10px 2px;font-size:1.2rem;border-radius:0;transition:border-color .2s;min-height:48px}
+.campo:focus{outline:none;border-bottom-color:var(--oliva)}
+.campo:focus-visible{outline:none;box-shadow:0 2px 0 0 var(--oliva)}
+.campo[aria-invalid="true"]{border-bottom-color:var(--tostado)}
+.erro{color:var(--tostado);font-size:.9rem;min-height:1.4em;margin:8px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.chip{border:1px solid var(--trigo-linha);background:transparent;border-radius:999px;padding:8px 14px;font-size:.92rem;cursor:pointer;transition:background-color .2s,border-color .2s}
+.chip[aria-pressed="true"]{background:var(--oliva);border-color:var(--oliva);color:var(--farinha)}
+.acoes{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.voltar{border:0;background:none;color:var(--suave);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:10px 4px}
+.voltar[hidden]{display:none}
+.js .form .passo:not(.atual){display:none}
+.js .form .passo.atual{animation:entra .26s var(--ease)}
+@keyframes entra{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+.resumo{margin:0 0 20px;padding:0}
+.resumo div{display:grid;grid-template-columns:110px 1fr auto;gap:10px;padding:10px 0;border-bottom:1px dashed var(--trigo-linha);align-items:baseline}
+.resumo dt{color:var(--suave);font-size:.9rem}
+.resumo dd{margin:0;font-weight:600;overflow-wrap:anywhere}
+.resumo button{border:0;background:none;color:var(--tostado);text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-size:.88rem;padding:4px}
+.fim-form{display:none}
+.js .fim-form.atual{display:block;animation:entra .26s var(--ease)}
+.fim-form h3{font-size:1.7rem;color:var(--oliva);margin-bottom:14px}
+.sem-js{font-size:.9rem;color:var(--suave)}
+.js .sem-js{display:none}
+
+/* mapa */
+.onde-grade{display:grid;gap:36px;align-items:center}
+.mapa{position:relative;height:360px;border-radius:14px;overflow:hidden;background:#E7E3D5;border:1px solid var(--trigo)}
+.mapa svg.fundo{position:absolute;inset:0;width:100%;height:100%}
+.mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0;opacity:0;transition:opacity .6s}
+.mapa iframe.carregou{opacity:1}
+.mapa:not(.ok) .mapa-selo{display:none}
+.mapa-selo{position:absolute;left:14px;bottom:14px;z-index:2;background:var(--papel);color:var(--forno);font-size:.85rem;font-weight:600;padding:7px 12px;border-radius:999px;box-shadow:0 6px 16px -8px rgba(37,35,29,.4);pointer-events:none}
+.onde p.local{font-size:1.15rem}
 
 /* perguntas */
-.perguntas h2{font-size:clamp(1.7rem,5vw,2.4rem);color:var(--oliva);margin-bottom:10px}
-details{border-top:1px solid var(--trigo);padding:16px 0}
-details:last-of-type{border-bottom:1px solid var(--trigo)}
-summary{cursor:pointer;font-weight:600;font-size:1.02rem;list-style-position:outside}
-details p{margin:10px 0 0;color:var(--suave)}
+.perguntas-grade{display:grid;gap:36px}
+.faq details{border-top:1px solid var(--trigo-linha)}
+.faq details:last-of-type{border-bottom:1px solid var(--trigo-linha)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:var(--titulo);font-size:clamp(1.25rem,2.2vw,1.55rem);line-height:1.25}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .mais{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--oliva);position:relative;transition:transform .3s var(--ease),background-color .3s}
+.faq summary .mais::before,.faq summary .mais::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:var(--oliva);transform:translate(-50%,-50%)}
+.faq summary .mais::after{transform:translate(-50%,-50%) rotate(90deg);transition:opacity .3s}
+.faq details[open] .mais{transform:rotate(180deg);background:var(--oliva)}
+.faq details[open] .mais::before{background:var(--farinha)}
+.faq details[open] .mais::after{opacity:0}
+.faq details::details-content{block-size:0;overflow:hidden;transition:block-size .35s var(--ease),content-visibility .35s allow-discrete}
+.faq details[open]::details-content{block-size:auto}
+.faq details p{color:var(--suave);max-width:52ch;margin:0 0 24px}
 
-.garantia{border-left:3px solid var(--tostado);padding:4px 0 4px 16px;margin:32px 0 0;max-width:52ch}
+.garantia{margin-top:64px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;background:var(--papel);border-radius:6px;padding:28px 26px}
+.garantia svg{width:54px;height:54px}
+.garantia h3{font-size:1.5rem;color:var(--oliva);margin-bottom:6px}
+.garantia p{margin:0;max-width:52ch}
 
-.fim{background:var(--oliva);color:var(--farinha);text-align:left}
-.fim h2{font-size:clamp(1.9rem,6vw,3rem);max-width:18ch;margin-bottom:16px}
-.fim p{color:#E6E3D6;max-width:44ch}
-.fim .nota-botao{color:#D6D2C2}
-.rodape{padding:22px;font-size:.8rem;color:var(--suave)}
+/* final */
+.final{background:var(--oliva);color:var(--farinha);padding:110px 0 100px}
+.final h2{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:300;color:var(--farinha);max-width:14ch;margin-bottom:18px;letter-spacing:-.025em}
+.final p{color:var(--claro);font-size:1.15rem;max-width:40ch;margin-bottom:30px}
+.final .nota{color:#D7D4C3}
+.final .botao-linha{color:var(--farinha);border-color:rgba(241,239,231,.6)}
+.final .botao-linha:hover{background:var(--farinha);color:var(--oliva)}
+.final-acoes{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.rodape{background:var(--oliva-escuro);color:#CFCDB9;font-size:.86rem;padding:30px 0}
+.rodape .miolo{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px}
+.rodape a{color:#E9D2C3}
 
-@media (min-width:760px){
-  .faixa{padding:88px 40px}
-  .pedido{grid-template-columns:1fr 380px;align-items:start}
-  .tamanhos{grid-template-columns:repeat(3,1fr)}
-  .tamanho{flex-direction:column;gap:2px}
-  .etapas li{grid-template-columns:260px 1fr;gap:24px}
+@media (min-width:860px){
+  .miolo{padding:0 40px}
+  .secao{padding:128px 0}
+  .topo nav{display:flex}
+  .hero{padding:88px 0 120px}
+  .hero-grade{grid-template-columns:1.2fr .8fr;align-items:center;gap:64px}
+  .comanda{justify-self:end;padding:30px 30px 30px}
+  .dor{padding:140px 0}
+  .dor-grade{grid-template-columns:1.5fr 1fr;gap:80px}
+  .funciona-grade{grid-template-columns:.85fr 1.15fr;gap:80px}
+  .funciona-intro{position:sticky;top:calc(var(--topo) + 48px);align-self:start}
+  .mesa-grade{grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .seletor{padding:36px 36px}
+  .antes-grade{grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .pedido-grade{grid-template-columns:.8fr 1.2fr;gap:80px}
+  .form{padding:40px 44px}
+  .onde-grade{grid-template-columns:.8fr 1.2fr;gap:64px}
+  .perguntas-grade{grid-template-columns:.8fr 1.2fr;gap:80px}
+  .garantia{padding:36px 40px}
 }
-@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+@media (max-width:420px){
+  .topo .botao{padding:9px 14px;font-size:.85rem}
+  .nome{font-size:1.3rem}
+  .resumo div{grid-template-columns:1fr auto}
+  .resumo dt{grid-column:1/-1}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
 </style>
 </head>
 <body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-<header class="topo">
+<!-- WhatsApp: o número da empresa é fictício, então os links abrem o WhatsApp para escolher o contato.
+     trocar pelo número real: https://wa.me/55DDDNUMERO?text= -->
+
+<header class="topo" id="topo">
   <div class="miolo">
-    <a class="marca" href="#">Forno da Vila</a>
-    <small>Padaria de fermentação natural em Mogi das Cruzes</small>
+    <a class="nome" href="#inicio" aria-label="Forno da Vila, voltar ao início">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2c3 3 3 13 0 16C7 15 7 5 10 2Z" fill="none" stroke="#9A4A26" stroke-width="1.4"/><path d="M10 5v12" stroke="#9A4A26" stroke-width="1"/></svg>
+      Forno da Vila
+    </a>
+    <nav aria-label="Seções da página">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#mesa">O que vai na mesa</a>
+      <a href="#onde">Onde atendemos</a>
+      <a href="#perguntas">Perguntas</a>
+    </nav>
+    <a class="botao" href="#pedido">Pedir orçamento</a>
   </div>
 </header>
 
-<main>
-<section class="faixa abre">
-  <div class="miolo">
-    <h1>Café da reunião com pão de verdade, confirmado em 2 horas</h1>
-    <p class="sub">Coffee break e cestas para empresas de Mogi das Cruzes, com pão de fermentação natural feito na nossa padaria. Orçamento fechado em até 2 horas.</p>
-    <a class="botao" href="https://wa.me/5511900000000?text=Ol%C3%A1%2C%20Forno%20da%20Vila!%20Quero%20um%20or%C3%A7amento%20de%20coffee%20break.%20Empresa%3A%20%20%7C%20Data%3A%20%20%7C%20Hor%C3%A1rio%3A%20%20%7C%20Pessoas%3A%20%20%7C%20Restri%C3%A7%C3%B5es%3A%20">Pedir orçamento pelo WhatsApp</a>
-    <span class="nota-botao">Grátis e sem compromisso. Resposta em até 2 horas, em horário comercial.</span>
-  </div>
-</section>
+<main id="conteudo">
 
-<section class="faixa dor">
-  <div class="miolo">
-    <blockquote>"Mandei mensagem na segunda e só me responderam na quinta. Tive que correr atrás de outro lugar."</blockquote>
-    <cite>Frase de cliente (fictícia)</cite>
-    <p>Quem organiza o café da reunião não precisa de mais uma pendência. Precisa saber, cedo, que está resolvido.</p>
-  </div>
-</section>
-
-<section class="faixa">
-  <div class="miolo pedido">
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="miolo hero-grade">
     <div>
+      <h1>Café da reunião com pão de verdade, confirmado em 2 horas</h1>
+      <p class="sub">Coffee break e cestas para empresas de Mogi das Cruzes, com pão de fermentação natural feito na nossa padaria. Orçamento fechado em até 2 horas.</p>
+      <a class="botao" data-whats href="https://wa.me/?text=Ol%C3%A1%2C%20Forno%20da%20Vila!%20Quero%20um%20or%C3%A7amento%20de%20coffee%20break." target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.8-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></svg>
+        Pedir orçamento pelo WhatsApp
+      </a>
+      <span class="nota">Grátis e sem compromisso. Resposta em até 2 horas, em horário comercial.</span>
+    </div>
+
+    <!-- O momento de motion: o caminho do pedido até "confirmado", com o relógio marcando as 2 horas -->
+    <aside class="comanda" aria-label="Como um pedido fica confirmado">
+      <div class="comanda-cab">
+        <div>
+          <h2>Pedido Confirmado</h2>
+          <p>Do WhatsApp à mesa montada</p>
+        </div>
+        <svg class="relogio" viewBox="0 0 80 80" role="img" aria-label="Relógio marcando 2 horas">
+          <circle cx="40" cy="40" r="31" fill="none" stroke="#E4DDCB" stroke-width="1"/>
+          <g stroke="#B5AB90" stroke-width="1.2">
+            <line x1="40" y1="11" x2="40" y2="15"/><line x1="54.5" y1="14.9" x2="52.5" y2="18.4"/><line x1="65.1" y1="25.5" x2="61.6" y2="27.5"/><line x1="69" y1="40" x2="65" y2="40"/><line x1="65.1" y1="54.5" x2="61.6" y2="52.5"/><line x1="54.5" y1="65.1" x2="52.5" y2="61.6"/><line x1="40" y1="69" x2="40" y2="65"/><line x1="25.5" y1="65.1" x2="27.5" y2="61.6"/><line x1="14.9" y1="54.5" x2="18.4" y2="52.5"/><line x1="11" y1="40" x2="15" y2="40"/><line x1="14.9" y1="25.5" x2="18.4" y2="27.5"/><line x1="25.5" y1="14.9" x2="27.5" y2="18.4"/>
+          </g>
+          <circle class="arco" cx="40" cy="40" r="24" fill="none" stroke="#9A4A26" stroke-width="6" pathLength="100" transform="rotate(-90 40 40)" opacity=".85"/>
+          <line class="ponteiro" x1="40" y1="40" x2="40" y2="18" stroke="#25231D" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="40" cy="40" r="2.6" fill="#25231D"/>
+        </svg>
+      </div>
+      <ol class="linha">
+        <li style="--t:0s"><span class="ponto" aria-hidden="true"></span><b>Você manda 5 respostas</b><small>Empresa, data, horário, pessoas e restrições.</small></li>
+        <li style="--t:.8s"><span class="ponto" aria-hidden="true"></span><b>Orçamento por escrito</b><small>O que vai na mesa e o preço fechado, em até 2 horas.</small></li>
+        <li style="--t:1.9s" class="conf"><span class="ponto" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M1.5 5.2 4 7.5 8.5 2.5" fill="none" stroke="#F1EFE7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Confirmado <span class="carimbo" aria-hidden="true">confirmado</span></b><small>Na nossa agenda, com o horário.</small></li>
+        <li style="--t:2.6s" class="ultimo"><span class="ponto" aria-hidden="true"></span><b>Mesa montada</b><small>Chega com folga, e mandamos a foto.</small></li>
+      </ol>
+    </aside>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="dor" aria-label="O problema">
+  <div class="miolo dor-grade">
+    <figure style="margin:0">
+      <blockquote>Mandei mensagem na segunda e só me responderam na quinta. Tive que correr atrás de outro lugar.</blockquote>
+      <figcaption><cite>Frase de cliente (fictícia)</cite></figcaption>
+    </figure>
+    <p class="resposta">Quem organiza o café da reunião não precisa de mais uma pendência. Precisa saber, cedo, que está resolvido.</p>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="secao" id="como-funciona">
+  <div class="miolo funciona-grade">
+    <div class="funciona-intro">
       <h2>Como funciona o Pedido Confirmado</h2>
-      <p class="estreito">Quatro passos, do WhatsApp até a mesa montada.</p>
-      <ol class="etapas">
-        <li><b>1. Cinco perguntas</b><span>Você responde pelo WhatsApp: empresa, data, horário, pessoas e restrições.</span></li>
-        <li><b>2. Orçamento em 2 horas</b><span>Por escrito, com o que vai na mesa e o preço fechado.</span></li>
-        <li><b>3. Confirmado</b><span>O pedido entra na nossa agenda e você recebe a confirmação com o horário.</span></li>
-        <li><b>4. Mesa no horário</b><span>O café chega com folga, e mandamos a foto da mesa montada.</span></li>
-      </ol>
+      <p class="lead">Quatro passos, do WhatsApp até a mesa montada. Você sabe em que ponto o seu pedido está.</p>
     </div>
-    <div class="comanda">
-      <h3>Seu pedido</h3>
-      <p class="quem">A mensagem já vai pronta. É só completar.</p>
+    <div class="etapas" data-etapas>
+      <span class="preenche" aria-hidden="true"></span>
       <ol>
-        <li>Nome da empresa</li>
-        <li>Data da reunião</li>
-        <li>Horário em que o café precisa estar na mesa</li>
-        <li>Número de pessoas</li>
-        <li>Restrições (glúten, lactose)</li>
+        <li class="etapa acesa"><span class="num" aria-hidden="true">1</span><h3><button type="button" class="etapa-botao">Cinco perguntas</button></h3><p>Você responde pelo WhatsApp: empresa, data, horário, pessoas e restrições.</p></li>
+        <li class="etapa acesa"><span class="num" aria-hidden="true">2</span><h3><button type="button" class="etapa-botao">Orçamento em 2 horas</button></h3><p>Por escrito, com o que vai na mesa e o preço fechado.</p></li>
+        <li class="etapa acesa conf"><span class="num" aria-hidden="true">3</span><h3><button type="button" class="etapa-botao">Confirmado</button></h3><p>O pedido entra na nossa agenda e você recebe “confirmado”, com o horário.</p></li>
+        <li class="etapa acesa"><span class="num" aria-hidden="true">4</span><h3><button type="button" class="etapa-botao">Mesa no horário</button></h3><p>O café chega com folga, e mandamos a foto da mesa montada.</p></li>
       </ol>
-      <a class="botao" href="https://wa.me/5511900000000?text=Ol%C3%A1%2C%20Forno%20da%20Vila!%20Quero%20um%20or%C3%A7amento%20de%20coffee%20break.%20Empresa%3A%20%20%7C%20Data%3A%20%20%7C%20Hor%C3%A1rio%3A%20%20%7C%20Pessoas%3A%20%20%7C%20Restri%C3%A7%C3%B5es%3A%20">Mandar pelo WhatsApp</a>
     </div>
   </div>
 </section>
 
-<section class="faixa mesa">
+<!-- O QUE VAI NA MESA -->
+<section class="secao mesa" id="mesa">
+  <div class="miolo mesa-grade">
+    <div>
+      <h2>O que vai na mesa</h2>
+      <p class="lead">Pão feito na casa, com massa que descansa desde a véspera. O cardápio de cada pedido vem escrito no orçamento.</p>
+      <ul class="cardapio">
+        <li>Pães de fermentação natural da casa</li>
+        <li>Manteiga e pastas <span class="confirmar">a confirmar</span></li>
+        <li>Bolo do dia <span class="confirmar">a confirmar</span></li>
+        <li>Frutas <span class="confirmar">a confirmar</span></li>
+        <li>Café e suco <span class="confirmar">a confirmar</span></li>
+      </ul>
+      <svg class="pao" viewBox="0 0 320 170" aria-hidden="true">
+        <g fill="none" stroke="#4A5230" stroke-width="1.1" stroke-linecap="round" opacity=".55">
+          <path d="M128 38c-6-8 6-14 0-22"/><path d="M160 34c-6-8 6-14 0-22"/><path d="M192 38c-6-8 6-14 0-22"/>
+        </g>
+        <path d="M34 138C30 88 92 52 160 52s132 36 126 86c-1 9-12 12-126 12S35 147 34 138Z" fill="#EFE8D6" stroke="#4A5230" stroke-width="1.3"/>
+        <path d="M78 116c24-30 86-48 148-30" fill="none" stroke="#9A4A26" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M84 121c26-26 82-40 136-26" fill="none" stroke="#4A5230" stroke-width=".7" opacity=".45"/>
+        <g fill="#4A5230" opacity=".35"><circle cx="120" cy="80" r="1.1"/><circle cx="150" cy="70" r="1"/><circle cx="196" cy="74" r="1.2"/><circle cx="232" cy="92" r="1"/><circle cx="104" cy="98" r="1"/><circle cx="170" cy="64" r="1.1"/></g>
+        <path d="M14 152h292" stroke="#4A5230" stroke-width="1" opacity=".4"/>
+      </svg>
+    </div>
+
+    <div class="seletor" data-tamanhos>
+      <div class="abas" role="tablist" aria-label="Tamanhos do coffee break">
+        <button class="aba" role="tab" type="button" data-max="10" aria-selected="false">Reunião<small>até 10</small></button>
+        <button class="aba" role="tab" type="button" data-max="25" aria-selected="true">Equipe<small>até 25</small></button>
+        <button class="aba" role="tab" type="button" data-max="40" aria-selected="false">Treinamento<small>até 40</small></button>
+      </div>
+      <div class="contador">
+        <label for="qtd">Quantas pessoas vão à mesa?</label>
+        <output for="qtd" id="qtd-saida">18</output>
+      </div>
+      <input type="range" id="qtd" min="10" max="40" step="1" value="18" aria-describedby="indicado">
+      <div class="lugares" aria-hidden="true" data-lugares></div>
+      <p class="indicado" id="indicado" aria-live="polite">Para 18 pessoas, o tamanho indicado é <b>Equipe</b>, até 25 pessoas.</p>
+      <p class="aviso48" data-aviso48></p>
+      <p class="preco">Pedidos de R$ 180 a R$ 600, conforme o tamanho e o cardápio. O preço do seu pedido vem fechado no orçamento.</p>
+      <a class="botao-linha" href="#pedido" data-usar>Pedir para 18 pessoas</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROVAS + OFERTA DE ENTRADA -->
+<section class="secao" aria-label="Antes do primeiro pedido">
+  <div class="miolo antes-grade">
+    <div class="nota-google">
+      <span class="n">4,8</span>
+      <div>
+        <div class="estrelas" aria-hidden="true">
+          <svg viewBox="0 0 16 16"><path d="m8 1.5 1.9 4.1 4.5.5-3.4 3 1 4.4L8 11.2l-4 2.3 1-4.4-3.4-3 4.5-.5Z" fill="#9A4A26"/></svg><svg viewBox="0 0 16 16"><path d="m8 1.5 1.9 4.1 4.5.5-3.4 3 1 4.4L8 11.2l-4 2.3 1-4.4-3.4-3 4.5-.5Z" fill="#9A4A26"/></svg><svg viewBox="0 0 16 16"><path d="m8 1.5 1.9 4.1 4.5.5-3.4 3 1 4.4L8 11.2l-4 2.3 1-4.4-3.4-3 4.5-.5Z" fill="#9A4A26"/></svg><svg viewBox="0 0 16 16"><path d="m8 1.5 1.9 4.1 4.5.5-3.4 3 1 4.4L8 11.2l-4 2.3 1-4.4-3.4-3 4.5-.5Z" fill="#9A4A26"/></svg><svg viewBox="0 0 16 16"><path d="m8 1.5 1.9 4.1 4.5.5-3.4 3 1 4.4L8 11.2l-4 2.3 1-4.4-3.4-3 4.5-.5Z" fill="#9A4A26" opacity=".35"/></svg>
+        </div>
+        <p><b>no Google, com 212 avaliações</b> de quem compra no nosso balcão. Nota e avaliações fictícias, deste exemplo.</p>
+      </div>
+    </div>
+    <div class="oferta">
+      <h2>Orçamento em 2 horas, grátis e sem compromisso</h2>
+      <p>Mande as 5 respostas e receba o orçamento fechado, por escrito, em até 2 horas, em horário comercial.</p>
+      <p>Escritórios a até 2 km podem pedir uma caixa-degustação para a equipe provar antes. <span class="confirmar">a confirmar</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULÁRIO -->
+<section class="secao pedido" id="pedido">
+  <div class="miolo pedido-grade">
+    <div class="pedido-lado">
+      <h2>Faça o pedido aqui</h2>
+      <p class="lead">As mesmas 5 perguntas do WhatsApp. No fim, a mensagem abre pronta para você enviar.</p>
+      <p class="lead">Prefere uma página só com o pedido? <a href="formulario.html">Abrir o pedido em tela cheia</a>.</p>
+    </div>
+
+    <form class="form" id="form-pedido" novalidate>
+      <div class="progresso"><span data-rotulo aria-live="polite">Pergunta 1 de 5</span><span>Leva 1 minuto</span></div>
+      <div class="barra" aria-hidden="true"><i data-barra></i></div>
+
+      <fieldset class="passo atual" data-campo="empresa">
+        <legend>Qual é o nome da empresa?</legend>
+        <p class="dica">É assim que o pedido aparece na nossa agenda.</p>
+        <input class="campo" id="f-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Ex.: Contabilidade Silva" aria-describedby="e-empresa">
+        <p class="erro" id="e-empresa"></p>
+      </fieldset>
+
+      <fieldset class="passo" data-campo="data">
+        <legend>Para que dia é o café?</legend>
+        <p class="dica">Para mais de 25 pessoas, pedimos 48 horas de antecedência.</p>
+        <input class="campo" id="f-data" name="data" type="date" aria-describedby="e-data">
+        <p class="erro" id="e-data"></p>
+      </fieldset>
+
+      <fieldset class="passo" data-campo="horario">
+        <legend>A que horas o café precisa estar na mesa?</legend>
+        <p class="dica">Chegamos com folga antes desse horário.</p>
+        <input class="campo" id="f-horario" name="horario" type="time" step="900" aria-describedby="e-horario">
+        <p class="erro" id="e-horario"></p>
+      </fieldset>
+
+      <fieldset class="passo" data-campo="pessoas">
+        <legend>Quantas pessoas?</legend>
+        <p class="dica">Até 10 é o tamanho Reunião, até 25 é Equipe, até 40 é Treinamento.</p>
+        <input class="campo" id="f-pessoas" name="pessoas" type="number" inputmode="numeric" min="1" max="40" placeholder="Ex.: 18" aria-describedby="e-pessoas">
+        <p class="erro" id="e-pessoas"></p>
+      </fieldset>
+
+      <fieldset class="passo" data-campo="restricoes">
+        <legend>Alguém tem restrição?</legend>
+        <p class="dica">Marque o que vale para o grupo ou escreva.</p>
+        <div class="chips" data-chips>
+          <button type="button" class="chip" aria-pressed="false" data-valor="nenhuma">Nenhuma</button>
+          <button type="button" class="chip" aria-pressed="false" data-valor="sem glúten">Sem glúten</button>
+          <button type="button" class="chip" aria-pressed="false" data-valor="sem lactose">Sem lactose</button>
+        </div>
+        <input class="campo" id="f-restricoes" name="restricoes" type="text" placeholder="Outra restrição (opcional)" aria-describedby="e-restricoes">
+        <p class="erro" id="e-restricoes"></p>
+      </fieldset>
+
+      <div class="fim-form" data-fim>
+        <h3>Confira o pedido</h3>
+        <dl class="resumo" data-resumo></dl>
+        <a class="botao" data-enviar href="https://wa.me/" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+          Enviar pedido pelo WhatsApp
+        </a>
+        <span class="nota">Abre o WhatsApp com a mensagem pronta. Nada é enviado antes de você tocar em enviar.</span>
+      </div>
+
+      <div class="acoes" data-acoes>
+        <button type="button" class="voltar" data-voltar hidden>Voltar</button>
+        <button type="submit" class="botao" data-avancar>Continuar</button>
+      </div>
+      <p class="sem-js">Sem JavaScript, responda as 5 perguntas direto no WhatsApp pelo botão do topo.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ONDE ATENDEMOS -->
+<section class="secao onde" id="onde">
+  <div class="miolo onde-grade">
+    <div>
+      <h2>Onde atendemos</h2>
+      <p class="local">Entregamos em Mogi das Cruzes · retirada no balcão <span class="confirmar">endereço a confirmar</span></p>
+      <p class="lead">A entrega na cidade vem somada no orçamento, junto com o horário de chegada.</p>
+    </div>
+    <div class="mapa" data-mapa>
+      <svg class="fundo" viewBox="0 0 600 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="600" height="360" fill="#E7E3D5"/>
+        <g fill="#DCD6C2"><rect x="40" y="40" width="120" height="80" rx="6"/><rect x="190" y="30" width="90" height="70" rx="6"/><rect x="330" y="50" width="140" height="60" rx="6"/><rect x="60" y="220" width="110" height="90" rx="6"/><rect x="400" y="230" width="150" height="80" rx="6"/><rect x="210" y="250" width="120" height="70" rx="6"/></g>
+        <path d="M-10 160C90 130 160 190 260 170S430 120 610 150" fill="none" stroke="#C9D0BA" stroke-width="16" stroke-linecap="round"/>
+        <g fill="none" stroke="#F6F4EC" stroke-width="7" stroke-linecap="round"><path d="M0 205H600"/><path d="M300 0V360"/><path d="M0 60 600 330"/><path d="M180 0 140 360"/><path d="M470 0 520 360"/></g>
+        <g fill="none" stroke="#F6F4EC" stroke-width="3"><path d="M0 110H600"/><path d="M0 290H600"/><path d="M400 0V360"/><path d="M80 0V360"/></g>
+        <circle cx="300" cy="190" r="46" fill="#4A5230" opacity=".08"/>
+        <path d="M300 204c-10-14-16-22-16-30a16 16 0 0 1 32 0c0 8-6 16-16 30Z" fill="#9A4A26"/>
+        <circle cx="300" cy="174" r="5.5" fill="#F1EFE7"/>
+        <text x="300" y="236" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="22" fill="#25231D">Mogi das Cruzes</text>
+        <text x="300" y="256" text-anchor="middle" font-family="Figtree, sans-serif" font-size="12" fill="#5B574B">São Paulo</text>
+      </svg>
+      <span class="mapa-selo">Mogi das Cruzes, SP</span>
+      <iframe title="Mapa de Mogi das Cruzes, cidade onde a Forno da Vila entrega" src="https://www.google.com/maps?q=Mogi+das+Cruzes,+SP&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-iframe></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- PERGUNTAS + GARANTIA -->
+<section class="secao" id="perguntas" style="padding-top:0">
   <div class="miolo">
-    <h2>O que vai na mesa</h2>
-    <p class="estreito">Pães de fermentação natural da casa, manteiga e pastas, bolo do dia, frutas, café e suco.</p>
-    <div class="tamanhos">
-      <div class="tamanho"><b>Reunião</b><span>até 10 pessoas</span></div>
-      <div class="tamanho"><b>Equipe</b><span>até 25 pessoas</span></div>
-      <div class="tamanho"><b>Treinamento</b><span>até 40 pessoas</span></div>
+    <div class="perguntas-grade">
+      <h2>Perguntas de quem pede pela primeira vez</h2>
+      <div class="faq">
+        <details>
+          <summary>Vocês demoram para responder?<span class="mais" aria-hidden="true"></span></summary>
+          <p>O orçamento sai em até 2 horas, em horário comercial.</p>
+        </details>
+        <details>
+          <summary>Uma padaria de bairro dá conta de 30 pessoas?<span class="mais" aria-hidden="true"></span></summary>
+          <p>Com 48 horas de antecedência, sim. A quantidade por pessoa vem escrita no orçamento.</p>
+        </details>
+        <details>
+          <summary>Não sai mais caro que um buffet?<span class="mais" aria-hidden="true"></span></summary>
+          <p>Às vezes sai mais barato, às vezes não. Aqui o preço é fechado e o pão é feito na casa.</p>
+        </details>
+      </div>
     </div>
-    <p class="preco">Pedidos de R$ 180 a R$ 600, conforme o tamanho e o cardápio. O preço vem fechado no orçamento.</p>
-    <div class="prova">
-      <b>4,8</b>
-      <span>no Google, com 212 avaliações de quem compra no balcão (números fictícios)</span>
+
+    <div class="garantia">
+      <svg viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="25" fill="none" stroke="#9A4A26" stroke-width="1.4"/><circle cx="27" cy="27" r="19" fill="none" stroke="#9A4A26" stroke-width=".8" stroke-dasharray="2 3"/><path d="M27 15v12l8 5" fill="none" stroke="#4A5230" stroke-width="2" stroke-linecap="round"/></svg>
+      <div>
+        <h3>Garantia de horário</h3>
+        <p>Se o café chegar depois do horário combinado, o próximo pedido sai com 10% de desconto.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="faixa perguntas">
-  <div class="miolo estreito">
-    <h2>Perguntas de quem pede pela primeira vez</h2>
-    <details>
-      <summary>Vocês demoram para responder?</summary>
-      <p>O orçamento sai em até 2 horas, em horário comercial.</p>
-    </details>
-    <details>
-      <summary>Uma padaria de bairro dá conta de 30 pessoas?</summary>
-      <p>Com 48 horas de antecedência, sim. A quantidade por pessoa vem escrita no orçamento.</p>
-    </details>
-    <details>
-      <summary>Não sai mais caro que um buffet?</summary>
-      <p>Às vezes sai mais barato, às vezes não. Aqui o preço é fechado e o pão é feito na casa.</p>
-    </details>
-    <p class="garantia">Se o café chegar depois do horário combinado, o próximo pedido sai com 10% de desconto.</p>
-  </div>
-</section>
-
-<section class="faixa fim">
+<!-- CHAMADA FINAL -->
+<section class="final" aria-label="Chamada final">
   <div class="miolo">
     <h2>Tem reunião esta semana?</h2>
     <p>Mande as 5 respostas e receba o orçamento hoje.</p>
-    <a class="botao" href="https://wa.me/5511900000000?text=Ol%C3%A1%2C%20Forno%20da%20Vila!%20Quero%20um%20or%C3%A7amento%20de%20coffee%20break.%20Empresa%3A%20%20%7C%20Data%3A%20%20%7C%20Hor%C3%A1rio%3A%20%20%7C%20Pessoas%3A%20%20%7C%20Restri%C3%A7%C3%B5es%3A%20">Pedir orçamento pelo WhatsApp</a>
-    <span class="nota-botao">Escritórios a até 2 km podem pedir uma caixa-degustação para a equipe provar antes.</span>
+    <div class="final-acoes">
+      <a class="botao" data-whats href="https://wa.me/?text=Ol%C3%A1%2C%20Forno%20da%20Vila!%20Quero%20um%20or%C3%A7amento%20de%20coffee%20break." target="_blank" rel="noopener">Pedir orçamento pelo WhatsApp</a>
+      <a class="botao-linha" href="#pedido">Responder aqui na página</a>
+    </div>
+    <span class="nota">Grátis e sem compromisso.</span>
   </div>
 </section>
 </main>
 
 <footer class="rodape">
-  <div class="miolo">Página de exemplo com empresa fictícia, feita para a imersão. Número de WhatsApp fictício.</div>
+  <div class="miolo">
+    <span>Forno da Vila, padaria de fermentação natural em Mogi das Cruzes (fictícia). Instagram @fornodavila.exemplo (fictício).</span>
+    <span>Exemplo fictício criado para a imersão de IA · Lucas Santana</span>
+  </div>
 </footer>
 
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* topo: linha discreta depois de rolar */
+  var topo = document.getElementById('topo');
+  function marcaTopo(){ topo.classList.toggle('rolou', window.scrollY > 8); }
+
+  /* COMO FUNCIONA: a linha acende conforme o scroll ou o clique */
+  var lista = document.querySelector('[data-etapas]');
+  var etapas = Array.prototype.slice.call(lista.querySelectorAll('.etapa'));
+  var preenche = lista.querySelector('.preenche');
+  function acende(ate){
+    etapas.forEach(function(el,i){ el.classList.toggle('acesa', i <= ate); });
+    var p = etapas.length > 1 ? Math.max(0, ate) / (etapas.length - 1) : 1;
+    preenche.style.setProperty('--p', p);
+  }
+  function pelaRolagem(){
+    var limite = window.innerHeight * 0.62, ate = -1;
+    etapas.forEach(function(el,i){ if (el.getBoundingClientRect().top < limite) ate = i; });
+    acende(Math.max(ate, 0));
+  }
+  etapas.forEach(function(el,i){
+    el.querySelector('.etapa-botao').addEventListener('click', function(){ acende(i); });
+  });
+
+  var agendado = false;
+  window.addEventListener('scroll', function(){
+    if (agendado) return; agendado = true;
+    requestAnimationFrame(function(){ agendado = false; marcaTopo(); pelaRolagem(); });
+  }, {passive:true});
+  marcaTopo(); pelaRolagem();
+
+  /* TAMANHOS: abas + slider de pessoas */
+  var tamanhos = [{nome:'Reunião',max:10},{nome:'Equipe',max:25},{nome:'Treinamento',max:40}];
+  function tamanhoPara(n){ for (var i=0;i<tamanhos.length;i++){ if (n <= tamanhos[i].max) return tamanhos[i]; } return tamanhos[2]; }
+  var range = document.getElementById('qtd');
+  var saida = document.getElementById('qtd-saida');
+  var indicado = document.getElementById('indicado');
+  var aviso = document.querySelector('[data-aviso48]');
+  var usar = document.querySelector('[data-usar]');
+  var abas = Array.prototype.slice.call(document.querySelectorAll('.aba'));
+  var lugares = document.querySelector('[data-lugares]');
+  for (var k=0;k<40;k++){ lugares.appendChild(document.createElement('span')); }
+  var pontos = lugares.children;
+  function atualizaTamanho(){
+    var n = parseInt(range.value,10), t = tamanhoPara(n);
+    saida.textContent = n;
+    indicado.innerHTML = 'Para ' + n + ' pessoas, o tamanho indicado é <b>' + t.nome + '</b>, até ' + t.max + ' pessoas.';
+    aviso.textContent = n > 25 ? 'Para esse tamanho, peça com 48 horas de antecedência.' : '';
+    usar.textContent = 'Pedir para ' + n + ' pessoas';
+    abas.forEach(function(a){ a.setAttribute('aria-selected', String(parseInt(a.dataset.max,10) === t.max)); a.tabIndex = parseInt(a.dataset.max,10) === t.max ? 0 : -1; });
+    for (var i=0;i<pontos.length;i++){ pontos[i].className = i < n ? 'on' : (i < t.max ? 'cap' : ''); }
+  }
+  range.addEventListener('input', atualizaTamanho);
+  abas.forEach(function(a,i){
+    a.addEventListener('click', function(){ range.value = a.dataset.max; atualizaTamanho(); });
+    a.addEventListener('keydown', function(e){
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return; e.preventDefault();
+      var nova = abas[(i + d + abas.length) % abas.length]; nova.focus(); nova.click();
+    });
+  });
+  usar.addEventListener('click', function(){
+    campos.pessoas.value = range.value;
+  });
+  atualizaTamanho();
+
+  /* FORMULÁRIO em passos */
+  var form = document.getElementById('form-pedido');
+  var passos = Array.prototype.slice.call(form.querySelectorAll('.passo'));
+  var fim = form.querySelector('[data-fim]');
+  var rotulo = form.querySelector('[data-rotulo]');
+  var barra = form.querySelector('[data-barra]');
+  var voltar = form.querySelector('[data-voltar]');
+  var avancar = form.querySelector('[data-avancar]');
+  var acoes = form.querySelector('[data-acoes]');
+  var resumo = form.querySelector('[data-resumo]');
+  var enviar = form.querySelector('[data-enviar]');
+  var campos = {
+    empresa: document.getElementById('f-empresa'),
+    data: document.getElementById('f-data'),
+    horario: document.getElementById('f-horario'),
+    pessoas: document.getElementById('f-pessoas'),
+    restricoes: document.getElementById('f-restricoes')
+  };
+  var chips = Array.prototype.slice.call(form.querySelectorAll('.chip'));
+  var atual = 0;
+
+  function hojeISO(){ var d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0,10); }
+  campos.data.min = hojeISO();
+
+  function dataBonita(iso){
+    if (!iso) return '';
+    var p = iso.split('-'), d = new Date(+p[0], +p[1]-1, +p[2]);
+    var dias = ['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+    return p[2] + '/' + p[1] + '/' + p[0] + ' (' + dias[d.getDay()] + ')';
+  }
+  function restricoesTexto(){
+    var marcadas = chips.filter(function(c){ return c.getAttribute('aria-pressed') === 'true'; }).map(function(c){ return c.dataset.valor; });
+    var extra = campos.restricoes.value.trim();
+    if (extra) marcadas = marcadas.filter(function(v){ return v !== 'nenhuma'; }).concat(extra);
+    return marcadas.length ? marcadas.join(', ') : 'nenhuma';
+  }
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      var liga = c.getAttribute('aria-pressed') !== 'true';
+      if (c.dataset.valor === 'nenhuma' && liga) chips.forEach(function(o){ o.setAttribute('aria-pressed','false'); });
+      if (c.dataset.valor !== 'nenhuma' && liga) chips[0].setAttribute('aria-pressed','false');
+      c.setAttribute('aria-pressed', String(liga));
+    });
+  });
+
+  function erro(nome, msg){
+    var el = document.getElementById('e-' + nome);
+    el.textContent = msg || '';
+    campos[nome].setAttribute('aria-invalid', msg ? 'true' : 'false');
+    return !msg;
+  }
+  function valida(nome){
+    var v = campos[nome].value.trim();
+    if (nome === 'empresa') return erro(nome, v ? '' : 'Escreva o nome da empresa para seguir.');
+    if (nome === 'data'){
+      if (!v) return erro(nome, 'Escolha a data do café.');
+      if (v < hojeISO()) return erro(nome, 'Essa data já passou. Escolha hoje ou um dia à frente.');
+      return erro(nome, '');
+    }
+    if (nome === 'horario') return erro(nome, v ? '' : 'Escolha o horário em que o café precisa estar na mesa.');
+    if (nome === 'pessoas'){
+      var n = parseInt(v,10);
+      if (!v || isNaN(n) || n < 1) return erro(nome, 'Informe quantas pessoas, em número.');
+      if (n > 40) return erro(nome, 'Atendemos até 40 pessoas. Para mais, fale com a gente direto no WhatsApp.');
+      return erro(nome, '');
+    }
+    return true;
+  }
+  function mensagem(){
+    var n = parseInt(campos.pessoas.value,10);
+    return 'Olá, Forno da Vila! Quero um orçamento de coffee break.\n' +
+      'Empresa: ' + campos.empresa.value.trim() + '\n' +
+      'Data: ' + dataBonita(campos.data.value) + '\n' +
+      'Horário: ' + campos.horario.value + '\n' +
+      'Pessoas: ' + n + ' (tamanho ' + tamanhoPara(n).nome + ')\n' +
+      'Restrições: ' + restricoesTexto();
+  }
+  function montaResumo(){
+    var linhas = [['Empresa', campos.empresa.value.trim(), 0],['Data', dataBonita(campos.data.value), 1],['Horário', campos.horario.value, 2],['Pessoas', campos.pessoas.value + ' (' + tamanhoPara(parseInt(campos.pessoas.value,10)).nome + ')', 3],['Restrições', restricoesTexto(), 4]];
+    resumo.innerHTML = '';
+    linhas.forEach(function(l){
+      var div = document.createElement('div');
+      var dt = document.createElement('dt'); dt.textContent = l[0];
+      var dd = document.createElement('dd'); dd.textContent = l[1];
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = 'Alterar'; b.setAttribute('aria-label','Alterar ' + l[0].toLowerCase());
+      b.addEventListener('click', function(){ mostra(l[2]); });
+      div.appendChild(dt); div.appendChild(dd); div.appendChild(b); resumo.appendChild(div);
+    });
+    enviar.href = 'https://wa.me/?text=' + encodeURIComponent(mensagem());
+    /* trocar pelo número real: 'https://wa.me/55DDDNUMERO?text=' */
+  }
+  function mostra(i, focar){
+    atual = i;
+    passos.forEach(function(p,j){ p.classList.toggle('atual', j === i); });
+    var noFim = i >= passos.length;
+    fim.classList.toggle('atual', noFim);
+    avancar.hidden = noFim;
+    voltar.hidden = i === 0;
+    rotulo.textContent = noFim ? 'Pedido pronto' : 'Pergunta ' + (i+1) + ' de ' + passos.length;
+    barra.style.width = (noFim ? 100 : ((i+1) / (passos.length+1)) * 100) + '%';
+    avancar.textContent = i === passos.length - 1 ? 'Ver o pedido' : 'Continuar';
+    if (noFim){ montaResumo(); if (focar !== false) fim.querySelector('h3').setAttribute('tabindex','-1'), fim.querySelector('h3').focus({preventScroll:true}); }
+    else if (focar !== false){ var c = passos[i].querySelector('input'); c && c.focus({preventScroll:true}); }
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (atual >= passos.length) return;
+    var nome = passos[atual].dataset.campo;
+    if (nome && !valida(nome)) { campos[nome].focus(); return; }
+    mostra(atual + 1);
+  });
+  voltar.addEventListener('click', function(){ if (atual > 0) mostra(atual - 1); });
+  Object.keys(campos).forEach(function(nome){
+    campos[nome].addEventListener('input', function(){ if (campos[nome].getAttribute('aria-invalid') === 'true') valida(nome); });
+  });
+  mostra(0, false);
+
+  /* MAPA: sem internet, fica o mapa desenhado no fundo */
+  var iframe = document.querySelector('[data-iframe]');
+  if (!navigator.onLine){ iframe.remove(); }
+  else { iframe.addEventListener('load', function(){ setTimeout(function(){ iframe.classList.add('carregou'); iframe.parentNode.classList.add('ok'); }, 1200); }); }
+})();
+</script>
 </body>
 </html>

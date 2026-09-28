@@ -32,18 +32,20 @@ Só o que a pessoa disse. Nada inventado, nada completado com suposição.
 | Arquivo | Recebe |
 |---|---|
 | `memoria/empresa.md` | Perguntas 1, 2, 3, 4 e 6 nos campos do arquivo. "Em uma frase": o que vende, para quem, onde |
-| `memoria/numeros.md` | Pergunta 5. Criar o arquivo (ele não vem na pasta, para nunca ir parar no Git) com o título "Números (privado)", os campos Faturamento por mês, Clientes por mês, Ticket médio, Margem, e a seção "O que falta medir". O que faltou: `[não sei ainda]` |
+| `memoria/numeros.md` | Pergunta 5. Criar o arquivo (ele não vem na pasta, para nunca ir parar no Git) com o título "Números (privado)", os campos Faturamento por mês, Clientes por mês, Ticket médio, Margem, e a seção "O que falta medir". O que faltou: `[não sei ainda]`. **Não calcular** o que o dono não disse (ex.: ticket = faturamento ÷ clientes) |
 | `memoria/foco.md` | Pergunta 7 |
-| `marca/marca.md` | Da pergunta 6, só "Estilo das imagens": o que o dono gosta, o que evita e a referência que admira. Cores e fontes ficam para o `/mapear-empresa` |
+| `marca/marca.md` | Da pergunta 6, só "Estilo das imagens": o que o dono gosta, o que evita e a referência que admira. Cores e fontes ficam para o `/mapear-empresa` (skill `marca`). Se a pessoa arrastar logo ou print durante a entrevista, salvar em `marca/` e rodar a skill `marca` no fim |
 
 ## Criar o RESULTADO.html
 
 1. Copiar `controle/modelo-resultado.html` para `RESULTADO.html` na raiz da pasta.
 2. Ler `controle/componentes.md` e trocar só estes blocos: `titulo`, `nome`, `capa`, `ficha`, `proximos`, `atualizado`. O bloco `marca` fica com as cores neutras do modelo até o `/mapear-empresa`.
-   - `capa`: `<p class="tipo">` cidade e setor · `<h1>` a empresa em 1 frase · `.lede` "Mapa da empresa em construção: 1 de 6 fases." · `.numeros` só com o que é público e o dono contou (ex.: nº de pessoas na equipe, nº de produtos). **Nada do financeiro.**
+   - `capa`: `<p class="tipo">` cidade e setor · `<h1>` a empresa em 1 frase · `.lede` "Mapa da empresa em construção: 1 de 6 fases." · `.numeros` com 2 a 4 números que o dono contou e podem ir para o telão: pessoas na equipe, linhas de produto, anos de mercado, cidades atendidas. Cada um em `<b data-conta>`. **Nada do financeiro.**
    - `ficha`: `<h2>` com a conclusão (ex.: "Uma empresa de 6 pessoas que vive de indicação") · `.ficha` com produtos e preços, onde atende, equipe, como o cliente chega · `.grade g2` com dois cartões: "O que mais incomoda hoje" (cartão `forte`) e "Onde quer chegar em 12 meses".
+   - `ficha`: termina com o `.bastidor` (o que a IA fez: entrevistou, gravou, separou o privado; conceito: memória) e o `<p class="base">`.
+   - `atualizado`: "fase 1 de 6".
    - `proximos`: as 3 primeiras ações: rodar `/mapear-empresa`, completar o que ficou `[não sei ainda]` em `memoria/numeros.md`, salvar o logo em `marca/logo.png`.
-3. Abrir no navegador: `open RESULTADO.html` (Mac) ou `start "" RESULTADO.html` (Windows). Se falhar, só dar o caminho.
+3. Abrir no navegador: `open RESULTADO.html` (Mac), `start "" RESULTADO.html` (Windows) ou `xdg-open RESULTADO.html` (Linux). Se falhar, só dar o caminho.
 
 ## Fechar
 

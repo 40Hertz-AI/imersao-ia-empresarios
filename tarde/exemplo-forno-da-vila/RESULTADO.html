@@ -8,170 +8,359 @@
 <!-- FIM:titulo -->
 <!-- INICIO:marca -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --marca:#4A5230;      /* verde oliva escuro */
-  --destaque:#9A4A26;   /* terracota de casca tostada */
-  --fundo:#F1EFE7;
-  --texto:#25231D;
+  --marca:#4A5230;      /* verde oliva [sugestão] */
+  --destaque:#9A4A26;   /* terracota de casca tostada [sugestão] */
+  --fundo:#F1EFE7;      /* farinha */
+  --texto:#25231D;      /* quase preto de forno */
   --fonte-titulo:'Newsreader', Georgia, serif;
   --fonte-texto:'Figtree', system-ui, sans-serif;
 }
 </style>
 <!-- FIM:marca -->
 <style>
+/* =====================================================================
+   Cérebro da empresa · relatório
+   As cores e fontes vêm do bloco "marca" acima. Nada abaixo muda por fase.
+   ===================================================================== */
+@property --p{syntax:'<number>';inherits:false;initial-value:100}
 :root{
-  --papel:#fff;
-  --suave:color-mix(in srgb, var(--texto) 62%, var(--fundo));
-  --linha:color-mix(in srgb, var(--texto) 14%, var(--fundo));
-  --tinta-marca:color-mix(in srgb, var(--marca) 80%, #000);
+  --papel:color-mix(in srgb, #fff 88%, var(--fundo));
+  --suave:color-mix(in srgb, var(--texto) 64%, var(--fundo));
+  --linha:color-mix(in srgb, var(--texto) 13%, var(--fundo));
+  --tinta-marca:color-mix(in srgb, var(--marca) 82%, #000);
   --banho:color-mix(in srgb, var(--marca) 7%, var(--fundo));
+  --banho-destaque:color-mix(in srgb, var(--destaque) 12%, var(--fundo));
+  --sobre-marca:color-mix(in srgb, #fff 94%, var(--marca));
+  --sobre-marca-suave:color-mix(in srgb, #fff 72%, var(--marca));
   --ok:#1E7A4C; --ok-f:#E3F3EA;
   --atencao:#8A5A00; --atencao-f:#FBF1DC;
   --risco:#A8322B; --risco-f:#FBE7E5;
-  --trilho:220px;
+  --trilho:236px;
+  --curva:cubic-bezier(.2,.7,.2,1);
+  --r-g:18px; --r-m:12px; --r-p:8px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--fundo);color:var(--texto);font-family:var(--fonte-texto);font-size:17px;line-height:1.6}
-h1,h2,h3,h4{font-family:var(--fonte-titulo);color:var(--tinta-marca);line-height:1.15;margin:0}
-p{margin:0 0 .9em}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:24px}
+body{margin:0;background:var(--fundo);color:var(--texto);font-family:var(--fonte-texto);font-size:17px;line-height:1.6;text-rendering:optimizeLegibility}
+h1,h2,h3,h4{font-family:var(--fonte-titulo);color:var(--tinta-marca);line-height:1.12;margin:0;font-weight:600;text-wrap:balance}
+p{margin:0 0 .9em;text-wrap:pretty}
 ul,ol{margin:0 0 1em;padding-left:1.2em}
-a{color:var(--tinta-marca)}
-:focus-visible{outline:3px solid var(--destaque);outline-offset:3px}
+a{color:var(--tinta-marca);text-underline-offset:3px}
+code{font-size:.9em;background:var(--banho);color:var(--tinta-marca);padding:1px 7px;border-radius:6px}
+:focus-visible{outline:3px solid var(--destaque);outline-offset:3px;border-radius:4px}
+::selection{background:var(--banho-destaque)}
 
-/* navegação */
-.trilho{position:fixed;inset:0 auto 0 0;width:var(--trilho);border-right:1px solid var(--linha);background:var(--papel);padding:28px 20px;display:flex;flex-direction:column;gap:18px;z-index:5}
-.trilho .nome{font-family:var(--fonte-titulo);font-weight:700;font-size:1.25rem;color:var(--marca);text-decoration:none;line-height:1.2}
-.trilho ol{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:2px;counter-reset:s}
-.trilho li a{display:flex;gap:10px;align-items:center;padding:6px 8px;border-radius:8px;text-decoration:none;color:var(--texto);font-size:.9rem}
-.trilho li a::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--marca);flex:none}
+/* ---------- navegação ---------- */
+.trilho{position:fixed;inset:0 auto 0 0;width:var(--trilho);border-right:1px solid var(--linha);background:var(--papel);padding:26px 18px 20px;display:flex;flex-direction:column;gap:18px;z-index:5;overflow-y:auto}
+.trilho .nome{font-family:var(--fonte-titulo);font-weight:700;font-size:1.3rem;color:var(--marca);text-decoration:none;line-height:1.15}
+.trilho .nome img{max-width:150px;max-height:44px;display:block}
+.progresso{display:flex;align-items:center;gap:12px;font-size:.82rem;color:var(--suave);line-height:1.3}
+.progresso .anel{--p:0;width:42px;height:42px;border-radius:50%;flex:none;background:conic-gradient(var(--destaque) calc(var(--p)*1%),var(--linha) 0);display:grid;place-items:center;transition:--p 1.2s var(--curva)}
+.progresso .anel::after{content:"";width:32px;height:32px;border-radius:50%;background:var(--papel)}
+.progresso b{display:block;color:var(--texto);font-size:.95rem}
+.trilho ol{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1px}
+.trilho li a{display:flex;gap:10px;align-items:center;padding:6px 10px;border-radius:var(--r-p);text-decoration:none;color:var(--texto);font-size:.9rem;transition:background .2s}
+.trilho li a::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--marca);flex:none;transition:transform .2s}
 .trilho li a.vazio{color:var(--suave)}
 .trilho li a.vazio::before{background:transparent;border:1.5px solid var(--linha)}
 .trilho li a:hover{background:var(--banho)}
-.trilho .atualizado{margin-top:auto;font-size:.78rem;color:var(--suave)}
-main{margin-left:var(--trilho)}
-.secao{padding:72px 56px;max-width:1080px}
+.trilho li a.ativo{background:var(--banho);font-weight:700;color:var(--tinta-marca)}
+.trilho li a.ativo::before{transform:scale(1.4);background:var(--destaque)}
+.botao-aula{font:inherit;font-size:.82rem;display:flex;gap:8px;align-items:center;justify-content:center;border:1px solid var(--linha);background:var(--fundo);color:var(--texto);padding:8px 10px;border-radius:var(--r-p);cursor:pointer}
+.botao-aula[aria-pressed="true"]{background:var(--marca);color:var(--sobre-marca);border-color:var(--marca)}
+.trilho .atualizado{margin-top:auto;font-size:.76rem;color:var(--suave);margin-bottom:0}
+main{margin-left:var(--trilho);overflow-x:clip}
+
+/* ---------- seções ---------- */
+.secao{padding:84px clamp(20px,5vw,64px);max-width:1120px}
 .secao + .secao{border-top:1px solid var(--linha)}
-.secao > h2{font-size:clamp(1.6rem,3vw,2.3rem);max-width:26ch;margin-bottom:10px}
-.lede{font-size:1.1rem;color:var(--suave);max-width:62ch;margin-bottom:32px}
-.secao h3{font-size:1.15rem;margin:36px 0 12px}
-.base{font-size:.8rem;color:var(--suave);margin-top:36px}
+.fase{display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--suave);margin-bottom:14px}
+.fase code{font-size:.82rem}
+.secao > h2,.secao > .cab h2{font-size:clamp(1.7rem,3.2vw,2.5rem);max-width:24ch;margin-bottom:12px;letter-spacing:-.01em}
+.lede{font-size:1.12rem;color:var(--suave);max-width:62ch;margin-bottom:34px}
+.secao h3{font-size:1.2rem;margin:44px 0 14px}
+.base{font-size:.8rem;color:var(--suave);margin-top:40px}
 .base a{color:var(--suave)}
 
 /* estado vazio: a fase ainda não rodou */
-.pendente{border:1.5px dashed var(--linha);border-radius:14px;padding:28px;color:var(--suave);max-width:560px}
-.pendente strong{color:var(--texto)}
-.pendente code{background:var(--banho);color:var(--tinta-marca);padding:2px 8px;border-radius:6px;font-size:.95em}
+.pendente{border:1.5px dashed var(--linha);border-radius:var(--r-g);padding:28px 30px;color:var(--suave);max-width:600px;background:repeating-linear-gradient(-45deg,transparent 0 14px,color-mix(in srgb,var(--linha) 35%,transparent) 14px 15px)}
+.pendente strong{color:var(--texto);font-family:var(--fonte-titulo);font-size:1.2rem;display:block;margin-bottom:4px}
+.pendente p{margin:.6em 0 0}
 
-/* capa */
-.capa{min-height:78vh;display:flex;flex-direction:column;justify-content:center;background:var(--marca);color:#fff;max-width:none}
-.capa h1{color:#fff;font-size:clamp(2.4rem,5.5vw,4.4rem);max-width:16ch;letter-spacing:-.02em;margin-bottom:18px}
-.capa .lede{color:color-mix(in srgb,#fff 82%,var(--marca));font-size:1.2rem}
-.capa .logo{max-height:64px;max-width:220px;margin-bottom:36px;object-fit:contain}
-.capa .tipo{font-size:.95rem;color:color-mix(in srgb,#fff 70%,var(--marca));margin-bottom:10px}
-.numeros{display:flex;flex-wrap:wrap;gap:14px 44px;margin-top:36px}
+/* ---------- capa ---------- */
+.capa{min-height:min(88vh,860px);display:flex;flex-direction:column;justify-content:flex-end;background:var(--marca);color:var(--sobre-marca);max-width:none;padding-top:64px;padding-bottom:56px;position:relative;overflow:hidden}
+.capa::before{content:"";position:absolute;right:-12vw;top:-18vw;width:58vw;height:58vw;border-radius:50%;border:1px solid color-mix(in srgb,#fff 16%,transparent);box-shadow:0 0 0 7vw color-mix(in srgb,#fff 3%,transparent),0 0 0 14vw color-mix(in srgb,#fff 2%,transparent);pointer-events:none}
+.capa > *{position:relative;max-width:1060px}
+.capa h1{color:#fff;font-size:clamp(2.5rem,6vw,5rem);max-width:15ch;letter-spacing:-.025em;margin-bottom:22px;font-weight:600}
+.capa .lede{color:var(--sobre-marca-suave);font-size:1.2rem}
+.capa .logo{max-height:64px;max-width:220px;margin-bottom:40px;object-fit:contain}
+.capa .tipo{font-size:.95rem;color:var(--sobre-marca-suave);margin-bottom:14px}
+.numeros{display:flex;flex-wrap:wrap;gap:18px 52px;margin-top:40px;padding-top:28px;border-top:1px solid color-mix(in srgb,#fff 20%,transparent)}
 .numeros div{display:flex;flex-direction:column}
-.numeros b{font-family:var(--fonte-titulo);font-size:2rem;line-height:1.1;color:#fff}
-.numeros span{font-size:.85rem;color:color-mix(in srgb,#fff 72%,var(--marca))}
+.numeros b{font-family:var(--fonte-titulo);font-size:2.4rem;line-height:1.05;color:#fff;font-weight:600;font-variant-numeric:tabular-nums}
+.numeros span{font-size:.85rem;color:var(--sobre-marca-suave)}
+/* trilha das 6 fases (montada pelo script) */
+.fases{list-style:none;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;padding:0;margin:44px 0 0}
+.fases li{position:relative;padding-top:18px;font-size:.78rem;line-height:1.3;color:var(--sobre-marca-suave)}
+.fases li::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:4px;background:color-mix(in srgb,#fff 18%,transparent)}
+.fases li.feita::before{background:var(--sobre-marca)}
+.fases li.proxima::before{background:linear-gradient(90deg,var(--destaque) 0 40%,color-mix(in srgb,#fff 18%,transparent) 40%);background-size:250% 100%;animation:enche 2.4s var(--curva) infinite}
+.fases li b{display:block;color:#fff;font-weight:500}
+.fases li code{background:none;color:inherit;padding:0;font-size:.95em}
+.fases li.proxima b::after{content:" · próximo";color:var(--destaque);font-weight:700;filter:brightness(1.35)}
+@keyframes enche{0%{background-position:100% 0}60%,100%{background-position:0 0}}
 
-/* blocos */
+/* ---------- peças base ---------- */
 .grade{display:grid;gap:16px}
 .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
-.cartao{background:var(--papel);border:1px solid var(--linha);border-radius:14px;padding:20px 22px}
-.cartao h4{font-size:1.02rem;margin-bottom:6px}
+.cartao{background:var(--papel);border:1px solid var(--linha);border-radius:var(--r-m);padding:22px 24px}
+.cartao h4{font-size:1.08rem;margin-bottom:8px}
 .cartao p:last-child,.cartao ul:last-child{margin-bottom:0}
-.cartao.forte{background:var(--marca);border-color:var(--marca);color:#fff}
+.cartao.forte{background:var(--marca);border-color:var(--marca);color:var(--sobre-marca)}
 .cartao.forte h4{color:#fff}
-.ficha{display:grid;grid-template-columns:minmax(120px,max-content) 1fr;gap:10px 28px;margin:0}
-.ficha dt{color:var(--suave);font-size:.9rem}
+.cartao.forte a{color:#fff}
+.cartao.forte .fonte,.cartao.forte .fonte a{color:var(--sobre-marca-suave)}
+.ficha{display:grid;grid-template-columns:minmax(130px,max-content) 1fr;gap:0;margin:0;border-top:1px solid var(--linha)}
+.ficha dt,.ficha dd{padding:12px 0;border-bottom:1px solid var(--linha)}
+.ficha dt{color:var(--suave);font-size:.9rem;padding-right:28px}
 .ficha dd{margin:0}
-.selo{display:inline-block;font-size:.75rem;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--banho);color:var(--tinta-marca);white-space:nowrap;vertical-align:middle}
+.selo{display:inline-block;font-size:.75rem;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--banho);color:var(--tinta-marca);white-space:nowrap;vertical-align:middle;line-height:1.6}
 .selo.ok{background:var(--ok-f);color:var(--ok)}
-.selo.atencao{background:var(--atencao-f);color:var(--atencao)}
+.selo.atencao,.selo.estimativa{background:var(--atencao-f);color:var(--atencao)}
 .selo.risco{background:var(--risco-f);color:var(--risco)}
-.selo.estimativa{background:var(--atencao-f);color:var(--atencao)}
-.fonte{font-size:.78rem;color:var(--suave);word-break:break-word}
+.selo.sugestao{background:var(--banho-destaque);color:var(--destaque);font-style:italic}
+.fonte{font-size:.78rem;color:var(--suave);word-break:break-word;margin-bottom:0}
 .fonte a{color:var(--suave)}
-.citacao{font-family:var(--fonte-titulo);font-size:1.15rem;line-height:1.4;color:var(--tinta-marca);border-left:3px solid var(--destaque);padding-left:14px;margin:8px 0}
-.destaque{font-family:var(--fonte-titulo);font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.3;color:var(--tinta-marca);max-width:34ch;margin:0 0 24px}
+.citacao{font-family:var(--fonte-titulo);font-size:1.18rem;line-height:1.4;color:var(--tinta-marca);border-left:3px solid var(--destaque);padding-left:16px;margin:8px 0}
+.destaque{font-family:var(--fonte-titulo);font-size:clamp(1.35rem,2.5vw,1.9rem);line-height:1.28;color:var(--tinta-marca);max-width:34ch;margin:0 0 24px;font-weight:500}
+
+/* termo com explicação (glossário) */
+.termo{font-style:normal;border-bottom:1.5px dotted var(--destaque);cursor:help;position:relative}
+.termo::after{content:attr(data-def);position:absolute;left:0;max-width:min(280px,80vw);bottom:calc(100% + 8px);width:max-content;max-width:280px;background:var(--texto);color:var(--fundo);font:400 .82rem/1.45 var(--fonte-texto);padding:10px 12px;border-radius:var(--r-p);opacity:0;transform:translateY(4px);pointer-events:none;transition:opacity .18s,transform .18s;z-index:4}
+.termo:hover::after,.termo:focus::after{opacity:1;transform:none}
+
+/* números grandes com fonte */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--linha);border:1px solid var(--linha);border-radius:var(--r-m);overflow:hidden}
+.kpis > div{background:var(--papel);padding:22px 22px 18px;display:flex;flex-direction:column;gap:6px}
+.kpis b{font-family:var(--fonte-titulo);font-size:clamp(1.5rem,2.4vw,2.1rem);white-space:nowrap;line-height:1.05;color:var(--tinta-marca);font-weight:600;font-variant-numeric:tabular-nums}
+.kpis p{margin:0;font-size:.92rem}
 
 /* tabela */
-.tabela-wrap{overflow-x:auto;border:1px solid var(--linha);border-radius:14px;background:var(--papel)}
+.tabela-wrap{overflow-x:auto;border:1px solid var(--linha);border-radius:var(--r-m);background:var(--papel)}
 table{border-collapse:collapse;width:100%;font-size:.93rem}
-th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--linha);vertical-align:top}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--linha);vertical-align:top}
 th{font-size:.8rem;color:var(--suave);font-weight:700;background:var(--banho)}
 tr:last-child td{border-bottom:0}
-tr.nos td{background:color-mix(in srgb,var(--destaque) 10%,var(--papel));font-weight:700}
+tbody tr{transition:background .15s}
+tbody tr:hover{background:var(--banho)}
+tr.nos td{background:var(--banho-destaque);font-weight:700}
 
-/* barras (nota de 1 a 5, ou % do mix) */
-.barras{display:flex;flex-direction:column;gap:10px}
-.barra{display:grid;grid-template-columns:minmax(110px,180px) 1fr 44px;gap:12px;align-items:center;font-size:.92rem}
-.barra .trilha{height:10px;border-radius:99px;background:var(--linha);overflow:hidden}
-.barra .trilha i{display:block;height:100%;width:calc(var(--v) * 1%);background:var(--marca);border-radius:99px}
+/* barras (nota 1–5 ×20, ou % do mix) */
+.barras{display:flex;flex-direction:column;gap:12px}
+.barra{display:grid;grid-template-columns:minmax(110px,200px) 1fr 48px;gap:14px;align-items:center;font-size:.93rem}
+.barra .trilha{height:12px;border-radius:99px;background:var(--linha);overflow:hidden}
+.barra .trilha i{display:block;height:100%;width:calc(var(--v) * 1%);background:var(--marca);border-radius:99px;transition:width 1s var(--curva)}
 .barra.nos .trilha i{background:var(--destaque)}
 .barra.nos{font-weight:700}
+.barra > span:last-child{font-variant-numeric:tabular-nums;text-align:right}
 
-/* etapas (jornada, mecanismo) */
-.etapas{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;counter-reset:e;list-style:none;padding:0}
-.etapas li{background:var(--papel);border:1px solid var(--linha);border-top:4px solid var(--marca);border-radius:12px;padding:16px 18px;counter-increment:e}
-.etapas li::before{content:counter(e);font-family:var(--fonte-titulo);font-weight:700;color:var(--destaque);font-size:1.3rem;display:block}
-.etapas li b{display:block;color:var(--tinta-marca);margin-bottom:4px}
-.etapas li.perde{border-top-color:var(--risco)}
+/* rosca (mix de pilares): o script desenha a partir da lista */
+.rosca{display:flex;gap:36px;align-items:center;flex-wrap:wrap}
+.rosca .disco{--p:100;width:220px;height:220px;border-radius:50%;flex:none;position:relative;background:var(--grad,var(--linha));-webkit-mask:conic-gradient(#000 calc(var(--p)*1%),transparent 0);mask:conic-gradient(#000 calc(var(--p)*1%),transparent 0);transition:--p 1.3s var(--curva)}
+.rosca .disco::after{content:"";position:absolute;inset:26%;border-radius:50%;background:var(--fundo)}
+.rosca ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;min-width:220px;flex:1}
+.rosca li{display:grid;grid-template-columns:14px 1fr auto;gap:12px;align-items:baseline}
+.rosca li::before{content:"";width:14px;height:14px;border-radius:4px;background:var(--c,var(--marca));transform:translateY(2px)}
+.rosca li b{font-variant-numeric:tabular-nums}
+.rosca li small{grid-column:2 / 4;color:var(--suave);font-size:.85rem;line-height:1.4}
 
-/* matriz 2x2 (posicionamento) */
-.mapa{position:relative;aspect-ratio:1.6/1;max-width:680px;background:var(--papel);border:1px solid var(--linha);border-radius:14px;margin:8px 0 8px 28px}
+/* funil (jornada do cliente): --v de 0 a 100 */
+.funil{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;counter-reset:f}
+.funil li{counter-increment:f;display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,38%);gap:18px;align-items:center}
+.funil .faixa{height:52px;width:calc(var(--v)*1%);min-width:120px;background:color-mix(in srgb,var(--marca) calc(40% + var(--v)*.6%),var(--fundo));color:var(--sobre-marca);border-radius:var(--r-p);display:flex;align-items:center;padding:0 16px;gap:10px;font-weight:700;transition:width 1s var(--curva);white-space:nowrap;overflow:hidden}
+.funil .faixa::before{content:counter(f);font-family:var(--fonte-titulo);opacity:.7}
+.funil li.perde .faixa{background:var(--risco)}
+.funil li > span{font-size:.9rem;color:var(--suave);line-height:1.4}
+.funil li.perde > span{color:var(--risco)}
+
+/* etapas em sequência (mecanismo, processo) */
+.etapas{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;counter-reset:e;list-style:none;padding:0;position:relative}
+.etapas li{padding:0 20px 0 0;counter-increment:e;position:relative}
+.etapas li::before{content:counter(e);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--fundo);border:2px solid var(--marca);color:var(--tinta-marca);font-family:var(--fonte-titulo);font-weight:700;font-size:1.15rem;margin-bottom:14px;position:relative;z-index:1;transition:background .3s,color .3s}
+.etapas li::after{content:"";position:absolute;top:22px;left:44px;right:0;height:2px;background:var(--linha)}
+.etapas li:last-child::after{display:none}
+.etapas li b{display:block;color:var(--tinta-marca);margin-bottom:4px;font-family:var(--fonte-titulo);font-size:1.08rem}
+.etapas li.perde::before{border-color:var(--risco);color:var(--risco)}
+.etapas.visto li::before{background:var(--marca);color:var(--sobre-marca)}
+.etapas.visto li.perde::before{background:var(--risco);color:#fff}
+.etapas.visto li::before{transition-delay:calc(var(--i,0) * 180ms)}
+
+/* antes × depois */
+.comparar{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--linha);border-radius:var(--r-m);overflow:hidden}
+.comparar > div{padding:22px 24px}
+.comparar > div:first-child{background:var(--papel)}
+.comparar > div:last-child{background:var(--banho)}
+.comparar h4{font-size:1rem;margin-bottom:10px}
+.comparar ul{margin:0}
+
+/* mapa 2x2 de posicionamento: --x e --y de 0 a 100 */
+.mapa{position:relative;aspect-ratio:1.6/1;max-width:720px;background:var(--papel);border:1px solid var(--linha);border-radius:var(--r-m);margin:8px 0 36px 30px}
 .mapa::before,.mapa::after{content:"";position:absolute;background:var(--linha)}
 .mapa::before{left:50%;top:0;bottom:0;width:1px}
 .mapa::after{top:50%;left:0;right:0;height:1px}
-.mapa .eixo-x{position:absolute;bottom:-28px;left:0;right:0;display:flex;justify-content:space-between;font-size:.78rem;color:var(--suave)}
-.mapa .eixo-y{position:absolute;left:-28px;top:0;bottom:0;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;justify-content:space-between;font-size:.78rem;color:var(--suave)}
-.mapa .ponto{position:absolute;left:calc(var(--x) * 1%);top:calc((100 - var(--y)) * 1%);transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px;font-size:.8rem;white-space:nowrap;z-index:1}
-.mapa .ponto::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--suave)}
-.mapa .ponto.nos{font-weight:700;color:var(--tinta-marca)}
-.mapa .ponto.nos::before{width:16px;height:16px;background:var(--destaque);box-shadow:0 0 0 4px color-mix(in srgb,var(--destaque) 25%,transparent)}
+.mapa .eixo-x{position:absolute;bottom:-30px;left:0;right:0;display:flex;justify-content:space-between;font-size:.78rem;color:var(--suave)}
+.mapa .eixo-y{position:absolute;left:-30px;top:0;bottom:0;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;justify-content:space-between;font-size:.78rem;color:var(--suave)}
+.mapa .ponto{position:absolute;left:calc(var(--x) * 1%);top:calc((100 - var(--y)) * 1%);transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px;font-size:.8rem;white-space:nowrap;z-index:1;cursor:default;transition:transform .5s var(--curva),opacity .5s;border-radius:6px;padding:2px 4px}
+.mapa .ponto::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--suave);flex:none}
+.mapa .ponto.nos{font-weight:700;color:var(--tinta-marca);z-index:2}
+.mapa .ponto.nos::before{width:16px;height:16px;background:var(--destaque);box-shadow:0 0 0 5px color-mix(in srgb,var(--destaque) 25%,transparent)}
+.mapa .ponto[data-nota]:hover,.mapa .ponto[data-nota]:focus{z-index:3;background:var(--papel)}
+.mapa .ponto[data-nota]::after{content:attr(data-nota);position:absolute;top:calc(100% + 6px);left:0;width:230px;white-space:normal;background:var(--texto);color:var(--fundo);font-weight:400;font-size:.8rem;line-height:1.4;padding:8px 10px;border-radius:var(--r-p);opacity:0;pointer-events:none;transition:opacity .15s}
+.mapa .ponto[data-nota]:hover::after,.mapa .ponto[data-nota]:focus::after{opacity:1}
+.mapa .vazio{position:absolute;left:calc(var(--x) * 1%);top:calc((100 - var(--y)) * 1%);transform:translate(-50%,-50%);width:92px;height:92px;border-radius:50%;border:2px dashed var(--destaque);display:grid;place-items:center;text-align:center;font-size:.72rem;line-height:1.2;color:var(--destaque);font-weight:700;padding:8px;background:var(--banho-destaque)}
+
+/* abas: o script monta os botões a partir de data-aba */
+.abas{margin:0}
+.abas [role=tablist]{display:flex;gap:4px;flex-wrap:wrap;border-bottom:1px solid var(--linha);margin-bottom:22px}
+.abas [role=tab]{font:inherit;font-size:.92rem;background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:10px 14px;color:var(--suave);cursor:pointer}
+.abas [role=tab][aria-selected=true]{color:var(--tinta-marca);border-bottom-color:var(--destaque);font-weight:700}
+.abas [data-aba][hidden]{display:none}
+.abas.pronto [data-aba]{animation:entra .28s var(--curva)}
+.abas:not(.pronto) [data-aba]::before{content:attr(data-aba);display:block;font-family:var(--fonte-titulo);font-size:1.1rem;color:var(--tinta-marca);margin:24px 0 10px}
+
+/* identidade: paleta e tipografia da marca */
+.paleta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.cor{border:1px solid var(--linha);border-radius:var(--r-m);overflow:hidden;background:var(--papel);font:inherit;text-align:left;padding:0;cursor:copy;color:var(--texto)}
+.cor::before{content:"";display:block;height:92px;background:var(--c)}
+.cor b,.cor code,.cor span{display:block;padding:0 14px}
+.cor b{padding-top:12px;font-size:.95rem}
+.cor code{background:none;padding-top:2px;color:var(--suave);font-size:.82rem}
+.cor span{padding-bottom:12px;font-size:.8rem;color:var(--suave)}
+.cor.copiado code::after{content:" · copiado";color:var(--ok);font-weight:700}
+.tipos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:12px}
+.tipos > div{border:1px solid var(--linha);border-radius:var(--r-m);padding:22px 24px;background:var(--papel)}
+.tipos .aa{font-size:4rem;line-height:1;color:var(--tinta-marca);display:block;margin-bottom:12px}
+.tipos p{margin:0;font-size:.9rem;color:var(--suave)}
+.tipos b{display:block;color:var(--texto);font-size:1rem}
 
 /* página de vendas em moldura */
-.molduras{display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap}
-.celular{width:300px;height:600px;border:10px solid var(--texto);border-radius:36px;overflow:hidden;background:#fff;flex:none}
-.celular iframe{width:390px;height:780px;border:0;transform:scale(.7564);transform-origin:0 0}
+.molduras{display:flex;gap:36px;align-items:flex-start;flex-wrap:wrap}
+.celular{width:300px;height:610px;border:10px solid var(--texto);border-radius:40px;overflow:hidden;background:#fff;flex:none;box-shadow:0 30px 60px -30px color-mix(in srgb,var(--texto) 45%,transparent)}
+.celular iframe{width:390px;height:793px;border:0;transform:scale(.7436);transform-origin:0 0}
+.navegador{width:100%;border:1px solid var(--linha);border-radius:var(--r-m);overflow:hidden;background:var(--papel);box-shadow:0 30px 60px -34px color-mix(in srgb,var(--texto) 40%,transparent)}
+.navegador::before{content:"";display:block;height:30px;background:radial-gradient(circle at 16px 15px,#E5675E 5px,transparent 6px),radial-gradient(circle at 34px 15px,#E5B74E 5px,transparent 6px),radial-gradient(circle at 52px 15px,#5DBB6A 5px,transparent 6px),var(--banho);border-bottom:1px solid var(--linha)}
+.navegador .janela{position:relative;aspect-ratio:16/10;overflow:hidden}
+.navegador iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform:scale(var(--s,.5));transform-origin:0 0}
 .molduras .lado{flex:1;min-width:260px}
+.botao{display:inline-flex;align-items:center;gap:8px;background:var(--destaque);color:#fff;text-decoration:none;font-weight:700;padding:11px 18px;border-radius:999px;font-size:.93rem}
+.botao.leve{background:none;color:var(--tinta-marca);border:1px solid var(--linha)}
 
-/* carrossel */
-.post{max-width:420px;background:var(--papel);border:1px solid var(--linha);border-radius:14px;overflow:hidden}
+/* carrossel: o script põe setas e pontos */
+.post{max-width:440px;background:var(--papel);border:1px solid var(--linha);border-radius:var(--r-m);overflow:hidden;position:relative}
 .post-topo{display:flex;align-items:center;gap:10px;padding:10px 14px;font-weight:700;font-size:.9rem}
 .post-topo i{width:30px;height:30px;border-radius:50%;background:var(--marca);display:block}
-.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
-.slide{flex:none;width:100%;aspect-ratio:4/5;scroll-snap-align:start;background:var(--marca);color:#fff;padding:34px 30px;display:flex;flex-direction:column;justify-content:space-between}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth}
+.slides::-webkit-scrollbar{display:none}
+.slide{flex:none;width:100%;aspect-ratio:4/5;scroll-snap-align:start;background:var(--marca);color:#fff;padding:36px 32px;display:flex;flex-direction:column;justify-content:space-between}
 .slide:nth-child(even){background:var(--fundo);color:var(--texto)}
-.slide h4{font-family:var(--fonte-titulo);font-size:1.7rem;line-height:1.15;color:inherit}
+.slide h4{font-family:var(--fonte-titulo);font-size:1.8rem;line-height:1.12;color:inherit}
 .slide p{font-size:1rem;margin:0}
 .slide small{font-size:.75rem;opacity:.75}
-.post-legenda{padding:12px 14px;font-size:.88rem;border-top:1px solid var(--linha)}
+.slide.img{padding:0;background:var(--linha)}
+.slide.img img{width:100%;height:100%;object-fit:cover;display:block}
+.post-nav{display:flex;align-items:center;justify-content:space-between;padding:8px 10px}
+.post-nav button{font:inherit;width:34px;height:34px;border-radius:50%;border:1px solid var(--linha);background:var(--fundo);color:var(--texto);cursor:pointer;font-size:1rem;line-height:1}
+.post-nav button:disabled{opacity:.35;cursor:default}
+.pontos{display:flex;gap:6px}
+.pontos i{width:6px;height:6px;border-radius:50%;background:var(--linha);transition:background .2s,transform .2s}
+.pontos i.on{background:var(--destaque);transform:scale(1.35)}
+.post-legenda{padding:12px 14px;font-size:.88rem;border-top:1px solid var(--linha);margin:0;white-space:pre-line}
+
+/* bastidor: como a IA chegou aqui (a parte que ensina) */
+.bastidor{margin-top:40px;border:1px solid var(--linha);border-radius:var(--r-m);background:var(--papel);max-width:820px}
+.bastidor summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:12px;padding:14px 18px;font-weight:700;font-size:.93rem;color:var(--tinta-marca)}
+.bastidor summary::-webkit-details-marker{display:none}
+.bastidor summary::before{content:"";width:22px;height:22px;border-radius:50%;flex:none;background:var(--banho-destaque) no-repeat center/10px 10px linear-gradient(var(--destaque),var(--destaque));-webkit-mask:none;box-shadow:inset 0 0 0 1.5px var(--destaque);transition:transform .25s var(--curva)}
+.bastidor summary::after{content:"+";margin-left:auto;font-size:1.3rem;font-weight:400;color:var(--suave);transition:transform .25s var(--curva)}
+.bastidor[open] summary::after{transform:rotate(45deg)}
+.bastidor[open] summary{border-bottom:1px solid var(--linha)}
+.bastidor > div{padding:18px 22px 22px}
+.bastidor[open] > div{animation:entra .3s var(--curva)}
+.passo-ia{list-style:none;padding:0;margin:0 0 18px;display:flex;flex-direction:column;gap:0;border-left:2px solid var(--linha);margin-left:6px}
+.passo-ia li{position:relative;padding:0 0 12px 22px;font-size:.93rem}
+.passo-ia li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--papel);border:2px solid var(--marca)}
+.passo-ia li b{color:var(--tinta-marca)}
+.conceito{background:var(--banho);border-radius:var(--r-p);padding:12px 16px;font-size:.93rem;margin:0 0 12px}
+.conceito b{color:var(--tinta-marca)}
+.faca{font-size:.9rem;margin:0}
+.faca code{display:block;margin-top:6px;padding:10px 12px;white-space:pre-wrap;line-height:1.45;cursor:copy}
 
 /* próximos passos */
-.passos{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;max-width:720px}
-.passos li{display:flex;gap:14px;align-items:flex-start;background:var(--papel);border:1px solid var(--linha);border-radius:12px;padding:14px 18px}
+.passos{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;max-width:760px}
+.passos li{display:flex;gap:14px;align-items:flex-start;background:var(--papel);border:1px solid var(--linha);border-radius:var(--r-m);padding:16px 18px;transition:opacity .25s,background .25s}
+.passos li:has(input:checked){opacity:.6;background:var(--banho)}
+.passos li:has(input:checked) b{text-decoration:line-through;text-decoration-color:var(--destaque)}
 .passos input{width:20px;height:20px;accent-color:var(--marca);margin-top:3px;flex:none}
-.passos code{background:var(--banho);padding:1px 7px;border-radius:6px;font-size:.88em}
+.conta-passos{font-size:.9rem;color:var(--suave);margin:-14px 0 16px}
 
-@media (max-width:860px){
-  .trilho{position:sticky;top:0;inset:auto;width:auto;height:auto;flex-direction:row;align-items:center;padding:10px 16px;border-right:0;border-bottom:1px solid var(--linha);overflow-x:auto}
+/* ---------- movimento ---------- */
+@keyframes entra{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes sobe{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+/* um momento só na abertura: a capa se monta em sequência */
+.js .capa > *{animation:sobe .8s var(--curva) both}
+.js .capa > *:nth-child(2){animation-delay:.08s}
+.js .capa > *:nth-child(3){animation-delay:.18s}
+.js .capa > *:nth-child(4){animation-delay:.3s}
+.js .capa > *:nth-child(5){animation-delay:.42s}
+.js .capa > *:nth-child(6){animation-delay:.54s}
+/* dados se desenham quando entram na tela (uma vez) */
+.js .desenha:not(.visto) .barra .trilha i{width:0}
+.js .desenha:not(.visto) .funil .faixa,.js .funil.desenha:not(.visto) .faixa{width:0;min-width:0}
+.js .rosca.desenha:not(.visto) .disco{--p:0}
+.js .mapa.desenha:not(.visto) .ponto{opacity:0;transform:translate(-50%,-50%) scale(.4)}
+.js .mapa.visto .ponto{transition-delay:calc(var(--i,0) * 90ms)}
+.js .barras.visto .barra:nth-child(n) .trilha i{transition-delay:calc(var(--i,0) * 80ms)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+
+/* ---------- celular ---------- */
+@media (max-width:900px){
+  .trilho{position:sticky;top:0;inset:auto;width:auto;height:auto;flex-direction:row;align-items:center;padding:10px 14px;border-right:0;border-bottom:1px solid var(--linha);overflow-x:auto;gap:14px}
   .trilho .nome{font-size:1rem;flex:none}
   .trilho ol{flex-direction:row;flex:none}
   .trilho li a{white-space:nowrap;font-size:.82rem}
-  .trilho .atualizado{display:none}
+  .trilho .atualizado,.progresso span{display:none}
+  .progresso .anel{width:30px;height:30px}.progresso .anel::after{width:22px;height:22px}
+  .botao-aula{flex:none;white-space:nowrap}
   main{margin-left:0}
-  .secao{padding:48px 20px}
-  .g2,.g3{grid-template-columns:1fr}
-  .barra{grid-template-columns:100px 1fr 36px}
-  .mapa{margin-left:24px}
+  html{scroll-padding-top:70px}
+  .secao{padding:56px 20px}
+  .g2,.g3,.comparar{grid-template-columns:1fr}
+  .tabela-wrap table{min-width:560px}
+  .barra{grid-template-columns:96px 1fr 40px;gap:10px}
+  .funil li{grid-template-columns:1fr}
+  .mapa{margin-left:26px;aspect-ratio:1/1}
+  .mapa .ponto{font-size:.7rem}
+  .fases{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:16px}
+  .etapas{grid-template-columns:1fr;gap:18px}
+  .etapas li{display:grid;grid-template-columns:44px 1fr;column-gap:14px;padding:0}
+  .etapas li::before{margin:0;grid-row:span 2}
+  .etapas li::after{display:none}
   .molduras{justify-content:center}
+  .capa{min-height:0}
 }
-@media print{.trilho{display:none}main{margin:0}.secao{break-inside:avoid-page}}
+@media print{
+  .trilho,.post-nav,.botao-aula{display:none}
+  main{margin:0}
+  .secao{break-inside:avoid-page}
+  .bastidor > div{display:block}
+}
 </style>
 </head>
 <body>
@@ -180,8 +369,11 @@ tr.nos td{background:color-mix(in srgb,var(--destaque) 10%,var(--papel));font-we
   <!-- INICIO:nome -->
 <a class="nome" href="#capa">Forno da Vila</a>
   <!-- FIM:nome -->
+  <div class="progresso" aria-live="polite"><div class="anel"></div><span><b data-fases-feitas>0 de 6 fases</b>do mapa da empresa</span></div>
   <ol>
+    <li><a href="#ficha">Ficha</a></li>
     <li><a href="#empresa">Raio-X</a></li>
+    <li><a href="#identidade">Identidade</a></li>
     <li><a href="#mercado">Mercado</a></li>
     <li><a href="#cliente">Cliente</a></li>
     <li><a href="#diagnostico">Diagnóstico</a></li>
@@ -191,6 +383,7 @@ tr.nos td{background:color-mix(in srgb,var(--destaque) 10%,var(--papel));font-we
     <li><a href="#conteudo">Conteúdo</a></li>
     <li><a href="#proximos">Próximos passos</a></li>
   </ol>
+  <button class="botao-aula" type="button" aria-pressed="false" data-bastidores>Abrir os bastidores</button>
   <!-- INICIO:atualizado -->
 <p class="atualizado">Atualizado em 28/09/2026 · fase 6 de 6</p>
   <!-- FIM:atualizado -->
@@ -200,23 +393,25 @@ tr.nos td{background:color-mix(in srgb,var(--destaque) 10%,var(--papel));font-we
 
 <section class="secao capa" id="capa">
 <!-- INICIO:capa -->
-  <p class="tipo">Empresa fictícia · exemplo da imersão · Mogi das Cruzes - SP · padaria de fermentação natural</p>
+  <p class="tipo">Empresa fictícia, exemplo da imersão · padaria de fermentação natural em Mogi das Cruzes - SP</p>
   <h1>A padaria de bairro que quer abastecer as reuniões da cidade</h1>
-  <p class="lede">Mapa da empresa completo: 6 de 6 fases. Pão de fermentação natural no balcão e, cada vez mais, coffee break e cestas para pequenas empresas.</p>
+  <p class="lede">Mapa da empresa completo. Pão de fermentação natural no balcão e, cada vez mais, coffee break e cestas para pequenas empresas.</p>
   <div class="numeros">
-    <div><b>7</b><span>pessoas na equipe</span></div>
-    <div><b>3</b><span>linhas de produto</span></div>
-    <div><b>4,8</b><span>nota no Google (fictícia)</span></div>
-    <div><b>5</b><span>concorrentes mapeados</span></div>
+    <div><b data-conta>7</b><span>pessoas na equipe</span></div>
+    <div><b data-conta>3</b><span>linhas de produto</span></div>
+    <div><b data-conta>4,8</b><span>nota no Google (fictícia)</span></div>
+    <div><b data-conta>5</b><span>concorrentes mapeados</span></div>
   </div>
 <!-- FIM:capa -->
+  <ol class="fases" data-fases aria-label="As 6 fases do mapa"></ol>
 </section>
 
 <section class="secao" id="ficha">
 <!-- INICIO:ficha -->
-  <div class="cartao forte" style="margin-bottom:40px"><h4>Aviso</h4><p>Exemplo com empresa fictícia. Nomes, concorrentes e frases de clientes foram inventados para a aula. Os números de mercado são reais, com fonte.</p></div>
+  <p class="fase"><span class="selo">fase 1</span> <code>/instalar</code> · 7 perguntas ao dono</p>
+  <div class="cartao forte" style="margin-bottom:44px;max-width:760px"><h4>Exemplo fictício</h4><p>Nomes, concorrentes e frases de clientes foram inventados para a aula. Os números de mercado são reais e têm fonte.</p></div>
   <h2>Uma padaria de 7 pessoas que já vende para empresas, mas por indicação</h2>
-  <p class="lede">O que o Rafael contou no /instalar: o pão paga o dia, e as encomendas de empresas são o que ele quer fazer crescer.</p>
+  <p class="lede">O que o Rafael contou: o pão paga o dia, e as encomendas de empresas são o que ele quer fazer crescer.</p>
   <dl class="ficha">
     <dt>Produtos e preços</dt><dd>Pão de fermentação natural, R$ 22 a R$ 28 · café da manhã no balcão, cerca de R$ 25 · cestas e coffee break para empresas, R$ 180 a R$ 600 por pedido</dd>
     <dt>Onde atende</dt><dd>Balcão no bairro, em Mogi das Cruzes - SP; encomendas entregues na cidade</dd>
@@ -230,15 +425,24 @@ tr.nos td{background:color-mix(in srgb,var(--destaque) 10%,var(--papel));font-we
     <div class="cartao forte"><h4>O que mais incomoda hoje</h4><p>As encomendas das empresas chegam pelo WhatsApp e se perdem. Por falta de organização, ele recusa pedido.</p></div>
     <div class="cartao"><h4>Onde quer chegar em 12 meses</h4><p>Encomendas corporativas toda semana, chegando a 30% do faturamento.</p></div>
   </div>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA montou a ficha</summary>
+    <div>
+      <ol class="passo-ia"><li><b>Entrevistou o dono</b> com 7 perguntas, uma por vez.</li><li><b>Gravou</b> as respostas em <code>memoria/</code>: empresa, foco, jeito de falar.</li><li><b>Separou o privado:</b> faturamento e margem foram para <code>memoria/numeros.md</code>, que nunca aparece aqui.</li></ol>
+      <p class="conceito"><b>O conceito:</b> a <em class="termo" tabindex="0" data-def="Arquivos que o Claude lê antes de toda conversa. É o que faz ele lembrar da sua empresa amanhã.">memória</em> é o que separa um chat de um assistente. Sem ela, você explica a empresa toda vez.</p>
+      <p class="faca">Faça na sua pasta:<code>/instalar</code></p>
+    </div>
+  </details>
   <p class="base">Base: <a href="memoria/empresa.md">memoria/empresa.md</a> e <a href="memoria/foco.md">memoria/foco.md</a></p>
 <!-- FIM:ficha -->
 </section>
 
 <section class="secao" id="empresa">
 <!-- INICIO:empresa -->
+  <p class="fase"><span class="selo">fase 2</span> <code>/mapear-empresa</code> · pesquisa na internet</p>
   <h2>Na internet, a Forno da Vila é só padaria: o coffee break não existe</h2>
   <p class="lede">O Instagram fala de pão todo dia. Nenhum post, destaque ou link diz que a padaria atende empresas.</p>
-  <h3>Presença digital</h3>
+  <h3>Presença digital, canal a canal</h3>
   <div class="tabela-wrap"><table>
     <thead><tr><th>Canal</th><th>Situação</th><th>Como está</th></tr></thead>
     <tbody>
@@ -256,29 +460,79 @@ tr.nos td{background:color-mix(in srgb,var(--destaque) 10%,var(--papel));font-we
     <div class="cartao"><h4>Provas que existem</h4><p>Nota 4,8 no Google (fictícia), com elogios à casca e ao atendimento. Todas falam do balcão.</p></div>
     <div class="cartao forte"><h4>O que não diz</h4><p>Que faz coffee break, para quantas pessoas, a partir de quanto, com que prazo e onde entrega.</p></div>
   </div>
+  <h3>O que o dono disse × o que a internet mostra</h3>
+  <div class="comparar">
+    <div><h4>O Rafael</h4><p>"As empresas pedem cada vez mais coffee break."</p></div>
+    <div><h4>A internet</h4><p>Nenhum lugar oferece coffee break. Os pedidos vêm só por indicação.</p></div>
+  </div>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA pesquisou</summary>
+    <div>
+      <ol class="passo-ia"><li><b>Buscou o nome</b> + cidade, Instagram, avaliações e Reclame Aqui.</li><li><b>Leu o site</b> (aqui não existe) e o perfil do Google.</li><li><b>Deu um selo</b> a cada canal com a mesma régua: tem, fraco, não tem.</li><li><b>Comparou</b> com o que o dono contou. Divergência vira achado.</li></ol>
+      <p class="conceito"><b>O conceito:</b> a IA não sabe da sua empresa; ela <em>pesquisa</em>. Por isso cada afirmação tem de onde veio. O que não achou fica <code>[a confirmar]</code>, nunca inventado.</p>
+      <p class="faca">Faça na sua pasta:<code>/mapear-empresa</code></p>
+    </div>
+  </details>
   <p class="base">Base: <a href="pesquisa/empresa.md">pesquisa/empresa.md</a></p>
 <!-- FIM:empresa -->
 </section>
 
+<section class="secao" id="identidade">
+<!-- INICIO:identidade -->
+  <p class="fase"><span class="selo">fase 2</span> <code>/mapear-empresa</code> · marca</p>
+  <h2>Sem site para copiar, a marca nasceu da referência do dono: a Aesop</h2>
+  <p class="lede">Calma, poucas cores, muito espaço. As cores vêm do próprio produto: trigo, casca tostada, azeite. Tudo marcado <span class="selo atencao">sugestão</span> até o Rafael aprovar.</p>
+  <div class="paleta">
+    <button class="cor" type="button" style="--c:#4A5230"><b>Oliva</b><code>#4A5230</code><span>Cor principal</span></button>
+    <button class="cor" type="button" style="--c:#9A4A26"><b>Casca tostada</b><code>#9A4A26</code><span>Botões e destaques</span></button>
+    <button class="cor" type="button" style="--c:#F1EFE7"><b>Farinha</b><code>#F1EFE7</code><span>Fundo</span></button>
+    <button class="cor" type="button" style="--c:#25231D"><b>Forno</b><code>#25231D</code><span>Texto</span></button>
+  </div>
+  <div class="tipos">
+    <div><span class="aa" style="font-family:var(--fonte-titulo)">Aa</span><b style="font-family:var(--fonte-titulo);font-size:1.3rem">Newsreader</b><p>Títulos. Serifada calma, de livro.</p></div>
+    <div><span class="aa" style="font-family:var(--fonte-texto)">Aa</span><b>Figtree</b><p>Texto. Limpa e legível no celular.</p></div>
+  </div>
+  <h3>Como a empresa fala</h3>
+  <div class="grade g2">
+    <div class="cartao"><h4>Calmo, próximo, sem pressa</h4><p class="citacao">"Pão sai do forno às 7h. Quem chega cedo pega o de azeitona."</p><p class="fonte">Instagram (fictício)</p></div>
+    <div class="cartao"><h4>Nunca dizer</h4><p>gourmet · artesanal de verdade · saudável (como promessa) · fit · preço imperdível</p></div>
+  </div>
+  <details class="bastidor">
+    <summary>Bastidores: de onde vem a marca</summary>
+    <div>
+      <ol class="passo-ia"><li><b>Tem site?</b> A IA lê as cores e fontes direto do código dele.</li><li><b>Só Instagram?</b> Tira a paleta dos posts e marca <code>[do Instagram — confirmar]</code>.</li><li><b>Não tem nada?</b> Pede um print, o logo ou uma marca que o dono admira, e sugere a partir disso.</li><li><b>Grava</b> em <code>marca/marca.md</code>. Página, posts e este relatório usam o mesmo arquivo.</li></ol>
+      <p class="conceito"><b>O conceito:</b> um <em class="termo" tabindex="0" data-def="As regras visuais da empresa num lugar só: cores, fontes, logo e tom. Tudo o que a IA cria segue esse arquivo.">design system</em> é o que faz tudo parecer da mesma empresa. Sem ele, cada peça sai de um jeito, como o Instagram do Rafael hoje.</p>
+      <p class="faca">Faça na sua pasta:<code>/marca  (ou arraste um print do seu site ou Instagram para a conversa)</code></p>
+    </div>
+  </details>
+  <p class="base">Base: <a href="marca/marca.md">marca/marca.md</a> e <a href="memoria/preferencias.md">memoria/preferencias.md</a></p>
+<!-- FIM:identidade -->
+</section>
+
 <section class="secao" id="mercado">
 <!-- INICIO:mercado -->
+  <p class="fase"><span class="selo">fase 2</span> <code>/mapear-empresa</code> · mercado</p>
   <h2>Um setor que cresce vendendo melhor, não para mais gente</h2>
   <p class="lede">Em 2025 o ticket médio das padarias subiu bem mais que o número de clientes. Pedido maior e organizado, como a encomenda para empresa, está do lado certo dessa curva.</p>
-  <div class="grade g3">
-    <div class="cartao"><h4>R$ 164,12 bilhões</h4><p>Faturamento da panificação e confeitaria no Brasil em 2025, 1,29% do PIB.</p><p class="fonte"><a href="https://www.abip.org.br/site/institucional/">ABIP, 2025</a></p></div>
-    <div class="cartao"><h4>R$ 36,61 por visita</h4><p>Ticket médio em 2025, alta de 5,46%. O fluxo de clientes subiu só 1,27%.</p><p class="fonte"><a href="https://www.foodconnection.com.br/foodservice/panificacao-brasileira-cresce-em-faturamento-e-inova-no-modelo-de-negocio/">Food Connection, dados do Instituto Ideal, 2025</a></p></div>
-    <div class="cartao"><h4>332.558 empresas</h4><p>Empresas ativas no setor em 2025; 63,83% são MEI.</p><p class="fonte"><a href="https://www.abip.org.br/site/institucional/">ABIP, 2025</a></p></div>
-    <div class="cartao"><h4>47,5 milhões por dia</h4><p>Pessoas que visitam padarias diariamente, 22,1% da população (projeção).</p><p class="fonte"><a href="https://www.abip.org.br/site/wp-content/uploads/2025/04/IDEAL_20-_20ENCARTE_20INDICADORES_20DE_20PERFORMANCE_202024_20BR.pdf">Instituto Ideal/ABIP, 2024</a></p></div>
-    <div class="cartao"><h4>451.505 habitantes</h4><p>População de Mogi das Cruzes no último censo.</p><p class="fonte"><a href="https://www.ibge.gov.br/cidades-e-estados/sp/mogi-das-cruzes.html">IBGE, Censo 2022</a></p></div>
-    <div class="cartao"><h4>Coffee break na região</h4><p>Tamanho do mercado de coffee break corporativo em Mogi: sem dado público confiável.</p></div>
+  <div class="kpis">
+    <div><b>R$ 164,12 bi</b><p>Faturamento da panificação e confeitaria no Brasil em 2025, 1,29% do PIB.</p><p class="fonte"><a href="https://www.abip.org.br/site/institucional/">ABIP, 2025</a></p></div>
+    <div><b>R$ 36,61</b><p>Ticket médio por visita em 2025.</p><p class="fonte"><a href="https://www.foodconnection.com.br/foodservice/panificacao-brasileira-cresce-em-faturamento-e-inova-no-modelo-de-negocio/">Food Connection, dados do Instituto Ideal, 2025</a></p></div>
+    <div><b>332.558</b><p>Empresas ativas no setor em 2025; 63,83% são MEI.</p><p class="fonte"><a href="https://www.abip.org.br/site/institucional/">ABIP, 2025</a></p></div>
+    <div><b>451.505</b><p>Habitantes de Mogi das Cruzes.</p><p class="fonte"><a href="https://www.ibge.gov.br/cidades-e-estados/sp/mogi-das-cruzes.html">IBGE, Censo 2022</a></p></div>
   </div>
+  <h3>O cliente gasta mais, mas não vem mais vezes</h3>
+  <div class="barras">
+    <div class="barra nos"><span>Ticket médio</span><span class="trilha"><i style="--v:100"></i></span><span>+5,46%</span></div>
+    <div class="barra"><span>Fluxo de clientes</span><span class="trilha"><i style="--v:23"></i></span><span>+1,27%</span></div>
+  </div>
+  <p class="fonte" style="margin-top:10px">Variação de 2025 sobre 2024. <a href="https://www.foodconnection.com.br/foodservice/panificacao-brasileira-cresce-em-faturamento-e-inova-no-modelo-de-negocio/">Food Connection, dados do Instituto Ideal</a></p>
   <h3>Tendências</h3>
   <div class="grade g3">
-    <div class="cartao"><h4>Ticket acima do fluxo</h4><p>O setor cresce vendendo mais por cliente. Um pedido de empresa vale muitos cafés no balcão.</p><p class="fonte"><a href="https://www.foodconnection.com.br/foodservice/panificacao-brasileira-cresce-em-faturamento-e-inova-no-modelo-de-negocio/">Food Connection, 02/04/2026</a></p></div>
-    <div class="cartao"><h4>Fermentação natural em alta</h4><p>O Sebrae cita fermentação natural e atendimento personalizado entre o que o cliente busca. O produto já está lá; falta falar dele.</p><p class="fonte"><a href="https://agenciasebrae.com.br/cultura-empreendedora/no-dia-do-panificador-setor-celebra-tradicao-enquanto-se-reinventa-para-atender-um-novo-consumidor/">Agência Sebrae, 07/07/2026</a></p></div>
-    <div class="cartao"><h4>Pedido pelo WhatsApp</h4><p>Abip recomenda vendas via WhatsApp; o Instituto Ideal cita automação de encomendas. É o gargalo do Rafael.</p><p class="fonte"><a href="https://timesbrasil.com.br/brasil/setor-de-panificacao-deve-faturar-r-160-bi-e-enfrenta-tempestade-perfeita-de-custos-juros-e-concorrencia/">Times Brasil, 13/08/2025</a> · <a href="https://www.abip.org.br/site/wp-content/uploads/2025/04/IDEAL_20-_20ENCARTE_20INDICADORES_20DE_20PERFORMANCE_202024_20BR.pdf">Ideal/ABIP</a></p></div>
+    <div class="cartao"><h4>Ticket acima do fluxo</h4><p>O setor cresce vendendo mais por cliente. Um pedido de empresa vale muitos cafés no balcão.</p></div>
+    <div class="cartao"><h4>Fermentação natural em alta</h4><p>O Sebrae cita fermentação natural e atendimento personalizado entre o que o cliente busca.</p><p class="fonte"><a href="https://agenciasebrae.com.br/cultura-empreendedora/no-dia-do-panificador-setor-celebra-tradicao-enquanto-se-reinventa-para-atender-um-novo-consumidor/">Agência Sebrae, 07/07/2026</a></p></div>
+    <div class="cartao"><h4>Pedido pelo WhatsApp</h4><p>Abip recomenda vendas via WhatsApp. É exatamente o gargalo do Rafael.</p><p class="fonte"><a href="https://timesbrasil.com.br/brasil/setor-de-panificacao-deve-faturar-r-160-bi-e-enfrenta-tempestade-perfeita-de-custos-juros-e-concorrencia/">Times Brasil, 13/08/2025</a></p></div>
   </div>
-  <h3>O que o cliente procura antes de comprar</h3>
+  <h3>O que o cliente busca antes de comprar</h3>
   <div class="tabela-wrap"><table>
     <thead><tr><th>Busca</th><th>Intenção (por observação)</th></tr></thead>
     <tbody>
@@ -286,85 +540,116 @@ tr.nos td{background:color-mix(in srgb,var(--destaque) 10%,var(--papel));font-we
       <tr><td>coffee break para empresa Mogi das Cruzes preço</td><td><span class="selo ok">alta</span></td></tr>
       <tr><td>cesta de café da manhã Mogi das Cruzes</td><td><span class="selo ok">alta</span></td></tr>
       <tr><td>padaria artesanal Mogi das Cruzes</td><td><span class="selo atencao">média</span></td></tr>
-      <tr><td>pão de fermentação natural Mogi das Cruzes</td><td><span class="selo atencao">média</span></td></tr>
       <tr><td>o que servir em coffee break</td><td><span class="selo">baixa</span></td></tr>
     </tbody>
   </table></div>
   <h3>Veredito</h3>
   <p class="destaque">Mercado estável, com espaço no alto: nas buscas de encomenda aparecem buffets e floriculturas, quase nunca uma padaria.</p>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA achou esses números</summary>
+    <div>
+      <ol class="passo-ia"><li><b>Procurou</b> em fontes do setor: ABIP, Sebrae, IBGE, imprensa.</li><li><b>Guardou o link e o ano</b> de cada número.</li><li><b>Não achou</b> o tamanho do mercado de coffee break em Mogi, e escreveu isso em vez de estimar.</li></ol>
+      <p class="conceito"><b>O conceito:</b> IA inventa número com a mesma confiança com que acerta. A regra da pasta é: <em>sem link, não entra</em>. Clique em qualquer fonte e confira.</p>
+      <p class="faca">Faça na sua pasta:<code>Confira 1 número do /mapear-empresa: abra o link e veja se o dado está lá.</code></p>
+    </div>
+  </details>
   <p class="base">Base: <a href="pesquisa/mercado.md">pesquisa/mercado.md</a></p>
 <!-- FIM:mercado -->
 </section>
 
 <section class="secao" id="cliente">
 <!-- INICIO:cliente -->
+  <p class="fase"><span class="selo">fase 2</span> <code>/mapear-empresa</code> · cliente</p>
   <h2>Quem compra o coffee break não quer pão bonito: quer certeza de que vai chegar</h2>
   <p class="lede">A compradora é quem organiza a reunião. A maior dor dela não é o preço, é não saber se o pedido foi confirmado.</p>
   <div class="grade g2">
-    <div class="cartao forte"><h4>Camila, 34 anos, administrativo ou RH</h4><p>Trabalha numa empresa de 15 a 60 pessoas em Mogi das Cruzes. Organiza reuniões, treinamentos e aniversários do mês. Escolhe o fornecedor; o gestor aprova o valor. Pede de R$ 180 a R$ 600. Procura com colegas, no Google e no Instagram, na véspera.</p></div>
-    <div class="cartao"><h4>Quem não é cliente</h4><p>Quem quer coffee break para 200 pessoas com garçom e louça. Parece o pedido dos sonhos, mas pede estrutura de buffet que a padaria não tem.</p><p>No balcão, o cliente é o morador de 30 a 55 anos que compra pão 2 a 3 vezes por semana.</p></div>
+    <div class="cartao forte"><h4>Camila, 34 anos, administrativo ou RH</h4><p>Trabalha numa empresa de 15 a 60 pessoas em Mogi das Cruzes. Organiza reuniões, treinamentos e aniversários do mês. Ela escolhe o fornecedor; o gestor aprova o valor. Procura com colegas, no Google e no Instagram, na véspera.</p></div>
+    <div class="cartao"><h4>Quem parece cliente, mas não é</h4><p>Quem quer coffee break para 200 pessoas com garçom e louça. Pede estrutura de buffet que a padaria não tem.</p></div>
   </div>
+  <h3>O caminho da Camila até o pedido, e onde ele quebra</h3>
+  <ol class="etapas">
+    <li><b>Precisa</b>Reunião marcada para a semana.</li>
+    <li><b>Procura</b>Pergunta a colegas, Google, Instagram.</li>
+    <li class="perde"><b>Pede orçamento</b>WhatsApp pessoal do dono. A resposta demora.</li>
+    <li class="perde"><b>Espera confirmação</b>Não sabe se vai ter café. Vai para o buffet.</li>
+    <li><b>Recebe</b>Quando dá certo, o pão é elogiado.</li>
+  </ol>
   <h3>O que dói (frases inventadas para a aula)</h3>
-  <div class="grade g2">
-    <div class="cartao"><h4>Não saber se foi confirmado</h4><p class="citacao">"Mandei mensagem na segunda e só me responderam na quinta. Tive que correr atrás de outro lugar."</p><p class="fonte">Frase fictícia, exemplo de aula</p></div>
-    <div class="cartao"><h4>Medo de atraso</h4><p class="citacao">"Reunião às 8h e o café chegou 8h40, com o cliente já sentado."</p><p class="fonte">Frase fictícia, exemplo de aula</p></div>
-    <div class="cartao"><h4>Preço escondido</h4><p class="citacao">"Queria só uma ideia de valor para levar pro meu chefe, e ninguém passa sem eu mandar mil detalhes."</p><p class="fonte">Frase fictícia, exemplo de aula</p></div>
-    <div class="cartao"><h4>Tudo igual</h4><p class="citacao">"Todo lugar manda o mesmo mini pão de queijo e o mesmo bolo seco."</p><p class="fonte">Frase fictícia, exemplo de aula</p></div>
-  </div>
-  <h3>Como falar com ela</h3>
-  <div class="grade g2">
-    <div class="cartao"><h4>Usar</h4><p>café da reunião · pão de verdade · chega no horário · orçamento · para quantas pessoas · confirmado · montado · fresquinho</p></div>
-    <div class="cartao"><h4>Evitar</h4><p>gourmet · artesanal de verdade · saudável (como promessa) · fit · preço imperdível</p></div>
+  <div class="abas">
+    <div data-aba="Não saber se confirmou"><p class="citacao">"Mandei mensagem na segunda e só me responderam na quinta. Tive que correr atrás de outro lugar."</p><p class="fonte">Frase fictícia, exemplo de aula</p></div>
+    <div data-aba="Medo de atraso"><p class="citacao">"Reunião às 8h e o café chegou 8h40, com o cliente já sentado."</p><p class="fonte">Frase fictícia, exemplo de aula</p></div>
+    <div data-aba="Preço escondido"><p class="citacao">"Queria só uma ideia de valor para levar pro meu chefe, e ninguém passa sem eu mandar mil detalhes."</p><p class="fonte">Frase fictícia, exemplo de aula</p></div>
+    <div data-aba="Tudo igual"><p class="citacao">"Todo lugar manda o mesmo mini pão de queijo e o mesmo bolo seco."</p><p class="fonte">Frase fictícia, exemplo de aula</p></div>
   </div>
   <h3>Quando ela sai procurando e o que a segura</h3>
   <div class="grade g2">
     <div class="cartao"><h4>Gatilhos</h4><ul><li>Reunião com cliente importante na semana</li><li>Treinamento ou integração de gente nova</li><li>Aniversariantes do mês</li><li>Presente de fim de ano para clientes</li><li>O fornecedor antigo atrasou</li></ul></div>
-    <div class="cartao"><h4>Objeções</h4><ul><li><b>"Vocês vão demorar."</b> Orçamento por escrito em até 2 horas.</li><li><b>"Padaria dá conta de 30 pessoas?"</b> Com 48 horas de antecedência e quantidade por pessoa no orçamento.</li><li><b>"O buffet é mais barato."</b> Preço fechado, sem taxa surpresa.</li></ul></div>
+    <div class="cartao"><h4>Objeções e respostas</h4><ul><li><b>"Vocês vão demorar."</b> Orçamento por escrito em até 2 horas.</li><li><b>"Padaria dá conta de 30 pessoas?"</b> Com 48 horas de antecedência.</li><li><b>"O buffet é mais barato."</b> Preço fechado, sem taxa surpresa.</li></ul></div>
   </div>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA conheceu a Camila</summary>
+    <div>
+      <ol class="passo-ia"><li><b>Cruzou</b> o que o dono disse sobre quem compra com avaliações e comentários.</li><li><b>Copiou frases reais</b> de clientes, com link. Aqui são inventadas porque a empresa é fictícia.</li><li><b>Desenhou o caminho</b> até a compra e marcou em vermelho onde o cliente se perde.</li></ol>
+      <p class="conceito"><b>O conceito:</b> uma <em class="termo" tabindex="0" data-def="Retrato de um cliente típico: quem é, o que faz, o que sente. Serve para escrever como se falasse com uma pessoa.">persona</em> com frases reais vale mais que "público de 25 a 45 anos". A copy da página e dos posts sai dessas frases.</p>
+      <p class="faca">Faça na sua pasta:<code>Quais são as 3 frases de cliente que mais aparecem em pesquisa/cliente.md? De onde veio cada uma?</code></p>
+    </div>
+  </details>
   <p class="base">Base: <a href="pesquisa/cliente.md">pesquisa/cliente.md</a></p>
 <!-- FIM:cliente -->
 </section>
 
 <section class="secao" id="diagnostico">
 <!-- INICIO:diagnostico -->
+  <p class="fase"><span class="selo">fase 2</span> <code>/mapear-empresa</code> · diagnóstico</p>
   <h2>O problema que o Rafael apontou se confirma: o pedido de empresa não tem caminho</h2>
   <p class="lede">A procura existe e chega por indicação. Ela se perde em três pontos: no WhatsApp, na falta de vitrine e na falta de prova.</p>
   <div class="tabela-wrap"><table>
     <thead><tr><th>Gargalo</th><th>Evidência</th><th>Custo de não resolver</th><th>Primeira ação</th></tr></thead>
     <tbody>
-      <tr><td>Pedido de empresa se perde no WhatsApp <span class="selo ok">confirma</span></td><td>Pedido cai no número pessoal do dono, sem registro; a dor nº 1 da compradora é não saber se foi confirmado</td><td>Cada pedido recusado vai para o buffet e não volta; a meta de 30% fica impossível</td><td>Formulário de 5 perguntas no WhatsApp Business e agenda única de encomendas</td></tr>
-      <tr><td>Ninguém sabe que a padaria faz coffee break</td><td>Nenhum post fala de encomenda; nas buscas de compra aparecem buffets e floriculturas</td><td>Encomendas presas à indicação, sem ritmo semanal</td><td>Tabela de coffee break com 3 tamanhos, fixada no Instagram</td></tr>
-      <tr><td>Falta prova para quem compra pela empresa</td><td>A nota no Google só fala do balcão; zero foto ou depoimento de encomenda</td><td>A compradora não tem o que mostrar ao chefe</td><td>Pedir avaliação e foto da mesa a cada entrega</td></tr>
-      <tr><td>O dono faz tudo</td><td>Caixa, compras e WhatsApp com o Rafael; o setor tem falta de mão de obra</td><td>Encomenda cresce e o atendimento piora</td><td>Passar a confirmação para alguém do balcão, com roteiro escrito</td></tr>
+      <tr><td>Pedido de empresa se perde no WhatsApp <span class="selo ok">confirma</span></td><td>Pedido cai no número pessoal do dono, sem registro; a dor nº 1 da compradora é não saber se foi confirmado</td><td>Cada pedido recusado vai para o buffet e não volta</td><td>Formulário de 5 perguntas e agenda única de encomendas</td></tr>
+      <tr><td>Ninguém sabe que a padaria faz coffee break</td><td>Nenhum post fala de encomenda; nas buscas aparecem buffets e floriculturas</td><td>Encomendas presas à indicação</td><td>Tabela de coffee break com 3 tamanhos, fixada no Instagram</td></tr>
+      <tr><td>Falta prova para quem compra pela empresa</td><td>A nota no Google só fala do balcão</td><td>A compradora não tem o que mostrar ao chefe</td><td>Pedir avaliação e foto da mesa a cada entrega</td></tr>
+      <tr><td>O dono faz tudo</td><td>Caixa, compras e WhatsApp com o Rafael</td><td>Encomenda cresce e o atendimento piora</td><td>Passar a confirmação para alguém do balcão, com roteiro</td></tr>
     </tbody>
   </table></div>
   <h3>Oportunidades</h3>
   <div class="grade g2">
     <div class="cartao forte"><h4>★ Coffee break de padaria com orçamento em 2 horas</h4><p>A dor nº 1 é resposta lenta e o setor cresce por ticket. Organização deixa de ser problema interno e vira argumento de venda.</p></div>
     <div class="cartao"><h4>Cestas de fim de ano para empresas</h4><p>Nas buscas por cesta aparecem floriculturas, não padarias. Começar em outubro com 20 empresas que já compram no balcão.</p></div>
-    <div class="cartao"><h4>Fermentação natural como assunto</h4><p>O Sebrae aponta a fermentação natural entre o que o cliente procura. Para o Rafael é rotina; para o cliente é novidade.</p></div>
+    <div class="cartao"><h4>Fermentação natural como assunto</h4><p>Para o Rafael é rotina; para o cliente é novidade.</p></div>
     <div class="cartao"><h4>Caixa-degustação para escritórios</h4><p>A compradora precisa provar antes de convencer o chefe. 10 caixas em escritórios a até 2 km.</p></div>
   </div>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA chegou ao diagnóstico</summary>
+    <div>
+      <ol class="passo-ia"><li><b>Leu as 3 pesquisas</b> juntas: empresa, mercado e cliente.</li><li><b>Começou pelo problema do dono</b> e checou se a evidência confirma ou aponta outra causa.</li><li><b>Usou os números privados</b> para raciocinar, sem mostrar nenhum aqui.</li></ol>
+      <p class="conceito"><b>O conceito:</b> a IA vale mais cruzando informação do que resumindo. Nenhum dos 3 arquivos sozinho diz "o pedido não tem caminho"; juntos, dizem.</p>
+      <p class="faca">Faça na sua pasta:<code>O que no diagnóstico você discorda? Me diz e eu corrijo a memória.</code></p>
+    </div>
+  </details>
   <p class="base">Base: <a href="pesquisa/diagnostico.md">pesquisa/diagnostico.md</a></p>
 <!-- FIM:diagnostico -->
 </section>
 
 <section class="secao" id="concorrentes">
 <!-- INICIO:concorrentes -->
+  <p class="fase"><span class="selo">fase 3</span> <code>/mapear-concorrentes</code></p>
   <h2>Ninguém em Mogi junta pão bom com pedido rápido para empresa</h2>
-  <p class="lede">Buffet tem estrutura e pão comum; quem faz pão bom não atende empresa. A Forno da Vila tem o melhor pão da lista e a vitrine mais fraca. (Todos os concorrentes são fictícios.)</p>
-  <div class="tabela-wrap"><table>
-    <thead><tr><th>Concorrente</th><th>Promessa</th><th>Diferencial</th><th>Preço</th><th>Prova</th><th>Força</th></tr></thead>
-    <tbody>
-      <tr class="nos"><td>Forno da Vila</td><td>Pão de fermentação natural no bairro</td><td>Pão feito na casa</td><td>Encomenda R$ 180 a R$ 600</td><td>Google 4,8</td><td>2/5</td></tr>
-      <tr><td>A · Pão &amp; Cia (fictícia)</td><td>"Tudo para o seu café"</td><td>Variedade e loja grande</td><td>Tabela no site</td><td>Google 4,3</td><td>4/5</td></tr>
-      <tr><td>B · Buffet Sabor &amp; Evento (fictício)</td><td>"Seu evento sem preocupação"</td><td>Garçom, louça e estrutura</td><td>A partir de R$ 45 por pessoa</td><td>Logos de clientes</td><td>4/5</td></tr>
-      <tr><td>C · Cestas Bom Dia (fictícia)</td><td>"Cesta que emociona"</td><td>Entrega no mesmo dia</td><td>R$ 150 a R$ 400</td><td>Avaliações na loja online</td><td>4/5</td></tr>
-      <tr><td>D · Padoca do Largo (fictícia)</td><td>"Pão quentinho toda hora"</td><td>Aberta das 6h às 22h</td><td>Não mostra</td><td>Google 4,1</td><td>2/5</td></tr>
-      <tr><td>E · Levain Caseiro (fictícia)</td><td>"Pão de fermentação natural por encomenda"</td><td>Produção pequena, retirada</td><td>Pão R$ 30</td><td>Comentários no Instagram</td><td>1/5</td></tr>
-    </tbody>
-  </table></div>
-  <h3>Força digital</h3>
+  <p class="lede">Buffet tem estrutura e pão comum; quem faz pão bom não atende empresa. A Forno da Vila tem o melhor pão da lista e a vitrine mais fraca. Todos os concorrentes são fictícios.</p>
+  <h3>Onde cada um está <span class="selo estimativa">estimativa</span></h3>
+  <p class="fonte" style="margin:-6px 0 14px">Passe o mouse num ponto para ver o porquê.</p>
+  <div class="mapa" role="img" aria-label="Mapa de posicionamento: eixo X preço do pedido, eixo Y cuidado com o pão">
+    <div class="eixo-x"><span>Pedido barato</span><span>Pedido caro</span></div>
+    <div class="eixo-y"><span>Pão industrial</span><span>Pão feito na casa</span></div>
+    <span class="vazio" style="--x:30;--y:80">espaço vazio</span>
+    <span class="ponto nos" tabindex="0" style="--x:52;--y:88" data-nota="Pão de fermentação natural feito na casa; encomenda de R$ 180 a R$ 600.">Forno da Vila</span>
+    <span class="ponto" tabindex="0" style="--x:42;--y:38" data-nota="Variedade e loja grande; tabela de preço no site.">A · Pão &amp; Cia</span>
+    <span class="ponto" tabindex="0" style="--x:85;--y:30" data-nota="Garçom, louça e estrutura; a partir de R$ 45 por pessoa.">B · Buffet</span>
+    <span class="ponto" tabindex="0" style="--x:62;--y:12" data-nota="Cesta pronta, entrega no mesmo dia; R$ 150 a R$ 400.">C · Cestas</span>
+    <span class="ponto" tabindex="0" style="--x:15;--y:48" data-nota="Aberta das 6h às 22h; não mostra preço.">D · Padoca</span>
+    <span class="ponto" tabindex="0" style="--x:82;--y:70" data-nota="Pão de fermentação natural por encomenda, só retirada; pão a R$ 30.">E · Levain</span>
+  </div>
+  <h3>Força digital <span class="selo estimativa">estimativa</span></h3>
   <div class="barras">
     <div class="barra nos"><span>Forno da Vila</span><span class="trilha"><i style="--v:40"></i></span><span>2/5</span></div>
     <div class="barra"><span>A · Pão &amp; Cia</span><span class="trilha"><i style="--v:80"></i></span><span>4/5</span></div>
@@ -373,111 +658,171 @@ tr.nos td{background:color-mix(in srgb,var(--destaque) 10%,var(--papel));font-we
     <div class="barra"><span>D · Padoca do Largo</span><span class="trilha"><i style="--v:40"></i></span><span>2/5</span></div>
     <div class="barra"><span>E · Levain Caseiro</span><span class="trilha"><i style="--v:20"></i></span><span>1/5</span></div>
   </div>
-  <h3>Onde cada um está</h3>
-  <div class="mapa" role="img" aria-label="Mapa de posicionamento: eixo X preço do pedido, eixo Y cuidado com o pão">
-    <div class="eixo-x"><span>Pedido barato</span><span>Pedido caro</span></div>
-    <div class="eixo-y"><span>Pão industrial</span><span>Pão feito na casa</span></div>
-    <span class="ponto nos" style="--x:52;--y:88">Forno da Vila</span>
-    <span class="ponto" style="--x:42;--y:38">A · Pão &amp; Cia</span>
-    <span class="ponto" style="--x:85;--y:30">B · Buffet</span>
-    <span class="ponto" style="--x:62;--y:12">C · Cestas</span>
-    <span class="ponto" style="--x:15;--y:48">D · Padoca</span>
-    <span class="ponto" style="--x:82;--y:70">E · Levain</span>
-  </div>
+  <p class="fonte" style="margin-top:10px">Régua igual para todos: +1 site no celular · +1 preço fácil de achar · +1 prova social · +1 Instagram ativo · +1 aparece nas buscas de compra.</p>
+  <h3>Lado a lado</h3>
+  <div class="tabela-wrap"><table>
+    <thead><tr><th>Concorrente</th><th>Promessa</th><th>Diferencial</th><th>Preço</th><th>Prova</th></tr></thead>
+    <tbody>
+      <tr class="nos"><td>Forno da Vila</td><td>Pão de fermentação natural no bairro</td><td>Pão feito na casa</td><td>Encomenda R$ 180 a R$ 600</td><td>Google 4,8</td></tr>
+      <tr><td>A · Pão &amp; Cia</td><td>"Tudo para o seu café"</td><td>Variedade e loja grande</td><td>Tabela no site</td><td>Google 4,3</td></tr>
+      <tr><td>B · Buffet Sabor &amp; Evento</td><td>"Seu evento sem preocupação"</td><td>Garçom, louça e estrutura</td><td>A partir de R$ 45 por pessoa</td><td>Logos de clientes</td></tr>
+      <tr><td>C · Cestas Bom Dia</td><td>"Cesta que emociona"</td><td>Entrega no mesmo dia</td><td>R$ 150 a R$ 400</td><td>Avaliações na loja online</td></tr>
+      <tr><td>D · Padoca do Largo</td><td>"Pão quentinho toda hora"</td><td>Aberta das 6h às 22h</td><td>Não mostra</td><td>Google 4,1</td></tr>
+      <tr><td>E · Levain Caseiro</td><td>"Pão de fermentação natural por encomenda"</td><td>Produção pequena, retirada</td><td>Pão R$ 30</td><td>Comentários no Instagram</td></tr>
+    </tbody>
+  </table></div>
   <h3>Espaços vazios</h3>
   <div class="grade g2">
     <div class="cartao forte"><h4>Coffee break de pão bom com orçamento em 2 horas</h4><p>Resolve "não sei se foi confirmado". Ninguém promete prazo de resposta.</p></div>
-    <div class="cartao"><h4>Preço fechado por tamanho</h4><p>Resolve "ninguém passa o valor". Só um concorrente mostra tabela, e só no site.</p></div>
-    <div class="cartao"><h4>Coffee break que não é igual a todos</h4><p>Resolve "sempre o mesmo mini pão de queijo". Quem tem pão bom não atende empresa.</p></div>
-    <div class="cartao"><h4>Cesta de fim de ano de padaria</h4><p>Resolve o presente para clientes. Hoje é território de floricultura.</p></div>
+    <div class="cartao"><h4>Preço fechado por tamanho</h4><p>Resolve "ninguém passa o valor". Só um concorrente mostra tabela.</p></div>
+    <div class="cartao"><h4>Coffee break que não é igual a todos</h4><p>Resolve "sempre o mesmo mini pão de queijo".</p></div>
+    <div class="cartao"><h4>Cesta de fim de ano de padaria</h4><p>Presente para clientes. Hoje é território de floricultura.</p></div>
   </div>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA montou o mapa</summary>
+    <div>
+      <ol class="passo-ia"><li><b>Achou 5 concorrentes</b> nas buscas que o cliente faz.</li><li><b>Abriu o site de cada um</b> e anotou promessa, preço e prova.</li><li><b>Escolheu 2 eixos</b> que a compradora valoriza e posicionou todos.</li><li><b>Procurou o canto vazio</b> e ligou cada espaço a uma dor da Camila.</li></ol>
+      <p class="conceito"><b>O conceito:</b> <em class="termo" tabindex="0" data-def="O lugar que a empresa ocupa na cabeça do cliente, em comparação com as alternativas.">posicionamento</em> não é ser melhor em tudo; é ocupar um lugar que ninguém ocupa. As notas aqui são julgamento da IA: por isso o selo de estimativa.</p>
+      <p class="faca">Faça na sua pasta:<code>/mapear-concorrentes</code></p>
+    </div>
+  </details>
   <p class="base">Base: <a href="pesquisa/concorrentes.md">pesquisa/concorrentes.md</a></p>
 <!-- FIM:concorrentes -->
 </section>
 
 <section class="secao" id="oferta">
 <!-- INICIO:oferta -->
+  <p class="fase"><span class="selo">fase 4</span> <code>/criar-oferta</code></p>
   <h2>Vender certeza, não só pão: o coffee break com pedido confirmado em 2 horas</h2>
   <p class="lede">A oferta ocupa o espaço vazio nº 1 e ataca o gargalo que o dono já sente. <span class="selo atencao">hipótese a validar</span></p>
   <p class="destaque">Para pequenas empresas de Mogi das Cruzes, a Forno da Vila entrega coffee break com pão de fermentação natural feito na casa, com orçamento por escrito em até 2 horas.</p>
-  <h3>Promessa</h3>
-  <p>Pão de verdade na reunião, pedido confirmado em 2 horas.</p>
   <h3>Como funciona: Pedido Confirmado</h3>
   <ol class="etapas">
-    <li><b>5 perguntas</b>Empresa, data, horário, pessoas e restrições, pelo WhatsApp Business.</li>
+    <li><b>5 perguntas</b>Empresa, data, horário, pessoas e restrições.</li>
     <li><b>Orçamento em 2 horas</b>Por escrito, com o que vai na mesa e o preço fechado.</li>
     <li><b>Confirmação</b>O pedido entra na agenda única e a cliente recebe o horário.</li>
     <li><b>Mesa no horário</b>Entrega com 20 minutos de folga e foto da mesa montada.</li>
   </ol>
   <h3>O que vender</h3>
   <div class="grade g2">
-    <div class="cartao forte"><h4>Principal: Coffee break da Vila</h4><p>Para empresas de 10 a 40 pessoas. Pães da casa, manteiga e pastas, bolo do dia, frutas, café e suco. Três tamanhos: Reunião, Equipe e Treinamento. De R$ 180 a R$ 600 por pedido.</p></div>
-    <div class="cartao"><h4>Entrada: orçamento em 2 horas</h4><p>Grátis e sem compromisso. Derruba a objeção "vocês vão demorar". Para escritórios a até 2 km, caixa-degustação para a equipe provar antes.</p></div>
+    <div class="cartao forte"><h4>Principal: Coffee break da Vila</h4><p>Para empresas de 10 a 40 pessoas. Três tamanhos: Reunião, Equipe e Treinamento. De R$ 180 a R$ 600 por pedido.</p></div>
+    <div class="cartao"><h4>Entrada: orçamento em 2 horas</h4><p>Grátis e sem compromisso. Derruba a objeção "vocês vão demorar".</p></div>
   </div>
   <h3>Garantia</h3>
-  <p>Se o café chegar depois do horário combinado, o próximo pedido sai com 10% de desconto. Só vale se a entrega sair com 20 minutos de folga: o Rafael confirma antes de prometer.</p>
+  <p style="max-width:62ch">Se o café chegar depois do horário combinado, o próximo pedido sai com 10% de desconto. Só vale se a entrega sair com 20 minutos de folga: o Rafael confirma antes de prometer.</p>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA montou a oferta</summary>
+    <div>
+      <ol class="passo-ia"><li><b>Partiu do espaço vazio</b> nº 1 e da dor nº 1 da Camila.</li><li><b>Deu nome ao método</b> ("Pedido Confirmado"): 3 opções, escolheu 1.</li><li><b>Criou uma oferta de entrada</b> para derrubar a objeção principal.</li><li><b>Marcou como hipótese:</b> só vale se o Rafael consegue cumprir.</li></ol>
+      <p class="conceito"><b>O conceito:</b> a oferta não é o produto, é o que o cliente leva. A Camila não compra pão; compra não ter que correr atrás.</p>
+      <p class="faca">Faça na sua pasta:<code>/criar-oferta</code></p>
+    </div>
+  </details>
   <p class="base">Base: <a href="entregas/oferta.md">entregas/oferta.md</a></p>
 <!-- FIM:oferta -->
 </section>
 
 <section class="secao" id="pagina">
 <!-- INICIO:pagina -->
-  <h2>Uma página para a compradora pedir o orçamento em um toque</h2>
-  <p class="lede">Feita para o celular, com a mensagem de WhatsApp já pronta com as 5 perguntas.</p>
-  <div class="molduras">
-    <div class="celular"><iframe title="Página de vendas" src="entregas/pagina-de-vendas.html"></iframe></div>
-    <div class="lado">
-      <h3>Título escolhido</h3>
-      <p class="destaque">Café da reunião com pão de verdade, confirmado em 2 horas</p>
-      <p>Junta o que a compradora quer ouvir, pão bom e certeza, com as palavras dela.</p>
-      <h3>As 3 variações</h3>
-      <ul>
-        <li>Pela dor: "Chega de correr atrás de confirmação do coffee break"</li>
-        <li>Pelo resultado: "Café da reunião com pão de verdade, confirmado em 2 horas"</li>
-        <li>Pelo mecanismo: "Cinco perguntas no WhatsApp e o seu coffee break está confirmado"</li>
-      </ul>
-      <p><a href="entregas/pagina-de-vendas.html" target="_blank" rel="noopener">Abrir em tela cheia</a></p>
+  <p class="fase"><span class="selo">fase 5</span> <code>/criar-pagina</code></p>
+  <h2>Uma página completa para a compradora pedir o orçamento em um toque</h2>
+  <p class="lede">Página de vendas com a marca, formulário de pedido em 5 perguntas que monta a mensagem de WhatsApp, e o mapa de onde entrega.</p>
+  <div class="abas">
+    <div data-aba="No celular">
+      <div class="molduras">
+        <div class="celular"><iframe title="Página de vendas no celular" src="entregas/pagina-de-vendas.html" loading="lazy"></iframe></div>
+        <div class="lado">
+          <h3 style="margin-top:0">Título escolhido</h3>
+          <p class="destaque">Café da reunião com pão de verdade, confirmado em 2 horas</p>
+          <p>Junta o que a compradora quer ouvir, pão bom e certeza, com as palavras dela.</p>
+          <h3>As 3 variações</h3>
+          <ul>
+            <li>Pela dor: "Chega de correr atrás de confirmação do coffee break"</li>
+            <li>Pelo resultado: "Café da reunião com pão de verdade, confirmado em 2 horas"</li>
+            <li>Pelo mecanismo: "Cinco perguntas no WhatsApp e o seu coffee break está confirmado"</li>
+          </ul>
+          <p style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px"><a class="botao" href="entregas/pagina-de-vendas.html" target="_blank" rel="noopener">Abrir a página</a><a class="botao leve" href="entregas/formulario.html" target="_blank" rel="noopener">Abrir o formulário</a></p>
+        </div>
+      </div>
+    </div>
+    <div data-aba="No computador">
+      <div class="navegador"><div class="janela"><iframe title="Página de vendas no computador" src="entregas/pagina-de-vendas.html" loading="lazy"></iframe></div></div>
+    </div>
+    <div data-aba="Formulário de pedido">
+      <div class="molduras">
+        <div class="celular"><iframe title="Formulário de pedido" src="entregas/formulario.html" loading="lazy"></iframe></div>
+        <div class="lado">
+          <h3 style="margin-top:0">Uma pergunta por tela</h3>
+          <p>As 5 perguntas do Pedido Confirmado. No fim, o formulário monta a mensagem e abre o WhatsApp da padaria. O pedido chega completo, sem ida e volta.</p>
+          <p>É o link para colocar na bio do Instagram e responder quem pergunta "quanto custa?".</p>
+        </div>
+      </div>
     </div>
   </div>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA fez a página</summary>
+    <div>
+      <ol class="passo-ia"><li><b>Escreveu a copy</b> bloco a bloco com as palavras da Camila (<code>pesquisa/cliente.md</code>).</li><li><b>Carregou a skill de design</b> e as cores e fontes de <code>marca/marca.md</code>.</li><li><b>Montou a página, o formulário e o mapa</b> num arquivo que abre em qualquer navegador.</li><li><b>Tirou print</b> no tamanho de celular e corrigiu o que ficou cortado.</li></ol>
+      <p class="conceito"><b>O conceito:</b> uma <em class="termo" tabindex="0" data-def="Pacote de instruções que ensina o Claude a fazer uma tarefa sempre do mesmo jeito. Fica em .claude/skills/.">skill</em> é o que faz o Claude desenhar como designer, e não como estagiário. Troque a skill e a página muda de nível.</p>
+      <p class="faca">Faça na sua pasta:<code>/criar-pagina</code></p>
+    </div>
+  </details>
   <p class="base">Base: <a href="entregas/pagina-de-vendas.md">entregas/pagina-de-vendas.md</a></p>
 <!-- FIM:pagina -->
 </section>
 
 <section class="secao" id="conteudo">
 <!-- INICIO:conteudo -->
+  <p class="fase"><span class="selo">fase 6</span> <code>/criar-conteudo</code></p>
   <h2>Um mês de posts que vende encomenda sem parecer anúncio</h2>
   <p class="lede">Um terço do mix fala de coffee break; o resto mostra o forno, a mesa pronta e o bairro. Instagram com uma cara só, como o dono queria.</p>
-  <h3>Pilares</h3>
-  <div class="barras">
-    <div class="barra nos"><span>Coffee break sem susto</span><span class="trilha"><i style="--v:35"></i></span><span>35%</span></div>
-    <div class="barra"><span>Do forno</span><span class="trilha"><i style="--v:30"></i></span><span>30%</span></div>
-    <div class="barra"><span>Mesa pronta</span><span class="trilha"><i style="--v:20"></i></span><span>20%</span></div>
-    <div class="barra"><span>Vida no bairro</span><span class="trilha"><i style="--v:15"></i></span><span>15%</span></div>
-  </div>
-  <h3>Carrossel 1: coffee break sem correr atrás de confirmação</h3>
-  <div class="post">
-    <div class="post-topo"><i></i>fornodavila.exemplo</div>
-    <div class="slides">
-      <div class="slide"><h4>Mandou mensagem pedindo coffee break e ninguém respondeu?</h4><p>Isso acontece mais do que deveria.</p><small>1/7</small></div>
-      <div class="slide"><h4>A reunião é quinta. É terça.</h4><p>E você ainda não sabe se vai ter café.</p><small>2/7</small></div>
-      <div class="slide"><h4>O pedido se perde no meio das mensagens.</h4><p>Do seu lado e do lado de quem vende.</p><small>3/7</small></div>
-      <div class="slide"><h4>Aqui, são 5 perguntas.</h4><p>Empresa, data, horário, pessoas e restrições.</p><small>4/7</small></div>
-      <div class="slide"><h4>Orçamento em até 2 horas.</h4><p>Por escrito, com o que vai na mesa e o preço fechado.</p><small>5/7</small></div>
-      <div class="slide"><h4>Confirmado é confirmado.</h4><p>O pedido entra na agenda e você recebe o horário.</p><small>6/7</small></div>
-      <div class="slide"><h4>Tem reunião esta semana?</h4><p>Comente CAFÉ que eu mando as 5 perguntas.</p><small>7/7</small></div>
+  <div class="molduras">
+    <div>
+      <div class="post">
+        <div class="post-topo"><i></i>fornodavila.exemplo</div>
+        <div class="slides" aria-label="Carrossel 1"><div class="slide img"><img src="entregas/posts/carrossel-1-01.png" alt="Lâmina 1 de 7" loading="lazy"></div><div class="slide img"><img src="entregas/posts/carrossel-1-02.png" alt="Lâmina 2 de 7" loading="lazy"></div><div class="slide img"><img src="entregas/posts/carrossel-1-03.png" alt="Lâmina 3 de 7" loading="lazy"></div><div class="slide img"><img src="entregas/posts/carrossel-1-04.png" alt="Lâmina 4 de 7" loading="lazy"></div><div class="slide img"><img src="entregas/posts/carrossel-1-05.png" alt="Lâmina 5 de 7" loading="lazy"></div><div class="slide img"><img src="entregas/posts/carrossel-1-06.png" alt="Lâmina 6 de 7" loading="lazy"></div><div class="slide img"><img src="entregas/posts/carrossel-1-07.png" alt="Lâmina 7 de 7" loading="lazy"></div></div>
+        <p class="post-legenda">Quem organiza o café da reunião já tem tarefa demais para ainda correr atrás de confirmação. Aqui, você responde 5 perguntas no WhatsApp, recebe o orçamento fechado em até 2 horas e o pedido entra na nossa agenda. Comente CAFÉ e eu te mando as perguntas.</p>
+      </div>
+      <p class="fonte" style="margin-top:10px">7 imagens de 1080 × 1350 prontas para postar em <a href="entregas/posts/">entregas/posts/</a></p>
     </div>
-    <p class="post-legenda">Quem organiza o café da reunião já tem tarefa demais para ainda correr atrás de confirmação. Aqui, você responde 5 perguntas no WhatsApp, recebe o orçamento fechado em até 2 horas e o pedido entra na nossa agenda. Comente CAFÉ e eu te mando as perguntas.</p>
+    <div class="lado">
+      <h3 style="margin-top:0">Os 4 pilares do mês</h3>
+      <div class="rosca">
+        <ul>
+          <li data-v="35"><span>Coffee break sem susto</span><b>35%</b><small>Vender encomenda para empresa</small></li>
+          <li data-v="30"><span>Do forno</span><b>30%</b><small>Mostrar a fermentação natural</small></li>
+          <li data-v="20"><span>Mesa pronta</span><b>20%</b><small>Prova: mesas montadas e depoimentos</small></li>
+          <li data-v="15"><span>Vida no bairro</span><b>15%</b><small>Manter o balcão perto</small></li>
+        </ul>
+      </div>
+      <h3>Por que o carrossel tem esse arco</h3>
+      <ol class="passo-ia">
+        <li><b>Gancho:</b> a dor dita como ela diria.</li>
+        <li><b>Problema:</b> a cena que ela reconhece.</li>
+        <li><b>Método:</b> as 5 perguntas e o prazo.</li>
+        <li><b>Virada:</b> "confirmado é confirmado".</li>
+        <li><b>Chamada:</b> uma palavra para comentar.</li>
+      </ol>
+    </div>
   </div>
   <h3>Calendário de 4 semanas</h3>
   <div class="tabela-wrap"><table>
     <thead><tr><th>Semana</th><th>Segunda</th><th>Quarta</th><th>Sexta</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>Coffee break sem correr atrás de confirmação (carrossel)</td><td>Por que o pão leva 24 horas (reel)</td><td>O pão de azeitona acaba às 9h (post)</td></tr>
-      <tr><td>2</td><td>Padarias crescem vendendo melhor (post)</td><td>Fermentação natural não é moda, é tempo (carrossel)</td><td>As 5 perguntas do nosso pedido (reel)</td></tr>
-      <tr><td>3</td><td>Uma mesa para 25 pessoas, montada (carrossel)</td><td>Casca, miolo e cheiro (carrossel)</td><td>WhatsApp organizado: o que mudou (reel)</td></tr>
-      <tr><td>4</td><td>Quanto pão por pessoa num coffee break (carrossel)</td><td>O que a cliente disse depois da reunião (post)</td><td>Cestas de fim de ano para empresas (carrossel)</td></tr>
+      <tr><td>1</td><td>Coffee break sem correr atrás de confirmação <span class="selo">carrossel</span></td><td>Por que o pão leva 24 horas <span class="selo">reel</span></td><td>O pão de azeitona acaba às 9h <span class="selo">post</span></td></tr>
+      <tr><td>2</td><td>Padarias crescem vendendo melhor <span class="selo">post</span></td><td>Fermentação natural não é moda, é tempo <span class="selo">carrossel</span></td><td>As 5 perguntas do nosso pedido <span class="selo">reel</span></td></tr>
+      <tr><td>3</td><td>Uma mesa para 25 pessoas, montada <span class="selo">carrossel</span></td><td>Casca, miolo e cheiro <span class="selo">carrossel</span></td><td>WhatsApp organizado: o que mudou <span class="selo">reel</span></td></tr>
+      <tr><td>4</td><td>Quanto pão por pessoa num coffee break <span class="selo">carrossel</span></td><td>O que a cliente disse depois da reunião <span class="selo">post</span></td><td>Cestas de fim de ano para empresas <span class="selo">carrossel</span></td></tr>
     </tbody>
   </table></div>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA fez os posts</summary>
+    <div>
+      <ol class="passo-ia"><li><b>Tirou os pilares</b> das dores da Camila e dos espaços vazios.</li><li><b>Escreveu 12 pautas</b> e montou o calendário.</li><li><b>Desenhou o carrossel</b> em HTML com a marca, um layout por função da lâmina.</li><li><b>Exportou em PNG</b> de 1080 × 1350, o tamanho do Instagram.</li></ol>
+      <p class="conceito"><b>O conceito:</b> o mesmo <code>marca/marca.md</code> que pintou a página pinta os posts. É assim que o Instagram "bagunçado" vira uma cara só.</p>
+      <p class="faca">Faça na sua pasta:<code>/criar-conteudo</code></p>
+    </div>
+  </details>
   <p class="base">Base: <a href="entregas/conteudo.md">entregas/conteudo.md</a></p>
 <!-- FIM:conteudo -->
 </section>
@@ -486,8 +831,9 @@ tr.nos td{background:color-mix(in srgb,var(--destaque) 10%,var(--papel));font-we
 <!-- INICIO:proximos -->
   <h2>Três passos para a primeira encomenda organizada desta semana</h2>
   <p class="lede">Na ordem: primeiro o caminho do pedido, depois a vitrine, depois a prova.</p>
+  <p class="conta-passos">0 de 3 feitos</p>
   <ol class="passos">
-    <li><input type="checkbox" aria-label="feito"><div><b>Criar o formulário de 5 perguntas no WhatsApp Business e uma agenda única de encomendas</b><br>Sem isso, cada pedido novo pode se perder como os antigos · <code>/criar-oferta</code></div></li>
+    <li><input type="checkbox" aria-label="feito"><div><b>Colocar o formulário de pedido na bio e criar uma agenda única de encomendas</b><br>Sem isso, cada pedido novo pode se perder como os antigos · <code>/criar-pagina</code></div></li>
     <li><input type="checkbox" aria-label="feito"><div><b>Publicar a tabela de coffee break com 3 tamanhos e o carrossel 1</b><br>Hoje ninguém sabe que a padaria faz encomenda para empresa · <code>/criar-conteudo</code></div></li>
     <li><input type="checkbox" aria-label="feito"><div><b>Levar a caixa-degustação a 10 escritórios do bairro e pedir avaliação a cada entrega</b><br>Ocupa o espaço vazio nº 1 e cria a prova que falta · <code>/mapear-concorrentes</code></div></li>
   </ol>
@@ -498,15 +844,183 @@ tr.nos td{background:color-mix(in srgb,var(--destaque) 10%,var(--papel));font-we
 </main>
 
 <script>
-/* Pinta no menu as seções que ainda não rodaram e guarda os checkboxes dos próximos passos. */
-document.querySelectorAll('.trilho li a').forEach(function(a){
-  var s=document.querySelector(a.getAttribute('href'));
-  if(s && s.querySelector('.pendente')) a.classList.add('vazio');
-});
-document.querySelectorAll('.passos input[type=checkbox]').forEach(function(c,i){
-  var k='cerebro-passo-'+i;
-  try{ c.checked = localStorage.getItem(k)==='1'; c.addEventListener('change',function(){ localStorage.setItem(k,c.checked?'1':'0'); }); }catch(e){}
-});
+/* Tudo aqui é realce: sem o script, a página continua legível. */
+(function(){
+  var doc=document.documentElement;
+  var calmo=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  doc.classList.add('js');
+  var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+
+  /* 1. Menu: seções que ainda não rodaram ficam apagadas */
+  $$('.trilho li a').forEach(function(a){
+    var s=document.querySelector(a.getAttribute('href'));
+    if(!s||s.querySelector('.pendente')) a.classList.add('vazio');
+  });
+
+  /* 2. As 6 fases: quais já rodaram (capa + anel do menu) */
+  var FASES=[
+    ['Instalar','/instalar',['ficha']],
+    ['Mapear a empresa','/mapear-empresa',['empresa','mercado','cliente','diagnostico']],
+    ['Concorrentes','/mapear-concorrentes',['concorrentes']],
+    ['Oferta','/criar-oferta',['oferta']],
+    ['Página de vendas','/criar-pagina',['pagina']],
+    ['Conteúdo','/criar-conteudo',['conteudo']]
+  ];
+  var feitas=0, proxima=-1;
+  var lista=document.querySelector('[data-fases]');
+  FASES.forEach(function(f,i){
+    var ok=f[2].every(function(id){var s=document.getElementById(id);return s&&!s.querySelector('.pendente');});
+    if(ok) feitas++; else if(proxima<0) proxima=i;
+    if(lista){
+      var li=document.createElement('li');
+      li.className=ok?'feita':(proxima===i?'proxima':'');
+      li.innerHTML='<b>'+f[0]+'</b><code>'+f[1]+'</code>';
+      lista.appendChild(li);
+    }
+  });
+  var txt=document.querySelector('[data-fases-feitas]');
+  if(txt) txt.textContent=feitas+' de 6 fases';
+  var anel=document.querySelector('.progresso .anel');
+  if(anel) requestAnimationFrame(function(){ anel.style.setProperty('--p', Math.round(feitas/6*100)); });
+
+  /* 3. Menu acompanha a leitura */
+  var links={};
+  $$('.trilho li a').forEach(function(a){ links[a.getAttribute('href').slice(1)]=a; });
+  if('IntersectionObserver' in window){
+    var espia=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting && links[e.target.id]){
+          $$('.trilho li a.ativo').forEach(function(x){x.classList.remove('ativo');});
+          links[e.target.id].classList.add('ativo');
+        }
+      });
+    },{rootMargin:'-40% 0px -55% 0px'});
+    $$('main > section[id]').forEach(function(s){ espia.observe(s); });
+  }
+
+  /* 4. Rosca: desenha a partir da lista <li data-v="35"> */
+  var CORES=['var(--destaque)','var(--marca)','color-mix(in srgb,var(--marca) 55%,var(--fundo))','color-mix(in srgb,var(--destaque) 45%,var(--fundo))','color-mix(in srgb,var(--texto) 40%,var(--fundo))','color-mix(in srgb,var(--marca) 25%,var(--fundo))'];
+  $$('.rosca').forEach(function(r){
+    var itens=$$('li[data-v]',r), total=0, acc=0, partes=[];
+    itens.forEach(function(li){ total+=parseFloat(li.dataset.v)||0; });
+    if(!total) return;
+    itens.forEach(function(li,i){
+      var v=(parseFloat(li.dataset.v)||0)/total*100, c=CORES[i%CORES.length];
+      li.style.setProperty('--c',c);
+      partes.push(c+' '+acc.toFixed(2)+'% '+(acc+v).toFixed(2)+'%'); acc+=v;
+    });
+    var d=document.createElement('div'); d.className='disco'; d.setAttribute('aria-hidden','true');
+    d.style.setProperty('--grad','conic-gradient('+partes.join(',')+')');
+    r.insertBefore(d,r.firstChild);
+  });
+
+  /* 5. Dados se desenham quando entram na tela, uma vez */
+  var alvos=$$('.barras,.funil,.rosca,.mapa,.etapas,.kpis');
+  alvos.forEach(function(el){
+    el.classList.add('desenha');
+    $$('.barra,.ponto,.etapas > li',el).forEach(function(x,i){ x.style.setProperty('--i',i); });
+    if(el.classList.contains('etapas')) $$(':scope > li',el).forEach(function(x,i){ x.style.setProperty('--i',i); });
+  });
+  function conta(el){
+    $$('b[data-conta]',el).forEach(function(b){
+      var alvo=b.textContent, m=alvo.match(/[\d.]+(,\d+)?/);
+      if(!m||calmo) return;
+      var bruto=m[0], dec=(bruto.split(',')[1]||'').length;
+      var n=parseFloat(bruto.replace(/\./g,'').replace(',','.')), t0=null;
+      function passo(t){
+        if(!t0) t0=t; var k=Math.min(1,(t-t0)/1100), e=1-Math.pow(1-k,3);
+        var v=(n*e).toLocaleString('pt-BR',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+        b.textContent=alvo.replace(bruto,v);
+        if(k<1) requestAnimationFrame(passo); else b.textContent=alvo;
+      }
+      requestAnimationFrame(passo);
+    });
+  }
+  if('IntersectionObserver' in window && !calmo){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visto'); conta(e.target); io.unobserve(e.target);} });
+    },{threshold:.25});
+    alvos.forEach(function(el){ io.observe(el); });
+    /* print de página inteira não rola: depois de 2,5 s tudo aparece desenhado */
+    setTimeout(function(){ alvos.forEach(function(el){ el.classList.add('visto'); }); },2500);
+    var capa=document.getElementById('capa'); if(capa) conta(capa);
+  } else alvos.forEach(function(el){ el.classList.add('visto'); });
+
+  /* 6. Abas: <div class="abas"><div data-aba="Nome">…</div>…</div> */
+  $$('.abas').forEach(function(box,n){
+    var painéis=$$(':scope > [data-aba]',box); if(painéis.length<2) return;
+    var bar=document.createElement('div'); bar.setAttribute('role','tablist');
+    painéis.forEach(function(p,i){
+      var id='aba-'+n+'-'+i, b=document.createElement('button');
+      b.type='button'; b.setAttribute('role','tab'); b.id=id+'-b'; b.textContent=p.dataset.aba;
+      b.setAttribute('aria-controls',id); b.setAttribute('aria-selected',i===0);
+      p.id=id; p.setAttribute('role','tabpanel'); p.setAttribute('aria-labelledby',id+'-b'); p.hidden=i!==0;
+      b.addEventListener('click',function(){
+        $$('[role=tab]',bar).forEach(function(x){x.setAttribute('aria-selected','false');});
+        b.setAttribute('aria-selected','true');
+        painéis.forEach(function(x){x.hidden=x!==p;});
+        escala();
+      });
+      bar.appendChild(b);
+    });
+    box.insertBefore(bar,box.firstChild); box.classList.add('pronto');
+  });
+
+  /* 7. Navegador em miniatura: ajusta a escala da página de 1440 px */
+  function escala(){ $$('.navegador .janela').forEach(function(j){ if(j.clientWidth) j.style.setProperty('--s', j.clientWidth/1440); }); }
+  escala(); window.addEventListener('resize',escala);
+
+  /* 8. Carrossel: setas, pontos e contador */
+  $$('.post').forEach(function(post){
+    var trilho=post.querySelector('.slides'); if(!trilho) return;
+    var slides=$$('.slide',trilho); if(slides.length<2) return;
+    var nav=document.createElement('div'); nav.className='post-nav';
+    nav.innerHTML='<button type="button" aria-label="Lâmina anterior">&#8249;</button><div class="pontos"></div><button type="button" aria-label="Próxima lâmina">&#8250;</button>';
+    var pts=nav.querySelector('.pontos');
+    slides.forEach(function(){ pts.appendChild(document.createElement('i')); });
+    trilho.insertAdjacentElement('afterend',nav);
+    var bs=nav.querySelectorAll('button');
+    function atual(){ return Math.round(trilho.scrollLeft/trilho.clientWidth); }
+    function pinta(){ var k=atual(); $$('i',pts).forEach(function(p,i){p.classList.toggle('on',i===k);}); bs[0].disabled=k===0; bs[1].disabled=k===slides.length-1; }
+    bs[0].onclick=function(){ trilho.scrollLeft-=trilho.clientWidth; };
+    bs[1].onclick=function(){ trilho.scrollLeft+=trilho.clientWidth; };
+    trilho.addEventListener('scroll',function(){ requestAnimationFrame(pinta); });
+    trilho.tabIndex=0;
+    trilho.addEventListener('keydown',function(e){ if(e.key==='ArrowRight') bs[1].click(); if(e.key==='ArrowLeft') bs[0].click(); });
+    pinta();
+  });
+
+  /* 9. Bastidores: um botão abre todos (modo aula) */
+  var bot=document.querySelector('[data-bastidores]');
+  var todos=$$('details.bastidor');
+  if(bot){
+    if(!todos.length) bot.hidden=true;
+    bot.addEventListener('click',function(){
+      var abrir=bot.getAttribute('aria-pressed')!=='true';
+      todos.forEach(function(d){ d.open=abrir; });
+      bot.setAttribute('aria-pressed',abrir); bot.textContent=abrir?'Fechar os bastidores':'Abrir os bastidores';
+    });
+  }
+
+  /* 10. Clicar numa cor ou num prompt copia */
+  function copia(el,texto){
+    if(!navigator.clipboard) return;
+    navigator.clipboard.writeText(texto).then(function(){ el.classList.add('copiado'); setTimeout(function(){el.classList.remove('copiado');},1400); });
+  }
+  $$('.cor').forEach(function(c){ c.addEventListener('click',function(){ var h=c.querySelector('code'); if(h) copia(c,h.textContent.trim()); }); });
+  $$('.faca code').forEach(function(c){ c.title='Clique para copiar'; c.addEventListener('click',function(){ copia(c,c.textContent.trim()); }); });
+
+  /* 11. Próximos passos: guarda os checks e conta */
+  var caixas=$$('.passos input[type=checkbox]');
+  var contador=document.querySelector('.conta-passos');
+  function recontar(){ if(contador){ var f=caixas.filter(function(c){return c.checked;}).length; contador.textContent=f+' de '+caixas.length+' feitos'; } }
+  caixas.forEach(function(c,i){
+    var k='cerebro-passo-'+location.pathname+'-'+i;
+    try{ c.checked=localStorage.getItem(k)==='1'; }catch(e){}
+    c.addEventListener('change',function(){ try{localStorage.setItem(k,c.checked?'1':'0');}catch(e){} recontar(); });
+  });
+  recontar();
+})();
 </script>
 </body>
 </html>
