@@ -162,6 +162,8 @@
   @media (max-width:1080px){.fases{grid-template-columns:repeat(2,1fr)}}
   @media (max-width:600px){.fases{grid-template-columns:1fr}}
   .fase{background:var(--painel);border:1px solid var(--borda);border-radius:16px;padding:22px}
+  .fase.larga{grid-column:span 2}
+  @media (max-width:600px){.fase.larga{grid-column:auto}}
   .fase .n{font:700 12px "Geist Mono",monospace;letter-spacing:.1em;text-transform:uppercase}
   .fase h3{font-size:20px;font-weight:700;margin:10px 0 6px}
   .fase p{margin:0;font-size:15px}
@@ -623,7 +625,7 @@
         <div class="card c2">
           <div class="card-topo">
             <div class="icone ic-ia"><svg class="i"><use href="#i-brilho"/></svg></div>
-            <span class="rotulo">7 fases</span>
+            <span class="rotulo">5 fases</span>
           </div>
           <h3>O que você vai fazer</h3>
           <p>De manhã, aprende o Claude Code fazendo coisas para você. À tarde, aplica na sua empresa.</p>
@@ -676,14 +678,13 @@
     <div class="conteudo">
       <div class="rotulo">A aula</div>
       <h2>De manhã você aprende fazendo. <span class="amarelo">À tarde, aplica na sua empresa.</span></h2>
-      <p class="lead">O dia segue 7 fases. De manhã você faz as primeiras no seu computador, com coisas sobre você mesmo. A empresa entra à tarde, numa pasta separada.</p>
+      <p class="lead">O dia segue 5 fases. De manhã você faz as quatro primeiras no seu computador, com coisas sobre você mesmo. A empresa entra à tarde, na fase 5, numa pasta separada.</p>
       <div class="fases">
         <div class="fase"><div class="n n-ia">Fase 1</div><h3>Modelo</h3><p>O motor da IA e o básico do Claude Code: uma pasta é um projeto.</p><div class="quem">Você faz</div></div>
-        <div class="fase"><div class="n n-info">Fase 2</div><h3>MCP</h3><p>O "cabo USB" que liga a IA ao seu Google: Agenda, Drive, Planilhas.</p><div class="quem">Você faz</div></div>
-        <div class="fase"><div class="n n-proc">Fase 3</div><h3>Skills</h3><p>Habilidades que você ensina uma vez e usa sempre.</p><div class="quem">Você faz</div></div>
-        <div class="fase"><div class="n n-proc">Fase 4</div><h3>Contexto</h3><p>Sem contexto, sem resultado. Na empresa, isso vira o segundo cérebro.</p><div class="quem">O Lucas explica</div></div>
-        <div class="fase"><div class="n n-ia">Fases 5 e 6</div><h3>Agentes e orquestração</h3><p>Vários agentes trabalhando juntos, com você no comando.</p><div class="quem">Você faz, na sua empresa</div></div>
-        <div class="fase"><div class="n n-ia">Fase 7</div><h3>Uso do computador</h3><p>A IA mexendo no navegador como você.</p><div class="quem">O Lucas mostra</div></div>
+        <div class="fase"><div class="n n-info">Fase 2</div><h3>MCP</h3><p>O "cabo USB" que tira a IA da pasta e liga ao seu Google: Drive e Planilhas.</p><div class="quem">Você faz</div></div>
+        <div class="fase"><div class="n n-proc">Fase 3</div><h3>Skills</h3><p>Um processo que você ensina uma vez e usa sempre.</p><div class="quem">Você faz</div></div>
+        <div class="fase"><div class="n n-proc">Fase 4</div><h3>Contexto</h3><p>A IA não é burra, ela não tem contexto. Na empresa, isso vira o segundo cérebro.</p><div class="quem">O Lucas explica</div></div>
+        <div class="fase larga"><div class="n n-ia">Fase 5 · a tarde inteira</div><h3>Agentes</h3><p>Modelo, MCP, skills e contexto juntos numa pasta: o cérebro da sua empresa. Você roda as skills em trilha e termina orquestrando os agentes.</p><div class="quem">Você faz, na sua empresa</div></div>
       </div>
 
       <h3 style="font-size:22px;margin:40px 0 0">Você sai da manhã com</h3>
