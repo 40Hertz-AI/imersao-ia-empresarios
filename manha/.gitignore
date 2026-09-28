@@ -3,6 +3,3 @@ Thumbs.db
 node_modules/
 .claude/projects/
 .claude/sessions/
-dados/*
-!dados/README.md
-memoria/numeros.md

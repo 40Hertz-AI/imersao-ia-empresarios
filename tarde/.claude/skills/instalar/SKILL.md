@@ -56,4 +56,4 @@ Abri o RESULTADO.html: a capa e a ficha já estão lá.
 Próximo: /mapear-empresa (~10 min)
 ```
 
-Se a pasta ainda tiver nome genérico (`cerebro-da-empresa`), sugerir em 1 linha renomear para o nome da empresa.
+Se a pasta ainda tiver nome genérico (`imersao-tarde` ou `cerebro-da-empresa`), sugerir em 1 linha renomear para o nome da empresa.

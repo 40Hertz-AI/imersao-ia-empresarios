@@ -7,6 +7,7 @@ Esta pasta é o cérebro da empresa: a memória, a pesquisa e tudo o que a IA pr
 1. Ler `memoria/empresa.md`, `memoria/foco.md`, `memoria/preferencias.md` e `controle/progresso.md`.
 2. Se `memoria/empresa.md` estiver vazio: dizer em 1 linha "Comece por `/instalar` (5 min)." e esperar.
 3. Não listar o que leu. Usar o contexto naturalmente.
+4. **`exemplo-forno-da-vila/` é só um exemplo fictício para consulta.** Nunca ler como memória da empresa, nunca usar como fonte nem copiar dados dele, nunca editar. Só abrir se a pessoa pedir para ver o exemplo.
 
 ## Como falar (vale para tudo nesta pasta)
 
