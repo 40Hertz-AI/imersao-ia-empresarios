@@ -117,6 +117,14 @@ Há 3 jeitos de ter uma skill:
 2. **Instalar da internet:** no [skills.sh](https://skills.sh) tem milhares. Olhe quem fez e quantas pessoas instalaram antes de confiar.
 3. **Criar a sua:** com a `skill-creator`, que já vem com a sua conta do Claude.
 
+Se o Lucas pedir para instalar uma skill da internet na hora, cole no Claude Code (troque o endereço pelo que ele passar):
+
+```
+Rode no terminal e me avise quando terminar: npx -y skills add <endereço da skill> -a claude-code -y
+```
+
+Isso usa o Node.js e o Git que você instalou antes do dia. Depois, feche e abra a conversa e digite `/`.
+
 | Skill | O que faz | De onde vem |
 |---|---|---|
 | `eli5` | Explica qualquer assunto como se você tivesse 5 anos | nesta pasta |

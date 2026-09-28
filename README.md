@@ -19,7 +19,7 @@ Na pasta da tarde, renomeie a pasta com o nome da sua empresa antes de abrir.
 
 ## Antes do dia
 
-Claude Pro, o app do Claude, o Chrome e uma conta Google pessoal. O passo a passo está no portal: https://ia-para-empresarios-v2.vercel.app
+Claude Pro, o app do Claude, **Node.js e Git** (para instalar skills da internet durante a aula), o Chrome e uma conta Google pessoal. O passo a passo está no portal: https://ia-para-empresarios-v2.vercel.app
 
 ---
 
