@@ -4,6 +4,6 @@
 
 ## Maior problema hoje
 
-## Tarefa que o dono quer tirar das costas
+## Onde o dono quer estar em 12 meses
 
 ## Próximas ações

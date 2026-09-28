@@ -1,13 +1,16 @@
 # Empresa
 
-> Preenchido pelo `/instalar`. Pode editar à vontade.
+> Preenchido pelo `/instalar` com o que o dono contou. Pode editar à vontade: o que está aqui vale mais que a pesquisa.
 
 **Nome:**
 **Site / Instagram:**
-**O que vende (1 frase):**
-**Para quem:**
-**Região:**
-**Equipe:**
-**Papel do dono:**
+**Onde fica e onde atende:**
+**Em uma frase:**
 
-## Mais contexto
+## Produtos e preços
+
+## Cliente e como ele chega
+
+## Equipe
+
+## Site e marca (o que o dono gosta e o que incomoda)

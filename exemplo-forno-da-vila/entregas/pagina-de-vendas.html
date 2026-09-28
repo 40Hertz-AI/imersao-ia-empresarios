@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coffee break para empresas em Mogi das Cruzes | Forno da Vila</title>
+<meta name="description" content="Coffee break e cestas para empresas de Mogi das Cruzes, com pão de fermentação natural. Orçamento fechado em até 2 horas pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --oliva:#4A5230;
+  --tostado:#9A4A26;
+  --farinha:#F1EFE7;
+  --forno:#25231D;
+  --trigo:#E4DAC2;
+  --suave:#5E5A4E;
+  --titulo:'Newsreader', Georgia, serif;
+  --texto:'Figtree', system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--farinha);color:var(--forno);font-family:var(--texto);font-size:17px;line-height:1.6}
+h1,h2,h3{font-family:var(--titulo);font-weight:500;line-height:1.12;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1em}
+a{color:var(--tostado)}
+:focus-visible{outline:3px solid var(--tostado);outline-offset:3px}
+.faixa{padding:56px 22px}
+.miolo{max-width:980px;margin:0 auto}
+.estreito{max-width:620px}
+
+/* topo */
+.topo{padding:18px 22px;border-bottom:1px solid var(--trigo)}
+.topo .miolo{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.marca{font-family:var(--titulo);font-size:1.35rem;color:var(--oliva);text-decoration:none}
+.topo small{color:var(--suave);font-size:.85rem}
+
+.abre{padding-top:48px;padding-bottom:64px}
+.abre h1{font-size:clamp(2.3rem,8vw,4.4rem);color:var(--oliva);max-width:15ch;margin-bottom:22px}
+.abre .sub{font-size:1.12rem;color:var(--suave);max-width:46ch;margin-bottom:30px}
+.botao{display:inline-block;background:var(--tostado);color:#fff;text-decoration:none;font-weight:600;padding:16px 26px;border-radius:6px;font-size:1.02rem;text-align:center}
+.botao:hover{background:#7F3C1E}
+.nota-botao{display:block;margin-top:12px;font-size:.88rem;color:var(--suave)}
+
+/* problema */
+.dor{background:var(--oliva);color:var(--farinha)}
+.dor blockquote{margin:0 0 20px;font-family:var(--titulo);font-size:clamp(1.5rem,5vw,2.2rem);line-height:1.25;max-width:26ch}
+.dor cite{display:block;font-style:normal;font-size:.85rem;opacity:.75;margin-bottom:20px}
+.dor p{max-width:48ch;color:#E6E3D6}
+
+/* comanda: o elemento memorável */
+.pedido{display:grid;gap:36px}
+.pedido h2{font-size:clamp(1.8rem,5.5vw,2.6rem);color:var(--oliva);margin-bottom:14px}
+.comanda{background:#FBFAF6;border:1px solid var(--trigo);padding:26px 22px 22px;border-radius:4px;box-shadow:0 1px 0 var(--trigo),0 12px 30px -18px rgba(37,35,29,.35);position:relative}
+.comanda::before{content:"";position:absolute;left:0;right:0;top:-6px;height:12px;background:radial-gradient(circle at 6px 0,var(--farinha) 5px,transparent 5.5px) 0 0/12px 12px repeat-x}
+.comanda h3{font-size:1.25rem;margin-bottom:4px}
+.comanda .quem{font-size:.85rem;color:var(--suave);margin-bottom:18px}
+.comanda ol{margin:0 0 22px;padding:0;list-style:none;counter-reset:q}
+.comanda li{counter-increment:q;display:grid;grid-template-columns:28px 1fr;gap:8px;padding:11px 0;border-bottom:1px dashed #CFC4A8}
+.comanda li::before{content:counter(q);font-family:var(--titulo);color:var(--tostado);font-size:1.15rem;line-height:1.3}
+.comanda .botao{width:100%}
+
+/* etapas */
+.etapas{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:0}
+.etapas li{padding:18px 0;border-top:1px solid var(--trigo);display:grid;gap:4px}
+.etapas b{font-family:var(--titulo);font-weight:500;font-size:1.3rem;color:var(--oliva)}
+.etapas span{color:var(--suave)}
+
+/* mesa */
+.mesa{background:var(--trigo)}
+.mesa h2{font-size:clamp(1.7rem,5vw,2.4rem);color:var(--oliva);margin-bottom:14px}
+.tamanhos{display:grid;gap:12px;margin:24px 0 18px}
+.tamanho{background:var(--farinha);border-radius:6px;padding:16px 18px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.tamanho b{font-family:var(--titulo);font-weight:500;font-size:1.25rem}
+.tamanho span{color:var(--suave);font-size:.95rem;white-space:nowrap}
+.preco{font-size:.98rem}
+
+.prova{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.prova b{font-family:var(--titulo);font-weight:500;font-size:3rem;color:var(--oliva);line-height:1}
+
+/* perguntas */
+.perguntas h2{font-size:clamp(1.7rem,5vw,2.4rem);color:var(--oliva);margin-bottom:10px}
+details{border-top:1px solid var(--trigo);padding:16px 0}
+details:last-of-type{border-bottom:1px solid var(--trigo)}
+summary{cursor:pointer;font-weight:600;font-size:1.02rem;list-style-position:outside}
+details p{margin:10px 0 0;color:var(--suave)}
+
+.garantia{border-left:3px solid var(--tostado);padding:4px 0 4px 16px;margin:32px 0 0;max-width:52ch}
+
+.fim{background:var(--oliva);color:var(--farinha);text-align:left}
+.fim h2{font-size:clamp(1.9rem,6vw,3rem);max-width:18ch;margin-bottom:16px}
+.fim p{color:#E6E3D6;max-width:44ch}
+.fim .nota-botao{color:#D6D2C2}
+.rodape{padding:22px;font-size:.8rem;color:var(--suave)}
+
+@media (min-width:760px){
+  .faixa{padding:88px 40px}
+  .pedido{grid-template-columns:1fr 380px;align-items:start}
+  .tamanhos{grid-template-columns:repeat(3,1fr)}
+  .tamanho{flex-direction:column;gap:2px}
+  .etapas li{grid-template-columns:260px 1fr;gap:24px}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="miolo">
+    <a class="marca" href="#">Forno da Vila</a>
+    <small>Padaria de fermentação natural em Mogi das Cruzes</small>
+  </div>
+</header>
+
+<main>
+<section class="faixa abre">
+  <div class="miolo">
+    <h1>Café da reunião com pão de verdade, confirmado em 2 horas</h1>
+    <p class="sub">Coffee break e cestas para empresas de Mogi das Cruzes, com pão de fermentação natural feito na nossa padaria. Orçamento fechado em até 2 horas.</p>
+    <a class="botao" href="https://wa.me/5511900000000?text=Ol%C3%A1%2C%20Forno%20da%20Vila!%20Quero%20um%20or%C3%A7amento%20de%20coffee%20break.%20Empresa%3A%20%20%7C%20Data%3A%20%20%7C%20Hor%C3%A1rio%3A%20%20%7C%20Pessoas%3A%20%20%7C%20Restri%C3%A7%C3%B5es%3A%20">Pedir orçamento pelo WhatsApp</a>
+    <span class="nota-botao">Grátis e sem compromisso. Resposta em até 2 horas, em horário comercial.</span>
+  </div>
+</section>
+
+<section class="faixa dor">
+  <div class="miolo">
+    <blockquote>"Mandei mensagem na segunda e só me responderam na quinta. Tive que correr atrás de outro lugar."</blockquote>
+    <cite>Frase de cliente (fictícia)</cite>
+    <p>Quem organiza o café da reunião não precisa de mais uma pendência. Precisa saber, cedo, que está resolvido.</p>
+  </div>
+</section>
+
+<section class="faixa">
+  <div class="miolo pedido">
+    <div>
+      <h2>Como funciona o Pedido Confirmado</h2>
+      <p class="estreito">Quatro passos, do WhatsApp até a mesa montada.</p>
+      <ol class="etapas">
+        <li><b>1. Cinco perguntas</b><span>Você responde pelo WhatsApp: empresa, data, horário, pessoas e restrições.</span></li>
+        <li><b>2. Orçamento em 2 horas</b><span>Por escrito, com o que vai na mesa e o preço fechado.</span></li>
+        <li><b>3. Confirmado</b><span>O pedido entra na nossa agenda e você recebe a confirmação com o horário.</span></li>
+        <li><b>4. Mesa no horário</b><span>O café chega com folga, e mandamos a foto da mesa montada.</span></li>
+      </ol>
+    </div>
+    <div class="comanda">
+      <h3>Seu pedido</h3>
+      <p class="quem">A mensagem já vai pronta. É só completar.</p>
+      <ol>
+        <li>Nome da empresa</li>
+        <li>Data da reunião</li>
+        <li>Horário em que o café precisa estar na mesa</li>
+        <li>Número de pessoas</li>
+        <li>Restrições (glúten, lactose)</li>
+      </ol>
+      <a class="botao" href="https://wa.me/5511900000000?text=Ol%C3%A1%2C%20Forno%20da%20Vila!%20Quero%20um%20or%C3%A7amento%20de%20coffee%20break.%20Empresa%3A%20%20%7C%20Data%3A%20%20%7C%20Hor%C3%A1rio%3A%20%20%7C%20Pessoas%3A%20%20%7C%20Restri%C3%A7%C3%B5es%3A%20">Mandar pelo WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="faixa mesa">
+  <div class="miolo">
+    <h2>O que vai na mesa</h2>
+    <p class="estreito">Pães de fermentação natural da casa, manteiga e pastas, bolo do dia, frutas, café e suco.</p>
+    <div class="tamanhos">
+      <div class="tamanho"><b>Reunião</b><span>até 10 pessoas</span></div>
+      <div class="tamanho"><b>Equipe</b><span>até 25 pessoas</span></div>
+      <div class="tamanho"><b>Treinamento</b><span>até 40 pessoas</span></div>
+    </div>
+    <p class="preco">Pedidos de R$ 180 a R$ 600, conforme o tamanho e o cardápio. O preço vem fechado no orçamento.</p>
+    <div class="prova">
+      <b>4,8</b>
+      <span>no Google, com 212 avaliações de quem compra no balcão (números fictícios)</span>
+    </div>
+  </div>
+</section>
+
+<section class="faixa perguntas">
+  <div class="miolo estreito">
+    <h2>Perguntas de quem pede pela primeira vez</h2>
+    <details>
+      <summary>Vocês demoram para responder?</summary>
+      <p>O orçamento sai em até 2 horas, em horário comercial.</p>
+    </details>
+    <details>
+      <summary>Uma padaria de bairro dá conta de 30 pessoas?</summary>
+      <p>Com 48 horas de antecedência, sim. A quantidade por pessoa vem escrita no orçamento.</p>
+    </details>
+    <details>
+      <summary>Não sai mais caro que um buffet?</summary>
+      <p>Às vezes sai mais barato, às vezes não. Aqui o preço é fechado e o pão é feito na casa.</p>
+    </details>
+    <p class="garantia">Se o café chegar depois do horário combinado, o próximo pedido sai com 10% de desconto.</p>
+  </div>
+</section>
+
+<section class="faixa fim">
+  <div class="miolo">
+    <h2>Tem reunião esta semana?</h2>
+    <p>Mande as 5 respostas e receba o orçamento hoje.</p>
+    <a class="botao" href="https://wa.me/5511900000000?text=Ol%C3%A1%2C%20Forno%20da%20Vila!%20Quero%20um%20or%C3%A7amento%20de%20coffee%20break.%20Empresa%3A%20%20%7C%20Data%3A%20%20%7C%20Hor%C3%A1rio%3A%20%20%7C%20Pessoas%3A%20%20%7C%20Restri%C3%A7%C3%B5es%3A%20">Pedir orçamento pelo WhatsApp</a>
+    <span class="nota-botao">Escritórios a até 2 km podem pedir uma caixa-degustação para a equipe provar antes.</span>
+  </div>
+</section>
+</main>
+
+<footer class="rodape">
+  <div class="miolo">Página de exemplo com empresa fictícia, feita para a imersão. Número de WhatsApp fictício.</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- INICIO:titulo -->
+<title>Forno da Vila · Cérebro da empresa</title>
+<!-- FIM:titulo -->
+<!-- INICIO:marca -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --marca:#4A5230;      /* verde oliva escuro */
+  --destaque:#9A4A26;   /* terracota de casca tostada */
+  --fundo:#F1EFE7;
+  --texto:#25231D;
+  --fonte-titulo:'Newsreader', Georgia, serif;
+  --fonte-texto:'Figtree', system-ui, sans-serif;
+}
+</style>
+<!-- FIM:marca -->
+<style>
+:root{
+  --papel:#fff;
+  --suave:color-mix(in srgb, var(--texto) 62%, var(--fundo));
+  --linha:color-mix(in srgb, var(--texto) 14%, var(--fundo));
+  --tinta-marca:color-mix(in srgb, var(--marca) 80%, #000);
+  --banho:color-mix(in srgb, var(--marca) 7%, var(--fundo));
+  --ok:#1E7A4C; --ok-f:#E3F3EA;
+  --atencao:#8A5A00; --atencao-f:#FBF1DC;
+  --risco:#A8322B; --risco-f:#FBE7E5;
+  --trilho:220px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--fundo);color:var(--texto);font-family:var(--fonte-texto);font-size:17px;line-height:1.6}
+h1,h2,h3,h4{font-family:var(--fonte-titulo);color:var(--tinta-marca);line-height:1.15;margin:0}
+p{margin:0 0 .9em}
+ul,ol{margin:0 0 1em;padding-left:1.2em}
+a{color:var(--tinta-marca)}
+:focus-visible{outline:3px solid var(--destaque);outline-offset:3px}
+
+/* navegação */
+.trilho{position:fixed;inset:0 auto 0 0;width:var(--trilho);border-right:1px solid var(--linha);background:var(--papel);padding:28px 20px;display:flex;flex-direction:column;gap:18px;z-index:5}
+.trilho .nome{font-family:var(--fonte-titulo);font-weight:700;font-size:1.25rem;color:var(--marca);text-decoration:none;line-height:1.2}
+.trilho ol{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:2px;counter-reset:s}
+.trilho li a{display:flex;gap:10px;align-items:center;padding:6px 8px;border-radius:8px;text-decoration:none;color:var(--texto);font-size:.9rem}
+.trilho li a::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--marca);flex:none}
+.trilho li a.vazio{color:var(--suave)}
+.trilho li a.vazio::before{background:transparent;border:1.5px solid var(--linha)}
+.trilho li a:hover{background:var(--banho)}
+.trilho .atualizado{margin-top:auto;font-size:.78rem;color:var(--suave)}
+main{margin-left:var(--trilho)}
+.secao{padding:72px 56px;max-width:1080px}
+.secao + .secao{border-top:1px solid var(--linha)}
+.secao > h2{font-size:clamp(1.6rem,3vw,2.3rem);max-width:26ch;margin-bottom:10px}
+.lede{font-size:1.1rem;color:var(--suave);max-width:62ch;margin-bottom:32px}
+.secao h3{font-size:1.15rem;margin:36px 0 12px}
+.base{font-size:.8rem;color:var(--suave);margin-top:36px}
+.base a{color:var(--suave)}
+
+/* estado vazio: a fase ainda não rodou */
+.pendente{border:1.5px dashed var(--linha);border-radius:14px;padding:28px;color:var(--suave);max-width:560px}
+.pendente strong{color:var(--texto)}
+.pendente code{background:var(--banho);color:var(--tinta-marca);padding:2px 8px;border-radius:6px;font-size:.95em}
+
+/* capa */
+.capa{min-height:78vh;display:flex;flex-direction:column;justify-content:center;background:var(--marca);color:#fff;max-width:none}
+.capa h1{color:#fff;font-size:clamp(2.4rem,5.5vw,4.4rem);max-width:16ch;letter-spacing:-.02em;margin-bottom:18px}
+.capa .lede{color:color-mix(in srgb,#fff 82%,var(--marca));font-size:1.2rem}
+.capa .logo{max-height:64px;max-width:220px;margin-bottom:36px;object-fit:contain}
+.capa .tipo{font-size:.95rem;color:color-mix(in srgb,#fff 70%,var(--marca));margin-bottom:10px}
+.numeros{display:flex;flex-wrap:wrap;gap:14px 44px;margin-top:36px}
+.numeros div{display:flex;flex-direction:column}
+.numeros b{font-family:var(--fonte-titulo);font-size:2rem;line-height:1.1;color:#fff}
+.numeros span{font-size:.85rem;color:color-mix(in srgb,#fff 72%,var(--marca))}
+
+/* blocos */
+.grade{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.cartao{background:var(--papel);border:1px solid var(--linha);border-radius:14px;padding:20px 22px}
+.cartao h4{font-size:1.02rem;margin-bottom:6px}
+.cartao p:last-child,.cartao ul:last-child{margin-bottom:0}
+.cartao.forte{background:var(--marca);border-color:var(--marca);color:#fff}
+.cartao.forte h4{color:#fff}
+.ficha{display:grid;grid-template-columns:minmax(120px,max-content) 1fr;gap:10px 28px;margin:0}
+.ficha dt{color:var(--suave);font-size:.9rem}
+.ficha dd{margin:0}
+.selo{display:inline-block;font-size:.75rem;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--banho);color:var(--tinta-marca);white-space:nowrap;vertical-align:middle}
+.selo.ok{background:var(--ok-f);color:var(--ok)}
+.selo.atencao{background:var(--atencao-f);color:var(--atencao)}
+.selo.risco{background:var(--risco-f);color:var(--risco)}
+.selo.estimativa{background:var(--atencao-f);color:var(--atencao)}
+.fonte{font-size:.78rem;color:var(--suave);word-break:break-word}
+.fonte a{color:var(--suave)}
+.citacao{font-family:var(--fonte-titulo);font-size:1.15rem;line-height:1.4;color:var(--tinta-marca);border-left:3px solid var(--destaque);padding-left:14px;margin:8px 0}
+.destaque{font-family:var(--fonte-titulo);font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.3;color:var(--tinta-marca);max-width:34ch;margin:0 0 24px}
+
+/* tabela */
+.tabela-wrap{overflow-x:auto;border:1px solid var(--linha);border-radius:14px;background:var(--papel)}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--linha);vertical-align:top}
+th{font-size:.8rem;color:var(--suave);font-weight:700;background:var(--banho)}
+tr:last-child td{border-bottom:0}
+tr.nos td{background:color-mix(in srgb,var(--destaque) 10%,var(--papel));font-weight:700}
+
+/* barras (nota de 1 a 5, ou % do mix) */
+.barras{display:flex;flex-direction:column;gap:10px}
+.barra{display:grid;grid-template-columns:minmax(110px,180px) 1fr 44px;gap:12px;align-items:center;font-size:.92rem}
+.barra .trilha{height:10px;border-radius:99px;background:var(--linha);overflow:hidden}
+.barra .trilha i{display:block;height:100%;width:calc(var(--v) * 1%);background:var(--marca);border-radius:99px}
+.barra.nos .trilha i{background:var(--destaque)}
+.barra.nos{font-weight:700}
+
+/* etapas (jornada, mecanismo) */
+.etapas{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;counter-reset:e;list-style:none;padding:0}
+.etapas li{background:var(--papel);border:1px solid var(--linha);border-top:4px solid var(--marca);border-radius:12px;padding:16px 18px;counter-increment:e}
+.etapas li::before{content:counter(e);font-family:var(--fonte-titulo);font-weight:700;color:var(--destaque);font-size:1.3rem;display:block}
+.etapas li b{display:block;color:var(--tinta-marca);margin-bottom:4px}
+.etapas li.perde{border-top-color:var(--risco)}
+
+/* matriz 2x2 (posicionamento) */
+.mapa{position:relative;aspect-ratio:1.6/1;max-width:680px;background:var(--papel);border:1px solid var(--linha);border-radius:14px;margin:8px 0 8px 28px}
+.mapa::before,.mapa::after{content:"";position:absolute;background:var(--linha)}
+.mapa::before{left:50%;top:0;bottom:0;width:1px}
+.mapa::after{top:50%;left:0;right:0;height:1px}
+.mapa .eixo-x{position:absolute;bottom:-28px;left:0;right:0;display:flex;justify-content:space-between;font-size:.78rem;color:var(--suave)}
+.mapa .eixo-y{position:absolute;left:-28px;top:0;bottom:0;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;justify-content:space-between;font-size:.78rem;color:var(--suave)}
+.mapa .ponto{position:absolute;left:calc(var(--x) * 1%);top:calc((100 - var(--y)) * 1%);transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px;font-size:.8rem;white-space:nowrap;z-index:1}
+.mapa .ponto::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--suave)}
+.mapa .ponto.nos{font-weight:700;color:var(--tinta-marca)}
+.mapa .ponto.nos::before{width:16px;height:16px;background:var(--destaque);box-shadow:0 0 0 4px color-mix(in srgb,var(--destaque) 25%,transparent)}
+
+/* página de vendas em moldura */
+.molduras{display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap}
+.celular{width:300px;height:600px;border:10px solid var(--texto);border-radius:36px;overflow:hidden;background:#fff;flex:none}
+.celular iframe{width:390px;height:780px;border:0;transform:scale(.7564);transform-origin:0 0}
+.molduras .lado{flex:1;min-width:260px}
+
+/* carrossel */
+.post{max-width:420px;background:var(--papel);border:1px solid var(--linha);border-radius:14px;overflow:hidden}
+.post-topo{display:flex;align-items:center;gap:10px;padding:10px 14px;font-weight:700;font-size:.9rem}
+.post-topo i{width:30px;height:30px;border-radius:50%;background:var(--marca);display:block}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
+.slide{flex:none;width:100%;aspect-ratio:4/5;scroll-snap-align:start;background:var(--marca);color:#fff;padding:34px 30px;display:flex;flex-direction:column;justify-content:space-between}
+.slide:nth-child(even){background:var(--fundo);color:var(--texto)}
+.slide h4{font-family:var(--fonte-titulo);font-size:1.7rem;line-height:1.15;color:inherit}
+.slide p{font-size:1rem;margin:0}
+.slide small{font-size:.75rem;opacity:.75}
+.post-legenda{padding:12px 14px;font-size:.88rem;border-top:1px solid var(--linha)}
+
+/* próximos passos */
+.passos{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;max-width:720px}
+.passos li{display:flex;gap:14px;align-items:flex-start;background:var(--papel);border:1px solid var(--linha);border-radius:12px;padding:14px 18px}
+.passos input{width:20px;height:20px;accent-color:var(--marca);margin-top:3px;flex:none}
+.passos code{background:var(--banho);padding:1px 7px;border-radius:6px;font-size:.88em}
+
+@media (max-width:860px){
+  .trilho{position:sticky;top:0;inset:auto;width:auto;height:auto;flex-direction:row;align-items:center;padding:10px 16px;border-right:0;border-bottom:1px solid var(--linha);overflow-x:auto}
+  .trilho .nome{font-size:1rem;flex:none}
+  .trilho ol{flex-direction:row;flex:none}
+  .trilho li a{white-space:nowrap;font-size:.82rem}
+  .trilho .atualizado{display:none}
+  main{margin-left:0}
+  .secao{padding:48px 20px}
+  .g2,.g3{grid-template-columns:1fr}
+  .barra{grid-template-columns:100px 1fr 36px}
+  .mapa{margin-left:24px}
+  .molduras{justify-content:center}
+}
+@media print{.trilho{display:none}main{margin:0}.secao{break-inside:avoid-page}}
+</style>
+</head>
+<body>
+
+<nav class="trilho" aria-label="Seções">
+  <!-- INICIO:nome -->
+<a class="nome" href="#capa">Forno da Vila</a>
+  <!-- FIM:nome -->
+  <ol>
+    <li><a href="#empresa">Raio-X</a></li>
+    <li><a href="#mercado">Mercado</a></li>
+    <li><a href="#cliente">Cliente</a></li>
+    <li><a href="#diagnostico">Diagnóstico</a></li>
+    <li><a href="#concorrentes">Concorrentes</a></li>
+    <li><a href="#oferta">Oferta</a></li>
+    <li><a href="#pagina">Página de vendas</a></li>
+    <li><a href="#conteudo">Conteúdo</a></li>
+    <li><a href="#proximos">Próximos passos</a></li>
+  </ol>
+  <!-- INICIO:atualizado -->
+<p class="atualizado">Atualizado em 28/09/2026 · fase 6 de 6</p>
+  <!-- FIM:atualizado -->
+</nav>
+
+<main>
+
+<section class="secao capa" id="capa">
+<!-- INICIO:capa -->
+  <p class="tipo">Empresa fictícia · exemplo da imersão · Mogi das Cruzes - SP · padaria de fermentação natural</p>
+  <h1>A padaria de bairro que quer abastecer as reuniões da cidade</h1>
+  <p class="lede">Mapa da empresa completo: 6 de 6 fases. Pão de fermentação natural no balcão e, cada vez mais, coffee break e cestas para pequenas empresas.</p>
+  <div class="numeros">
+    <div><b>7</b><span>pessoas na equipe</span></div>
+    <div><b>3</b><span>linhas de produto</span></div>
+    <div><b>4,8</b><span>nota no Google (fictícia)</span></div>
+    <div><b>5</b><span>concorrentes mapeados</span></div>
+  </div>
+<!-- FIM:capa -->
+</section>
+
+<section class="secao" id="ficha">
+<!-- INICIO:ficha -->
+  <div class="cartao forte" style="margin-bottom:40px"><h4>Aviso</h4><p>Exemplo com empresa fictícia. Nomes, concorrentes e frases de clientes foram inventados para a aula. Os números de mercado são reais, com fonte.</p></div>
+  <h2>Uma padaria de 7 pessoas que já vende para empresas, mas por indicação</h2>
+  <p class="lede">O que o Rafael contou no /instalar: o pão paga o dia, e as encomendas de empresas são o que ele quer fazer crescer.</p>
+  <dl class="ficha">
+    <dt>Produtos e preços</dt><dd>Pão de fermentação natural, R$ 22 a R$ 28 · café da manhã no balcão, cerca de R$ 25 · cestas e coffee break para empresas, R$ 180 a R$ 600 por pedido</dd>
+    <dt>Onde atende</dt><dd>Balcão no bairro, em Mogi das Cruzes - SP; encomendas entregues na cidade</dd>
+    <dt>Equipe</dt><dd>7 pessoas: o dono, 1 padeiro-chefe, 2 ajudantes, 2 no balcão e 1 entregador em meio período</dd>
+    <dt>Quem compra</dt><dd>Moradores do bairro de 30 a 55 anos e, cada vez mais, pequenas empresas</dd>
+    <dt>Como o cliente chega</dt><dd>Indicação e Instagram; encomendas pelo WhatsApp</dd>
+    <dt>Presença</dt><dd>Sem site; Instagram @fornodavila.exemplo (fictício), que o dono acha bagunçado</dd>
+  </dl>
+  <h3>O que o dono quer resolver</h3>
+  <div class="grade g2">
+    <div class="cartao forte"><h4>O que mais incomoda hoje</h4><p>As encomendas das empresas chegam pelo WhatsApp e se perdem. Por falta de organização, ele recusa pedido.</p></div>
+    <div class="cartao"><h4>Onde quer chegar em 12 meses</h4><p>Encomendas corporativas toda semana, chegando a 30% do faturamento.</p></div>
+  </div>
+  <p class="base">Base: <a href="memoria/empresa.md">memoria/empresa.md</a> e <a href="memoria/foco.md">memoria/foco.md</a></p>
+<!-- FIM:ficha -->
+</section>
+
+<section class="secao" id="empresa">
+<!-- INICIO:empresa -->
+  <h2>Na internet, a Forno da Vila é só padaria: o coffee break não existe</h2>
+  <p class="lede">O Instagram fala de pão todo dia. Nenhum post, destaque ou link diz que a padaria atende empresas.</p>
+  <h3>Presença digital</h3>
+  <div class="tabela-wrap"><table>
+    <thead><tr><th>Canal</th><th>Situação</th><th>Como está</th></tr></thead>
+    <tbody>
+      <tr><td>Site</td><td><span class="selo risco">não tem</span></td><td>A busca pelo nome devolve só o Instagram e o Google</td></tr>
+      <tr><td>Instagram</td><td><span class="selo atencao">fraco</span></td><td>Posta 3 a 4 vezes por semana; cada post com filtro e letra diferentes</td></tr>
+      <tr><td>Google</td><td><span class="selo ok">tem</span></td><td>Nota 4,8 com 212 avaliações (fictícias); sem foto de encomenda</td></tr>
+      <tr><td>WhatsApp</td><td><span class="selo atencao">fraco</span></td><td>Número pessoal do dono, sem catálogo nem WhatsApp Business</td></tr>
+      <tr><td>Loja online</td><td><span class="selo risco">não tem</span></td><td>Pedido só por mensagem</td></tr>
+      <tr><td>Blog</td><td><span class="selo risco">não tem</span></td><td>Sem conteúdo fora do Instagram</td></tr>
+    </tbody>
+  </table></div>
+  <h3>O que vende, o que prova e o que falta dizer</h3>
+  <div class="grade g3">
+    <div class="cartao"><h4>O que aparece</h4><p>Pão de fermentação natural em quase todo post; café da manhã só nos stories.</p></div>
+    <div class="cartao"><h4>Provas que existem</h4><p>Nota 4,8 no Google (fictícia), com elogios à casca e ao atendimento. Todas falam do balcão.</p></div>
+    <div class="cartao forte"><h4>O que não diz</h4><p>Que faz coffee break, para quantas pessoas, a partir de quanto, com que prazo e onde entrega.</p></div>
+  </div>
+  <p class="base">Base: <a href="pesquisa/empresa.md">pesquisa/empresa.md</a></p>
+<!-- FIM:empresa -->
+</section>
+
+<section class="secao" id="mercado">
+<!-- INICIO:mercado -->
+  <h2>Um setor que cresce vendendo melhor, não para mais gente</h2>
+  <p class="lede">Em 2025 o ticket médio das padarias subiu bem mais que o número de clientes. Pedido maior e organizado, como a encomenda para empresa, está do lado certo dessa curva.</p>
+  <div class="grade g3">
+    <div class="cartao"><h4>R$ 164,12 bilhões</h4><p>Faturamento da panificação e confeitaria no Brasil em 2025, 1,29% do PIB.</p><p class="fonte"><a href="https://www.abip.org.br/site/institucional/">ABIP, 2025</a></p></div>
+    <div class="cartao"><h4>R$ 36,61 por visita</h4><p>Ticket médio em 2025, alta de 5,46%. O fluxo de clientes subiu só 1,27%.</p><p class="fonte"><a href="https://www.foodconnection.com.br/foodservice/panificacao-brasileira-cresce-em-faturamento-e-inova-no-modelo-de-negocio/">Food Connection, dados do Instituto Ideal, 2025</a></p></div>
+    <div class="cartao"><h4>332.558 empresas</h4><p>Empresas ativas no setor em 2025; 63,83% são MEI.</p><p class="fonte"><a href="https://www.abip.org.br/site/institucional/">ABIP, 2025</a></p></div>
+    <div class="cartao"><h4>47,5 milhões por dia</h4><p>Pessoas que visitam padarias diariamente, 22,1% da população (projeção).</p><p class="fonte"><a href="https://www.abip.org.br/site/wp-content/uploads/2025/04/IDEAL_20-_20ENCARTE_20INDICADORES_20DE_20PERFORMANCE_202024_20BR.pdf">Instituto Ideal/ABIP, 2024</a></p></div>
+    <div class="cartao"><h4>451.505 habitantes</h4><p>População de Mogi das Cruzes no último censo.</p><p class="fonte"><a href="https://www.ibge.gov.br/cidades-e-estados/sp/mogi-das-cruzes.html">IBGE, Censo 2022</a></p></div>
+    <div class="cartao"><h4>Coffee break na região</h4><p>Tamanho do mercado de coffee break corporativo em Mogi: sem dado público confiável.</p></div>
+  </div>
+  <h3>Tendências</h3>
+  <div class="grade g3">
+    <div class="cartao"><h4>Ticket acima do fluxo</h4><p>O setor cresce vendendo mais por cliente. Um pedido de empresa vale muitos cafés no balcão.</p><p class="fonte"><a href="https://www.foodconnection.com.br/foodservice/panificacao-brasileira-cresce-em-faturamento-e-inova-no-modelo-de-negocio/">Food Connection, 02/04/2026</a></p></div>
+    <div class="cartao"><h4>Fermentação natural em alta</h4><p>O Sebrae cita fermentação natural e atendimento personalizado entre o que o cliente busca. O produto já está lá; falta falar dele.</p><p class="fonte"><a href="https://agenciasebrae.com.br/cultura-empreendedora/no-dia-do-panificador-setor-celebra-tradicao-enquanto-se-reinventa-para-atender-um-novo-consumidor/">Agência Sebrae, 07/07/2026</a></p></div>
+    <div class="cartao"><h4>Pedido pelo WhatsApp</h4><p>Abip recomenda vendas via WhatsApp; o Instituto Ideal cita automação de encomendas. É o gargalo do Rafael.</p><p class="fonte"><a href="https://timesbrasil.com.br/brasil/setor-de-panificacao-deve-faturar-r-160-bi-e-enfrenta-tempestade-perfeita-de-custos-juros-e-concorrencia/">Times Brasil, 13/08/2025</a> · <a href="https://www.abip.org.br/site/wp-content/uploads/2025/04/IDEAL_20-_20ENCARTE_20INDICADORES_20DE_20PERFORMANCE_202024_20BR.pdf">Ideal/ABIP</a></p></div>
+  </div>
+  <h3>O que o cliente procura antes de comprar</h3>
+  <div class="tabela-wrap"><table>
+    <thead><tr><th>Busca</th><th>Intenção (por observação)</th></tr></thead>
+    <tbody>
+      <tr><td>coffee break Mogi das Cruzes</td><td><span class="selo ok">alta</span></td></tr>
+      <tr><td>coffee break para empresa Mogi das Cruzes preço</td><td><span class="selo ok">alta</span></td></tr>
+      <tr><td>cesta de café da manhã Mogi das Cruzes</td><td><span class="selo ok">alta</span></td></tr>
+      <tr><td>padaria artesanal Mogi das Cruzes</td><td><span class="selo atencao">média</span></td></tr>
+      <tr><td>pão de fermentação natural Mogi das Cruzes</td><td><span class="selo atencao">média</span></td></tr>
+      <tr><td>o que servir em coffee break</td><td><span class="selo">baixa</span></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Veredito</h3>
+  <p class="destaque">Mercado estável, com espaço no alto: nas buscas de encomenda aparecem buffets e floriculturas, quase nunca uma padaria.</p>
+  <p class="base">Base: <a href="pesquisa/mercado.md">pesquisa/mercado.md</a></p>
+<!-- FIM:mercado -->
+</section>
+
+<section class="secao" id="cliente">
+<!-- INICIO:cliente -->
+  <h2>Quem compra o coffee break não quer pão bonito: quer certeza de que vai chegar</h2>
+  <p class="lede">A compradora é quem organiza a reunião. A maior dor dela não é o preço, é não saber se o pedido foi confirmado.</p>
+  <div class="grade g2">
+    <div class="cartao forte"><h4>Camila, 34 anos, administrativo ou RH</h4><p>Trabalha numa empresa de 15 a 60 pessoas em Mogi das Cruzes. Organiza reuniões, treinamentos e aniversários do mês. Escolhe o fornecedor; o gestor aprova o valor. Pede de R$ 180 a R$ 600. Procura com colegas, no Google e no Instagram, na véspera.</p></div>
+    <div class="cartao"><h4>Quem não é cliente</h4><p>Quem quer coffee break para 200 pessoas com garçom e louça. Parece o pedido dos sonhos, mas pede estrutura de buffet que a padaria não tem.</p><p>No balcão, o cliente é o morador de 30 a 55 anos que compra pão 2 a 3 vezes por semana.</p></div>
+  </div>
+  <h3>O que dói (frases inventadas para a aula)</h3>
+  <div class="grade g2">
+    <div class="cartao"><h4>Não saber se foi confirmado</h4><p class="citacao">"Mandei mensagem na segunda e só me responderam na quinta. Tive que correr atrás de outro lugar."</p><p class="fonte">Frase fictícia, exemplo de aula</p></div>
+    <div class="cartao"><h4>Medo de atraso</h4><p class="citacao">"Reunião às 8h e o café chegou 8h40, com o cliente já sentado."</p><p class="fonte">Frase fictícia, exemplo de aula</p></div>
+    <div class="cartao"><h4>Preço escondido</h4><p class="citacao">"Queria só uma ideia de valor para levar pro meu chefe, e ninguém passa sem eu mandar mil detalhes."</p><p class="fonte">Frase fictícia, exemplo de aula</p></div>
+    <div class="cartao"><h4>Tudo igual</h4><p class="citacao">"Todo lugar manda o mesmo mini pão de queijo e o mesmo bolo seco."</p><p class="fonte">Frase fictícia, exemplo de aula</p></div>
+  </div>
+  <h3>Como falar com ela</h3>
+  <div class="grade g2">
+    <div class="cartao"><h4>Usar</h4><p>café da reunião · pão de verdade · chega no horário · orçamento · para quantas pessoas · confirmado · montado · fresquinho</p></div>
+    <div class="cartao"><h4>Evitar</h4><p>gourmet · artesanal de verdade · saudável (como promessa) · fit · preço imperdível</p></div>
+  </div>
+  <h3>Quando ela sai procurando e o que a segura</h3>
+  <div class="grade g2">
+    <div class="cartao"><h4>Gatilhos</h4><ul><li>Reunião com cliente importante na semana</li><li>Treinamento ou integração de gente nova</li><li>Aniversariantes do mês</li><li>Presente de fim de ano para clientes</li><li>O fornecedor antigo atrasou</li></ul></div>
+    <div class="cartao"><h4>Objeções</h4><ul><li><b>"Vocês vão demorar."</b> Orçamento por escrito em até 2 horas.</li><li><b>"Padaria dá conta de 30 pessoas?"</b> Com 48 horas de antecedência e quantidade por pessoa no orçamento.</li><li><b>"O buffet é mais barato."</b> Preço fechado, sem taxa surpresa.</li></ul></div>
+  </div>
+  <p class="base">Base: <a href="pesquisa/cliente.md">pesquisa/cliente.md</a></p>
+<!-- FIM:cliente -->
+</section>
+
+<section class="secao" id="diagnostico">
+<!-- INICIO:diagnostico -->
+  <h2>O problema que o Rafael apontou se confirma: o pedido de empresa não tem caminho</h2>
+  <p class="lede">A procura existe e chega por indicação. Ela se perde em três pontos: no WhatsApp, na falta de vitrine e na falta de prova.</p>
+  <div class="tabela-wrap"><table>
+    <thead><tr><th>Gargalo</th><th>Evidência</th><th>Custo de não resolver</th><th>Primeira ação</th></tr></thead>
+    <tbody>
+      <tr><td>Pedido de empresa se perde no WhatsApp <span class="selo ok">confirma</span></td><td>Pedido cai no número pessoal do dono, sem registro; a dor nº 1 da compradora é não saber se foi confirmado</td><td>Cada pedido recusado vai para o buffet e não volta; a meta de 30% fica impossível</td><td>Formulário de 5 perguntas no WhatsApp Business e agenda única de encomendas</td></tr>
+      <tr><td>Ninguém sabe que a padaria faz coffee break</td><td>Nenhum post fala de encomenda; nas buscas de compra aparecem buffets e floriculturas</td><td>Encomendas presas à indicação, sem ritmo semanal</td><td>Tabela de coffee break com 3 tamanhos, fixada no Instagram</td></tr>
+      <tr><td>Falta prova para quem compra pela empresa</td><td>A nota no Google só fala do balcão; zero foto ou depoimento de encomenda</td><td>A compradora não tem o que mostrar ao chefe</td><td>Pedir avaliação e foto da mesa a cada entrega</td></tr>
+      <tr><td>O dono faz tudo</td><td>Caixa, compras e WhatsApp com o Rafael; o setor tem falta de mão de obra</td><td>Encomenda cresce e o atendimento piora</td><td>Passar a confirmação para alguém do balcão, com roteiro escrito</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Oportunidades</h3>
+  <div class="grade g2">
+    <div class="cartao forte"><h4>★ Coffee break de padaria com orçamento em 2 horas</h4><p>A dor nº 1 é resposta lenta e o setor cresce por ticket. Organização deixa de ser problema interno e vira argumento de venda.</p></div>
+    <div class="cartao"><h4>Cestas de fim de ano para empresas</h4><p>Nas buscas por cesta aparecem floriculturas, não padarias. Começar em outubro com 20 empresas que já compram no balcão.</p></div>
+    <div class="cartao"><h4>Fermentação natural como assunto</h4><p>O Sebrae aponta a fermentação natural entre o que o cliente procura. Para o Rafael é rotina; para o cliente é novidade.</p></div>
+    <div class="cartao"><h4>Caixa-degustação para escritórios</h4><p>A compradora precisa provar antes de convencer o chefe. 10 caixas em escritórios a até 2 km.</p></div>
+  </div>
+  <p class="base">Base: <a href="pesquisa/diagnostico.md">pesquisa/diagnostico.md</a></p>
+<!-- FIM:diagnostico -->
+</section>
+
+<section class="secao" id="concorrentes">
+<!-- INICIO:concorrentes -->
+  <h2>Ninguém em Mogi junta pão bom com pedido rápido para empresa</h2>
+  <p class="lede">Buffet tem estrutura e pão comum; quem faz pão bom não atende empresa. A Forno da Vila tem o melhor pão da lista e a vitrine mais fraca. (Todos os concorrentes são fictícios.)</p>
+  <div class="tabela-wrap"><table>
+    <thead><tr><th>Concorrente</th><th>Promessa</th><th>Diferencial</th><th>Preço</th><th>Prova</th><th>Força</th></tr></thead>
+    <tbody>
+      <tr class="nos"><td>Forno da Vila</td><td>Pão de fermentação natural no bairro</td><td>Pão feito na casa</td><td>Encomenda R$ 180 a R$ 600</td><td>Google 4,8</td><td>2/5</td></tr>
+      <tr><td>A · Pão &amp; Cia (fictícia)</td><td>"Tudo para o seu café"</td><td>Variedade e loja grande</td><td>Tabela no site</td><td>Google 4,3</td><td>4/5</td></tr>
+      <tr><td>B · Buffet Sabor &amp; Evento (fictício)</td><td>"Seu evento sem preocupação"</td><td>Garçom, louça e estrutura</td><td>A partir de R$ 45 por pessoa</td><td>Logos de clientes</td><td>4/5</td></tr>
+      <tr><td>C · Cestas Bom Dia (fictícia)</td><td>"Cesta que emociona"</td><td>Entrega no mesmo dia</td><td>R$ 150 a R$ 400</td><td>Avaliações na loja online</td><td>4/5</td></tr>
+      <tr><td>D · Padoca do Largo (fictícia)</td><td>"Pão quentinho toda hora"</td><td>Aberta das 6h às 22h</td><td>Não mostra</td><td>Google 4,1</td><td>2/5</td></tr>
+      <tr><td>E · Levain Caseiro (fictícia)</td><td>"Pão de fermentação natural por encomenda"</td><td>Produção pequena, retirada</td><td>Pão R$ 30</td><td>Comentários no Instagram</td><td>1/5</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Força digital</h3>
+  <div class="barras">
+    <div class="barra nos"><span>Forno da Vila</span><span class="trilha"><i style="--v:40"></i></span><span>2/5</span></div>
+    <div class="barra"><span>A · Pão &amp; Cia</span><span class="trilha"><i style="--v:80"></i></span><span>4/5</span></div>
+    <div class="barra"><span>B · Buffet</span><span class="trilha"><i style="--v:80"></i></span><span>4/5</span></div>
+    <div class="barra"><span>C · Cestas Bom Dia</span><span class="trilha"><i style="--v:80"></i></span><span>4/5</span></div>
+    <div class="barra"><span>D · Padoca do Largo</span><span class="trilha"><i style="--v:40"></i></span><span>2/5</span></div>
+    <div class="barra"><span>E · Levain Caseiro</span><span class="trilha"><i style="--v:20"></i></span><span>1/5</span></div>
+  </div>
+  <h3>Onde cada um está</h3>
+  <div class="mapa" role="img" aria-label="Mapa de posicionamento: eixo X preço do pedido, eixo Y cuidado com o pão">
+    <div class="eixo-x"><span>Pedido barato</span><span>Pedido caro</span></div>
+    <div class="eixo-y"><span>Pão industrial</span><span>Pão feito na casa</span></div>
+    <span class="ponto nos" style="--x:52;--y:88">Forno da Vila</span>
+    <span class="ponto" style="--x:42;--y:38">A · Pão &amp; Cia</span>
+    <span class="ponto" style="--x:85;--y:30">B · Buffet</span>
+    <span class="ponto" style="--x:62;--y:12">C · Cestas</span>
+    <span class="ponto" style="--x:15;--y:48">D · Padoca</span>
+    <span class="ponto" style="--x:82;--y:70">E · Levain</span>
+  </div>
+  <h3>Espaços vazios</h3>
+  <div class="grade g2">
+    <div class="cartao forte"><h4>Coffee break de pão bom com orçamento em 2 horas</h4><p>Resolve "não sei se foi confirmado". Ninguém promete prazo de resposta.</p></div>
+    <div class="cartao"><h4>Preço fechado por tamanho</h4><p>Resolve "ninguém passa o valor". Só um concorrente mostra tabela, e só no site.</p></div>
+    <div class="cartao"><h4>Coffee break que não é igual a todos</h4><p>Resolve "sempre o mesmo mini pão de queijo". Quem tem pão bom não atende empresa.</p></div>
+    <div class="cartao"><h4>Cesta de fim de ano de padaria</h4><p>Resolve o presente para clientes. Hoje é território de floricultura.</p></div>
+  </div>
+  <p class="base">Base: <a href="pesquisa/concorrentes.md">pesquisa/concorrentes.md</a></p>
+<!-- FIM:concorrentes -->
+</section>
+
+<section class="secao" id="oferta">
+<!-- INICIO:oferta -->
+  <h2>Vender certeza, não só pão: o coffee break com pedido confirmado em 2 horas</h2>
+  <p class="lede">A oferta ocupa o espaço vazio nº 1 e ataca o gargalo que o dono já sente. <span class="selo atencao">hipótese a validar</span></p>
+  <p class="destaque">Para pequenas empresas de Mogi das Cruzes, a Forno da Vila entrega coffee break com pão de fermentação natural feito na casa, com orçamento por escrito em até 2 horas.</p>
+  <h3>Promessa</h3>
+  <p>Pão de verdade na reunião, pedido confirmado em 2 horas.</p>
+  <h3>Como funciona: Pedido Confirmado</h3>
+  <ol class="etapas">
+    <li><b>5 perguntas</b>Empresa, data, horário, pessoas e restrições, pelo WhatsApp Business.</li>
+    <li><b>Orçamento em 2 horas</b>Por escrito, com o que vai na mesa e o preço fechado.</li>
+    <li><b>Confirmação</b>O pedido entra na agenda única e a cliente recebe o horário.</li>
+    <li><b>Mesa no horário</b>Entrega com 20 minutos de folga e foto da mesa montada.</li>
+  </ol>
+  <h3>O que vender</h3>
+  <div class="grade g2">
+    <div class="cartao forte"><h4>Principal: Coffee break da Vila</h4><p>Para empresas de 10 a 40 pessoas. Pães da casa, manteiga e pastas, bolo do dia, frutas, café e suco. Três tamanhos: Reunião, Equipe e Treinamento. De R$ 180 a R$ 600 por pedido.</p></div>
+    <div class="cartao"><h4>Entrada: orçamento em 2 horas</h4><p>Grátis e sem compromisso. Derruba a objeção "vocês vão demorar". Para escritórios a até 2 km, caixa-degustação para a equipe provar antes.</p></div>
+  </div>
+  <h3>Garantia</h3>
+  <p>Se o café chegar depois do horário combinado, o próximo pedido sai com 10% de desconto. Só vale se a entrega sair com 20 minutos de folga: o Rafael confirma antes de prometer.</p>
+  <p class="base">Base: <a href="entregas/oferta.md">entregas/oferta.md</a></p>
+<!-- FIM:oferta -->
+</section>
+
+<section class="secao" id="pagina">
+<!-- INICIO:pagina -->
+  <h2>Uma página para a compradora pedir o orçamento em um toque</h2>
+  <p class="lede">Feita para o celular, com a mensagem de WhatsApp já pronta com as 5 perguntas.</p>
+  <div class="molduras">
+    <div class="celular"><iframe title="Página de vendas" src="entregas/pagina-de-vendas.html"></iframe></div>
+    <div class="lado">
+      <h3>Título escolhido</h3>
+      <p class="destaque">Café da reunião com pão de verdade, confirmado em 2 horas</p>
+      <p>Junta o que a compradora quer ouvir, pão bom e certeza, com as palavras dela.</p>
+      <h3>As 3 variações</h3>
+      <ul>
+        <li>Pela dor: "Chega de correr atrás de confirmação do coffee break"</li>
+        <li>Pelo resultado: "Café da reunião com pão de verdade, confirmado em 2 horas"</li>
+        <li>Pelo mecanismo: "Cinco perguntas no WhatsApp e o seu coffee break está confirmado"</li>
+      </ul>
+      <p><a href="entregas/pagina-de-vendas.html" target="_blank" rel="noopener">Abrir em tela cheia</a></p>
+    </div>
+  </div>
+  <p class="base">Base: <a href="entregas/pagina-de-vendas.md">entregas/pagina-de-vendas.md</a></p>
+<!-- FIM:pagina -->
+</section>
+
+<section class="secao" id="conteudo">
+<!-- INICIO:conteudo -->
+  <h2>Um mês de posts que vende encomenda sem parecer anúncio</h2>
+  <p class="lede">Um terço do mix fala de coffee break; o resto mostra o forno, a mesa pronta e o bairro. Instagram com uma cara só, como o dono queria.</p>
+  <h3>Pilares</h3>
+  <div class="barras">
+    <div class="barra nos"><span>Coffee break sem susto</span><span class="trilha"><i style="--v:35"></i></span><span>35%</span></div>
+    <div class="barra"><span>Do forno</span><span class="trilha"><i style="--v:30"></i></span><span>30%</span></div>
+    <div class="barra"><span>Mesa pronta</span><span class="trilha"><i style="--v:20"></i></span><span>20%</span></div>
+    <div class="barra"><span>Vida no bairro</span><span class="trilha"><i style="--v:15"></i></span><span>15%</span></div>
+  </div>
+  <h3>Carrossel 1: coffee break sem correr atrás de confirmação</h3>
+  <div class="post">
+    <div class="post-topo"><i></i>fornodavila.exemplo</div>
+    <div class="slides">
+      <div class="slide"><h4>Mandou mensagem pedindo coffee break e ninguém respondeu?</h4><p>Isso acontece mais do que deveria.</p><small>1/7</small></div>
+      <div class="slide"><h4>A reunião é quinta. É terça.</h4><p>E você ainda não sabe se vai ter café.</p><small>2/7</small></div>
+      <div class="slide"><h4>O pedido se perde no meio das mensagens.</h4><p>Do seu lado e do lado de quem vende.</p><small>3/7</small></div>
+      <div class="slide"><h4>Aqui, são 5 perguntas.</h4><p>Empresa, data, horário, pessoas e restrições.</p><small>4/7</small></div>
+      <div class="slide"><h4>Orçamento em até 2 horas.</h4><p>Por escrito, com o que vai na mesa e o preço fechado.</p><small>5/7</small></div>
+      <div class="slide"><h4>Confirmado é confirmado.</h4><p>O pedido entra na agenda e você recebe o horário.</p><small>6/7</small></div>
+      <div class="slide"><h4>Tem reunião esta semana?</h4><p>Comente CAFÉ que eu mando as 5 perguntas.</p><small>7/7</small></div>
+    </div>
+    <p class="post-legenda">Quem organiza o café da reunião já tem tarefa demais para ainda correr atrás de confirmação. Aqui, você responde 5 perguntas no WhatsApp, recebe o orçamento fechado em até 2 horas e o pedido entra na nossa agenda. Comente CAFÉ e eu te mando as perguntas.</p>
+  </div>
+  <h3>Calendário de 4 semanas</h3>
+  <div class="tabela-wrap"><table>
+    <thead><tr><th>Semana</th><th>Segunda</th><th>Quarta</th><th>Sexta</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Coffee break sem correr atrás de confirmação (carrossel)</td><td>Por que o pão leva 24 horas (reel)</td><td>O pão de azeitona acaba às 9h (post)</td></tr>
+      <tr><td>2</td><td>Padarias crescem vendendo melhor (post)</td><td>Fermentação natural não é moda, é tempo (carrossel)</td><td>As 5 perguntas do nosso pedido (reel)</td></tr>
+      <tr><td>3</td><td>Uma mesa para 25 pessoas, montada (carrossel)</td><td>Casca, miolo e cheiro (carrossel)</td><td>WhatsApp organizado: o que mudou (reel)</td></tr>
+      <tr><td>4</td><td>Quanto pão por pessoa num coffee break (carrossel)</td><td>O que a cliente disse depois da reunião (post)</td><td>Cestas de fim de ano para empresas (carrossel)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="base">Base: <a href="entregas/conteudo.md">entregas/conteudo.md</a></p>
+<!-- FIM:conteudo -->
+</section>
+
+<section class="secao" id="proximos">
+<!-- INICIO:proximos -->
+  <h2>Três passos para a primeira encomenda organizada desta semana</h2>
+  <p class="lede">Na ordem: primeiro o caminho do pedido, depois a vitrine, depois a prova.</p>
+  <ol class="passos">
+    <li><input type="checkbox" aria-label="feito"><div><b>Criar o formulário de 5 perguntas no WhatsApp Business e uma agenda única de encomendas</b><br>Sem isso, cada pedido novo pode se perder como os antigos · <code>/criar-oferta</code></div></li>
+    <li><input type="checkbox" aria-label="feito"><div><b>Publicar a tabela de coffee break com 3 tamanhos e o carrossel 1</b><br>Hoje ninguém sabe que a padaria faz encomenda para empresa · <code>/criar-conteudo</code></div></li>
+    <li><input type="checkbox" aria-label="feito"><div><b>Levar a caixa-degustação a 10 escritórios do bairro e pedir avaliação a cada entrega</b><br>Ocupa o espaço vazio nº 1 e cria a prova que falta · <code>/mapear-concorrentes</code></div></li>
+  </ol>
+  <p class="base">Base: <a href="memoria/foco.md">memoria/foco.md</a></p>
+<!-- FIM:proximos -->
+</section>
+
+</main>
+
+<script>
+/* Pinta no menu as seções que ainda não rodaram e guarda os checkboxes dos próximos passos. */
+document.querySelectorAll('.trilho li a').forEach(function(a){
+  var s=document.querySelector(a.getAttribute('href'));
+  if(s && s.querySelector('.pendente')) a.classList.add('vazio');
+});
+document.querySelectorAll('.passos input[type=checkbox]').forEach(function(c,i){
+  var k='cerebro-passo-'+i;
+  try{ c.checked = localStorage.getItem(k)==='1'; c.addEventListener('change',function(){ localStorage.setItem(k,c.checked?'1':'0'); }); }catch(e){}
+});
+</script>
+</body>
+</html>

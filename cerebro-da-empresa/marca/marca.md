@@ -1,6 +1,6 @@
 # Marca
 
-> A fase 1 sugere a partir do site (marcado `[do site — confirmar]`). O que o dono escrever aqui vale mais.
+> O `/mapear-empresa` sugere a partir do site (marcado `[do site — confirmar]`). O que o dono escrever aqui vale mais.
 
 **Cor principal:**
 **Cor de destaque (botões):**

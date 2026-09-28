@@ -246,7 +246,9 @@ Faltou algum? Post-it vermelho: um monitor ajuda você no almoço.
 
 ## Tarde: o cérebro da sua empresa
 
-À tarde você monta, na sua própria empresa, uma pasta que vira o cérebro dela: a memória, a pesquisa, os números, a marca e tudo o que a IA produz. É uma pasta **nova**, separada da `imersao`.
+À tarde você monta, na sua própria empresa, uma pasta que vira o cérebro dela: você responde 7 perguntas, a IA estuda a sua empresa, o mercado e o cliente, e depois produz a oferta, a página de vendas e o conteúdo. Tudo aparece num relatório só, o `RESULTADO.html`, que cresce a cada comando. É uma pasta **nova**, separada da `imersao`.
+
+Quer ver como fica no fim? Abra o exemplo com uma empresa fictícia: [`exemplo-forno-da-vila/RESULTADO.html`](exemplo-forno-da-vila/).
 
 ### Baixar a pasta
 
@@ -262,23 +264,18 @@ Depois: app do Claude → aba **Code** → escolha a pasta nova → digite `/ins
 
 ### A trilha, fase por fase
 
-| # | Comando | O que faz |
-|---|---|---|
-| 0 | `/instalar` | 6 perguntas rápidas sobre você e a empresa |
-| 1 | `/mapear-empresa` | Lê o seu site e as redes: o que você vende, a marca, o que falta |
-| 2 | `/mapear-nicho` | O seu cliente ideal, as dores dele, como ele fala |
-| 3 | `/mapear-concorrentes` | Quem disputa o seu cliente e onde está o espaço vazio |
-| 4 | `/mapear-numeros` | Faturamento, ticket, margem: o que você sabe e o que falta medir |
-| 5 | `/mapear-comercial` | Como o cliente chega e onde você perde venda |
-| 6 | `/mapear-equipe` | Quem faz o quê e o que a IA pode assumir |
-| 7 | `/criar-oferta` | Proposta de valor, oferta e roteiro de vendas |
-| 8 | `/mapa-completo` | `MAPA.html`: a sua empresa inteira numa página |
+| # | Comando | O que faz | Tempo |
+|---|---|---|---|
+| 1 | `/instalar` | 7 perguntas sobre a empresa; cria o `RESULTADO.html` | 6 min |
+| 2 | `/mapear-empresa` | Estudo a fundo: a empresa, o mercado, o cliente, gargalos e oportunidades | 10 min |
+| 3 | `/mapear-concorrentes` | Quem disputa o seu cliente e onde está o espaço vazio | 6 min |
+| 4 | `/criar-oferta` | Proposta de valor, oferta e roteiro de venda | 6 min |
+| 5 | `/criar-pagina` | Página de vendas com a sua marca | 8 min |
+| 6 | `/criar-conteudo` | Pilares, 12 pautas, calendário e 1 carrossel pronto | 8 min |
 
-Depois da fase 3, a qualquer hora: `/criar-proposta`, `/criar-carrossel`, `/criar-slides`.
+Depois da fase 2, as fases 3 a 6 rodam em qualquer ordem. A cada fase, atualize o `RESULTADO.html` no navegador: uma seção nova aparece. Perdeu o fio? Digite "o que falta?".
 
-Cada fase termina com um resumo, **um desafio** e o próximo comando. Perdeu o fio? Digite "o que falta?".
-
-**Privacidade:** as fases 4 a 7 guardam números e informações da sua empresa. Ficam só no seu computador: não suba a pasta preenchida para lugar público.
+**Privacidade:** os números da sua empresa (faturamento, margem) ficam em `memoria/numeros.md`, só no seu computador, e nunca aparecem no `RESULTADO.html`. Não suba a pasta preenchida para lugar público.
 
 ## Quando travar
 
