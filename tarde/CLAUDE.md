@@ -58,6 +58,9 @@ As fases 3 a 6 podem rodar em qualquer ordem depois da 2. Cada uma usa o que exi
 - **Não ler o arquivo inteiro** (ele passa de 70 KB e gasta o limite do plano): achar a linha com `grep -n "INICIO:<id>\|FIM:<id>" RESULTADO.html` e ler só esse trecho.
 - `atualizado` diz "fase N de 6" com N = número de fases marcadas `[x]` em `controle/progresso.md`.
 - Conferir no fim: `{`, `undefined` ou `N/A` **dentro dos blocos que você trocou** (o CSS e o script do arquivo têm `{` de propósito).
+- **Não ler o arquivo inteiro** (ele passa de 70 KB e gasta o limite do plano): achar a linha com `grep -n "INICIO:<id>\|FIM:<id>" RESULTADO.html` e ler só esse trecho.
+- `atualizado` diz "fase N de 6" com N = número de fases marcadas `[x]` em `controle/progresso.md`.
+- Conferir no fim: `{`, `undefined` ou `N/A` **dentro dos blocos que você trocou** (o CSS e o script do arquivo têm `{` de propósito).
 - Usar só os componentes de `controle/componentes.md`. Não criar CSS novo nem trazer biblioteca de fora.
 - Toda fase, ao terminar, também troca o bloco `proximos` (as **3 primeiras** ações de `memoria/foco.md`; ação já feita sai de lá) e a data em `atualizado`.
 - **Faturamento, margem e salários nunca aparecem no RESULTADO.html**, nem em valor nem calculados a partir deles. Ele pode ir para o telão ou para um sócio. Preço de produto pode; meta em porcentagem ("30% do faturamento") também.
