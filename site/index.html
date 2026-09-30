@@ -9,7 +9,7 @@
 <meta property="og:description" content="Instalação, materiais e o que você vai fazer na imersão. 29 de setembro, Mogi das Cruzes - SP." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;700&family=Inter+Tight:wght@300;400;600;700&display=swap" rel="stylesheet" />
 <style>
   :root{
     --canvas:#0A0A0A; --faixa:#121212; --painel:#1A1A1A; --elevado:#242424; --borda:#2A2A2A;
@@ -258,6 +258,99 @@
   .btn:disabled{opacity:.6;cursor:wait}
   @media (max-width:600px){ .escolha{grid-template-columns:1fr} .form-bloco{padding:20px} }
 
+  /* ---------- Avaliação pós-imersão: mesma pesquisa de pesquisa-ia-para-empresarios.vercel.app ---------- */
+  #aval{--av-black:#0f0f11;--av-ink:#17171b;--av-paper:#f2f2f0;--av-pure:#fff;--av-dim:rgba(255,255,255,.62);--av-dim2:rgba(255,255,255,.42);--av-line:rgba(255,255,255,.13);--av-line2:rgba(255,255,255,.07);--av-gold:#d9a93c;--av-hi:#d9b95c;--av-brand:#FBBD04;--av-err:#e8958a;--av-ease:cubic-bezier(.22,.61,.36,1);
+    position:fixed;inset:0;z-index:100;overflow-y:auto;overscroll-behavior:contain;background:var(--av-black);color:var(--av-dim);font-family:'Inter Tight',Inter,'Segoe UI',Roboto,system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;opacity:0;transition:opacity .25s}
+  #aval.aberto{opacity:1}
+  #aval::before{content:"";position:absolute;inset:0 0 auto 0;height:520px;pointer-events:none;background:linear-gradient(170deg,#231d16 0%,#17140f 40%,rgba(15,15,17,0) 100%)}
+  #aval *{box-sizing:border-box}
+  #aval [hidden]{display:none!important}
+  .av-progress{position:fixed;top:0;left:0;right:0;height:3px;background:var(--av-line2);z-index:2}
+  .av-progress i{display:block;height:100%;width:0;background:var(--av-brand);transition:width .3s var(--av-ease)}
+  .av-fechar{position:fixed;top:14px;right:14px;z-index:3;width:40px;height:40px;border-radius:50%;border:1px solid var(--av-line);background:var(--av-ink);color:var(--av-paper);font-size:22px;line-height:1;font-family:inherit;cursor:pointer}
+  .av-fechar:hover{border-color:var(--av-gold)}
+  #aval-titulo:focus,#aval-ok:focus{outline:none}
+  .av-wrap{position:relative;max-width:620px;margin:0 auto;padding:44px 16px 72px}
+  .av-logo{display:inline-block;color:var(--av-paper);text-transform:uppercase;line-height:1;font-size:30px}
+  .av-logo .barra{width:1.63em;height:.1em;background:var(--av-brand)}
+  .av-logo .l1{display:block;margin-top:.62em;font-weight:300;letter-spacing:-.02em}
+  .av-logo .l2{display:block;margin-top:.12em;font-weight:700;letter-spacing:-.035em}
+  .av-logo .fio{margin-top:.36em;height:2px;background:var(--av-brand)}
+  .av-intro{margin:36px 0 8px}
+  .av-eyebrow{display:block;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--av-gold);margin-bottom:12px}
+  #aval h1,#aval h2.av-h{margin:0 0 12px;color:var(--av-pure);font-size:clamp(1.9rem,6vw,2.4rem);font-weight:600;line-height:1.1;letter-spacing:-.02em}
+  .av-intro p{margin:0;font-size:1.02rem}
+  .av-intro p b{color:var(--av-paper);font-weight:600}
+  #aval-form{display:grid;gap:14px;margin-top:28px}
+  .av-q{margin:0;padding:22px 18px 20px;border:1px solid var(--av-line);border-radius:20px 6px 20px 6px;background:var(--av-ink);min-width:0;scroll-margin-top:24px;transition:border-color .2s var(--av-ease)}
+  .av-q.missing{border-color:rgba(232,149,138,.7)}
+  .av-q legend,.av-q .qlabel{float:left;width:100%;padding:0;margin:0 0 14px;color:var(--av-pure);font-size:1.08rem;font-weight:600;line-height:1.35}
+  .av-q legend + *,.av-q .qlabel + *{clear:both}
+  .av-num{display:block;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--av-dim2);margin-bottom:6px}
+  .av-num em{font-style:normal;color:var(--av-gold);margin-left:.6em;letter-spacing:.18em}
+  .av-hint{display:block;font-weight:400;font-size:.9rem;color:var(--av-dim);margin-top:4px}
+  .av-err{display:none;margin:10px 0 0;color:var(--av-err);font-size:.88rem}
+  .av-q.missing .av-err{display:block}
+  .av-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .av-scale{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+  @media (min-width:560px){.av-scale{grid-template-columns:repeat(11,minmax(0,1fr));gap:6px}}
+  .av-scale label{position:relative;display:block}
+  .av-scale span{display:grid;place-items:center;height:48px;border:1px solid var(--av-line);border-radius:10px 3px 10px 3px;background:var(--av-black);color:var(--av-paper);font-weight:600;font-size:1.05rem;font-variant-numeric:tabular-nums;cursor:pointer;transition:background .15s var(--av-ease),border-color .15s var(--av-ease),color .15s var(--av-ease)}
+  .av-scale label:hover span{border-color:var(--av-gold)}
+  .av-scale input:checked + span{background:var(--av-brand);border-color:var(--av-brand);color:#17171b}
+  .av-scale input:focus-visible + span{outline:2px solid var(--av-hi);outline-offset:2px}
+  .av-scale-legend{display:flex;justify-content:space-between;gap:12px;margin-top:10px;font-size:.8rem;color:var(--av-dim2)}
+  .av-opts{display:grid;gap:8px}
+  .av-opt{position:relative;display:block}
+  .av-opt > span{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start;padding:13px 14px;border:1px solid var(--av-line);border-radius:14px 4px 14px 4px;background:var(--av-black);cursor:pointer;transition:border-color .15s var(--av-ease),background .15s var(--av-ease)}
+  .av-opt:hover > span{border-color:rgba(217,169,60,.6)}
+  .av-opt .mark{width:20px;height:20px;margin-top:1px;border:1.5px solid var(--av-dim2);border-radius:50%;display:grid;place-items:center;transition:border-color .15s var(--av-ease)}
+  .av-opt input[type=checkbox] + span .mark{border-radius:5px 2px 5px 2px}
+  .av-opt .mark::after{content:"";width:10px;height:10px;border-radius:inherit;background:var(--av-brand);transform:scale(0);transition:transform .15s var(--av-ease)}
+  .av-opt b{display:block;color:var(--av-paper);font-weight:600;font-size:.98rem;line-height:1.35}
+  .av-opt small{display:block;color:var(--av-dim);font-size:.85rem;margin-top:2px}
+  .av-opt input:checked + span{border-color:rgba(251,189,4,.6);background:rgba(251,189,4,.07)}
+  .av-opt input:checked + span .mark{border-color:var(--av-brand)}
+  .av-opt input:checked + span .mark::after{transform:scale(1)}
+  .av-opt input:focus-visible + span{outline:2px solid var(--av-hi);outline-offset:2px}
+  .av-opt input:disabled + span{opacity:.35;cursor:not-allowed}
+  .av-opt input:disabled + span b::after{content:" · já escolhida acima";font-weight:400;color:var(--av-dim2)}
+  #aval textarea,#aval input[type=text]{display:block;width:100%;font:inherit;font-size:1rem;color:var(--av-paper);background:var(--av-black);border:1px solid var(--av-line);border-radius:12px 4px 12px 4px;padding:13px 14px;outline:none;transition:border-color .15s var(--av-ease)}
+  #aval textarea{min-height:96px;resize:vertical;line-height:1.5}
+  #aval textarea:focus,#aval input[type=text]:focus{border-color:var(--av-gold)}
+  #aval textarea::placeholder,#aval input[type=text]::placeholder{color:var(--av-dim2)}
+  .av-send{margin-top:10px;display:grid;gap:12px}
+  .av-btn{display:flex;align-items:center;justify-content:center;gap:.6em;width:100%;border:0;cursor:pointer;background:var(--av-brand);color:#17171b;font-family:inherit;font-weight:600;font-size:1.02rem;padding:1.05em 1.6em;border-radius:14px 4px 14px 4px;box-shadow:0 0 0 1px rgba(251,189,4,.35),0 12px 40px -12px rgba(251,189,4,.5);transition:transform .18s var(--av-ease),box-shadow .18s var(--av-ease);text-decoration:none}
+  .av-btn:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(251,189,4,.6),0 18px 48px -12px rgba(251,189,4,.65)}
+  .av-btn:focus-visible{outline:2px solid var(--av-hi);outline-offset:3px}
+  .av-btn[disabled]{opacity:.7;cursor:progress;transform:none}
+  .av-form-err{margin:0;color:var(--av-err);font-size:.92rem;text-align:center}
+  .av-note{margin:0;font-size:.8rem;color:var(--av-dim2);text-align:center}
+  .av-done{margin-top:40px;padding:34px 22px 28px;border:1px solid var(--av-line);border-radius:22px 7px 22px 7px;background:var(--av-ink);text-align:center}
+  .av-done .check{width:52px;height:52px;margin:0 auto 18px;border-radius:50%;background:var(--av-brand);display:grid;place-items:center}
+  .av-done h2{margin:0 0 10px;color:var(--av-pure);font-size:1.6rem;font-weight:600;line-height:1.2}
+  .av-done p{margin:0 auto;max-width:420px}
+  .av-baixar{display:grid;gap:10px;margin-top:22px;text-align:left}
+  .av-baixar a{display:grid;grid-template-columns:40px 1fr 20px;gap:14px;align-items:center;padding:14px 16px;border:1px solid var(--av-line);border-radius:14px 4px 14px 4px;background:var(--av-black);color:var(--av-paper);text-decoration:none;transition:border-color .15s var(--av-ease)}
+  .av-baixar a:hover{border-color:rgba(251,189,4,.6)}
+  .av-baixar .ico{width:40px;height:40px;border-radius:12px 3px 12px 3px;display:grid;place-items:center;background:rgba(251,189,4,.1);color:var(--av-brand)}
+  .av-baixar .ico svg,.av-baixar > a > svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .av-baixar b{display:block;font-weight:600;line-height:1.3}
+  .av-baixar small{display:block;color:var(--av-dim);font-size:.85rem}
+  .av-guia{margin-top:14px;padding:20px 18px;border:1px solid var(--av-line);border-radius:20px 6px 20px 6px;background:var(--av-ink);text-align:left}
+  .av-guia h3{margin:0 0 8px;color:var(--av-pure);font-size:1.08rem;font-weight:600}
+  .av-guia p,.av-guia li{font-size:.95rem}
+  .av-guia ol{margin:10px 0;padding-left:20px}
+  .av-guia li{margin:5px 0}
+  .av-guia code{color:var(--av-paper)}
+  .av-guia .cod{font-family:inherit}
+  .av-guia .av-note{text-align:left;margin-top:10px}
+  .av-voltar{display:inline-block;margin-top:22px;padding:10px 16px;border:1px solid var(--av-line);border-radius:12px 4px 12px 4px;background:transparent;color:var(--av-paper);font:inherit;font-size:.92rem;cursor:pointer}
+  .av-voltar:hover{border-color:var(--av-gold)}
+  .av-rodape{margin-top:40px;font-size:.78rem;color:var(--av-dim2);text-align:center}
+  body.modal-aberto{overflow:hidden}
+  @media (prefers-reduced-motion:reduce){#aval,#aval *{transition:none!important}}
+
   /* ---------- Responsivo ---------- */
   @media (max-width:1080px){
     .c2{grid-column:span 3}.c4{grid-column:span 6}
@@ -320,6 +413,11 @@
     <symbol id="i-caixa" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></symbol>
     <symbol id="i-mensagem" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
     <symbol id="i-brilho" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17v4"/><path d="M17 19h4"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/></symbol>
+    <symbol id="i-estrela" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
+    <linearGradient id="est-ouro" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE68A"/><stop offset=".45" stop-color="#FBBD04"/><stop offset="1" stop-color="#D08F00"/></linearGradient>
+    <linearGradient id="est-previa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a6320"/><stop offset="1" stop-color="#4f3f10"/></linearGradient>
+    <linearGradient id="est-cinza" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3a3a"/><stop offset="1" stop-color="#262626"/></linearGradient>
   </defs>
 </svg>
 
@@ -652,7 +750,8 @@
             <a class="item" href="/downloads/imersao-tarde.zip" download data-download><span class="mini"><svg class="i"><use href="#i-caixa"/></svg></span><span class="txt">Pasta da tarde (ZIP)<small>cérebro da empresa + exemplo</small></span><svg class="i seta"><use href="#i-download"/></svg></a>
             <a class="item" href="https://github.com/santanalc/imersao-ia-empresarios/tree/main/manha#readme" target="_blank" rel="noopener" data-download><span class="mini"><svg class="i"><use href="#i-livro"/></svg></span><span class="txt">Guia da manhã<small>todos os textos para colar</small></span><svg class="i seta"><use href="#i-externo"/></svg></a>
             <a class="item" href="https://github.com/santanalc/imersao-ia-empresarios/tree/main/tarde#readme" target="_blank" rel="noopener" data-download><span class="mini"><svg class="i"><use href="#i-livro"/></svg></span><span class="txt">Guia da tarde<small>a trilha do cérebro da empresa</small></span><svg class="i seta"><use href="#i-externo"/></svg></a>
-            <div class="item trancado"><span class="mini"><svg class="i"><use href="#i-slides"/></svg></span><span class="txt">Apresentação da aula</span><span class="quando">depois da aula <svg class="i" style="width:14px;height:14px"><use href="#i-cadeado"/></svg></span></div>
+            <div class="item trancado" id="item-slides"><span class="mini"><svg class="i"><use href="#i-slides"/></svg></span><span class="txt">Apresentação da aula</span><span class="quando">depois da aula <svg class="i" style="width:14px;height:14px"><use href="#i-cadeado"/></svg></span></div>
+            <div class="item trancado" id="item-guia" hidden><span class="mini"><svg class="i"><use href="#i-doc"/></svg></span><span class="txt">Guia do Claude Code<small>tudo da imersão, para usar com o Claude</small></span><span class="quando">depois da aula <svg class="i" style="width:14px;height:14px"><use href="#i-cadeado"/></svg></span></div>
           </div>
         </div>
 
@@ -883,6 +982,137 @@ git --version</pre><button type="button">Copiar</button></div>
   </footer>
 </main>
 
+<!-- AVALIAÇÃO PÓS-IMERSÃO: a mesma pesquisa de pesquisa-ia-para-empresarios.vercel.app. Respondeu, libera o PDF e o guia -->
+<div id="aval" role="dialog" aria-modal="true" aria-labelledby="aval-titulo" hidden>
+  <div class="av-progress" aria-hidden="true"><i id="av-bar"></i></div>
+  <button type="button" class="av-fechar" id="aval-fechar" aria-label="Fechar">×</button>
+  <div class="av-wrap">
+    <div class="av-logo" aria-label="IA para Empresários">
+      <div class="barra"></div>
+      <span class="l1">IA para</span>
+      <span class="l2">Empresários</span>
+      <div class="fio"></div>
+    </div>
+
+    <section id="av-survey">
+      <div class="av-intro">
+        <span class="av-eyebrow">Turma de 29 de setembro</span>
+        <h1 id="aval-titulo">Como foi sua experiência na Imersão?</h1>
+        <p>Queremos que a próxima turma seja melhor que essa, e para isso precisamos da sua opinião sincera, <b>principalmente do que não funcionou</b>. São 9 perguntas, leva uns 2 minutos. Ao enviar, você libera <b>a apresentação em PDF e o guia do Claude Code</b>.</p>
+      </div>
+
+      <form id="aval-form" novalidate>
+        <fieldset class="av-q" data-q="nota">
+          <legend><span class="av-num">Pergunta 1</span>De 0 a 10, quanto você recomendaria o IA para Empresários para um amigo?</legend>
+          <div class="av-scale" id="av-scale"></div>
+          <div class="av-scale-legend"><span>0 · Não recomendaria</span><span>10 · Com certeza</span></div>
+          <p class="av-err">Escolha uma nota de 0 a 10.</p>
+        </fieldset>
+
+        <div class="av-q" data-q="motivo">
+          <label class="qlabel" for="av-motivo"><span class="av-num">Pergunta 2</span>Qual o principal motivo da sua nota?</label>
+          <textarea id="av-motivo" name="motivo" maxlength="1000" placeholder="Escreva com suas palavras"></textarea>
+          <p class="av-err">Conta pra gente o motivo, nem que seja em uma frase.</p>
+        </div>
+
+        <fieldset class="av-q" data-q="mais_serviu">
+          <legend><span class="av-num">Pergunta 3</span>Qual parte do dia mais te serviu?</legend>
+          <div class="av-opts" data-blocos="mais_serviu"></div>
+          <p class="av-err">Escolha uma opção.</p>
+        </fieldset>
+
+        <fieldset class="av-q" data-q="menos_serviu">
+          <legend><span class="av-num">Pergunta 4</span>E qual te serviu menos?</legend>
+          <div class="av-opts" data-blocos="menos_serviu"></div>
+          <p class="av-err">Escolha uma opção.</p>
+        </fieldset>
+
+        <fieldset class="av-q" data-q="ritmo">
+          <legend><span class="av-num">Pergunta 5</span>O ritmo do dia foi:</legend>
+          <div class="av-opts">
+            <label class="av-opt"><input class="av-sr" type="radio" name="ritmo" value="rapido"><span><i class="mark"></i><span><b>Rápido demais</b><small>Fiquei para trás em algumas partes</small></span></span></label>
+            <label class="av-opt"><input class="av-sr" type="radio" name="ritmo" value="na-medida"><span><i class="mark"></i><span><b>Na medida</b></span></span></label>
+            <label class="av-opt"><input class="av-sr" type="radio" name="ritmo" value="devagar"><span><i class="mark"></i><span><b>Devagar</b><small>Dava para ir mais fundo</small></span></span></label>
+          </div>
+          <p class="av-err">Escolha uma opção.</p>
+        </fieldset>
+
+        <fieldset class="av-q" data-q="company_brain">
+          <legend><span class="av-num">Pergunta 6</span>Como você saiu com o Company Brain da sua empresa?</legend>
+          <div class="av-opts">
+            <label class="av-opt"><input class="av-sr" type="radio" name="company_brain" value="usando"><span><i class="mark"></i><span><b>Funcionando, e já usei depois</b></span></span></label>
+            <label class="av-opt"><input class="av-sr" type="radio" name="company_brain" value="sem-uso"><span><i class="mark"></i><span><b>Funcionando, mas ainda não usei</b></span></span></label>
+            <label class="av-opt"><input class="av-sr" type="radio" name="company_brain" value="travou"><span><i class="mark"></i><span><b>Comecei, mas travei em alguma parte</b></span></span></label>
+            <label class="av-opt"><input class="av-sr" type="radio" name="company_brain" value="nao-avancou"><span><i class="mark"></i><span><b>Não consegui avançar</b></span></span></label>
+          </div>
+          <p class="av-err">Escolha uma opção.</p>
+        </fieldset>
+
+        <fieldset class="av-q" data-q="atrapalhou">
+          <legend><span class="av-num">Pergunta 7</span>O que atrapalhou o seu dia?<span class="av-hint">Pode marcar mais de uma.</span></legend>
+          <div class="av-opts">
+            <label class="av-opt"><input class="av-sr" type="checkbox" name="atrapalhou" value="internet"><span><i class="mark"></i><span><b>Internet / wi-fi</b></span></span></label>
+            <label class="av-opt"><input class="av-sr" type="checkbox" name="atrapalhou" value="notebook"><span><i class="mark"></i><span><b>Notebook, tomada ou bateria</b></span></span></label>
+            <label class="av-opt"><input class="av-sr" type="checkbox" name="atrapalhou" value="acesso"><span><i class="mark"></i><span><b>Acesso ao Claude ou ao portal</b></span></span></label>
+            <label class="av-opt"><input class="av-sr" type="checkbox" name="atrapalhou" value="almoco"><span><i class="mark"></i><span><b>Almoço fora do evento</b></span></span></label>
+            <label class="av-opt"><input class="av-sr" type="checkbox" name="atrapalhou" value="duracao"><span><i class="mark"></i><span><b>Dia longo demais</b><small>9h às 18h</small></span></span></label>
+            <label class="av-opt"><input class="av-sr" type="checkbox" name="atrapalhou" value="nada"><span><i class="mark"></i><span><b>Nada atrapalhou</b></span></span></label>
+          </div>
+          <p class="av-err">Marque pelo menos uma opção (ou "Nada atrapalhou").</p>
+        </fieldset>
+
+        <div class="av-q" data-q="mudaria">
+          <label class="qlabel" for="av-mudaria"><span class="av-num">Pergunta 8<em>opcional</em></span>Se você pudesse mudar uma coisa para a próxima turma, o que seria?</label>
+          <textarea id="av-mudaria" name="mudaria" maxlength="1000"></textarea>
+        </div>
+
+        <div class="av-q" data-q="nome">
+          <label class="qlabel" for="av-nome"><span class="av-num">Pergunta 9<em>opcional</em></span>Seu nome<span class="av-hint">Só se quiser que a gente te procure para conversar sobre a sua resposta.</span></label>
+          <input type="text" id="av-nome" name="nome" maxlength="120" autocomplete="name">
+        </div>
+
+        <div class="av-send">
+          <button class="av-btn" type="submit" id="aval-btn">Enviar respostas</button>
+          <p class="av-form-err" id="aval-msg" role="alert" hidden></p>
+          <p class="av-note">Suas respostas vão só para a equipe do evento.</p>
+        </div>
+      </form>
+    </section>
+
+    <section class="av-done" id="aval-ok" hidden tabindex="-1">
+      <div class="check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#17171b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <h2>Obrigado! Sua resposta chegou.</h2>
+      <p>Cada resposta entra no planejamento da próxima turma, inclusive as críticas. Seus materiais estão liberados:</p>
+      <div class="av-baixar">
+        <a href="/downloads/apresentacao-imersao-ia.pdf" download id="dl-pdf">
+          <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+          <span><b>Apresentação da imersão (PDF)</b><small>os slides do dia, para rever e mostrar ao seu time</small></span>
+          <svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+        </a>
+        <a href="/downloads/guia-claude-code-imersao.md" download id="dl-guia">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
+          <span><b>Guia do Claude Code</b><small>o conteúdo da imersão, para consultar com o próprio Claude</small></span>
+          <svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+        </a>
+      </div>
+      <div class="av-guia">
+        <h3>Como usar o guia</h3>
+        <p style="margin:0">É o seu professor de bolso: MCP, skills, contexto, memória, rotinas, agentes e o cérebro da empresa, escrito para o Claude ler.</p>
+        <ol>
+          <li>Crie uma pasta nova (ex.: <code>meu-claude</code>) e coloque o arquivo dentro.</li>
+          <li>App do Claude → aba <b>Code</b> → escolha essa pasta.</li>
+          <li>Cole a primeira mensagem:</li>
+        </ol>
+        <div class="cod"><pre>Leia o guia-claude-code-imersao.md e seja o meu tutor. Comece pelas perguntas da seção "Primeira conversa".</pre><button type="button">Copiar</button></div>
+        <p class="av-note">Prefere o chat? Em claude.ai, crie um Projeto e adicione o arquivo aos conhecimentos. Os dois arquivos também ficam em Materiais, aqui no portal.</p>
+      </div>
+      <button class="av-voltar" type="button" id="aval-fim">Voltar ao portal</button>
+    </section>
+
+    <footer class="av-rodape">IA para Empresários · Apolo Growth System</footer>
+  </div>
+</div>
+
 <script>
 (function(){
   // Contagem até 29/09/2026 (horário de Brasília)
@@ -1001,6 +1231,7 @@ git --version</pre><button type="button">Copiar</button></div>
     document.body.classList.remove('trancado');
     window.scrollTo(0, 0);
     if (typeof acender === 'function') acender();
+    avaliacao.checar();
   }
   function emailValido(v){ return /^\S+@\S+\.\S+$/.test(v); }
   function ocupado(btn, sim, texto){
@@ -1075,6 +1306,194 @@ git --version</pre><button type="button">Copiar</button></div>
   // Tira o vermelho assim que o aluno corrige
   formCad.addEventListener('input', function(e){ var c = e.target.closest('.campo'); if (c) c.classList.remove('erro'); });
   formCad.addEventListener('change', function(e){ var c = e.target.closest('.campo'); if (c) c.classList.remove('erro'); });
+
+  // ---------- Avaliação pós-imersão ----------
+  // Depois da aula, quem entra no portal vê a pesquisa (as mesmas 9 perguntas de
+  // pesquisa-ia-para-empresarios.vercel.app). Respondeu: libera o PDF e o guia.
+  // É uma porta, não um cofre: os arquivos ficam em /downloads, como os ZIPs.
+  var avaliacao = (function(){
+    var CHAVE_AVAL = 'portal-avaliou';
+    var ARQ_PDF = '/downloads/apresentacao-imersao-ia.pdf';
+    var ARQ_GUIA = '/downloads/guia-claude-code-imersao.md';
+    var TURMA = '2026-09-29';
+    var PESQUISA_API = 'https://pesquisa-ia-para-empresarios.vercel.app/api/resposta';
+    var BLOCOS = [
+      ['mapa-ia', 'O mapa da IA', 'Manhã · os tipos de IA e onde cada um se aplica'],
+      ['ia-areas', 'IA em cada área da empresa', 'Manhã · vendas, clientes e processos'],
+      ['company-brain', 'Construindo o Company Brain', 'Tarde · mão na massa'],
+      ['cerebro-trabalhar', 'Colocando o cérebro para trabalhar', 'Tarde · usando o Company Brain']
+    ];
+    var REQUIRED = ['nota', 'motivo', 'mais_serviu', 'menos_serviu', 'ritmo', 'company_brain', 'atrapalhou'];
+    var modal = document.getElementById('aval'), form = document.getElementById('aval-form');
+    var survey = document.getElementById('av-survey'), ok = document.getElementById('aval-ok');
+    var bar = document.getElementById('av-bar'), msg = document.getElementById('aval-msg');
+    var btn = document.getElementById('aval-btn'), motivo = document.getElementById('av-motivo');
+    var ultimoFoco = null;
+    var depoisDaAula = faltam < 0;
+
+    // escala 0–10
+    var scale = document.getElementById('av-scale');
+    for (var n = 0; n <= 10; n++) {
+      scale.insertAdjacentHTML('beforeend', '<label><input class="av-sr" type="radio" name="nota" value="' + n + '" aria-label="Nota ' + n + '"><span>' + n + '</span></label>');
+    }
+    // blocos do dia (perguntas 3 e 4)
+    form.querySelectorAll('[data-blocos]').forEach(function(box){
+      var name = box.getAttribute('data-blocos');
+      BLOCOS.forEach(function(b){
+        box.insertAdjacentHTML('beforeend', '<label class="av-opt"><input class="av-sr" type="radio" name="' + name + '" value="' + b[0] + '"><span><i class="mark"></i><span><b>' + b[1] + '</b><small>' + b[2] + '</small></span></span></label>');
+      });
+    });
+
+    function checked(name){ return Array.prototype.map.call(form.querySelectorAll('input[name="' + name + '"]:checked'), function(i){ return i.value; }); }
+    function answered(name){ return name === 'motivo' ? motivo.value.trim().length >= 2 : checked(name).length > 0; }
+    function progresso(){ bar.style.width = (REQUIRED.filter(answered).length / REQUIRED.length * 100) + '%'; }
+    function limpa(name){ var q = form.querySelector('[data-q="' + name + '"]'); if (q && answered(name)) q.classList.remove('missing'); }
+
+    form.addEventListener('change', function(e){
+      var t = e.target;
+      if (t.name === 'nota') {
+        var v = Number(t.value);
+        motivo.placeholder = v <= 6 ? 'O que mais pesou contra?' : v <= 8 ? 'O que faltou para ser 10?' : 'O que fez o dia valer?';
+      }
+      if (t.name === 'mais_serviu') {
+        form.querySelectorAll('input[name="menos_serviu"]').forEach(function(i){ i.disabled = i.value === t.value; if (i.disabled) i.checked = false; });
+      }
+      if (t.name === 'atrapalhou' && t.checked) {
+        form.querySelectorAll('input[name="atrapalhou"]').forEach(function(i){ if (t.value === 'nada' ? i.value !== 'nada' : i.value === 'nada') i.checked = false; });
+      }
+      limpa(t.name); progresso();
+    });
+    motivo.addEventListener('input', function(){ limpa('motivo'); progresso(); });
+
+    function jaAvaliou(){ try { return !!localStorage.getItem(CHAVE_AVAL); } catch (e) { return false; } }
+    function marcarAvaliou(){ try { localStorage.setItem(CHAVE_AVAL, '1'); } catch (e) {} }
+    function email(){ try { return localStorage.getItem(CHAVE) || ''; } catch (e) { return ''; } }
+
+    // Materiais: trancado (clique abre a pesquisa) ou liberado (link de download)
+    function itemLiberado(id, href, titulo, sub){
+      var el = document.getElementById(id); if (!el || el.tagName === 'A') return;
+      var a = document.createElement('a');
+      a.className = 'item'; a.id = id; a.href = href; a.setAttribute('download', '');
+      a.innerHTML = el.querySelector('.mini').outerHTML + '<span class="txt">' + titulo + '<small>' + sub + '</small></span><svg class="i seta"><use href="#i-download"/></svg>';
+      el.replaceWith(a);
+    }
+    function atualizarMateriais(){
+      if (!depoisDaAula) return;
+      var avisoTxt = document.getElementById('aviso-texto'), avisoBtn = document.getElementById('aviso-btn');
+      if (jaAvaliou()) {
+        avisoTxt.textContent = 'A apresentação em PDF e o guia do Claude Code estão em Materiais. Refaça os exercícios quando quiser.';
+        avisoBtn.onclick = null;
+        itemLiberado('item-slides', ARQ_PDF, 'Apresentação da aula (PDF)', 'os slides do dia');
+        itemLiberado('item-guia', ARQ_GUIA, 'Guia do Claude Code', 'tudo da imersão, para usar com o Claude');
+        return;
+      }
+      avisoTxt.textContent = 'Responda a pesquisa da imersão (2 minutos) e baixe a apresentação em PDF e o guia do Claude Code.';
+      avisoBtn.firstChild.textContent = 'Responder e baixar ';
+      avisoBtn.onclick = function(ev){ ev.preventDefault(); abrir(); };
+      ['item-slides', 'item-guia'].forEach(function(id){
+        var el = document.getElementById(id); if (!el || el.tagName === 'A') return;
+        el.hidden = false; el.style.cursor = 'pointer'; el.setAttribute('role', 'button'); el.tabIndex = 0;
+        el.querySelector('.quando').innerHTML = 'responda a pesquisa <svg class="i" style="width:14px;height:14px"><use href="#i-estrela"/></svg>';
+        el.onclick = abrir; el.onkeydown = function(ev){ if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); abrir(); } };
+      });
+    }
+
+    function abrir(){
+      ultimoFoco = document.activeElement;
+      modal.hidden = false; modal.scrollTop = 0; document.body.classList.add('modal-aberto');
+      requestAnimationFrame(function(){ modal.classList.add('aberto'); });
+      setTimeout(function(){ (survey.hidden ? document.getElementById('dl-pdf') : document.getElementById('aval-titulo')).focus({ preventScroll: true }); }, 60);
+    }
+    function fechar(){
+      modal.classList.remove('aberto'); document.body.classList.remove('modal-aberto');
+      setTimeout(function(){ modal.hidden = true; }, 250);
+      if (ultimoFoco && ultimoFoco.focus) ultimoFoco.focus();
+    }
+    document.getElementById('aval-titulo').tabIndex = -1;
+    function mostraOk(){ survey.hidden = true; ok.hidden = false; bar.style.width = '100%'; modal.scrollTop = 0; }
+    function sucesso(){ marcarAvaliou(); mostraOk(); atualizarMateriais(); ok.focus({ preventScroll: true }); }
+
+    document.getElementById('aval-fechar').addEventListener('click', fechar);
+    document.getElementById('aval-fim').addEventListener('click', fechar);
+    document.addEventListener('keydown', function(ev){
+      if (modal.hidden) return;
+      if (ev.key === 'Escape') return fechar();
+      if (ev.key === 'Tab') { // foco preso dentro da pesquisa
+        var f = Array.prototype.filter.call(modal.querySelectorAll('button,a[href],input:not([disabled]),textarea'), function(x){ return x.offsetParent !== null || x.classList.contains('av-sr'); });
+        var ini = f[0], fim = f[f.length - 1];
+        if (ev.shiftKey && document.activeElement === ini) { ev.preventDefault(); fim.focus(); }
+        else if (!ev.shiftKey && document.activeElement === fim) { ev.preventDefault(); ini.focus(); }
+      }
+    });
+
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      msg.hidden = true;
+      var faltando = REQUIRED.filter(function(name){ return !answered(name); });
+      REQUIRED.forEach(function(name){ form.querySelector('[data-q="' + name + '"]').classList.toggle('missing', faltando.indexOf(name) !== -1); });
+      if (faltando.length) {
+        var first = form.querySelector('[data-q="' + faltando[0] + '"]');
+        first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var foco = first.querySelector('textarea, input:not([disabled])');
+        if (foco) setTimeout(function(){ foco.focus({ preventScroll: true }); }, 350);
+        return;
+      }
+      var respostas = {
+        turma: TURMA,
+        nota: Number(checked('nota')[0]),
+        motivo: motivo.value.trim(),
+        mais_serviu: checked('mais_serviu')[0],
+        menos_serviu: checked('menos_serviu')[0],
+        ritmo: checked('ritmo')[0],
+        company_brain: checked('company_brain')[0],
+        atrapalhou: checked('atrapalhou'),
+        mudaria: form.mudaria.value.trim(),
+        nome: form.nome.value.trim(),
+        site: ''
+      };
+      // Mesma base da pesquisa pública (pesquisa-ia-para-empresarios.vercel.app). O endpoint não libera CORS: envio simples, sem ler a resposta.
+      // Planilha do portal (aba Avaliações): guarda um resumo e o e-mail.
+      var rotulo = function(name){ var i = form.querySelector('input[name="' + name + '"]:checked'); return i ? i.closest('label').querySelector('b').textContent : ''; };
+      var comentario = 'Nota ' + respostas.nota + '/10. Motivo: ' + respostas.motivo +
+        ' | Mais serviu: ' + rotulo('mais_serviu') + ' | Menos serviu: ' + rotulo('menos_serviu') +
+        ' | Ritmo: ' + rotulo('ritmo') + ' | Company Brain: ' + rotulo('company_brain') +
+        ' | Atrapalhou: ' + Array.prototype.map.call(form.querySelectorAll('input[name="atrapalhou"]:checked'), function(i){ return i.closest('label').querySelector('b').textContent; }).join(', ') +
+        (respostas.mudaria ? ' | Mudaria: ' + respostas.mudaria : '') + (respostas.nome ? ' | Nome: ' + respostas.nome : '');
+      var dados = { acao: 'avaliar', email: email(), estrelas: Math.max(1, Math.min(5, Math.round(respostas.nota / 2))), comentario: comentario, depoimento: false };
+      btn.disabled = true; btn.textContent = 'Enviando…';
+      // A pesquisa é o que importa; a planilha do portal só marca "já respondeu" para outro navegador.
+      // Se a planilha falhar (ou estiver sem a versão nova do Apps Script), libera do mesmo jeito.
+      var marcaPlanilha = !API ? Promise.resolve() : Promise.race([
+        fetch(API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(dados) }).catch(function(){}),
+        new Promise(function(r){ setTimeout(r, 6000); })
+      ]);
+      fetch(PESQUISA_API, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(respostas), keepalive: true })
+        .then(function(){ return marcaPlanilha; })
+        .then(function(){ sucesso(); })
+        .catch(function(){ msg.textContent = 'Não conseguimos enviar. Confere a internet e toca em enviar de novo: suas respostas continuam aqui.'; msg.hidden = false; })
+        .then(function(){ btn.disabled = false; btn.textContent = 'Enviar respostas'; });
+    });
+
+    // Na entrada: já respondeu (neste navegador ou em outro)? Senão, abre a pesquisa.
+    function checar(){
+      if (!depoisDaAula || document.body.classList.contains('trancado')) return;
+      atualizarMateriais();
+      if (jaAvaliou()) return;
+      var mail = email();
+      if (!API || !mail) return abrir();
+      var tempo = setTimeout(abrir, 2500), respondeu = false;
+      fetch(API + '?acao=avaliou&email=' + encodeURIComponent(mail))
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          respondeu = true; clearTimeout(tempo);
+          if (d.avaliou) { marcarAvaliou(); atualizarMateriais(); if (!modal.hidden) mostraOk(); }
+          else if (modal.hidden) abrir();
+        })
+        .catch(function(){ if (!respondeu) { clearTimeout(tempo); if (modal.hidden) abrir(); } });
+    }
+    return { checar: checar, abrir: abrir };
+  })();
+  avaliacao.checar();
 })();
 </script>
 </body>
