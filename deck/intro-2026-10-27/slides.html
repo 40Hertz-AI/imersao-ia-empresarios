@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>IA para empresários · nova introdução (27/10/2026)</title>
+<!--
+  Fonte dos slides novos da introdução (9h–10h). Cada <section class="slide"> vira
+  uma página de 960x540pt no PDF. A ordem aqui é a ordem em que os slides novos
+  entram no deck; build.sh intercala com as páginas reaproveitadas do PDF original.
+  O atributo data-id é o número do slide no roteiro (roteiro.md).
+-->
+<style>
+@font-face { font-family: "Geist"; src: url("fonts/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "Geist Mono"; src: url("fonts/GeistMono-Regular.woff2") format("woff2"); font-weight: 400; }
+@font-face { font-family: "Geist Mono"; src: url("fonts/GeistMono-Medium.woff2") format("woff2"); font-weight: 500; }
+@font-face { font-family: "Geist Mono"; src: url("fonts/GeistMono-SemiBold.woff2") format("woff2"); font-weight: 600; }
+
+@page { size: 1280px 720px; margin: 0; }
+:root {
+  --bg: #0a0a0a; --card: #161616; --card2: #1a1a1a; --line: #2a2a2a; --line2: #333;
+  --white: #ffffff; --text: #cccccc; --muted: #909090; --dim: #5a5a5a;
+  --yellow: #fbbd04; --blue: #7aa2f7; --violet: #a78bfa; --teal: #2dd4bf;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); }
+body { font-family: "Geist", sans-serif; color: var(--white); -webkit-print-color-adjust: exact; print-color-adjust: exact;
+       font-feature-settings: "ss01" 0; text-rendering: geometricPrecision; }
+
+.slide { width: 1280px; height: 720px; position: relative; overflow: hidden; background: var(--bg);
+         break-after: page; page-break-after: always; }
+.slide:last-child { break-after: auto; page-break-after: auto; }
+.body { position: absolute; left: 64px; right: 64px; top: 0; height: 668px; display: flex; flex-direction: column; justify-content: center; }
+.foot { position: absolute; left: 64px; right: 64px; top: 668px; border-top: 1px solid var(--line); padding-top: 17px;
+        font-size: 13.5px; line-height: 1.35; color: var(--muted); }
+.foot b { color: var(--text); font-weight: 700; }
+
+/* kicker em caixa alta com espaçamento */
+.k { display: flex; align-items: center; gap: 13px; font-size: 12px; font-weight: 700; letter-spacing: .14em;
+     text-transform: uppercase; color: var(--blue); margin-bottom: 22px; }
+.k svg { width: 21px; height: 21px; flex: none; }
+.k.y { color: var(--yellow); } .k.v { color: var(--violet); } .k.t { color: var(--teal); }
+.k .tag { border: 1px solid currentColor; border-radius: 999px; padding: 4px 10px; letter-spacing: .12em; font-size: 10.5px; }
+
+h1 { font-size: 54px; line-height: 1.1; font-weight: 800; letter-spacing: -.03em; margin: 0; }
+h1.m { font-size: 46px; }
+h1.s { font-size: 40px; }
+h1.xl { font-size: 72px; line-height: 1.06; }
+.y { color: var(--yellow); } .cv { color: var(--violet); } .cb { color: var(--blue); } .mu { color: var(--muted); }
+.lead { font-size: 20px; line-height: 1.6; color: var(--text); margin: 22px 0 0; max-width: 800px; }
+.small { font-size: 14px; line-height: 1.5; color: var(--muted); }
+.big { font-size: 160px; line-height: .95; font-weight: 900; letter-spacing: -.055em; }
+.sub { font-size: 30px; line-height: 1.3; font-weight: 700; letter-spacing: -.02em; }
+
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; }
+.row { display: flex; gap: 16px; }
+.num { font-size: 12px; font-weight: 700; letter-spacing: .12em; color: var(--yellow); }
+.mono { font-family: "Geist Mono", monospace; }
+.callout { background: var(--yellow); color: #0a0a0a; border-radius: 12px; padding: 17px 24px; font-size: 19px; font-weight: 700; letter-spacing: -.01em; }
+.pill svg { width: 15px; height: 15px; }
+.pill { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 6px 13px; font-size: 13px; font-weight: 600; }
+
+/* ---------- slide 03: casos ---------- */
+.cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+.case { padding: 28px 28px 26px; display: flex; flex-direction: column; }
+.case .nm { font-size: 30px; font-weight: 800; letter-spacing: -.03em; }
+.case .seg { font-size: 14px; color: var(--muted); margin-top: 4px; }
+.case .st { margin-top: 26px; display: flex; gap: 14px; align-items: flex-start; }
+.case .st .yr { font-size: 26px; font-weight: 800; letter-spacing: -.03em; min-width: 66px; }
+.case .st .tx { font-size: 15px; line-height: 1.45; color: var(--text); padding-top: 4px; }
+.case .lab { font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-top: 24px; }
+.case .div { height: 1px; background: var(--line); margin-top: 22px; }
+
+/* ---------- slide 05: 100 mi ---------- */
+.s05 .left { position: absolute; left: 64px; top: 0; height: 668px; width: 560px; display: flex; flex-direction: column; justify-content: center; }
+.s05 .panel { position: absolute; left: 677px; top: 92px; width: 539px; height: 508px; background: var(--card2); border: 1px solid #262626; border-radius: 20px; padding: 36px 37px; }
+.phd { font-size: 13.5px; font-weight: 700; letter-spacing: .14em; color: var(--muted); text-transform: uppercase; }
+.s05 .bar { display: grid; grid-template-columns: 136px 1fr 70px; align-items: center; height: 48px; font-size: 19.5px; font-weight: 600; color: #e6e6e6; }
+.s05 .bar i { display: block; height: 34px; border-radius: 9px; background: var(--dim); }
+.s05 .bar .v { text-align: right; font-size: 26px; font-weight: 800; color: #e6e6e6; letter-spacing: -.02em; }
+.s05 .bar.h, .s05 .bar.h .v { color: var(--yellow); }
+.s05 .bar.h i { background: var(--yellow); }
+.s05 .note { font-size: 13px; line-height: 1.45; color: var(--muted); margin-top: 10px; }
+.s05 .sep { height: 1px; background: var(--line); margin: 22px 0 22px; }
+.selo { margin-top: 26px; display: flex; gap: 16px; align-items: center; border: 1px solid rgba(251,189,4,.55); background: rgba(251,189,4,.07);
+        border-radius: 14px; padding: 14px 18px; width: 520px; }
+.selo .n { font-size: 40px; font-weight: 900; letter-spacing: -.04em; color: var(--yellow); line-height: 1; }
+.selo .tx { font-size: 14.5px; line-height: 1.4; color: var(--text); }
+.selo .tx b { display: block; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--yellow); margin-bottom: 3px; }
+
+/* ---------- slide 07: empresas desta era ---------- */
+.era { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; }
+.era .card { padding: 30px 32px; }
+.era .co { font-size: 15px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--violet); }
+.era .val { font-size: 76px; font-weight: 900; letter-spacing: -.05em; line-height: 1; margin-top: 18px; }
+.era .val small { font-size: 30px; letter-spacing: -.02em; font-weight: 800; }
+.era .what { font-size: 21px; font-weight: 700; letter-spacing: -.01em; margin-top: 10px; }
+.era .det { font-size: 15px; line-height: 1.5; color: var(--muted); margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+
+/* ---------- slide 08: Lovable ---------- */
+.chart8 { position: relative; margin-top: 34px; height: 352px; }
+.chart8 .cols { position: absolute; left: 0; right: 330px; bottom: 30px; top: 0; display: flex; align-items: flex-end; gap: 22px; border-bottom: 1px solid var(--line2); }
+.chart8 .c { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.chart8 .c i { display: block; width: 100%; background: var(--dim); border-radius: 8px 8px 0 0; }
+.chart8 .c.h i { background: var(--yellow); }
+.chart8 .c .vv { font-size: 22px; font-weight: 800; letter-spacing: -.02em; margin-bottom: 8px; color: #e6e6e6; }
+.chart8 .c.h .vv { color: var(--yellow); }
+.chart8 .c .xl { position: absolute; bottom: -30px; font-size: 14px; color: var(--muted); font-weight: 600; }
+.chart8 .mk { position: absolute; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; }
+.chart8 .mk .pill { background: rgba(167,139,250,.14); color: var(--violet); border: 1px solid rgba(167,139,250,.5); white-space: nowrap; }
+.chart8 .mk .stem { width: 1px; height: 18px; background: rgba(167,139,250,.6); }
+.chart8 .side { position: absolute; right: 0; top: 0; width: 306px; bottom: 30px; display: flex; flex-direction: column; gap: 14px; }
+.chart8 .side .card { padding: 20px 22px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.chart8 .side .l { font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.chart8 .side .n { font-size: 34px; font-weight: 900; letter-spacing: -.04em; margin-top: 6px; }
+.chart8 .side .d { font-size: 13.5px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+
+/* ---------- slide 09: Base44 ---------- */
+.trio { display: grid; grid-template-columns: 1fr 56px 1fr 56px 1.45fr; align-items: stretch; margin-top: 44px; }
+.trio .card { padding: 30px 28px; }
+.trio .n { font-size: 84px; font-weight: 900; letter-spacing: -.05em; line-height: 1; }
+.trio .l { font-size: 19px; font-weight: 700; margin-top: 14px; letter-spacing: -.01em; }
+.trio .d { font-size: 14.5px; color: var(--muted); margin-top: 8px; line-height: 1.45; }
+.trio .ar { display: flex; align-items: center; justify-content: center; color: var(--dim); }
+.trio .ar svg { width: 26px; height: 26px; }
+
+/* ---------- slide 10: pergunta ---------- */
+.ask { display: flex; gap: 16px; margin-top: 46px; }
+.ask .card { width: 330px; padding: 22px 26px; }
+.ask .l { font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.ask .blank { margin-top: 18px; display: flex; align-items: baseline; gap: 12px; font-size: 18px; color: var(--muted); }
+.ask .blank i { display: block; flex: 1; border-bottom: 2px dashed #444; height: 34px; }
+.ask .card.h { border-color: rgba(251,189,4,.6); }
+.ask .card.h .l { color: var(--yellow); }
+
+/* ---------- slide 11: sistemas de inteligência ---------- */
+.diag { margin-top: 26px; }
+.diag svg { display: block; }
+.colhead { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+
+/* ---------- slide 12: arquiteto de fluxos ---------- */
+.five { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 40px; }
+.five .card { padding: 22px 20px 24px; min-height: 168px; display: flex; flex-direction: column; }
+.five .ic { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; background: rgba(167,139,250,.13); color: var(--violet); }
+.five .ic svg { width: 22px; height: 22px; }
+.five .t { font-size: 18px; font-weight: 700; line-height: 1.3; letter-spacing: -.01em; margin-top: 18px; }
+.five .num { margin-top: auto; padding-top: 14px; color: var(--muted); }
+.qa { display: grid; grid-template-columns: 1fr 44px 1fr; gap: 0; margin-top: 30px; align-items: center; }
+.qa .q { font-size: 19px; line-height: 1.45; padding: 18px 22px; border-radius: 14px; }
+.qa .q.old { color: var(--muted); border: 1px dashed #3a3a3a; text-decoration: line-through; text-decoration-color: #5a5a5a; }
+.qa .q.new { color: var(--white); background: rgba(251,189,4,.08); border: 1px solid rgba(251,189,4,.5); font-weight: 600; }
+.qa .ar { display: flex; justify-content: center; color: var(--yellow); }
+.qa .ar svg { width: 24px; height: 24px; }
+
+/* ---------- slide 12b: IA como primeiro recurso ---------- */
+.s12b .left { position: absolute; left: 64px; top: 0; height: 668px; width: 560px; display: flex; flex-direction: column; justify-content: center; }
+.chatbox { position: absolute; left: 642px; top: 176px; width: 574px; background: #fff; border-radius: 22px; color: #1a1a1a; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+.chatbox .top { padding: 26px 30px 22px; font-size: 21px; line-height: 1.5; color: #222; border-bottom: 1px solid #eee; }
+.chatbox .top .lb { font-size: 11px; font-weight: 700; letter-spacing: .14em; color: #8a8a8a; text-transform: uppercase; display: block; margin-bottom: 10px; }
+.chatbox .top b { font-weight: 700; }
+.chatbox .bot { display: flex; align-items: center; justify-content: space-between; padding: 16px 22px 18px 30px; font-size: 13px; color: #777; }
+.chatbox .send { width: 38px; height: 38px; border-radius: 10px; background: #0a0a0a; color: #fff; display: flex; align-items: center; justify-content: center; }
+.chatbox .send svg { width: 18px; height: 18px; }
+
+/* ---------- slide 12c: Shopify ---------- */
+.quote { margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.quote .card { padding: 28px 30px; position: relative; }
+.quote .qm { color: var(--yellow); width: 30px; height: 30px; }
+.quote .qt { font-size: 21px; line-height: 1.5; font-weight: 600; letter-spacing: -.01em; margin-top: 14px; }
+.quote .card.h { border-color: rgba(251,189,4,.55); }
+.who { margin-top: 22px; display: flex; align-items: center; gap: 14px; font-size: 15px; color: var(--text); }
+.who b { color: var(--white); }
+.who .sep { width: 4px; height: 4px; border-radius: 99px; background: var(--dim); }
+
+/* ---------- slide 12d: gestor antigo x AI First ---------- */
+.vs { margin-top: 38px; display: grid; grid-template-columns: 170px 1fr 1fr; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.vs > div { padding: 20px 26px; border-top: 1px solid var(--line); font-size: 22px; font-weight: 600; letter-spacing: -.01em; display: flex; align-items: center; min-height: 82px; }
+.vs > .hd { border-top: 0; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; min-height: 56px; }
+.vs .rl { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.vs .old { color: var(--muted); background: #121212; }
+.vs .new { background: rgba(251,189,4,.07); color: var(--white); border-left: 1px solid rgba(251,189,4,.35); }
+.vs .hd.new { color: var(--yellow); }
+
+/* ---------- slide 12e: resultado ---------- */
+.res { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
+.res .card { padding: 30px 30px 32px; }
+.res .arw { width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center; }
+.res .arw svg { width: 34px; height: 34px; }
+.res .n { font-size: 34px; font-weight: 800; letter-spacing: -.03em; margin-top: 26px; }
+.res .d { font-size: 15px; color: var(--muted); margin-top: 6px; }
+
+/* ---------- slide 12f: pergunta que destrava ---------- */
+.phr { margin-top: 48px; display: flex; flex-direction: column; gap: 22px; }
+.phr .p { font-size: 50px; font-weight: 800; letter-spacing: -.035em; line-height: 1.15; display: flex; align-items: center; gap: 24px; }
+.phr .p .tag { flex: none; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; width: 92px; padding: 7px 0; text-align: center; border-radius: 999px; }
+.phr .off { color: #555; } .phr .off .q { text-decoration: line-through; text-decoration-thickness: 4px; text-decoration-color: #666; }
+.phr .off .tag { border: 1px solid #444; color: #777; text-decoration: none; }
+.phr .on .tag { border: 1px solid var(--yellow); color: var(--yellow); }
+
+/* ---------- slide 13: três camadas ---------- */
+.layers { margin-top: 30px; display: grid; grid-template-columns: 54px 1fr 230px; gap: 0 18px; }
+.layers .axis { grid-row: 1 / 4; display: flex; flex-direction: column; align-items: center; color: var(--muted); }
+.layers .axis .ln { flex: 1; width: 2px; background: linear-gradient(to top, #3a3a3a, var(--violet)); position: relative; margin-top: 10px; }
+.layers .axis svg { width: 22px; height: 22px; color: var(--violet); }
+.layers .axis .lb { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-top: 10px; }
+.band { border-radius: 16px; padding: 16px 24px; display: flex; align-items: center; gap: 22px; margin-bottom: 12px; height: 108px; }
+.band .nm { width: 186px; flex: none; }
+.band .nm b { display: block; font-size: 26px; font-weight: 800; letter-spacing: -.02em; }
+.band .nm span { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.band .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px; border-radius: 9px; font-size: 14px; font-weight: 600; background: rgba(255,255,255,.06); color: #e6e6e6; }
+.chip svg { width: 15px; height: 15px; opacity: .85; }
+.band.i { background: rgba(167,139,250,.10); border: 1px solid rgba(167,139,250,.45); }
+.band.i .nm span { color: var(--violet); }
+.band.s { background: rgba(122,162,247,.08); border: 1px solid rgba(122,162,247,.38); }
+.band.s .nm span { color: var(--blue); }
+.band.d { background: rgba(251,189,4,.07); border: 1px solid rgba(251,189,4,.38); }
+.band.d .nm span { color: var(--yellow); }
+.why { height: 108px; margin-bottom: 12px; display: flex; align-items: center; font-size: 16px; line-height: 1.4; color: var(--text); font-weight: 600; }
+.why span { border-left: 2px solid var(--line2); padding-left: 16px; }
+
+/* ---------- slide 14: mesma conta ---------- */
+.math { display: grid; grid-template-columns: 1fr 64px 1fr; margin-top: 30px; align-items: stretch; }
+.math .col { border-radius: 18px; padding: 24px 26px; display: flex; flex-direction: column; gap: 10px; }
+.math .old { background: #141414; border: 1px solid var(--line); }
+.math .new { background: rgba(251,189,4,.06); border: 1px solid rgba(251,189,4,.45); }
+.math .hd { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.math .new .hd { color: var(--yellow); }
+.math .it { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 11px; background: rgba(255,255,255,.04); font-size: 17px; font-weight: 600; }
+.math .it svg { width: 19px; height: 19px; color: var(--muted); flex: none; }
+.math .new .it svg { color: var(--yellow); }
+.math .cost { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); display: flex; align-items: baseline; gap: 10px; }
+.math .cost b { font-size: 44px; font-weight: 900; letter-spacing: -.04em; }
+.math .cost span { font-size: 16px; color: var(--muted); }
+.math .ar { display: flex; align-items: center; justify-content: center; color: var(--dim); }
+.math .ar svg { width: 28px; height: 28px; }
+.ilus { display: inline-flex; align-items: center; gap: 8px; background: var(--yellow); color: #0a0a0a; font-size: 12px; font-weight: 800;
+        letter-spacing: .14em; text-transform: uppercase; padding: 7px 13px; border-radius: 8px; }
+.ilus svg { width: 15px; height: 15px; }
+
+/* ---------- slide 15: regra antiga, regra nova ---------- */
+.rules { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.rules > div { padding: 14px 24px; border-top: 1px solid var(--line); font-size: 20px; font-weight: 600; letter-spacing: -.01em; display: flex; align-items: center; gap: 14px; min-height: 60px; }
+.rules > .hd { border-top: 0; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; min-height: 46px; }
+.rules .o { color: var(--muted); background: #121212; }
+.rules .n { background: rgba(251,189,4,.06); border-left: 1px solid rgba(251,189,4,.35); }
+.rules .hd.n { color: var(--yellow); }
+.rules .n svg { width: 18px; height: 18px; color: var(--yellow); flex: none; }
+.stat { margin-top: 16px; display: flex; align-items: center; gap: 22px; }
+.stat .callout { display: flex; align-items: center; gap: 18px; width: 100%; }
+.stat .callout b { font-size: 34px; font-weight: 900; letter-spacing: -.04em; }
+
+/* ---------- slide 16: três números ---------- */
+.three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 42px; align-items: stretch; }
+.three .card { padding: 28px 30px 30px; }
+.three .n { font-weight: 900; letter-spacing: -.055em; line-height: .95; }
+.three .d { font-size: 18px; font-weight: 700; letter-spacing: -.01em; margin-top: 16px; line-height: 1.35; }
+.three .s { font-size: 13.5px; color: var(--muted); margin-top: 10px; line-height: 1.45; }
+.three .src { font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+
+/* ---------- slide 17: dumbbell ---------- */
+.dumb { margin-top: 40px; display: grid; grid-template-columns: 1fr 330px; gap: 24px; }
+.dumb .plot { padding: 28px 34px 22px; }
+.dumb .r { display: grid; grid-template-columns: 170px 1fr; align-items: center; height: 96px; }
+.dumb .r .nm { font-size: 20px; font-weight: 700; }
+.dumb .track { position: relative; height: 96px; }
+.dumb .track .g { position: absolute; top: 0; bottom: 0; width: 1px; background: #222; }
+.dumb .track .seg { position: absolute; top: 47px; height: 3px; border-radius: 3px; }
+.dumb .track .dot { position: absolute; top: 48px; width: 22px; height: 22px; border-radius: 99px; transform: translate(-50%, -50%); }
+.dumb .track .lbl { position: absolute; top: 8px; transform: translateX(-50%); font-size: 20px; font-weight: 800; letter-spacing: -.02em; white-space: nowrap; }
+.dumb .axis { display: grid; grid-template-columns: 170px 1fr; font-size: 12.5px; color: var(--muted); }
+.dumb .axis .t { position: relative; height: 22px; }
+.dumb .axis .t span { position: absolute; transform: translateX(-50%); }
+.dumb .leg { display: flex; gap: 22px; font-size: 13.5px; color: var(--muted); margin-top: 6px; padding-left: 170px; }
+.dumb .leg i { display: inline-block; width: 12px; height: 12px; border-radius: 99px; margin-right: 8px; vertical-align: -1px; }
+.dumb .side { padding: 28px 28px; display: flex; flex-direction: column; justify-content: center; }
+.dumb .side .n { font-size: 64px; font-weight: 900; letter-spacing: -.05em; line-height: 1; color: var(--yellow); }
+.dumb .side .d { font-size: 17px; font-weight: 700; margin-top: 12px; line-height: 1.4; }
+.dumb .side .s { font-size: 13.5px; color: var(--muted); margin-top: 10px; line-height: 1.45; }
+
+/* ---------- slide 18: fronteira ---------- */
+.s18 .left { position: absolute; left: 64px; top: 0; height: 668px; width: 500px; display: flex; flex-direction: column; justify-content: center; }
+.s18 .panel { position: absolute; left: 616px; top: 104px; width: 600px; height: 484px; background: var(--card2); border: 1px solid #262626; border-radius: 20px; padding: 32px 36px; }
+.gb { position: relative; height: 300px; margin-top: 20px; border-bottom: 1px solid var(--line2); display: flex; justify-content: space-around; align-items: flex-end; }
+.gb .grp { display: flex; gap: 14px; align-items: flex-end; height: 100%; position: relative; }
+.gb .bar { width: 96px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
+.gb .bar i { display: block; width: 100%; border-radius: 8px 8px 0 0; }
+.gb .bar b { font-size: 26px; font-weight: 800; letter-spacing: -.03em; margin-bottom: 8px; }
+.gb .gl { position: absolute; bottom: -34px; left: 0; right: 0; text-align: center; font-size: 16px; font-weight: 700; color: #e6e6e6; }
+.gb .grid { position: absolute; left: 0; right: 0; height: 1px; background: #242424; }
+.legend { display: flex; gap: 22px; font-size: 13.5px; color: var(--muted); margin-top: 52px; }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 8px; vertical-align: -1px; }
+
+/* ---------- slide 19: áreas ---------- */
+.s19 .left { position: absolute; left: 64px; top: 0; height: 668px; width: 430px; display: flex; flex-direction: column; justify-content: center; }
+.s19 .panel { position: absolute; left: 556px; top: 112px; width: 660px; height: 468px; background: var(--card2); border: 1px solid #262626; border-radius: 20px; padding: 32px 36px; }
+.hb .r { display: grid; grid-template-columns: 150px 1fr 76px; align-items: center; height: 62px; font-size: 19.5px; font-weight: 600; color: #e6e6e6; }
+.hb .r i { display: block; height: 34px; border-radius: 9px; background: var(--dim); }
+.hb .r .v { text-align: right; font-size: 26px; font-weight: 800; letter-spacing: -.02em; }
+.hb .r.h { color: var(--yellow); } .hb .r.h i { background: var(--yellow); }
+.agent { margin-top: 30px; padding: 18px 20px; display: flex; gap: 16px; align-items: center; }
+.agent b { font-size: 40px; font-weight: 900; letter-spacing: -.04em; color: var(--violet); line-height: 1; }
+.agent span { font-size: 14.5px; line-height: 1.45; color: var(--text); }
+
+/* ---------- slide 21: ganho medido ---------- */
+.gain { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.gain .card { padding: 26px 28px 0; height: 330px; display: flex; flex-direction: column; overflow: hidden; }
+.gain .l { font-size: 19px; font-weight: 700; letter-spacing: -.01em; }
+.gain .s { font-size: 13.5px; color: var(--muted); margin-top: 4px; }
+.gain .area { flex: 1; display: flex; align-items: flex-end; margin-top: 10px; }
+.gain .col { width: 100%; display: flex; flex-direction: column; justify-content: flex-end; }
+.gain .col b { font-size: 46px; font-weight: 900; letter-spacing: -.045em; margin-bottom: 10px; }
+.gain .col i { display: block; width: 100%; border-radius: 10px 10px 0 0; background: var(--dim); }
+.gain .h .col b { color: var(--yellow); } .gain .h .col i { background: var(--yellow); }
+
+/* ---------- slide 22: promessa + fases ---------- */
+.phases { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 34px; }
+.fase { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #090909; }
+.fase img { display: block; width: 100%; height: 176px; object-fit: cover; object-position: center 40%; }
+.fase .lb { display: flex; align-items: baseline; gap: 10px; padding: 0 18px 16px; font-size: 19px; font-weight: 700; }
+.fase .lb .num { font-size: 12px; color: var(--muted); }
+.fase.on { border: 2px solid var(--yellow); }
+.fase.on .lb .num { color: var(--yellow); }
+.fase .now { display: inline-block; margin: 0 18px 14px; font-size: 10.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #0a0a0a; background: var(--yellow); padding: 4px 9px; border-radius: 6px; }
+.fase .later { display: inline-block; margin: 0 18px 14px; font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); padding: 4px 0; }
+</style>
+</head>
+<body>
+
+<!-- ============ 03 · Ruptura: casos ============ -->
+<section class="slide" data-id="03" data-nome="ruptura-casos">
+  <div class="body">
+    <div class="k y"><i data-i="zap"></i>Ruptura</div>
+    <h1>Eles não perderam para a tecnologia.<br><span class="y">Perderam para o novo modelo.</span></h1>
+    <div class="cases">
+      <div class="card case">
+        <div class="nm">Kodak</div><div class="seg">Fotografia</div>
+        <div class="lab cb">Tinha a tecnologia</div>
+        <div class="st"><div class="yr">1975</div><div class="tx">Criou a câmera digital.</div></div>
+        <div class="div"></div>
+        <div class="lab y">Não mudou o modelo</div>
+        <div class="st"><div class="yr">2012</div><div class="tx">Pediu recuperação judicial.</div></div>
+      </div>
+      <div class="card case">
+        <div class="nm">Blockbuster</div><div class="seg">Locação de filmes</div>
+        <div class="lab cb">Tinha a tecnologia</div>
+        <div class="st"><div class="yr mu">—</div><div class="tx">Viu o vídeo chegar pela internet, com o cliente em casa.</div></div>
+        <div class="div"></div>
+        <div class="lab y">Não mudou o modelo</div>
+        <div class="st"><div class="yr">2010</div><div class="tx">Pediu falência.</div></div>
+      </div>
+      <div class="card case">
+        <div class="nm">Nokia</div><div class="seg">Celulares</div>
+        <div class="lab cb">Tinha a tecnologia</div>
+        <div class="st"><div class="yr mu">—</div><div class="tx">Fabricava celulares quando o smartphone chegou.</div></div>
+        <div class="div"></div>
+        <div class="lab y">Não mudou o modelo</div>
+        <div class="st"><div class="yr">2013</div><div class="tx">Vendeu a divisão de celulares à Microsoft.</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><b>Fonte:</b> histórico público das empresas; venda da Nokia: Microsoft News Center, 03/09/2013</div>
+</section>
+
+<!-- ============ 05 · 100 mi + selo Stanford ============ -->
+<section class="slide s05" data-id="05" data-nome="adocao-100mi-stanford">
+  <div class="left">
+    <div class="k"><i data-i="check"></i>Dado verificado</div>
+    <div class="big" style="margin-left:-4px">100 mi</div>
+    <div class="sub" style="margin-top:26px">de usuários em <span class="y">2 meses.</span><br>Nunca uma ferramenta foi adotada<br>tão rápido.</div>
+    <div class="small" style="margin-top:18px">ChatGPT, lançado em nov/2022. Marca atingida em jan/2023.</div>
+    <div class="selo">
+      <div class="n">53%</div>
+      <div class="tx"><b>Stanford AI Index 2026</b>IA generativa chegou a 53% de adoção em 3 anos, mais rápido que o PC e a internet.</div>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="phd">Meses até 100 milhões de usuários</div>
+    <div style="margin-top:12px">
+      <div class="bar"><span>Instagram</span><i style="width:100%"></i><span class="v">30</span></div>
+      <div class="bar"><span>TikTok</span><i style="width:30%"></i><span class="v">9</span></div>
+      <div class="bar h"><span>ChatGPT</span><i style="width:18px"></i><span class="v">2</span></div>
+    </div>
+    <div class="note">Instagram e TikTok: Sensor Tower. ChatGPT: UBS com dados da Similarweb.<br>Via Reuters, 01/02/2023.</div>
+    <div class="sep"></div>
+    <div class="phd">Anos até 800 milhões de usuários</div>
+    <div style="margin-top:12px">
+      <div class="bar"><span>Internet</span><i style="width:100%"></i><span class="v">13</span></div>
+      <div class="bar h"><span>ChatGPT</span><i style="width:23%"></i><span class="v">~3</span></div>
+    </div>
+    <div class="note">Internet: web aberta em 1991, 817 mi de usuários em 2004 (Internet World Stats). ChatGPT: 800 mi semanais em out/2025 (Sam Altman, via TechCrunch).</div>
+  </div>
+  <div class="foot"><b>Fonte:</b> estudo UBS, noticiado pela Reuters, fev/2023; Stanford HAI, AI Index Report 2026</div>
+</section>
+
+<!-- ============ 07 · As empresas desta era ============ -->
+<section class="slide" data-id="07" data-nome="empresas-desta-era">
+  <div class="body">
+    <div class="k v"><i data-i="building"></i>Novas empresas</div>
+    <h1>As empresas desta era.</h1>
+    <p class="lead">Receita por funcionário virou a métrica que mostra a ruptura.</p>
+    <div class="era">
+      <div class="card">
+        <div class="co">Lovable</div>
+        <div class="val">US$ 2,77 mi</div>
+        <div class="what">de receita anualizada por funcionário</div>
+        <div class="det">US$ 400 mi de receita recorrente anualizada com 146 funcionários, em fev/2026.</div>
+      </div>
+      <div class="card">
+        <div class="co">Base44</div>
+        <div class="val">US$ 80 mi</div>
+        <div class="what">vendida para a Wix, em dinheiro</div>
+        <div class="det">Empresa de um dono só, vendida 6 meses depois de fundada, em jun/2025.</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><b>Fonte:</b> TechCrunch, 11/03/2026 (Lovable, dado informado pela empresa) e 18/06/2025 (Base44)</div>
+</section>
+
+<!-- ============ 08 · Lovable ============ -->
+<section class="slide" data-id="08" data-nome="lovable-arr">
+  <div class="body">
+    <div class="k"><i data-i="check"></i>Dado verificado</div>
+    <h1 class="m">Lovable: de 45 para 146 pessoas,<br>de US$ 75 mi para <span class="y">mais de US$ 600 mi.</span></h1>
+    <div class="chart8">
+      <div class="cols">
+        <div class="c"><span class="vv">75</span><i style="height:12.5%"></i><span class="xl">jun/25</span></div>
+        <div class="c"><div class="mk" style="bottom:calc(16.7% + 44px)"><span class="pill"><i data-i="users"></i>45 pessoas</span><span class="stem"></span></div><span class="vv">100</span><i style="height:16.7%"></i><span class="xl">jul/25</span></div>
+        <div class="c"><span class="vv">200</span><i style="height:33.3%"></i><span class="xl">nov/25</span></div>
+        <div class="c"><span class="vv">300</span><i style="height:50%"></i><span class="xl">jan/26</span></div>
+        <div class="c"><div class="mk" style="bottom:calc(66.7% + 44px)"><span class="pill"><i data-i="users"></i>146 pessoas</span><span class="stem"></span></div><span class="vv">400</span><i style="height:66.7%"></i><span class="xl">fev/26</span></div>
+        <div class="c h"><span class="vv">600+</span><i style="height:86%"></i><span class="xl">set/26</span></div>
+      </div>
+      <div class="side">
+        <div class="card"><div class="l">Receita (ARR), US$ mi</div><div class="n">8x</div><div class="d">de jun/2025 a set/2026</div></div>
+        <div class="card"><div class="l">Funcionários</div><div class="n">~3x</div><div class="d">de 45 (jul/2025) para 146 (fev/2026)</div></div>
+        <div class="card" style="border-color:rgba(251,189,4,.5)"><div class="l y">Por pessoa, fev/2026</div><div class="n y">US$ 2,77 mi</div><div class="d">de receita anualizada</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><b>Fonte:</b> TechCrunch, 17/07/2025, 23/07/2025, 11/03/2026 e 24/09/2026. ARR = receita recorrente anualizada, informada pela empresa</div>
+</section>
+
+<!-- ============ 09 · Base44 ============ -->
+<section class="slide" data-id="09" data-nome="base44">
+  <div class="body">
+    <div class="k v"><i data-i="building"></i>Novas empresas</div>
+    <h1>Base44: <span class="y">um dono, 6 meses, US$ 80 mi.</span></h1>
+    <div class="trio">
+      <div class="card"><div class="n">1</div><div class="l">dono</div><div class="d">Empresa de um fundador só, sem sócios.</div></div>
+      <div class="ar"><i data-i="arrow"></i></div>
+      <div class="card"><div class="n">6</div><div class="l">meses de vida</div><div class="d">Do lançamento à venda.</div></div>
+      <div class="ar"><i data-i="arrow"></i></div>
+      <div class="card" style="border-color:rgba(251,189,4,.55)"><div class="n y" style="font-size:72px;white-space:nowrap;padding-top:6px">US$ 80 mi</div><div class="l">em dinheiro</div><div class="d">Vendida para a Wix em jun/2025.</div></div>
+    </div>
+  </div>
+  <div class="foot"><b>Fonte:</b> TechCrunch, “6-month-old, solo-owned vibe coder Base44 sells to Wix for $80M cash”, 18/06/2025; comunicado da Wix</div>
+</section>
+
+<!-- ============ 10 · A pergunta ============ -->
+<section class="slide" data-id="10" data-nome="pergunta-quantas-pessoas">
+  <div class="body">
+    <div class="k y"><i data-i="help"></i>A pergunta para vocês</div>
+    <h1 class="xl">Quantas pessoas a sua empresa<br>precisaria <span class="y">se nascesse hoje?</span></h1>
+    <div class="ask">
+      <div class="card"><div class="l">Hoje ela tem</div><div class="blank"><i></i>pessoas</div></div>
+      <div class="card h"><div class="l">Se nascesse hoje</div><div class="blank"><i></i>pessoas</div></div>
+    </div>
+  </div>
+  <div class="foot"></div>
+</section>
+
+<!-- ============ 11 · Sistemas de inteligência ============ -->
+<section class="slide" data-id="11" data-nome="sistemas-de-inteligencia">
+  <div class="body">
+    <div class="k v"><i data-i="network"></i>Orquestradores</div>
+    <h1 class="m">Empresas deixaram de ser hierarquias.<br><span class="y">Viraram sistemas de inteligência.</span></h1>
+    <div class="diag">
+      <svg width="1152" height="372" viewBox="0 0 1152 372" font-family="Geist" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#5a5a5a"/></marker>
+          <marker id="av" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a78bfa"/></marker>
+          <radialGradient id="brain" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#a78bfa" stop-opacity=".55"/>
+            <stop offset="60%" stop-color="#7c5cf0" stop-opacity=".22"/>
+            <stop offset="100%" stop-color="#7c5cf0" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <!-- cabeçalhos -->
+        <text x="0" y="18" fill="#909090" font-size="12" font-weight="700" letter-spacing="1.7">ANTES · HIERARQUIA</text>
+        <text x="612" y="18" fill="#a78bfa" font-size="12" font-weight="700" letter-spacing="1.7">AGORA · CAMADA DE INTELIGÊNCIA</text>
+        <line x1="576" y1="0" x2="576" y2="372" stroke="#2a2a2a" stroke-dasharray="4 6"/>
+
+        <!-- hierarquia -->
+        <g font-size="15" font-weight="600" text-anchor="middle">
+          <rect x="205" y="52" width="130" height="44" rx="10" fill="#1a1a1a" stroke="#3a3a3a"/><text x="270" y="79" fill="#e6e6e6">Dono</text>
+          <rect x="70" y="150" width="130" height="44" rx="10" fill="#1a1a1a" stroke="#3a3a3a"/><text x="135" y="177" fill="#e6e6e6">Gerente</text>
+          <rect x="340" y="150" width="130" height="44" rx="10" fill="#1a1a1a" stroke="#3a3a3a"/><text x="405" y="177" fill="#e6e6e6">Gerente</text>
+          <rect x="0" y="250" width="118" height="44" rx="10" fill="#141414" stroke="#2e2e2e"/><text x="59" y="277" fill="#bbbbbb">Equipe</text>
+          <rect x="140" y="250" width="118" height="44" rx="10" fill="#141414" stroke="#2e2e2e"/><text x="199" y="277" fill="#bbbbbb">Equipe</text>
+          <rect x="280" y="250" width="118" height="44" rx="10" fill="#141414" stroke="#2e2e2e"/><text x="339" y="277" fill="#bbbbbb">Equipe</text>
+          <rect x="420" y="250" width="118" height="44" rx="10" fill="#141414" stroke="#2e2e2e"/><text x="479" y="277" fill="#bbbbbb">Equipe</text>
+        </g>
+        <g stroke="#5a5a5a" stroke-width="1.6" fill="none" marker-start="url(#ah)" marker-end="url(#ah)">
+          <line x1="250" y1="100" x2="155" y2="146"/><line x1="290" y1="100" x2="385" y2="146"/>
+          <line x1="118" y1="198" x2="72" y2="246"/><line x1="152" y1="198" x2="190" y2="246"/>
+          <line x1="388" y1="198" x2="350" y2="246"/><line x1="422" y1="198" x2="468" y2="246"/>
+        </g>
+        <text x="270" y="342" fill="#909090" font-size="15" text-anchor="middle">Pessoas são os fios: a informação sobe e desce, de mão em mão.</text>
+
+        <!-- cérebro da empresa -->
+        <circle cx="882" cy="186" r="128" fill="url(#brain)"/>
+        <circle cx="882" cy="186" r="78" fill="#151022" stroke="#a78bfa" stroke-width="1.6"/>
+        <text x="882" y="180" fill="#ffffff" font-size="17" font-weight="800" text-anchor="middle">Cérebro</text>
+        <text x="882" y="202" fill="#ffffff" font-size="17" font-weight="800" text-anchor="middle">da empresa</text>
+        <g font-size="15" font-weight="600" text-anchor="middle">
+          <rect x="822" y="34" width="120" height="40" rx="20" fill="#1a1a1a" stroke="#3a3a3a"/><text x="882" y="59" fill="#e6e6e6">Clientes</text>
+          <rect x="822" y="298" width="120" height="40" rx="20" fill="#1a1a1a" stroke="#3a3a3a"/><text x="882" y="323" fill="#e6e6e6">Criação</text>
+          <rect x="626" y="166" width="120" height="40" rx="20" fill="#1a1a1a" stroke="#3a3a3a"/><text x="686" y="191" fill="#e6e6e6">Estratégia</text>
+          <rect x="1018" y="166" width="120" height="40" rx="20" fill="#1a1a1a" stroke="#3a3a3a"/><text x="1078" y="191" fill="#e6e6e6">Vendas</text>
+        </g>
+        <g stroke="#a78bfa" stroke-width="1.6" fill="none" marker-start="url(#av)" marker-end="url(#av)">
+          <line x1="882" y1="80" x2="882" y2="102"/><line x1="882" y1="270" x2="882" y2="292"/>
+          <line x1="752" y1="186" x2="798" y2="186"/><line x1="966" y1="186" x2="1012" y2="186"/>
+        </g>
+        <text x="882" y="368" fill="#909090" font-size="15" text-anchor="middle">Pessoas nas pontas, IA no meio.</text>
+      </svg>
+    </div>
+  </div>
+  <div class="foot">Redesenho 40 Hertz a partir de ilustração de referência</div>
+</section>
+
+<!-- ============ 12 · Arquiteto de fluxos ============ -->
+<section class="slide" data-id="12" data-nome="gestor-arquiteto-de-fluxos">
+  <div class="body">
+    <div class="k v"><i data-i="network"></i>Orquestradores</div>
+    <h1>O gestor vira <span class="y">arquiteto de fluxos.</span></h1>
+    <div class="qa">
+      <div class="q old">Quantas pessoas eu preciso contratar?</div>
+      <div class="ar"><i data-i="arrow"></i></div>
+      <div class="q new">Como eu redesenho os processos para cada pessoa produzir muito mais com IA?</div>
+    </div>
+    <div class="five">
+      <div class="card"><div class="ic"><i data-i="bot"></i></div><div class="t">O que delegar para a IA</div><div class="num">01</div></div>
+      <div class="card"><div class="ic"><i data-i="user"></i></div><div class="t">O que fica com o humano</div><div class="num">02</div></div>
+      <div class="card"><div class="ic"><i data-i="file"></i></div><div class="t">Qual contexto a IA precisa</div><div class="num">03</div></div>
+      <div class="card"><div class="ic"><i data-i="eye"></i></div><div class="t">Onde revisar</div><div class="num">04</div></div>
+      <div class="card"><div class="ic"><i data-i="shield"></i></div><div class="t">Quais regras não podem ser quebradas</div><div class="num">05</div></div>
+    </div>
+  </div>
+  <div class="foot">Conceito de referência: aula Acelera IA (@leosoares.ia). Redesenho 40 Hertz</div>
+</section>
+
+<!-- ============ 12b · IA como primeiro recurso ============ -->
+<section class="slide s12b" data-id="12b" data-nome="ia-primeiro-recurso">
+  <div class="left">
+    <div class="k y"><i data-i="sparkles"></i>AI First</div>
+    <h1>IA como <span class="y">primeiro recurso.</span></h1>
+    <p class="lead">Diante de qualquer problema, a primeira pergunta é: como a IA resolve isso para ele não voltar?</p>
+    <p class="lead" style="margin-top:14px;color:var(--muted);font-size:18px">Resposta ruim quase sempre é falta de contexto.</p>
+  </div>
+  <div class="chatbox">
+    <div class="top"><span class="lb">Termine o seu pedido com</span><b>“Me faz as perguntas que você precisa saber para me dar a melhor resposta.”</b></div>
+    <div class="bot"><span>Explique como explicaria para um funcionário novo.</span><span class="send"><i data-i="up"></i></span></div>
+  </div>
+  <div class="foot">Conceito de referência: aula Acelera IA (@leosoares.ia). Redesenho 40 Hertz</div>
+</section>
+
+<!-- ============ 12c · Shopify ============ -->
+<section class="slide" data-id="12c" data-nome="shopify-antes-de-contratar">
+  <div class="body">
+    <div class="k"><i data-i="check"></i>Dado verificado</div>
+    <h1 class="m">Antes de contratar, <span class="y">prove que a IA não dá conta.</span></h1>
+    <div class="quote">
+      <div class="card h"><i data-i="quote" class="qm"></i><div class="qt">Antes de pedir mais gente e mais recursos, o time precisa mostrar por que não consegue fazer o que quer usando IA.</div></div>
+      <div class="card"><i data-i="quote" class="qm"></i><div class="qt">Como seria esta área se agentes autônomos de IA já fizessem parte do time?</div></div>
+    </div>
+    <div class="who"><b>Tobi Lütke, CEO da Shopify</b><span class="sep"></span>memorando interno, publicado no X em 07/04/2025<span class="sep"></span>vale para todos, inclusive a diretoria</div>
+  </div>
+  <div class="foot"><b>Fonte:</b> memorando “Reflexive AI usage is now a baseline expectation at Shopify”, via CNBC, 07/04/2025, e The Verge. Tradução livre</div>
+</section>
+
+<!-- ============ 12d · Gestor antigo x AI First ============ -->
+<section class="slide" data-id="12d" data-nome="gestor-antigo-vs-ai-first">
+  <div class="body">
+    <div class="k v"><i data-i="network"></i>Orquestradores</div>
+    <h1>Gestor antigo <span class="mu">×</span> <span class="y">gestor AI First.</span></h1>
+    <div class="vs">
+      <div class="hd"></div><div class="hd old">Gestor antigo</div><div class="hd new">Gestor AI First</div>
+      <div class="rl">Coordena</div><div class="old">Pessoas</div><div class="new">Pessoas, IAs e sistemas</div>
+      <div class="rl">No dia a dia</div><div class="old">Cobra tarefa</div><div class="new">Desenha processos</div>
+      <div class="rl">Pensa em</div><div class="old">Contratação</div><div class="new">Alavancagem</div>
+    </div>
+  </div>
+  <div class="foot">Conceito de referência: aula Acelera IA (@leosoares.ia). Redesenho 40 Hertz</div>
+</section>
+
+<!-- ============ 12e · IA tem que dar resultado ============ -->
+<section class="slide" data-id="12e" data-nome="ia-tem-que-dar-resultado">
+  <div class="body">
+    <div class="k y"><i data-i="target"></i>O critério</div>
+    <h1>IA tem que <span class="y">dar resultado.</span></h1>
+    <p class="lead">Se não move nenhum dos três, é brinquedo.</p>
+    <div class="res">
+      <div class="card"><div class="arw" style="background:rgba(251,189,4,.12);color:var(--yellow)"><i data-i="trendup"></i></div><div class="n">Mais receita</div><div class="d">Vender mais, para mais gente, mais rápido.</div></div>
+      <div class="card"><div class="arw" style="background:rgba(122,162,247,.12);color:var(--blue)"><i data-i="trenddown"></i></div><div class="n">Menos custo</div><div class="d">Fazer o mesmo gastando menos.</div></div>
+      <div class="card"><div class="arw" style="background:rgba(167,139,250,.13);color:var(--violet)"><i data-i="trendup"></i></div><div class="n">Mais produtividade</div><div class="d">Cada pessoa entregando mais.</div></div>
+    </div>
+  </div>
+  <div class="foot">Conceito de referência: aula Acelera IA (@leosoares.ia). Redesenho 40 Hertz</div>
+</section>
+
+<!-- ============ 12f · A pergunta que destrava ============ -->
+<section class="slide" data-id="12f" data-nome="pergunta-que-destrava">
+  <div class="body">
+    <div class="k y"><i data-i="key"></i>A pergunta que destrava</div>
+    <h1>Troque uma palavra.</h1>
+    <div class="phr">
+      <div class="p off"><span class="tag">Trava</span><span class="q">“Será que isso se aplica ao meu caso?”</span></div>
+      <div class="p on"><span class="tag">Destrava</span><span>“<span class="y">Como</span> isso se aplica ao meu caso?”</span></div>
+    </div>
+  </div>
+  <div class="foot">Conceito de referência: aula Acelera IA (@leosoares.ia). Redesenho 40 Hertz</div>
+</section>
+
+<!-- ============ 13 · Três camadas ============ -->
+<section class="slide" data-id="13" data-nome="arquitetura-tres-camadas">
+  <div class="body">
+    <div class="k v"><i data-i="layers"></i>Orquestradores</div>
+    <h1 class="m">A arquitetura de <span class="y">três camadas.</span></h1>
+    <div class="layers">
+      <div class="axis"><i data-i="up"></i><div class="ln"></div><div class="lb">Constrói de baixo para cima</div></div>
+      <div class="band i"><div class="nm"><span>Camada 3</span><b>Inteligência</b></div>
+        <div class="chips"><span class="chip"><i data-i="bot"></i>Agentes de IA</span><span class="chip"><i data-i="loop"></i>Rotinas que rodam sozinhas</span></div></div>
+      <div class="why"><span>Agentes que leem, agem e melhoram.</span></div>
+      <div class="band s"><div class="nm"><span>Camada 2</span><b>Sistemas</b></div>
+        <div class="chips"><span class="chip"><i data-i="users"></i>CRM</span><span class="chip"><i data-i="mail"></i>E-mail</span><span class="chip"><i data-i="calc"></i>Financeiro</span><span class="chip"><i data-i="cal"></i>Agenda</span><span class="chip"><i data-i="chat"></i>Atendimento</span></div></div>
+      <div class="why"><span>Acessíveis pela IA,<br>via API e MCP.</span></div>
+      <div class="band d"><div class="nm"><span>Camada 1</span><b>Dados</b></div>
+        <div class="chips"><span class="chip"><i data-i="phone"></i>Ligações de venda</span><span class="chip"><i data-i="mail"></i>E-mails</span><span class="chip"><i data-i="file"></i>Contratos</span><span class="chip"><i data-i="user"></i>Cadastro de clientes</span><span class="chip"><i data-i="clip"></i>Procedimentos</span><span class="chip"><i data-i="video"></i>Reuniões gravadas</span></div></div>
+      <div class="why"><span>Num lugar só, organizados<br>e legíveis pela IA.</span></div>
+    </div>
+  </div>
+  <div class="foot">Sem as duas camadas de baixo, a IA não tem onde trabalhar. Redesenho 40 Hertz a partir de ilustração de referência</div>
+</section>
+
+<!-- ============ 14 · Mesmo problema, outra conta ============ -->
+<section class="slide" data-id="14" data-nome="mesmo-problema-outra-conta">
+  <div class="body">
+    <div class="k y" style="margin-bottom:18px"><span class="ilus"><i data-i="info"></i>Exemplo ilustrativo</span></div>
+    <h1 class="m">Mesmo problema, <span class="y">outra conta.</span></h1>
+    <div class="math">
+      <div class="col old">
+        <div class="hd">Jeito antigo · montagem lenta, custo alto</div>
+        <div class="it"><i data-i="users"></i>Contratar mais 2 pré-vendedores (SDRs)</div>
+        <div class="it"><i data-i="clip"></i>Criar uma área só para manter o CRM em dia</div>
+        <div class="it"><i data-i="layers"></i>Somar 3 ferramentas novas</div>
+        <div class="cost"><b class="mu">US$ 15 mil</b><span>por mês</span></div>
+      </div>
+      <div class="ar"><i data-i="arrow"></i></div>
+      <div class="col new">
+        <div class="hd">Jeito novo · automático, escala</div>
+        <div class="it"><i data-i="loop"></i>1 ciclo fechado, rodando sozinho</div>
+        <div class="it"><i data-i="trendup"></i>Melhora com o uso e não pede demissão</div>
+        <div class="cost"><b class="y">US$ 200</b><span>por mês, em tokens</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><b>Exemplo ilustrativo:</b> valores hipotéticos para mostrar a lógica da conta. Não é dado de pesquisa</div>
+</section>
+
+<!-- ============ 15 · Regra antiga, regra nova ============ -->
+<section class="slide" data-id="15" data-nome="regra-antiga-regra-nova">
+  <div class="body">
+    <div class="k v"><i data-i="network"></i>Orquestradores</div>
+    <h1 class="m">Regra antiga, <span class="y">regra nova.</span></h1>
+    <div class="rules">
+      <div class="hd o">Regra antiga</div><div class="hd n">Regra nova</div>
+      <div class="o">Contratar mais gente para crescer</div><div class="n"><i data-i="arrow"></i>Configurar IA para crescer</div>
+      <div class="o">Comprar software pronto</div><div class="n"><i data-i="arrow"></i>Construir com IA o que falta</div>
+      <div class="o">O negócio roda na sua cabeça</div><div class="n"><i data-i="arrow"></i>O negócio roda no cérebro da empresa</div>
+      <div class="o">Você é o gargalo</div><div class="n"><i data-i="arrow"></i>Você é o arquiteto</div>
+    </div>
+    <div class="stat"><div class="callout"><b>32%</b><span>das empresas já deixaram de comprar um software porque podiam construir com IA.</span></div></div>
+  </div>
+  <div class="foot"><b>Fonte:</b> McKinsey, “The State of AI: Global Survey 2026” (dado de 32%)</div>
+</section>
+
+<!-- ============ 16 · Quase todo mundo usa ============ -->
+<section class="slide" data-id="16" data-nome="usam-vs-escalam">
+  <div class="body">
+    <div class="k"><i data-i="check"></i>Dado verificado</div>
+    <h1>Quase todo mundo usa. <span class="y">Poucos escalam.</span></h1>
+    <div class="three">
+      <div class="card"><div class="src">Stanford AI Index 2026</div><div class="n" style="font-size:118px">88%</div><div class="d">das organizações usam IA</div><div class="s">70% já usam IA generativa em ao menos uma função.</div></div>
+      <div class="card"><div class="src">McKinsey 2026</div><div class="n" style="font-size:118px">44%</div><div class="d">escalam IA na empresa</div><div class="s">Eram 38% em 2025.</div></div>
+      <div class="card" style="border-color:rgba(251,189,4,.55)"><div class="src y">McKinsey 2026</div><div class="n y" style="font-size:118px">6%</div><div class="d">são <i>high performers</i></div><div class="s">As que já veem a IA pesar no resultado.</div></div>
+    </div>
+  </div>
+  <div class="foot"><b>Fonte:</b> Stanford HAI, AI Index Report 2026, capítulo Economia (88% e 70%); McKinsey, “The State of AI: Global Survey 2026”, 1.719 respondentes em 97 países (44% e 6%)</div>
+</section>
+
+<!-- ============ 17 · O abismo ============ -->
+<section class="slide" data-id="17" data-nome="abismo-grandes-pequenas">
+  <div class="body">
+    <div class="k"><i data-i="check"></i>Dado verificado</div>
+    <h1>O abismo entre <span class="y">grandes e pequenas.</span></h1>
+    <p class="lead" style="margin-top:16px">Empresas com agentes de IA em escala, por porte.</p>
+    <div class="dumb">
+      <div class="card plot">
+        <div class="r"><div class="nm">Grandes</div>
+          <div class="track">
+            <div class="g" style="left:0"></div><div class="g" style="left:20%"></div><div class="g" style="left:40%"></div><div class="g" style="left:60%"></div><div class="g" style="left:80%"></div><div class="g" style="left:100%"></div>
+            <div class="seg" style="left:54%;width:26%;background:linear-gradient(90deg,#5a5a5a,#fbbd04)"></div>
+            <div class="dot" style="left:54%;background:#5a5a5a"></div><div class="dot" style="left:80%;background:#fbbd04"></div>
+            <div class="lbl mu" style="left:54%">27%</div><div class="lbl y" style="left:80%">40%</div>
+          </div></div>
+        <div class="r"><div class="nm">Menores</div>
+          <div class="track">
+            <div class="g" style="left:0"></div><div class="g" style="left:20%"></div><div class="g" style="left:40%"></div><div class="g" style="left:60%"></div><div class="g" style="left:80%"></div><div class="g" style="left:100%"></div>
+            <div class="dot" style="left:44%;background:#5a5a5a;width:30px;height:30px;border:4px solid #fbbd04"></div>
+            <div class="lbl" style="left:44%">22% → 22%</div>
+          </div></div>
+        <div class="axis"><div></div><div class="t"><span style="left:0">0%</span><span style="left:20%">10%</span><span style="left:40%">20%</span><span style="left:60%">30%</span><span style="left:80%">40%</span><span style="left:100%">50%</span></div></div>
+        <div class="leg"><span><i style="background:#5a5a5a"></i>2025</span><span><i style="background:#fbbd04"></i>2026</span></div>
+      </div>
+      <div class="card side"><div class="n">+13 p.p.</div><div class="d">nas grandes em um ano.</div><div class="s">Nas menores, nenhum avanço: 22% nos dois anos. O gap está abrindo agora.</div></div>
+    </div>
+  </div>
+  <div class="foot"><b>Fonte:</b> McKinsey, “The State of AI: Global Survey 2026”</div>
+</section>
+
+<!-- ============ 18 · A fronteira está fugindo ============ -->
+<section class="slide s18" data-id="18" data-nome="fronteira-fugindo">
+  <div class="left">
+    <div class="k"><i data-i="check"></i>Dado verificado</div>
+    <h1>A fronteira <span class="y">está fugindo.</span></h1>
+    <div class="big" style="font-size:132px;margin-top:26px;margin-left:-4px">8,3<span class="y">x</span></div>
+    <div class="sub" style="font-size:24px;margin-top:16px">mais tokens por usuário nas empresas de fronteira do que nas típicas.</div>
+    <div class="small" style="margin-top:12px;font-size:15px">Em janeiro, a diferença era de 2,6x.</div>
+  </div>
+  <div class="panel">
+    <div><div class="phd">Usuários ativos semanais que usam…</div></div>
+    <div class="gb">
+      <div class="grid" style="bottom:25%"></div><div class="grid" style="bottom:50%"></div><div class="grid" style="bottom:75%"></div>
+      <div class="grp">
+        <div class="bar"><b class="y">21%</b><i style="height:84%;background:#fbbd04"></i></div>
+        <div class="bar"><b style="color:#bbb">9%</b><i style="height:36%;background:#5a5a5a"></i></div>
+        <div class="gl">Plugins</div>
+      </div>
+      <div class="grp">
+        <div class="bar"><b class="y">19%</b><i style="height:76%;background:#fbbd04"></i></div>
+        <div class="bar"><b style="color:#bbb">3%</b><i style="height:12%;background:#5a5a5a"></i></div>
+        <div class="gl">Skills</div>
+      </div>
+    </div>
+    <div class="legend"><span><i style="background:#fbbd04"></i>Fronteira (10% do topo)</span><span><i style="background:#5a5a5a"></i>Típicas (10% do meio)</span></div>
+  </div>
+  <div class="foot"><b>Fonte:</b> OpenAI, Enterprise Signals, “What frontier firms are doing differently”, 12/08/2026 (via David George, a16z)</div>
+</section>
+
+<!-- ============ 19 · Áreas ============ -->
+<section class="slide s19" data-id="19" data-nome="areas-com-agentes">
+  <div class="left">
+    <div class="k"><i data-i="check"></i>Dado verificado</div>
+    <h1 class="m">As áreas que mais cresceram <span class="y">com agentes.</span></h1>
+    <p class="lead" style="font-size:18px">Crescimento de usuários semanais de Codex nas empresas, desde fevereiro de 2026.</p>
+    <div class="card agent"><b>64%</b><span>dos tokens de saída de Codex e ChatGPT nas empresas já vêm de agentes (jun/2026).</span></div>
+  </div>
+  <div class="panel">
+    <div><div class="phd">Crescimento desde fev/2026</div></div>
+    <div class="hb" style="margin-top:18px">
+      <div class="r h"><span>Jurídico</span><i style="width:100%"></i><span class="v">108x</span></div>
+      <div class="r"><span>Vendas</span><i style="width:38%"></i><span class="v">41x</span></div>
+      <div class="r"><span>Recrutamento</span><i style="width:38%"></i><span class="v">41x</span></div>
+      <div class="r"><span>Marketing</span><i style="width:24%"></i><span class="v">26x</span></div>
+      <div class="r"><span>Engenharia</span><i style="width:5%;min-width:12px"></i><span class="v">5x</span></div>
+    </div>
+    <div class="note" style="font-size:13.5px;color:var(--muted);margin-top:22px;line-height:1.45">Agente deixou de ser coisa de programador: o crescimento maior está fora da engenharia.</div>
+  </div>
+  <div class="foot"><b>Fonte:</b> OpenAI, Enterprise Signals, “What frontier firms are doing differently”, 12/08/2026</div>
+</section>
+
+<!-- ============ 21 · Ganho medido ============ -->
+<section class="slide" data-id="21" data-nome="ganho-medido">
+  <div class="body">
+    <div class="k"><i data-i="check"></i>Dado verificado</div>
+    <h1>Onde está o <span class="y">ganho medido.</span></h1>
+    <p class="lead" style="margin-top:16px">Ganho de produtividade com IA, por tipo de trabalho.</p>
+    <div class="gain">
+      <div class="card"><div class="l">Atendimento ao cliente</div><div class="s">ganho medido</div><div class="area"><div class="col"><b>+14 a 15%</b><i style="height:60px"></i></div></div></div>
+      <div class="card"><div class="l">Desenvolvimento de software</div><div class="s">ganho medido</div><div class="area"><div class="col"><b>+26%</b><i style="height:104px"></i></div></div></div>
+      <div class="card h" style="border-color:rgba(251,189,4,.55)"><div class="l">Produção de marketing</div><div class="s">ganho medido</div><div class="area"><div class="col"><b>+50%</b><i style="height:200px"></i></div></div></div>
+    </div>
+  </div>
+  <div class="foot"><b>Fonte:</b> Stanford HAI, AI Index Report 2026, capítulo Economia</div>
+</section>
+
+<!-- ============ 22 · A promessa + 5 fases ============ -->
+<section class="slide" data-id="22" data-nome="promessa-cinco-fases">
+  <div class="body">
+    <div class="k y"><i data-i="check"></i>A promessa de hoje</div>
+    <h1 class="m">Hoje vocês saem do chat e entram no<br>grupo que <span class="y">coloca a IA para trabalhar.</span></h1>
+    <p class="lead" style="margin-top:18px">Para orquestrar, primeiro é preciso entender o motor.</p>
+    <div class="phases">
+      <div class="fase on"><img src="assets/fase-modelo.jpg" alt=""><div class="lb"><span class="num">01</span>Modelo</div><span class="now">Começa agora</span></div>
+      <div class="fase"><img src="assets/fase-mcp.jpg" alt=""><div class="lb"><span class="num">02</span>MCP</div><span class="later">Fase 2</span></div>
+      <div class="fase"><img src="assets/fase-skills.jpg" alt=""><div class="lb"><span class="num">03</span>Skills</div><span class="later">Fase 3</span></div>
+      <div class="fase"><img src="assets/fase-contexto.jpg" alt=""><div class="lb"><span class="num">04</span>Contexto</div><span class="later">Fase 4</span></div>
+      <div class="fase"><img src="assets/fase-agentes.jpg" alt=""><div class="lb"><span class="num">05</span>Agentes</div><span class="later">Fase 5</span></div>
+    </div>
+  </div>
+  <div class="foot">As 5 fases do dia</div>
+</section>
+
+<script>
+// Ícones de traço (desenho no padrão Lucide, licença ISC), injetados antes da impressão.
+const P = {
+  check: '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+  zap: '<path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>',
+  building: '<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/>',
+  help: '<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>',
+  network: '<rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3M12 12V8"/>',
+  sparkles: '<path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.14 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/>',
+  quote: '<path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/>',
+  target: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+  layers: '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>',
+  arrow: '<path d="M5 12h14M12 5l7 7-7 7"/>',
+  up: '<path d="m5 12 7-7 7 7M12 19V5"/>',
+  users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+  user: '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+  bot: '<path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/>',
+  file: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/>',
+  eye: '<path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/>',
+  shield: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>',
+  trendup: '<path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/>',
+  trenddown: '<path d="M22 17 13.5 8.5 8.5 13.5 2 7"/><path d="M16 17h6v-6"/>',
+  key: '<path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4M21 2l-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/>',
+  loop: '<path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/>',
+  mail: '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
+  calc: '<rect width="16" height="20" x="4" y="2" rx="2"/><path d="M8 6h8M16 14v4M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/>',
+  cal: '<path d="M8 2v4M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>',
+  chat: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/>',
+  phone: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',
+  clip: '<rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M12 11h4M12 16h4M8 11h.01M8 16h.01"/>',
+  video: '<path d="m16 13 5.22 3.48a.5.5 0 0 0 .78-.42V7.87a.5.5 0 0 0-.75-.43L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/>',
+  info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
+};
+document.querySelectorAll('i[data-i]').forEach(el => {
+  const svg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">' + P[el.dataset.i] + '</svg>';
+  const tmp = document.createElement('span'); tmp.innerHTML = svg;
+  const s = tmp.firstChild; if (el.className) s.setAttribute('class', el.className);
+  el.replaceWith(s);
+});
+</script>
+</body>
+</html>
