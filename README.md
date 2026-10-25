@@ -4,8 +4,8 @@ Imersão com Lucas Santana, 29/09/2026. São duas pastas, uma para cada parte do
 
 | Parte | Pasta | Baixar | O que tem |
 |---|---|---|---|
-| Manhã | [`manha/`](manha/) | [imersao-manha.zip](https://ia-para-empresarios-v2.vercel.app/downloads/imersao-manha.zip) | As skills da manhã, a planilha da Lanchonete Bom Pedaço e o guia com todos os prompts |
-| Tarde | [`tarde/`](tarde/) | [imersao-tarde.zip](https://ia-para-empresarios-v2.vercel.app/downloads/imersao-tarde.zip) | O cérebro da empresa (6 skills da trilha) e o exemplo pronto Forno da Vila |
+| Manhã | [`manha/`](manha/) | [imersao-manha.zip](https://ia-para-empresarios-v2.vercel.app/downloads/imersao-manha.zip) | 8 passos com os prompts prontos, os dados fictícios da Torra Viva Cafés Especiais, as skills da manhã e o gabarito de cada passo |
+| Tarde | [`tarde/`](tarde/) | [imersao-tarde.zip](https://ia-para-empresarios-v2.vercel.app/downloads/imersao-tarde.zip) | O cérebro da empresa (6 skills da trilha, mais `/sobre-mim`, `/sugerir-automacoes` e o Impeccable) e o exemplo pronto Forno da Vila |
 
 ## Como usar
 
@@ -23,4 +23,6 @@ Claude Pro, o app do Claude, **Node.js e Git** (para instalar skills da internet
 
 ---
 
-Material da imersão com Lucas Santana · Instagram [@lucasantanas_](https://www.instagram.com/lucasantanas_/). Créditos e licenças das skills no README de cada pasta e dentro de cada skill.
+Material da imersão com Lucas Santana · Instagram [@lucasantanas_](https://www.instagram.com/lucasantanas_/). Créditos e licenças das skills no README de cada pasta e dentro de cada skill (o Impeccable, de Paul Bakaus, Apache 2.0, tem a licença em `tarde/licencas/impeccable/`).
+
+Os testes de cada passo e de cada skill (prompt, transcrição e arquivos gerados) estão em [`testes/`](testes/RESULTADOS.md). Eles não vão nos ZIPs.

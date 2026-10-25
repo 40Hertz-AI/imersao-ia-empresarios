@@ -1,0 +1,1 @@
+/frontend-design Crie pagina.html: a página do café da manhã para empresas da Padaria Trigo Azul (fictícia), no bairro Cambuí, em Campinas: R$ 35 por pessoa, pedido pelo WhatsApp (19) 90000-0000 (fictício) com data, número de pessoas e endereço. Um arquivo só, que funciona no celular.

@@ -1,0 +1,63 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Forno da Vila · post 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--marca:#4A5230;--destaque:#9A4A26;--fundo:#F1EFE7;--texto:#25231D;--t:'Newsreader',serif;--c:'Figtree',sans-serif;--s:1}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:#1d1d1d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;overflow:hidden;font-family:var(--c)}
+.palco{width:1080px;height:1350px;zoom:var(--s)}
+.lamina{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--fundo);color:var(--texto);padding:110px 96px 170px;display:flex;flex-direction:column}
+.lamina[hidden]{display:none}
+.lamina h2{font-family:var(--t);font-weight:400;font-size:96px;line-height:1.02;letter-spacing:-.02em}
+.lamina p{font-size:40px;line-height:1.35}
+.rodape{position:absolute;left:96px;right:96px;bottom:64px;display:flex;justify-content:space-between;align-items:center;font-size:30px;opacity:.85}
+.controles{display:flex;align-items:center;gap:16px;color:#eee;font:600 16px/1 var(--c)}
+.controles button{font:inherit;width:44px;height:44px;border-radius:50%;border:1px solid #666;background:#2a2a2a;color:#fff;cursor:pointer}
+.controles button:disabled{opacity:.3;cursor:default}
+body.so{background:var(--fundo)} body.so .controles{display:none}
+.oliva{background:var(--marca);color:var(--fundo)}
+.oliva h2{font-size:108px;line-height:1}
+.tempo{margin-top:auto}
+.tempo svg{display:block;width:888px;height:300px}
+.tempo .marcos{display:flex;justify-content:space-between;margin-top:24px}
+.tempo .marcos p{max-width:400px}
+.tempo .marcos p:last-child{text-align:right}
+.tempo .marcos b{display:block;font-family:var(--t);font-weight:500;font-size:52px;line-height:1.1}
+.fecho{font-family:var(--t);font-style:italic;font-size:52px!important;margin-top:56px}
+.controles[hidden]{display:none}
+</style></head><body>
+<div class="palco">
+  <section class="lamina oliva">
+    <h2>O pão que você leva hoje começou ontem à tarde.</h2>
+    <div class="tempo">
+      <svg viewBox="0 0 888 300" fill="none" aria-label="Linha do tempo: a massa cresce devagar de ontem à tarde até o forno, hoje às 7h">
+        <path d="M24 276H864" stroke="#F1EFE7" stroke-opacity=".5" stroke-width="3"/>
+        <path d="M24 262C220 258 330 240 450 190S700 52 864 40" stroke="#F1EFE7" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="24" cy="262" r="14" fill="#F1EFE7"/>
+        <circle cx="864" cy="40" r="22" fill="#F1EFE7"/>
+      </svg>
+      <div class="marcos">
+        <p><b>Ontem à tarde</b>massa descansando</p>
+        <p><b>Hoje, 7h</b>forno</p>
+      </div>
+    </div>
+    <p class="fecho">Fermentação natural é tempo.</p>
+    <div class="rodape"><span>@fornodavila.exemplo</span><span>Forno da Vila</span></div>
+  </section>
+</div>
+<div class="controles"><button type="button" aria-label="Lâmina anterior">&#8249;</button><span class="conta"></span><button type="button" aria-label="Próxima lâmina">&#8250;</button></div>
+<script>
+// Uma lâmina por vez, do tamanho da janela. ?n=3 mostra só a lâmina 3, sem botões (relatório e print).
+const n=+new URLSearchParams(location.search).get('n'), ls=[...document.querySelectorAll('.lamina')];
+const [ant,prox]=document.querySelectorAll('.controles button'), conta=document.querySelector('.conta');
+let i=Math.min(Math.max((n||1)-1,0),ls.length-1);
+if(n) document.body.classList.add('so');
+if(ls.length<2) document.querySelector('.controles').hidden=true;
+function mostra(){ ls.forEach((l,k)=>l.hidden=k!==i); conta.textContent=(i+1)+' / '+ls.length; ant.disabled=i===0; prox.disabled=i===ls.length-1; }
+function escala(){ const folga=n?0:80; document.documentElement.style.setProperty('--s',Math.min(1,innerWidth/1080,(innerHeight-folga)/1350)); }
+ant.onclick=()=>{ if(i>0){i--;mostra();} }; prox.onclick=()=>{ if(i<ls.length-1){i++;mostra();} };
+addEventListener('keydown',e=>{ if(e.key==='ArrowRight') prox.click(); if(e.key==='ArrowLeft') ant.click(); });
+addEventListener('resize',escala); escala(); mostra();
+</script></body></html>

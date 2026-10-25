@@ -23,6 +23,7 @@ body{background:#1d1d1d;display:flex;flex-direction:column;align-items:center;ju
 .controles{display:flex;align-items:center;gap:16px;color:#eee;font:600 16px/1 var(--c)}
 .controles button{font:inherit;width:44px;height:44px;border-radius:50%;border:1px solid #666;background:#2a2a2a;color:#fff;cursor:pointer}
 .controles button:disabled{opacity:.3;cursor:default}
+.controles[hidden]{display:none} /* display:flex venceria o atributo hidden */
 body.so{background:var(--fundo)} body.so .controles{display:none}
 /* margin-top:auto numa peça ancora o bloco embaixo */
 </style></head><body>

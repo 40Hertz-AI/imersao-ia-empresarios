@@ -7,4 +7,4 @@
 - [x] 3 · Concorrentes · `/mapear-concorrentes` → `pesquisa/concorrentes.md` · 28/09/2026
 - [x] 4 · Oferta · `/criar-oferta` → `entregas/oferta.md` · 28/09/2026
 - [x] 5 · Página de vendas · `/criar-pagina` → `entregas/pagina-de-vendas.html` · 28/09/2026
-- [x] 6 · Conteúdo · `/criar-conteudo` → `entregas/conteudo.md` · 28/09/2026
+- [x] 6 · Conteúdo · `/criar-conteudo` → `entregas/conteudo.md` + `entregas/posts/` · 25/10/2026
