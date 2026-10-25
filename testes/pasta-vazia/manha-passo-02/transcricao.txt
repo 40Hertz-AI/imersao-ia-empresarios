@@ -1,0 +1,21 @@
+════════ mensagem 1 do aluno ════════
+Leia os arquivos .csv da pasta dados/ e me diga, em poucas linhas, o que tem em cada um.
+
+════════ resposta do Claude ════════
+A pasta `dados/` não existe em `/tmp/vazia-manha-passo-02`. Esse diretório está vazio e não encontrei nenhum arquivo `.csv` dentro dele.
+
+Você pode me passar o caminho certo da pasta, ou copiar os arquivos para `dados/` aqui? Assim que estiverem lá, eu leio e resumo cada um.
+
+════════ mensagem 2 do aluno ════════
+Qual produto mais faturou de janeiro a setembro? E qual vendeu mais unidades?
+
+════════ resposta do Claude ════════
+Ainda não consigo responder, porque não tenho os dados. O diretório `/tmp/vazia-manha-passo-02` continua vazio e não há nenhum `.csv` em `/tmp`.
+
+Para calcular o faturamento e as unidades por produto de janeiro a setembro, preciso que você:
+
+- coloque os arquivos em `dados/` aqui, ou
+- me passe o caminho onde eles estão.
+
+Com os arquivos em mãos, somo o faturamento e as quantidades de cada produto no período e digo qual ficou em primeiro em cada critério.
+

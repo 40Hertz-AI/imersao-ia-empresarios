@@ -1,0 +1,20 @@
+════════ mensagem 1 do aluno ════════
+/eli5 o que é margem de contribuição
+
+════════ resposta do Claude ════════
+**Em uma frase:** margem de contribuição é o dinheiro que sobra de cada venda depois de pagar o que foi gasto só para fazer aquela venda.
+
+**Pensa assim:** você tem uma barraca de limonada. Cada copo vendido gasta limão, açúcar e um copinho. O que sobra do preço, depois desses gastos, vai para um cofrinho. Com o cofrinho você paga o aluguel da mesa, que custa o mesmo vendendo 1 copo ou 100. Só depois que o aluguel está pago é que sobra lucro.
+*Onde a comparação falha:* numa empresa real, o que é gasto "por venda" e o que é gasto "fixo" nem sempre é tão fácil de separar. Impostos sobre a venda e comissões também entram como gasto por venda.
+
+**Como funciona, passo a passo:**
+1. Pegue o preço de venda de um produto.
+2. Tire os **custos variáveis**, que são os gastos que crescem junto com as vendas (matéria-prima, embalagem, comissão, imposto sobre a venda).
+3. O que sobra é a margem de contribuição de cada unidade.
+4. Some as margens de todas as vendas. Esse total paga primeiro os **custos fixos**, que são os gastos que não mudam com as vendas (aluguel, salários fixos).
+5. O que passar disso é lucro.
+
+**Por que isso importa:** mostra quais produtos ajudam mais a pagar as contas. Também mostra quanto você precisa vender para não ter prejuízo.
+
+**Quer ir um nível acima?** O próximo passo é o **ponto de equilíbrio**: quantas unidades você precisa vender para a margem cobrir todos os custos fixos.
+

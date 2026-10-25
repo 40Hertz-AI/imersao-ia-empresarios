@@ -1,0 +1,20 @@
+════════ mensagem 1 do aluno ════════
+/resposta-cliente Bom dia! Sou do RH de uma escola de idiomas com 30 funcionários. Vocês fazem café para empresa? Quanto ficaria por mês? A gente precisa de máquina.
+
+════════ resposta do Claude ════════
+**1. Classificação**
+- **Tipo:** dúvida
+- **Urgência:** média, porque a dúvida trava uma compra (orçamento B2B).
+
+**2. Resposta pronta para copiar**
+
+> Bom dia! Fazemos, sim. Para 30 pessoas tomando 2 cafés por dia, dá cerca de 13 kg por mês. Com o nosso Blend Escritório, fica R$ 1.210,30/mês, já com 5% de desconto por volume. A máquina vai emprestada, sem custo, e o frete é grátis. No contrato anual, o valor cai para R$ 1.146,60. O orçamento vale 15 dias. Me passa seu nome e telefone? A Marina, que cuida das empresas, fala com você.
+
+**Como cheguei no valor** (regras de `dados/orcamento.csv`):
+- 30 pessoas × 2 xícaras × 10 g × 21 dias = 12,6 kg. Arredondado para cima, dá **13 kg**.
+- 13 kg × R$ 98,00 (Blend Escritório) = R$ 1.274,00. Com 5% de desconto por volume (a partir de 10 kg), fica **R$ 1.210,30**.
+- A máquina é emprestada sem custo a partir de 8 kg/mês, e o frete é grátis a partir de R$ 600,00. Isso dá cerca de R$ 0,96 por xícara.
+- Contrato anual: são 5% a mais de desconto, 10% no total, e o valor fica em **R$ 1.146,60**.
+
+Não entra a parte "o que fazer por dentro", porque a mensagem não é reclamação. Todos os valores são dados fictícios de exemplo.
+

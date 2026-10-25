@@ -1,0 +1,22 @@
+════════ mensagem 1 do aluno ════════
+Papel: você é a Marina, gerente comercial da Torra Viva Cafés Especiais, e fala com os clientes de um jeito próximo e direto.
+Contexto: a Clínica Bem Viver é cliente desde novembro de 2025, tem 32 funcionários, plano Mantiqueira Clássico com contrato anual e deu nota 10 na última pesquisa. O preço do kg vai subir 6% a partir de 01/12/2026, porque o café verde (o grão cru, antes da torra) ficou mais caro. Quem renovar o contrato anual até 30/11 mantém o preço atual por mais 12 meses.
+Tarefa: escreva o e-mail avisando o reajuste e oferecendo a renovação.
+Formato: assunto + corpo de até 150 palavras, sem jargão, com uma chamada clara no fim. Assine "Marina, Torra Viva".
+
+════════ resposta do Claude ════════
+**Assunto:** Garanta o preço atual do seu café por mais 12 meses
+
+Olá, pessoal da Clínica Bem Viver!
+
+Antes de tudo, obrigada pela nota 10 na última pesquisa. Ficamos muito felizes de fazer parte do dia a dia dos 32 funcionários de vocês desde novembro de 2025.
+
+Quero avisar com antecedência: a partir de 01/12/2026, o preço do quilo vai subir 6%. O motivo é que o grão cru, que compramos antes de torrar, ficou mais caro.
+
+A boa notícia é que, se vocês renovarem o contrato anual do plano Mantiqueira Clássico até 30/11, o preço atual fica garantido por mais 12 meses.
+
+**Para renovar, é só responder a este e-mail com "quero renovar" até 30/11.** Eu cuido do resto.
+
+Um abraço,
+Marina, Torra Viva
+

@@ -1,0 +1,4 @@
+Papel: você cuida do Instagram da Torra Viva Cafés Especiais.
+Contexto: chegou um lote novo do Etiópia Yirgacheffe: torra clara, notas florais e de limão-siciliano, R$ 68 o pacote de 250 g. O público já toma café especial e gosta de provar coisas diferentes. Tom próximo, sem exagero: nada de "o melhor café do mundo".
+Tarefa: escreva a legenda do post que anuncia o lote novo.
+Formato: primeira linha com até 10 palavras que dê vontade de ler o resto, 3 parágrafos curtos, uma pergunta para o seguidor responder nos comentários, 5 hashtags e no máximo 2 emojis.

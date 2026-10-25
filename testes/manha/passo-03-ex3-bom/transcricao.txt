@@ -1,0 +1,26 @@
+════════ mensagem 1 do aluno ════════
+Papel: você é um analista financeiro que explica números para quem não é da área.
+Contexto: o arquivo dados/vendas-mensais.csv tem as vendas da Torra Viva de janeiro a setembro de 2026 (dados fictícios de exemplo), por produto e por canal. Quero decidir onde colocar esforço no último trimestre.
+Tarefa: compare os 4 canais de venda: faturamento total, crescimento de janeiro para setembro e lucro bruto.
+Formato: uma tabela (canal | faturamento jan a set | crescimento jan → set em % | lucro bruto) e 3 recomendações de 1 linha cada. Use só os dados do arquivo e mostre a conta do crescimento.
+
+════════ resposta do Claude ════════
+**Torra Viva · canais de venda, janeiro a setembro de 2026** (dados fictícios de exemplo)
+
+| Canal | Faturamento jan a set | Crescimento jan → set em % | Lucro bruto (margem) |
+|---|---|---|---|
+| Loja online | R$ 356.049,00 | (46.535,00 − 29.601,00) ÷ 29.601,00 = **+57,2%** | R$ 216.585,90 (60,8%) |
+| Assinatura (Clube Torra Viva) | R$ 165.189,00 | (23.542,00 − 14.299,00) ÷ 14.299,00 = **+64,6%** | R$ 96.186,00 (58,2%) |
+| Cafeterias parceiras | R$ 131.780,00 | (16.186,00 − 11.583,00) ÷ 11.583,00 = **+39,7%** | R$ 74.760,00 (56,7%) |
+| B2B Escritórios | R$ 112.560,40 | (18.752,40 − 4.011,00) ÷ 4.011,00 = **+367,5%** | R$ 57.675,40 (51,2%) |
+| **Total** | **R$ 765.578,40** | | **R$ 445.207,30 (58,2%)** |
+
+Como li a tabela: o crescimento compara o faturamento de setembro com o de janeiro. Margem é quanto sobra de cada R$ 100 vendidos depois de pagar o custo do café.
+
+**Recomendações para o último trimestre**
+1. **B2B Escritórios:** é o canal que mais cresce (mais de 4 vezes desde janeiro). Vale colocar mais esforço de vendas nele, mas olhando a margem, que é a menor (51,2%).
+2. **Loja online:** fatura e lucra mais que os outros e tem a melhor margem (60,8%). Precisa continuar recebendo investimento para não perder ritmo.
+3. **Clube Torra Viva:** cresceu 64,6% com margem boa (58,2%). Uma campanha de novos assinantes até dezembro faz sentido.
+
+No arquivo, o Clube aparece com o nome "Assinatura".
+

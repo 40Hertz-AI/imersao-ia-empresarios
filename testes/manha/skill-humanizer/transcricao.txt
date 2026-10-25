@@ -1,0 +1,26 @@
+════════ mensagem 1 do aluno ════════
+/humanizer Reescreva este texto do site da Torra Viva:
+
+Na Torra Viva, acreditamos que o café é muito mais do que uma bebida: é uma verdadeira jornada sensorial. Cada grão é cuidadosamente selecionado, meticulosamente torrado e entregue com paixão, proporcionando uma experiência única, inesquecível e transformadora. Não é apenas café — é um estilo de vida. Venha fazer parte dessa revolução!
+
+════════ resposta do Claude ════════
+**Rascunho**
+
+> Na Torra Viva, a gente gosta de café e cuida de cada etapa. Os grãos são escolhidos com cuidado, torrados com atenção e enviados com carinho, para que a sua xícara fique boa todo dia. Vem provar.
+
+**O que ainda soa como IA no rascunho**
+
+- "escolhidos, torrados e enviados" continua uma lista de três itens com o mesmo ritmo.
+- "com cuidado / com atenção / com carinho" ainda enfeita sem dizer nada concreto.
+- "Vem provar." é uma frase solta no fim, que repete o convite do original.
+
+**Versão final**
+
+> Na Torra Viva, a gente escolhe os grãos com cuidado e torra com atenção antes de mandar para você. Gostamos de café e queremos que o seu seja bom de tomar todo dia. Prove e conte para a gente o que achou.
+
+Tirei "muito mais do que uma bebida", "jornada sensorial", "Não é apenas café, é um estilo de vida", "revolução", a lista "única, inesquecível e transformadora" e o travessão. Também tirei o "meticulosamente", palavra típica de texto de IA.
+
+O texto ficou curto porque o original quase não tinha fatos. O `CLAUDE.md` traz dois fatos reais da Torra Viva (fictícia). Se quiser usar:
+
+> Na Torra Viva, o café vem de pequenos produtores do Sul de Minas e do Cerrado Mineiro. A gente torra em Mogi das Cruzes e manda rápido: torrado esta semana, na sua xícara na próxima.
+

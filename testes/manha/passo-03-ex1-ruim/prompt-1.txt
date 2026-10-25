@@ -1,0 +1,1 @@
+Escreve um e-mail avisando que o preço vai subir.

@@ -1,0 +1,21 @@
+════════ mensagem 1 do aluno ════════
+/resposta-cliente Bom dia! Sou do RH de uma escola de idiomas com 30 funcionários. Vocês fazem café para empresa? Quanto ficaria por mês? A gente precisa de máquina.
+
+(Se a skill precisar perguntar algo, responda você mesmo como se fosse o aluno Jorge, dono da Padaria Pão Quente, em Campinas: tom simpático e direto, trata o cliente por você. A padaria faz café da manhã para empresas, mas ainda não tem tabela de preços.)
+
+════════ resposta do Claude ════════
+Não havia dados da empresa na pasta. Então fiz a pergunta da skill (qual é o nome da empresa e como é o tom de voz) e respondi como o Jorge: Padaria Pão Quente, em Campinas, tom simpático e direto, tratando o cliente por "você". A padaria faz café da manhã para empresas, mas ainda não tem tabela de preços.
+
+**1. Classificação**
+- **Tipo:** dúvida
+- **Urgência:** média, porque a escola precisa saber o preço e se tem máquina antes de fechar.
+
+**2. Resposta pronta para copiar**
+
+> Bom dia! Que bom que você chamou a gente. Sim, a Padaria Pão Quente atende empresas em Campinas com café da manhã. Para 30 funcionários, o valor mensal fica em [confirmar: preço mensal para 30 pessoas]. Sobre a máquina, [confirmar: se a padaria fornece máquina de café e em quais condições]. Me conta quantos dias por semana vocês precisam e o endereço da escola, que eu te mando uma proposta certinha.
+
+**Antes de enviar:**
+- Como ainda não tem tabela de preços, preencha os dois `[confirmar]` com valores que você já tenha decidido. Não mande o texto com um número só estimado.
+- Não sei se a padaria oferece máquina de café (aluguel, comodato ou nada). Se não oferecer, troque esse trecho por algo como "hoje a gente não fornece máquina, mas entrega o café pronto".
+- Não há a parte "O que fazer por dentro", porque ela só entra quando é reclamação.
+

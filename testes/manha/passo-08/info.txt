@@ -1,0 +1,4 @@
+pasta: /tmp/teste-manha-passo-08
+modo: aula · skills na pasta vazia: nenhuma
+claude: 2.1.309 (Claude Code)
+início: 2026-10-25T16:32:55-03:00

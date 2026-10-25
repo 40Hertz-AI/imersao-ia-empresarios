@@ -74,6 +74,8 @@ inicio=$(date +%s)
   echo "início: $(date -Iseconds)"
 } > "$prova/info.txt"
 
+# na pasta vazia não há .impeccable/config.json: DO_NOT_TRACK garante que o teste não manda telemetria do Impeccable
+extra_env=(); [ "$modo" = vazia ] && extra_env=(DO_NOT_TRACK=1)
 n=0
 : > "$prova/transcricao.txt"
 for p in "${prompts[@]}"; do
@@ -89,7 +91,7 @@ for p in "${prompts[@]}"; do
   # bwrap: o Claude só enxerga a pasta do teste; o repositório (/workspace) e as outras pastas de teste (/tmp) somem
   bwrap --dev-bind / / --tmpfs /workspace --tmpfs /tmp --bind "$dir" "$dir" \
     --bind "$SESSOES" "$HOME/.claude/projects" --chdir "$dir" \
-    env -u ANTHROPIC_API_KEY -u CLAUDE_CODE_OAUTH_TOKEN timeout "$limite" \
+    env -u ANTHROPIC_API_KEY -u CLAUDE_CODE_OAUTH_TOKEN "${extra_env[@]}" timeout "$limite" \
     claude -p "$(cat "$p")" "${cont[@]}" --model opus --dangerously-skip-permissions --output-format text \
     --setting-sources project,local --strict-mcp-config \
     >> "$prova/transcricao.txt" 2>> "$prova/erros.txt"

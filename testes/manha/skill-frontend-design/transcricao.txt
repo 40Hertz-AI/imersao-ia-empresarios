@@ -1,0 +1,10 @@
+════════ mensagem 1 do aluno ════════
+Use a skill frontend-design para criar meu-trabalho/cartao-fidelidade.html: um cartão fidelidade digital da Torra Viva (10 carimbos; o 10º café é por nossa conta), num arquivo só, que funciona no celular. Clicar num carimbo marca e desmarca.
+
+════════ resposta do Claude ════════
+Criei o cartão em `meu-trabalho/cartao-fidelidade.html`. Para abrir, dê dois cliques no arquivo. Testei numa tela do tamanho de um celular vazio, com 7 carimbos e com os 10.
+
+- **Visual:** cartão de papel kraft (o papel pardo de saco de café) sobre fundo vinho. Cada carimbo sai numa cor de torra, do grão verde ao café escuro, e o 10º é uma xícara.
+- **Clique:** marca o carimbo com a data do dia e desmarca no clique seguinte. Os carimbos ficam salvos no próprio navegador, então continuam lá quando a página é aberta de novo. Tem um botão "Zerar cartão", que pede confirmação.
+- **Faltou informação:** a validade e onde resgatar o café não estão em `dados/`, então deixei `[confirmar: regras do cartão fidelidade]` no rodapé, junto com o aviso de dados fictícios.
+

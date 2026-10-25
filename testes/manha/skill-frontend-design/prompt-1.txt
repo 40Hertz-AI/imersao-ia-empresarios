@@ -1,0 +1,1 @@
+Use a skill frontend-design para criar meu-trabalho/cartao-fidelidade.html: um cartão fidelidade digital da Torra Viva (10 carimbos; o 10º café é por nossa conta), num arquivo só, que funciona no celular. Clicar num carimbo marca e desmarca.

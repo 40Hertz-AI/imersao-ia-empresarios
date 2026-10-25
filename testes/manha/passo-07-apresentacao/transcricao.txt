@@ -1,0 +1,16 @@
+════════ mensagem 1 do aluno ════════
+Crie meu-trabalho/apresentacao.html: uma apresentação de 6 slides com os resultados da Torra Viva de janeiro a setembro de 2026, para a reunião com a equipe.
+Use os dados da pasta dados/ (sem inventar número) e meu-trabalho/design-system.md, com a skill frontend-design no visual e a humanizer no texto.
+Um arquivo só. Passa de slide com as setas do teclado e com clique, e mostra o número do slide.
+Slides: 1) título; 2) os números do período; 3) o canal que mais cresceu; 4) os clientes B2B: quem entrou, quem saiu e por quê; 5) 3 ações para o último trimestre; 6) obrigado.
+Rodapé em todos os slides: "Dados fictícios de exemplo".
+
+════════ resposta do Claude ════════
+Criei `meu-trabalho/apresentacao.html`. É um arquivo só, abre com dois cliques e tem as cores e fontes do design system. Tirei prints dos 6 slides no Chrome, no tamanho de notebook e de celular, e conferi o visual.
+
+- **Navegação:** setas do teclado ou clique. Clicar no terço da esquerda da tela volta um slide, no resto avança. Os botões ‹ › e o número ("3 / 6") ficam no canto de baixo, e o rodapé "Dados fictícios de exemplo" aparece em todos os slides.
+- **Números:** calculei todos a partir de `dados/vendas-mensais.csv` e `dados/clientes-b2b.csv`. O período fechou em R$ 765.578,40, com lucro bruto de 58%. O canal que mais cresceu foi o B2B Escritórios, 4,7 vezes de janeiro a setembro. No slide dos clientes B2B, o Vida Clara cancelou por causa de entregas atrasadas e a Casa Certa pausou durante uma reforma.
+- **As 3 ações** saíram das anotações dos clientes: entregar no prazo, responder os pedidos de chás e do café Etiópia, e falar com os clientes novos e com a Casa Certa. Esses dados não dizem quem cuida de cada ação nem a data. Por isso deixei escrito `[confirmar na reunião]`.
+
+Não marquei o passo 7 em `progresso.md`, porque ainda faltam a calculadora e o dashboard.
+

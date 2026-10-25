@@ -1,0 +1,26 @@
+════════ mensagem 1 do aluno ════════
+Faz um post sobre café.
+
+════════ resposta do Claude ════════
+Aqui está o post, feito só com o que o `CLAUDE.md` diz sobre a Torra Viva:
+
+---
+
+**Seu café foi torrado quando?**
+
+Tem café que passa meses na prateleira antes de chegar na sua xícara. Aqui é diferente: torramos esta semana para você tomar na próxima.
+
+Nossos grãos vêm de pequenos produtores do Sul de Minas e do Cerrado Mineiro. Torramos em Mogi das Cruzes, em lotes pequenos, e despachamos logo em seguida.
+
+Café fresco tem mais aroma e mais sabor. É só isso.
+
+Pede pela loja online ou entra no Clube Torra Viva e recebe todo mês: torraviva.exemplo
+
+E você, olha a data de torra no pacote antes de comprar? ☕
+
+#cafeespecial #cafefresco #torrefacao #suldeminas #torraviva
+
+---
+
+O pedido foi vago, então fiz um post genérico sobre a empresa. Não sei de qual café, qual canal, qual formato nem qual objetivo. Agora digite `/clear` e cole o prompt bom do Exemplo 2 em `passos/03-.../INSTRUCOES.md`. Depois compare as duas respostas.
+

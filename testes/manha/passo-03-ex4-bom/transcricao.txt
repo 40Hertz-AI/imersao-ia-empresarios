@@ -1,0 +1,12 @@
+════════ mensagem 1 do aluno ════════
+Papel: você é a Marina, que vende o plano de café para escritórios da Torra Viva.
+Contexto: o plano tem entrega todo mês, máquina em comodato (emprestada, sem custo) a partir de 8 kg por mês e café a partir de R$ 98 o kg. O contato é o Paulo, sócio de um escritório de contabilidade com 20 funcionários que hoje compra café no supermercado. Ele foi indicado pela Contábil Horizonte, que já é nossa cliente.
+Tarefa: escreva a primeira mensagem de WhatsApp para o Paulo.
+Formato: até 60 palavras, sem preço, sem "Prezado", citando a indicação e terminando com uma pergunta fácil de responder.
+
+════════ resposta do Claude ════════
+Oi, Paulo! Aqui é a Marina, da Torra Viva, torrefação de cafés especiais em Mogi das Cruzes. O pessoal da Contábil Horizonte, que já toma nosso café, me passou seu contato. A gente entrega café fresco todo mês no escritório e, dependendo do consumo, empresta a máquina sem custo. Hoje vocês tomam café coado ou de máquina?
+
+---
+A mensagem tem 57 palavras e não fala de preço. A pergunta do final se responde com uma palavra só e já mostra como o escritório toma café hoje, o que ajuda a puxar a conversa.
+

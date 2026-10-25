@@ -1,0 +1,27 @@
+════════ mensagem 1 do aluno ════════
+Escreve um e-mail avisando que o preço vai subir.
+
+════════ resposta do Claude ════════
+**Assunto:** Um aviso sobre o preço dos nossos cafés
+
+Olá, [confirmar: nome do cliente],
+
+Queremos te avisar com antecedência: a partir de [confirmar: data], o preço dos cafés da Torra Viva vai subir [confirmar: percentual ou novos valores].
+
+O motivo é simples: o café verde, que é o grão cru que compramos dos pequenos produtores do Sul de Minas e do Cerrado Mineiro, ficou mais caro [confirmar: motivo do reajuste]. A gente segurou o preço o quanto deu. Para continuar pagando bem quem planta e entregando café torrado na semana, precisamos fazer esse ajuste.
+
+O que não muda: o café continua sendo torrado esta semana e chegando na sua xícara na próxima, com o mesmo cuidado de sempre.
+
+[confirmar: existe alguma condição para quem fechar antes do reajuste? Ex.: renovar o contrato e manter o preço atual]
+
+Se tiver qualquer dúvida, é só responder este e-mail ou chamar no WhatsApp [confirmar: número].
+
+Obrigado por estar com a gente.
+
+[confirmar: quem assina], Torra Viva Cafés Especiais
+torraviva.exemplo
+
+---
+
+Seu pedido não dizia o cliente, a data, o percentual, o motivo nem quem assina. Por isso deixei os `[confirmar: ...]`, e o e-mail saiu genérico. Esse é o "prompt ruim" do Exemplo 1 do passo 3. Agora digite `/clear` e cole o prompt bom de `passos/03-prompts-que-funcionam/INSTRUCOES.md` para comparar.
+
