@@ -7,3 +7,5 @@ node_modules/
 !/dados/README.md
 /memoria/numeros.md
 /controle/prints/
+/.impeccable/hook.cache.json
+/.impeccable/config.local.json

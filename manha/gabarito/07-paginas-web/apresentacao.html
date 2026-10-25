@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Torra Viva · resultados de janeiro a setembro de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cor-grao: #2B1D14;
+    --cor-cereja: #C23B22;
+    --cor-folha: #234B3F;
+    --cor-bourbon: #E8B547;
+    --cor-leite: #F6F1EA;
+    --cor-apoio: #6B5E55;
+    --cor-branco: #FFFFFF;
+    --cor-borda: #E6DDD2;
+    --cor-barra-neutra: #CFC2B4;
+
+    --fonte-titulo: "Bricolage Grotesque", "Arial Black", sans-serif;
+    --fonte-texto: "Albert Sans", Arial, sans-serif;
+
+    --canto-medio: 14px;
+    --canto-grande: 24px;
+    --canto-pilula: 999px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+    background: var(--cor-grao);
+    overflow: hidden;
+  }
+
+  body {
+    font-family: var(--fonte-texto);
+    color: var(--cor-grao);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* O palco tem sempre 1280 × 720 e é escalado para caber na tela */
+  .palco {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1280px;
+    height: 720px;
+    transform-origin: center center;
+    background: var(--cor-leite);
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-rows: 1fr 64px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+    background: var(--cor-leite);
+  }
+  .slide.ativo {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.35s ease, visibility 0s;
+  }
+  .slide.escuro { background: var(--cor-folha); color: var(--cor-leite); }
+
+  .conteudo {
+    padding: 56px 72px 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Rodapé */
+  .rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 72px;
+    border-top: 1.5px solid var(--cor-borda);
+    font-size: 14px;
+    color: var(--cor-apoio);
+  }
+  .escuro .rodape { border-top-color: rgba(246, 241, 234, 0.22); color: var(--cor-leite); }
+
+  .navegacao { display: flex; align-items: center; gap: 16px; }
+  .numero {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 15px;
+    min-width: 48px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .seta {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--canto-pilula);
+    border: 2px solid var(--cor-folha);
+    background: transparent;
+    color: var(--cor-folha);
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+  }
+  .seta:hover { background: var(--cor-folha); color: var(--cor-leite); }
+  .seta:disabled { opacity: 0.3; cursor: default; }
+  .seta:disabled:hover { background: transparent; color: var(--cor-folha); }
+  .escuro .seta { border-color: var(--cor-leite); color: var(--cor-leite); }
+  .escuro .seta:hover { background: var(--cor-leite); color: var(--cor-folha); }
+  .escuro .seta:disabled:hover { background: transparent; color: var(--cor-leite); }
+  .seta:focus-visible { outline: 3px solid var(--cor-bourbon); outline-offset: 2px; }
+
+  /* Tipografia */
+  h1 {
+    font-family: var(--fonte-titulo);
+    font-weight: 800;
+    font-size: 84px;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+  }
+  h2 {
+    font-family: var(--fonte-titulo);
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    max-width: 22ch;
+  }
+  h3 {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.2;
+  }
+  .abertura {
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--cor-apoio);
+    margin-top: 12px;
+    max-width: 72ch;
+  }
+  .pequeno { font-size: 14px; line-height: 1.5; color: var(--cor-apoio); }
+
+  .selo {
+    display: inline-block;
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 13px;
+    padding: 6px 16px;
+    border-radius: var(--canto-pilula);
+    background: var(--cor-bourbon);
+    color: var(--cor-grao);
+  }
+  .selo.neutro { background: var(--cor-folha); color: var(--cor-leite); }
+
+  /* Slide 1 e 6: capa */
+  .capa {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    align-items: center;
+    gap: 40px;
+    height: 100%;
+    padding-bottom: 32px;
+  }
+  .capa h1 { margin-top: 24px; max-width: 13ch; }
+  .capa .linha-fina {
+    margin-top: 28px;
+    font-size: 21px;
+    line-height: 1.5;
+    max-width: 40ch;
+    color: var(--cor-leite);
+  }
+  .capa .linha-fina + .linha-fina { margin-top: 8px; font-size: 16px; opacity: 0.85; }
+  .xicara { width: 360px; height: 360px; }
+
+  /* Slide 2: números do período */
+  .periodo {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 56px;
+    margin-top: 32px;
+    flex: 1;
+    min-height: 0;
+    padding-bottom: 24px;
+  }
+  .grafico-caixa {
+    background: var(--cor-branco);
+    border: 1.5px solid var(--cor-borda);
+    border-radius: var(--canto-grande);
+    padding: 24px 28px 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .grafico-caixa h3 { font-size: 18px; }
+  .grafico-caixa .pequeno { margin-top: 2px; }
+  .grafico-caixa svg { flex: 1; width: 100%; min-height: 0; margin-top: 8px; overflow: visible; }
+
+  .cifras { display: flex; flex-direction: column; justify-content: center; }
+  .cifra { padding: 20px 0; border-bottom: 1.5px solid var(--cor-borda); }
+  .cifra:first-child { padding-top: 0; }
+  .cifra:last-child { border-bottom: 0; padding-bottom: 0; }
+  .cifra strong {
+    display: block;
+    font-family: var(--fonte-titulo);
+    font-weight: 800;
+    font-size: 34px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+  }
+  .cifra span { display: block; margin-top: 6px; font-size: 16px; line-height: 1.5; color: var(--cor-apoio); }
+
+  /* Slide 3: canal que mais cresceu */
+  .crescimento {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 48px;
+    margin-top: 28px;
+    flex: 1;
+    min-height: 0;
+    padding-bottom: 24px;
+  }
+  .ranking { display: flex; flex-direction: column; justify-content: center; }
+  .ranking h3 { font-size: 18px; margin-bottom: 20px; }
+  .ranking-linha { display: grid; grid-template-columns: 1fr auto; row-gap: 6px; margin-bottom: 18px; }
+  .ranking-linha .nome { font-size: 16px; font-weight: 600; }
+  .ranking-linha .valor { font-family: var(--fonte-titulo); font-weight: 700; font-size: 18px; font-variant-numeric: tabular-nums; }
+  .ranking-linha .trilho { grid-column: 1 / -1; height: 14px; }
+  .ranking-linha .barra {
+    height: 14px;
+    border-radius: 0 4px 4px 0;
+    background: var(--cor-barra-neutra);
+    transform-origin: left center;
+  }
+  .ranking-linha.destaque .barra { background: var(--cor-cereja); }
+  .ranking .pequeno { margin-top: 8px; }
+
+  /* Barras que crescem ao abrir o slide: o único movimento automático */
+  .barra-mes { transform-box: fill-box; transform-origin: bottom; }
+  .slide.ativo .anima .barra-mes { animation: sobe 0.7s cubic-bezier(.2,.7,.2,1) both; }
+  .slide.ativo .anima .barra { animation: estica 0.7s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes sobe { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @keyframes estica { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+  /* Slide 4: clientes B2B */
+  .clientes {
+    display: grid;
+    grid-template-columns: 1fr 440px;
+    gap: 48px;
+    margin-top: 28px;
+    flex: 1;
+    min-height: 0;
+    padding-bottom: 24px;
+  }
+  .linha-tempo h3 { font-size: 18px; margin-bottom: 12px; }
+  .linha-tempo ol { list-style: none; }
+  .linha-tempo li {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    align-items: baseline;
+    gap: 16px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--cor-borda);
+    font-size: 16px;
+    line-height: 1.35;
+  }
+  .linha-tempo li:last-child { border-bottom: 0; }
+  .linha-tempo .mes { font-family: var(--fonte-titulo); font-weight: 700; font-size: 15px; color: var(--cor-apoio); }
+  .linha-tempo .riscado { color: var(--cor-apoio); }
+  .linha-tempo .marca {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 1px 8px;
+    border-radius: var(--canto-pilula);
+    margin-left: 6px;
+    vertical-align: 1px;
+  }
+  .marca.saiu { background: var(--cor-cereja); color: var(--cor-branco); }
+  .marca.pausou { background: var(--cor-bourbon); color: var(--cor-grao); }
+  .linha-tempo .pequeno { margin-top: 10px; }
+
+  .casos { display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+  .cartao {
+    background: var(--cor-branco);
+    border: 1.5px solid var(--cor-borda);
+    border-radius: var(--canto-medio);
+    padding: 22px 24px;
+  }
+  .cartao .selo { margin-bottom: 12px; }
+  .cartao p { font-size: 16px; line-height: 1.55; margin-top: 6px; }
+  .cartao .pequeno { margin-top: 10px; }
+  .cartao.saida { border-left: 6px solid var(--cor-cereja); }
+  .cartao.pausa { border-left: 6px solid var(--cor-bourbon); }
+  .selo.cereja { background: var(--cor-cereja); color: var(--cor-branco); }
+
+  /* Slide 5: ações */
+  .acoes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 36px;
+    padding-bottom: 28px;
+    flex: 1;
+    min-height: 0;
+  }
+  .acao {
+    background: var(--cor-branco);
+    border: 1.5px solid var(--cor-borda);
+    border-radius: var(--canto-medio);
+    padding: 28px 26px 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .acao .icone { width: 56px; height: 56px; margin-bottom: 20px; }
+  .acao p { font-size: 16px; line-height: 1.6; margin-top: 12px; }
+  .acao .dono {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--cor-borda);
+    font-size: 14px;
+    color: var(--cor-apoio);
+  }
+
+  /* Dica de hover nos gráficos */
+  .dica {
+    position: fixed;
+    pointer-events: none;
+    background: var(--cor-grao);
+    color: var(--cor-leite);
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 8px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 10px));
+    z-index: 10;
+  }
+  .dica strong { font-family: var(--fonte-titulo); font-weight: 700; }
+  .dica.visivel { opacity: 1; }
+
+  .so-leitor {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .slide, .slide.ativo { transition: none; }
+    .slide.ativo .anima .barra-mes,
+    .slide.ativo .anima .barra { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<main class="palco" id="palco" aria-roledescription="apresentação">
+
+  <!-- 1. Título -->
+  <section class="slide escuro" aria-label="Slide 1 de 6">
+    <div class="conteudo">
+      <div class="capa">
+        <div>
+          <span class="selo">Reunião de equipe</span>
+          <h1>Torra Viva, janeiro a setembro de 2026</h1>
+          <p class="linha-fina">Quanto vendemos, qual canal puxou o crescimento, quem entrou e quem saiu do B2B, e o que fazer até dezembro.</p>
+        </div>
+        <svg class="xicara" viewBox="0 0 360 360" aria-hidden="true">
+          <!-- xícara vista de cima, formas chapadas -->
+          <circle cx="180" cy="180" r="150" fill="#F6F1EA"/>
+          <circle cx="180" cy="180" r="118" fill="#E6DDD2"/>
+          <circle cx="180" cy="180" r="100" fill="#2B1D14"/>
+          <circle cx="180" cy="180" r="56" fill="#4A3324"/>
+          <path d="M180 140 C 200 160, 200 200, 180 220 C 160 200, 160 160, 180 140 Z" fill="#E8B547"/>
+          <rect x="318" y="160" width="40" height="40" rx="20" fill="#F6F1EA"/>
+          <ellipse cx="66" cy="300" rx="16" ry="22" transform="rotate(-30 66 300)" fill="#C23B22"/>
+          <path d="M58 286 Q 70 300 62 316" stroke="#234B3F" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <ellipse cx="300" cy="60" rx="14" ry="20" transform="rotate(25 300 60)" fill="#E8B547"/>
+          <path d="M296 46 Q 306 60 300 74" stroke="#234B3F" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+    <footer class="rodape"></footer>
+  </section>
+
+  <!-- 2. Números do período -->
+  <section class="slide" aria-label="Slide 2 de 6">
+    <div class="conteudo">
+      <h2>Faturamos R$ 765.578,40 de janeiro a setembro</h2>
+      <div class="periodo">
+        <div class="grafico-caixa anima">
+          <h3>Faturamento por mês</h3>
+          <p class="pequeno">Soma dos 4 canais, em reais</p>
+          <svg id="grafico-mensal" role="img" aria-label="Faturamento mensal de janeiro a setembro de 2026"></svg>
+        </div>
+        <div class="cifras">
+          <div class="cifra">
+            <strong>R$ 445.207,30</strong>
+            <span>de lucro bruto (faturamento menos o custo do café), uma margem de 58,2%</span>
+          </div>
+          <div class="cifra">
+            <strong>+76,5%</strong>
+            <span>de setembro (R$&nbsp;105.015,40) sobre janeiro (R$&nbsp;59.494,00). O melhor mês foi agosto.</span>
+          </div>
+          <div class="cifra">
+            <strong>298 assinaturas</strong>
+            <span>do Clube Torra Viva em setembro. Em janeiro eram 181.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="rodape"></footer>
+  </section>
+
+  <!-- 3. Canal que mais cresceu -->
+  <section class="slide" aria-label="Slide 3 de 6">
+    <div class="conteudo">
+      <h2>O B2B Escritórios foi o canal que mais cresceu</h2>
+      <p class="abertura">Faturou R$ 4.011,00 em janeiro e R$ 18.752,40 em setembro, quase cinco vezes mais.</p>
+      <div class="crescimento">
+        <div class="grafico-caixa anima">
+          <h3>B2B Escritórios, faturamento por mês</h3>
+          <p class="pequeno">Em reais</p>
+          <svg id="grafico-b2b" role="img" aria-label="Faturamento mensal do canal B2B Escritórios"></svg>
+        </div>
+        <div class="ranking anima">
+          <h3>Setembro comparado com janeiro</h3>
+          <div class="ranking-linha destaque">
+            <span class="nome">B2B Escritórios</span><span class="valor">+367,5%</span>
+            <div class="trilho"><div class="barra" style="width:100%"></div></div>
+          </div>
+          <div class="ranking-linha">
+            <span class="nome">Clube Torra Viva</span><span class="valor">+64,6%</span>
+            <div class="trilho"><div class="barra" style="width:17.6%"></div></div>
+          </div>
+          <div class="ranking-linha">
+            <span class="nome">Loja online</span><span class="valor">+57,2%</span>
+            <div class="trilho"><div class="barra" style="width:15.6%"></div></div>
+          </div>
+          <div class="ranking-linha">
+            <span class="nome">Cafeterias parceiras</span><span class="valor">+39,7%</span>
+            <div class="trilho"><div class="barra" style="width:10.8%"></div></div>
+          </div>
+          <p class="pequeno">No total dos nove meses, o B2B ainda é o menor canal: 14,7% do faturamento. A loja online fica com 46,5%.</p>
+        </div>
+      </div>
+    </div>
+    <footer class="rodape"></footer>
+  </section>
+
+  <!-- 4. Clientes B2B -->
+  <section class="slide" aria-label="Slide 4 de 6">
+    <div class="conteudo">
+      <h2>No B2B, 12 empresas entraram, uma saiu e uma pausou</h2>
+      <div class="clientes">
+        <div class="linha-tempo">
+          <h3>Quem entrou em 2026, mês a mês</h3>
+          <ol>
+            <li><span class="mes">jan</span><span>Agência Faro Digital</span></li>
+            <li><span class="mes">fev</span><span>Rocha &amp; Lima Advogados</span></li>
+            <li><span class="mes">mar</span><span>Coworking Ponto de Encontro, Imobiliária Casa Certa<span class="marca pausou">pausou</span></span></li>
+            <li><span class="mes">abr</span><span>Fala Mundo Idiomas, TechNorte Sistemas</span></li>
+            <li><span class="mes">mai</span><span class="riscado">Laboratório Vida Clara<span class="marca saiu">saiu</span></span></li>
+            <li><span class="mes">jun</span><span>Traço Livre Arquitetura</span></li>
+            <li><span class="mes">jul</span><span>Construtora Alicerce</span></li>
+            <li><span class="mes">ago</span><span>Prumo Consultoria</span></li>
+            <li><span class="mes">set</span><span>Sorriso Pleno Odontologia, Hotel Serra Azul</span></li>
+          </ol>
+          <p class="pequeno">Contábil Horizonte e Clínica Bem Viver já eram clientes desde 2025. Hoje são 12 empresas ativas.</p>
+        </div>
+        <div class="casos">
+          <div class="cartao saida">
+            <span class="selo cereja">Saiu</span>
+            <h3>Laboratório Vida Clara</h3>
+            <p>Cancelou em agosto, depois de duas entregas atrasadas em julho.</p>
+            <p class="pequeno">R$ 1.459,20 por mês. Nota 4 na pesquisa de satisfação (NPS, de 0 a 10).</p>
+          </div>
+          <div class="cartao pausa">
+            <span class="selo">Pausou</span>
+            <h3>Imobiliária Casa Certa</h3>
+            <p>Pausou em julho por causa da reforma do escritório. A volta está prevista para novembro.</p>
+            <p class="pequeno">R$ 743,00 por mês.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="rodape"></footer>
+  </section>
+
+  <!-- 5. Ações -->
+  <section class="slide" aria-label="Slide 5 de 6">
+    <div class="conteudo">
+      <h2>Três ações para outubro, novembro e dezembro</h2>
+      <div class="acoes">
+        <article class="acao">
+          <svg class="icone" viewBox="0 0 56 56" aria-hidden="true">
+            <rect x="4" y="16" width="32" height="24" rx="4" fill="#234B3F"/>
+            <path d="M36 22 H46 L52 30 V40 H36 Z" fill="#234B3F"/>
+            <circle cx="16" cy="42" r="6" fill="#E8B547"/>
+            <circle cx="44" cy="42" r="6" fill="#E8B547"/>
+          </svg>
+          <h3>Entregar o B2B no prazo</h3>
+          <p>O Vida Clara cancelou por causa de duas entregas atrasadas em julho. A entrega dos escritórios sai na primeira semana do mês, e qualquer atraso precisa ser avisado ao cliente antes da data.</p>
+          <p class="dono">Quem cuida e prazo: [confirmar]</p>
+        </article>
+        <article class="acao">
+          <svg class="icone" viewBox="0 0 56 56" aria-hidden="true">
+            <circle cx="28" cy="28" r="24" fill="#E8B547"/>
+            <path d="M18 29 L25 36 L39 21" stroke="#2B1D14" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Trazer a Casa Certa de volta e ouvir os novos</h3>
+          <p>Combinar com a Casa Certa a data da volta em novembro. Fazer a pesquisa de satisfação com a Sorriso Pleno e o Hotel Serra Azul, que entraram em setembro e ainda não responderam.</p>
+          <p class="dono">Quem cuida e prazo: [confirmar]</p>
+        </article>
+        <article class="acao">
+          <svg class="icone" viewBox="0 0 56 56" aria-hidden="true">
+            <ellipse cx="28" cy="28" rx="16" ry="23" transform="rotate(20 28 28)" fill="#C23B22"/>
+            <path d="M22 9 Q 34 28 26 47" stroke="#F6F1EA" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          </svg>
+          <h3>Oferecer o Etiópia aos escritórios</h3>
+          <p>Na loja online, o Etiópia Yirgacheffe passou de 62 pacotes vendidos em junho para 151 em setembro. A Agência Faro Digital quer conhecer esse café para as reuniões com clientes. Dá para começar por ela.</p>
+          <p class="dono">Quem cuida e prazo: [confirmar]</p>
+        </article>
+      </div>
+    </div>
+    <footer class="rodape"></footer>
+  </section>
+
+  <!-- 6. Obrigado -->
+  <section class="slide escuro" aria-label="Slide 6 de 6">
+    <div class="conteudo">
+      <div class="capa">
+        <div>
+          <span class="selo">Torra Viva</span>
+          <h1>Obrigado, equipe</h1>
+          <p class="linha-fina">Torrado esta semana, na sua xícara na próxima.</p>
+          <p class="linha-fina">Dúvidas e ideias sobre as três ações: agora é a hora.</p>
+        </div>
+        <svg class="xicara" viewBox="0 0 360 360" aria-hidden="true">
+          <circle cx="180" cy="180" r="150" fill="#F6F1EA"/>
+          <circle cx="180" cy="180" r="118" fill="#E6DDD2"/>
+          <circle cx="180" cy="180" r="100" fill="#2B1D14"/>
+          <path d="M180 214 C 130 180, 140 140, 166 140 C 174 140, 180 148, 180 156 C 180 148, 186 140, 194 140 C 220 140, 230 180, 180 214 Z" fill="#E8B547"/>
+          <rect x="318" y="160" width="40" height="40" rx="20" fill="#F6F1EA"/>
+        </svg>
+      </div>
+    </div>
+    <footer class="rodape"></footer>
+  </section>
+
+</main>
+
+<div class="dica" id="dica" role="tooltip"></div>
+
+<script>
+  // Dados de dados/vendas-mensais.csv (dados fictícios de exemplo), somados por mês
+  const MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set"];
+  const MESES_LONGOS = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro"];
+  const FATURAMENTO_MES = [59494.00, 56095.00, 70356.80, 77616.60, 93928.80, 90838.80, 98464.60, 113768.40, 105015.40];
+  const B2B_MES = [4011.00, 6153.00, 8906.80, 13121.60, 14580.80, 15140.80, 16228.60, 15665.40, 18752.40];
+
+  const reais = v => "R$ " + v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const milhares = v => "R$ " + Math.round(v / 1000).toLocaleString("pt-BR") + " mil";
+
+  const dica = document.getElementById("dica");
+  const NS = "http://www.w3.org/2000/svg";
+
+  function el(nome, attrs, pai) {
+    const e = document.createElementNS(NS, nome);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (pai) pai.appendChild(e);
+    return e;
+  }
+
+  // Barras verticais de uma série, com rótulo direto só nos meses escolhidos
+  function graficoBarras(svg, valores, { cor, corDestaque, destaques, rotulos }) {
+    const W = svg.clientWidth, H = svg.clientHeight;
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    const topo = 30, base = H - 28;
+    const max = Math.max(...valores) * 1.05;
+    const faixa = W / valores.length;
+    const largura = Math.min(48, faixa * 0.62);
+
+    // linha de base
+    el("line", { x1: 0, x2: W, y1: base, y2: base, stroke: "#E6DDD2", "stroke-width": 1.5 }, svg);
+
+    valores.forEach((v, i) => {
+      const h = (v / max) * (base - topo);
+      const x = i * faixa + (faixa - largura) / 2;
+      const y = base - h;
+      const r = 4;
+      const destaque = destaques.includes(i);
+      const g = el("g", {}, svg);
+      el("path", {
+        class: "barra-mes",
+        d: `M${x},${base} V${y + r} Q${x},${y} ${x + r},${y} H${x + largura - r} Q${x + largura},${y} ${x + largura},${y + r} V${base} Z`,
+        fill: destaque ? corDestaque : cor,
+        style: `animation-delay:${i * 50}ms`
+      }, g);
+      // área de toque maior que a barra
+      const alvo = el("rect", { x: i * faixa, y: topo - 20, width: faixa, height: base - topo + 20, fill: "transparent" }, g);
+      alvo.addEventListener("mouseenter", () => {
+        const caixa = alvo.getBoundingClientRect();
+        dica.innerHTML = `${MESES_LONGOS[i]} de 2026<br><strong>${reais(v)}</strong>`;
+        dica.style.left = (caixa.left + caixa.width / 2) + "px";
+        dica.style.top = (caixa.top + 10) + "px";
+        dica.classList.add("visivel");
+      });
+      alvo.addEventListener("mouseleave", () => dica.classList.remove("visivel"));
+
+      const mes = el("text", { x: i * faixa + faixa / 2, y: base + 20, "text-anchor": "middle",
+        "font-size": 14, fill: "#6B5E55", "font-family": "Albert Sans, Arial, sans-serif" }, svg);
+      mes.textContent = MESES[i];
+
+      if (rotulos.includes(i)) {
+        const t = el("text", { x: i * faixa + faixa / 2, y: y - 8, "text-anchor": "middle",
+          "font-size": 14, "font-weight": 700, fill: "#2B1D14", "font-family": "Bricolage Grotesque, Arial, sans-serif" }, svg);
+        t.textContent = milhares(v);
+      }
+    });
+
+    // tabela para leitor de tela
+    const desc = el("desc", {}, svg);
+    desc.textContent = valores.map((v, i) => `${MESES_LONGOS[i]}: ${reais(v)}`).join("; ");
+  }
+
+  function desenharGraficos() {
+    ["grafico-mensal", "grafico-b2b"].forEach(id => document.getElementById(id).innerHTML = "");
+    graficoBarras(document.getElementById("grafico-mensal"), FATURAMENTO_MES, {
+      cor: "#234B3F", corDestaque: "#C23B22", destaques: [7], rotulos: [0, 7, 8]
+    });
+    graficoBarras(document.getElementById("grafico-b2b"), B2B_MES, {
+      cor: "#CFC2B4", corDestaque: "#C23B22", destaques: [8], rotulos: [0, 3, 8]
+    });
+  }
+
+  // Navegação
+  const palco = document.getElementById("palco");
+  const slides = [...document.querySelectorAll(".slide")];
+  let atual = 0;
+
+  slides.forEach((s, i) => {
+    s.querySelector(".rodape").innerHTML = `
+      <span>Dados fictícios de exemplo</span>
+      <div class="navegacao">
+        <button class="seta" data-ir="-1" aria-label="Slide anterior">←</button>
+        <span class="numero">${i + 1} / ${slides.length}</span>
+        <button class="seta" data-ir="1" aria-label="Próximo slide">→</button>
+      </div>`;
+  });
+
+  function mostrar(n) {
+    atual = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, i) => {
+      s.classList.toggle("ativo", i === atual);
+      s.setAttribute("aria-hidden", i === atual ? "false" : "true");
+    });
+    slides[0].querySelector('[data-ir="-1"]').disabled = true;
+    slides[slides.length - 1].querySelector('[data-ir="1"]').disabled = true;
+    dica.classList.remove("visivel");
+    history.replaceState(null, "", "#" + (atual + 1));
+  }
+
+  document.addEventListener("keydown", e => {
+    if (["ArrowRight", "ArrowDown", "PageDown", " "].includes(e.key)) { e.preventDefault(); mostrar(atual + 1); }
+    if (["ArrowLeft", "ArrowUp", "PageUp"].includes(e.key)) { e.preventDefault(); mostrar(atual - 1); }
+    if (e.key === "Home") mostrar(0);
+    if (e.key === "End") mostrar(slides.length - 1);
+  });
+
+  // Clique no slide avança; nas setas do rodapé, vai para onde a seta aponta
+  palco.addEventListener("click", e => {
+    const seta = e.target.closest("[data-ir]");
+    if (seta) { mostrar(atual + Number(seta.dataset.ir)); return; }
+    mostrar(atual + 1);
+  });
+
+  // Escala o palco de 1280 × 720 para caber na janela
+  function ajustar() {
+    const escala = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+    palco.style.transform = `translate(-50%, -50%) scale(${escala})`;
+  }
+  window.addEventListener("resize", ajustar);
+
+  ajustar();
+  const inicial = parseInt(location.hash.slice(1), 10);
+  // desenha os gráficos com todos os slides visíveis para medir o tamanho certo
+  slides.forEach(s => s.classList.add("ativo"));
+  desenharGraficos();
+  mostrar(Number.isFinite(inicial) ? inicial - 1 : 0);
+  document.fonts && document.fonts.ready.then(() => {
+    slides.forEach(s => s.classList.add("ativo"));
+    desenharGraficos();
+    mostrar(atual);
+  });
+</script>
+</body>
+</html>

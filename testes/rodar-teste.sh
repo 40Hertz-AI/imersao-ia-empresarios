@@ -64,7 +64,8 @@ fi
 cd "$dir" || exit 1
 if [ -n "$preparar" ]; then bash -c "$preparar" || { echo "preparar falhou"; exit 1; }; fi
 
-mkdir -p "$prova"
+# a prova sempre começa limpa: nada de transcrição, erro ou arquivo de uma rodada anterior
+rm -rf "$prova"; mkdir -p "$prova"
 marca=$(mktemp); sleep 1
 inicio=$(date +%s)
 {

@@ -53,7 +53,7 @@ Só se existir `controle/modelo-resultado.html` (a pasta da aula). Sem ele, pula
 
 1. Copiar `controle/modelo-resultado.html` para `RESULTADO.html` na raiz da pasta.
 2. Ler `controle/componentes.md` e trocar só estes blocos: `titulo`, `nome`, `capa`, `ficha`, `proximos`, `atualizado`. O bloco `marca` fica com as cores neutras do modelo até o `/mapear-empresa`.
-   - `capa`: `<p class="tipo">` cidade e setor · `<h1>` a empresa em 1 frase · `.lede` "Mapa da empresa em construção: 1 de 6 fases." · `.numeros` com 2 a 4 números que o dono contou e podem ir para o telão: pessoas na equipe, linhas de produto, anos de mercado, cidades atendidas. Cada um em `<b data-conta>`. **Nada do financeiro.**
+   - `capa`: `<p class="tipo">` cidade e setor · `<h1>` a empresa em 1 frase · `.lede` "Mapa da empresa em construção." (sem contar fases: o contador do menu e a trilha da capa já mostram) · `.numeros` com 2 a 4 números que o dono contou e podem ir para o telão: pessoas na equipe, linhas de produto, anos de mercado, cidades atendidas. Cada um em `<b data-conta>`. **Nada do financeiro.**
    - `ficha`: `<h2>` com a conclusão (ex.: "Uma empresa de 6 pessoas que vive de indicação") · `.ficha` com produtos e preços, onde atende, equipe, como o cliente chega · `.grade g2` com dois cartões: "O que mais incomoda hoje" (cartão `forte`) e "Onde quer chegar em 12 meses".
    - `ficha`: termina com o `.bastidor` (o que a IA fez: entrevistou, gravou, separou o privado; conceito: memória) e o `<p class="base">`.
    - `atualizado`: "fase 1 de 6".

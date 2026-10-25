@@ -60,7 +60,7 @@ Só campos em branco. O que o dono escreveu nunca é sobrescrito. Arquivo que n�
 
 ## Atualizar o RESULTADO.html
 
-Só se existirem `RESULTADO.html` e `controle/componentes.md` (a pasta da aula); senão, pular. Ler `controle/componentes.md` (inclusive "Que visual usar"). Trocar os blocos `marca` (cores e fontes reais), `capa` (lede "Mapa da empresa: 2 de 6 fases" e números públicos novos, como nota no Google), `empresa`, `identidade`, `mercado`, `cliente`, `diagnostico`, `proximos` e `atualizado`. Cada seção com pelo menos 1 visual e um `.bastidor` no fim. Usar a skill `frontend-design` só para escolher bem a fonte, se `marca/marca.md` não tiver uma. Na capa só entram números da empresa (nota no Google, anos de mercado), não do mercado. Conferir no fim, só dentro dos blocos trocados: `{`, `undefined` e `[a confirmar]` solto em título.
+Só se existirem `RESULTADO.html` e `controle/componentes.md` (a pasta da aula); senão, pular. Ler `controle/componentes.md` (inclusive "Que visual usar"). Trocar os blocos `marca` (cores e fontes reais), `capa` (lede de 1 frase com o achado principal do estudo, sem contar fases, e números públicos novos, como nota no Google), `empresa`, `identidade`, `mercado`, `cliente`, `diagnostico`, `proximos` e `atualizado`. Cada seção com pelo menos 1 visual e um `.bastidor` no fim. Usar a skill `frontend-design` só para escolher bem a fonte, se `marca/marca.md` não tiver uma. Na capa só entram números da empresa (nota no Google, anos de mercado), não do mercado. Conferir no fim, só dentro dos blocos trocados: `{`, `undefined` e `[a confirmar]` solto em título.
 
 ## Fechar
 

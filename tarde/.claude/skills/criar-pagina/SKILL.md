@@ -73,3 +73,5 @@ Atualize o RESULTADO.html: a seção Página de vendas apareceu.
 Falta confirmar: <o que ficou [a confirmar]; omitir se nada>
 Próximo: /criar-conteudo (~10 min)
 ```
+
+Sem RESULTADO.html (pasta fora da aula), a terceira linha vira "Abra entregas/pagina-de-vendas.html no navegador." No "Próximo", citar só os comandos que existem em `.claude/skills/`.

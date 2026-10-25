@@ -1,6 +1,9 @@
 {
   "telemetry": false,
   "updateCheck": false,
+  "hook": {
+    "quiet": true
+  },
   "detector": {
     "ignoreFiles": [
       "**/RESULTADO.html",

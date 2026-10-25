@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Torra Viva · animação de 20 segundos</title>
+<!-- Fontes do design system (só fontes, nenhuma biblioteca de código) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cor-grao: #2B1D14;
+    --cor-cereja: #C23B22;
+    --cor-folha: #234B3F;
+    --cor-bourbon: #E8B547;
+    --cor-leite: #F6F1EA;
+    --cor-apoio: #6B5E55;
+    --cor-branco: #FFFFFF;
+    --cor-borda: #E6DDD2;
+    --fonte-titulo: "Bricolage Grotesque", "Arial Black", sans-serif;
+    --fonte-texto: "Albert Sans", Arial, sans-serif;
+    --duracao: 20s; /* 1 segundo = 5% da animação */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+    background: var(--cor-grao);
+    overflow: hidden;
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+  }
+
+  /* Palco vertical 9:16 que cabe inteiro na tela */
+  .palco {
+    position: relative;
+    height: min(100vh, calc(100vw * 16 / 9));
+    height: min(100dvh, calc(100vw * 16 / 9));
+    aspect-ratio: 9 / 16;
+    background: var(--cor-leite);
+    color: var(--cor-grao);
+    font-family: var(--fonte-texto);
+    overflow: hidden;
+    container-type: inline-size; /* 1cqw = 1% da largura do palco */
+  }
+
+  .cena {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    animation: var(--duracao) linear infinite both;
+  }
+
+  /* ---------- Quando cada cena aparece ---------- */
+  .cena-1 { animation-name: cena-1; }
+  .cena-2 { animation-name: cena-2; }
+  .cena-3 { animation-name: cena-3; }
+  .cena-4 { animation-name: cena-4; }
+
+  @keyframes cena-1 { 0% {opacity:0} 2% {opacity:1} 18% {opacity:1} 20%, 100% {opacity:0} }
+  @keyframes cena-2 { 0%, 20% {opacity:0} 22% {opacity:1} 48% {opacity:1} 50%, 100% {opacity:0} }
+  @keyframes cena-3 { 0%, 50% {opacity:0} 52% {opacity:1} 78% {opacity:1} 80%, 100% {opacity:0} }
+  @keyframes cena-4 { 0%, 80% {opacity:0} 82% {opacity:1} 98% {opacity:1} 100% {opacity:0} }
+
+  /* Animação de entrada usada por vários elementos.
+     O atraso (--quando) diz em que segundo ele entra; --sai, quanto tempo fica. */
+  .entra {
+    opacity: 0;
+    animation: entra var(--duracao) cubic-bezier(.2,.8,.2,1) infinite both;
+    animation-delay: var(--quando, 0s);
+  }
+  @keyframes entra {
+    0%   { opacity: 0; transform: translateY(6cqw); }
+    4%   { opacity: 1; transform: none; }
+    100% { opacity: 1; transform: none; }
+  }
+
+  /* ---------- Cena 1: nome + grãos caindo ---------- */
+  .graos { position: absolute; inset: 0; }
+
+  .grao {
+    position: absolute;
+    top: -12cqw;
+    left: var(--x);
+    width: var(--t, 9cqw);
+    animation: cai var(--v, 2.6s) cubic-bezier(.45,0,.9,.6) infinite;
+    animation-delay: var(--d, 0s);
+  }
+  @keyframes cai {
+    from { transform: translateY(0) rotate(var(--r0, 0deg)); }
+    to   { transform: translateY(195cqw) rotate(var(--r1, 260deg)); }
+  }
+
+  .marca {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 5cqw;
+  }
+
+  .marca h1 {
+    font-family: var(--fonte-titulo);
+    font-weight: 800;
+    font-size: 19cqw;
+    line-height: .9;
+    letter-spacing: -0.03em;
+    background: var(--cor-leite);
+    padding: 2cqw 4cqw;
+    border-radius: 6cqw;
+  }
+  .marca h1 span { display: block; }
+
+  .selo {
+    display: inline-block;
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 4.2cqw;
+    padding: 1.6cqw 4.5cqw;
+    border-radius: 999px;
+    background: var(--cor-bourbon);
+    color: var(--cor-grao);
+  }
+  .selo-folha { background: var(--cor-folha); color: var(--cor-leite); }
+
+  /* ---------- Cena 2: gráfico de barras ---------- */
+  .cena-2 {
+    padding: 16cqw 8cqw 12cqw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cena-2 h2 {
+    font-family: var(--fonte-titulo);
+    font-weight: 800;
+    font-size: 9cqw;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-top: 4cqw;
+  }
+  .legenda {
+    font-size: 4cqw;
+    color: var(--cor-apoio);
+    margin-top: 2cqw;
+  }
+
+  .grafico {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 1.8cqw;
+    margin-top: 10cqw;
+    border-bottom: 0.6cqw solid var(--cor-grao);
+  }
+
+  .coluna {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+  }
+
+  .barra {
+    position: relative;
+    height: var(--h);
+    background: var(--cor-folha);
+    border-radius: 2.2cqw 2.2cqw 0 0;
+    transform-origin: bottom;
+    animation: sobe var(--duracao) cubic-bezier(.2,.8,.2,1) infinite both;
+    animation-delay: calc(var(--i) * 0.4s);
+  }
+  .coluna:last-child .barra { background: var(--cor-cereja); }
+
+  /* Barra i sobe aos 4,4 s + i × 0,4 s */
+  @keyframes sobe {
+    0%, 22% { transform: scaleY(0); }
+    25%     { transform: scaleY(1); }
+    75%     { transform: scaleY(1); }
+    76%, 100% { transform: scaleY(0); }
+  }
+
+  .valor {
+    position: absolute;
+    bottom: calc(100% + 2cqw);
+    left: 50%;
+    translate: -50% 0;
+    white-space: nowrap;
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 4cqw;
+    opacity: 0;
+    animation: aparece var(--duracao) linear infinite both;
+    animation-delay: calc(var(--i) * 0.4s);
+  }
+  .coluna:last-child .valor { left: auto; right: 0; translate: 0 0; color: var(--cor-cereja); }
+  @keyframes aparece {
+    0%, 25% { opacity: 0; }
+    27%, 75% { opacity: 1; }
+    76%, 100% { opacity: 0; }
+  }
+
+  .meses {
+    display: flex;
+    gap: 1.8cqw;
+    margin-top: 2cqw;
+  }
+  .meses span {
+    flex: 1;
+    text-align: center;
+    font-size: 3.4cqw;
+    color: var(--cor-apoio);
+  }
+
+  .crescimento {
+    margin-top: 8cqw;
+    --quando: 8.2s;
+  }
+  .crescimento strong {
+    display: block;
+    font-family: var(--fonte-titulo);
+    font-weight: 800;
+    font-size: 11cqw;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .crescimento p {
+    font-size: 4.2cqw;
+    line-height: 1.45;
+    color: var(--cor-apoio);
+    margin-top: 2.5cqw;
+  }
+
+  /* ---------- Cena 3: três frases ---------- */
+  .cena-3 {
+    background: var(--cor-folha);
+    color: var(--cor-leite);
+  }
+
+  .frase {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 9cqw;
+    opacity: 0;
+    animation: frase var(--duracao) cubic-bezier(.2,.8,.2,1) infinite both;
+    animation-delay: var(--quando);
+  }
+  .frase:nth-child(1) { --quando: 10s; }
+  .frase:nth-child(2) { --quando: 12s; }
+  .frase:nth-child(3) { --quando: 14s; }
+
+  /* Cada frase fica 2 segundos na tela */
+  @keyframes frase {
+    0%   { opacity: 0; transform: translateY(10cqw); }
+    2%   { opacity: 1; transform: none; }
+    8.5% { opacity: 1; transform: none; }
+    10%  { opacity: 0; transform: translateY(-8cqw); }
+    100% { opacity: 0; transform: translateY(-8cqw); }
+  }
+
+  .frase p {
+    font-family: var(--fonte-titulo);
+    font-weight: 800;
+    font-size: 13cqw;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .frase svg { width: 22cqw; margin-bottom: 8cqw; }
+
+  /* ---------- Cena 4: chamada ---------- */
+  .cena-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 9cqw;
+    gap: 8cqw;
+  }
+  .cena-4 .xicara { width: 30cqw; --quando: 16.2s; }
+  .cena-4 h2 {
+    font-family: var(--fonte-titulo);
+    font-weight: 800;
+    font-size: 13cqw;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    --quando: 16.5s;
+  }
+  .arroba {
+    align-self: flex-start;
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 6cqw;
+    padding: 3cqw 7cqw;
+    border-radius: 999px;
+    background: var(--cor-cereja);
+    color: var(--cor-branco);
+    --quando: 17.2s;
+  }
+
+  /* ---------- Aviso fixo no canto ---------- */
+  .aviso {
+    position: absolute;
+    right: 3cqw;
+    bottom: 3cqw;
+    z-index: 5;
+    font-size: 3cqw;
+    color: var(--cor-apoio);
+    background: var(--cor-leite);
+    padding: 1cqw 2.5cqw;
+    border-radius: 999px;
+  }
+
+  /* ---------- Menos movimento ----------
+     Sem grãos caindo, sem barras subindo e sem deslizar:
+     as cenas só trocam com um esmaecer suave, no mesmo tempo. */
+  @media (prefers-reduced-motion: reduce) {
+    .grao { animation: none; top: var(--y, 20cqw); transform: rotate(var(--r0, 0deg)); }
+    .barra { animation: none; }
+    .valor { animation: none; opacity: 1; }
+    .entra { animation-name: esmaece; }
+    .frase { animation-name: frase-calma; }
+  }
+  @keyframes esmaece {
+    0% { opacity: 0; }
+    4%, 100% { opacity: 1; }
+  }
+  @keyframes frase-calma {
+    0% { opacity: 0; }
+    2%, 8.5% { opacity: 1; }
+    10%, 100% { opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Desenho do grão de café, reaproveitado em todos os grãos -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="grao" viewBox="0 0 40 52">
+      <ellipse cx="20" cy="26" rx="18" ry="24" fill="currentColor"/>
+      <path d="M21 4 C12 16, 28 34, 19 48" fill="none" stroke="#F6F1EA" stroke-width="3.2" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<main class="palco" aria-label="Animação de 20 segundos da Torra Viva Cafés Especiais">
+
+  <!-- Cena 1 (0 a 4 s) -->
+  <section class="cena cena-1">
+    <div class="graos" aria-hidden="true">
+      <svg class="grao" viewBox="0 0 40 52" style="--x:6%;  --d:-0.2s; --v:2.4s; --t:8cqw;  --y:14cqw;  --r0:-20deg; color:var(--cor-grao)"><use href="#grao"/></svg>
+      <svg class="grao" viewBox="0 0 40 52" style="--x:22%; --d:-1.4s; --v:2.9s; --t:11cqw; --y:150cqw; --r0:30deg;  color:var(--cor-cereja)"><use href="#grao"/></svg>
+      <svg class="grao" viewBox="0 0 40 52" style="--x:38%; --d:-0.7s; --v:2.2s; --t:7cqw;  --y:30cqw;  --r0:60deg;  color:var(--cor-grao)"><use href="#grao"/></svg>
+      <svg class="grao" viewBox="0 0 40 52" style="--x:55%; --d:-2.0s; --v:3.1s; --t:10cqw; --y:138cqw; --r0:-45deg; color:var(--cor-grao)"><use href="#grao"/></svg>
+      <svg class="grao" viewBox="0 0 40 52" style="--x:70%; --d:-0.4s; --v:2.6s; --t:9cqw;  --y:22cqw;  --r0:15deg;  color:var(--cor-cereja)"><use href="#grao"/></svg>
+      <svg class="grao" viewBox="0 0 40 52" style="--x:84%; --d:-1.7s; --v:2.3s; --t:12cqw; --y:160cqw; --r0:-70deg; color:var(--cor-grao)"><use href="#grao"/></svg>
+      <svg class="grao" viewBox="0 0 40 52" style="--x:12%; --d:-2.4s; --v:3.0s; --t:9cqw;  --y:120cqw; --r0:80deg;  color:var(--cor-grao)"><use href="#grao"/></svg>
+      <svg class="grao" viewBox="0 0 40 52" style="--x:46%; --d:-1.0s; --v:2.7s; --t:8cqw;  --y:168cqw; --r0:-10deg; color:var(--cor-grao)"><use href="#grao"/></svg>
+      <svg class="grao" viewBox="0 0 40 52" style="--x:78%; --d:-2.6s; --v:2.5s; --t:7cqw;  --y:40cqw;  --r0:40deg;  color:var(--cor-grao)"><use href="#grao"/></svg>
+      <svg class="grao" viewBox="0 0 40 52" style="--x:30%; --d:-0.9s; --v:3.2s; --t:10cqw; --y:8cqw;   --r0:-35deg; color:var(--cor-grao)"><use href="#grao"/></svg>
+    </div>
+    <div class="marca">
+      <h1 class="entra" style="--quando:0.2s"><span>Torra</span><span>Viva</span></h1>
+      <span class="selo entra" style="--quando:1.2s">Cafés especiais de Mogi das Cruzes</span>
+    </div>
+  </section>
+
+  <!-- Cena 2 (4 a 10 s): soma das linhas do canal B2B Escritórios em dados/vendas-mensais.csv -->
+  <section class="cena cena-2">
+    <div><span class="selo selo-folha">B2B Escritórios</span></div>
+    <h2>Faturamento por mês em 2026</h2>
+    <p class="legenda">Café todo mês para empresas, de janeiro a setembro</p>
+
+    <div class="grafico" role="img" aria-label="Faturamento do B2B Escritórios em 2026: janeiro R$ 4.011,00; fevereiro R$ 6.153,00; março R$ 8.906,80; abril R$ 13.121,60; maio R$ 14.580,80; junho R$ 15.140,80; julho R$ 16.228,60; agosto R$ 15.665,40; setembro R$ 18.752,40">
+      <div class="coluna"><div class="barra" style="--i:0; --h:21.39%"></div></div>
+      <div class="coluna"><div class="barra" style="--i:1; --h:32.81%"></div></div>
+      <div class="coluna"><div class="barra" style="--i:2; --h:47.50%"></div></div>
+      <div class="coluna"><div class="barra" style="--i:3; --h:69.97%"></div></div>
+      <div class="coluna"><div class="barra" style="--i:4; --h:77.75%"></div></div>
+      <div class="coluna"><div class="barra" style="--i:5; --h:80.74%"></div></div>
+      <div class="coluna"><div class="barra" style="--i:6; --h:86.54%"></div></div>
+      <div class="coluna"><div class="barra" style="--i:7; --h:83.54%"></div></div>
+      <div class="coluna"><div class="barra" style="--i:8; --h:100%"><span class="valor">R$ 18.752</span></div></div>
+    </div>
+    <div class="meses" aria-hidden="true">
+      <span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span><span>ago</span><span>set</span>
+    </div>
+
+    <div class="crescimento entra">
+      <strong>Cresceu mais de 4,6 vezes</strong>
+      <p>De R$ 4.011,00 em janeiro para R$ 18.752,40 em setembro.</p>
+    </div>
+  </section>
+
+  <!-- Cena 3 (10 a 16 s) -->
+  <section class="cena cena-3">
+    <div class="frase">
+      <svg viewBox="0 0 40 52" aria-hidden="true" style="color:var(--cor-bourbon)"><use href="#grao"/></svg>
+      <p>Torrado esta semana</p>
+    </div>
+    <div class="frase">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect x="6" y="12" width="52" height="46" rx="8" fill="#E8B547"/>
+        <rect x="6" y="12" width="52" height="14" rx="7" fill="#F6F1EA"/>
+        <rect x="18" y="4" width="6" height="16" rx="3" fill="#F6F1EA"/>
+        <rect x="40" y="4" width="6" height="16" rx="3" fill="#F6F1EA"/>
+        <circle cx="32" cy="42" r="7" fill="#234B3F"/>
+      </svg>
+      <p>Entregue todo mês</p>
+    </div>
+    <div class="frase">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect x="10" y="4" width="44" height="14" rx="5" fill="#F6F1EA"/>
+        <rect x="14" y="18" width="36" height="34" rx="4" fill="#E8B547"/>
+        <rect x="27" y="22" width="10" height="8" rx="2" fill="#234B3F"/>
+        <rect x="22" y="38" width="20" height="12" rx="3" fill="#F6F1EA"/>
+        <rect x="6" y="52" width="52" height="8" rx="4" fill="#F6F1EA"/>
+      </svg>
+      <p>Máquina emprestada, sem custo</p>
+    </div>
+  </section>
+
+  <!-- Cena 4 (16 a 20 s) -->
+  <section class="cena cena-4">
+    <svg class="xicara entra" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="46" cy="50" r="40" fill="#E6DDD2"/>
+      <circle cx="46" cy="50" r="31" fill="#FFFFFF"/>
+      <circle cx="46" cy="50" r="24" fill="#2B1D14"/>
+      <rect x="82" y="44" width="16" height="12" rx="6" fill="#E6DDD2"/>
+    </svg>
+    <h2 class="entra">Peça o orçamento do seu escritório</h2>
+    <span class="arroba entra">@torraviva.exemplo</span>
+  </section>
+
+  <p class="aviso">dados fictícios de exemplo</p>
+</main>
+
+</body>
+</html>
