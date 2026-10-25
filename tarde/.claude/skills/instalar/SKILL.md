@@ -1,6 +1,6 @@
 ---
 name: instalar
-description: Use quando a pessoa abrir a pasta pela primeira vez ou pedir /instalar. Entrevista o dono em 7 perguntas, grava a memória da empresa e cria o RESULTADO.html (6 min).
+description: Use quando a pessoa abrir a pasta pela primeira vez ou pedir /instalar. Entrevista o dono em 7 perguntas, grava a memória da empresa e cria o RESULTADO.html (6 min). Funciona em qualquer pasta, com ou sem a estrutura do cérebro da empresa.
 ---
 
 # /instalar: a empresa em 7 perguntas
@@ -10,6 +10,8 @@ Primeiro contato da pessoa com a pasta. **Uma pergunta por mensagem, no máximo 
 ## Antes (em silêncio)
 
 - Se `memoria/empresa.md` já tiver conteúdo: perguntar "Já tem memória aqui. Recomeço ou só completo o que falta?" (não conta como pergunta da entrevista).
+- Se existir `.claude/skills/impeccable/scripts/impeccable`: rodar em segundo plano `sh .claude/skills/impeccable/scripts/impeccable engine-probe` (prepara o Impeccable, a skill de design; baixa uns 20 MB uma vez só). No Windows sem `sh`: `.claude\skills\impeccable\scripts\impeccable.cmd engine-probe`. Falhou ou sem internet: seguir sem avisar.
+- **Pasta fora da aula** (sem `memoria/`, `marca/` ou `controle/`): criar só o que falta, com os campos de "Arquivos que esta fase cria", lá embaixo. Não avisar nada no começo.
 
 ## As 7 perguntas (uma por vez, nesta ordem)
 
@@ -34,9 +36,20 @@ Só o que a pessoa disse. Nada inventado, nada completado com suposição.
 | `memoria/empresa.md` | Perguntas 1, 2, 3, 4 e 6 nos campos do arquivo. "Em uma frase": o que vende, para quem, onde |
 | `memoria/numeros.md` | Pergunta 5. Criar o arquivo (ele não vem na pasta, para nunca ir parar no Git) com o título "Números (privado)", os campos Faturamento por mês, Clientes por mês, Ticket médio, Margem, e a seção "O que falta medir". O que faltou: `[não sei ainda]`. **Não calcular** o que o dono não disse (ex.: ticket = faturamento ÷ clientes) |
 | `memoria/foco.md` | Pergunta 7 |
-| `marca/marca.md` | Da pergunta 6, só "Estilo das imagens": o que o dono gosta, o que evita e a referência que admira. Cores e fontes ficam para o `/mapear-empresa` (skill `marca`). Se a pessoa arrastar logo ou print durante a entrevista, salvar em `marca/` e rodar a skill `marca` no fim |
+| `marca/marca.md` | Da pergunta 6, só "Estilo das imagens": o que o dono gosta, o que evita e a referência que admira. Cores e fontes ficam para o `/mapear-empresa` (skill `marca`). Se a pessoa arrastar logo ou print durante a entrevista, salvar em `marca/` e rodar a skill `marca` no fim (se ela existir) |
+
+### Arquivos que esta fase cria (se não existirem)
+
+- `memoria/empresa.md`: `# Empresa` + campos **Nome:**, **Site / Instagram:**, **Onde fica e onde atende:**, **Em uma frase:** + seções `## Produtos e preços`, `## Cliente e como ele chega`, `## Equipe`, `## Site e marca (o que o dono gosta e o que incomoda)`.
+- `memoria/foco.md`: `# Foco de agora` + `## Maior problema hoje`, `## Onde o dono quer estar em 12 meses`, `## Próximas ações`.
+- `memoria/preferencias.md`: `# Preferências` + `## Tom de voz`, `## Frases reais da empresa (exemplo)`, `## O que evitar` (vazias: o `/mapear-empresa` preenche).
+- `marca/marca.md`: `# Marca` + campos **Cor principal:**, **Cor de destaque (botões):**, **Fundo:**, **Texto:**, **Fonte dos títulos:**, **Fonte do texto:**, **Logo:**, **Estilo das imagens:**.
+- `controle/progresso.md`: `# Progresso` + uma linha `- [ ]` por fase: 1 Instalar, 2 Mapear a empresa, 3 Concorrentes, 4 Oferta, 5 Página de vendas, 6 Conteúdo.
+- Pasta com Git: se não houver `.gitignore` com `memoria/numeros.md`, acrescentar essa linha (o número do dono não vai para o Git).
 
 ## Criar o RESULTADO.html
+
+Só se existir `controle/modelo-resultado.html` (a pasta da aula). Sem ele, pular esta parte.
 
 1. Copiar `controle/modelo-resultado.html` para `RESULTADO.html` na raiz da pasta.
 2. Ler `controle/componentes.md` e trocar só estes blocos: `titulo`, `nome`, `capa`, `ficha`, `proximos`, `atualizado`. O bloco `marca` fica com as cores neutras do modelo até o `/mapear-empresa`.
@@ -49,7 +62,7 @@ Só o que a pessoa disse. Nada inventado, nada completado com suposição.
 
 ## Fechar
 
-Marcar a fase em `controle/progresso.md` (`[x]` + data) e responder no formato do `CLAUDE.md`:
+Marcar a fase em `controle/progresso.md` (`[x]` + data) e responder:
 
 ```
 ✓ Memória da empresa → memoria/
@@ -57,5 +70,7 @@ Marcar a fase em `controle/progresso.md` (`[x]` + data) e responder no formato d
 Abri o RESULTADO.html: a capa e a ficha já estão lá.
 Próximo: /mapear-empresa (~10 min)
 ```
+
+Sem RESULTADO.html (pasta fora da aula), a terceira linha vira: "O relatório visual (RESULTADO.html) só existe na pasta da aula; a memória já vale para as próximas conversas." Se a skill `mapear-empresa` não existir na pasta, a última linha vira: "Próximo: peça o que quiser; eu já sei da empresa."
 
 Se a pasta ainda tiver nome genérico (`imersao-tarde` ou `cerebro-da-empresa`), sugerir em 1 linha renomear para o nome da empresa.

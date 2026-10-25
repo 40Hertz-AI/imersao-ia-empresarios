@@ -48,7 +48,7 @@ Quais clientes B2B precisam de atenção (pausados, cancelados ou com nota de sa
 Salve um Google Doc chamado "Resumo Torra Viva" no meu Drive com essas respostas. Escreva no topo "Dados fictícios de exemplo".
 ```
 
-Compare as respostas 1 e 2: o produto que mais vende em unidades não é o que mais fatura.
+Repare na resposta 2: o produto que mais vende em unidades não é o que mais fatura.
 
 ## Plano B: sem Google, lendo os arquivos da pasta
 

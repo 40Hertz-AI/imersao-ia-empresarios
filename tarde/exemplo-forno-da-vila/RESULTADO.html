@@ -272,6 +272,9 @@ tr.nos td{background:var(--banho-destaque);font-weight:700}
 .slide small{font-size:.75rem;opacity:.75}
 .slide.img{padding:0;background:var(--linha)}
 .slide.img img{width:100%;height:100%;object-fit:cover;display:block}
+/* lâmina em HTML: o iframe tem 1080 × 1350 e o script ajusta a escala (--s) à largura do slide */
+.slide.html{padding:0;background:var(--linha);position:relative;overflow:hidden}
+.slide.html iframe{position:absolute;top:0;left:0;width:1080px;height:1350px;border:0;transform-origin:0 0;transform:scale(var(--s,.4));pointer-events:none}
 .post-nav{display:flex;align-items:center;justify-content:space-between;padding:8px 10px}
 .post-nav button{font:inherit;width:34px;height:34px;border-radius:50%;border:1px solid var(--linha);background:var(--fundo);color:var(--texto);cursor:pointer;font-size:1rem;line-height:1}
 .post-nav button:disabled{opacity:.35;cursor:default}
@@ -966,8 +969,11 @@ tr.nos td{background:var(--banho-destaque);font-weight:700}
     box.insertBefore(bar,box.firstChild); box.classList.add('pronto');
   });
 
-  /* 7. Navegador em miniatura: ajusta a escala da página de 1440 px */
-  function escala(){ $$('.navegador .janela').forEach(function(j){ if(j.clientWidth) j.style.setProperty('--s', j.clientWidth/1440); }); }
+  /* 7. Miniaturas: página de 1440 px no navegador e lâminas de 1080 px no carrossel */
+  function escala(){
+    $$('.navegador .janela').forEach(function(j){ if(j.clientWidth) j.style.setProperty('--s', j.clientWidth/1440); });
+    $$('.slide.html').forEach(function(l){ if(l.clientWidth) l.style.setProperty('--s', l.clientWidth/1080); });
+  }
   escala(); window.addEventListener('resize',escala);
 
   /* 8. Carrossel: setas, pontos e contador */

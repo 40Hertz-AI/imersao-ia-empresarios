@@ -1,0 +1,11 @@
+{
+  "telemetry": false,
+  "updateCheck": false,
+  "detector": {
+    "ignoreFiles": [
+      "**/RESULTADO.html",
+      "controle/*.html",
+      "exemplo-forno-da-vila/**"
+    ]
+  }
+}

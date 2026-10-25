@@ -22,9 +22,11 @@
 # O comando é o do aluno, com duas travas para o teste ser limpo e seguro:
 #   --setting-sources project,local  não carrega plugins e skills globais desta máquina (o aluno não tem)
 #   --strict-mcp-config              não liga conectores (Drive, Notion...): o teste nunca escreve em conta real
+# e roda dentro do bwrap, que esconde o resto do disco (/workspace e /tmp): o Claude não acha outra cópia do material.
 set -uo pipefail
 
 REPO=$(cd "$(dirname "$0")/.." && pwd)
+SESSOES="$HOME/.cache/testes-imersao-sessoes"; mkdir -p "$SESSOES"
 area=$1; nome=$2; modo=$3; shift 3
 prompts=(); skills=""; preparar=""; dir=""; limite=2400
 while [ $# -gt 0 ]; do
@@ -37,6 +39,7 @@ while [ $# -gt 0 ]; do
   esac
 done
 
+novo=0; [ -z "$dir" ] && novo=1
 if [ "$modo" = aula ]; then
   prova="$REPO/testes/$area/$nome"
   [ -n "$dir" ] || dir="/tmp/teste-$area-$nome"
@@ -44,6 +47,8 @@ else
   prova="$REPO/testes/pasta-vazia/$area-$nome"
   [ -n "$dir" ] || dir="/tmp/vazia-$area-$nome"
 fi
+# sem --dir, o teste sempre começa numa pasta nova (nunca reaproveita resto de teste anterior)
+[ "$novo" = 1 ] && rm -rf "$dir"
 
 if [ ! -d "$dir" ]; then
   mkdir -p "$dir"
@@ -81,7 +86,10 @@ for p in "${prompts[@]}"; do
     echo "════════ resposta do Claude ════════"
   } >> "$prova/transcricao.txt"
   t0=$(date +%s)
-  env -u ANTHROPIC_API_KEY -u CLAUDE_CODE_OAUTH_TOKEN timeout "$limite" \
+  # bwrap: o Claude só enxerga a pasta do teste; o repositório (/workspace) e as outras pastas de teste (/tmp) somem
+  bwrap --dev-bind / / --tmpfs /workspace --tmpfs /tmp --bind "$dir" "$dir" \
+    --bind "$SESSOES" "$HOME/.claude/projects" --chdir "$dir" \
+    env -u ANTHROPIC_API_KEY -u CLAUDE_CODE_OAUTH_TOKEN timeout "$limite" \
     claude -p "$(cat "$p")" "${cont[@]}" --model opus --dangerously-skip-permissions --output-format text \
     --setting-sources project,local --strict-mcp-config \
     >> "$prova/transcricao.txt" 2>> "$prova/erros.txt"

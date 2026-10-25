@@ -7,4 +7,9 @@
 - [ ] 3 · Concorrentes · `/mapear-concorrentes` → `pesquisa/concorrentes.md`
 - [ ] 4 · Oferta · `/criar-oferta` → `entregas/oferta.md`
 - [ ] 5 · Página de vendas · `/criar-pagina` → `entregas/pagina-de-vendas.html`
-- [ ] 6 · Conteúdo · `/criar-conteudo` → `entregas/conteudo.md`
+- [ ] 6 · Conteúdo · `/criar-conteudo` → `entregas/conteudo.md` + `entregas/posts/carrossel-1.html`, `post-1.html`, `post-2.html` (só HTML)
+
+## Extras (fora da contagem das 6 fases)
+
+- [ ] Mapa do seu trabalho · `/sobre-mim` → `memoria/sobre-mim.md`
+- [ ] Automações · `/sugerir-automacoes` → `entregas/sugestoes.md`

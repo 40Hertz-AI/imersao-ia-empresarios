@@ -1,11 +1,13 @@
 ---
 name: marca
-description: Use quando pedirem /marca, quando a pessoa mandar print, logo ou site da empresa, ou antes de gerar qualquer HTML ou post se marca/marca.md estiver vazio. Monta o design system da empresa (cores, fontes, logo, tom) a partir do site, do Instagram ou de um print (4 min).
+description: Use quando pedirem /marca, quando a pessoa mandar print, logo ou site da empresa, ou antes de gerar qualquer HTML ou post se marca/marca.md estiver vazio. Monta o design system da empresa (cores, fontes, logo, tom) a partir do site, do Instagram ou de um print (4 min). Funciona em qualquer pasta.
 ---
 
 # /marca: o design system da empresa
 
 Tudo o que a IA desenha (relatório, página, formulário, posts) lê `marca/marca.md`. Esta skill preenche esse arquivo **com o que a empresa já usa**, não com gosto da IA. Roda sozinha (`/marca`) ou dentro do `/mapear-empresa`, `/criar-pagina` e `/criar-conteudo` quando a marca estiver vazia.
+
+**Pasta fora da aula:** sem `marca/marca.md`, criar com os campos Cor principal, Cor de destaque (botões), Fundo, Texto, Fonte dos títulos, Fonte do texto, Logo e Estilo das imagens. Sem `memoria/empresa.md` e sem site, print ou logo na conversa: perguntar uma vez "De qual empresa é a marca? Me passe o site, o @ do Instagram ou arraste um print ou o logo." Sem `RESULTADO.html`: pular o passo 4.
 
 ## 1. Achar a fonte da marca (nesta ordem, para no primeiro que der)
 
@@ -42,7 +44,7 @@ Tudo o que a IA desenha (relatório, página, formulário, posts) lê `marca/mar
 
 ## 4. Atualizar o RESULTADO.html
 
-Trocar os blocos `marca` (Google Fonts + `:root` com as 6 variáveis), `identidade`, `proximos` e `atualizado`, seguindo `controle/componentes.md`. O bloco `identidade` usa `.paleta` (um `.cor` por cor) e `.tipos`, a seção "Como a empresa fala" e um `.bastidor` contando de onde veio a marca.
+Se existir. Trocar os blocos `marca` (Google Fonts + `:root` com as 6 variáveis), `identidade`, `proximos` e `atualizado`, seguindo `controle/componentes.md`. O bloco `identidade` usa `.paleta` (um `.cor` por cor) e `.tipos`, a seção "Como a empresa fala" e um `.bastidor` contando de onde veio a marca.
 
 ## Fechar
 
@@ -52,3 +54,5 @@ Trocar os blocos `marca` (Google Fonts + `:root` com as 6 variáveis), `identida
 Atualize o RESULTADO.html: o relatório já está com as cores da empresa.
 Próximo: /mapear-empresa (~10 min) · ou /criar-pagina, que já vai sair com a marca
 ```
+
+Sem RESULTADO.html, omitir a terceira linha. No "Próximo", citar só os comandos que existem em `.claude/skills/`.
