@@ -21,7 +21,7 @@ description: Use após o /criar-oferta ou quando pedirem /criar-pagina, página 
 
 Bloco a bloco, na linguagem do cliente (`pesquisa/cliente.md`), nunca com as palavras a evitar:
 1. **Topo:** 3 títulos (dor, resultado, mecanismo), até 12 palavras cada. Escolher 1 e dizer por quê. Subtítulo e botão.
-2. **Problema:** a dor nº 1 com a frase real do cliente.
+2. **Problema:** a dor nº 1 com a frase real do cliente e a fonte. Frase marcada `(inferida)` em `pesquisa/cliente.md` **não vira citação**: sem aspas e sem "o que a gente ouve"; escrever como pergunta ou descrição da cena (ex.: "Acabou o café da copa de novo?").
 3. **Como funciona:** o mecanismo, etapa por etapa.
 4. **O que vai / planos:** o que o cliente leva, por tamanho ou plano. Preço só o que o dono deu.
 5. **Provas:** só as que existem (nota no Google, clientes, anos de mercado). Sem prova: bloco fora. **Nunca inventar depoimento.**

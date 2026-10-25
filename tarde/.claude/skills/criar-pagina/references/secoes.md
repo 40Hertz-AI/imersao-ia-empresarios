@@ -6,7 +6,7 @@ Ordem sugerida. Seção sem conteúdo real some (sem prova → sem bloco de prov
 |---|---|---|
 | Cabeçalho | Nome ou logo, 3–4 links âncora, botão do pedido | Fixo e discreto; ganha fundo ao rolar |
 | Topo | Título escolhido, subtítulo, botão, 1 elemento visual com significado (ex.: o mecanismo desenhando-se, um relógio do prazo, o produto em SVG) | O único momento de abertura orquestrado da página |
-| Problema | A frase real do cliente, grande, com a fonte | Nenhuma: frase parada tem mais força |
+| Problema | A frase real do cliente, grande, com a fonte (frase `(inferida)` vira pergunta, sem aspas) | Nenhuma: frase parada tem mais força |
 | Como funciona | As etapas do mecanismo numa linha do tempo | Etapas acendem uma a uma quando entram na tela; clicar numa etapa abre o detalhe |
 | O que vai / planos | Tamanhos ou planos lado a lado | Seletor (abas ou controle de quantidade de pessoas/itens) que destaca o plano indicado. Sem inventar preço por plano |
 | Provas | Nota no Google, nº de avaliações, anos, clientes | Número conta até o valor quando aparece |
