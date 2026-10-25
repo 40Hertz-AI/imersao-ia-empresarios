@@ -7,7 +7,7 @@ Trabalho feito em 25/10/2026 para a turma de terça, 27/10. Base: `origin/main` 
 - **Manhã:** a Lanchonete Bom Pedaço saiu; entrou a **Torra Viva Cafés Especiais** (fictícia) numa trilha de **8 passos**, cada um com `passos/0N-.../INSTRUCOES.md` (o que fazer, prompt pronto, resultado esperado, plano B) e `gabarito/0N-.../` gerado de verdade pelos testes. Dados fictícios em `manha/dados/` (4 CSV + `.xlsx` + políticas de atendimento), mockup próprio para o design system, `progresso.md`, README para iniciante (Windows e Mac).
 - **Tarde:** Impeccable dentro da pasta, sem plugin (skill, 4 agentes, hooks, licença, telemetria desligada); `/criar-conteudo` só em HTML (carrossel + 2 posts, sem PNG nem Playwright) e o exemplo Forno da Vila refeito com ele; skills novas `/sobre-mim` e `/sugerir-automacoes`; todas as skills funcionam fora da pasta da aula.
 - **Testes:** `testes/` com harness, prompts, provas de cada passo e skill (pasta da aula e pasta vazia), verificadores automáticos e `testes/RESULTADOS.md`.
-- **ZIPs** regerados em `site/downloads/` por um script novo (`scripts/gerar-zips.sh`). Dois textos do portal que falavam da lanchonete foram trocados (só texto; datas e trava não mexi).
+- **ZIPs** regerados em `site/downloads/` por um script novo (`scripts/gerar-zips.py`, a partir do `git archive`, sem `testes/`): `imersao-manha.zip` (54 arquivos, sha256 `e8371dff45ba29f5…`) e `imersao-tarde.zip` (117 arquivos, sha256 `42e47db4532cf3ce…`). Dois textos do portal que falavam da lanchonete foram trocados (só texto; datas e trava não mexi).
 
 ## Árvore das duas pastas
 
@@ -16,13 +16,160 @@ Trabalho feito em 25/10/2026 para a turma de terça, 27/10. Base: `origin/main` 
 ### manha/
 
 ```
-ARVORE_MANHA
+manha
+├── .claude
+│   └── skills
+│       ├── eli5
+│       ├── find-skills
+│       ├── frontend-design
+│       ├── grill-me
+│       ├── grilling
+│       └── humanizer
+├── .gitignore
+├── AGENTS.md
+├── CLAUDE.md
+├── README.md
+├── dados
+│   ├── LEIA-ME.md
+│   ├── clientes-b2b.csv
+│   ├── orcamento.csv
+│   ├── politicas-atendimento.md
+│   ├── produtos.csv
+│   ├── torra-viva.xlsx
+│   └── vendas-mensais.csv
+├── gabarito
+│   ├── 01-abrir-a-pasta
+│   │   └── resposta.md
+│   ├── 02-google-drive-e-planilhas
+│   │   ├── conversa.md
+│   │   ├── respostas-certas.md
+│   │   └── resumo-vendas.md
+│   ├── 03-prompts-que-funcionam
+│   │   ├── exemplo-1-sem-contexto.md
+│   │   ├── exemplo-1.md
+│   │   ├── exemplo-2.md
+│   │   ├── exemplo-3.md
+│   │   └── exemplo-4.md
+│   ├── 04-usar-uma-skill-pronta
+│   │   ├── eli5-margem-de-contribuicao.md
+│   │   └── eli5-orcamento-csv.md
+│   ├── 05-criar-uma-skill
+│   │   ├── exemplo-de-uso.md
+│   │   └── resposta-cliente
+│   ├── 06-design-system
+│   │   └── design-system.md
+│   ├── 07-paginas-web
+│   │   ├── apresentacao.html
+│   │   ├── calculadora-orcamento.html
+│   │   └── dashboard-vendas.html
+│   ├── 08-claude-motion
+│   │   ├── LEIA-ME.md
+│   │   └── animacao-torra-viva.html
+│   └── LEIA-ME.md
+├── meu-trabalho
+│   └── LEIA-ME.md
+├── passos
+│   ├── 01-abrir-a-pasta
+│   │   └── INSTRUCOES.md
+│   ├── 02-google-drive-e-planilhas
+│   │   └── INSTRUCOES.md
+│   ├── 03-prompts-que-funcionam
+│   │   └── INSTRUCOES.md
+│   ├── 04-usar-uma-skill-pronta
+│   │   └── INSTRUCOES.md
+│   ├── 05-criar-uma-skill
+│   │   ├── INSTRUCOES.md
+│   │   └── mensagens-de-clientes.md
+│   ├── 06-design-system
+│   │   ├── INSTRUCOES.md
+│   │   └── referencia-design.png
+│   ├── 07-paginas-web
+│   │   └── INSTRUCOES.md
+│   └── 08-claude-motion
+│       └── INSTRUCOES.md
+└── progresso.md
+
+29 directories, 42 files
 ```
 
 ### tarde/
 
 ```
-ARVORE_TARDE
+tarde
+├── .claude
+│   ├── agents
+│   │   ├── impeccable-asset-producer.md
+│   │   ├── impeccable-documenter.md
+│   │   ├── impeccable-finish-reviewer.md
+│   │   └── impeccable-manual-edit-applier.md
+│   ├── settings.json
+│   └── skills
+│       ├── criar-conteudo
+│       ├── criar-oferta
+│       ├── criar-pagina
+│       ├── frontend-design
+│       ├── impeccable
+│       ├── instalar
+│       ├── mapear-concorrentes
+│       ├── mapear-empresa
+│       ├── marca
+│       ├── sobre-mim
+│       └── sugerir-automacoes
+├── .gitignore
+├── .impeccable
+│   └── config.json
+├── AGENTS.md
+├── CLAUDE.md
+├── README.md
+├── controle
+│   ├── componentes.md
+│   ├── modelo-resultado.html
+│   └── progresso.md
+├── dados
+│   └── README.md
+├── entregas
+│   └── README.md
+├── exemplo-forno-da-vila
+│   ├── LEIA-ME.md
+│   ├── RESULTADO.html
+│   ├── controle
+│   │   └── progresso.md
+│   ├── entregas
+│   │   ├── README.md
+│   │   ├── conteudo.md
+│   │   ├── formulario.html
+│   │   ├── oferta.md
+│   │   ├── pagina-de-vendas.html
+│   │   ├── pagina-de-vendas.md
+│   │   └── posts
+│   ├── marca
+│   │   └── marca.md
+│   ├── memoria
+│   │   ├── empresa.md
+│   │   ├── foco.md
+│   │   ├── numeros.md
+│   │   └── preferencias.md
+│   └── pesquisa
+│       ├── README.md
+│       ├── cliente.md
+│       ├── concorrentes.md
+│       ├── diagnostico.md
+│       ├── empresa.md
+│       └── mercado.md
+├── licencas
+│   └── impeccable
+│       ├── LICENSE
+│       └── NOTICE.md
+├── marca
+│   └── marca.md
+├── memoria
+│   ├── empresa.md
+│   ├── foco.md
+│   └── preferencias.md
+└── pesquisa
+    └── README.md
+
+30 directories, 42 files
 ```
 
 ## Decisões (simples, tomadas sem as Pages de especificação)
