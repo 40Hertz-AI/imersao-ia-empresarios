@@ -1,6 +1,6 @@
 # Guia do Claude Code · Imersão IA para empresários
 
-> Material da imersão de 29/09/2026 (Mogi das Cruzes - SP), com Lucas Santana.
+> Material da imersão de 27/10/2026 (Mogi das Cruzes - SP), com Lucas Santana.
 > Versão 1 · 30/09/2026. Os fatos técnicos foram conferidos na documentação oficial do Claude Code (https://code.claude.com/docs) nessa data. O Claude Code muda rápido: se algo daqui não bater com a sua tela, vale o que está na documentação.
 
 ---

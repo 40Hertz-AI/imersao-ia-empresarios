@@ -4,9 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Portal do aluno · IA para empresários</title>
-<meta name="description" content="Portal do aluno da imersão IA para empresários, com Lucas Santana. 29 de setembro, Mogi das Cruzes - SP." />
+<meta name="description" content="Portal do aluno da imersão IA para empresários, com Lucas Santana. 27 de outubro, Mogi das Cruzes - SP." />
 <meta property="og:title" content="Portal do aluno · IA para empresários" />
-<meta property="og:description" content="Instalação, materiais e o que você vai fazer na imersão. 29 de setembro, Mogi das Cruzes - SP." />
+<meta property="og:description" content="Instalação, materiais e o que você vai fazer na imersão. 27 de outubro, Mogi das Cruzes - SP." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;700&family=Inter+Tight:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -425,7 +425,7 @@
 <div id="porta">
   <div class="porta-topo"><div class="dentro"><b>IA para empresários</b><span class="rotulo">Portal do aluno</span></div></div>
   <div class="porta">
-    <span class="rotulo">29 de setembro · Mogi das Cruzes - SP</span>
+    <span class="rotulo">27 de outubro · Mogi das Cruzes - SP</span>
     <h1>Antes de entrar, conte um pouco sobre você.</h1>
     <p class="lead">São uns 3 minutos. Com as respostas, a aula chega mais perto do que a sua empresa precisa. Depois disso o portal abre com o vídeo, a instalação e os materiais.</p>
 
@@ -586,7 +586,7 @@
     <a href="#video"><svg class="i"><use href="#i-play"/></svg>Vídeo da instalação</a>
     <a href="#materiais"><svg class="i"><use href="#i-pasta"/></svg>Materiais</a>
     <a href="#links"><svg class="i"><use href="#i-link"/></svg>Links úteis</a>
-    <a href="#aula"><svg class="i"><use href="#i-livro"/></svg>A aula<span class="tag">29/09</span></a>
+    <a href="#aula"><svg class="i"><use href="#i-livro"/></svg>A aula<span class="tag">27/10</span></a>
     <a href="#instalar"><svg class="i"><use href="#i-terminal"/></svg>Instalação<span class="tag agora">Agora</span></a>
     <a href="#checklist"><svg class="i"><use href="#i-check-lista"/></svg>Checklist</a>
     <a href="#ajuda"><svg class="i"><use href="#i-ajuda"/></svg>Ajuda</a>
@@ -634,7 +634,7 @@
     </svg>
     <div class="conteudo">
       <div>
-        <span class="pilula-data"><svg class="i"><use href="#i-calendario"/></svg>29 de setembro · Mogi das Cruzes - SP</span>
+        <span class="pilula-data"><svg class="i"><use href="#i-calendario"/></svg>27 de outubro · Mogi das Cruzes - SP</span>
         <h1>Do chat ao agente que <span class="amarelo">trabalha pela sua empresa.</span></h1>
         <p>Um dia inteiro, com notebook, aprendendo a usar o Claude Code na prática. Tudo o que você precisa antes, durante e depois da aula está aqui.</p>
       </div>
@@ -715,7 +715,7 @@
             <span class="rotulo">Presencial</span>
           </div>
           <h3>Mogi das Cruzes - SP</h3>
-          <p>29 de setembro. Traga o notebook carregado e o carregador.</p>
+          <p>27 de outubro. Traga o notebook carregado e o carregador.</p>
           <div class="acoes"><a class="link-texto" href="https://www.google.com/maps/search/?api=1&query=Mogi+das+Cruzes+SP" target="_blank" rel="noopener">Abrir no mapa <svg class="i"><use href="#i-externo"/></svg></a></div>
         </div>
 
@@ -996,7 +996,7 @@ git --version</pre><button type="button">Copiar</button></div>
 
     <section id="av-survey">
       <div class="av-intro">
-        <span class="av-eyebrow">Turma de 29 de setembro</span>
+        <span class="av-eyebrow">Turma de 27 de outubro</span>
         <h1 id="aval-titulo">Como foi sua experiência na Imersão?</h1>
         <p>Queremos que a próxima turma seja melhor que essa, e para isso precisamos da sua opinião sincera, <b>principalmente do que não funcionou</b>. São 9 perguntas, leva uns 2 minutos. Ao enviar, você libera <b>a apresentação em PDF e o guia do Claude Code</b>.</p>
       </div>
@@ -1115,32 +1115,39 @@ git --version</pre><button type="button">Copiar</button></div>
 
 <script>
 (function(){
-  // Contagem até 29/09/2026 (horário de Brasília)
+  // ---------- DATAS DA TURMA (horário de Brasília) ----------
+  // DIA_AULA: dia da aula (contagem regressiva).
+  // LIBERA_EM: a partir deste dia (00:00 de Brasília) abrem a avaliação e os downloads.
+  // Para liberar antes, troque LIBERA_EM aqui E em site/middleware.js (que bloqueia /downloads no servidor).
+  var DIA_AULA = '2026-10-27', LIBERA_EM = '2026-10-28', LIBERA_TXT = '28/10';
   var agora = new Date();
   var hojeBR = new Date(agora.toLocaleString('en-US',{timeZone:'America/Sao_Paulo'}));
   var hoje0 = new Date(hojeBR.getFullYear(), hojeBR.getMonth(), hojeBR.getDate());
-  var dia0 = new Date(2026, 8, 29);
+  function dataBR(iso){ var p = iso.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  var dia0 = dataBR(DIA_AULA);
+  var liberado = hoje0 >= dataBR(LIBERA_EM);
   var faltam = Math.round((dia0 - hoje0) / 86400000);
   var rot = document.getElementById('cont-rotulo'), num = document.getElementById('cont-num');
   var unid = document.getElementById('cont-unid');
-  if (faltam > 0) {
+  if (!liberado) {
     document.querySelectorAll('[data-download]').forEach(function(el){
       el.removeAttribute('href'); el.removeAttribute('download'); el.setAttribute('aria-disabled','true');
-      if (el.classList.contains('item')) { el.classList.add('trancado'); var st = el.querySelector('.seta'); if (st) st.outerHTML = '<span class="quando">29/09 <svg class="i" style="width:14px;height:14px"><use href="#i-cadeado"/></svg></span>'; }
-      else { el.classList.remove('amarelo'); el.style.pointerEvents = 'none'; el.firstChild.textContent = 'Libera no dia 29/09 '; var u = el.querySelector('use'); if (u) u.setAttribute('href', '#i-cadeado'); }
+      if (el.classList.contains('item')) { el.classList.add('trancado'); var st = el.querySelector('.seta'); if (st) st.outerHTML = '<span class="quando">' + LIBERA_TXT + ' <svg class="i" style="width:14px;height:14px"><use href="#i-cadeado"/></svg></span>'; }
+      else { el.classList.remove('amarelo'); el.style.pointerEvents = 'none'; el.firstChild.textContent = 'Libera no dia ' + LIBERA_TXT + ' '; var u = el.querySelector('use'); if (u) u.setAttribute('href', '#i-cadeado'); }
     });
-    document.querySelectorAll('[data-libera]').forEach(function(el){ el.className = 'selo s-meta'; el.textContent = 'Libera no dia 29/09'; });
+    document.querySelectorAll('[data-libera]').forEach(function(el){ el.className = 'selo s-meta'; el.textContent = 'Libera no dia ' + LIBERA_TXT; });
+    document.querySelectorAll('a[href^="/downloads/"]').forEach(function(el){ el.removeAttribute('href'); el.removeAttribute('download'); el.setAttribute('aria-disabled','true'); el.title = 'Libera no dia ' + LIBERA_TXT; });
   }
   if (faltam > 1) { rot.textContent = 'Faltam'; num.textContent = faltam; unid.textContent = 'dias'; }
   else if (faltam === 1) { rot.textContent = 'Falta'; num.textContent = '1'; unid.textContent = 'dia'; }
   else if (faltam === 0) {
     rot.textContent = 'Acontecendo'; num.textContent = 'Hoje';
-    document.getElementById('aviso-titulo').textContent = 'É hoje. Baixe as duas pastas.';
-    document.getElementById('aviso-texto').textContent = 'Manhã e tarde têm uma pasta cada, com as skills dentro e o guia com os textos para colar.';
-    var b = document.getElementById('aviso-btn'); b.href = '#materiais';
-    b.firstChild.textContent = 'Baixar as pastas ';
+    document.getElementById('aviso-titulo').textContent = 'É hoje. Nos vemos na aula.';
+    document.getElementById('aviso-texto').textContent = 'Traga o notebook com tudo instalado. Os materiais liberam aqui no dia ' + LIBERA_TXT + '.';
+    var b = document.getElementById('aviso-btn'); b.href = '#instalar';
+    b.firstChild.textContent = 'Conferir a instalação ';
   } else {
-    rot.textContent = 'Aconteceu em'; num.textContent = '29/09';
+    rot.textContent = 'Aconteceu em'; num.textContent = DIA_AULA.slice(8,10) + '/' + DIA_AULA.slice(5,7);
     document.getElementById('aviso-titulo').textContent = 'Obrigado por participar.';
     document.getElementById('aviso-texto').textContent = 'Os materiais continuam aqui. Refaça os exercícios quando quiser.';
     var b2 = document.getElementById('aviso-btn'); b2.href = '#materiais'; b2.firstChild.textContent = 'Ver os materiais ';
@@ -1315,7 +1322,7 @@ git --version</pre><button type="button">Copiar</button></div>
     var CHAVE_AVAL = 'portal-avaliou';
     var ARQ_PDF = '/downloads/apresentacao-imersao-ia.pdf';
     var ARQ_GUIA = '/downloads/guia-claude-code-imersao.md';
-    var TURMA = '2026-09-29';
+    var TURMA = DIA_AULA;
     var PESQUISA_API = 'https://pesquisa-ia-para-empresarios.vercel.app/api/resposta';
     var BLOCOS = [
       ['mapa-ia', 'O mapa da IA', 'Manhã · os tipos de IA e onde cada um se aplica'],
@@ -1329,7 +1336,7 @@ git --version</pre><button type="button">Copiar</button></div>
     var bar = document.getElementById('av-bar'), msg = document.getElementById('aval-msg');
     var btn = document.getElementById('aval-btn'), motivo = document.getElementById('av-motivo');
     var ultimoFoco = null;
-    var depoisDaAula = faltam < 0;
+    var depoisDaAula = liberado;
 
     // escala 0–10
     var scale = document.getElementById('av-scale');
