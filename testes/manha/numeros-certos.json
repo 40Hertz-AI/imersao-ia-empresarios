@@ -1,0 +1,45 @@
+{
+ "faturamento_total": 765578.4,
+ "lucro_total": 445207.3,
+ "melhor_mes": "2026-08",
+ "pior_mes": "2026-02",
+ "fat_mes": {
+  "2026-01": 59494.0,
+  "2026-02": 56095.0,
+  "2026-03": 70356.8,
+  "2026-04": 77616.6,
+  "2026-05": 93928.8,
+  "2026-06": 90838.8,
+  "2026-07": 98464.6,
+  "2026-08": 113768.4,
+  "2026-09": 105015.4
+ },
+ "top_faturamento": "Clube Torra Viva (assinatura mensal, 2 × 250 g)",
+ "top_unidades": "Mantiqueira Clássico 250 g",
+ "canal_mais_cresceu": "B2B Escritórios",
+ "crescimento_pct": {
+  "Loja online": 57.2,
+  "Assinatura": 64.6,
+  "Cafeterias parceiras": 39.7,
+  "B2B Escritórios": 367.5
+ },
+ "b2b_mes": {
+  "2026-01": 4011.0,
+  "2026-02": 6153.0,
+  "2026-03": 8906.8,
+  "2026-04": 13121.6,
+  "2026-05": 14580.8,
+  "2026-06": 15140.8,
+  "2026-07": 16228.6,
+  "2026-08": 15665.4,
+  "2026-09": 18752.4
+ },
+ "clientes_ativos_set": 12,
+ "top5_produtos": [
+  "Clube Torra Viva (assinatura mensal, 2 × 250 g)",
+  "Mantiqueira Clássico 250 g",
+  "Espresso da Casa 1 kg",
+  "Mantiqueira Clássico 1 kg",
+  "Cerrado Doce 250 g"
+ ]
+}

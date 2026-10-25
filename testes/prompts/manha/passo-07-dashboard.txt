@@ -1,0 +1,3 @@
+Crie meu-trabalho/dashboard-vendas.html: um painel das vendas da Torra Viva de janeiro a setembro de 2026, num arquivo só, com os dados de dados/vendas-mensais.csv e dados/clientes-b2b.csv embutidos no próprio HTML (para abrir sem internet).
+Mostre: 4 números grandes (faturamento total, lucro bruto, melhor mês e clientes B2B ativos em setembro), um gráfico de faturamento por mês, um gráfico por canal, a tabela dos 5 produtos que mais faturaram e um filtro por canal que atualiza tudo.
+Desenhe os gráficos com SVG, sem biblioteca de fora. Use meu-trabalho/design-system.md e a skill frontend-design. Escreva "Dados fictícios de exemplo" no topo.

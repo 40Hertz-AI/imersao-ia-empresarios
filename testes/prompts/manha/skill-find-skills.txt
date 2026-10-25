@@ -1,0 +1,1 @@
+/find-skills Quero uma skill que crie apresentações em PowerPoint (.pptx). Procure e me diga as 3 melhores opções, com quem fez e quantas instalações. Não instale nada.

@@ -1,0 +1,4 @@
+Papel: você é a Marina, que vende o plano de café para escritórios da Torra Viva.
+Contexto: o plano tem entrega todo mês, máquina em comodato (emprestada, sem custo) a partir de 8 kg por mês e café a partir de R$ 98 o kg. O contato é o Paulo, sócio de um escritório de contabilidade com 20 funcionários que hoje compra café no supermercado. Ele foi indicado pela Contábil Horizonte, que já é nossa cliente.
+Tarefa: escreva a primeira mensagem de WhatsApp para o Paulo.
+Formato: até 60 palavras, sem preço, sem "Prezado", citando a indicação e terminando com uma pergunta fácil de responder.

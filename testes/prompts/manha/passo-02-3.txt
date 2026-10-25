@@ -1,0 +1,1 @@
+Qual mês vendeu mais e qual vendeu menos? Mostre o faturamento de cada um.
