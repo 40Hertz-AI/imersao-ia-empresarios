@@ -1,0 +1,28 @@
+════════ mensagem 1 do aluno ════════
+/instalar
+
+Responda você mesmo, como se fosse o aluno Jorge, dono da empresa, a cada pergunta da entrevista, usando só estas respostas (vá até o fim, sem esperar por mim):
+1) Padaria Trigo Azul (empresa fictícia de teste, sem site e sem Instagram), Campinas (SP). Atende só o bairro Cambuí e arredores.
+2) Pão de fermentação natural, R$ 24; café da manhã para empresas, R$ 35 por pessoa; bolo inteiro, R$ 70.
+3) Moradores do bairro, que passam na frente ou chegam por indicação. As empresas pedem pelo WhatsApp.
+4) 6 pessoas: eu (Jorge, dono, cuido do caixa e das compras), 2 padeiros, 2 no balcão e 1 entregador.
+5) Uns R$ 60 mil por mês, uns 2 mil clientes. Margem não sei.
+6) Não tenho site e o Instagram está parado. Admiro o visual da Casa Bauducco.
+7) O maior problema é vender pouco à tarde. Em 12 meses, quero 10 empresas fixas no café da manhã.
+
+════════ resposta do Claude ════════
+```
+✓ Memória da empresa → memoria/
+Vende pão de fermentação natural (R$ 24), café da manhã para empresas (R$ 35/pessoa) e bolo inteiro (R$ 70)
+Para moradores do Cambuí, em Campinas (SP), que chegam por indicação ou passando na frente; as empresas pedem pelo WhatsApp
+Problema nº 1: vende pouco à tarde (meta: 10 empresas fixas no café da manhã em 12 meses)
+O relatório visual (RESULTADO.html) só existe na pasta da aula; a memória já vale para as próximas conversas.
+Próximo: peça o que quiser; eu já sei da empresa.
+```
+
+Algumas observações:
+- Os números ficaram só em `memoria/numeros.md`. Ticket médio e margem estão marcados `[não sei ainda]`, sem cálculo meu. Esta pasta não tem Git, então não criei `.gitignore`.
+- A empresa não tem site nem Instagram. Quando houver a fase de mapeamento, a pesquisa vai ser feita pelo nome e pela cidade.
+- Em `marca/marca.md` só preenchi o estilo das imagens, com a referência à Casa Bauducco. Cores e fontes ficaram em branco.
+- Como esta pasta não é a da aula, criei a estrutura do zero: `memoria/`, `marca/` e `controle/`. A fase 1 está marcada como feita em `controle/progresso.md`.
+

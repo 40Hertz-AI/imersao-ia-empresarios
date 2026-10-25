@@ -1,0 +1,6 @@
+pasta: /tmp/vazia-tarde-mapear-empresa
+modo: vazia · skills na pasta vazia: mapear-empresa
+claude: 2.1.309 (Claude Code)
+início: 2026-10-25T16:36:16-03:00
+mensagem 1: saída 0 em 1236 s
+fim: 2026-10-25T16:56:52-03:00 · total 1236 s

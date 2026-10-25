@@ -1,0 +1,23 @@
+════════ mensagem 1 do aluno ════════
+/mapear-concorrentes
+
+(Se a skill fizer alguma pergunta, responda você mesmo como se fosse o aluno Jorge, sem esperar por mim, usando só isto: Padaria Trigo Azul, empresa fictícia de teste, sem site e sem Instagram, em Campinas (SP), bairro Cambuí. Vende pão de fermentação natural (R$ 24), café da manhã para empresas (R$ 35 por pessoa) e bolo inteiro (R$ 70). Clientes: moradores do bairro e escritórios da região. WhatsApp (19) 90000-0000, fictício. Para pedir o café da manhã, o cliente informa a data, o número de pessoas e o endereço. Tom: simpático e direto, trata o cliente por você. Maior problema: vende pouco à tarde. A objeção que mais ouve: 'é caro'. Quer vender mais café da manhã para empresas. Concorrentes que conhece: as padarias grandes do bairro. Não tem logo nem marca definida.)
+
+════════ resposta do Claude ════════
+Respondi as perguntas da skill no lugar do Jorge, com os dados da Padaria Trigo Azul, e gravei tudo em `memoria/empresa.md`. A pasta não tinha `pesquisa/`, `RESULTADO.html` nem `controle/`. Por isso não montei o relatório nem marquei o progresso, e as dores dos clientes no mapa são suposições minhas.
+
+```
+✓ Concorrentes → pesquisa/concorrentes.md
+Mais forte: Romana Cambuí. É a única do bairro que já vende coffee break para empresas, mas só a partir de 20 pessoas e com 24h de antecedência.
+Espaço vazio nº 1: café da manhã de pão de fermentação natural para equipes de 6 a 19 pessoas, com preço por pessoa à vista e pedido em 3 dados pelo WhatsApp.
+O mapa completo está em pesquisa/concorrentes.md.
+Falta confirmar: se os pacotes de coffee break da Romana continuam valendo (a página tem mais de 2 anos e o site estava fora do ar); as notas no Google da 380 e da Craft Bakery; quais concorrentes postaram no Instagram nos últimos 30 dias (não consegui abrir o Instagram, então esse ponto ficou fora da nota de todos); o que os clientes da Trigo Azul realmente reclamam.
+Próximo: nesta pasta não há outro comando instalado. O /mapear-empresa e o /criar-oferta deixariam este mapa mais preciso.
+```
+
+Concorrentes analisados: Pão do Cambuí, Romana, 380 Padaria, Craft Bakery, Adélia Boulangerie e Rede Alimentare. Tirei da lista a Casca Grossa, que aparecia nas buscas por pão de fermentação natural, porque o Instagram dela avisa que a padaria fechou.
+
+A força digital vai de 1 a 5. Os mais fortes são Pão do Cambuí e Rede Alimentare, com 4. A Trigo Azul ficou com 0, porque ninguém a encontra pela internet.
+
+Para o "é caro", a ideia mais útil é explicar o pão, como faz a Adélia (farinha e 12 horas de fermentação). A segunda é mostrar o preço por pacote, "R$ 35 por pessoa, tudo incluso", já que nenhum concorrente publica esse preço. O café da tarde para escritórios também ficou sem dono e ocupa o horário mais fraco da padaria.
+

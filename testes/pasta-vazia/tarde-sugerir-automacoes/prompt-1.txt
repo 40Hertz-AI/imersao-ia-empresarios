@@ -1,0 +1,3 @@
+/sugerir-automacoes
+
+(Se perguntar se quero rodar /sobre-mim antes, escolha as perguntas rápidas e responda você mesmo como se fosse o aluno Jorge, sem esperar por mim: dono da Padaria Trigo Azul, fictícia, em Campinas. As tarefas que mais tomam tempo: responder pedidos de café da manhã para empresas no WhatsApp (20 minutos cada, 5 por semana, calcula no celular e anota no caderno) e fazer as compras da semana (2 horas toda segunda, liga para 3 fornecedores). Os dados estão no WhatsApp e num caderno; não usa planilha.)

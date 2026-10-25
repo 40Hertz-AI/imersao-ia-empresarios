@@ -1,0 +1,156 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pedir a degustação · Torra Viva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Albert+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--folha:#234B3F;--cereja:#C23B22;--leite:#F6F1EA;--grao:#2B1D14;--bourbon:#E8B547;--apoio:#6B5E55;--t:'Bricolage Grotesque',system-ui,sans-serif;--c:'Albert Sans',system-ui,sans-serif;--curva:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+body{font-family:var(--c);background:var(--leite);color:var(--grao);font-size:17px;line-height:1.5;min-height:100vh;display:flex;flex-direction:column}
+.embutido body,body.embutido{background:transparent;min-height:0}
+header{padding:20px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:var(--t);font-weight:800;font-size:24px;letter-spacing:-.02em;color:var(--grao);text-decoration:none}
+.embutido header{display:none}
+main{flex:1;width:100%;max-width:560px;margin:0 auto;padding:12px 24px 32px;display:flex;flex-direction:column}
+.progresso{height:6px;background:#e6ddd1;border-radius:9px;overflow:hidden;margin-bottom:8px}
+.progresso i{display:block;height:100%;width:0;background:var(--folha);border-radius:9px;transition:width .3s var(--curva)}
+.conta{font-size:14px;color:var(--apoio);margin-bottom:28px}
+form{flex:1;display:flex;flex-direction:column}
+.passo{display:flex;flex-direction:column;gap:14px}
+.js .passo.entra{animation:entra .28s var(--curva)}
+@keyframes entra{from{opacity:0;transform:translateY(12px)}}
+label.p,legend.p{font-family:var(--t);font-weight:800;font-size:clamp(26px,6vw,34px);line-height:1.1;letter-spacing:-.02em;padding:0}
+fieldset{border:0;padding:0;display:flex;flex-direction:column;gap:10px}
+fieldset legend{margin-bottom:6px}
+.ajuda{color:var(--apoio);font-size:15px}
+input[type=text],input[type=number],input[type=date]{font:inherit;font-size:20px;padding:14px 16px;border:2px solid #d9cfc2;border-radius:14px;background:#fff;color:var(--grao);width:100%}
+input:focus{outline:none;border-color:var(--folha)}
+.opcao{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#fff;border:2px solid #d9cfc2;border-radius:14px;cursor:pointer;font-weight:700;transition:border-color .15s,background .15s}
+.opcao input{accent-color:var(--folha);width:20px;height:20px}
+.opcao:has(input:checked){border-color:var(--folha);background:#eef3f0}
+.opcao:has(input:focus-visible){outline:3px solid var(--bourbon);outline-offset:2px}
+.erro{color:var(--cereja);font-weight:700;font-size:15px}
+.acoes{display:flex;gap:12px;align-items:center;margin-top:24px;flex-wrap:wrap}
+button{font:inherit;font-weight:700;cursor:pointer;border-radius:99px;border:2px solid transparent;padding:13px 26px;font-size:17px}
+.ir{background:var(--cereja);color:#fff}
+.ir:hover{background:#a83019}
+.voltar{background:transparent;border-color:var(--folha);color:var(--folha)}
+button:focus-visible,a:focus-visible{outline:3px solid var(--bourbon);outline-offset:3px}
+.dica{font-size:14px;color:var(--apoio)}
+.resumo{list-style:none;padding:0;background:#fff;border:1px solid #e1d7ca;border-radius:16px}
+.resumo li{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;border-top:1px solid #efe8de}
+.resumo li:first-child{border-top:0}
+.resumo span{color:var(--apoio);font-size:14px;display:block}
+.resumo b{display:block}
+.resumo button{padding:4px 12px;font-size:14px;background:transparent;color:var(--folha);border-color:#cfdcd6;align-self:center}
+.aviso{background:#fbf0d3;border-radius:14px;padding:12px 16px;font-size:15px}
+.aviso a{color:var(--folha);font-weight:700}
+</style>
+<script>if(window.self!==window.top)document.documentElement.classList.add('embutido');document.documentElement.classList.add('js')</script>
+</head><body>
+<header><a class="logo" href="pagina-de-vendas.html">torra viva</a><span class="dica">Degustação grátis na copa</span></header>
+<main>
+<div class="progresso" aria-hidden="true"><i></i></div>
+<p class="conta" aria-live="polite">Passo 1 de 6</p>
+<!-- trocar pelo número real: no script, WA = 'https://wa.me/55DDDNUMERO?text=' -->
+<form novalidate>
+  <div class="passo" data-campo="nome">
+    <label class="p" for="f-nome">Qual é o seu nome?</label>
+    <input id="f-nome" name="nome" type="text" autocomplete="name" required>
+  </div>
+  <div class="passo" data-campo="empresa">
+    <label class="p" for="f-empresa">E o nome da empresa?</label>
+    <input id="f-empresa" name="empresa" type="text" autocomplete="organization" required>
+  </div>
+  <div class="passo" data-campo="cidade">
+    <fieldset><legend class="p">Onde fica o escritório?</legend>
+      <label class="opcao"><input type="radio" name="cidade" value="Alto Tietê" required>Alto Tietê (Mogi, Suzano e região)</label>
+      <label class="opcao"><input type="radio" name="cidade" value="São Paulo capital">São Paulo capital</label>
+      <label class="opcao"><input type="radio" name="cidade" value="Outra cidade">Outra cidade</label>
+    </fieldset>
+  </div>
+  <div class="passo" data-campo="pessoas">
+    <label class="p" for="f-pessoas">Quantas pessoas tomam café no escritório?</label>
+    <p class="ajuda">Uma conta por alto basta. Serve para levar a quantidade certa na prova.</p>
+    <input id="f-pessoas" name="pessoas" type="number" inputmode="numeric" min="1" max="999" required>
+  </div>
+  <div class="passo" data-campo="metodo">
+    <fieldset><legend class="p">Como o café é feito na copa?</legend>
+      <label class="opcao"><input type="radio" name="metodo" value="Coado" required>Coado (filtro ou garrafa)</label>
+      <label class="opcao"><input type="radio" name="metodo" value="Prensa francesa">Prensa francesa</label>
+      <label class="opcao"><input type="radio" name="metodo" value="Máquina de grão">Máquina de grão</label>
+      <label class="opcao"><input type="radio" name="metodo" value="Outro / ainda não sei">Outro ou ainda não sei</label>
+    </fieldset>
+  </div>
+  <div class="passo" data-campo="dia">
+    <label class="p" for="f-dia">Qual o melhor dia para a degustação?</label>
+    <p class="ajuda">A Marina confirma pelo WhatsApp.</p>
+    <input id="f-dia" name="dia" type="date" required>
+  </div>
+  <div class="passo" data-campo="resumo">
+    <p class="p" style="font-family:var(--t);font-weight:800;font-size:clamp(26px,6vw,34px);line-height:1.1">Confira antes de enviar</p>
+    <p class="aviso" data-fora hidden>O plano para escritório atende o Alto Tietê e São Paulo capital. Para outra cidade, o <a href="pagina-de-vendas.html#planos" target="_top">Clube Torra Viva</a> entrega no Brasil todo. Se enviar, a Marina responde com as opções.</p>
+    <ul class="resumo"></ul>
+  </div>
+  <p class="erro" role="alert"></p>
+  <div class="acoes">
+    <button type="button" class="voltar" hidden>Voltar</button>
+    <button type="submit" class="ir">Continuar</button>
+    <span class="dica" data-enter>ou aperte Enter</span>
+  </div>
+</form>
+</main>
+<script>
+(()=>{
+// <!-- trocar pelo número real: 'https://wa.me/55DDDNUMERO?text=' -->
+const WA='https://wa.me/?text=';
+const f=document.querySelector('form'),passos=[...f.querySelectorAll('.passo')],
+ barra=document.querySelector('.progresso i'),conta=document.querySelector('.conta'),
+ erro=f.querySelector('.erro'),ir=f.querySelector('.ir'),voltar=f.querySelector('.voltar'),
+ enter=f.querySelector('[data-enter]'),lista=f.querySelector('.resumo'),fora=f.querySelector('[data-fora]');
+const nomes={nome:'Nome',empresa:'Empresa',cidade:'Cidade',pessoas:'Pessoas que tomam café',metodo:'Como fazem o café',dia:'Melhor dia'};
+const hoje=new Date();hoje.setMinutes(hoje.getMinutes()-hoje.getTimezoneOffset());
+f.dia.min=hoje.toISOString().slice(0,10);
+let i=0;const total=passos.length-1;
+const valor=c=>{const v=f[c].value.trim();return c==='dia'&&v?v.split('-').reverse().join('/'):v};
+function mostra(n,foco=true){
+  passos.forEach((p,k)=>{p.hidden=k!==n;p.classList.toggle('entra',k===n)});
+  i=n;erro.textContent='';voltar.hidden=n===0;
+  const fim=n===total;ir.textContent=fim?'Enviar pelo WhatsApp':'Continuar';enter.hidden=fim;
+  barra.style.width=(fim?100:n/total*100)+'%';
+  conta.textContent=fim?'Tudo pronto':'Passo '+(n+1)+' de '+total;
+  if(fim)resumo();
+  if(foco){const el=passos[n].querySelector('input:checked,input')||ir;el.focus({preventScroll:true})}
+}
+function valido(){
+  const c=passos[i].dataset.campo;if(c==='resumo')return true;
+  const v=f[c].value.trim();
+  if(!v)return 'Responda para continuar.';
+  if(c==='pessoas'&&!(+v>=1))return 'Digite um número, por exemplo 15.';
+  if(c==='dia'&&v<f.dia.min)return 'Escolha um dia a partir de hoje.';
+  return '';
+}
+function resumo(){
+  lista.innerHTML='';
+  Object.keys(nomes).forEach((c,k)=>{
+    const li=document.createElement('li'),d=document.createElement('div'),s=document.createElement('span'),b=document.createElement('b'),e=document.createElement('button');
+    s.textContent=nomes[c];b.textContent=valor(c);e.type='button';e.textContent='Editar';e.setAttribute('aria-label','Editar '+nomes[c]);
+    e.onclick=()=>mostra(k);d.append(s,b);li.append(d,e);lista.append(li);
+  });
+  fora.hidden=f.cidade.value!=='Outra cidade';
+}
+f.addEventListener('submit',ev=>{
+  ev.preventDefault();const r=valido();
+  if(r){erro.textContent=r;return}
+  if(i<total){mostra(i+1);return}
+  const linhas=Object.keys(nomes).map(c=>nomes[c]+': '+valor(c));
+  const texto='Olá, Torra Viva! Quero agendar a degustação na copa.\n'+linhas.join('\n');
+  window.open(WA+encodeURIComponent(texto),'_blank','noopener');
+});
+voltar.onclick=()=>mostra(i-1);
+f.querySelectorAll('input[type=radio]').forEach(r=>r.addEventListener('click',ev=>{if(ev.detail)setTimeout(()=>f.requestSubmit(),180)}));
+mostra(0,!document.documentElement.classList.contains('embutido'));
+})();
+</script>
+</body></html>

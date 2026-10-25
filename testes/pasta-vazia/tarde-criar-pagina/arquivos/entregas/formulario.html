@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pedir café da manhã · Padaria Trigo Azul</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#1E3A5F;--trigo:#E3B456;--creme:#FBF6EC;--tinta:#1A2230;--acao:#B9472F;--linha:#E6DCC8;--ease:cubic-bezier(.2,.7,.2,1);--titulo:'Fraunces',Georgia,serif;--texto:'Work Sans',system-ui,sans-serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;height:100%}
+body{font:16px/1.5 var(--texto);color:var(--tinta);background:var(--creme);display:flex;flex-direction:column}
+.topo{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;gap:12px}
+.marca{font:700 1.1rem var(--titulo);color:var(--azul);text-decoration:none}
+.passo-n{font-size:.85rem;color:#5a6270}
+.prog{height:6px;background:var(--linha);margin:0 20px;border-radius:9px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--azul);border-radius:9px;transition:width .3s var(--ease)}
+form{flex:1;display:flex;flex-direction:column;justify-content:center;width:100%;max-width:560px;margin:0 auto;padding:24px 20px 32px}
+.passo{animation:entra .25s var(--ease)}
+.passo.volta{animation-name:volta}
+@keyframes entra{from{opacity:0;transform:translateX(24px)}}
+@keyframes volta{from{opacity:0;transform:translateX(-24px)}}
+h1{font:600 clamp(1.5rem,5vw,2rem)/1.15 var(--titulo);color:var(--azul);margin:0 0 6px}
+.dica{margin:0 0 20px;color:#4a5260}
+label{display:block;font-weight:600;margin:14px 0 6px}
+input,textarea{width:100%;font:inherit;font-size:1.1rem;padding:14px 16px;border:2px solid var(--linha);border-radius:12px;background:#fff;color:var(--tinta)}
+textarea{min-height:96px;resize:vertical}
+input:focus,textarea:focus{outline:none;border-color:var(--azul);box-shadow:0 0 0 3px rgba(30,58,95,.2)}
+.erro{color:var(--acao);font-weight:500;min-height:1.5em;margin:8px 0 0}
+input[aria-invalid=true]{border-color:var(--acao)}
+.total{margin:16px 0 0;padding:14px 16px;background:#fff;border:2px dashed var(--trigo);border-radius:12px}
+.total b{font:700 1.5rem var(--titulo);color:var(--azul)}
+.acoes{display:flex;gap:10px;margin-top:22px;align-items:center;flex-wrap:wrap}
+button{font:600 1rem var(--texto);border:0;border-radius:999px;padding:14px 24px;cursor:pointer;transition:transform .15s var(--ease)}
+button:active{transform:scale(.97)}
+.ir{background:var(--acao);color:#fff}
+.voltar{background:transparent;color:var(--azul);border:2px solid var(--azul)}
+.enter{font-size:.8rem;color:#5a6270}
+:focus-visible{outline:3px solid var(--trigo);outline-offset:2px}
+dl{margin:0;background:#fff;border-radius:14px;border:2px solid var(--linha)}
+dl div{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid var(--linha);align-items:flex-start}
+dl div:last-child{border:0}
+dt{font-size:.8rem;color:#5a6270}
+dd{margin:2px 0 0;font-weight:500;word-break:break-word}
+.editar{background:none;color:var(--azul);padding:4px 8px;text-decoration:underline;font-size:.9rem}
+.fict{font-size:.8rem;color:#5a6270;text-align:center;margin:0 0 14px}
+body.embed .topo{display:none}body.embed .prog{margin-top:16px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topo"><a class="marca" href="pagina-de-vendas.html">Padaria Trigo Azul</a><span class="passo-n" id="passoN" aria-live="polite">Passo 1 de 6</span></header>
+<div class="prog" role="progressbar" aria-label="Progresso do pedido" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="barra"></i></div>
+<form id="f" novalidate>
+  <section class="passo" data-passo>
+    <h1>Oi! Quem está pedindo?</h1>
+    <p class="dica">Café da manhã para empresas: R$ 35 por pessoa.</p>
+    <label for="nome">Seu nome</label>
+    <input id="nome" name="nome" autocomplete="name" required>
+    <label for="empresa">Nome da empresa</label>
+    <input id="empresa" name="empresa" autocomplete="organization" required>
+  </section>
+  <section class="passo" data-passo hidden>
+    <h1>Para que dia é o café?</h1>
+    <p class="dica">A gente confirma pelo WhatsApp se dá para atender.</p>
+    <label for="data">Data</label>
+    <input id="data" name="data" type="date" required>
+  </section>
+  <section class="passo" data-passo hidden>
+    <h1>Quantas pessoas vão comer?</h1>
+    <p class="dica">Você vê o total na hora.</p>
+    <label for="pessoas">Número de pessoas</label>
+    <input id="pessoas" name="pessoas" type="number" inputmode="numeric" min="1" max="500" required>
+    <p class="total" aria-live="polite">Total: <b id="total">R$ 0</b> <span>(R$ 35 × pessoas)</span></p>
+  </section>
+  <section class="passo" data-passo hidden>
+    <h1>Onde a gente entrega?</h1>
+    <p class="dica">Rua, número e andar ou sala.</p>
+    <label for="endereco">Endereço de entrega</label>
+    <input id="endereco" name="endereco" autocomplete="street-address" required>
+  </section>
+  <section class="passo" data-passo hidden>
+    <h1>Alguma observação?</h1>
+    <p class="dica">Restrição alimentar, horário preferido… Pode deixar em branco.</p>
+    <label for="obs">Observação (opcional)</label>
+    <textarea id="obs" name="obs"></textarea>
+  </section>
+  <section class="passo" data-passo hidden>
+    <h1>Confere seu pedido</h1>
+    <p class="dica">Toque em "editar" para mudar qualquer item.</p>
+    <dl id="resumo"></dl>
+  </section>
+  <p class="erro" id="erro" role="alert"></p>
+  <div class="acoes">
+    <button type="button" class="voltar" id="voltar" hidden>Voltar</button>
+    <button type="submit" class="ir" id="ir">Continuar</button>
+    <span class="enter" id="enter">ou aperte Enter ↵</span>
+  </div>
+</form>
+<p class="fict">WhatsApp (19) 90000-0000 · número fictício</p>
+<script>
+const WA='5519900000000';// número fictício: trocar pelo real
+const f=document.getElementById('f'),passos=[...f.querySelectorAll('[data-passo]')],$=id=>document.getElementById(id);
+const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+const hoje=new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10);
+$('data').min=hoje;
+if(self!==top)document.body.classList.add('embed');
+let atual=0,voltarResumo=false;
+const campos=[['nome','Nome'],['empresa','Empresa'],['data','Data'],['pessoas','Pessoas'],['endereco','Endereço'],['obs','Observação']];
+const passoDe={nome:0,empresa:0,data:1,pessoas:2,endereco:3,obs:4};
+function fmt(k,v){if(k==='data'&&v){const[a,m,d]=v.split('-');return`${d}/${m}/${a}`}if(k==='pessoas'&&v)return`${v} (${brl(v*35)})`;return v||'nenhuma'}
+function atualizaTotal(){const n=+$('pessoas').value||0;$('total').textContent=brl(n*35)}
+$('pessoas').addEventListener('input',atualizaTotal);
+function mostra(i,volta){
+  passos[atual].hidden=true;atual=i;const p=passos[i];p.hidden=false;
+  p.classList.toggle('volta',!!volta);p.style.animation='none';p.offsetWidth;p.style.animation='';
+  $('erro').textContent='';$('voltar').hidden=i===0;
+  const ult=i===passos.length-1;
+  $('ir').textContent=ult?'Enviar pelo WhatsApp':voltarResumo?'Salvar e ver resumo':'Continuar';
+  $('enter').hidden=ult;
+  $('passoN').textContent=`Passo ${i+1} de ${passos.length}`;
+  const pct=Math.round(i/(passos.length-1)*100);$('barra').style.width=pct+'%';
+  document.querySelector('[role=progressbar]').setAttribute('aria-valuenow',pct);
+  if(ult)montaResumo();
+  const c=p.querySelector('input,textarea');if(c)c.focus({preventScroll:true});else $('ir').focus({preventScroll:true});
+}
+function valida(){
+  for(const c of passos[atual].querySelectorAll('input,textarea')){
+    let msg='';const v=c.value.trim();
+    if(c.required&&!v)msg='Preencha este campo para continuar.';
+    else if(c.id==='data'&&v<hoje)msg='Escolha uma data a partir de hoje.';
+    else if(c.id==='pessoas'&&(!(+v>=1)||+v%1))msg='Diga quantas pessoas (número inteiro).';
+    c.setAttribute('aria-invalid',!!msg);
+    if(msg){$('erro').textContent=msg;c.focus();return false}
+  }return true}
+function montaResumo(){
+  $('resumo').innerHTML='';
+  campos.forEach(([k,r])=>{const d=document.createElement('div');
+    d.innerHTML=`<span><dt>${r}</dt><dd></dd></span><button type="button" class="editar" aria-label="Editar ${r}">editar</button>`;
+    d.querySelector('dd').textContent=fmt(k,$(k).value.trim());
+    d.querySelector('button').onclick=()=>{voltarResumo=true;mostra(passoDe[k],true)};
+    $('resumo').append(d)})}
+function mensagem(){const v=k=>$(k).value.trim();
+  return`Olá, Padaria Trigo Azul! Quero um orçamento de café da manhã.\nNome: ${v('nome')}\nEmpresa: ${v('empresa')}\nData: ${fmt('data',v('data'))}\nPessoas: ${fmt('pessoas',v('pessoas'))}\nEndereço: ${v('endereco')}\nObservação: ${v('obs')||'nenhuma'}`}
+f.addEventListener('submit',e=>{e.preventDefault();
+  if(atual===passos.length-1){window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(mensagem()),'_blank');return}
+  if(!valida())return;
+  if(voltarResumo){voltarResumo=false;mostra(passos.length-1);return}
+  mostra(atual+1)});
+f.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.tagName==='TEXTAREA'&&!e.shiftKey){e.preventDefault();f.requestSubmit()}});
+$('voltar').onclick=()=>{voltarResumo=false;mostra(atual-1,true)};
+const q=new URLSearchParams(location.search).get('pessoas');if(q){$('pessoas').value=q;atualizaTotal()}
+addEventListener('message',e=>{if(e.data&&e.data.pessoas){$('pessoas').value=e.data.pessoas;atualizaTotal()}});
+</script>
+</body>
+</html>

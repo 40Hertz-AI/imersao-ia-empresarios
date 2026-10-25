@@ -187,6 +187,26 @@ for (const [teste, pasta] of [["criar-conteudo", TRILHA], ["criar-conteudo-forno
   anota("aula", "sugerir-automacoes", "usou o mapa do /sobre-mim", /sobre-mim/.test(g));
 }
 
+// ------------------------------------------------------------ testes refeitos depois dos ajustes finais
+{
+  const html = ler(arq("aula", "instalar-revisado", "RESULTADO.html"));
+  if (html) {
+    anota("aula", "instalar-revisado", "capa sem contagem de fases na frase", !/de 6 fases/.test(bloco(html, "capa")));
+    blocoLimpo("aula", "instalar-revisado", html, ["capa", "ficha"]);
+  }
+  const t = fala("aula", "criar-pagina-de-novo");
+  if (t) {
+    const final = t.split("resposta do Claude").pop();
+    anota("aula", "criar-pagina-de-novo", "a última mensagem é o fechamento da fase (✓ Página de vendas … Próximo)", /✓ Página de vendas[\s\S]*Próximo:/.test(final));
+    const pag = ler("/tmp/teste-tarde-criar-pagina-de-novo/entregas/pagina-de-vendas.html");
+    const cli = ler("/tmp/teste-tarde-criar-pagina-de-novo/pesquisa/cliente.md");
+    const inferidas = [...cli.matchAll(/"([^"]{15,})"[^\n]*\(inferida\)/g)].map((m) => m[1].slice(0, 30));
+    const usadas = inferidas.filter((f) => pag.includes(f));
+    anota("aula", "criar-pagina-de-novo", "frase (inferida) da pesquisa não aparece como citação na página", usadas.length === 0, usadas.join(" | "));
+    anota("aula", "criar-pagina-de-novo", "telemetria continua desligada no config", /"telemetry": false/.test(ler("/tmp/teste-tarde-criar-pagina-de-novo/.impeccable/config.json")));
+  }
+}
+
 // ------------------------------------------------------------ pasta vazia: cada skill sozinha
 const vazias = {
   instalar: ["memoria/empresa.md", "memoria/foco.md", "memoria/numeros.md", "marca/marca.md", "controle/progresso.md"],

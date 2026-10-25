@@ -7,3 +7,11 @@ Cena 4 (16 a 20 s): "Peça o orçamento do seu escritório" e @torraviva.exemplo
 Use as cores e fontes de meu-trabalho/design-system.md. Sem fotos e sem biblioteca de fora. Escreva pequeno, num canto: "dados fictícios de exemplo". Respeite quem prefere menos movimento (prefers-reduced-motion).
 
 ════════ resposta do Claude ════════
+A animação está pronta em `meu-trabalho/animacao-torra-viva.html`. Abra com dois cliques e deixe em tela cheia (F11). Ela tem 20 segundos e roda em loop.
+
+- **Números do B2B Escritórios** (somei as linhas de cada mês no CSV): de R$ 4.011,00 em janeiro para R$ 18.752,40 em setembro. A frase diz "Cresceu mais de 4,6 vezes", porque a conta dá 4,67 e não arredondei para cima.
+- **Conferência:** tirei fotos da tela em 6 momentos. Duas coisas se sobrepunham e já corrigi: o valor de janeiro em cima da barra de fevereiro e o texto da cena 3 encostando na borda.
+- **Menos movimento:** para quem pediu isso no computador, os grãos ficam parados, as barras já aparecem cheias e as cenas só trocam com um esmaecer.
+- **Fontes:** vêm do Google Fonts (fontes da internet, não é biblioteca de código). Sem internet, aparecem fontes parecidas.
+- Marquei o passo 8 em `progresso.md`. Compare com `gabarito/08-claude-motion/animacao-torra-viva.html`.
+

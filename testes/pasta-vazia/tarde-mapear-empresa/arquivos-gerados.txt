@@ -1,0 +1,8 @@
+marca/marca.md	574 bytes
+memoria/empresa.md	685 bytes
+memoria/foco.md	536 bytes
+memoria/preferencias.md	556 bytes
+pesquisa/cliente.md	7087 bytes
+pesquisa/diagnostico.md	6534 bytes
+pesquisa/empresa.md	6842 bytes
+pesquisa/mercado.md	7526 bytes

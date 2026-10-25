@@ -1,16 +1,19 @@
 ════════ mensagem 1 do aluno ════════
 Crie meu-trabalho/apresentacao.html: uma apresentação de 6 slides com os resultados da Torra Viva de janeiro a setembro de 2026, para a reunião com a equipe.
 Use os dados da pasta dados/ (sem inventar número) e meu-trabalho/design-system.md, com a skill frontend-design no visual e a humanizer no texto.
-Um arquivo só. Passa de slide com as setas do teclado e com clique, e mostra o número do slide.
+Um arquivo só. Passa de slide com as setas do teclado e com clique, e mostra o número do slide. Tudo cabe numa tela de notebook (1280 × 720) sem nada sobreposto.
 Slides: 1) título; 2) os números do período; 3) o canal que mais cresceu; 4) os clientes B2B: quem entrou, quem saiu e por quê; 5) 3 ações para o último trimestre; 6) obrigado.
 Rodapé em todos os slides: "Dados fictícios de exemplo".
 
 ════════ resposta do Claude ════════
-Criei `meu-trabalho/apresentacao.html`. É um arquivo só, abre com dois cliques e tem as cores e fontes do design system. Tirei prints dos 6 slides no Chrome, no tamanho de notebook e de celular, e conferi o visual.
+Criei `meu-trabalho/apresentacao.html`. Abri os 6 slides no Chrome em 1280 × 720 e conferi pelos prints: tudo cabe na tela e nada fica sobreposto.
 
-- **Navegação:** setas do teclado ou clique. Clicar no terço da esquerda da tela volta um slide, no resto avança. Os botões ‹ › e o número ("3 / 6") ficam no canto de baixo, e o rodapé "Dados fictícios de exemplo" aparece em todos os slides.
-- **Números:** calculei todos a partir de `dados/vendas-mensais.csv` e `dados/clientes-b2b.csv`. O período fechou em R$ 765.578,40, com lucro bruto de 58%. O canal que mais cresceu foi o B2B Escritórios, 4,7 vezes de janeiro a setembro. No slide dos clientes B2B, o Vida Clara cancelou por causa de entregas atrasadas e a Casa Certa pausou durante uma reforma.
-- **As 3 ações** saíram das anotações dos clientes: entregar no prazo, responder os pedidos de chás e do café Etiópia, e falar com os clientes novos e com a Casa Certa. Esses dados não dizem quem cuida de cada ação nem a data. Por isso deixei escrito `[confirmar na reunião]`.
+- **Navegação:** setas do teclado, clique no slide ou os botões ← → do rodapé. O número do slide aparece no rodapé ("3 / 6"), ao lado de "Dados fictícios de exemplo". Em tela maior ou menor, os slides aumentam ou diminuem sem cortar nada.
+- **Números**, todos calculados de `dados/vendas-mensais.csv` e `clientes-b2b.csv`:
+  - R$ 765.578,40 de faturamento e R$ 445.207,30 de lucro bruto (margem de 58,2%).
+  - O canal B2B cresceu 367,5% de janeiro a setembro. Entraram 12 empresas, o Vida Clara saiu e a Casa Certa pausou.
+- **3 ações:** cada uma traz "Quem cuida e prazo: [confirmar]", porque os dados não dizem quem é o responsável.
+- **Fontes:** vêm da internet. Sem conexão, a página usa fontes parecidas que já estão no computador.
 
-Não marquei o passo 7 em `progresso.md`, porque ainda faltam a calculadora e o dashboard.
+Ainda não marquei o passo 7 em `progresso.md`, porque ele pede também a calculadora e o dashboard.
 

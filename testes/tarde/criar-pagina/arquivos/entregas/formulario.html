@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedir degustação na copa · Torra Viva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--folha:#234B3F;--cereja:#C23B22;--leite:#F6F1EA;--grao:#2B1D14;--bourbon:#E8B547;--apoio:#6B5E55;--borda:#E3D9CC;
+--titulo:"Bricolage Grotesque",system-ui,sans-serif;--texto:"Albert Sans",system-ui,sans-serif;--curva:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{font:400 1.0625rem/1.55 var(--texto);color:var(--grao);background:var(--leite);min-height:100vh;display:flex;flex-direction:column}
+body.embed{background:transparent;min-height:0}
+header{padding:20px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{font:800 1.5rem/1 var(--titulo);letter-spacing:-.02em;color:var(--grao);text-decoration:none}
+header small{color:var(--apoio)}
+main{flex:1;width:100%;max-width:560px;margin:0 auto;padding:8px 24px 40px}
+body.embed header{display:none}body.embed main{padding:0;max-width:none}
+.barra{height:6px;background:var(--borda);border-radius:6px;overflow:hidden;margin:0 0 6px}
+.barra i{display:block;height:100%;width:0;background:var(--folha);border-radius:6px;transition:width .3s var(--curva)}
+.conta{font-size:.875rem;color:var(--apoio);margin:0 0 28px}
+.passo{animation:entra .28s var(--curva)}
+.passo.volta{animation-name:entraVolta}
+@keyframes entra{from{opacity:0;transform:translateX(24px)}}
+@keyframes entraVolta{from{opacity:0;transform:translateX(-24px)}}
+h1,h2{font:800 clamp(1.6rem,5vw,2.2rem)/1.08 var(--titulo);letter-spacing:-.02em;margin:0 0 10px}
+.ajuda{color:var(--apoio);margin:0 0 22px}
+label.campo{display:block;font-weight:700;margin:0 0 8px}
+input[type=text],input[type=date]{width:100%;font:inherit;font-size:1.15rem;padding:14px 16px;border:2px solid var(--borda);border-radius:14px;background:#fff;color:var(--grao)}
+input:focus-visible,button:focus-visible,a:focus-visible,.opcao:focus-within{outline:3px solid var(--bourbon);outline-offset:2px}
+input[aria-invalid=true]{border-color:var(--cereja)}
+.erro{color:var(--cereja);font-weight:700;margin:10px 0 0;min-height:1.4em}
+.opcoes{display:grid;gap:10px;border:0;padding:0;margin:0}
+.opcao{display:flex;gap:12px;align-items:center;padding:14px 16px;background:#fff;border:2px solid var(--borda);border-radius:14px;cursor:pointer;transition:border-color .15s,background .15s}
+.opcao input{accent-color:var(--folha);width:20px;height:20px;margin:0}
+.opcao:has(input:checked){border-color:var(--folha);background:#EAF0EC}
+.aviso{background:#FBF0D3;border-radius:14px;padding:14px 16px;margin:14px 0 0}
+.aviso a{color:var(--folha);font-weight:700}
+.acoes{display:flex;gap:12px;align-items:center;margin-top:24px;flex-wrap:wrap}
+.btn{font:700 1rem/1 var(--texto);border:0;border-radius:999px;padding:16px 26px;cursor:pointer;background:var(--cereja);color:#fff;text-decoration:none;display:inline-block}
+.btn:active{transform:scale(.97)}
+.btn.leve{background:transparent;color:var(--folha);border:2px solid var(--folha);padding:14px 22px}
+.dica{font-size:.85rem;color:var(--apoio)}
+dl{margin:0 0 8px;background:#fff;border:1px solid var(--borda);border-radius:16px;padding:6px 16px}
+dl div{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--borda)}
+dl div:last-child{border:0}
+dt{font-size:.85rem;color:var(--apoio)}dd{margin:2px 0 0;font-weight:700}
+.alterar{font:700 .9rem var(--texto);background:none;border:0;color:var(--folha);text-decoration:underline;cursor:pointer;padding:6px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><a class="logo" href="pagina-de-vendas.html">torra viva</a><small>Mogi das Cruzes (SP)</small></header>
+<main>
+  <div class="barra" aria-hidden="true"><i id="progresso"></i></div>
+  <p class="conta" id="conta" aria-live="polite">Pergunta 1 de 6</p>
+  <form id="pedido" novalidate>
+    <section class="passo" data-campo="nome" data-rotulo="Nome">
+      <h1>Como você se chama?</h1>
+      <p class="ajuda">É para a Marina saber com quem falar quando levar a degustação.</p>
+      <label class="campo" for="nome">Seu nome</label>
+      <input id="nome" name="nome" type="text" autocomplete="name" required>
+    </section>
+    <section class="passo" data-campo="empresa" data-rotulo="Empresa" hidden>
+      <h2>Qual é a empresa?</h2>
+      <p class="ajuda">O nome que aparece na portaria do prédio ajuda na entrega.</p>
+      <label class="campo" for="empresa">Nome da empresa</label>
+      <input id="empresa" name="empresa" type="text" autocomplete="organization" required>
+    </section>
+    <section class="passo" data-campo="cidade" data-rotulo="Cidade" hidden>
+      <h2>Onde fica o escritório?</h2>
+      <p class="ajuda">A gente entrega com carro próprio, por isso atende uma região perto da torra.</p>
+      <fieldset class="opcoes"><legend class="campo">Cidade do escritório</legend>
+        <label class="opcao"><input type="radio" name="cidade" value="Mogi das Cruzes" required>Mogi das Cruzes</label>
+        <label class="opcao"><input type="radio" name="cidade" value="Outra cidade do Alto Tietê">Outra cidade do Alto Tietê</label>
+        <label class="opcao"><input type="radio" name="cidade" value="São Paulo (capital)">São Paulo (capital)</label>
+        <label class="opcao"><input type="radio" name="cidade" value="Outro lugar">Outro lugar</label>
+      </fieldset>
+      <p class="aviso" id="fora" hidden>O café para escritório vai só ao Alto Tietê e a São Paulo, por enquanto. Para tomar em casa, o Clube Torra Viva (R$ 79 por mês) entrega no Brasil todo. <a href="pagina-de-vendas.html#planos" target="_top">Ver o Clube</a></p>
+    </section>
+    <section class="passo" data-campo="pessoas" data-rotulo="Pessoas" hidden>
+      <h2>Quantas pessoas tomam café?</h2>
+      <p class="ajuda">Uma conta por alto basta. Ela ajuda a separar a quantidade da degustação.</p>
+      <fieldset class="opcoes"><legend class="campo">Pessoas no escritório</legend>
+        <label class="opcao"><input type="radio" name="pessoas" value="até 10" required>Até 10</label>
+        <label class="opcao"><input type="radio" name="pessoas" value="10 a 30">10 a 30</label>
+        <label class="opcao"><input type="radio" name="pessoas" value="30 a 60">30 a 60</label>
+        <label class="opcao"><input type="radio" name="pessoas" value="mais de 60">Mais de 60</label>
+      </fieldset>
+    </section>
+    <section class="passo" data-campo="metodo" data-rotulo="Como fazem o café" hidden>
+      <h2>Como o café é feito na copa?</h2>
+      <p class="ajuda">Com isso a gente acerta a moagem e escolhe os 2 cafés da prova.</p>
+      <fieldset class="opcoes"><legend class="campo">Método da copa</legend>
+        <label class="opcao"><input type="radio" name="metodo" value="coado" required>Coado (filtro de papel ou pano)</label>
+        <label class="opcao"><input type="radio" name="metodo" value="prensa francesa">Prensa francesa</label>
+        <label class="opcao"><input type="radio" name="metodo" value="máquina que mói o grão">Máquina que mói o grão</label>
+        <label class="opcao"><input type="radio" name="metodo" value="ainda não sei">Ainda não sei</label>
+      </fieldset>
+    </section>
+    <section class="passo" data-campo="data" data-rotulo="Dia da degustação" hidden>
+      <h2>Que dia fica bom para a degustação?</h2>
+      <p class="ajuda">A Marina confirma pelo WhatsApp. Se o dia não der, ela sugere outro perto.</p>
+      <label class="campo" for="data">Melhor dia</label>
+      <input id="data" name="data" type="date" required>
+    </section>
+    <section class="passo" id="resumo" hidden>
+      <h2>Confira antes de enviar</h2>
+      <p class="ajuda">O botão abre o WhatsApp com esta mensagem pronta. É só apertar enviar lá.</p>
+      <dl id="lista"></dl>
+    </section>
+    <p class="erro" id="erro" role="alert"></p>
+    <div class="acoes">
+      <button class="btn" type="submit" id="avancar">Continuar</button>
+      <button class="btn leve" type="button" id="voltar" hidden>Voltar</button>
+      <span class="dica" id="dica">ou aperte Enter</span>
+    </div>
+  </form>
+</main>
+<script>
+const emb = new URLSearchParams(location.search).has('embed');
+if (emb) document.body.classList.add('embed');
+// trocar pelo número real: 'https://wa.me/5511XXXXXXXXX?text='
+const WHATS = 'https://wa.me/?text=';
+const form = document.getElementById('pedido');
+const passos = [...form.querySelectorAll('.passo')];
+const total = passos.length - 1;
+const $ = id => document.getElementById(id);
+let atual = 0, deResumo = false;
+const hoje = new Date(); hoje.setMinutes(hoje.getMinutes() - hoje.getTimezoneOffset());
+$('data').min = hoje.toISOString().slice(0, 10);
+
+const valor = p => { const c = p.dataset.campo, el = form.elements[c]; return (el.value || '').trim(); };
+const dataBR = v => v ? v.split('-').reverse().join('/') : '';
+
+function mostra(n, volta) {
+  passos[atual].hidden = true;
+  atual = n;
+  const p = passos[n];
+  p.hidden = false;
+  p.classList.toggle('volta', !!volta);
+  p.style.animation = 'none'; p.offsetWidth; p.style.animation = '';
+  $('erro').textContent = '';
+  const fim = n === total;
+  $('conta').textContent = fim ? 'Tudo certo, falta enviar' : `Pergunta ${n + 1} de ${total}`;
+  $('progresso').style.width = (fim ? 100 : n / total * 100) + '%';
+  $('voltar').hidden = n === 0;
+  $('avancar').textContent = fim ? 'Enviar pelo WhatsApp' : deResumo ? 'Salvar e voltar ao resumo' : 'Continuar';
+  $('dica').hidden = fim;
+  if (fim) monta();
+  const f = p.querySelector('input:checked, input');
+  if (f && !emb) f.focus({ preventScroll: true });
+  if (emb && parent !== window) parent.postMessage({ torraAltura: document.querySelector("main").offsetHeight }, '*');
+}
+
+function monta() {
+  $('lista').innerHTML = '';
+  passos.slice(0, total).forEach((p, i) => {
+    const d = document.createElement('div');
+    const v = p.dataset.campo === 'data' ? dataBR(valor(p)) : valor(p);
+    d.innerHTML = '<span><dt></dt><dd></dd></span><button type="button" class="alterar">Alterar</button>';
+    d.querySelector('dt').textContent = p.dataset.rotulo;
+    d.querySelector('dd').textContent = v;
+    d.querySelector('button').onclick = () => { deResumo = true; mostra(i, true); };
+    $('lista').append(d);
+  });
+}
+
+function mensagem() {
+  const v = c => valor(passos.find(p => p.dataset.campo === c));
+  return `Olá, Torra Viva! Quero marcar a degustação na copa.\nNome: ${v('nome')}\nEmpresa: ${v('empresa')}\nCidade: ${v('cidade')}\nPessoas: ${v('pessoas')}\nComo fazemos o café: ${v('metodo')}\nMelhor dia: ${dataBR(v('data'))}`;
+}
+
+form.addEventListener('change', e => {
+  if (e.target.name === 'cidade') $('fora').hidden = e.target.value !== 'Outro lugar';
+});
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  if (atual === total) { window.open(WHATS + encodeURIComponent(mensagem()), '_blank', 'noopener'); return; }
+  const p = passos[atual], v = valor(p), campo = p.querySelector('input');
+  if (!v) {
+    $('erro').textContent = campo.type === 'radio' ? 'Escolha uma opção para continuar.' : campo.type === 'date' ? 'Escolha um dia para continuar.' : 'Escreva aqui para continuar.';
+    campo.setAttribute('aria-invalid', 'true'); return;
+  }
+  if (campo.type === 'date' && v < campo.min) { $('erro').textContent = 'Escolha um dia a partir de hoje.'; return; }
+  campo.removeAttribute('aria-invalid');
+  if (deResumo) { deResumo = false; mostra(total); } else mostra(atual + 1);
+});
+
+$('voltar').onclick = () => { deResumo = false; mostra(atual - 1, true); };
+mostra(0);
+</script>
+</body>
+</html>

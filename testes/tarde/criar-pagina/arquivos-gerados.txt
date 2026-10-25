@@ -1,0 +1,10 @@
+.impeccable/config.json	1291 bytes
+.impeccable/hook.cache.json	846 bytes
+RESULTADO.html	79265 bytes
+controle/prints/celular.png	403296 bytes
+controle/prints/computador.png	541630 bytes
+controle/prints/formulario.png	27987 bytes
+controle/progresso.md	941 bytes
+entregas/formulario.html	12064 bytes
+entregas/pagina-de-vendas.html	22799 bytes
+entregas/pagina-de-vendas.md	6738 bytes

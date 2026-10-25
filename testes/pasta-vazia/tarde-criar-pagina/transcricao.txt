@@ -1,0 +1,29 @@
+════════ mensagem 1 do aluno ════════
+/criar-pagina
+
+(Se a skill fizer alguma pergunta, responda você mesmo como se fosse o aluno Jorge, sem esperar por mim, usando só isto: Padaria Trigo Azul, empresa fictícia de teste, sem site e sem Instagram, em Campinas (SP), bairro Cambuí. Vende pão de fermentação natural (R$ 24), café da manhã para empresas (R$ 35 por pessoa) e bolo inteiro (R$ 70). Clientes: moradores do bairro e escritórios da região. WhatsApp (19) 90000-0000, fictício. Para pedir o café da manhã, o cliente informa a data, o número de pessoas e o endereço. Tom: simpático e direto, trata o cliente por você. Maior problema: vende pouco à tarde. A objeção que mais ouve: 'é caro'. Quer vender mais café da manhã para empresas. Concorrentes que conhece: as padarias grandes do bairro. Não tem logo nem marca definida.)
+
+════════ resposta do Claude ════════
+✓ Página de vendas → entregas/pagina-de-vendas.html + formulario.html
+Título: "Café da manhã com pão de fermentação natural, entregue no escritório." · O formulário manda para: WhatsApp com número (19) 90000-0000. O número é fictício.
+Abra entregas/pagina-de-vendas.html no navegador.
+Falta confirmar: o que vai no café da manhã, o horário de funcionamento, até onde entrega, com quanta antecedência o cliente precisa pedir e a garantia ("só paga depois de confirmar pelo WhatsApp").
+Próximo: só existe o /criar-pagina nesta pasta. Ainda não há /criar-conteudo.
+
+O que mais aconteceu:
+- **A pasta não tinha nada da aula.** Respondi as perguntas como o Jorge, com os dados que você passou, e gravei tudo em `memoria/empresa.md`. Também não havia oferta nem estudo do cliente, então montei uma oferta mínima. O aviso está no topo de `entregas/pagina-de-vendas.md`.
+- **A marca é uma sugestão minha**, porque a padaria não tem marca. Ficou em `marca/marca.md`, marcada [sugestão]: azul `#1E3A5F`, trigo `#E3B456`, creme `#FBF6EC` e terracota `#B9472F` nos botões, com as fontes Fraunces e Work Sans.
+- **A página fala com os escritórios**, porque é o café da manhã que o Jorge quer vender mais. O pão e o bolo aparecem em "Também tem".
+- **A objeção "é caro"** é a frase grande da seção do problema. Ela também é respondida com uma calculadora, que mostra pessoas × R$ 35 antes do pedido e passa esse número para o formulário. Nas perguntas frequentes ela é a primeira.
+- **Não coloquei a seção de provas**, porque a padaria não tem nota no Google nem depoimentos.
+- **Não resolvi a venda fraca à tarde**: o Jorge não deu nenhum produto ou oferta para esse horário, e não inventei.
+- **O formulário** tem uma pergunta por tela: nome e empresa, data, pessoas, endereço e observação. Mostra o total na hora, tem resumo editável e abre o WhatsApp com a mensagem pronta.
+
+**Conferência:** tirei prints de celular (390 px) e de computador (1440 px). Corrigi um problema: as etapas do "Como funciona" só apareciam depois de rolar a tela. Agora o texto fica sempre visível e só os números acendem. Não há rolagem para o lado no celular.
+
+O formulário embutido sai em branco nos prints do arquivo local. Servindo a página por um servidor local, ele aparece normal. Não abri pelo arquivo num navegador comum, então vale abrir para ver.
+
+O mapa do Google não carregou aqui porque o ambiente não tem internet. No lugar dele aparece o fundo desenhado "Cambuí · Campinas", como planejado.
+
+A página tem cerca de 18 KB e o formulário cerca de 10 KB. Os prints estão em `/tmp/prints-trigo/`.
+

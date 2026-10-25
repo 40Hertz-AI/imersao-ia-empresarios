@@ -1,0 +1,274 @@
+{
+ "instalar": [
+  {
+   "nome": "criou memoria/empresa.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "criou memoria/foco.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "criou memoria/numeros.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "criou marca/marca.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "criou controle/progresso.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não criou RESULTADO.html (não há modelo na pasta vazia)",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "mapear-empresa": [
+  {
+   "nome": "criou memoria/empresa.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "criou pesquisa/empresa.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "criou pesquisa/mercado.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "criou pesquisa/cliente.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "criou pesquisa/diagnostico.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não criou RESULTADO.html (não há modelo na pasta vazia)",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "mapear-concorrentes": [
+  {
+   "nome": "criou memoria/empresa.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "criou pesquisa/concorrentes.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não criou RESULTADO.html (não há modelo na pasta vazia)",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "criar-oferta": [
+  {
+   "nome": "criou memoria/empresa.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "criou entregas/oferta.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não criou RESULTADO.html (não há modelo na pasta vazia)",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "criar-pagina": [
+  {
+   "nome": "criou entregas/pagina-de-vendas.html",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "criou entregas/formulario.html",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não criou RESULTADO.html (não há modelo na pasta vazia)",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "criar-conteudo": [
+  {
+   "nome": "criou entregas/conteudo.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "criou entregas/posts/carrossel-1.html",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não criou RESULTADO.html (não há modelo na pasta vazia)",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "carrossel-1.html existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "post-1.html existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "post-2.html existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "legendas.md existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "nenhum PNG gerado (só HTML)",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não usa Playwright nem imagem de fora",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "carrossel com 6 a 8 lâminas de 1080 × 1350",
+   "ok": true,
+   "detalhe": "7 lâminas"
+  },
+  {
+   "nome": "abre mostrando 1 lâmina por vez",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "lâmina mede 1080 × 1350",
+   "ok": true,
+   "detalhe": "1080 × 1350"
+  },
+  {
+   "nome": "seta → passa para a lâmina 2",
+   "ok": true,
+   "detalhe": "0 → 1"
+  },
+  {
+   "nome": "sem erro de JavaScript",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "?n=3 mostra só a lâmina 3",
+   "ok": true,
+   "detalhe": "[2]"
+  },
+  {
+   "nome": "nada sai da lâmina 3",
+   "ok": true,
+   "detalhe": "0 elementos para fora"
+  },
+  {
+   "nome": "post-1.html: 1 lâmina, abre sem erro",
+   "ok": true,
+   "detalhe": "1 lâmina(s)"
+  },
+  {
+   "nome": "post-2.html: 1 lâmina, abre sem erro",
+   "ok": true,
+   "detalhe": "1 lâmina(s)"
+  }
+ ],
+ "marca": [
+  {
+   "nome": "criou marca/marca.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não criou RESULTADO.html (não há modelo na pasta vazia)",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "sobre-mim": [
+  {
+   "nome": "criou contexto/sobre-mim.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "criou contexto/falta-trazer.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "criou CLAUDE.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não criou RESULTADO.html (não há modelo na pasta vazia)",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "sugerir-automacoes": [
+  {
+   "nome": "criou entregas/sugestoes.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não criou RESULTADO.html (não há modelo na pasta vazia)",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "impeccable": [
+  {
+   "nome": "fez a crítica da página",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "frontend-design": [
+  {
+   "nome": "criou pagina.html",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "abre sem erro de JavaScript",
+   "ok": true,
+   "detalhe": ""
+  }
+ ]
+}

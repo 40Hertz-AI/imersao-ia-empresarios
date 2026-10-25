@@ -1,0 +1,35 @@
+{
+  "telemetry": false,
+  "updateCheck": false,
+  "hook": {
+    "quiet": true
+  },
+  "detector": {
+    "ignoreFiles": [
+      "**/RESULTADO.html",
+      "controle/*.html",
+      "exemplo-forno-da-vila/**"
+    ],
+    "ignoreRules": [],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "entregas/*.html"
+        ],
+        "createdAt": "2026-10-25T20:26:52.010Z",
+        "reason": "marca/marca.md: Leite #F6F1EA é o fundo do print do site novo da empresa (a marca vence)"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "entregas/pagina-de-vendas.html"
+        ],
+        "createdAt": "2026-10-25T20:26:52.016Z",
+        "reason": "falso positivo: o .mapa só tem SVG de fundo e iframe; os .dia já foram corrigidos"
+      }
+    ]
+  }
+}

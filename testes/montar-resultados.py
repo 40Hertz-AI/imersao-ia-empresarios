@@ -52,6 +52,22 @@ def cel(v, testes, texto):
     return s
 
 
+CORRIGIDO = """Rodar de novo até passar. Tudo abaixo foi corrigido e o teste refeito, menos o último item (cosmético).
+
+1. **Teste sem isolamento (1ª rodada da manhã):** na pasta vazia, o Claude procurou no disco, achou o material em `/workspace` e usou (passo 6). Os testes passaram a rodar dentro do `bwrap`; a rodada inteira da manhã foi refeita.
+2. **Pasta de teste reaproveitada:** o harness reusava a pasta de uma rodada anterior quando ela já existia (apareceram arquivos `-anterior`). Agora todo teste sem `--dir` começa numa pasta nova, e a prova também começa limpa.
+3. **Harness editado durante o lote:** o bash lê o script aos poucos; a edição quebrou o pós-processamento do passo 8. Passo 8 refeito; o harness passou a ser trocado só com `mv`.
+4. **Apresentação do passo 7:** o rodapé sobrepunha o texto em 1280 × 720 (slides 1 e 3). O prompt do aluno ganhou "cabe numa tela de notebook (1280 × 720) sem nada sobreposto"; refeito e conferido em 1280 × 720 e 1366 × 657.
+5. **`/impeccable` na pasta vazia:** abriu dois subagentes em segundo plano e o `claude -p` terminou antes do relatório (no Claude Code normal, o aviso chega depois). O prompt do teste pede tudo na mesma resposta; refeito.
+6. **`frontend-design` da tarde:** o teste recebeu o prompt do `/criar-pagina` por engano; refeito com `/frontend-design`.
+7. **`/criar-pagina` na trilha:** o aviso de design do Impeccable (hook no fim da resposta) fez a última mensagem virar um relatório de design, sem o fechamento da fase. Entrou `hook.quiet` no `.impeccable/config.json` e uma regra no `CLAUDE.md` da tarde; refeito (`tarde/criar-pagina-de-novo`): fecha no formato da fase, com a linha "Ajuste de design".
+8. **Frase inferida como fala de cliente:** a crítica do `/impeccable` achou na página uma frase marcada `(inferida)` na pesquisa apresentada como citação. O `/criar-pagina` agora proíbe; no teste refeito, nenhuma frase inferida aparece na página.
+9. **Fechamento fora da pasta da aula:** o `/criar-pagina` na pasta vazia sugeria `/criar-conteudo`, que não existia lá. Corrigido e refeito.
+10. **Capa do relatório:** a frase da capa dizia "2 de 6 fases" enquanto o menu já mostrava 4. A contagem saiu da frase; `/instalar` refeito (`tarde/instalar-revisado`).
+11. **Posts de 1 lâmina** mostravam a barrinha "1 / 1" embaixo (`display:flex` vence o atributo `hidden`). Uma linha de CSS no esqueleto da lâmina e no exemplo; teste não refeito (fora da lâmina, não aparece no relatório nem no print).
+
+"""
+
 DEPENDE = """| O quê | Onde | Por que não deu para testar aqui | Plano B na aula |
 |---|---|---|---|
 | **Login Google e conector Google Drive** (claude.ai → Configurações → Conectores) | Manhã, passo 2 | Precisa da conta Google de cada aluno e de autorizar o conector; os testes rodaram sem conectores para não escrever em conta real | O plano B do passo 2 lê os mesmos dados dos CSV da pasta (testado: números 100% certos). Conta da empresa bloqueada: usar a pessoal |
@@ -93,7 +109,7 @@ MANHA = [
      [], "`grill-me` + `grilling` e `grilling` sozinha: entrevistaram e salvaram o plano", ["pasta-vazia/manha-grill-me", "pasta-vazia/manha-grilling"], "passou"),
 ]
 TARDE = [
-    ("`/instalar`", ["instalar"], "7 perguntas respondidas como a Helena; memória gravada, números só em `numeros.md`, RESULTADO.html criado", ["tarde/instalar"],
+    ("`/instalar`", ["instalar", "instalar-revisado"], "7 perguntas respondidas como a Helena; memória gravada, números só em `numeros.md`, RESULTADO.html criado. Refeito depois do ajuste da frase da capa", ["tarde/instalar", "tarde/instalar-revisado"],
      ["instalar"], "Pasta sem a estrutura: criou `memoria/`, `marca/`, `controle/` e pulou o RESULTADO.html, avisando", ["pasta-vazia/tarde-instalar"]),
     ("`/mapear-empresa`", ["mapear-empresa"], "3 frentes de pesquisa na internet; 4 arquivos com fonte; 5 blocos do relatório", ["tarde/mapear-empresa"],
      ["mapear-empresa"], "Sem `/instalar`: fez a pergunta única, gravou a memória e pesquisou", ["pasta-vazia/tarde-mapear-empresa"]),
@@ -103,18 +119,18 @@ TARDE = [
      ["mapear-concorrentes"], "Sem memória: perguntou o mínimo e pesquisou concorrentes reais da cidade", ["pasta-vazia/tarde-mapear-concorrentes"]),
     ("`/criar-oferta`", ["criar-oferta"], "Proposta de valor, oferta de entrada e roteiro de venda", ["tarde/criar-oferta"],
      ["criar-oferta"], "Sem pesquisa: oferta marcada como hipótese no topo", ["pasta-vazia/tarde-criar-oferta"]),
-    ("`/criar-pagina`", ["criar-pagina"], "Página de vendas, formulário para o WhatsApp e mapa; sem rolagem lateral no celular", ["tarde/criar-pagina"],
+    ("`/criar-pagina`", ["criar-pagina", "criar-pagina-de-novo"], "Página de vendas, formulário para o WhatsApp e mapa; sem rolagem lateral no celular. Na 1ª rodada o aviso de design do Impeccable virou a última mensagem; refeito com a regra nova do CLAUDE.md (fechamento por último) e sem citar frase inferida", ["tarde/criar-pagina", "tarde/criar-pagina-de-novo"],
      ["criar-pagina"], "Sem marca e sem oferta: marca `[sugestão]` e oferta mínima anotada no topo da copy", ["pasta-vazia/tarde-criar-pagina"]),
     ("`/criar-conteudo` (só HTML)", ["criar-conteudo", "criar-conteudo-forno"], "Carrossel de 7 lâminas + 2 posts em HTML, `?n=` funcionando, relatório com as lâminas em iframe; nenhum PNG, nenhum Playwright. Rodou também sobre o Forno da Vila (virou o exemplo novo)", ["tarde/criar-conteudo", "tarde/criar-conteudo-forno"],
      ["criar-conteudo"], "Sem nada: perguntou o mínimo, sugeriu a marca e entregou carrossel e posts em HTML", ["pasta-vazia/tarde-criar-conteudo"]),
     ("`/impeccable` (sem plugin)", ["impeccable"], "Crítica da página de vendas sem alterar arquivo; `impeccable telemetry status` = off pelo `.impeccable/config.json`", ["tarde/impeccable"],
-     [], "Só a skill (com os scripts dela): crítica completa com o detector", ["pasta-vazia/tarde-impeccable"]),
-    ("`/sobre-mim`", [], "Entrevista respondida como a Helena; mapa em `memoria/sobre-mim.md` (usou a pasta da aula), `falta-trazer.md` e seção no CLAUDE.md", ["tarde/sobre-mim"],
+     ["impeccable"], "Só a skill (com os scripts dela): crítica completa com o detector", ["pasta-vazia/tarde-impeccable"]),
+    ("`/sobre-mim`", ["sobre-mim"], "Entrevista respondida como a Helena; mapa em `memoria/sobre-mim.md` (usou a pasta da aula), `falta-trazer.md` e seção no CLAUDE.md", ["tarde/sobre-mim"],
      ["sobre-mim"], "Pasta vazia: criou `contexto/` e um CLAUDE.md mínimo", ["pasta-vazia/tarde-sobre-mim"]),
-    ("`/sugerir-automacoes`", [], "Leu o mapa do `/sobre-mim` e gravou 10 sugestões com impacto, esforço e próximo passo", ["tarde/sugerir-automacoes"],
+    ("`/sugerir-automacoes`", ["sugerir-automacoes"], "Leu o mapa do `/sobre-mim` e gravou 10 sugestões com impacto, esforço e próximo passo", ["tarde/sugerir-automacoes"],
      ["sugerir-automacoes"], "Sem mapa: fez as 4 perguntas rápidas e gravou `entregas/sugestoes.md`", ["pasta-vazia/tarde-sugerir-automacoes"]),
     ("`frontend-design` (cópia da tarde)", [], "Usada por dentro do `/criar-pagina` e do `/criar-conteudo`", ["tarde/criar-pagina"],
-     [], "Só a skill: página do café da manhã para empresas de uma padaria", ["pasta-vazia/tarde-frontend-design"]),
+     ["frontend-design"], "Só a skill: página do café da manhã para empresas de uma padaria", ["pasta-vazia/tarde-frontend-design"]),
 ]
 
 L = ["# Resultados dos testes",
@@ -149,6 +165,6 @@ for nome, ta, xa, pa, tv, xv, pv in TARDE:
     L.append(f"| {nome} | {cel(VA, ta, xa)} ({tempo(pa[0])}) | {cel(VV, tv, xv)} ({tempo(pv[0])}) | {res} | {' · '.join('`' + p + '`' for p in pa + pv)} |")
 p = placar(VA, "todas-as-skills")
 L += ["", f"**Nenhuma skill fala de almoço:** `grep -ri almoço manha/.claude tarde/.claude` vazio{' (conferido no verificador)' if p and p[0] == p[1] else ''}.", ""]
-L += ["## Depende de algo externo (e o plano B para a aula)", "", DEPENDE]
+L += ["## O que deu errado e foi corrigido", "", CORRIGIDO, "## Depende de algo externo (e o plano B para a aula)", "", DEPENDE]
 open(T / "RESULTADOS.md", "w", encoding="utf-8").write("\n".join(L) + "\n")
 print("\n".join(L))

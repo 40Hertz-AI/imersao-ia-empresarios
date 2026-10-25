@@ -1,0 +1,10 @@
+════════ mensagem 1 do aluno ════════
+/marca Salvei um print do nosso site novo em marca/print-site.png. Use ele.
+
+════════ resposta do Claude ════════
+✓ Marca da empresa → `marca/marca.md`
+Cores Folha #234B3F, Cereja #C23B22, Leite #F6F1EA, Grão #2B1D14, mais Bourbon e Apoio · fontes Bricolage Grotesque e Albert Sans. Tudo veio do print do site novo e passa no teste de leitura (contraste mínimo de 4,5 para 1). Também salvei 2 frases reais do site em `memoria/preferencias.md`.
+Atualize o RESULTADO.html: o relatório já está com as cores da empresa.
+Falta confirmar: o arquivo do logo (salve em `marca/logo.png`).
+Próximo: /mapear-concorrentes (~6 min) · ou /criar-pagina, que já sai com a marca
+

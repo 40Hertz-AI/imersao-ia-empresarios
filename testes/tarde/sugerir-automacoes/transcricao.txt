@@ -1,0 +1,8 @@
+════════ mensagem 1 do aluno ════════
+/sugerir-automacoes
+
+════════ resposta do Claude ════════
+✓ Plano de automações → `entregas/sugestoes.md`
+Top 3: trazer a tabela de preços e o modelo de proposta para `dados/` · skill `/orcamento` (hoje ~4 h por semana, estimativa) · skill `/planejar-torra` (2 h toda segunda)
+Começo por qual? Se for uma skill, eu crio agora e testamos com um caso seu.
+

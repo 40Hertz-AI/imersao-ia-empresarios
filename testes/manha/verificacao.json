@@ -1,0 +1,392 @@
+{
+ "passo-01": [
+  {
+   "nome": "respondeu citando a Torra Viva",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-02": [
+  {
+   "nome": "meu-trabalho/resumo-vendas.md existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "tem o aviso de dados fictícios",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "faturamento total: 765.578,40",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "melhor mês (agosto): 113.768,40",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "pior mês (fevereiro): 56.095,00",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "crescimento do B2B: 367,5",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "produto que mais faturou: Clube Torra Viva",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "produto com mais unidades: 2.910",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "cliente cancelado: Vida Clara",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "cliente pausado: Casa Certa",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-03-ex1-ruim": [
+  {
+   "nome": "tem resposta",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-03-ex1-bom": [
+  {
+   "nome": "tem resposta",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-03-ex2-ruim": [
+  {
+   "nome": "tem resposta",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-03-ex2-bom": [
+  {
+   "nome": "tem resposta",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-03-ex3-ruim": [
+  {
+   "nome": "tem resposta",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-03-ex3-bom": [
+  {
+   "nome": "tem resposta",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "tabela com o crescimento do B2B certo (367,5%)",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-03-ex4-ruim": [
+  {
+   "nome": "tem resposta",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-03-ex4-bom": [
+  {
+   "nome": "tem resposta",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "mensagem de WhatsApp com até 60 palavras e sem preço",
+   "ok": true,
+   "detalhe": "58 palavras"
+  }
+ ],
+ "passo-04-margem": [
+  {
+   "nome": "segue as 5 partes da eli5",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-04-arquivo": [
+  {
+   "nome": "segue as 5 partes da eli5",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-05-criar": [
+  {
+   "nome": "criou .claude/skills/resposta-cliente/SKILL.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "frontmatter com name e description",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não menciona almoço",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-05-uso-1": [
+  {
+   "nome": "classificou e respondeu",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-05-uso-2": [
+  {
+   "nome": "classificou e respondeu",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-05-uso-3": [
+  {
+   "nome": "classificou e respondeu",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-06": [
+  {
+   "nome": "design-system.md existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "tem as cores da imagem (Cereja #C23B22 e Folha #234B3F)",
+   "ok": true,
+   "detalhe": "9 cores"
+  },
+  {
+   "nome": "tem bloco :root",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "tem fontes do Google Fonts",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-07-calculadora": [
+  {
+   "nome": "arquivo existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "HTML válido (calculadora-orcamento.html)",
+   "ok": true,
+   "detalhe": "0 erros"
+  },
+  {
+   "nome": "expõe calcularOrcamento()",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "contas certas em 10 de 10 casos",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "o resultado na tela muda ao trocar o número de pessoas",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "aviso de dados fictícios na página",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "sem erro de JavaScript",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-07-dashboard": [
+  {
+   "nome": "arquivo existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "HTML válido (dashboard-vendas.html)",
+   "ok": true,
+   "detalhe": "0 erros"
+  },
+  {
+   "nome": "faturamento total 765.578,40",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "melhor mês: agosto",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "12 clientes B2B ativos em setembro",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "gráficos em SVG ou canvas",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "aviso de dados fictícios",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "filtro B2B mostra R$ 112.560,40",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "sem erro de JavaScript",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-07-apresentacao": [
+  {
+   "nome": "arquivo existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "HTML válido (apresentacao.html)",
+   "ok": true,
+   "detalhe": "0 erros"
+  },
+  {
+   "nome": "6 slides",
+   "ok": true,
+   "detalhe": "6 encontrados"
+  },
+  {
+   "nome": "seta → muda de slide",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "rodapé de dados fictícios",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "sem erro de JavaScript",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "passo-08": [
+  {
+   "nome": "arquivo existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "HTML válido (animacao-torra-viva.html)",
+   "ok": true,
+   "detalhe": "0 erros"
+  },
+  {
+   "nome": "a tela muda ao longo dos 20 s (4 prints)",
+   "ok": true,
+   "detalhe": "4 quadros diferentes"
+  },
+  {
+   "nome": "aviso de dados fictícios",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "respeita prefers-reduced-motion",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "sem erro de JavaScript",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "skill-frontend-design": [
+  {
+   "nome": "cartao-fidelidade.html existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "HTML válido (cartao-fidelidade.html)",
+   "ok": true,
+   "detalhe": "0 erros"
+  },
+  {
+   "nome": "clicar num carimbo muda a tela",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "sem erro de JavaScript",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "skill-grill-me": [
+  {
+   "nome": "salvou meu-trabalho/plano-capsulas.md",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "skill-find-skills": [
+  {
+   "nome": "listou opções de skills",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "skill-humanizer": [
+  {
+   "nome": "o texto final não tem 'jornada sensorial' nem 'revolução'",
+   "ok": true,
+   "detalhe": ""
+  }
+ ]
+}

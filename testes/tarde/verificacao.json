@@ -1,0 +1,550 @@
+{
+ "instalar": [
+  {
+   "nome": "criou RESULTADO.html a partir do modelo",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "RESULTADO: bloco capa preenchido",
+   "ok": true,
+   "detalhe": "412 caracteres"
+  },
+  {
+   "nome": "RESULTADO: bloco capa sem {campo}, undefined ou N/A",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "RESULTADO: bloco ficha preenchido",
+   "ok": true,
+   "detalhe": "2428 caracteres"
+  },
+  {
+   "nome": "RESULTADO: bloco ficha sem {campo}, undefined ou N/A",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "gravou memoria/empresa.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "gravou memoria/foco.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "gravou memoria/numeros.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "gravou marca/marca.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "faturamento não aparece no RESULTADO",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "fechou no formato ✓ … Próximo",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "mapear-empresa": [
+  {
+   "nome": "gravou pesquisa/empresa.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "gravou pesquisa/mercado.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "gravou pesquisa/cliente.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "gravou pesquisa/diagnostico.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "mercado.md tem fontes com link",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "RESULTADO: bloco empresa preenchido",
+   "ok": true,
+   "detalhe": "3205 caracteres"
+  },
+  {
+   "nome": "RESULTADO: bloco empresa sem {campo}, undefined ou N/A",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "RESULTADO: bloco mercado preenchido",
+   "ok": true,
+   "detalhe": "4952 caracteres"
+  },
+  {
+   "nome": "RESULTADO: bloco mercado sem {campo}, undefined ou N/A",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "RESULTADO: bloco cliente preenchido",
+   "ok": true,
+   "detalhe": "4395 caracteres"
+  },
+  {
+   "nome": "RESULTADO: bloco cliente sem {campo}, undefined ou N/A",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "RESULTADO: bloco diagnostico preenchido",
+   "ok": true,
+   "detalhe": "3401 caracteres"
+  },
+  {
+   "nome": "RESULTADO: bloco diagnostico sem {campo}, undefined ou N/A",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "marca": [
+  {
+   "nome": "atualizou marca/marca.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "usou as cores do print (#C23B22 ou #234B3F)",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "mapear-concorrentes": [
+  {
+   "nome": "gravou pesquisa/concorrentes.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "tem tabela, mapa e espaços vazios",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "RESULTADO: bloco concorrentes preenchido",
+   "ok": true,
+   "detalhe": "7723 caracteres"
+  },
+  {
+   "nome": "RESULTADO: bloco concorrentes sem {campo}, undefined ou N/A",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "criar-oferta": [
+  {
+   "nome": "gravou entregas/oferta.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "RESULTADO: bloco oferta preenchido",
+   "ok": true,
+   "detalhe": "3507 caracteres"
+  },
+  {
+   "nome": "RESULTADO: bloco oferta sem {campo}, undefined ou N/A",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "criar-pagina": [
+  {
+   "nome": "gravou pagina-de-vendas.html e formulario.html",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "no celular (390 px) não rola para o lado",
+   "ok": true,
+   "detalhe": "390 px"
+  },
+  {
+   "nome": "abre sem erro de JavaScript",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "formulário manda para o WhatsApp",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "RESULTADO: bloco pagina preenchido",
+   "ok": true,
+   "detalhe": "4265 caracteres"
+  },
+  {
+   "nome": "RESULTADO: bloco pagina sem {campo}, undefined ou N/A",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "criar-conteudo": [
+  {
+   "nome": "gravou entregas/conteudo.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "carrossel-1.html existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "post-1.html existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "post-2.html existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "legendas.md existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "nenhum PNG gerado (só HTML)",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não usa Playwright nem imagem de fora",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "carrossel com 6 a 8 lâminas de 1080 × 1350",
+   "ok": true,
+   "detalhe": "7 lâminas"
+  },
+  {
+   "nome": "abre mostrando 1 lâmina por vez",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "lâmina mede 1080 × 1350",
+   "ok": true,
+   "detalhe": "1080 × 1350"
+  },
+  {
+   "nome": "seta → passa para a lâmina 2",
+   "ok": true,
+   "detalhe": "0 → 1"
+  },
+  {
+   "nome": "sem erro de JavaScript",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "?n=3 mostra só a lâmina 3",
+   "ok": true,
+   "detalhe": "[2]"
+  },
+  {
+   "nome": "nada sai da lâmina 3",
+   "ok": true,
+   "detalhe": "0 elementos para fora"
+  },
+  {
+   "nome": "post-1.html: 1 lâmina, abre sem erro",
+   "ok": true,
+   "detalhe": "1 lâmina(s)"
+  },
+  {
+   "nome": "post-2.html: 1 lâmina, abre sem erro",
+   "ok": true,
+   "detalhe": "1 lâmina(s)"
+  },
+  {
+   "nome": "RESULTADO: bloco conteudo preenchido",
+   "ok": true,
+   "detalhe": "5995 caracteres"
+  },
+  {
+   "nome": "RESULTADO: bloco conteudo sem {campo}, undefined ou N/A",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "RESULTADO: um .slide html por lâmina",
+   "ok": true,
+   "detalhe": "7 lâminas"
+  },
+  {
+   "nome": "RESULTADO: nenhum .slide img (PNG)",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "RESULTADO: lâmina escalada no post (--s)",
+   "ok": true,
+   "detalhe": "--s = 0.40555555555555556"
+  },
+  {
+   "nome": "RESULTADO abre sem erro de JavaScript",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não rodou Playwright nem gerou PNG",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "criar-conteudo-forno": [
+  {
+   "nome": "gravou entregas/conteudo.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "carrossel-1.html existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "post-1.html existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "post-2.html existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "legendas.md existe",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "nenhum PNG gerado (só HTML)",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não usa Playwright nem imagem de fora",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "carrossel com 6 a 8 lâminas de 1080 × 1350",
+   "ok": true,
+   "detalhe": "7 lâminas"
+  },
+  {
+   "nome": "abre mostrando 1 lâmina por vez",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "lâmina mede 1080 × 1350",
+   "ok": true,
+   "detalhe": "1080 × 1350"
+  },
+  {
+   "nome": "seta → passa para a lâmina 2",
+   "ok": true,
+   "detalhe": "0 → 1"
+  },
+  {
+   "nome": "sem erro de JavaScript",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "?n=3 mostra só a lâmina 3",
+   "ok": true,
+   "detalhe": "[2]"
+  },
+  {
+   "nome": "nada sai da lâmina 3",
+   "ok": true,
+   "detalhe": "0 elementos para fora"
+  },
+  {
+   "nome": "post-1.html: 1 lâmina, abre sem erro",
+   "ok": true,
+   "detalhe": "1 lâmina(s)"
+  },
+  {
+   "nome": "post-2.html: 1 lâmina, abre sem erro",
+   "ok": true,
+   "detalhe": "1 lâmina(s)"
+  },
+  {
+   "nome": "RESULTADO: bloco conteudo preenchido",
+   "ok": true,
+   "detalhe": "6227 caracteres"
+  },
+  {
+   "nome": "RESULTADO: bloco conteudo sem {campo}, undefined ou N/A",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "RESULTADO: um .slide html por lâmina",
+   "ok": true,
+   "detalhe": "7 lâminas"
+  },
+  {
+   "nome": "RESULTADO: nenhum .slide img (PNG)",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "RESULTADO: lâmina escalada no post (--s)",
+   "ok": true,
+   "detalhe": "--s = 0.40555555555555556"
+  },
+  {
+   "nome": "RESULTADO abre sem erro de JavaScript",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não rodou Playwright nem gerou PNG",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "impeccable": [
+  {
+   "nome": "fez a crítica da página",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "telemetria desligada pelo .impeccable/config.json",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não alterou a página",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "sobre-mim": [
+  {
+   "nome": "gravou memoria/sobre-mim.md (usou a pasta memoria/ da aula)",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "mapa com processos, gatilho e diagrama",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "gravou memoria/falta-trazer.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "acrescentou 'Quem trabalha aqui' no CLAUDE.md",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "sugerir-automacoes": [
+  {
+   "nome": "gravou entregas/sugestoes.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "tem as 3 primeiras e a tabela de sugestões",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "usou o mapa do /sobre-mim",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "instalar-revisado": [
+  {
+   "nome": "capa sem contagem de fases na frase",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "RESULTADO: bloco capa preenchido",
+   "ok": true,
+   "detalhe": "488 caracteres"
+  },
+  {
+   "nome": "RESULTADO: bloco capa sem {campo}, undefined ou N/A",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "RESULTADO: bloco ficha preenchido",
+   "ok": true,
+   "detalhe": "2270 caracteres"
+  },
+  {
+   "nome": "RESULTADO: bloco ficha sem {campo}, undefined ou N/A",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "criar-pagina-de-novo": [
+  {
+   "nome": "a última mensagem é o fechamento da fase (✓ Página de vendas … Próximo)",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "frase (inferida) da pesquisa não aparece como citação na página",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "telemetria continua desligada no config",
+   "ok": true,
+   "detalhe": ""
+  }
+ ],
+ "todas-as-skills": [
+  {
+   "nome": "nenhuma skill menciona almoço",
+   "ok": true,
+   "detalhe": ""
+  }
+ ]
+}

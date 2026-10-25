@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Torra Viva · Resultados de janeiro a setembro de 2026</title>
+<title>Torra Viva · resultados de janeiro a setembro de 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
@@ -17,8 +17,11 @@
     --cor-apoio: #6B5E55;
     --cor-branco: #FFFFFF;
     --cor-borda: #E6DDD2;
+    --cor-barra-neutra: #CFC2B4;
+
     --fonte-titulo: "Bricolage Grotesque", "Arial Black", sans-serif;
     --fonte-texto: "Albert Sans", Arial, sans-serif;
+
     --canto-medio: 14px;
     --canto-grande: 24px;
     --canto-pilula: 999px;
@@ -26,171 +29,314 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html, body { height: 100%; }
-
-  body {
-    background: var(--cor-leite);
-    color: var(--cor-grao);
-    font-family: var(--fonte-texto);
-    font-size: 16px;
-    line-height: 1.6;
+  html, body {
+    height: 100%;
+    background: var(--cor-grao);
     overflow: hidden;
-    user-select: none;
   }
 
-  /* ---------- estrutura dos slides ---------- */
-  .deck { position: relative; width: 100vw; height: 100vh; height: 100dvh; }
+  body {
+    font-family: var(--fonte-texto);
+    color: var(--cor-grao);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* O palco tem sempre 1280 × 720 e é escalado para caber na tela */
+  .palco {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1280px;
+    height: 720px;
+    transform-origin: center center;
+    background: var(--cor-leite);
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+  }
 
   .slide {
     position: absolute;
     inset: 0;
-    display: flex;
-    flex-direction: column;
-    padding: clamp(24px, 5vw, 72px) clamp(24px, 7vw, 112px) 96px;
+    display: grid;
+    grid-template-rows: 1fr 64px;
     opacity: 0;
     visibility: hidden;
-    transition: opacity .35s ease, visibility 0s linear .35s;
-    overflow-y: auto;
+    transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+    background: var(--cor-leite);
   }
-  .slide.ativo { opacity: 1; visibility: visible; transition: opacity .35s ease; }
+  .slide.ativo {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.35s ease, visibility 0s;
+  }
+  .slide.escuro { background: var(--cor-folha); color: var(--cor-leite); }
 
-  .slide-escuro { background: var(--cor-folha); color: var(--cor-leite); }
+  .conteudo {
+    padding: 56px 72px 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
 
-  .conteudo { width: 100%; max-width: 1200px; margin: auto; }
+  /* Rodapé */
+  .rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 72px;
+    border-top: 1.5px solid var(--cor-borda);
+    font-size: 14px;
+    color: var(--cor-apoio);
+  }
+  .escuro .rodape { border-top-color: rgba(246, 241, 234, 0.22); color: var(--cor-leite); }
 
-  h1, h2, h3 { font-family: var(--fonte-titulo); font-weight: 800; letter-spacing: -0.02em; }
-  h1 { font-size: clamp(40px, 7.4vw, 104px); line-height: 1; }
-  h2 { font-size: clamp(30px, 4.4vw, 56px); line-height: 1.05; max-width: 20ch; }
-  h3 { font-size: 22px; font-weight: 700; letter-spacing: 0; line-height: 1.2; }
+  .navegacao { display: flex; align-items: center; gap: 16px; }
+  .numero {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 15px;
+    min-width: 48px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .seta {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--canto-pilula);
+    border: 2px solid var(--cor-folha);
+    background: transparent;
+    color: var(--cor-folha);
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+  }
+  .seta:hover { background: var(--cor-folha); color: var(--cor-leite); }
+  .seta:disabled { opacity: 0.3; cursor: default; }
+  .seta:disabled:hover { background: transparent; color: var(--cor-folha); }
+  .escuro .seta { border-color: var(--cor-leite); color: var(--cor-leite); }
+  .escuro .seta:hover { background: var(--cor-leite); color: var(--cor-folha); }
+  .escuro .seta:disabled:hover { background: transparent; color: var(--cor-leite); }
+  .seta:focus-visible { outline: 3px solid var(--cor-bourbon); outline-offset: 2px; }
 
-  .abre { font-size: clamp(17px, 1.6vw, 21px); color: var(--cor-apoio); max-width: 60ch; margin-top: 16px; }
-  .slide-escuro .abre { color: var(--cor-leite); }
-  .pequeno { font-size: 14px; color: var(--cor-apoio); }
+  /* Tipografia */
+  h1 {
+    font-family: var(--fonte-titulo);
+    font-weight: 800;
+    font-size: 84px;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+  }
+  h2 {
+    font-family: var(--fonte-titulo);
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    max-width: 22ch;
+  }
+  h3 {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.2;
+  }
+  .abertura {
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--cor-apoio);
+    margin-top: 12px;
+    max-width: 72ch;
+  }
+  .pequeno { font-size: 14px; line-height: 1.5; color: var(--cor-apoio); }
 
   .selo {
     display: inline-block;
     font-family: var(--fonte-titulo);
     font-weight: 700;
     font-size: 13px;
-    line-height: 1.4;
     padding: 6px 16px;
     border-radius: var(--canto-pilula);
     background: var(--cor-bourbon);
     color: var(--cor-grao);
   }
-  .selo-folha { background: var(--cor-folha); color: var(--cor-leite); }
-  .selo-cereja { background: var(--cor-cereja); color: var(--cor-branco); }
+  .selo.neutro { background: var(--cor-folha); color: var(--cor-leite); }
 
-  /* ---------- rodapé e navegação ---------- */
-  .rodape {
-    position: fixed;
-    left: 0; right: 0; bottom: 0;
-    display: flex;
+  /* Slide 1 e 6: capa */
+  .capa {
+    display: grid;
+    grid-template-columns: 1fr 360px;
     align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 20px max(clamp(24px, 7vw, 112px), calc((100vw - 1200px) / 2));
-    font-size: 14px;
-    color: var(--cor-apoio);
-    z-index: 5;
-    pointer-events: none;
+    gap: 40px;
+    height: 100%;
+    padding-bottom: 32px;
   }
-  body.no-escuro .rodape { color: var(--cor-leite); }
-
-  .nav { display: flex; align-items: center; gap: 8px; pointer-events: auto; }
-  .nav button {
-    width: 44px; height: 44px;
-    border-radius: var(--canto-pilula);
-    border: 2px solid currentColor;
-    background: transparent;
-    color: inherit;
-    font: 700 18px/1 var(--fonte-titulo);
-    cursor: pointer;
+  .capa h1 { margin-top: 24px; max-width: 13ch; }
+  .capa .linha-fina {
+    margin-top: 28px;
+    font-size: 21px;
+    line-height: 1.5;
+    max-width: 40ch;
+    color: var(--cor-leite);
   }
-  .nav button:hover { background: var(--cor-folha); border-color: var(--cor-folha); color: var(--cor-leite); }
-  body.no-escuro .nav button:hover { background: var(--cor-leite); border-color: var(--cor-leite); color: var(--cor-folha); }
-  .nav button:disabled { opacity: .35; cursor: default; }
-  .nav button:disabled:hover { background: transparent; border-color: currentColor; color: inherit; }
-  .contador {
-    font-family: var(--fonte-titulo);
-    font-weight: 700;
-    font-size: 15px;
-    min-width: 56px;
-    text-align: center;
-    font-variant-numeric: tabular-nums;
+  .capa .linha-fina + .linha-fina { margin-top: 8px; font-size: 16px; opacity: 0.85; }
+  .xicara { width: 360px; height: 360px; }
+
+  /* Slide 2: números do período */
+  .periodo {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 56px;
+    margin-top: 32px;
+    flex: 1;
+    min-height: 0;
+    padding-bottom: 24px;
   }
-
-  :focus-visible { outline: 3px solid var(--cor-cereja); outline-offset: 3px; }
-  body.no-escuro :focus-visible { outline-color: var(--cor-bourbon); }
-
-  .barra-progresso {
-    position: fixed; left: 0; top: 0; height: 4px;
-    background: var(--cor-cereja);
-    transition: width .35s ease;
-    z-index: 5;
-  }
-
-  /* ---------- slide 1: título ---------- */
-  .capa { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: center; }
-  .capa .marca { font-family: var(--fonte-titulo); font-weight: 700; font-size: 18px; margin-bottom: 32px; }
-  .capa h1 { max-width: 11ch; }
-  .capa .abre { margin-top: 24px; }
-
-  /* xícara vista de cima, em formas chapadas */
-  .xicara { position: relative; width: 100%; max-width: 420px; aspect-ratio: 1; margin-left: auto; }
-  .xicara .pires { position: absolute; inset: 0; border-radius: 50%; background: var(--cor-borda); }
-  .xicara .borda { position: absolute; inset: 14%; border-radius: 50%; background: var(--cor-branco); }
-  .xicara .cafe { position: absolute; inset: 22%; border-radius: 50%; background: var(--cor-grao); }
-  .xicara .crema { position: absolute; inset: 36% 30% 30% 36%; border-radius: 50%; background: #5A3A26; }
-  .xicara .alca {
-    position: absolute; right: -6%; top: 40%;
-    width: 18%; height: 20%;
-    border-radius: 0 999px 999px 0;
+  .grafico-caixa {
     background: var(--cor-branco);
-    border: 0;
+    border: 1.5px solid var(--cor-borda);
+    border-radius: var(--canto-grande);
+    padding: 24px 28px 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
   }
-  .xicara .grao {
-    position: absolute; width: 11%; height: 15%;
-    border-radius: 50%;
-    background: var(--cor-cereja);
-  }
-  .xicara .grao::after {
-    content: ""; position: absolute; left: 46%; top: 12%; width: 8%; height: 76%;
-    border-radius: 999px; background: var(--cor-leite); opacity: .55;
-  }
-  .xicara .g1 { left: 2%; bottom: 4%; transform: rotate(-28deg); }
-  .xicara .g2 { left: 15%; bottom: -4%; transform: rotate(18deg); background: var(--cor-folha); }
+  .grafico-caixa h3 { font-size: 18px; }
+  .grafico-caixa .pequeno { margin-top: 2px; }
+  .grafico-caixa svg { flex: 1; width: 100%; min-height: 0; margin-top: 8px; overflow: visible; }
 
-  /* ---------- slide 2: números do período ---------- */
-  .periodo { display: grid; grid-template-columns: 1fr 1.15fr; gap: 56px; align-items: end; margin-top: 40px; }
-  .total {
+  .cifras { display: flex; flex-direction: column; justify-content: center; }
+  .cifra { padding: 20px 0; border-bottom: 1.5px solid var(--cor-borda); }
+  .cifra:first-child { padding-top: 0; }
+  .cifra:last-child { border-bottom: 0; padding-bottom: 0; }
+  .cifra strong {
+    display: block;
     font-family: var(--fonte-titulo);
     font-weight: 800;
-    font-size: clamp(44px, 7vw, 96px);
-    line-height: 1;
-    letter-spacing: -0.03em;
+    font-size: 34px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
     font-variant-numeric: tabular-nums;
   }
-  .total small { font-size: .42em; letter-spacing: 0; margin-right: 4px; vertical-align: .9em; }
-  .fatos { margin-top: 32px; display: grid; gap: 16px; max-width: 46ch; }
-  .fatos p { padding-top: 16px; border-top: 1.5px solid var(--cor-borda); }
-  .fatos strong { font-family: var(--fonte-titulo); font-weight: 700; font-size: 20px; }
+  .cifra span { display: block; margin-top: 6px; font-size: 16px; line-height: 1.5; color: var(--cor-apoio); }
 
-  /* gráficos de barras */
-  .grafico { position: relative; }
-  .grafico svg { display: block; width: 100%; height: auto; overflow: visible; }
-  .grafico .titulo-grafico { font-weight: 600; margin-bottom: 12px; }
-  .grafico .barra { fill: var(--cor-folha); transition: opacity .15s; }
-  .grafico .barra.realce { fill: var(--cor-cereja); }
-  .grafico .alvo { fill: transparent; cursor: default; }
-  .grafico g.mes:hover .barra, .grafico g.mes:focus .barra { opacity: .75; }
-  .grafico g.mes:focus { outline: none; }
-  .grafico g.mes:focus-visible .alvo { stroke: var(--cor-cereja); stroke-width: 2; }
-  .grafico .eixo { font: 400 13px var(--fonte-texto); fill: var(--cor-apoio); }
-  .grafico .rotulo { font: 700 14px var(--fonte-titulo); fill: var(--cor-grao); }
-  .grafico .base { stroke: var(--cor-borda); stroke-width: 1.5; }
+  /* Slide 3: canal que mais cresceu */
+  .crescimento {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 48px;
+    margin-top: 28px;
+    flex: 1;
+    min-height: 0;
+    padding-bottom: 24px;
+  }
+  .ranking { display: flex; flex-direction: column; justify-content: center; }
+  .ranking h3 { font-size: 18px; margin-bottom: 20px; }
+  .ranking-linha { display: grid; grid-template-columns: 1fr auto; row-gap: 6px; margin-bottom: 18px; }
+  .ranking-linha .nome { font-size: 16px; font-weight: 600; }
+  .ranking-linha .valor { font-family: var(--fonte-titulo); font-weight: 700; font-size: 18px; font-variant-numeric: tabular-nums; }
+  .ranking-linha .trilho { grid-column: 1 / -1; height: 14px; }
+  .ranking-linha .barra {
+    height: 14px;
+    border-radius: 0 4px 4px 0;
+    background: var(--cor-barra-neutra);
+    transform-origin: left center;
+  }
+  .ranking-linha.destaque .barra { background: var(--cor-cereja); }
+  .ranking .pequeno { margin-top: 8px; }
+
+  /* Barras que crescem ao abrir o slide: o único movimento automático */
+  .barra-mes { transform-box: fill-box; transform-origin: bottom; }
+  .slide.ativo .anima .barra-mes { animation: sobe 0.7s cubic-bezier(.2,.7,.2,1) both; }
+  .slide.ativo .anima .barra { animation: estica 0.7s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes sobe { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @keyframes estica { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+  /* Slide 4: clientes B2B */
+  .clientes {
+    display: grid;
+    grid-template-columns: 1fr 440px;
+    gap: 48px;
+    margin-top: 28px;
+    flex: 1;
+    min-height: 0;
+    padding-bottom: 24px;
+  }
+  .linha-tempo h3 { font-size: 18px; margin-bottom: 12px; }
+  .linha-tempo ol { list-style: none; }
+  .linha-tempo li {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    align-items: baseline;
+    gap: 16px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--cor-borda);
+    font-size: 16px;
+    line-height: 1.35;
+  }
+  .linha-tempo li:last-child { border-bottom: 0; }
+  .linha-tempo .mes { font-family: var(--fonte-titulo); font-weight: 700; font-size: 15px; color: var(--cor-apoio); }
+  .linha-tempo .riscado { color: var(--cor-apoio); }
+  .linha-tempo .marca {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 1px 8px;
+    border-radius: var(--canto-pilula);
+    margin-left: 6px;
+    vertical-align: 1px;
+  }
+  .marca.saiu { background: var(--cor-cereja); color: var(--cor-branco); }
+  .marca.pausou { background: var(--cor-bourbon); color: var(--cor-grao); }
+  .linha-tempo .pequeno { margin-top: 10px; }
+
+  .casos { display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+  .cartao {
+    background: var(--cor-branco);
+    border: 1.5px solid var(--cor-borda);
+    border-radius: var(--canto-medio);
+    padding: 22px 24px;
+  }
+  .cartao .selo { margin-bottom: 12px; }
+  .cartao p { font-size: 16px; line-height: 1.55; margin-top: 6px; }
+  .cartao .pequeno { margin-top: 10px; }
+  .cartao.saida { border-left: 6px solid var(--cor-cereja); }
+  .cartao.pausa { border-left: 6px solid var(--cor-bourbon); }
+  .selo.cereja { background: var(--cor-cereja); color: var(--cor-branco); }
+
+  /* Slide 5: ações */
+  .acoes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 36px;
+    padding-bottom: 28px;
+    flex: 1;
+    min-height: 0;
+  }
+  .acao {
+    background: var(--cor-branco);
+    border: 1.5px solid var(--cor-borda);
+    border-radius: var(--canto-medio);
+    padding: 28px 26px 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .acao .icone { width: 56px; height: 56px; margin-bottom: 20px; }
+  .acao p { font-size: 16px; line-height: 1.6; margin-top: 12px; }
+  .acao .dono {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--cor-borda);
+    font-size: 14px;
+    color: var(--cor-apoio);
+  }
+
+  /* Dica de hover nos gráficos */
   .dica {
-    position: absolute;
+    position: fixed;
     pointer-events: none;
     background: var(--cor-grao);
     color: var(--cor-leite);
@@ -199,380 +345,366 @@
     padding: 8px 12px;
     border-radius: 8px;
     white-space: nowrap;
-    transform: translate(-50%, calc(-100% - 10px));
     opacity: 0;
-    transition: opacity .12s;
+    transform: translate(-50%, calc(-100% - 10px));
+    z-index: 10;
   }
+  .dica strong { font-family: var(--fonte-titulo); font-weight: 700; }
   .dica.visivel { opacity: 1; }
-  .dica b { font-family: var(--fonte-titulo); }
 
-  /* ---------- slide 3: canal que mais cresceu ---------- */
-  .cresceu { display: grid; grid-template-columns: 1fr 1.3fr; gap: 56px; align-items: center; margin-top: 8px; }
-  .vezes {
-    font-family: var(--fonte-titulo);
-    font-weight: 800;
-    font-size: clamp(96px, 16vw, 220px);
-    line-height: .85;
-    letter-spacing: -0.05em;
-    color: var(--cor-cereja);
-  }
-  .vezes-legenda { font-size: clamp(17px, 1.6vw, 21px); margin-top: 16px; max-width: 30ch; }
-  .comparacao { margin-top: 32px; display: grid; gap: 8px; max-width: 34ch; font-size: 15px; }
-  .comparacao div { display: flex; justify-content: space-between; gap: 16px; padding-bottom: 8px; border-bottom: 1.5px solid var(--cor-borda); }
-  .comparacao div span:last-child { font-family: var(--fonte-titulo); font-weight: 700; font-variant-numeric: tabular-nums; }
-  .comparacao div.destaque span:last-child { color: var(--cor-cereja); }
-
-  /* ---------- slide 4: clientes B2B ---------- */
-  .b2b { display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; margin-top: 40px; align-items: start; }
-  .entraram {
-    background: var(--cor-branco);
-    border: 1.5px solid var(--cor-borda);
-    border-radius: var(--canto-grande);
-    padding: 28px 32px;
-  }
-  .entraram h3 { margin-bottom: 16px; }
-  .linha-tempo { list-style: none; columns: 2; column-gap: 32px; }
-  .linha-tempo li { break-inside: avoid; display: flex; gap: 12px; padding: 6px 0; font-size: 15px; line-height: 1.35; }
-  .linha-tempo .quando { flex: 0 0 34px; color: var(--cor-apoio); font-size: 14px; }
-  .linha-tempo .riscado { color: var(--cor-apoio); text-decoration: line-through; text-decoration-thickness: 1.5px; }
-  .saidas { display: grid; gap: 16px; }
-  .saida {
-    border-radius: var(--canto-medio);
-    padding: 24px;
-    border: 1.5px solid var(--cor-borda);
-    background: var(--cor-branco);
-  }
-  .saida .topo { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
-  .saida p { font-size: 15px; }
-  .saida .pequeno { margin-top: 8px; }
-  .saida-cancelado { border-left: 6px solid var(--cor-cereja); }
-  .saida-pausado { border-left: 6px solid var(--cor-bourbon); }
-
-  /* ---------- slide 5: ações ---------- */
-  .acoes { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
-  .acao { padding-top: 24px; border-top: 6px solid var(--cor-grao); }
-  .acao:first-child { border-top-color: var(--cor-cereja); }
-  .acao h3 { font-size: clamp(22px, 2vw, 26px); font-weight: 800; letter-spacing: -0.01em; margin-bottom: 12px; }
-  .acao p { font-size: 16px; }
-  .acao .porque { margin-top: 16px; font-size: 14px; color: var(--cor-apoio); }
-
-  /* ---------- slide 6: obrigado ---------- */
-  .fim h1 { font-size: clamp(64px, 13vw, 180px); }
-  .fim .abre { font-size: clamp(18px, 1.8vw, 24px); max-width: 40ch; margin-top: 32px; }
-  .fim .contato { margin-top: 40px; font-size: 15px; }
-
-  /* ---------- celular ---------- */
-  @media (max-width: 820px) {
-    .slide { padding-bottom: 104px; }
-    .capa, .periodo, .cresceu, .b2b { grid-template-columns: 1fr; gap: 32px; }
-    .xicara { max-width: 200px; margin: 0; order: -1; }
-    .acoes { grid-template-columns: 1fr; gap: 24px; margin-top: 32px; }
-    .linha-tempo { columns: 1; }
-    .conteudo { margin: 0 auto; }
-    .rodape { background: inherit; }
-    body { background: var(--cor-leite); }
-    body.no-escuro .rodape { background: var(--cor-folha); }
-    body:not(.no-escuro) .rodape { background: var(--cor-leite); }
+  .so-leitor {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .slide, .slide.ativo, .barra-progresso, .dica { transition: none; }
+    .slide, .slide.ativo { transition: none; }
+    .slide.ativo .anima .barra-mes,
+    .slide.ativo .anima .barra { animation: none; }
   }
 </style>
 </head>
 <body>
 
-<div class="barra-progresso" id="progresso" aria-hidden="true"></div>
+<main class="palco" id="palco" aria-roledescription="apresentação">
 
-<main class="deck" id="deck" aria-roledescription="apresentação" aria-label="Resultados da Torra Viva, janeiro a setembro de 2026">
-
-  <!-- 1) Título -->
-  <section class="slide" aria-label="Slide 1 de 6: título">
-    <div class="conteudo capa">
-      <div>
-        <p class="marca">Torra Viva Cafés Especiais</p>
-        <h1>Como foram os nove primeiros meses de 2026</h1>
-        <p class="abre">Resultados de janeiro a setembro, para a reunião de equipe. Torrado esta semana, na sua xícara na próxima.</p>
-      </div>
-      <div class="xicara" aria-hidden="true">
-        <div class="pires"></div>
-        <div class="borda"></div>
-        <div class="alca"></div>
-        <div class="cafe"></div>
-        <div class="crema"></div>
-        <div class="grao g1"></div>
-        <div class="grao g2"></div>
+  <!-- 1. Título -->
+  <section class="slide escuro" aria-label="Slide 1 de 6">
+    <div class="conteudo">
+      <div class="capa">
+        <div>
+          <span class="selo">Reunião de equipe</span>
+          <h1>Torra Viva, janeiro a setembro de 2026</h1>
+          <p class="linha-fina">Quanto vendemos, qual canal puxou o crescimento, quem entrou e quem saiu do B2B, e o que fazer até dezembro.</p>
+        </div>
+        <svg class="xicara" viewBox="0 0 360 360" aria-hidden="true">
+          <!-- xícara vista de cima, formas chapadas -->
+          <circle cx="180" cy="180" r="150" fill="#F6F1EA"/>
+          <circle cx="180" cy="180" r="118" fill="#E6DDD2"/>
+          <circle cx="180" cy="180" r="100" fill="#2B1D14"/>
+          <circle cx="180" cy="180" r="56" fill="#4A3324"/>
+          <path d="M180 140 C 200 160, 200 200, 180 220 C 160 200, 160 160, 180 140 Z" fill="#E8B547"/>
+          <rect x="318" y="160" width="40" height="40" rx="20" fill="#F6F1EA"/>
+          <ellipse cx="66" cy="300" rx="16" ry="22" transform="rotate(-30 66 300)" fill="#C23B22"/>
+          <path d="M58 286 Q 70 300 62 316" stroke="#234B3F" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <ellipse cx="300" cy="60" rx="14" ry="20" transform="rotate(25 300 60)" fill="#E8B547"/>
+          <path d="M296 46 Q 306 60 300 74" stroke="#234B3F" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </svg>
       </div>
     </div>
+    <footer class="rodape"></footer>
   </section>
 
-  <!-- 2) Números do período -->
-  <section class="slide" aria-label="Slide 2 de 6: os números do período">
+  <!-- 2. Números do período -->
+  <section class="slide" aria-label="Slide 2 de 6">
     <div class="conteudo">
-      <h2>Nove meses de vendas</h2>
+      <h2>Faturamos R$ 765.578,40 de janeiro a setembro</h2>
       <div class="periodo">
-        <div>
-          <p class="total"><small>R$</small>765.578,40</p>
-          <div class="fatos">
-            <p><strong>R$ 445.207,30</strong> de lucro bruto, 58% do faturamento. Essa conta tira só o custo do café; aluguel, salários e frete ficam de fora.</p>
-            <p>Setembro fechou em <strong>R$ 105.015,40</strong>, 76% acima de janeiro. O melhor mês foi agosto, com R$ 113.768,40.</p>
-            <p>A loja online trouxe <strong>46,5%</strong> do total e segue sendo o maior canal.</p>
-          </div>
+        <div class="grafico-caixa anima">
+          <h3>Faturamento por mês</h3>
+          <p class="pequeno">Soma dos 4 canais, em reais</p>
+          <svg id="grafico-mensal" role="img" aria-label="Faturamento mensal de janeiro a setembro de 2026"></svg>
         </div>
-        <div class="grafico" data-grafico="total">
-          <p class="titulo-grafico">Faturamento por mês, todos os canais</p>
+        <div class="cifras">
+          <div class="cifra">
+            <strong>R$ 445.207,30</strong>
+            <span>de lucro bruto (faturamento menos o custo do café), uma margem de 58,2%</span>
+          </div>
+          <div class="cifra">
+            <strong>+76,5%</strong>
+            <span>de setembro (R$&nbsp;105.015,40) sobre janeiro (R$&nbsp;59.494,00). O melhor mês foi agosto.</span>
+          </div>
+          <div class="cifra">
+            <strong>298 assinaturas</strong>
+            <span>do Clube Torra Viva em setembro. Em janeiro eram 181.</span>
+          </div>
         </div>
       </div>
     </div>
+    <footer class="rodape"></footer>
   </section>
 
-  <!-- 3) Canal que mais cresceu -->
-  <section class="slide" aria-label="Slide 3 de 6: o canal que mais cresceu">
+  <!-- 3. Canal que mais cresceu -->
+  <section class="slide" aria-label="Slide 3 de 6">
     <div class="conteudo">
-      <h2>O café no escritório foi o canal que mais cresceu</h2>
-      <div class="cresceu">
-        <div>
-          <p class="vezes" aria-label="4,7 vezes">4,7×</p>
-          <p class="vezes-legenda">O B2B Escritórios faturou R$ 4.011,00 em janeiro e R$ 18.752,40 em setembro. O ano começou com 2 empresas que vinham de 2025. Em setembro eram 12 ativas.</p>
-          <div class="comparacao" aria-label="Crescimento de janeiro para setembro, por canal">
-            <div class="destaque"><span>B2B Escritórios</span><span>+367%</span></div>
-            <div><span>Clube Torra Viva</span><span>+65%</span></div>
-            <div><span>Loja online</span><span>+57%</span></div>
-            <div><span>Cafeterias parceiras</span><span>+40%</span></div>
-          </div>
+      <h2>O B2B Escritórios foi o canal que mais cresceu</h2>
+      <p class="abertura">Faturou R$ 4.011,00 em janeiro e R$ 18.752,40 em setembro, quase cinco vezes mais.</p>
+      <div class="crescimento">
+        <div class="grafico-caixa anima">
+          <h3>B2B Escritórios, faturamento por mês</h3>
+          <p class="pequeno">Em reais</p>
+          <svg id="grafico-b2b" role="img" aria-label="Faturamento mensal do canal B2B Escritórios"></svg>
         </div>
-        <div>
-          <div class="grafico" data-grafico="b2b">
-            <p class="titulo-grafico">Faturamento do B2B Escritórios por mês</p>
+        <div class="ranking anima">
+          <h3>Setembro comparado com janeiro</h3>
+          <div class="ranking-linha destaque">
+            <span class="nome">B2B Escritórios</span><span class="valor">+367,5%</span>
+            <div class="trilho"><div class="barra" style="width:100%"></div></div>
           </div>
-          <p class="pequeno" style="margin-top:16px">No acumulado do ano o B2B ainda é o menor canal: 14,7% do faturamento.</p>
+          <div class="ranking-linha">
+            <span class="nome">Clube Torra Viva</span><span class="valor">+64,6%</span>
+            <div class="trilho"><div class="barra" style="width:17.6%"></div></div>
+          </div>
+          <div class="ranking-linha">
+            <span class="nome">Loja online</span><span class="valor">+57,2%</span>
+            <div class="trilho"><div class="barra" style="width:15.6%"></div></div>
+          </div>
+          <div class="ranking-linha">
+            <span class="nome">Cafeterias parceiras</span><span class="valor">+39,7%</span>
+            <div class="trilho"><div class="barra" style="width:10.8%"></div></div>
+          </div>
+          <p class="pequeno">No total dos nove meses, o B2B ainda é o menor canal: 14,7% do faturamento. A loja online fica com 46,5%.</p>
         </div>
       </div>
     </div>
+    <footer class="rodape"></footer>
   </section>
 
-  <!-- 4) Clientes B2B -->
-  <section class="slide" aria-label="Slide 4 de 6: clientes B2B">
+  <!-- 4. Clientes B2B -->
+  <section class="slide" aria-label="Slide 4 de 6">
     <div class="conteudo">
-      <h2>Doze empresas entraram, uma saiu e uma deu uma pausa</h2>
-      <div class="b2b">
-        <div class="entraram">
-          <h3>Quem entrou em 2026</h3>
-          <ul class="linha-tempo">
-            <li><span class="quando">jan</span><span>Agência Faro Digital</span></li>
-            <li><span class="quando">fev</span><span>Rocha &amp; Lima Advogados</span></li>
-            <li><span class="quando">mar</span><span>Coworking Ponto de Encontro</span></li>
-            <li><span class="quando">mar</span><span class="riscado">Imobiliária Casa Certa</span></li>
-            <li><span class="quando">abr</span><span>Fala Mundo Idiomas</span></li>
-            <li><span class="quando">abr</span><span>TechNorte Sistemas</span></li>
-            <li><span class="quando">mai</span><span class="riscado">Laboratório Vida Clara</span></li>
-            <li><span class="quando">jun</span><span>Traço Livre Arquitetura</span></li>
-            <li><span class="quando">jul</span><span>Construtora Alicerce</span></li>
-            <li><span class="quando">ago</span><span>Prumo Consultoria</span></li>
-            <li><span class="quando">set</span><span>Sorriso Pleno Odontologia</span></li>
-            <li><span class="quando">set</span><span>Hotel Serra Azul</span></li>
-          </ul>
-          <p class="pequeno" style="margin-top:16px">Contábil Horizonte e Clínica Bem Viver já eram clientes desde 2025. A TechNorte é a maior em volume: 36 kg por mês.</p>
+      <h2>No B2B, 12 empresas entraram, uma saiu e uma pausou</h2>
+      <div class="clientes">
+        <div class="linha-tempo">
+          <h3>Quem entrou em 2026, mês a mês</h3>
+          <ol>
+            <li><span class="mes">jan</span><span>Agência Faro Digital</span></li>
+            <li><span class="mes">fev</span><span>Rocha &amp; Lima Advogados</span></li>
+            <li><span class="mes">mar</span><span>Coworking Ponto de Encontro, Imobiliária Casa Certa<span class="marca pausou">pausou</span></span></li>
+            <li><span class="mes">abr</span><span>Fala Mundo Idiomas, TechNorte Sistemas</span></li>
+            <li><span class="mes">mai</span><span class="riscado">Laboratório Vida Clara<span class="marca saiu">saiu</span></span></li>
+            <li><span class="mes">jun</span><span>Traço Livre Arquitetura</span></li>
+            <li><span class="mes">jul</span><span>Construtora Alicerce</span></li>
+            <li><span class="mes">ago</span><span>Prumo Consultoria</span></li>
+            <li><span class="mes">set</span><span>Sorriso Pleno Odontologia, Hotel Serra Azul</span></li>
+          </ol>
+          <p class="pequeno">Contábil Horizonte e Clínica Bem Viver já eram clientes desde 2025. Hoje são 12 empresas ativas.</p>
         </div>
-        <div class="saidas">
-          <article class="saida saida-cancelado">
-            <div class="topo"><h3>Laboratório Vida Clara</h3><span class="selo selo-cereja">cancelou</span></div>
-            <p>Saiu em agosto, depois de duas entregas atrasadas em julho. Na pesquisa de satisfação deu nota 4.</p>
-          </article>
-          <article class="saida saida-pausado">
-            <div class="topo"><h3>Imobiliária Casa Certa</h3><span class="selo">pausou</span></div>
-            <p>Parou em julho por causa da reforma do escritório. Disse que volta em novembro.</p>
-          </article>
-          <p class="pequeno">Nota de satisfação vai de 0 a 10. Sorriso Pleno e Hotel Serra Azul ainda não responderam a pesquisa.</p>
+        <div class="casos">
+          <div class="cartao saida">
+            <span class="selo cereja">Saiu</span>
+            <h3>Laboratório Vida Clara</h3>
+            <p>Cancelou em agosto, depois de duas entregas atrasadas em julho.</p>
+            <p class="pequeno">R$ 1.459,20 por mês. Nota 4 na pesquisa de satisfação (NPS, de 0 a 10).</p>
+          </div>
+          <div class="cartao pausa">
+            <span class="selo">Pausou</span>
+            <h3>Imobiliária Casa Certa</h3>
+            <p>Pausou em julho por causa da reforma do escritório. A volta está prevista para novembro.</p>
+            <p class="pequeno">R$ 743,00 por mês.</p>
+          </div>
         </div>
       </div>
     </div>
+    <footer class="rodape"></footer>
   </section>
 
-  <!-- 5) Ações para o último trimestre -->
-  <section class="slide" aria-label="Slide 5 de 6: ações para o último trimestre">
+  <!-- 5. Ações -->
+  <section class="slide" aria-label="Slide 5 de 6">
     <div class="conteudo">
-      <h2>O que fazer de outubro a dezembro</h2>
-      <ul class="acoes">
-        <li class="acao">
-          <h3>Entregar no prazo para os escritórios</h3>
-          <p>Rever a rota e o calendário das entregas B2B para que nenhum cliente receba o café atrasado.</p>
-          <p class="porque">O Vida Clara cancelou depois de dois atrasos em julho.</p>
-        </li>
-        <li class="acao">
-          <h3>Responder os pedidos em aberto</h3>
-          <p>Mandar ao Coworking Ponto de Encontro o orçamento com chás e levar o Etiópia Yirgacheffe para a Agência Faro Digital provar.</p>
-          <p class="porque">Os dois pediram e ainda estão esperando resposta.</p>
-        </li>
-        <li class="acao">
-          <h3>Falar com quem chegou e com quem vai voltar</h3>
-          <p>Fazer a pesquisa de satisfação com Sorriso Pleno e Hotel Serra Azul, e combinar com a Casa Certa a data da volta em novembro.</p>
-          <p class="porque">Responsável e data de cada ação: [confirmar na reunião]</p>
-        </li>
-      </ul>
+      <h2>Três ações para outubro, novembro e dezembro</h2>
+      <div class="acoes">
+        <article class="acao">
+          <svg class="icone" viewBox="0 0 56 56" aria-hidden="true">
+            <rect x="4" y="16" width="32" height="24" rx="4" fill="#234B3F"/>
+            <path d="M36 22 H46 L52 30 V40 H36 Z" fill="#234B3F"/>
+            <circle cx="16" cy="42" r="6" fill="#E8B547"/>
+            <circle cx="44" cy="42" r="6" fill="#E8B547"/>
+          </svg>
+          <h3>Entregar o B2B no prazo</h3>
+          <p>O Vida Clara cancelou por causa de duas entregas atrasadas em julho. A entrega dos escritórios sai na primeira semana do mês, e qualquer atraso precisa ser avisado ao cliente antes da data.</p>
+          <p class="dono">Quem cuida e prazo: [confirmar]</p>
+        </article>
+        <article class="acao">
+          <svg class="icone" viewBox="0 0 56 56" aria-hidden="true">
+            <circle cx="28" cy="28" r="24" fill="#E8B547"/>
+            <path d="M18 29 L25 36 L39 21" stroke="#2B1D14" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Trazer a Casa Certa de volta e ouvir os novos</h3>
+          <p>Combinar com a Casa Certa a data da volta em novembro. Fazer a pesquisa de satisfação com a Sorriso Pleno e o Hotel Serra Azul, que entraram em setembro e ainda não responderam.</p>
+          <p class="dono">Quem cuida e prazo: [confirmar]</p>
+        </article>
+        <article class="acao">
+          <svg class="icone" viewBox="0 0 56 56" aria-hidden="true">
+            <ellipse cx="28" cy="28" rx="16" ry="23" transform="rotate(20 28 28)" fill="#C23B22"/>
+            <path d="M22 9 Q 34 28 26 47" stroke="#F6F1EA" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          </svg>
+          <h3>Oferecer o Etiópia aos escritórios</h3>
+          <p>Na loja online, o Etiópia Yirgacheffe passou de 62 pacotes vendidos em junho para 151 em setembro. A Agência Faro Digital quer conhecer esse café para as reuniões com clientes. Dá para começar por ela.</p>
+          <p class="dono">Quem cuida e prazo: [confirmar]</p>
+        </article>
+      </div>
     </div>
+    <footer class="rodape"></footer>
   </section>
 
-  <!-- 6) Obrigado -->
-  <section class="slide slide-escuro" data-escuro aria-label="Slide 6 de 6: obrigado">
-    <div class="conteudo fim">
-      <h1>Obrigado, equipe.</h1>
-      <p class="abre">Esses números saíram da torra, da embalagem, da expedição e do atendimento de cada um. Dúvidas e ideias, é só trazer.</p>
-      <p class="contato">torraviva.exemplo · @torraviva.exemplo</p>
+  <!-- 6. Obrigado -->
+  <section class="slide escuro" aria-label="Slide 6 de 6">
+    <div class="conteudo">
+      <div class="capa">
+        <div>
+          <span class="selo">Torra Viva</span>
+          <h1>Obrigado, equipe</h1>
+          <p class="linha-fina">Torrado esta semana, na sua xícara na próxima.</p>
+          <p class="linha-fina">Dúvidas e ideias sobre as três ações: agora é a hora.</p>
+        </div>
+        <svg class="xicara" viewBox="0 0 360 360" aria-hidden="true">
+          <circle cx="180" cy="180" r="150" fill="#F6F1EA"/>
+          <circle cx="180" cy="180" r="118" fill="#E6DDD2"/>
+          <circle cx="180" cy="180" r="100" fill="#2B1D14"/>
+          <path d="M180 214 C 130 180, 140 140, 166 140 C 174 140, 180 148, 180 156 C 180 148, 186 140, 194 140 C 220 140, 230 180, 180 214 Z" fill="#E8B547"/>
+          <rect x="318" y="160" width="40" height="40" rx="20" fill="#F6F1EA"/>
+        </svg>
+      </div>
     </div>
+    <footer class="rodape"></footer>
   </section>
 
 </main>
 
-<footer class="rodape">
-  <span>Dados fictícios de exemplo</span>
-  <nav class="nav" aria-label="Navegação dos slides">
-    <button type="button" id="anterior" aria-label="Slide anterior">‹</button>
-    <span class="contador" id="contador" aria-live="polite">1 / 6</span>
-    <button type="button" id="proximo" aria-label="Próximo slide">›</button>
-  </nav>
-</footer>
+<div class="dica" id="dica" role="tooltip"></div>
 
 <script>
-  // ---------- dados dos gráficos (de dados/vendas-mensais.csv) ----------
+  // Dados de dados/vendas-mensais.csv (dados fictícios de exemplo), somados por mês
   const MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set"];
-  const SERIES = {
-    total: [59494.00, 56095.00, 70356.80, 77616.60, 93928.80, 90838.80, 98464.60, 113768.40, 105015.40],
-    b2b:   [4011.00, 6153.00, 8906.80, 13121.60, 14580.80, 15140.80, 16228.60, 15665.80, 18752.40]
-  };
+  const MESES_LONGOS = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro"];
+  const FATURAMENTO_MES = [59494.00, 56095.00, 70356.80, 77616.60, 93928.80, 90838.80, 98464.60, 113768.40, 105015.40];
+  const B2B_MES = [4011.00, 6153.00, 8906.80, 13121.60, 14580.80, 15140.80, 16228.60, 15665.40, 18752.40];
 
-  const real = v => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-  const milhar = v => "R$ " + Math.round(v / 1000).toLocaleString("pt-BR") + " mil";
+  const reais = v => "R$ " + v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const milhares = v => "R$ " + Math.round(v / 1000).toLocaleString("pt-BR") + " mil";
 
-  function desenharGrafico(caixa) {
-    const valores = SERIES[caixa.dataset.grafico];
-    const L = 560, A = 300, topo = 28, baixo = 28;
-    const max = Math.max(...valores);
-    const passo = L / valores.length;
-    const largura = Math.min(40, passo * 0.62);
-    const ultimo = valores.length - 1;
-    const ns = "http://www.w3.org/2000/svg";
+  const dica = document.getElementById("dica");
+  const NS = "http://www.w3.org/2000/svg";
 
-    const svg = document.createElementNS(ns, "svg");
-    svg.setAttribute("viewBox", `0 0 ${L} ${A}`);
-    svg.setAttribute("role", "img");
-    svg.setAttribute("aria-label", caixa.querySelector(".titulo-grafico").textContent + ": " +
-      valores.map((v, i) => MESES[i] + " " + real(v)).join("; "));
+  function el(nome, attrs, pai) {
+    const e = document.createElementNS(NS, nome);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (pai) pai.appendChild(e);
+    return e;
+  }
+
+  // Barras verticais de uma série, com rótulo direto só nos meses escolhidos
+  function graficoBarras(svg, valores, { cor, corDestaque, destaques, rotulos }) {
+    const W = svg.clientWidth, H = svg.clientHeight;
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    const topo = 30, base = H - 28;
+    const max = Math.max(...valores) * 1.05;
+    const faixa = W / valores.length;
+    const largura = Math.min(48, faixa * 0.62);
+
+    // linha de base
+    el("line", { x1: 0, x2: W, y1: base, y2: base, stroke: "#E6DDD2", "stroke-width": 1.5 }, svg);
 
     valores.forEach((v, i) => {
-      const h = (v / max) * (A - topo - baixo);
-      const x = i * passo + (passo - largura) / 2;
-      const y = A - baixo - h;
-      const g = document.createElementNS(ns, "g");
-      g.setAttribute("class", "mes");
-      g.setAttribute("tabindex", "0");
-      g.dataset.texto = `<b>${MESES[i]}/2026</b><br>${real(v)}`;
-      g.dataset.x = x + largura / 2;
-      g.dataset.y = y;
-
-      // alvo invisível maior que a barra, para facilitar o mouse
-      const alvo = document.createElementNS(ns, "rect");
-      alvo.setAttribute("class", "alvo");
-      alvo.setAttribute("x", i * passo); alvo.setAttribute("y", 0);
-      alvo.setAttribute("width", passo); alvo.setAttribute("height", A - baixo);
-      g.appendChild(alvo);
-
-      // barra com ponta de cima arredondada (4 px) e base reta
+      const h = (v / max) * (base - topo);
+      const x = i * faixa + (faixa - largura) / 2;
+      const y = base - h;
       const r = 4;
-      const barra = document.createElementNS(ns, "path");
-      barra.setAttribute("class", "barra" + (i === ultimo ? " realce" : ""));
-      barra.setAttribute("d",
-        `M${x},${A - baixo} V${y + r} Q${x},${y} ${x + r},${y} H${x + largura - r} Q${x + largura},${y} ${x + largura},${y + r} V${A - baixo} Z`);
-      g.appendChild(barra);
+      const destaque = destaques.includes(i);
+      const g = el("g", {}, svg);
+      el("path", {
+        class: "barra-mes",
+        d: `M${x},${base} V${y + r} Q${x},${y} ${x + r},${y} H${x + largura - r} Q${x + largura},${y} ${x + largura},${y + r} V${base} Z`,
+        fill: destaque ? corDestaque : cor,
+        style: `animation-delay:${i * 50}ms`
+      }, g);
+      // área de toque maior que a barra
+      const alvo = el("rect", { x: i * faixa, y: topo - 20, width: faixa, height: base - topo + 20, fill: "transparent" }, g);
+      alvo.addEventListener("mouseenter", () => {
+        const caixa = alvo.getBoundingClientRect();
+        dica.innerHTML = `${MESES_LONGOS[i]} de 2026<br><strong>${reais(v)}</strong>`;
+        dica.style.left = (caixa.left + caixa.width / 2) + "px";
+        dica.style.top = (caixa.top + 10) + "px";
+        dica.classList.add("visivel");
+      });
+      alvo.addEventListener("mouseleave", () => dica.classList.remove("visivel"));
 
-      const eixo = document.createElementNS(ns, "text");
-      eixo.setAttribute("class", "eixo");
-      eixo.setAttribute("x", x + largura / 2); eixo.setAttribute("y", A - 6);
-      eixo.setAttribute("text-anchor", "middle");
-      eixo.textContent = MESES[i];
-      g.appendChild(eixo);
+      const mes = el("text", { x: i * faixa + faixa / 2, y: base + 20, "text-anchor": "middle",
+        "font-size": 14, fill: "#6B5E55", "font-family": "Albert Sans, Arial, sans-serif" }, svg);
+      mes.textContent = MESES[i];
 
-      // rótulo só no primeiro e no último mês
-      if (i === 0 || i === ultimo) {
-        const t = document.createElementNS(ns, "text");
-        t.setAttribute("class", "rotulo");
-        t.setAttribute("x", x + largura / 2); t.setAttribute("y", y - 8);
-        t.setAttribute("text-anchor", "middle");
-        t.textContent = milhar(v);
-        g.appendChild(t);
+      if (rotulos.includes(i)) {
+        const t = el("text", { x: i * faixa + faixa / 2, y: y - 8, "text-anchor": "middle",
+          "font-size": 14, "font-weight": 700, fill: "#2B1D14", "font-family": "Bricolage Grotesque, Arial, sans-serif" }, svg);
+        t.textContent = milhares(v);
       }
-      svg.appendChild(g);
     });
 
-    const base = document.createElementNS(ns, "line");
-    base.setAttribute("class", "base");
-    base.setAttribute("x1", 0); base.setAttribute("x2", L);
-    base.setAttribute("y1", A - baixo); base.setAttribute("y2", A - baixo);
-    svg.appendChild(base);
+    // tabela para leitor de tela
+    const desc = el("desc", {}, svg);
+    desc.textContent = valores.map((v, i) => `${MESES_LONGOS[i]}: ${reais(v)}`).join("; ");
+  }
 
-    caixa.appendChild(svg);
-
-    // dica ao passar o mouse ou focar com o teclado
-    const dica = document.createElement("div");
-    dica.className = "dica";
-    caixa.appendChild(dica);
-    const mostrar = g => {
-      const escala = svg.getBoundingClientRect().width / L;
-      dica.innerHTML = g.dataset.texto;
-      dica.style.left = (svg.offsetLeft + g.dataset.x * escala) + "px";
-      dica.style.top = (svg.offsetTop + g.dataset.y * escala) + "px";
-      dica.classList.add("visivel");
-    };
-    const esconder = () => dica.classList.remove("visivel");
-    svg.querySelectorAll("g.mes").forEach(g => {
-      g.addEventListener("mouseenter", () => mostrar(g));
-      g.addEventListener("focus", () => mostrar(g));
-      g.addEventListener("mouseleave", esconder);
-      g.addEventListener("blur", esconder);
+  function desenharGraficos() {
+    ["grafico-mensal", "grafico-b2b"].forEach(id => document.getElementById(id).innerHTML = "");
+    graficoBarras(document.getElementById("grafico-mensal"), FATURAMENTO_MES, {
+      cor: "#234B3F", corDestaque: "#C23B22", destaques: [7], rotulos: [0, 7, 8]
+    });
+    graficoBarras(document.getElementById("grafico-b2b"), B2B_MES, {
+      cor: "#CFC2B4", corDestaque: "#C23B22", destaques: [8], rotulos: [0, 3, 8]
     });
   }
-  document.querySelectorAll("[data-grafico]").forEach(desenharGrafico);
 
-  // ---------- navegação ----------
+  // Navegação
+  const palco = document.getElementById("palco");
   const slides = [...document.querySelectorAll(".slide")];
-  const contador = document.getElementById("contador");
-  const progresso = document.getElementById("progresso");
-  const btnAnterior = document.getElementById("anterior");
-  const btnProximo = document.getElementById("proximo");
   let atual = 0;
 
-  function irPara(n) {
+  slides.forEach((s, i) => {
+    s.querySelector(".rodape").innerHTML = `
+      <span>Dados fictícios de exemplo</span>
+      <div class="navegacao">
+        <button class="seta" data-ir="-1" aria-label="Slide anterior">←</button>
+        <span class="numero">${i + 1} / ${slides.length}</span>
+        <button class="seta" data-ir="1" aria-label="Próximo slide">→</button>
+      </div>`;
+  });
+
+  function mostrar(n) {
     atual = Math.max(0, Math.min(slides.length - 1, n));
     slides.forEach((s, i) => {
       s.classList.toggle("ativo", i === atual);
       s.setAttribute("aria-hidden", i === atual ? "false" : "true");
     });
-    contador.textContent = `${atual + 1} / ${slides.length}`;
-    progresso.style.width = ((atual + 1) / slides.length * 100) + "%";
-    document.body.classList.toggle("no-escuro", slides[atual].hasAttribute("data-escuro"));
-    btnAnterior.disabled = atual === 0;
-    btnProximo.disabled = atual === slides.length - 1;
+    slides[0].querySelector('[data-ir="-1"]').disabled = true;
+    slides[slides.length - 1].querySelector('[data-ir="1"]').disabled = true;
+    dica.classList.remove("visivel");
     history.replaceState(null, "", "#" + (atual + 1));
   }
 
   document.addEventListener("keydown", e => {
-    if (["ArrowRight", "ArrowDown", "PageDown", " "].includes(e.key)) { e.preventDefault(); irPara(atual + 1); }
-    if (["ArrowLeft", "ArrowUp", "PageUp"].includes(e.key)) { e.preventDefault(); irPara(atual - 1); }
-    if (e.key === "Home") irPara(0);
-    if (e.key === "End") irPara(slides.length - 1);
+    if (["ArrowRight", "ArrowDown", "PageDown", " "].includes(e.key)) { e.preventDefault(); mostrar(atual + 1); }
+    if (["ArrowLeft", "ArrowUp", "PageUp"].includes(e.key)) { e.preventDefault(); mostrar(atual - 1); }
+    if (e.key === "Home") mostrar(0);
+    if (e.key === "End") mostrar(slides.length - 1);
   });
 
-  // clique no slide: o terço da esquerda volta, o resto avança
-  document.getElementById("deck").addEventListener("click", e => {
-    if (e.target.closest("a, button, g.mes")) return;
-    if (e.clientX < window.innerWidth / 3) irPara(atual - 1);
-    else irPara(atual + 1);
+  // Clique no slide avança; nas setas do rodapé, vai para onde a seta aponta
+  palco.addEventListener("click", e => {
+    const seta = e.target.closest("[data-ir]");
+    if (seta) { mostrar(atual + Number(seta.dataset.ir)); return; }
+    mostrar(atual + 1);
   });
-  btnAnterior.addEventListener("click", () => irPara(atual - 1));
-  btnProximo.addEventListener("click", () => irPara(atual + 1));
 
+  // Escala o palco de 1280 × 720 para caber na janela
+  function ajustar() {
+    const escala = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+    palco.style.transform = `translate(-50%, -50%) scale(${escala})`;
+  }
+  window.addEventListener("resize", ajustar);
+
+  ajustar();
   const inicial = parseInt(location.hash.slice(1), 10);
-  irPara(Number.isFinite(inicial) ? inicial - 1 : 0);
+  // desenha os gráficos com todos os slides visíveis para medir o tamanho certo
+  slides.forEach(s => s.classList.add("ativo"));
+  desenharGraficos();
+  mostrar(Number.isFinite(inicial) ? inicial - 1 : 0);
+  document.fonts && document.fonts.ready.then(() => {
+    slides.forEach(s => s.classList.add("ativo"));
+    desenharGraficos();
+    mostrar(atual);
+  });
 </script>
 </body>
 </html>

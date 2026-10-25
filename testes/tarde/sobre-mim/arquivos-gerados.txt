@@ -1,0 +1,4 @@
+CLAUDE.md	7641 bytes
+controle/progresso.md	870 bytes
+memoria/falta-trazer.md	264 bytes
+memoria/sobre-mim.md	4104 bytes

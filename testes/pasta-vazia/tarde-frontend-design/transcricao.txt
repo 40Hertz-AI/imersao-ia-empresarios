@@ -1,0 +1,22 @@
+════════ mensagem 1 do aluno ════════
+/frontend-design Crie pagina.html: a página do café da manhã para empresas da Padaria Trigo Azul (fictícia), no bairro Cambuí, em Campinas: R$ 35 por pessoa, pedido pelo WhatsApp (19) 90000-0000 (fictício) com data, número de pessoas e endereço. Um arquivo só, que funciona no celular.
+
+════════ resposta do Claude ════════
+Criei o `pagina.html`. É um arquivo só, e conferi o visual em capturas de tela no celular (390 px) e no desktop.
+
+**A ideia:** o topo da página é um talão de pedido de padaria, daqueles com papel carbono azul (o que combina com "Trigo Azul"). O próprio talão é o formulário:
+- **Data:** não deixa escolher dias que já passaram.
+- **Número de pessoas:** botões − e + grandes, fáceis de tocar no celular.
+- **Endereço:** campo para rua, número, sala e nome da empresa.
+- **Total:** a conta aparece na hora, por exemplo "10 × R$ 35 = R$ 350".
+- **Envio:** o botão "Enviar pedido pelo WhatsApp" abre `wa.me/5519900000000` com a mensagem já escrita: data por extenso, pessoas, endereço e total. Se faltar algum campo, a página diz qual e leva o cursor até ele.
+
+**Visual:** azul cobalto sobre papel branco-azulado, com o amarelo-trigo só no botão de enviar. Os títulos usam a Bagel Fat One, uma letra redonda que lembra pão. O texto usa a Atkinson Hyperlegible, que é fácil de ler no celular. Depois do talão vêm "O que vai na mesa" e três passos de "Como pedir". No desktop, o talão fica ao lado do texto, levemente inclinado.
+
+**Para conferir antes de publicar:**
+- **Cardápio inventado:** os itens (pão na chapa, pão de queijo, bolo do dia, café, suco, frios e frutas) são fictícios. Ajuste para o que entra de fato nos R$ 35.
+- **Regras que deixei de fora:** não coloquei pedido mínimo, antecedência, horário de entrega nem área atendida, porque o pedido não dizia. A página só diz que a padaria confirma pelo WhatsApp.
+- **Fontes:** vêm do Google Fonts, então precisam de internet. Sem conexão, a página usa as fontes do sistema e continua funcionando.
+- **Zero cortado:** a Atkinson desenha o zero com um traço, então o telefone aparece como "9ØØØØ". Isso ajuda a leitura, mas dá para trocar a fonte do texto se incomodar.
+- **Formato da data:** nas capturas, o campo de data apareceu como "mm/dd/yyyy" porque o navegador de teste estava em inglês. Em celulares configurados em português, aparece "dd/mm/aaaa".
+

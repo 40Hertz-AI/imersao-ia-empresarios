@@ -1,0 +1,10 @@
+════════ mensagem 1 do aluno ════════
+/mapear-concorrentes
+
+════════ resposta do Claude ════════
+✓ Concorrentes → pesquisa/concorrentes.md
+O mais forte é o ClubeCafé (nota 4/5): preço na página inicial, depoimentos com nome e cidade, aparece nas buscas. A Torra Viva ficou com 0/5. · Espaço vazio nº 1: café de torrefação com dia fixo no escritório. Os fornecedores de escritório só vendem cápsula ou sachê, e os clubes não vendem para empresas.
+Atualize o RESULTADO.html: a seção Concorrentes apareceu.
+Falta confirmar: que concorrentes a Helena enxerga, o Instagram de todos (não deu para checar), as provas da Orfeu e a política de cancelamento do Clube.
+Próximo: /criar-oferta (~6 min)
+

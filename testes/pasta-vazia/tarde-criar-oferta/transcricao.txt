@@ -1,0 +1,17 @@
+════════ mensagem 1 do aluno ════════
+/criar-oferta
+
+(Se a skill fizer alguma pergunta, responda você mesmo como se fosse o aluno Jorge, sem esperar por mim, usando só isto: Padaria Trigo Azul, empresa fictícia de teste, sem site e sem Instagram, em Campinas (SP), bairro Cambuí. Vende pão de fermentação natural (R$ 24), café da manhã para empresas (R$ 35 por pessoa) e bolo inteiro (R$ 70). Clientes: moradores do bairro e escritórios da região. WhatsApp (19) 90000-0000, fictício. Para pedir o café da manhã, o cliente informa a data, o número de pessoas e o endereço. Tom: simpático e direto, trata o cliente por você. Maior problema: vende pouco à tarde. A objeção que mais ouve: 'é caro'. Quer vender mais café da manhã para empresas. Concorrentes que conhece: as padarias grandes do bairro. Não tem logo nem marca definida.)
+
+════════ resposta do Claude ════════
+✓ Oferta → `entregas/oferta.md`
+**Proposta de valor:** para escritórios do Cambuí, a Trigo Azul leva o café da manhã da equipe, feito com pão de fermentação natural assado no bairro e pedido com 3 informações pelo WhatsApp. · **Oferta de entrada:** uma degustação grátis entregue no escritório à tarde, que é quando a padaria vende pouco. Ela serve para enfrentar o "é caro" e ocupar a tarde parada.
+
+**Falta confirmar:**
+- o que vem no café de R$ 35 por pessoa;
+- o pedido mínimo e com quanto tempo de antecedência pedir;
+- quanto custa a degustação e quantas dá para fazer por semana;
+- o desconto da garantia (20% no próximo pedido se atrasar ou faltar algo), que precisa caber na margem.
+
+Como a pasta estava vazia, respondi às perguntas da skill no lugar do Jorge, usando os dados que você passou. Gravei esses dados em `memoria/empresa.md`, `memoria/foco.md` e `memoria/preferencias.md`. Não há `pesquisa/`, então o arquivo avisa no topo que tudo é hipótese. Também não existem `RESULTADO.html` nem `controle/`, por isso não atualizei relatório nem progresso. Não indiquei próximo comando porque `/criar-oferta` é a única skill que existe em `.claude/skills/`.
+

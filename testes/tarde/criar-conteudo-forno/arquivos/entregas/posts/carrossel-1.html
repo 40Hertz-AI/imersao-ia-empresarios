@@ -1,0 +1,162 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Forno da Vila · carrossel 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--marca:#4A5230;--destaque:#9A4A26;--fundo:#F1EFE7;--texto:#25231D;--t:'Newsreader',serif;--c:'Figtree',sans-serif;--s:1}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:#1d1d1d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;overflow:hidden;font-family:var(--c)}
+.palco{width:1080px;height:1350px;zoom:var(--s)}
+.lamina{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--fundo);color:var(--texto);padding:110px 96px 170px;display:flex;flex-direction:column}
+.lamina[hidden]{display:none}
+.lamina h2{font-family:var(--t);font-weight:400;font-size:96px;line-height:1.02;letter-spacing:-.02em}
+.lamina p{font-size:40px;line-height:1.35}
+.rodape{position:absolute;left:96px;right:96px;bottom:64px;display:flex;justify-content:space-between;align-items:center;font-size:30px;opacity:.85}
+.rodape .arraste{display:flex;align-items:center;gap:14px}
+.controles{display:flex;align-items:center;gap:16px;color:#eee;font:600 16px/1 var(--c)}
+.controles button{font:inherit;width:44px;height:44px;border-radius:50%;border:1px solid #666;background:#2a2a2a;color:#fff;cursor:pointer}
+.controles button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.controles button:disabled{opacity:.3;cursor:default}
+body.so{background:var(--fundo)} body.so .controles{display:none}
+
+/* fundos por função */
+.oliva{background:var(--marca);color:var(--fundo)}
+.forno{background:var(--texto);color:var(--fundo)}
+.casca{background:var(--destaque);color:var(--fundo)}
+
+/* 1 gancho */
+.assina{font-family:var(--t);font-size:40px;font-style:italic}
+.gancho h2{margin-top:auto;font-size:116px;line-height:1}
+.gancho h2 span{display:block;margin-top:44px}
+
+/* 2 conversa sem resposta */
+.conversa{margin-top:auto;display:flex;flex-direction:column;gap:22px}
+.balao{align-self:flex-end;max-width:680px;background:var(--marca);color:var(--fundo);border-radius:44px 44px 8px 44px;padding:36px 44px}
+.balao p{font-size:42px;line-height:1.25}
+.hora{align-self:flex-end;display:flex;align-items:center;gap:12px;font-size:36px;color:var(--marca)}
+.silencio{align-self:flex-start;width:300px;height:118px;border:3px dashed var(--marca);border-radius:44px 44px 44px 8px;opacity:.55;margin-top:40px}
+
+/* 3 relógio */
+.forno h2{font-size:104px}
+.relogio{margin-top:auto;align-self:flex-end;width:500px;height:500px}
+
+/* 4 lista */
+.perguntas{margin-top:auto;list-style:none;counter-reset:q}
+.perguntas li{counter-increment:q;display:flex;align-items:baseline;gap:40px;font-size:48px;padding:26px 0;border-top:2px solid rgba(74,82,48,.35)}
+.perguntas li:last-child{border-bottom:2px solid rgba(74,82,48,.35)}
+.perguntas li::before{content:counter(q);font-family:var(--t);font-size:48px;color:var(--marca);width:36px}
+
+/* 5 três passos */
+.passos{margin-top:auto}
+.passos svg{display:block;width:888px;height:120px}
+.passos ol{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:20px}
+.passos li p{font-size:38px;line-height:1.25}
+
+/* 6 carimbo */
+.carimbo{width:470px;height:470px;align-self:flex-end;transform:rotate(-9deg);margin-top:10px}
+.casca h2{margin-top:auto}
+.casca p{margin-top:28px;max-width:760px}
+
+/* 7 chamada */
+.chamada .pergunta{font-size:44px}
+.chamada h2{margin-top:auto;font-size:96px}
+.chamada .palavra{font-family:var(--t);font-style:italic;font-size:300px;line-height:.9;letter-spacing:-.03em;color:var(--destaque);margin:10px 0 60px -8px}
+.chamada p.depois{max-width:760px}
+</style></head><body>
+<div class="palco">
+
+  <section class="lamina oliva gancho">
+    <p class="assina">Forno da Vila</p>
+    <h2>Pediu o café da reunião na segunda. <span>A resposta veio na quinta.</span></h2>
+    <div class="rodape"><span>@fornodavila.exemplo</span><span class="arraste">arraste <svg width="44" height="20" viewBox="0 0 44 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 10h38M32 2l8 8-8 8"/></svg> 1/7</span></div>
+  </section>
+
+  <section class="lamina">
+    <h2>Quem organiza a reunião não tem tempo de correr atrás de confirmação.</h2>
+    <div class="conversa" aria-label="Mensagem enviada sem resposta">
+      <div class="balao"><p>Oi! Café para a reunião de quinta, 20 pessoas?</p></div>
+      <span class="hora">segunda, 9h12 <svg width="40" height="24" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 13l7 7L22 4M16 18l2 2L35 4"/></svg></span>
+      <div class="silencio" aria-hidden="true"></div>
+    </div>
+    <div class="rodape"><span>@fornodavila.exemplo</span><span class="arraste">arraste <svg width="44" height="20" viewBox="0 0 44 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 10h38M32 2l8 8-8 8"/></svg> 2/7</span></div>
+  </section>
+
+  <section class="lamina forno">
+    <h2>Reunião às 8h.<br>Café às 8h40.<br>Cliente já sentado.</h2>
+    <svg class="relogio" viewBox="0 0 500 500" fill="none" aria-label="Relógio marcando 8h40: quarenta minutos de atraso">
+      <path d="M250 50 A200 200 0 1 1 76.8 350 L250 250 Z" fill="#F1EFE7" fill-opacity=".14"/>
+      <circle cx="250" cy="250" r="200" stroke="#F1EFE7" stroke-width="4"/>
+      <g stroke="#F1EFE7" stroke-width="4" stroke-linecap="round">
+        <path d="M250 62v26M438 250h-26M250 438v-26M62 250h26"/>
+        <path d="M250 250L142 269"/>
+        <path d="M250 250L111 330" stroke-width="3"/>
+      </g>
+      <circle cx="250" cy="250" r="9" fill="#F1EFE7"/>
+    </svg>
+    <div class="rodape"><span>@fornodavila.exemplo</span><span>3/7</span></div>
+  </section>
+
+  <section class="lamina">
+    <h2>Aqui, o pedido tem 5 perguntas.</h2>
+    <ol class="perguntas">
+      <li>Empresa</li><li>Data</li><li>Horário</li><li>Quantas pessoas</li><li>Restrições</li>
+    </ol>
+    <div class="rodape"><span>@fornodavila.exemplo</span><span>4/7</span></div>
+  </section>
+
+  <section class="lamina">
+    <h2>Orçamento por escrito em até 2 horas.</h2>
+    <div class="passos">
+      <svg viewBox="0 0 888 120" fill="none" aria-hidden="true">
+        <path d="M40 60H848" stroke="#4A5230" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round"/>
+        <circle cx="40" cy="60" r="30" fill="#F1EFE7" stroke="#4A5230" stroke-width="4"/>
+        <circle cx="346" cy="60" r="30" fill="#F1EFE7" stroke="#4A5230" stroke-width="4"/>
+        <circle cx="652" cy="60" r="30" fill="#4A5230" stroke="#4A5230" stroke-width="4"/>
+        <path d="M638 61l10 10 18-20" stroke="#F1EFE7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <ol>
+        <li><p>Você manda as 5 respostas.</p></li>
+        <li><p>Orçamento com preço fechado.</p></li>
+        <li><p>Pedido confirmado na agenda.</p></li>
+      </ol>
+    </div>
+    <div class="rodape"><span>@fornodavila.exemplo</span><span>5/7</span></div>
+  </section>
+
+  <section class="lamina casca">
+    <svg class="carimbo" viewBox="0 0 470 470" fill="none" aria-label="Carimbo: confirmado">
+      <defs><path id="anel" d="M235 75a160 160 0 1 1 0 320a160 160 0 1 1 0-320"/></defs>
+      <circle cx="235" cy="235" r="215" stroke="#F1EFE7" stroke-width="5"/>
+      <circle cx="235" cy="235" r="196" stroke="#F1EFE7" stroke-width="2"/>
+      <text font-family="Figtree, sans-serif" font-size="40" font-weight="600" letter-spacing="8" fill="#F1EFE7"><textPath href="#anel" startOffset="0">confirmado  ·  no horário  ·  </textPath></text>
+      <path d="M165 238l48 48 94-104" stroke="#F1EFE7" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h2>Confirmado é confirmado.</h2>
+    <p>Com horário, o que vai na mesa e o preço fechado.</p>
+    <div class="rodape"><span>@fornodavila.exemplo</span><span>6/7</span></div>
+  </section>
+
+  <section class="lamina chamada">
+    <p class="pergunta">Quer as 5 perguntas?</p>
+    <h2>Comente</h2>
+    <p class="palavra">café</p>
+    <p class="depois">Eu te mando pelo WhatsApp, e o orçamento sai em até 2 horas.</p>
+    <div class="rodape"><span>@fornodavila.exemplo</span><span>7/7</span></div>
+  </section>
+
+</div>
+<div class="controles"><button type="button" aria-label="Lâmina anterior">&#8249;</button><span class="conta"></span><button type="button" aria-label="Próxima lâmina">&#8250;</button></div>
+<script>
+// Uma lâmina por vez, do tamanho da janela. ?n=3 mostra só a lâmina 3, sem botões (relatório e print).
+const n=+new URLSearchParams(location.search).get('n'), ls=[...document.querySelectorAll('.lamina')];
+const [ant,prox]=document.querySelectorAll('.controles button'), conta=document.querySelector('.conta');
+let i=Math.min(Math.max((n||1)-1,0),ls.length-1);
+if(n) document.body.classList.add('so');
+if(ls.length<2) document.querySelector('.controles').hidden=true;
+function mostra(){ ls.forEach((l,k)=>l.hidden=k!==i); conta.textContent=(i+1)+' / '+ls.length; ant.disabled=i===0; prox.disabled=i===ls.length-1; }
+function escala(){ const folga=n?0:80; document.documentElement.style.setProperty('--s',Math.min(1,innerWidth/1080,(innerHeight-folga)/1350)); }
+ant.onclick=()=>{ if(i>0){i--;mostra();} }; prox.onclick=()=>{ if(i<ls.length-1){i++;mostra();} };
+addEventListener('keydown',e=>{ if(e.key==='ArrowRight') prox.click(); if(e.key==='ArrowLeft') ant.click(); });
+addEventListener('resize',escala); escala(); mostra();
+</script></body></html>

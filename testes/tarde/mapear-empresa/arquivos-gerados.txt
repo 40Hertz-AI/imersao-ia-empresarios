@@ -1,0 +1,9 @@
+RESULTADO.html	63795 bytes
+controle/progresso.md	882 bytes
+marca/marca.md	1060 bytes
+memoria/foco.md	813 bytes
+memoria/preferencias.md	868 bytes
+pesquisa/cliente.md	6839 bytes
+pesquisa/diagnostico.md	6032 bytes
+pesquisa/empresa.md	5313 bytes
+pesquisa/mercado.md	8749 bytes
