@@ -1,0 +1,14 @@
+# Torra Viva Cafés Especiais · dados fictícios de exemplo
+codigo,produto,categoria,origem,torra,notas_sensoriais,embalagem,preco,custo,margem_pct,a_venda_desde
+TV-001,Mantiqueira Clássico 250 g,Café 250 g,Sul de Minas (Serra da Mantiqueira),Média,"chocolate ao leite, caramelo",250 g,42.00,16.00,61.9,2019-05
+TV-002,Cerrado Doce 250 g,Café 250 g,Cerrado Mineiro,Média,"amêndoa, rapadura",250 g,38.00,14.50,61.8,2019-05
+TV-003,Etiópia Yirgacheffe 250 g,Café 250 g,"Yirgacheffe, Etiópia (importado)",Clara,"floral, limão-siciliano, chá preto",250 g,68.00,33.00,51.5,2026-06
+TV-004,Descafeinado Suave 250 g,Café 250 g,Sul de Minas,Média,"nozes, cacau",250 g,46.00,20.00,56.5,2021-03
+TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Sul de Minas (Serra da Mantiqueira),Média,"chocolate ao leite, caramelo",10 sachês de 11 g,35.00,12.50,64.3,2022-08
+TV-006,Kit Degustação (3 × 100 g),Presente,"Mantiqueira, Cerrado e Descafeinado",Média,três perfis para comparar,3 × 100 g,89.00,36.00,59.6,2023-04
+TV-007,Cold Brew 300 ml,Bebida pronta,Sul de Minas,Média,"chocolate amargo, frutas vermelhas",garrafa 300 ml,16.00,5.80,63.7,2026-03
+TV-101,Espresso da Casa 1 kg,Café 1 kg,Blend Mantiqueira + Cerrado,Média-escura,"cacau, melaço, corpo alto",1 kg,129.00,56.00,56.6,2020-02
+TV-102,Blend Escritório 1 kg,Café 1 kg,Blend Cerrado + Sul de Minas,Média,"chocolate, castanhas",1 kg,98.00,45.00,54.1,2024-09
+TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Sul de Minas (Serra da Mantiqueira),Média,"chocolate ao leite, caramelo",1 kg,140.00,60.00,57.1,2020-02
+TV-104,Cerrado Doce 1 kg,Café 1 kg,Cerrado Mineiro,Média,"amêndoa, rapadura",1 kg,128.00,54.00,57.8,2020-02
+TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Muda todo mês,Varia,um café do mês + um clássico,2 × 250 g,79.00,33.00,58.2,2022-01

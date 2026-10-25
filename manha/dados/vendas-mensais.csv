@@ -1,0 +1,109 @@
+# Torra Viva Cafés Especiais · dados fictícios de exemplo
+mes,codigo,produto,categoria,canal,quantidade,preco_unitario,faturamento,custo,lucro_bruto
+2026-01,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,285,42.00,11970.00,4560.00,7410.00
+2026-01,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,214,38.00,8132.00,3103.00,5029.00
+2026-01,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,36,46.00,1656.00,720.00,936.00
+2026-01,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,130,35.00,4550.00,1625.00,2925.00
+2026-01,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,37,89.00,3293.00,1332.00,1961.00
+2026-01,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,181,79.00,14299.00,5973.00,8326.00
+2026-01,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,67,129.00,8643.00,3752.00,4891.00
+2026-01,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,21,140.00,2940.00,1260.00,1680.00
+2026-01,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,8,98.00,784.00,360.00,424.00
+2026-01,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,25,129.08,3227.00,1500.00,1727.00
+2026-02,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,244,42.00,10248.00,3904.00,6344.00
+2026-02,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,187,38.00,7106.00,2711.50,4394.50
+2026-02,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,32,46.00,1472.00,640.00,832.00
+2026-02,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,110,35.00,3850.00,1375.00,2475.00
+2026-02,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,29,89.00,2581.00,1044.00,1537.00
+2026-02,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,186,79.00,14694.00,6138.00,8556.00
+2026-02,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,59,129.00,7611.00,3304.00,4307.00
+2026-02,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,17,140.00,2380.00,1020.00,1360.00
+2026-02,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,8,98.00,784.00,360.00,424.00
+2026-02,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,42,127.83,5369.00,2520.00,2849.00
+2026-03,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,309,42.00,12978.00,4944.00,8034.00
+2026-03,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,220,38.00,8360.00,3190.00,5170.00
+2026-03,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,40,46.00,1840.00,800.00,1040.00
+2026-03,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,146,35.00,5110.00,1825.00,3285.00
+2026-03,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,37,89.00,3293.00,1332.00,1961.00
+2026-03,TV-007,Cold Brew 300 ml,Bebida pronta,Loja online,146,16.00,2336.00,846.80,1489.20
+2026-03,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,197,79.00,15563.00,6501.00,9062.00
+2026-03,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,70,129.00,9030.00,3920.00,5110.00
+2026-03,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,21,140.00,2940.00,1260.00,1680.00
+2026-03,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,40,88.45,3537.80,1800.00,1737.80
+2026-03,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,42,127.83,5369.00,2520.00,2849.00
+2026-04,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,300,42.00,12600.00,4800.00,7800.00
+2026-04,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,228,38.00,8664.00,3306.00,5358.00
+2026-04,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,39,46.00,1794.00,780.00,1014.00
+2026-04,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,139,35.00,4865.00,1737.50,3127.50
+2026-04,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,44,89.00,3916.00,1584.00,2332.00
+2026-04,TV-007,Cold Brew 300 ml,Bebida pronta,Loja online,126,16.00,2016.00,730.80,1285.20
+2026-04,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,211,79.00,16669.00,6963.00,9706.00
+2026-04,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,79,129.00,10191.00,4424.00,5767.00
+2026-04,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,27,140.00,3780.00,1620.00,2160.00
+2026-04,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,76,86.01,6536.60,3420.00,3116.60
+2026-04,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,42,127.83,5369.00,2520.00,2849.00
+2026-04,TV-104,Cerrado Doce 1 kg,Café 1 kg,B2B Escritórios,10,121.60,1216.00,540.00,676.00
+2026-05,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,362,42.00,15204.00,5792.00,9412.00
+2026-05,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,243,38.00,9234.00,3523.50,5710.50
+2026-05,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,46,46.00,2116.00,920.00,1196.00
+2026-05,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,163,35.00,5705.00,2037.50,3667.50
+2026-05,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,136,89.00,12104.00,4896.00,7208.00
+2026-05,TV-007,Cold Brew 300 ml,Bebida pronta,Loja online,100,16.00,1600.00,580.00,1020.00
+2026-05,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,229,79.00,18091.00,7557.00,10534.00
+2026-05,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,86,129.00,11094.00,4816.00,6278.00
+2026-05,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,30,140.00,4200.00,1800.00,2400.00
+2026-05,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,76,86.01,6536.60,3420.00,3116.60
+2026-05,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,42,127.83,5369.00,2520.00,2849.00
+2026-05,TV-104,Cerrado Doce 1 kg,Café 1 kg,B2B Escritórios,22,121.60,2675.20,1188.00,1487.20
+2026-06,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,335,42.00,14070.00,5360.00,8710.00
+2026-06,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,236,38.00,8968.00,3422.00,5546.00
+2026-06,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,43,46.00,1978.00,860.00,1118.00
+2026-06,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,170,35.00,5950.00,2125.00,3825.00
+2026-06,TV-003,Etiópia Yirgacheffe 250 g,Café 250 g,Loja online,62,68.00,4216.00,2046.00,2170.00
+2026-06,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,46,89.00,4094.00,1656.00,2438.00
+2026-06,TV-007,Cold Brew 300 ml,Bebida pronta,Loja online,75,16.00,1200.00,435.00,765.00
+2026-06,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,246,79.00,19434.00,8118.00,11316.00
+2026-06,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,92,129.00,11868.00,5152.00,6716.00
+2026-06,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,28,140.00,3920.00,1680.00,2240.00
+2026-06,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,76,86.01,6536.60,3420.00,3116.60
+2026-06,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,46,128.89,5929.00,2760.00,3169.00
+2026-06,TV-104,Cerrado Doce 1 kg,Café 1 kg,B2B Escritórios,22,121.60,2675.20,1188.00,1487.20
+2026-07,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,353,42.00,14826.00,5648.00,9178.00
+2026-07,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,249,38.00,9462.00,3610.50,5851.50
+2026-07,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,43,46.00,1978.00,860.00,1118.00
+2026-07,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,162,35.00,5670.00,2025.00,3645.00
+2026-07,TV-003,Etiópia Yirgacheffe 250 g,Café 250 g,Loja online,99,68.00,6732.00,3267.00,3465.00
+2026-07,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,43,89.00,3827.00,1548.00,2279.00
+2026-07,TV-007,Cold Brew 300 ml,Bebida pronta,Loja online,71,16.00,1136.00,411.80,724.20
+2026-07,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,262,79.00,20698.00,8646.00,12052.00
+2026-07,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,103,129.00,13287.00,5768.00,7519.00
+2026-07,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,33,140.00,4620.00,1980.00,2640.00
+2026-07,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,89,85.67,7624.40,4005.00,3619.40
+2026-07,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,46,128.89,5929.00,2760.00,3169.00
+2026-07,TV-104,Cerrado Doce 1 kg,Café 1 kg,B2B Escritórios,22,121.60,2675.20,1188.00,1487.20
+2026-08,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,394,42.00,16548.00,6304.00,10244.00
+2026-08,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,283,38.00,10754.00,4103.50,6650.50
+2026-08,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,46,46.00,2116.00,920.00,1196.00
+2026-08,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,173,35.00,6055.00,2162.50,3892.50
+2026-08,TV-003,Etiópia Yirgacheffe 250 g,Café 250 g,Loja online,121,68.00,8228.00,3993.00,4235.00
+2026-08,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,129,89.00,11481.00,4644.00,6837.00
+2026-08,TV-007,Cold Brew 300 ml,Bebida pronta,Loja online,102,16.00,1632.00,591.60,1040.40
+2026-08,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,281,79.00,22199.00,9273.00,12926.00
+2026-08,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,110,129.00,14190.00,6160.00,8030.00
+2026-08,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,35,140.00,4900.00,2100.00,2800.00
+2026-08,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,89,85.67,7624.40,4005.00,3619.40
+2026-08,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,46,128.89,5929.00,2760.00,3169.00
+2026-08,TV-104,Cerrado Doce 1 kg,Café 1 kg,B2B Escritórios,17,124.24,2112.00,918.00,1194.00
+2026-09,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,328,42.00,13776.00,5248.00,8528.00
+2026-09,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,240,38.00,9120.00,3480.00,5640.00
+2026-09,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,42,46.00,1932.00,840.00,1092.00
+2026-09,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,148,35.00,5180.00,1850.00,3330.00
+2026-09,TV-003,Etiópia Yirgacheffe 250 g,Café 250 g,Loja online,151,68.00,10268.00,4983.00,5285.00
+2026-09,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,43,89.00,3827.00,1548.00,2279.00
+2026-09,TV-007,Cold Brew 300 ml,Bebida pronta,Loja online,152,16.00,2432.00,881.60,1550.40
+2026-09,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,298,79.00,23542.00,9834.00,13708.00
+2026-09,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,94,129.00,12126.00,5264.00,6862.00
+2026-09,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,29,140.00,4060.00,1740.00,2320.00
+2026-09,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,95,86.45,8212.40,4275.00,3937.40
+2026-09,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,67,125.79,8428.00,4020.00,4408.00
+2026-09,TV-104,Cerrado Doce 1 kg,Café 1 kg,B2B Escritórios,17,124.24,2112.00,918.00,1194.00
