@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Roda todos os testes da manhã (passos e skills), na pasta da aula e na pasta vazia.
 # Até $PARALELO testes ao mesmo tempo; os que dependem de outro esperam por ele.
-# Uso: testes/rodar-manha.sh [filtro]   (ex.: testes/rodar-manha.sh passo-07)
+# Uso: testes/rodar-manha.sh [filtro]   (ex.: testes/rodar-manha.sh passo-06)
 set -u
 cd "$(dirname "$0")/.."
 R=testes/rodar-teste.sh

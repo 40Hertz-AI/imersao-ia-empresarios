@@ -1,6 +1,6 @@
 # Notas da branch `exercicios-27-10`
 
-Trabalho feito em 25/10/2026 para a turma de terça, 27/10. Base: `origin/main` (fb89580). Nada foi publicado: sem push e sem merge.
+Trabalho feito em 25/10/2026 para a turma de terça, 27/10. **Histórico:** em 26/10 a manhã passou a 6 passos (saíram o design system e o Claude Motion; `07-paginas-web` virou `06-paginas-web`). O estado atual está em `manha/README.md` e `testes/RESULTADOS.md`. Base: `origin/main` (fb89580). Nada foi publicado: sem push e sem merge.
 
 ## O que mudou, em uma tela
 
