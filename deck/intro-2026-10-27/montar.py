@@ -12,13 +12,14 @@ from pypdf import PdfReader, PdfWriter
 
 INTRO = [
     ("orig", 1),     # 01 capa
-    ("orig", 9),     # quem sou (antes p9)
-    ("orig", 2),     # 02 ruptura: sem internet
-    ("orig", 4),     # previsibilidade (saiu da tarde em 26/10)
-    ("novo", "03"),  # Kodak, Blockbuster, Nokia
-    ("orig", 11),    # 04 cada virada mudou como se trabalha
+    ("orig", 2),     # ruptura: sem internet
+    ("orig", 3),     # ruptura silenciosa (plataformas)
+    ("orig", 4),     # previsibilidade
+    ("orig", 7),     # a IA só dá certo depois de processos e pessoas (voltou em 26/10)
+    ("orig", 8),     # hoje vocês saem do chat (voltou em 26/10)
+    ("orig", 9),     # quem sou
+    ("orig", 11),    # cada virada mudou como se trabalha
     ("novo", "05"),  # 100 mi + selo Stanford 53% (substitui p12)
-    ("orig", 3),     # 06 ruptura silenciosa
     ("novo", "07"),  # as empresas desta era
     ("novo", "08"),  # Lovable
     ("novo", "09"),  # Base44
@@ -30,18 +31,14 @@ INTRO = [
     ("novo", "12d"),
     ("novo", "12e"),
     ("novo", "12f"),
-    ("novo", "13"),  # três camadas (substitui p7)
-    ("novo", "14"),  # exemplo ilustrativo
+    ("novo", "13"),  # três camadas
     ("novo", "15"),
     ("novo", "16"),
-    ("orig", 5),     # 7% Veeam
-    ("orig", 6),     # 16,3% Microsoft
     ("novo", "17"),
-    ("novo", "18"),
     ("novo", "19"),
-    ("orig", 10),    # 20 gráfico Anthropic
+    ("orig", 10),    # gráfico Anthropic
     ("novo", "21"),
-    ("novo", "22"),  # promessa + 5 fases (substitui p8)
+    ("novo", "22"),  # promessa + 5 fases
     ("orig", 13),    # vídeo GPT-6 Astra (opcional)
 ]
 # Manhã: teoria demonstrada (fases 1 a 4), a pasta abre a parte prática, trilha de 6 passos com a
@@ -112,7 +109,8 @@ TARDE = [
 ORDEM = INTRO + MANHA + TARDE
 # Páginas do PDF base que saíram (com o que as substitui):
 SAIRAM = {
-    7, 8, 12,            # intro: viraram os slides 13, 22 e 05
+    12,                  # intro: virou o slide 05
+    5, 6,                # 7% Veeam e 16,3% Microsoft (saíram em 26/10)
     14, 24, 30,          # divisores das fases 1, 2 e 3 ("Façam junto") -> m01, m03, m05
     23,                  # façam junto: abrindo o Claude Code -> passo 1 (m11)
     27, 28, 29,          # Lanchonete Bom Pedaço -> passo 2 da Torra Viva (m12, m13, m14)
