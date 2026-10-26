@@ -14,6 +14,7 @@ INTRO = [
     ("orig", 1),     # 01 capa
     ("orig", 9),     # quem sou (antes p9)
     ("orig", 2),     # 02 ruptura: sem internet
+    ("orig", 4),     # previsibilidade (saiu da tarde em 26/10)
     ("novo", "03"),  # Kodak, Blockbuster, Nokia
     ("orig", 11),    # 04 cada virada mudou como se trabalha
     ("novo", "05"),  # 100 mi + selo Stanford 53% (substitui p12)
@@ -87,23 +88,15 @@ MANHA = [
 TARDE = [
     ("orig", 49),     # como foi a primeira parte?
     ("novo", "t01"),  # abertura: 3 empresas da sala
-    ("orig", 50),     # case GCC (plano B da abertura)
-    ("orig", 51),     # case Miss Wise
-    ("orig", 52),     # case Meng
-    ("orig", 54),     # Fase 5: agentes
-    ("orig", 55),     # harness = arreio
     ("orig", 56),     # harness = tudo numa pasta
     ("orig", 57),     # a pasta cerebro-da-empresa
-    ("orig", 58),     # CLAUDE.md é a regra da casa
     ("orig", 59),     # a empresa em 6 fases
     ("orig", 60),     # baixar e abrir
-    ("orig", 4),      # previsibilidade
     ("novo", "t02"),  # bloco A: fases 1 a 3
-    ("novo", "t03"),  # bloco B: página com o Impeccable
+    ("novo", "t03"),  # bloco B: página com o /criar-pagina
     ("orig", 69),     # café da tarde
     ("novo", "t04"),  # bloco C: conteúdo em HTML
     ("novo", "t05"),  # bloco D: /sobre-mim
-    ("novo", "t06"),  # bloco E: /sugerir-automacoes
     ("orig", 64),     # vocês acabaram de virar orquestradores
     ("orig", 65),
     ("orig", 66),
@@ -131,6 +124,9 @@ SAIRAM = {
     53,                  # vídeo de agentes (citava Higgsfield): fora
     61, 62, 63,          # blocos A, B e C antigos -> t02, t03, t04
     34,                  # ao vivo: primeiro procure, alguém já fez (saiu em 26/10)
+    50, 51, 52,          # cases GCC, Miss Wise e Meng, plano B da abertura (saíram em 26/10)
+    54, 55,              # Fase 5: agentes e harness = arreio (saíram em 26/10)
+    58,                  # CLAUDE.md é a regra da casa (saiu em 26/10)
 }
 
 
