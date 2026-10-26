@@ -10,7 +10,7 @@ from collections import defaultdict
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
-DADOS = RAIZ / "manha" / "dados"
+DADOS = RAIZ / "torra-viva" / "dados"
 
 
 def ler(nome):

@@ -90,6 +90,6 @@ Top 3: <1> · <2> · <3>
 Abra o RESULTADO.html (ou atualize a página): a seção Automações apareceu.
 Começo por qual? Se for uma skill, eu crio agora e testamos com um caso seu.
 ```
-Sem RESULTADO.html, omitir a terceira linha. Na aula, depois desta fase vem o almoço; à tarde, `/criar-oferta`.
+Sem RESULTADO.html, omitir a terceira linha. Na pasta do cérebro da empresa, a fase seguinte é `/criar-oferta`.
 
 Se a pessoa escolher uma skill: usar a `skill-creator` (se não estiver disponível, escrever o SKILL.md direto), salvar em `.claude/skills/<nome>/`, testar com um caso real dela e marcar a sugestão como feita no arquivo.

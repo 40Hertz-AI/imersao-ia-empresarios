@@ -234,7 +234,7 @@ await confereLaminas("vazia", "criar-conteudo", "/tmp/vazia-tarde-criar-conteudo
 {
   const raiz = path.join(AQUI, "..", "..");
   const achados = [];
-  for (const area of ["manha", "tarde"]) {
+  for (const area of ["torra-viva", "minha-empresa"]) {
     const dir = path.join(raiz, area, ".claude");
     const anda = (d) => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const f = path.join(d, e.name); if (e.isDirectory()) anda(f); else if (/almoço|almoco/i.test(fs.readFileSync(f, "latin1") + fs.readFileSync(f, "utf8"))) achados.push(path.relative(raiz, f)); } };
     anda(dir);

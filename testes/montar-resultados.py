@@ -158,7 +158,7 @@ for nome, ta, xa, pa, tv, xv, pv in TARDE:
     res = "passou" if not falhas else "ver falhas"
     L.append(f"| {nome} | {cel(VA, ta, xa)} ({tempo(pa[0])}) | {cel(VV, tv, xv)} ({tempo(pv[0])}) | {res} | {' · '.join('`' + p + '`' for p in pa + pv)} |")
 p = placar(VA, "todas-as-skills")
-L += ["", f"**Nenhuma skill fala de almoço:** `grep -ri almoço manha/.claude tarde/.claude` vazio{' (conferido no verificador)' if p and p[0] == p[1] else ''}.", ""]
+L += ["", f"**Nenhuma skill fala de almoço:** `grep -ri almoço torra-viva/.claude minha-empresa/.claude` vazio{' (conferido no verificador)' if p and p[0] == p[1] else ''}.", ""]
 L += ["## O que deu errado e foi corrigido", "", CORRIGIDO, "## Depende de algo externo (e o plano B para a aula)", "", DEPENDE]
 open(T / "RESULTADOS.md", "w", encoding="utf-8").write("\n".join(L) + "\n")
 print("\n".join(L))

@@ -13,7 +13,7 @@ SAIDA.mkdir(parents=True, exist_ok=True)
 
 
 def blocos(passo):
-    texto = (RAIZ / "manha" / "passos" / passo / "INSTRUCOES.md").read_text(encoding="utf-8")
+    texto = (RAIZ / "torra-viva" / "passos" / passo / "INSTRUCOES.md").read_text(encoding="utf-8")
     return [b.strip() for b in re.findall(r"```[a-z]*\n(.*?)```", texto, re.S)]
 
 
@@ -41,7 +41,7 @@ grava("passo-04-arquivo", b[4])
 
 b = blocos("05-criar-uma-skill")
 grava("passo-05-criar", b[0])
-msgs = (RAIZ / "manha" / "passos" / "05-criar-uma-skill" / "mensagens-de-clientes.md").read_text(encoding="utf-8")
+msgs = (RAIZ / "torra-viva" / "passos" / "05-criar-uma-skill" / "mensagens-de-clientes.md").read_text(encoding="utf-8")
 textos = [re.sub(r"\n> ", " ", m).strip() for m in re.findall(r"\n> (.*?)\n> —", msgs, re.S)]
 for i, t in enumerate(textos, start=1):
     grava(f"passo-05-uso-{i}", f"/resposta-cliente {t}")

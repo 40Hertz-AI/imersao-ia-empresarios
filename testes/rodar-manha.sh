@@ -48,7 +48,7 @@ done
 corre passo-06-vazia $R manha passo-06-calculadora vazia $P/passo-06-calculadora.txt
 # plano B do passo 6 (claude.ai): pasta só com os "anexos" e o começo do prompt trocado, como manda o INSTRUCOES
 corre passo-06-claudeai $R manha passo-06-claudeai-calculadora vazia $P/passo-06-claudeai-calculadora.txt \
-  --preparar "mkdir -p anexos && cp '$PWD/manha/CLAUDE.md' '$PWD/manha/dados/orcamento.csv' anexos/"
+  --preparar "mkdir -p anexos && cp '$PWD/torra-viva/CLAUDE.md' '$PWD/torra-viva/dados/orcamento.csv' anexos/"
 
 # skills que já vêm na pasta
 corre skill-find-skills $R manha skill-find-skills aula $P/skill-find-skills.txt

@@ -5,9 +5,9 @@
 # Uso:
 #   testes/rodar-teste.sh <area> <nome> <aula|vazia> <prompt.txt> [prompt2.txt ...] [opções]
 #
-#   area     manha | tarde
-#   aula     copia a pasta limpa (git archive HEAD:<area>) para /tmp/teste-<area>-<nome>
-#   vazia    cria /tmp/vazia-<area>-<nome> só com as skills de --skills (copiadas de <area>/.claude/skills)
+#   area     manha | tarde (as pastas do repo: torra-viva/ e minha-empresa/)
+#   aula     copia a pasta limpa (git archive HEAD:<pasta da área>) para /tmp/teste-<area>-<nome>
+#   vazia    cria /tmp/vazia-<area>-<nome> só com as skills de --skills (copiadas de <pasta da área>/.claude/skills)
 #   prompts  o 1º abre a conversa; os seguintes continuam a mesma conversa (claude -p --continue),
 #            como um aluno mandando várias mensagens seguidas
 #
@@ -28,6 +28,7 @@ set -uo pipefail
 REPO=$(cd "$(dirname "$0")/.." && pwd)
 SESSOES="$HOME/.cache/testes-imersao-sessoes"; mkdir -p "$SESSOES"
 area=$1; nome=$2; modo=$3; shift 3
+case "$area" in manha) pasta=torra-viva ;; tarde) pasta=minha-empresa ;; *) echo "área desconhecida: $area"; exit 1 ;; esac
 prompts=(); skills=""; preparar=""; dir=""; limite=2400
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -53,11 +54,11 @@ fi
 if [ ! -d "$dir" ]; then
   mkdir -p "$dir"
   if [ "$modo" = aula ]; then
-    git -C "$REPO" archive HEAD "$area" | tar -x -C "$dir" --strip-components=1
+    git -C "$REPO" archive HEAD "$pasta" | tar -x -C "$dir" --strip-components=1
   else
     for s in ${skills//,/ }; do
       mkdir -p "$dir/.claude/skills"
-      cp -a "$REPO/$area/.claude/skills/$s" "$dir/.claude/skills/"
+      cp -a "$REPO/$pasta/.claude/skills/$s" "$dir/.claude/skills/"
     done
   fi
 fi

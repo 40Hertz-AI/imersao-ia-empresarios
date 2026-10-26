@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Gera os dados fictícios de exemplo da Torra Viva Cafés Especiais.
 
-Saída em manha/dados/: vendas-mensais.csv, produtos.csv, clientes-b2b.csv,
+Saída em torra-viva/dados/: vendas-mensais.csv, produtos.csv, clientes-b2b.csv,
 orcamento.csv e torra-viva.xlsx (as mesmas tabelas, uma aba cada, mais a aba Sobre).
 
 Tudo é determinístico (semente fixa): rodar de novo gera os mesmos arquivos.
@@ -20,7 +20,7 @@ from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
 RAIZ = Path(__file__).resolve().parent.parent
-SAIDA = RAIZ / "manha" / "dados"
+SAIDA = RAIZ / "torra-viva" / "dados"
 ROTULO = "Torra Viva Cafés Especiais · dados fictícios de exemplo"
 MESES = ["2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08", "2026-09"]
 random.seed(2710)

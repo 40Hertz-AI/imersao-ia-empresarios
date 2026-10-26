@@ -4,8 +4,8 @@ Imersão com Lucas Santana, 27/10/2026. São duas pastas. Cada uma é um projeto
 
 | Pasta | Fonte | Baixar | O que tem |
 |---|---|---|---|
-| torra-viva | [`manha/`](manha/) | [torra-viva.zip](https://ia-para-empresarios-v2.vercel.app/downloads/torra-viva.zip) | A demonstração da manhã (o Lucas faz ao vivo; o aluno não precisa baixar): 6 passos com os prompts prontos, os dados fictícios da Torra Viva Cafés Especiais e as skills |
-| minha-empresa | [`tarde/`](tarde/) | [minha-empresa.zip](https://ia-para-empresarios-v2.vercel.app/downloads/minha-empresa.zip) | O cérebro da empresa, que o aluno baixa antes do almoço: 8 fases em trilha (`/instalar`, `/mapear-empresa`, `/mapear-concorrentes`, `/sobre-mim` e `/sugerir-automacoes` antes do almoço; `/criar-oferta`, `/criar-pagina` e `/criar-conteudo` depois), a skill de design `frontend-design` e o exemplo pronto Forno da Vila |
+| torra-viva | [`torra-viva/`](torra-viva/) | [torra-viva.zip](https://ia-para-empresarios-v2.vercel.app/downloads/torra-viva.zip) | A demonstração da manhã (o Lucas faz ao vivo; o aluno não precisa baixar): 6 passos com os prompts prontos, os dados fictícios da Torra Viva Cafés Especiais e as skills |
+| minha-empresa | [`minha-empresa/`](minha-empresa/) | [minha-empresa.zip](https://ia-para-empresarios-v2.vercel.app/downloads/minha-empresa.zip) | O cérebro da empresa, que o aluno baixa antes do almoço: 8 fases em trilha (`/instalar`, `/mapear-empresa`, `/mapear-concorrentes`, `/sobre-mim` e `/sugerir-automacoes` antes do almoço; `/criar-oferta`, `/criar-pagina` e `/criar-conteudo` depois), a skill de design `frontend-design` e o exemplo pronto Forno da Vila |
 
 ## Como usar
 

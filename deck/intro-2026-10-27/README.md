@@ -5,7 +5,7 @@ Fonte dos slides novos e script que remonta o PDF público `site/downloads/apres
 O deck original (v3, 75 páginas, gerado pelo Chromium com Geist) tem a fonte HTML em outro repositório. Aqui ficam só os slides novos, em HTML, e as páginas que não mudaram são reaproveitadas do PDF original.
 
 - **Introdução:** 19 slides novos no visual da nova introdução, depois das páginas originais 1 a 4, 7, 8 e 9 (a apresentação do Lucas).
-- **Manhã e tarde:** 27 páginas refeitas ou novas (classe `.v3` em `slides.html`), recriadas no visual do deck v3: CSS medido sobre o PDF original renderizado a 1280×720 e comparado com `pdftoppm` (diferença de 1 a 3 px nas réplicas de calibração). Conteúdo conferido em `manha/` e `tarde/` deste repo, que são a fonte da verdade (não as Pages).
+- **Manhã e tarde:** 27 páginas refeitas ou novas (classe `.v3` em `slides.html`), recriadas no visual do deck v3: CSS medido sobre o PDF original renderizado a 1280×720 e comparado com `pdftoppm` (diferença de 1 a 3 px nas réplicas de calibração). Conteúdo conferido em `torra-viva/` e `minha-empresa/` deste repo, que são a fonte da verdade (não as Pages).
 
 ## Arquivos
 
