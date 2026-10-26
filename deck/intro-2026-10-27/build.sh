@@ -24,3 +24,22 @@ pdfinfo "$BUILD/novos.pdf" | grep -q "960 x 540 pts" || { echo "novos.pdf não s
 # 3. Montagem na ordem final
 python3 "$DIR/montar.py" "$BUILD/base.pdf" "$BUILD/novos.pdf" "$DIR/slides.html" "$OUT"
 pdfinfo "$OUT" | grep -E "^(Title|Pages|Page size)"
+
+# 4. Versão para o navegador, com o vídeo tocando: apresentacao/index.html (ignorada pelo git).
+#    Cada página vira slides/NN.jpg; o vídeo do GPT-6 Astra (orig p13) fica por cima, na posição
+#    medida no deck v3 (64, 156.5, 1152 x 483.5 px num slide de 1280 x 720).
+#    O vídeo não vai para o repo (é da OpenAI): vem da pasta do deck v3, em VIDEOS.
+VIDEOS="${VIDEOS:-$HOME/Downloads/imersao-ia-dia-inteiro/img}"
+AP="$DIR/apresentacao"
+rm -rf "$AP"; mkdir -p "$AP/slides" "$AP/videos"
+pdftoppm -r 192 -jpeg -jpegopt quality=85 "$OUT" "$AP/slides/p"
+for f in "$AP"/slides/p-*.jpg; do n="${f##*-}"; n="${n%.jpg}"; mv "$f" "$AP/slides/$(printf %02d $((10#$n))).jpg"; done
+cp "$VIDEOS/video-astra.mp4" "$VIDEOS/video-astra.jpg" "$AP/videos/"
+PAG=$(cd "$DIR" && python3 -c 'import montar; print(montar.ORDEM.index(("orig", 13)) + 1)')
+cat > "$AP/deck.js" <<EOF
+const DECK={paginas:$(pdfinfo "$OUT" | awk '/^Pages:/{print $2}'),videos:{
+  $PAG:{src:'videos/video-astra.mp4',poster:'videos/video-astra.jpg',x:64,y:156.5,w:1152,h:483.5}
+}};
+EOF
+cp "$DIR/apresentacao.html" "$AP/index.html"
+echo "Navegador: $AP/index.html (vídeo na pág. $PAG)"

@@ -19,6 +19,8 @@ O deck original (v3, 75 páginas, gerado pelo Chromium com Geist) tem a fonte HT
 | `assets/fase-*.jpg` | Ícones 3D das 5 fases, extraídos da pág. 54 do PDF original (ativos do próprio deck) |
 | `assets/fase-*-cinza.png` | Os mesmos ícones em cinza, para as fases que ainda não chegaram (extraídos da pág. 14 do PDF original) |
 | `assets/pausa-estatua.jpg` | A imagem das páginas de pausa (extraída da pág. 48 do PDF original) |
+| `apresentacao.html` | Modelo do player para o navegador: troca de slide pelo teclado ou passador e toca o vídeo |
+| `apresentacao/` | Versão para o navegador gerada pelo `build.sh` (ignorada pelo git): `index.html`, as páginas em `slides/NN.jpg` e o vídeo em `videos/` |
 | `build/` | Saídas intermediárias (ignorado pelo git) |
 
 ## Como gerar
@@ -27,6 +29,8 @@ O deck original (v3, 75 páginas, gerado pelo Chromium com Geist) tem a fonte HT
 pip install --user pypdf        # uma vez
 deck/intro-2026-10-27/build.sh  # gera site/downloads/apresentacao-imersao-ia.pdf
 ```
+
+**Para apresentar no navegador:** abra `deck/intro-2026-10-27/apresentacao/index.html` (com dois cliques mesmo). As setas, o PageUp/PageDown (passador), Home e End trocam de slide, e F põe em tela cheia. No slide do vídeo (pág. 32, GPT-6 Astra), clique no vídeo ou aperte espaço para tocar ou pausar, com som. Cada página é a imagem do PDF; o vídeo fica por cima, na posição medida no deck v3. O vídeo não vai para o repo (é da OpenAI): o build copia de `VIDEOS` (padrão `~/Downloads/imersao-ia-dia-inteiro/img`, a pasta do deck v3).
 
 Requisitos: `google-chrome` (ou `CHROME=/caminho/do/chrome`), `python3` com `pypdf`, `git` e `pdfinfo` (poppler).
 
