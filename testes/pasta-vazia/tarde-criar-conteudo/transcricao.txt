@@ -1,0 +1,32 @@
+════════ mensagem 1 do aluno ════════
+/criar-conteudo
+
+(Se a skill fizer alguma pergunta, responda você mesmo como se fosse o aluno Jorge, sem esperar por mim, usando só isto: Padaria Trigo Azul, empresa fictícia de teste, sem site e sem Instagram, em Campinas (SP), bairro Cambuí. Vende pão de fermentação natural (R$ 24), café da manhã para empresas (R$ 35 por pessoa) e bolo inteiro (R$ 70). Clientes: moradores do bairro e escritórios da região. WhatsApp (19) 90000-0000, fictício. Para pedir o café da manhã, o cliente informa a data, o número de pessoas e o endereço. Tom: simpático e direto, trata o cliente por você. Maior problema: vende pouco à tarde. A objeção que mais ouve: 'é caro'. Quer vender mais café da manhã para empresas. Concorrentes que conhece: as padarias grandes do bairro. Não tem logo nem marca definida.)
+
+════════ resposta do Claude ════════
+✓ Conteúdo do mês → `entregas/conteudo.md` + `entregas/posts/` (HTML)
+Café da reunião resolvido (35%) · Por que custa o que custa (25%) · A tarde na Trigo Azul (25%) · Padaria de vizinho (15%) · carrossel: "A reunião é às 8h. Quem traz o café?"
+Abra `entregas/posts/carrossel-1.html` no navegador (setas para passar).
+
+Falta confirmar:
+- **Instagram.** A padaria ainda não tem perfil. Usei `@trigoazul.cambui` como sugestão.
+- **Marca.** Como não havia marca, as cores e as fontes são sugestão, marcadas como `[sugestão]` em `marca/marca.md`. São azul `#1F3A5F`, trigo `#E3A93B` e creme `#F6EFE2`, com as fontes Fraunces e DM Sans. Calculei o contraste de todas as combinações de texto e fundo, e todas passam de 4,5:1.
+- **Pão.** O post "É caro?" diz que a massa descansa "uma noite inteira" e que leva "farinha, água, sal". Isso precisa ser confirmado com o Jorge.
+- **Café da manhã.** Faltam o cardápio, se tem entrega, o horário da entrega e o horário em que a padaria fecha (pautas 9 e 11).
+- **Pesquisa de cliente.** Não havia pesquisa, então as pautas saíram só do que o Jorge contou. Vale perguntar a uns 3 clientes se "é caro" e "café da reunião" são mesmo as dúvidas deles.
+
+Próximo: poste o carrossel esta semana (print de cada lâmina em tela cheia).
+
+As perguntas da skill eu mesmo respondi como o Jorge, com os seus dados, e gravei em `memoria/empresa.md`. O calendário começa na terça 03/11 e usa terça, quinta e sábado, porque a segunda 02/11 (Finados) e a sexta 20/11 são feriado. Não havia pasta `controle/` nem `RESULTADO.html`, então pulei a atualização do relatório e do progresso. Mandei abrir o carrossel com `xdg-open`, mas não sei se o navegador abriu. Também não conferi as lâminas visualmente: os espaços e o tamanho dos textos foram calculados a partir do código, então vale passar o olho em cada uma.
+
+Arquivos em `entregas/posts/`:
+- `carrossel-1.html`: 7 lâminas
+- `post-1.html`: "É caro?"
+- `post-2.html`: o bolo de R$ 70
+- `legendas.md`: as 3 legendas, prontas para colar
+
+Três pautas partem destas notícias do setor:
+- [Padarias recebem menos clientes, mas faturam mais](https://businessmoment.com.br/setor-panificacao-2026-ticket-medio-faturamento/) (data a confirmar)
+- [Buscas por pão de fermentação natural crescem 178%](https://www.flashcuritiba.com.br/2026/09/buscas-por-pao-de-fermentacao-natural.html) (set/2026)
+- [81 mil novos negócios de panificação em 2026](https://empreender.boletimtrendsce.com.br/2026/10/19/brasil-registra-mais-de-81-mil-novos-negocios-no-setor-de-panificacao-em-2026/) (19/10/2026)
+

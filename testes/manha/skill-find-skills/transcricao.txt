@@ -1,0 +1,19 @@
+════════ mensagem 1 do aluno ════════
+/find-skills Quero uma skill que crie apresentações em PowerPoint (.pptx). Procure e me diga as 3 melhores opções, com quem fez e quantas instalações. Não instale nada.
+
+════════ resposta do Claude ════════
+Fiz a busca no catálogo skills.sh e não instalei nada. Estas são as 3 melhores que geram arquivo **.pptx** de verdade:
+
+| # | Skill | Quem fez | Instalações | O que faz |
+|---|---|---|---|---|
+| 1 | `pptx` | **Anthropic**, a empresa que faz o Claude | **242 mil** | Cria, lê e edita .pptx. É a mais usada e vem de fonte oficial. |
+| 2 | `ppt-visual` | **claude-office-skills** (comunidade) | **12,1 mil** | Foca no visual dos slides. |
+| 3 | `pptx-generator` | **MiniMax**, empresa de IA | **6 mil** | Gera apresentações .pptx. |
+
+Para instalar depois, se quiser:
+- `npx skills add anthropics/skills@pptx` (página: https://skills.sh/anthropics/skills/pptx)
+- `npx skills add claude-office-skills/skills@ppt-visual`
+- `npx skills add minimax-ai/skills@pptx-generator`
+
+Minha recomendação é a nº 1, por ser oficial e de longe a mais instalada. Deixei de fora resultados com mais instalações que não geram .pptx: `slideshow` (HeyGen), que faz vídeo, a de Google Apresentações e as de slides em HTML (página web). Não conferi o repositório no GitHub (onde fica o código) de cada uma, só os números da busca.
+

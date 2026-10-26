@@ -1,0 +1,8 @@
+.impeccable/hook.cache.json	1029 bytes
+RESULTADO.html	85098 bytes
+controle/progresso.md	954 bytes
+entregas/conteudo.md	8338 bytes
+entregas/posts/carrossel-1.html	12057 bytes
+entregas/posts/legendas.md	1317 bytes
+entregas/posts/post-1.html	13902 bytes
+entregas/posts/post-2.html	5983 bytes

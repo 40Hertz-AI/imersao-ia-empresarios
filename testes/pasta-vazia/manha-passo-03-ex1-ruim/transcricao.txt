@@ -1,0 +1,34 @@
+════════ mensagem 1 do aluno ════════
+Escreve um e-mail avisando que o preço vai subir.
+
+════════ resposta do Claude ════════
+Aqui vai um modelo. Os campos entre colchetes ficam para você preencher.
+
+---
+
+**Assunto:** Atualização de preços a partir de [data]
+
+Olá, [nome do cliente],
+
+Obrigado por estar com a gente. Queremos avisar com antecedência que, a partir de **[data de vigência]**, o preço de **[produto/serviço/plano]** passará de **R$ [valor atual]** para **R$ [novo valor]**.
+
+O reajuste é necessário por causa de [motivo: aumento dos custos de insumos e operação / investimentos em melhorias no serviço / correção inflacionária]. Com ele, vamos continuar oferecendo [principal benefício: a mesma qualidade, suporte ágil, novas funcionalidades etc.].
+
+**O que muda para você:**
+- O novo valor vale para [cobranças/pedidos] a partir de [data].
+- Até lá, tudo continua pelo preço atual.
+- [Opcional: Se você renovar ou fechar seu pedido até [data], garante o valor atual por mais [período].]
+
+Se tiver qualquer dúvida, é só responder este e-mail ou falar com a gente pelo [telefone/WhatsApp/canal de atendimento].
+
+Obrigado pela confiança.
+
+Um abraço,
+[Seu nome]
+[Cargo] | [Empresa]
+[Contato]
+
+---
+
+Se você me disser o produto, quanto vai subir, a data e para quem é o e-mail (clientes antigos, B2B, assinantes), eu ajusto o tom e o texto.
+

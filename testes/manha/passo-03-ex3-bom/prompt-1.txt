@@ -1,0 +1,4 @@
+Papel: você é um analista financeiro que explica números para quem não é da área.
+Contexto: o arquivo dados/vendas-mensais.csv tem as vendas da Torra Viva de janeiro a setembro de 2026 (dados fictícios de exemplo), por produto e por canal. Quero decidir onde colocar esforço no último trimestre.
+Tarefa: compare os 4 canais de venda: faturamento total, crescimento de janeiro para setembro e lucro bruto.
+Formato: uma tabela (canal | faturamento jan a set | crescimento jan → set em % | lucro bruto) e 3 recomendações de 1 linha cada. Use só os dados do arquivo e mostre a conta do crescimento.

@@ -1,0 +1,3 @@
+RESULTADO.html	75159 bytes
+controle/progresso.md	908 bytes
+entregas/oferta.md	5278 bytes

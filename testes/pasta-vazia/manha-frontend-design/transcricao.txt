@@ -1,0 +1,20 @@
+════════ mensagem 1 do aluno ════════
+/frontend-design Crie cartao-fidelidade.html: um cartão fidelidade digital para uma padaria de bairro (10 carimbos; o 10º pão é por conta da casa), num arquivo só, que funciona no celular. Clicar num carimbo marca e desmarca.
+
+════════ resposta do Claude ════════
+Criei o `cartao-fidelidade.html`, um arquivo só, feito primeiro para o celular. Testei no Chrome em modo headless numa tela de celular (390px de largura), com o cartão pela metade e com o cartão completo, e os dois casos ficaram certos.
+
+**Ideia visual:** o cartão imita o saco de papel pardo do pão francês. A borda de cima tem o corte em zigue-zague e tudo é impresso numa cor só, o azul-anil da tinta de carimbo de caixa. O nome "Nova Aurora" usa uma fonte grossa com serifa quadrada, com cara de letreiro impresso em saco. O campo "Nome" usa uma letra que parece escrita a caneta.
+
+**O que se destaca:** o carimbo. Cada um é um pão francês dentro de um anel duplo. A tinta sai falhada e com a borda tremida, como borracha de verdade, e cada carimbo cai num ângulo diferente. Quando você toca, ele "bate" no papel e o celular vibra de leve. Tocar de novo apaga o carimbo.
+
+**Como funciona:**
+- Os carimbos 1 a 9 ficam numa grade 3×3. O 10º ocupa a linha inteira com a frase "Esse é por conta da casa".
+- Uma frase embaixo da grade acompanha o progresso: "Faltam 5 carimbos…", depois "Cartão cheio. Seu próximo pão é por conta da casa." e, por fim, "Pão da casa entregue." Quando o pão da casa é marcado, aparece o botão **Começar cartão novo**.
+- Os carimbos, os ângulos de cada um e o nome ficam salvos no navegador, então nada se perde ao fechar a página.
+- Os carimbos são botões de verdade: funcionam pelo teclado com o contorno de foco visível, e o leitor de tela anuncia algo como "Carimbo 3, marcado". A animação é desligada para quem pede menos movimento no sistema.
+
+Ajustes que fiz depois de olhar as capturas de tela: o número agora some quando o carimbo cobre o espaço (antes ficava borrado por baixo), e escureci o texto impresso para ficar mais fácil de ler.
+
+Você pode trocar o nome da padaria, o endereço e os horários (6h e 16h) direto no HTML. As fontes vêm do Google Fonts. Sem internet, a página usa fontes parecidas do próprio aparelho e continua funcionando.
+

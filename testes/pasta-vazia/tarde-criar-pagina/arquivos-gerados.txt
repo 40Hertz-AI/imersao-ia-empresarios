@@ -1,0 +1,5 @@
+entregas/formulario.html	9840 bytes
+entregas/pagina-de-vendas.html	18376 bytes
+entregas/pagina-de-vendas.md	5164 bytes
+marca/marca.md	690 bytes
+memoria/empresa.md	788 bytes

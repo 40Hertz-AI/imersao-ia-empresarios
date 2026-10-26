@@ -1,0 +1,17 @@
+════════ mensagem 1 do aluno ════════
+/mapear-empresa
+
+════════ resposta do Claude ════════
+As três pesquisas estão rodando em paralelo. Aviso quando o relatório atualizar.
+
+Marca gravada. Aguardando mercado e cliente.
+
+Mercado gravado. Falta a pesquisa do cliente.
+
+✓ Estudo da empresa → `pesquisa/` (4 arquivos)
+Maior gargalo: os atrasos para escritórios vêm da torra, que depende só da Helena. Assim, a meta de 30 escritórios não fecha.
+Maior oportunidade: ninguém aparece na busca por "torrefação Mogi das Cruzes". A Torra Viva também não aparece: o site não abriu e as buscas não acharam a empresa, então cores e fontes são `[sugestão]`.
+Atualize o RESULTADO.html: agora com as cores da empresa. Raio-X, Identidade, Mercado, Cliente e Diagnóstico apareceram.
+Se tiver logo ou print do Instagram, arraste aqui que eu ajusto a marca.
+Próximo: /mapear-concorrentes (~6 min) · ou /criar-oferta, /criar-pagina, /criar-conteudo, na ordem que quiser
+

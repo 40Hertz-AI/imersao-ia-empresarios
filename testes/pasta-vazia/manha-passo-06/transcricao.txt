@@ -1,0 +1,19 @@
+════════ mensagem 1 do aluno ════════
+Olhe a imagem passos/06-design-system/referencia-design.png e crie o design system da Torra Viva a partir dela.
+Quero: as cores com nome, código hex e para que serve cada uma; as fontes do Google Fonts para títulos e texto, com tamanhos; espaçamentos e cantos arredondados; como são os botões, os cartões e os selos; e o estilo visual em 3 palavras.
+Use a imagem só como inspiração de estilo, sem copiar marca ou texto de ninguém. Confira se o texto tem contraste suficiente com o fundo.
+Salve em meu-trabalho/design-system.md e coloque no fim um bloco de CSS com as variáveis (:root) para eu reaproveitar nas páginas.
+
+════════ resposta do Claude ════════
+Não consegui abrir a imagem, então ainda não criei o design system.
+
+A pasta `/tmp/vazia-manha-passo-06` está vazia: não tem `passos/` nem `meu-trabalho/`. Procurei `referencia-design.png` no computador inteiro e não achei nenhum arquivo com esse nome.
+
+Não quis inventar cores e estilo dizendo que vieram de uma imagem que não vi. Para seguir, você pode:
+
+1. **Colocar a imagem na pasta** em `passos/06-design-system/referencia-design.png`, ou me dizer onde ela está, e eu crio o design system a partir dela.
+2. **Descrever a referência em poucas palavras** (por exemplo: "tons terrosos, fundo creme, visual artesanal e acolhedor"), e eu monto o design system com base nisso.
+3. **Deixar comigo:** crio uma proposta original para uma marca de café chamada Torra Viva, sem usar referência.
+
+Em qualquer caso, o arquivo `meu-trabalho/design-system.md` vai ter tudo o que você pediu: as cores com nome, código hex e uso de cada uma; fontes do Google Fonts com tamanhos; espaçamentos e cantos arredondados; botões, cartões e selos; o estilo em 3 palavras; o contraste do texto conferido; e no fim o bloco CSS com as variáveis (`:root`).
+

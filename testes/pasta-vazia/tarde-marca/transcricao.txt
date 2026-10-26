@@ -1,0 +1,23 @@
+════════ mensagem 1 do aluno ════════
+/marca
+
+(Se a skill fizer alguma pergunta, responda você mesmo como se fosse o aluno Jorge, sem esperar por mim, usando só isto: Padaria Trigo Azul, empresa fictícia de teste, sem site e sem Instagram, em Campinas (SP), bairro Cambuí. Vende pão de fermentação natural (R$ 24), café da manhã para empresas (R$ 35 por pessoa) e bolo inteiro (R$ 70). Clientes: moradores do bairro e escritórios da região. WhatsApp (19) 90000-0000, fictício. Para pedir o café da manhã, o cliente informa a data, o número de pessoas e o endereço. Tom: simpático e direto, trata o cliente por você. Maior problema: vende pouco à tarde. A objeção que mais ouve: 'é caro'. Quer vender mais café da manhã para empresas. Concorrentes que conhece: as padarias grandes do bairro. Não tem logo nem marca definida.)
+
+════════ resposta do Claude ════════
+Respondi às perguntas da skill no lugar do Jorge, só com os dados que você passou. A padaria não tem site, Instagram, logo nem marca definida, então todas as cores e fontes são sugestões que eu criei. Nenhuma veio de material da empresa.
+
+```
+✓ Design system da empresa → marca/marca.md
+Azul Trigo #1F3F7A · Trigo maduro #8A5A00 (botões) · Farinha #F5F7FA (fundo) · Forno #1B1F27 (texto) · Bricolage Grotesque + Figtree · todas [sugestão], tiradas do nome "Trigo Azul"
+```
+
+- **Paleta:** o azul do nome é a cor principal e passa uma imagem mais confiável para vender café da manhã a escritórios. O trigo é a cor dos botões e o fundo é branco-farinha, e não creme. Assim fugi do trio que toda IA sugere (creme, fonte serifada e terracota).
+- **Contraste:** as três combinações passam do mínimo de 4,5:1. O texto sobre o fundo fica em 15,4:1, o branco sobre o azul em 10,2:1 e o branco sobre o botão em 5,9:1. Escureci o amarelo-trigo para conseguir isso, porque o tom claro não passaria.
+- **Logo:** por enquanto é só o nome escrito com as fontes da marca.
+- **Tom:** usei o que o Jorge descreveu, simpático e direto, tratando o cliente por você. As duas frases de exemplo fui eu que escrevi, porque não havia site nem Instagram de onde tirar frases reais. Também deixei uma dica para responder à objeção "é caro": mostrar o preço por pessoa, R$ 35.
+- **Estilo das imagens:** é sugestão minha, porque o `/instalar` não rodou nesta pasta.
+- **RESULTADO.html:** não existe nesta pasta, então pulei esse passo.
+- **Próximo comando:** não indiquei nenhum, porque `/marca` é a única skill que existe nesta pasta.
+
+Se o Jorge tiver um print da fachada, da embalagem ou de uma marca que admira, dá para refazer a paleta a partir disso.
+

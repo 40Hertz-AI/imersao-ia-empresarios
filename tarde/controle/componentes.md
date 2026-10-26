@@ -106,11 +106,14 @@ Regras de todas as seções:
 <a class="botao" href="…" target="_blank" rel="noopener">Abrir a página</a> <a class="botao leve" href="…">Outro</a>
 
 <!-- bloco pagina: no .lado, o título escolhido em .destaque, as 3 variações em <ul> e os botões .botao / .botao.leve -->
-<!-- bloco conteudo: .molduras com o .post à esquerda e, no .lado, a .rosca dos pilares -->
-<!-- carrossel: um .slide img por PNG (o script põe setas e pontos). A legenda respeita as quebras de linha do texto -->
+<!-- bloco conteudo: .molduras com o .post à esquerda e, no .lado, a .rosca dos pilares e os botões para abrir carrossel-1.html, post-1.html e post-2.html -->
+<!-- carrossel: um .slide html por lâmina, cada um com o iframe de carrossel-1.html?n=<k> (o script põe setas, pontos e a escala). A legenda respeita as quebras de linha do texto -->
 <div class="post">
   <div class="post-topo"><i></i>@empresa</div>
-  <div class="slides"><div class="slide img"><img src="entregas/posts/carrossel-1-01.png" alt="Lâmina 1 de 7" loading="lazy"></div></div>
+  <div class="slides">
+    <div class="slide html"><iframe src="entregas/posts/carrossel-1.html?n=1" title="Lâmina 1 de 7" loading="lazy" tabindex="-1"></iframe></div>
+    <div class="slide html"><iframe src="entregas/posts/carrossel-1.html?n=2" title="Lâmina 2 de 7" loading="lazy" tabindex="-1"></iframe></div>
+  </div>
   <p class="post-legenda">Legenda.</p>
 </div>
 
@@ -161,5 +164,5 @@ Regras de todas as seções:
 | `concorrentes` | 3 | `.mapa` com `data-nota` e `.vazio` · `.barras` de força digital · tabela com linha `nos` · espaços vazios em cartões · bastidor |
 | `oferta` | 4 | `.destaque` com a proposta de valor · mecanismo em `.etapas` · principal × entrada em `.g2` · garantia · selo "hipótese a validar" · bastidor |
 | `pagina` | 5 | `.abas`: "No celular" (`.molduras` + `.celular`), "No computador" (`.navegador`), "Formulário de pedido" · botões para abrir · bastidor |
-| `conteudo` | 6 | `.post` com os PNGs · pilares em `.rosca` · calendário em tabela com selo de formato · bastidor |
+| `conteudo` | 6 | `.molduras`: o `.post` com uma `.slide html` por lâmina do carrossel e, no `.lado`, a `.rosca` dos pilares e os botões `.botao` para abrir o carrossel e os 2 posts · calendário em tabela com selo de formato · bastidor |
 | `proximos` | todas | `<h2>` · `.conta-passos` · `.passos` com as 3 primeiras ações de `memoria/foco.md`, cada uma com o comando ou arquivo que ajuda (sem nenhum, omitir) |

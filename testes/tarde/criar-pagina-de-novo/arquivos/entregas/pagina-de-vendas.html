@@ -1,0 +1,313 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Café para escritório torrado na semana · Torra Viva</title>
+<meta name="description" content="A Torra Viva torra café especial em Mogi das Cruzes e entrega no escritório em dia marcado. Peça a degustação grátis na copa.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Albert+Sans:wght@400;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{--folha:#234B3F;--cereja:#C23B22;--leite:#F6F1EA;--grao:#2B1D14;--bourbon:#E8B547;--apoio:#6B5E55;--linha:#e1d7ca;--t:'Bricolage Grotesque',system-ui,sans-serif;--c:'Albert Sans',system-ui,sans-serif;--curva:cubic-bezier(.2,.7,.2,1);interpolate-size:allow-keywords}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--c);background:var(--leite);color:var(--grao);font-size:18px;line-height:1.55;overflow-x:hidden}
+h1,h2,h3{font-family:var(--t);font-weight:800;letter-spacing:-.025em;line-height:1.04}
+h2{font-size:clamp(32px,6vw,52px);max-width:18ch}
+h3{font-size:22px;letter-spacing:-.01em}
+p{max-width:62ch}
+a{color:var(--folha)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--bourbon);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+section{padding:88px 0}
+.lede{font-size:20px;color:var(--apoio);margin-top:16px}
+.botao{display:inline-block;background:var(--cereja);color:#fff;font-weight:700;text-decoration:none;padding:15px 28px;border-radius:99px;transition:background .15s,transform .15s var(--curva)}
+.botao:hover{background:#a83019}
+.botao:active{transform:scale(.97)}
+.etiqueta{display:inline-block;background:var(--bourbon);color:var(--grao);font-weight:700;font-size:14px;padding:4px 14px;border-radius:99px}
+/* cabeçalho */
+.topo{position:fixed;inset:0 0 auto;z-index:9;transition:background .2s,box-shadow .2s}
+.topo.solido{background:rgba(246,241,234,.96);box-shadow:0 1px 0 var(--linha)}
+.topo .wrap{display:flex;align-items:center;gap:28px;height:68px}
+.logo{font-family:var(--t);font-weight:800;font-size:26px;letter-spacing:-.03em;color:var(--grao);text-decoration:none;margin-right:auto}
+.topo nav{display:flex;gap:24px}
+.topo nav a{color:var(--grao);text-decoration:none;font-size:16px}
+.topo .botao{padding:10px 20px;font-size:15px}
+/* hero */
+.hero{padding:130px 0 80px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(44px,7.4vw,84px)}
+.hero h1 span{display:block}
+.hero .lede{color:var(--grao);opacity:.85}
+.hero .acao{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px}
+.hero .acao small{color:var(--apoio);font-size:15px}
+.semana{background:#fff;border:1px solid var(--linha);border-radius:24px;padding:24px 22px 20px}
+.semana h2{font-size:20px;letter-spacing:-.01em;max-width:none;margin-bottom:18px}
+.dias{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.dia{text-align:center;padding:12px 8px 14px;border-radius:14px;background:var(--leite);min-height:150px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.dia>b{font-size:15px;color:var(--apoio)}
+.dia .marca{width:38px;height:38px;border-radius:50%;display:grid;place-items:center}
+.dia .marca svg{width:22px;height:22px}
+.dia p{font-size:13px;line-height:1.25;font-weight:700}
+.d-torra .marca{background:var(--bourbon)}
+.d-aviso .marca{background:var(--folha)}
+.d-entrega,.d-entrega p{background:var(--folha);color:#fff}
+.d-entrega>b{color:#cfe0d8}
+.d-entrega .marca{background:var(--cereja)}
+.trilho{position:absolute;left:10%;right:30%;top:73px;height:3px;background:var(--grao);opacity:.18;transform-origin:left;z-index:0}
+.dia>*{position:relative;z-index:1}
+.semana .nota{font-size:13px;color:var(--apoio);margin-top:14px}
+.js .hero h1 span,.js .hero .lede,.js .hero .acao{animation:sobe .6s var(--curva) both}
+.js .hero h1 span:nth-child(2){animation-delay:.09s}
+.js .hero .lede{animation-delay:.18s}.js .hero .acao{animation-delay:.27s}
+.js .dia{animation:sobe .45s var(--curva) both;animation-delay:calc(.3s + var(--k)*.08s)}
+.js .trilho{animation:risca .7s var(--curva) .75s both}
+.js .dia .marca{animation:pinga .35s var(--curva) both;animation-delay:calc(.8s + var(--k)*.12s)}
+@keyframes sobe{from{opacity:0;transform:translateY(14px)}}
+@keyframes risca{from{transform:scaleX(0)}}
+@keyframes pinga{from{opacity:0;transform:scale(.4)}}
+/* problema */
+.problema,.problema h2,.problema q{background:var(--folha);color:var(--leite)}
+.problema h2{font-size:clamp(36px,7vw,68px);max-width:16ch}
+.problema .lede{color:#d8e4de}
+.reclamas{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:44px;max-width:760px}
+.reclama{border:1px solid rgba(246,241,234,.25);border-radius:16px;padding:18px 20px}
+.reclama q{font-family:var(--t);font-weight:700;font-size:22px;line-height:1.2;display:block}
+.reclama a{color:var(--bourbon);font-size:14px}
+.problema .depois{margin-top:36px;font-size:20px;max-width:46ch}
+/* mecanismo */
+.passos{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px;counter-reset:p}
+.passos li{position:relative}
+.passos button{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:100%;height:100%;background:#fff;border:1px solid var(--linha);border-radius:18px;padding:20px;transition:border-color .2s,background .2s}
+.passos button[aria-pressed=true]{border-color:var(--folha);box-shadow:inset 0 0 0 1px var(--folha)}
+.passos button:focus-visible{outline:3px solid var(--bourbon);outline-offset:3px}
+.num{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--folha);color:#fff;font-family:var(--t);font-weight:800;font-size:19px;margin-bottom:14px;transition:transform .3s var(--curva),opacity .3s}
+.passos h3{margin-bottom:6px}
+.passos p{font-size:16px;color:var(--apoio)}
+.js [data-desenha]:not(.visto) .num{transform:scale(.55)}
+.js [data-desenha] li:nth-child(2) .num{transition-delay:.15s}.js [data-desenha] li:nth-child(3) .num{transition-delay:.3s}.js [data-desenha] li:nth-child(4) .num{transition-delay:.45s}
+.detalhes{margin-top:18px;background:#fff;border-radius:18px;padding:22px 24px;border-left:5px solid var(--bourbon)}
+.detalhes p+p{margin-top:10px}
+.js .detalhes p{animation:sobe .25s var(--curva)}
+/* planos */
+.planos .abas{display:inline-flex;background:#fff;border:1px solid var(--linha);border-radius:99px;padding:5px;margin-top:36px}
+.abas button{font:inherit;font-weight:700;border:0;background:var(--folha);color:#fff;padding:10px 22px;border-radius:99px;cursor:pointer;transition:background .2s,color .2s}
+.abas button[aria-selected=false]{background:transparent;color:var(--grao)}
+.plano{margin-top:22px;background:#fff;border:1px solid var(--linha);border-radius:22px;padding:30px;display:grid;grid-template-columns:1fr 1.3fr;gap:36px;align-items:start}
+.js .plano.entra{animation:sobe .25s var(--curva)}
+.preco{font-family:var(--t);font-weight:800;font-size:clamp(40px,6vw,58px);letter-spacing:-.03em;line-height:1;margin:14px 0 6px}
+.preco small{font-size:20px;letter-spacing:0}
+.plano ul{padding-left:0;list-style:none;display:grid;gap:10px}
+.plano li{padding-left:28px;position:relative}
+.plano li::before{content:"";position:absolute;left:0;top:9px;width:14px;height:14px;border-radius:50%;background:var(--bourbon)}
+.plano .ate{color:var(--apoio);font-size:16px}
+/* pedido */
+.pedido{background:#efe7dc}
+.pedido .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:start}
+.ganha{list-style:none;padding:0;margin:26px 0;display:grid;gap:14px}
+.ganha li{background:#fff;border-radius:16px;padding:16px 18px}
+.ganha b{display:block;font-family:var(--t);font-size:19px}
+.form-moldura{background:var(--leite);border-radius:24px;border:1px solid var(--linha);overflow:hidden}
+.form-moldura iframe{display:block;width:100%;height:600px;border:0}
+/* onde */
+.onde .wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:center}
+.ficha{display:grid;gap:14px;margin-top:24px}
+.ficha div{border-top:1px solid var(--linha);padding-top:12px}
+.ficha dt{font-weight:700}
+.ficha dd{color:var(--apoio);margin:0}
+.mapa{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/3;background:var(--folha);color:var(--leite)}
+.mapa svg{position:absolute;inset:0;width:100%;height:100%}
+.mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+/* faq */
+.faq{max-width:780px}
+.faq details{border-bottom:1px solid var(--linha)}
+.faq summary{cursor:pointer;list-style:none;font-family:var(--t);font-weight:700;font-size:22px;padding:22px 40px 22px 0;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;border:solid var(--folha);border-width:0 3px 3px 0;transform:translateY(-70%) rotate(45deg);transition:transform .25s var(--curva)}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq details::details-content{height:0;overflow:clip;transition:height .25s var(--curva),content-visibility .25s allow-discrete}
+.faq details[open]::details-content{height:auto}
+.faq details p{padding-bottom:22px;color:var(--apoio)}
+/* garantia */
+.garantia{background:var(--folha);color:var(--leite);text-align:left}
+.garantia .selo{display:inline-grid;place-items:center;width:84px;height:84px;border-radius:50%;background:var(--bourbon);margin-bottom:24px}
+.garantia h2{max-width:20ch;color:var(--leite)}
+.garantia p{color:#d8e4de;font-size:20px;margin:18px 0 32px}
+footer{padding:36px 0;font-size:15px;color:var(--apoio)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+footer .logo{font-size:22px;margin:0}
+@media (max-width:860px){
+  section{padding:64px 0}
+  .topo nav{display:none}
+  .hero{padding:100px 0 56px}
+  .hero .wrap,.plano,.pedido .wrap,.onde .wrap{grid-template-columns:1fr;gap:32px}
+  .passos{grid-template-columns:1fr 1fr}
+  .reclamas{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .passos{grid-template-columns:1fr;gap:10px}
+  .passos button{display:grid;grid-template-columns:40px 1fr;column-gap:14px;padding:16px}
+  .passos .num{grid-row:span 2;margin:0}
+  .form-moldura iframe{height:580px}
+}
+@media (max-width:420px){
+  body{font-size:17px}
+  .logo{font-size:22px}
+  .topo .wrap{gap:12px}
+  .topo .botao{padding:9px 16px;font-size:14px}
+  .semana{padding:18px 12px 16px}
+  .dias{gap:5px}
+  .dia{min-height:140px;padding:10px 4px}
+  .dia p{font-size:12px}
+  .plano{padding:22px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head><body>
+<header class="topo"><div class="wrap">
+  <a class="logo" href="#inicio">torra viva</a>
+  <nav aria-label="Seções"><a href="#como">Como funciona</a><a href="#planos">Planos</a><a href="#onde">Onde atende</a><a href="#perguntas">Perguntas</a></nav>
+  <a class="botao" href="#pedido">Pedir degustação</a>
+</div></header>
+
+<main>
+<section class="hero" id="inicio"><div class="wrap">
+  <div>
+    <span class="etiqueta">café para escritórios</span>
+    <h1 style="margin-top:18px"><span>Café torrado na semana,</span><span>na copa no dia marcado.</span></h1>
+    <p class="lede">A Torra Viva torra café especial em Mogi das Cruzes e leva até o seu escritório no mesmo dia, toda semana, com aviso na véspera.</p>
+    <div class="acao"><a class="botao" href="#pedido">Pedir a degustação grátis</a><small>Alto Tietê e São Paulo capital</small></div>
+  </div>
+  <figure class="semana" aria-labelledby="sem-t">
+    <h2 id="sem-t">A semana do seu escritório</h2>
+    <div class="dias">
+      <span class="trilho" aria-hidden="true"></span>
+      <div class="dia d-torra" style="--k:0"><b>seg</b><span class="marca" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="7" ry="9.5" fill="#2B1D14"/><path d="M12 3c-3 4 3 14 0 18" stroke="#E8B547" stroke-width="2" fill="none"/></svg></span><p>Torra do seu lote</p></div>
+      <div class="dia" style="--k:1"><b>ter</b></div>
+      <div class="dia d-aviso" style="--k:2"><b>qua</b><span class="marca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z" fill="#F6F1EA"/></svg></span><p>Aviso na véspera</p></div>
+      <div class="dia d-entrega" style="--k:3"><b>qui</b><span class="marca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 9h12v5a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5z" fill="#fff"/><path d="M17 10.5h1.5a2 2 0 0 1 0 4H17" stroke="#fff" stroke-width="2" fill="none"/></svg></span><p>Café na copa</p></div>
+      <div class="dia" style="--k:4"><b>sex</b></div>
+    </div>
+    <figcaption class="nota">Exemplo de semana. O dia de entrega é combinado com cada escritório e não muda.</figcaption>
+  </figure>
+</div></section>
+
+<section class="problema"><div class="wrap">
+  <h2>Acabou o café da copa de novo?</h2>
+  <p class="lede">E quem ouve a reclamação do pessoal é você, não o fornecedor. Não é só com vocês. Títulos de reclamações sobre fornecedores de café no Reclame Aqui:</p>
+  <div class="reclamas">
+    <div class="reclama"><q>MEGA ATRASO NA ENTREGA</q><a href="https://www.reclameaqui.com.br/coffee-mais/mega-atraso-na-entrega_i_YZ1-VvsI7et22r/" target="_blank" rel="noopener">Reclame Aqui</a></div>
+    <div class="reclama"><q>Café velho, 18 meses de validade</q><a href="https://www.reclameaqui.com.br/coffee-mais/cafe-velho-18-meses-de-validade_hEUtptr73qAZBPcz/" target="_blank" rel="noopener">Reclame Aqui</a></div>
+  </div>
+  <p class="depois">Os dois problemas têm a mesma raiz: café sem data de torra e sem dia certo para chegar. A Torra Viva resolve os dois com um calendário.</p>
+</div></section>
+
+<section id="como"><div class="wrap">
+  <span class="etiqueta">Torra Marcada</span>
+  <h2 style="margin-top:16px">Do torrador à copa em quatro passos</h2>
+  <ol class="passos" data-desenha>
+    <li><button type="button" aria-pressed="true" data-p="0"><span class="num">1</span><h3>Prova na copa</h3><p>A equipe prova antes de decidir.</p></button></li>
+    <li><button type="button" aria-pressed="false" data-p="1"><span class="num">2</span><h3>Dia combinado</h3><p>Um dia fixo no calendário de torra.</p></button></li>
+    <li><button type="button" aria-pressed="false" data-p="2"><span class="num">3</span><h3>Torra da semana</h3><p>Data de torra em cada pacote.</p></button></li>
+    <li><button type="button" aria-pressed="false" data-p="3"><span class="num">4</span><h3>Aviso e reserva</h3><p>Mensagem na véspera e café sobrando.</p></button></li>
+  </ol>
+  <div class="detalhes" aria-live="polite">
+    <p data-d="0"><b>Prova na copa.</b> A Marina leva 2 cafés da torra da semana para a equipe provar, sem custo. Vocês escolhem o café e a moagem certa para o método da copa.</p>
+    <p data-d="1"><b>Dia combinado.</b> Seu escritório ganha um dia fixo de entrega no calendário de torra. Sempre o mesmo dia, com entrega própria.</p>
+    <p data-d="2"><b>Torra da semana.</b> O lote é torrado na semana da entrega, em Mogi. A data de torra vem impressa em cada pacote: dá para conferir.</p>
+    <p data-d="3"><b>Aviso e reserva.</b> Na véspera chega uma mensagem confirmando a entrega. E a copa fica com 1 semana de café de reserva, para não faltar.</p>
+  </div>
+</div></section>
+
+<section class="planos" id="planos"><div class="wrap">
+  <h2>O que chega até você</h2>
+  <div class="abas" role="tablist" aria-label="Para onde é o café">
+    <button type="button" role="tab" id="t-esc" aria-controls="p-esc" aria-selected="true">Para o escritório</button>
+    <button type="button" role="tab" id="t-casa" aria-controls="p-casa" aria-selected="false" tabindex="-1">Para casa</button>
+  </div>
+  <div class="plano" role="tabpanel" id="p-esc" aria-labelledby="t-esc">
+    <div><h3>Plano de café para escritório</h3><p class="preco">R$ 98 <small>o kg, a partir de</small></p><p class="ate">Alto Tietê e São Paulo capital. Sem multa para sair.</p></div>
+    <ul><li>Café em grão ou moído para o método da copa</li><li>Torrado na semana da entrega, com data de torra no pacote</li><li>Entrega própria em dia fixo, com aviso na véspera</li><li>1 semana de café de reserva na copa</li><li>Troca de café quando a equipe quiser variar</li></ul>
+  </div>
+  <div class="plano" role="tabpanel" id="p-casa" aria-labelledby="t-casa">
+    <div><h3>Clube Torra Viva</h3><p class="preco">R$ 79 <small>por mês</small></p><p class="ate">Entrega para o Brasil todo. Ou leve o Mantiqueira Clássico 250 g por R$ 42.</p></div>
+    <ul><li>Cafés especiais de pequenos produtores do Sul de Minas</li><li>Torrados em lotes pequenos, com data de torra no pacote</li><li>Em grãos ou moído para o seu método</li></ul>
+  </div>
+</div></section>
+
+<section class="pedido" id="pedido"><div class="wrap">
+  <div>
+    <span class="etiqueta">primeiro passo</span>
+    <h2 style="margin-top:16px">Degustação na copa, e o 1º mês sem amarra</h2>
+    <ul class="ganha">
+      <li><b>2 cafés para a equipe provar</b>A Marina leva a torra da semana até o escritório. Vocês só separam as xícaras.</li>
+      <li><b>O café escolhido pela equipe</b>Quem toma decide. Nada de café que ninguém pediu.</li>
+      <li><b>1º mês sem multa para sair</b>Se não gostarem, uma mensagem encerra.</li>
+    </ul>
+    <p class="ate" style="color:var(--apoio)">Responda 6 perguntas rápidas. No fim, o WhatsApp abre com a mensagem pronta.</p>
+  </div>
+  <div class="form-moldura"><iframe src="formulario.html" title="Formulário para pedir a degustação"></iframe></div>
+</div></section>
+
+<section class="onde" id="onde"><div class="wrap">
+  <div>
+    <h2>Torrado em Mogi, entregue na região</h2>
+    <dl class="ficha">
+      <div><dt>Torrefação</dt><dd>Mogi das Cruzes, SP</dd></div>
+      <div><dt>Café para escritório</dt><dd>Alto Tietê e São Paulo capital</dd></div>
+      <div><dt>Clube e loja online</dt><dd>Brasil todo</dd></div>
+      <div><dt>Contato</dt><dd>WhatsApp, pelo formulário desta página</dd></div>
+    </dl>
+  </div>
+  <div class="mapa">
+    <svg viewBox="0 0 400 300" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><g stroke="#2f5d50" stroke-width="10" fill="none" stroke-linecap="round"><path d="M-10 210C80 190 140 120 230 130s140-40 190-70"/><path d="M120-10c10 90 0 180 30 320"/><path d="M-10 90c120 20 260 0 420 60"/></g><circle cx="200" cy="140" r="9" fill="#C23B22"/><text x="200" y="185" text-anchor="middle" fill="#F6F1EA" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="28">Mogi das Cruzes</text></svg>
+    <iframe title="Mapa de Mogi das Cruzes, SP" loading="lazy" src="https://www.google.com/maps?q=Mogi%20das%20Cruzes%2C%20SP&amp;output=embed"></iframe>
+  </div>
+</div></section>
+
+<section id="perguntas"><div class="wrap faq">
+  <h2>Perguntas de quem cuida da copa</h2>
+  <div style="margin-top:28px">
+  <details><summary>E se a gente ficar preso num contrato?</summary><p>Não tem multa para sair. Se não gostarem, uma mensagem no WhatsApp encerra o plano.</p></details>
+  <details><summary>E se o café atrasar?</summary><p>Vocês têm dia fixo, recebem aviso na véspera e ficam com 1 semana de reserva na copa. Se uma entrega atrasar, podem encerrar na hora, sem custo.</p></details>
+  <details><summary>Cápsula não é mais prática?</summary><p>Com café em grão não tem máquina emprestada nem cota mínima de cápsulas para cumprir. Na degustação, a equipe compara e decide.</p></details>
+  </div>
+</div></section>
+
+<section class="garantia"><div class="wrap">
+  <span class="selo" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#2B1D14" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  <h2>Sem multa para sair, a qualquer momento</h2>
+  <p>Uma mensagem basta. E se uma entrega atrasar, o escritório pode encerrar na hora, sem custo. Na próxima semana, o café da copa pode ter data de torra.</p>
+  <a class="botao" href="#pedido">Pedir a degustação grátis</a>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <a class="logo" href="#inicio">torra viva</a>
+  <span>Torra Viva Cafés Especiais, Mogi das Cruzes (SP)</span>
+  <span>Instagram @torraviva.exemplo (fictício)</span>
+</div></footer>
+
+<script>
+(()=>{
+const menos=matchMedia('(prefers-reduced-motion: reduce)').matches;
+// cabeçalho ganha fundo ao rolar
+const topo=document.querySelector('.topo');
+const fundo=()=>topo.classList.toggle('solido',scrollY>30);fundo();addEventListener('scroll',fundo,{passive:true});
+// etapas acendem ao entrar na tela
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visto');io.unobserve(e.target)}}),{threshold:.25});
+document.querySelectorAll('[data-desenha]').forEach(el=>menos?el.classList.add('visto'):io.observe(el));
+// clicar numa etapa abre o detalhe
+const bts=[...document.querySelectorAll('.passos button')],ds=[...document.querySelectorAll('.detalhes p')];
+const passo=n=>{bts.forEach((b,k)=>b.setAttribute('aria-pressed',k===n));ds.forEach((d,k)=>d.hidden=k!==n)};
+bts.forEach((b,k)=>b.onclick=()=>passo(k));passo(0);
+// abas dos planos
+const abas=[...document.querySelectorAll('[role=tab]')];
+const aba=(n,foco)=>abas.forEach((a,k)=>{const on=k===n,p=document.getElementById(a.getAttribute('aria-controls'));
+  a.setAttribute('aria-selected',on);a.tabIndex=on?0:-1;p.hidden=!on;if(on){p.classList.remove('entra');void p.offsetWidth;p.classList.add('entra');if(foco)a.focus()}});
+abas.forEach((a,k)=>{a.onclick=()=>aba(k);a.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft')aba((k+1)%2,true)}});aba(0);
+})();
+</script>
+</body></html>

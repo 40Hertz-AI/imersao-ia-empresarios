@@ -1,0 +1,14 @@
+# Empresa
+- Nome: Padaria Trigo Azul (empresa fictícia de teste)
+- Site/@: não tem site nem Instagram
+- Cidade: Campinas (SP), bairro Cambuí
+- Vende: pão de fermentação natural (R$ 24), café da manhã para empresas (R$ 35/pessoa), bolo inteiro (R$ 70)
+- Para quem: moradores do bairro e escritórios da região
+- WhatsApp: (19) 90000-0000 (fictício)
+- Pedido de café da manhã: cliente informa data, nº de pessoas e endereço
+- Tom: simpático e direto, trata por "você"
+- Maior problema: vende pouco à tarde
+- Objeção mais ouvida: "é caro"
+- Objetivo: vender mais café da manhã para empresas
+- Concorrentes conhecidos: as padarias grandes do bairro
+- Marca: sem logo nem marca definida

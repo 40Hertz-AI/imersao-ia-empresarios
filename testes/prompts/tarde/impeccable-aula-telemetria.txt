@@ -1,0 +1,1 @@
+Rode no terminal `sh .claude/skills/impeccable/scripts/impeccable telemetry status` e me mostre a saída exata.

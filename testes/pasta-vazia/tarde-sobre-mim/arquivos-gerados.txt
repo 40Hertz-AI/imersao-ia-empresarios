@@ -1,0 +1,3 @@
+CLAUDE.md	204 bytes
+contexto/falta-trazer.md	164 bytes
+contexto/sobre-mim.md	3440 bytes

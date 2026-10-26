@@ -1,0 +1,8 @@
+Crie uma skill chamada resposta-cliente, no arquivo .claude/skills/resposta-cliente/SKILL.md.
+Ela recebe a mensagem de um cliente (WhatsApp, e-mail ou Instagram) e devolve:
+1) o tipo da mensagem (dúvida, pedido, reclamação ou elogio) e a urgência (baixa, média ou alta);
+2) a resposta pronta para copiar, no tom da empresa: próxima, direta, sem exagero, com no máximo 80 palavras;
+3) se for reclamação: o que fazer por dentro (quem resolve e até quando).
+Regras: usar só o que está na pasta (CLAUDE.md, dados/politicas-atendimento.md e os outros arquivos de dados/) ou na própria mensagem; nunca prometer prazo, desconto ou reembolso que não esteja escrito; se faltar informação, escrever [confirmar: ...] dentro da resposta.
+Se a pasta não tiver dados da empresa, a skill pergunta antes o nome da empresa e o tom de voz, numa pergunta só.
+Use a skill-creator se ela estiver disponível. No fim, me explique a skill em 5 linhas.

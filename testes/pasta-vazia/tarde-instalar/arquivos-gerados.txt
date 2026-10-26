@@ -1,0 +1,6 @@
+controle/progresso.md	148 bytes
+marca/marca.md	266 bytes
+memoria/empresa.md	933 bytes
+memoria/foco.md	329 bytes
+memoria/numeros.md	208 bytes
+memoria/preferencias.md	86 bytes

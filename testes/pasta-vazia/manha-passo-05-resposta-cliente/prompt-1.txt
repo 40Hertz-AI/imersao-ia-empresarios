@@ -1,0 +1,3 @@
+/resposta-cliente Bom dia! Sou do RH de uma escola de idiomas com 30 funcionários. Vocês fazem café para empresa? Quanto ficaria por mês? A gente precisa de máquina.
+
+(Se a skill precisar perguntar algo, responda você mesmo como se fosse o aluno Jorge, dono da Padaria Pão Quente, em Campinas: tom simpático e direto, trata o cliente por você. A padaria faz café da manhã para empresas, mas ainda não tem tabela de preços.)

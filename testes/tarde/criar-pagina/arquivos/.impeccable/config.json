@@ -1,0 +1,41 @@
+{
+  "telemetry": false,
+  "updateCheck": false,
+  "detector": {
+    "ignoreFiles": [
+      "**/RESULTADO.html",
+      "controle/*.html",
+      "exemplo-forno-da-vila/**"
+    ],
+    "ignoreRules": [],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "entregas/pagina-de-vendas.html"
+        ],
+        "createdAt": "2026-10-25T20:11:50.843Z",
+        "reason": "Leite #F6F1EA é a cor de fundo da marca, tirada do print do site novo (marca/marca.md); CLAUDE.md manda usar as cores da marca"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "entregas/formulario.html"
+        ],
+        "createdAt": "2026-10-25T20:11:50.850Z",
+        "reason": "Leite #F6F1EA é a cor de fundo da marca, tirada do print do site novo (marca/marca.md); CLAUDE.md manda usar as cores da marca"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "entregas/pagina-de-vendas.html"
+        ],
+        "createdAt": "2026-10-25T20:11:50.859Z",
+        "reason": "Falso positivo: .faixa tem padding clamp(64px,10vw,120px) var(--lado) e o .mapa é preenchido de propósito pelo iframe do mapa; prints de 390 e 1440 px conferidos"
+      }
+    ]
+  }
+}

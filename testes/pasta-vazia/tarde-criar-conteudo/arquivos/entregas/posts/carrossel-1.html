@@ -1,0 +1,174 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trigo Azul · carrossel 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--marca:#1F3A5F;--destaque:#E3A93B;--fundo:#F6EFE2;--texto:#1B1B1B;--t:'Fraunces',serif;--c:'DM Sans',sans-serif;--s:1}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:#1d1d1d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;overflow:hidden;font-family:var(--c)}
+.palco{width:1080px;height:1350px;zoom:var(--s)}
+.lamina{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--fundo);color:var(--texto);padding:110px 96px;display:flex;flex-direction:column}
+.lamina[hidden]{display:none}
+.lamina h2{font-family:var(--t);font-size:96px;line-height:1.02;letter-spacing:-.02em;font-weight:800}
+.lamina p{font-size:40px;line-height:1.35}
+.rodape{position:absolute;left:96px;right:96px;bottom:64px;display:flex;justify-content:space-between;font-size:28px;opacity:.7}
+.controles{display:flex;align-items:center;gap:16px;color:#eee;font:600 16px/1 var(--c)}
+.controles button{font:inherit;width:44px;height:44px;border-radius:50%;border:1px solid #666;background:#2a2a2a;color:#fff;cursor:pointer}
+.controles button:disabled{opacity:.3;cursor:default}
+body.so{background:var(--fundo)} body.so .controles{display:none}
+
+/* funções */
+.escura{background:var(--marca);color:var(--fundo)}
+.trigo{background:var(--destaque);color:var(--marca)}
+.olho{font:700 36px/1.2 var(--c);letter-spacing:.08em;text-transform:uppercase}
+.escura .olho{color:var(--destaque)}
+.clara h2{color:var(--marca)}
+.base{margin-top:auto}
+.arraste{display:flex;align-items:center;gap:20px;font:700 36px/1 var(--c);color:var(--destaque)}
+
+/* gancho */
+.gancho h2{font-size:132px;line-height:.98;margin-top:56px}
+.gancho .espiga{position:absolute;right:-40px;top:70px;opacity:.18}
+
+/* problema: agenda e conversa */
+.cartao{background:#fff;border-radius:28px;padding:48px 52px;box-shadow:0 18px 0 rgba(31,58,95,.12);border:3px solid var(--marca)}
+.cartao .hora{font:700 36px/1 var(--c);color:var(--marca)}
+.cartao .evento{font:800 64px/1.05 var(--t);color:var(--marca);margin:18px 0 12px}
+.cartao .det{font-size:36px;color:#3b3b3b}
+.cartao .falta{margin-top:36px;padding-top:32px;border-top:3px dashed var(--marca);display:flex;justify-content:space-between;align-items:center;font:700 48px/1 var(--c);color:var(--marca)}
+.cartao .falta b{font:800 96px/1 var(--t)}
+.balao{font-size:40px;line-height:1.3;padding:30px 40px;border-radius:36px;max-width:660px}
+.balao.a{background:#fff;border:3px solid var(--marca);border-bottom-left-radius:6px}
+.balao.b{background:var(--marca);color:var(--fundo);align-self:flex-end;border-bottom-right-radius:6px}
+.conversa{display:flex;flex-direction:column;gap:28px;margin:72px 0 0}
+.conversa small{font-size:28px;color:#4a4a4a;display:block;margin-bottom:6px}
+.balao.b small{color:#d9dde4}
+
+/* método */
+.lista{list-style:none;padding:0;display:flex;flex-direction:column;gap:44px}
+.lista li{display:flex;align-items:center;gap:40px;font:700 56px/1.1 var(--c);color:var(--marca)}
+.lista .num{font:800 40px/1 var(--t);width:88px;height:88px;border-radius:50%;border:4px solid var(--marca);display:flex;align-items:center;justify-content:center;flex:none}
+.lista svg{flex:none}
+.conta{border-top:4px solid var(--marca);padding-top:36px}
+.linha{display:flex;justify-content:space-between;font:500 48px/1.6 var(--c);color:var(--marca)}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:24px;padding-top:28px;border-top:4px dashed var(--marca);color:var(--marca)}
+.total span{font:700 40px/1 var(--c)} .total b{font:800 120px/1 var(--t)}
+
+/* virada */
+.selo{width:560px;height:560px;margin:40px auto 0;display:block}
+.virada p{text-align:center;font-size:44px}
+
+/* chamada */
+.chamada .palavra{font:800 300px/.9 var(--t);letter-spacing:-.04em;margin:28px 0 40px}
+.chamada p{font-size:44px;font-weight:500}
+.chamada .zap{font:700 44px/1.2 var(--c);margin-top:28px}
+</style></head><body>
+<div class="palco">
+
+  <!-- 1 · gancho -->
+  <section class="lamina escura gancho">
+    <svg class="espiga" width="360" height="760" viewBox="0 0 120 260" fill="none" stroke="#E3A93B" stroke-width="5" stroke-linecap="round" aria-hidden="true">
+      <path d="M60 255V40"/>
+      <path d="M60 60c-22-6-30-24-28-40 18 4 28 20 28 40zM60 60c22-6 30-24 28-40-18 4-28 20-28 40z"/>
+      <path d="M60 105c-22-6-30-24-28-40 18 4 28 20 28 40zM60 105c22-6 30-24 28-40-18 4-28 20-28 40z"/>
+      <path d="M60 150c-22-6-30-24-28-40 18 4 28 20 28 40zM60 150c22-6 30-24 28-40-18 4-28 20-28 40z"/>
+      <path d="M60 195c-22-6-30-24-28-40 18 4 28 20 28 40zM60 195c22-6 30-24 28-40-18 4-28 20-28 40z"/>
+    </svg>
+    <span class="olho">Para escritórios do Cambuí</span>
+    <h2>A reunião é às 8h. Quem traz o café?</h2>
+    <div class="arraste base">arraste
+      <svg width="120" height="40" viewBox="0 0 120 40" fill="none" stroke="#E3A93B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h108M92 4l20 16-20 16"/></svg>
+    </div>
+    <div class="rodape"><span>@trigoazul.cambui</span><span>1/7</span></div>
+  </section>
+
+  <!-- 2 · problema: agenda -->
+  <section class="lamina clara">
+    <h2>Na véspera, alguém lembra: ninguém pediu o café.</h2>
+    <div class="cartao base" style="margin-bottom:90px">
+      <div class="hora">TERÇA · 8:00</div>
+      <div class="evento">Reunião de planejamento</div>
+      <div class="det">Sala 2 · 12 pessoas</div>
+      <div class="falta"><span>Café da manhã</span><b>?</b></div>
+    </div>
+    <div class="rodape"><span>@trigoazul.cambui</span><span>2/7 · arraste</span></div>
+  </section>
+
+  <!-- 3 · problema: conversa -->
+  <section class="lamina clara">
+    <h2>Aí vira correria: mercado às 7h e pão de ontem.</h2>
+    <div class="conversa base" style="margin-bottom:90px">
+      <div class="balao a"><small>Ana · 6:52</small>Alguém pegou o café?</div>
+      <div class="balao b"><small>Você · 6:53</small>Achei que era você</div>
+    </div>
+    <div class="rodape"><span>@trigoazul.cambui</span><span>3/7</span></div>
+  </section>
+
+  <!-- 4 · método: 3 informações -->
+  <section class="lamina clara">
+    <span class="olho" style="color:var(--marca)">Com a Trigo Azul</span>
+    <h2 style="margin-top:24px">Peça em 3 informações:</h2>
+    <ul class="lista base" style="margin-bottom:120px">
+      <li><span class="num">1</span>
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none" stroke="#1F3A5F" stroke-width="3.5" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="10" width="36" height="32" rx="4"/><path d="M6 20h36M16 5v9M32 5v9"/></svg>
+        a data</li>
+      <li><span class="num">2</span>
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none" stroke="#1F3A5F" stroke-width="3.5" stroke-linecap="round" aria-hidden="true"><circle cx="18" cy="16" r="7"/><path d="M5 42c0-8 6-13 13-13s13 5 13 13"/><circle cx="34" cy="14" r="5"/><path d="M33 26c6 0 11 4 11 11"/></svg>
+        o número de pessoas</li>
+      <li><span class="num">3</span>
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none" stroke="#1F3A5F" stroke-width="3.5" stroke-linejoin="round" aria-hidden="true"><path d="M24 44S9 29 9 19a15 15 0 0 1 30 0c0 10-15 25-15 25z"/><circle cx="24" cy="19" r="5"/></svg>
+        o endereço</li>
+    </ul>
+    <div class="rodape"><span>@trigoazul.cambui</span><span>4/7</span></div>
+  </section>
+
+  <!-- 5 · método: valor antes -->
+  <section class="lamina clara">
+    <h2>Você sabe o valor antes.</h2>
+    <div class="conta base" style="margin-bottom:110px">
+      <div class="linha"><span>Por pessoa</span><span>R$ 35</span></div>
+      <div class="linha"><span>Pessoas</span><span>× 12</span></div>
+      <div class="total"><span>Total</span><b>R$ 420</b></div>
+    </div>
+    <div class="rodape"><span>@trigoazul.cambui</span><span>5/7</span></div>
+  </section>
+
+  <!-- 6 · virada: selo -->
+  <section class="lamina escura virada">
+    <svg class="selo" viewBox="0 0 400 400" aria-label="Selo: mesa posta às 8h">
+      <defs><path id="roda" d="M200 200m-150 0a150 150 0 1 1 300 0a150 150 0 1 1-300 0"/></defs>
+      <circle cx="200" cy="200" r="190" fill="#E3A93B"/>
+      <circle cx="200" cy="200" r="172" fill="none" stroke="#1F3A5F" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round"/>
+      <text font-family="DM Sans" font-weight="700" font-size="24" letter-spacing="5" fill="#1F3A5F"><textPath href="#roda">PADARIA TRIGO AZUL · CAFÉ DA MANHÃ · CAMBUÍ ·</textPath></text>
+      <text x="200" y="185" text-anchor="middle" font-family="Fraunces" font-weight="800" font-size="50" fill="#1F3A5F">Mesa posta</text>
+      <text x="200" y="255" text-anchor="middle" font-family="Fraunces" font-weight="800" font-size="76" fill="#1F3A5F">às 8h</text>
+    </svg>
+    <p class="base" style="margin-bottom:110px">Você abre a reunião.<br>O café já chegou.</p>
+    <div class="rodape"><span>@trigoazul.cambui</span><span>6/7</span></div>
+  </section>
+
+  <!-- 7 · chamada -->
+  <section class="lamina trigo chamada">
+    <span class="olho">Comente</span>
+    <div class="palavra">CAFÉ</div>
+    <p>e a gente responde com o cardápio.</p>
+    <div class="zap base" style="margin-bottom:90px">Ou chame no WhatsApp<br>(19) 90000-0000</div>
+    <div class="rodape" style="opacity:1"><span>@trigoazul.cambui</span><span>7/7</span></div>
+  </section>
+
+</div>
+<div class="controles"><button type="button" aria-label="Lâmina anterior">&#8249;</button><span class="conta-n"></span><button type="button" aria-label="Próxima lâmina">&#8250;</button></div>
+<script>
+// Uma lâmina por vez, do tamanho da janela. ?n=3 mostra só a lâmina 3, sem botões (relatório e print).
+const n=+new URLSearchParams(location.search).get('n'), ls=[...document.querySelectorAll('.lamina')];
+const [ant,prox]=document.querySelectorAll('.controles button'), conta=document.querySelector('.conta-n');
+let i=Math.min(Math.max((n||1)-1,0),ls.length-1);
+if(n) document.body.classList.add('so');
+if(ls.length<2) document.querySelector('.controles').hidden=true;
+function mostra(){ ls.forEach((l,k)=>l.hidden=k!==i); conta.textContent=(i+1)+' / '+ls.length; ant.disabled=i===0; prox.disabled=i===ls.length-1; }
+function escala(){ const folga=n?0:80; document.documentElement.style.setProperty('--s',Math.min(1,innerWidth/1080,(innerHeight-folga)/1350)); }
+ant.onclick=()=>{ if(i>0){i--;mostra();} }; prox.onclick=()=>{ if(i<ls.length-1){i++;mostra();} };
+addEventListener('keydown',e=>{ if(e.key==='ArrowRight') prox.click(); if(e.key==='ArrowLeft') ant.click(); });
+addEventListener('resize',escala); escala(); mostra();
+</script></body></html>

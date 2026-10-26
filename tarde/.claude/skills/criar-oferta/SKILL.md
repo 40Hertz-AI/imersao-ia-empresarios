@@ -1,11 +1,17 @@
 ---
 name: criar-oferta
-description: Use após o /mapear-empresa ou quando pedirem /criar-oferta. Monta proposta de valor, oferta principal, oferta de entrada e o roteiro de venda a partir do estudo (6 min).
+description: Use após o /mapear-empresa ou quando pedirem /criar-oferta. Monta proposta de valor, oferta principal, oferta de entrada e o roteiro de venda a partir do estudo (6 min). Funciona em qualquer pasta.
 ---
 
 # /criar-oferta: o que vender e como falar
 
 **Sem perguntas.** O que o dono quer vender vem de `memoria/foco.md` (meta de 12 meses) e dos produtos de `memoria/empresa.md`. Lê tudo o que existir em `memoria/` e `pesquisa/`.
+
+## Pasta fora da aula
+
+- Sem `memoria/empresa.md` (ou vazio) e sem outro arquivo que descreva a empresa: perguntar **numa mensagem só** "Para montar a oferta, me diga: nome da empresa, o que vende (com preço ou faixa), para quem, o que mais quer vender nos próximos meses e a objeção que você mais ouve." Gravar em `memoria/empresa.md` e `memoria/foco.md` (criar as pastas) e seguir.
+- Sem `pesquisa/`: montar com o que a pessoa contou e escrever no topo do arquivo "Sem estudo de cliente e concorrentes: tudo aqui é hipótese."
+- Sem `RESULTADO.html` ou `controle/`: pular o relatório e o progresso; no fechamento, citar só os comandos que existem em `.claude/skills/`.
 
 ## Montar
 
@@ -24,8 +30,16 @@ No topo: `> Hipótese montada a partir do estudo. Só vale depois que você conf
 
 ## Atualizar o RESULTADO.html
 
-Trocar `oferta`, `proximos` e `atualizado` seguindo `controle/componentes.md`: proposta de valor em `.destaque`, promessa, mecanismo em `.etapas`, oferta principal × de entrada em `.grade g2`, garantia em parágrafo ou em `.comparar` (sem × com a garantia), selo `<span class="selo atencao">hipótese a validar</span>`. O roteiro de venda fica só no markdown (o relatório pode ir para o telão).
+Se existir. Trocar `oferta`, `proximos` e `atualizado` seguindo `controle/componentes.md`: proposta de valor em `.destaque`, promessa, mecanismo em `.etapas`, oferta principal × de entrada em `.grade g2`, garantia em parágrafo ou em `.comparar` (sem × com a garantia), selo `<span class="selo atencao">hipótese a validar</span>`. O roteiro de venda fica só no markdown (o relatório pode ir para o telão).
 
 ## Fechar
 
-Marcar a fase em `controle/progresso.md` e responder no formato do `CLAUDE.md`. Resumo: proposta de valor · oferta de entrada. Próximo: `/criar-pagina` (~10 min).
+Marcar a fase em `controle/progresso.md` (se existir) e responder:
+
+```
+✓ Oferta → entregas/oferta.md
+Proposta de valor: <1 linha> · Oferta de entrada: <1 linha>
+Atualize o RESULTADO.html: a seção Oferta apareceu.
+Falta confirmar: <o que ficou [a confirmar]; omitir se nada>
+Próximo: /criar-pagina (~10 min)
+```

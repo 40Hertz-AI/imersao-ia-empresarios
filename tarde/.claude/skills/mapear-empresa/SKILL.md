@@ -1,15 +1,18 @@
 ---
 name: mapear-empresa
-description: Use após o /instalar ou quando pedirem /mapear-empresa. Pesquisa a fundo a empresa, o mercado e o cliente na internet e entrega o diagnóstico do negócio (10 min).
+description: Use após o /instalar ou quando pedirem /mapear-empresa. Pesquisa a fundo a empresa, o mercado e o cliente na internet e entrega o diagnóstico do negócio (10 min). Funciona em qualquer pasta, com ou sem o /instalar.
 ---
 
 # /mapear-empresa: o estudo do negócio
 
-A fase que faz o dono conhecer melhor o próprio negócio. Parte do que ele contou no `/instalar` e cruza com o que a internet mostra: a empresa, o mercado, o cliente e onde estão os gargalos. **Não faz pergunta nenhuma.** O que faltar vira `[a confirmar]`.
+A fase que faz o dono conhecer melhor o próprio negócio. Parte do que ele contou no `/instalar` e cruza com o que a internet mostra: a empresa, o mercado, o cliente e onde estão os gargalos. **Não faz pergunta nenhuma** (só a do passo "Antes", quando a pasta não sabe nem qual é a empresa). O que faltar vira `[a confirmar]`.
 
 ## Antes
 
-- Ler `memoria/` inteira e `marca/marca.md`. Se `memoria/empresa.md` estiver vazio: "Rode `/instalar` antes (6 min)." e parar.
+- Ler `memoria/` inteira e `marca/marca.md` (o que existir).
+- Se `memoria/empresa.md` não existir ou estiver vazio:
+  - com a skill `instalar` na pasta: "Rode `/instalar` antes (6 min)." e parar;
+  - sem ela (pasta fora da aula): perguntar **numa mensagem só** "Para pesquisar, me diga: nome da empresa, site ou @ do Instagram, cidade, o que vende e para quem, e o maior problema hoje." Gravar a resposta em `memoria/empresa.md` e `memoria/foco.md` (criar as pastas) e seguir.
 - Dizer em 1 linha: "Pesquisando a <nome>, o mercado e o cliente. Uns 10 min; te aviso quando o relatório atualizar."
 
 ## Pesquisar
@@ -19,7 +22,7 @@ As três frentes são independentes. **Se a ferramenta de agentes (Agent/Task) e
 ### Frente A · A empresa → `pesquisa/empresa.md`
 1. Abrir o site: a página inicial e até 4 internas (sobre, produtos/serviços, contato, loja). Se as rotas devolverem o mesmo conteúdo, é site de página única: registrar e parar.
 2. Buscar na web (empresa de mesmo nome em outra cidade não conta: só vale o que bater a cidade): `"<nome>" <cidade>`, `"<nome>" instagram`, `"<nome>" avaliações`, `"<nome>" reclame aqui`. Pegar redes, nota e nº de avaliações no Google, notícias, ano de abertura se aparecer.
-3. Cores, fontes e logo: seguir a skill `marca` (os comandos de terminal estão lá). Aqui não se espera resposta: sem nada, fica `[sugestão]` e o pedido de print vai no fechamento.
+3. Cores, fontes e logo: seguir a skill `marca` (os comandos de terminal estão lá). Sem a skill `marca` na pasta: baixar a página com `curl -sL` e procurar no HTML e no CSS as cores (`#hex`, variáveis `--cor`/`--primary`) e as fontes (`font-family`, `fonts.googleapis.com`). Aqui não se espera resposta: sem nada, fica `[sugestão]` e o pedido de print vai no fechamento.
 4. Tom de voz do site: 3 adjetivos e 2 frases reais.
 5. Presença digital: site funciona no celular? loja? blog (data do último post)? WhatsApp? Instagram ativo (último post)? Google Meu Negócio?
    **Sem site:** tom de voz e cores saem do Instagram (legendas e paleta dos posts), marcados `[do Instagram — confirmar]`. Sem nada: sugerir uma paleta coerente com o setor e o gosto do dono (pergunta 6 do `/instalar`), marcada `[sugestão]`.
@@ -50,18 +53,18 @@ Cada arquivo tem no topo `Fontes:` e `Data:`, e no máximo 120 linhas. Cortar ad
 
 ## Atualizar memória e marca
 
-Só campos em branco. O que o dono escreveu nunca é sobrescrito.
+Só campos em branco. O que o dono escreveu nunca é sobrescrito. Arquivo que não existe é criado com as seções abaixo.
 - `marca/marca.md` ← cores, fontes e logo achados, marcados `[do site — confirmar]`, seguindo a skill `marca`. Se não achou nada, sugerir a partir do setor e da referência do dono, marcar `[sugestão]` e, no fechamento, pedir em 1 linha: "Se tiver logo ou print do Instagram, arraste aqui que eu ajusto a marca."
 - `memoria/preferencias.md` ← tom de voz e frases reais, marcados com a origem (`[do site — confirmar]`, `[do Instagram — confirmar]`; sem nenhum dos dois, `[sugestão]`); em "O que evitar", as 5 palavras a evitar.
 - `memoria/foco.md` → "Próximas ações" ← a primeira ação dos 3 gargalos principais.
 
 ## Atualizar o RESULTADO.html
 
-Ler `controle/componentes.md` (inclusive "Que visual usar"). Trocar os blocos `marca` (cores e fontes reais), `capa` (lede "Mapa da empresa: 2 de 6 fases" e números públicos novos, como nota no Google), `empresa`, `identidade`, `mercado`, `cliente`, `diagnostico`, `proximos` e `atualizado`. Cada seção com pelo menos 1 visual e um `.bastidor` no fim. Usar a skill `frontend-design` só para escolher bem a fonte, se `marca/marca.md` não tiver uma. Na capa só entram números da empresa (nota no Google, anos de mercado), não do mercado. Conferir no fim, só dentro dos blocos trocados: `{`, `undefined` e `[a confirmar]` solto em título.
+Só se existirem `RESULTADO.html` e `controle/componentes.md` (a pasta da aula); senão, pular. Ler `controle/componentes.md` (inclusive "Que visual usar"). Trocar os blocos `marca` (cores e fontes reais), `capa` (lede de 1 frase com o achado principal do estudo, sem contar fases, e números públicos novos, como nota no Google), `empresa`, `identidade`, `mercado`, `cliente`, `diagnostico`, `proximos` e `atualizado`. Cada seção com pelo menos 1 visual e um `.bastidor` no fim. Usar a skill `frontend-design` só para escolher bem a fonte, se `marca/marca.md` não tiver uma. Na capa só entram números da empresa (nota no Google, anos de mercado), não do mercado. Conferir no fim, só dentro dos blocos trocados: `{`, `undefined` e `[a confirmar]` solto em título.
 
 ## Fechar
 
-Marcar a fase em `controle/progresso.md` e responder:
+Marcar a fase em `controle/progresso.md` (se existir) e responder:
 
 ```
 ✓ Estudo da empresa → pesquisa/ (4 arquivos)
@@ -70,3 +73,5 @@ Maior oportunidade: <1 linha>
 Atualize o RESULTADO.html: agora com as cores da empresa. Raio-X, Identidade, Mercado, Cliente e Diagnóstico apareceram.
 Próximo: /mapear-concorrentes (~6 min) · ou /criar-oferta, /criar-pagina, /criar-conteudo, na ordem que quiser
 ```
+
+Sem RESULTADO.html (pasta fora da aula), a quarta linha vira "O estudo completo está em pesquisa/diagnostico.md." No "Próximo", citar só os comandos que existem em `.claude/skills/`; sem nenhum, sugerir em 1 linha o que pedir a seguir (ex.: "peça uma oferta a partir do diagnóstico").

@@ -1,0 +1,34 @@
+════════ mensagem 1 do aluno ════════
+/humanizer Reescreva este texto do site da minha padaria:
+
+Na Padaria Pão Quente, acreditamos que o pão é muito mais do que um alimento: é uma verdadeira experiência de afeto. Cada fornada é cuidadosamente preparada, meticulosamente assada e entregue com paixão. Não é apenas pão — é um estilo de vida. Venha fazer parte dessa revolução!
+
+════════ resposta do Claude ════════
+## Rascunho
+
+> Na Padaria Pão Quente, o pão é feito com carinho. Cada fornada é preparada e assada com atenção e entregue com o mesmo cuidado. Venha provar!
+
+## Padrões que ainda restavam
+
+- "preparada e assada com atenção e entregue com o mesmo cuidado" ainda repete a estrutura em três partes do original (§6). Os três verbos dizem a mesma coisa.
+- O tom continua genérico. Sem detalhes concretos, o texto serviria para qualquer padaria.
+
+O que foi cortado do original:
+- "muito mais do que um alimento" e "Não é apenas pão, é um estilo de vida" são contrastes do tipo "não é X, é Y" (§1).
+- "uma verdadeira experiência de afeto" é frase de efeito (§3).
+- "meticulosamente" está na lista de palavras típicas de IA (§12).
+- O travessão foi substituído (§8).
+- "revolução" exagera a importância de uma padaria de bairro (§13).
+
+## Versão final
+
+> Na Padaria Pão Quente, a gente faz pão com carinho. Cada fornada é preparada e assada com atenção, do jeito que gostamos de servir. Passe aqui para provar.
+
+O texto original quase não tem fatos. Por isso a versão final ficou curta, e eu não quis inventar nada. Ela ficaria bem mais viva com detalhes reais, por exemplo:
+- os pães mais pedidos (pão francês, de fermentação natural, broa…)
+- os horários das fornadas ("pão saindo às 6h e às 16h")
+- há quanto tempo a padaria existe, ou quem faz os pães
+- o bairro ou a rua
+
+Se você me passar alguns desses detalhes, eu reescrevo o texto com eles.
+

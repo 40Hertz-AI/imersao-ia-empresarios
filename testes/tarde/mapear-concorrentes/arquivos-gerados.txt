@@ -1,0 +1,4 @@
+RESULTADO.html	71781 bytes
+controle/progresso.md	895 bytes
+memoria/foco.md	1012 bytes
+pesquisa/concorrentes.md	8114 bytes

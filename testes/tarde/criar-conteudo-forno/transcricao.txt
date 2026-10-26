@@ -1,0 +1,10 @@
+════════ mensagem 1 do aluno ════════
+/criar-conteudo
+
+════════ resposta do Claude ════════
+✓ Conteúdo do mês → `entregas/conteudo.md` + `entregas/posts/` (HTML)
+Pedido confirmado 33% · Mesa pronta 25% · Fim de ano e bairro 25% · Do forno 17% · carrossel: pedir o café da reunião sem precisar cobrar resposta (7 lâminas, palavra CAFÉ). Calendário de 4 semanas, a partir de 02/11; os 2 posts únicos são a cesta e "o pão começou ontem".
+Abra `entregas/posts/carrossel-1.html` no navegador (setas para passar). Atualize o RESULTADO.html: a seção Conteúdo apareceu.
+Falta confirmar: itens da cesta, preço de cada tamanho do coffee break, folga de 20 min na entrega e as datas de 2 notícias (Exame, Agência Sebrae).
+Próximo: poste o carrossel esta semana (print de cada lâmina em tela cheia) e escolha 1 dos próximos passos do RESULTADO.html.
+

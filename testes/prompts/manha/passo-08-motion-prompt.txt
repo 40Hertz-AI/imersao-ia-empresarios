@@ -1,0 +1,6 @@
+Crie uma animação de 20 segundos, vertical (9:16), para o Instagram da Torra Viva Cafés Especiais.
+Cena 1 (0 a 4 s): o nome "Torra Viva" aparece, com grãos de café caindo.
+Cena 2 (4 a 10 s): um gráfico de barras que sobe mês a mês com o faturamento do canal B2B Escritórios, de janeiro a setembro de 2026, e uma frase curta dizendo quanto ele cresceu. Use os números do arquivo anexado, sem arredondar para mais.
+Cena 3 (10 a 16 s): três frases, uma de cada vez: "Torrado esta semana", "Entregue todo mês", "Máquina emprestada, sem custo".
+Cena 4 (16 a 20 s): "Peça o orçamento do seu escritório" e @torraviva.exemplo.
+Cores e fontes do design system anexado. Sem pessoas e sem fotos. No canto, pequeno: "dados fictícios de exemplo".

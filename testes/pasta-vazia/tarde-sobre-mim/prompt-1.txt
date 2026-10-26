@@ -1,0 +1,10 @@
+/sobre-mim
+
+Responda você mesmo, como se fosse o aluno Jorge, a cada pergunta da entrevista, usando só isto que ele sabe (vá até o fim, sem esperar por mim):
+- Papel: dono da Padaria Trigo Azul (fictícia, Campinas). Decide compras, preços e escala.
+- Semana: abre a padaria às 6h todo dia; segunda faz as compras; sexta fecha o caixa da semana.
+- Fala com: a equipe pessoalmente, os fornecedores por WhatsApp, as empresas por WhatsApp.
+- Processo 1, pedido de café da manhã para empresa: chega pelo WhatsApp; ele pergunta data, pessoas e endereço; calcula na calculadora do celular; manda o preço por WhatsApp; se aprovar, anota no caderno e avisa os padeiros. Leva uns 20 minutos, 5 vezes por semana. Dor: perde pedido anotado no caderno.
+- Processo 2, compras da semana: toda segunda de manhã; olha o estoque, liga para 3 fornecedores e compara preço. Leva 2 horas. Dor: não sabe se está pagando caro.
+- Documentos: lista de preços num papel na parede, caderno de pedidos.
+- Dados: WhatsApp e caderno; não usa planilha.

@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café torrado na semana, na copa no dia marcado · Torra Viva</title>
+<meta name="description" content="Torrefação de cafés especiais em Mogi das Cruzes. Café torrado na semana e entregue no escritório em dia fixo, no Alto Tietê e em São Paulo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,800&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{--folha:#234B3F;--cereja:#C23B22;--leite:#F6F1EA;--grao:#2B1D14;--bourbon:#E8B547;--apoio:#6B5E55;--borda:#E3D9CC;
+--titulo:"Bricolage Grotesque",system-ui,sans-serif;--texto:"Albert Sans",system-ui,sans-serif;--curva:cubic-bezier(.2,.7,.2,1);--lado:clamp(20px,5vw,64px)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+.so-leitor{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+html{scroll-behavior:smooth;scroll-padding-top:80px;interpolate-size:allow-keywords}
+body{margin:0;font:400 1.0625rem/1.6 var(--texto);color:var(--grao);background:var(--leite);overflow-x:hidden}
+h1,h2,h3{font-family:var(--titulo);font-weight:800;letter-spacing:-.025em;margin:0}
+h1{font-size:clamp(2.6rem,8.4vw,5.6rem);line-height:.98}
+h2{font-size:clamp(2rem,5vw,3.3rem);line-height:1.02;max-width:18ch;margin-bottom:24px}
+h3{font-size:1.3rem;line-height:1.15}
+p{margin:0 0 1em;max-width:62ch}
+a{color:inherit}
+a:focus-visible,button:focus-visible,summary:focus-visible,iframe:focus-visible{outline:3px solid var(--bourbon);outline-offset:3px;border-radius:8px}
+.faixa{padding:clamp(64px,10vw,120px) var(--lado)}
+.dentro{max-width:1180px;margin:0 auto}
+.btn{display:inline-block;font:700 1rem/1 var(--texto);text-decoration:none;border-radius:999px;padding:17px 28px;background:var(--cereja);color:#fff;border:0;cursor:pointer;transition:transform .15s var(--curva)}
+.btn:active{transform:scale(.97)}
+.btn.leve{background:transparent;color:var(--folha);border:2px solid var(--folha);padding:15px 26px}
+.etiqueta{display:inline-block;background:var(--bourbon);color:var(--grao);font-weight:700;font-size:.9rem;border-radius:999px;padding:6px 16px}
+.apoio{color:var(--apoio)}
+
+/* cabeçalho */
+.topo-fixo{position:fixed;inset:0 0 auto;z-index:10;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px var(--lado);transition:background .25s,box-shadow .25s}
+.topo-fixo.rolou{background:rgba(246,241,234,.94);box-shadow:0 1px 0 var(--borda);backdrop-filter:blur(6px)}
+.logo{font:800 1.6rem/1 var(--titulo);letter-spacing:-.03em;text-decoration:none}
+.topo-fixo nav{display:flex;gap:28px;align-items:center}
+.topo-fixo nav a:not(.btn){text-decoration:none;font-weight:700;font-size:.95rem}
+.topo-fixo .btn{padding:12px 20px;font-size:.92rem}
+@media (max-width:860px){.topo-fixo nav a:not(.btn){display:none}}
+
+/* topo */
+.hero{padding-top:clamp(110px,14vw,150px);padding-bottom:56px}
+.hero .abre{display:grid;grid-template-columns:1.25fr 1fr;gap:32px;align-items:center}
+.hero .sub{font-size:clamp(1.08rem,1.6vw,1.25rem);color:var(--apoio);margin:22px 0 30px;max-width:46ch}
+.hero .etiqueta{margin-bottom:22px}
+.botoes{display:flex;gap:12px;flex-wrap:wrap}
+.xicara{width:100%;max-width:440px;justify-self:end}
+@media (max-width:860px){.hero .abre{grid-template-columns:1fr}.xicara{max-width:260px;justify-self:start;order:-1;margin-bottom:-8px}}
+
+/* a semana */
+.semana{margin-top:clamp(40px,6vw,64px);position:relative}
+.semana ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;position:relative}
+.semana li{background:#fff;border:1px solid var(--borda);border-radius:18px;padding:14px 14px 16px;min-height:118px;position:relative}
+.semana li b{display:block;font:800 1.15rem/1 var(--titulo);margin-bottom:10px}
+.semana li span{font-size:.92rem;line-height:1.3;display:block}
+.semana li.marca{border:2px solid var(--folha)}
+.semana li.torra{background:var(--folha);color:var(--leite);border-color:var(--folha)}
+.semana li.chega{background:var(--cereja);color:#fff;border-color:var(--cereja)}
+.semana svg{width:26px;height:26px;position:absolute;right:12px;top:12px}
+.semana .rota{position:absolute;left:10%;right:30%;top:-14px;height:4px;background:var(--bourbon);border-radius:4px;transform-origin:left}
+.semana .rota::after{content:"";position:absolute;right:-6px;top:-4px;width:12px;height:12px;border-radius:50%;background:var(--bourbon)}
+.semana p{font-size:.9rem;margin-top:12px}
+.js .semana li{opacity:0;transform:translateY(10px);animation:dia .45s var(--curva) forwards}
+.js .semana li:nth-child(2){animation-delay:.1s}.js .semana li:nth-child(3){animation-delay:.2s}
+.js .semana li:nth-child(4){animation-delay:.3s}.js .semana li:nth-child(5){animation-delay:.4s}
+.js .semana .rota{transform:scaleX(0);animation:rota .7s .55s var(--curva) forwards}
+@keyframes dia{to{opacity:1;transform:none}}
+@keyframes rota{to{transform:scaleX(1)}}
+@media (max-width:640px){.semana ol{grid-template-columns:1fr 1fr}.semana li{min-height:0}.semana li:last-child{grid-column:span 2}.semana .rota{display:none}}
+
+/* problema */
+.problema{background:var(--folha);color:var(--leite)}
+.problema blockquote{margin:0 0 28px;font:800 clamp(1.8rem,4.6vw,3.2rem)/1.08 var(--titulo);letter-spacing:-.02em;max-width:24ch}
+.problema .fonte{font-size:.9rem;opacity:.8}
+.problema .duas{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px;border-top:1px solid rgba(246,241,234,.25);padding-top:28px}
+.problema .duas h3{color:var(--bourbon);margin-bottom:8px}
+@media (max-width:760px){.problema .duas{grid-template-columns:1fr}}
+
+/* como funciona */
+.etapas{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:e}
+.etapas li{counter-increment:e;border-top:4px solid var(--borda);padding:22px 22px 0 0;position:relative}
+.etapas li::before{content:counter(e);font:800 3.4rem/1 var(--titulo);color:var(--borda);display:block;margin-bottom:12px;transition:color .4s}
+.etapas li::after{content:"";position:absolute;left:0;top:-4px;height:4px;width:100%;background:var(--folha);transform-origin:left;transition:transform .5s var(--curva)}
+.js .etapas:not(.visto) li::after{transform:scaleX(0)}
+.etapas.visto li::before,.no-js .etapas li::before{color:var(--folha)}
+html:not(.js) .etapas li::before{color:var(--folha)}
+.etapas li:nth-child(2)::after,.etapas li:nth-child(2)::before{transition-delay:.25s}
+.etapas li:nth-child(3)::after,.etapas li:nth-child(3)::before{transition-delay:.5s}
+.etapas li:nth-child(4)::after,.etapas li:nth-child(4)::before{transition-delay:.75s}
+.etapas button{all:unset;cursor:pointer;display:block}
+.etapas button h3::after{content:" +";color:var(--cereja)}
+.etapas button[aria-expanded=true] h3::after{content:" −"}
+.etapas .mais{margin-top:10px;font-size:.95rem;color:var(--apoio)}
+.js .etapas .mais{display:none}
+.js .etapas .mais.aberto{display:block;animation:dia .25s var(--curva)}
+@media (max-width:860px){.etapas{grid-template-columns:1fr 1fr;row-gap:36px}}
+@media (max-width:480px){.etapas{grid-template-columns:1fr}}
+
+/* planos */
+.planos{background:#fff;border-top:1px solid var(--borda);border-bottom:1px solid var(--borda)}
+.seletor{display:inline-flex;background:var(--leite);border-radius:999px;padding:5px;margin:8px 0 28px}
+.seletor button{font:700 1rem var(--texto);border:0;background:none;padding:12px 22px;border-radius:999px;cursor:pointer;color:var(--grao);transition:background .2s var(--curva),color .2s}
+.seletor button[aria-selected=true]{background:var(--folha);color:var(--leite)}
+.painel{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:start}
+.js .painel:not(.ativo){display:none}
+.js .painel.ativo{animation:dia .25s var(--curva)}
+html:not(.js) .painel+.painel{margin-top:56px}
+.painel ul{margin:0;padding:0;list-style:none}
+.painel li{padding:14px 0 14px 34px;border-bottom:1px solid var(--borda);position:relative}
+.painel li::before{content:"";position:absolute;left:4px;top:21px;width:14px;height:14px;border-radius:50%;background:var(--bourbon)}
+.preco{background:var(--leite);border-radius:24px;padding:28px}
+.preco b{display:block;text-wrap:balance;font:800 clamp(2.4rem,5vw,3.4rem)/1 var(--titulo);letter-spacing:-.03em;margin:6px 0 10px}
+.preco .btn{margin-top:10px}
+@media (max-width:860px){.painel{grid-template-columns:1fr;gap:24px}}
+
+/* degustação */
+.entrada{background:var(--bourbon)}
+.entrada .dentro{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:start}
+.entrada p{font-size:1.12rem}
+.garante{background:var(--grao);color:var(--leite);border-radius:22px;padding:22px 24px;margin-top:28px}
+.garante h3{color:var(--bourbon);margin-bottom:6px}
+.garante p{margin:0;font-size:1rem}
+.form{background:var(--leite);border-radius:28px;padding:clamp(20px,4vw,36px);box-shadow:0 18px 0 -8px rgba(43,29,20,.18)}
+.form iframe{width:100%;height:560px;border:0;display:block;transition:height .2s var(--curva)}
+@media (max-width:860px){.entrada .dentro{grid-template-columns:1fr}}
+
+/* onde */
+.onde .dentro{display:grid;grid-template-columns:1fr 1.3fr;gap:40px;align-items:center}
+.areas{list-style:none;padding:0;margin:24px 0 0}
+.areas li{padding:14px 0;border-bottom:1px solid var(--borda)}
+.areas b{display:block}
+.mapa{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/3;background:#E7EEE9;border:1px solid var(--borda)}
+.mapa svg,.mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+@media (max-width:860px){.onde .dentro{grid-template-columns:1fr}}
+
+/* perguntas */
+.faq details{border-bottom:1px solid var(--borda);max-width:780px}
+.faq details:first-of-type{border-top:1px solid var(--borda);margin-top:32px}
+.faq summary{cursor:pointer;list-style:none;font:800 1.3rem/1.2 var(--titulo);padding:22px 40px 22px 0;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:18px;font-size:1.6rem;color:var(--cereja);transition:transform .2s var(--curva)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details::details-content{height:0;overflow:clip;transition:height .25s var(--curva),content-visibility .25s allow-discrete}
+.faq details[open]::details-content{height:auto}
+.faq details p{padding-bottom:22px;margin:0}
+
+/* final */
+.final{background:var(--folha);color:var(--leite);text-align:left}
+.final h2{max-width:16ch;margin-bottom:22px}
+.final p{opacity:.9}
+footer{padding:36px var(--lado);display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;font-size:.92rem;color:var(--apoio)}
+footer .logo{font-size:1.3rem;color:var(--grao)}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}
+.js .semana li{opacity:1;transform:none}.js .semana .rota{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="topo-fixo" id="cabecalho">
+  <a class="logo" href="#inicio">torra viva</a>
+  <nav aria-label="Seções">
+    <a href="#como">Como funciona</a>
+    <a href="#planos">O que vai</a>
+    <a href="#onde">Onde atende</a>
+    <a class="btn" href="#degustacao">Pedir degustação</a>
+  </nav>
+</header>
+
+<main id="inicio">
+<section class="faixa hero">
+  <div class="dentro abre">
+    <div>
+      <span class="etiqueta">torra desta semana</span>
+      <h1>Café torrado na semana, na copa no dia marcado.</h1>
+      <p class="sub">Cafés especiais de pequenos produtores do Sul de Minas, torrados em lotes pequenos em Mogi das Cruzes e entregues no seu escritório no dia combinado, com aviso na véspera.</p>
+      <div class="botoes"><a class="btn" href="#degustacao">Pedir a degustação na copa</a><a class="btn leve" href="#como">Ver como funciona</a></div>
+    </div>
+    <svg class="xicara" viewBox="0 0 400 400" role="img" aria-label="Xícara de café vista de cima, com grãos ao redor">
+      <circle cx="190" cy="205" r="170" fill="#234B3F"/>
+      <path d="M352 175a34 34 0 0 1 0 64" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round"/>
+      <circle cx="190" cy="205" r="122" fill="#fff"/>
+      <circle cx="190" cy="205" r="100" fill="#5A3A26"/>
+      <circle cx="190" cy="205" r="72" fill="#7B5338"/>
+      <ellipse cx="188" cy="168" rx="26" ry="14" fill="#A87C58"/>
+      <g fill="#2B1D14"><ellipse cx="350" cy="58" rx="30" ry="40" transform="rotate(30 350 58)"/><ellipse cx="44" cy="360" rx="28" ry="38" transform="rotate(-25 44 360)"/></g>
+      <g fill="none" stroke="#6B4A33" stroke-width="4" stroke-linecap="round"><path d="M362 30q-18 30-22 60"/><path d="M58 330q-22 26-18 58"/></g>
+      <rect x="250" y="322" width="140" height="44" rx="22" fill="#E8B547"/>
+      <text x="320" y="350" text-anchor="middle" font-family="Albert Sans,sans-serif" font-weight="700" font-size="17" fill="#2B1D14">data de torra</text>
+    </svg>
+  </div>
+  <div class="dentro semana" aria-label="Exemplo de uma semana com a Torra Viva">
+    <span class="rota" aria-hidden="true"></span>
+    <ol>
+      <li class="torra"><b>seg</b><span>Torra do seu lote, em Mogi</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="7" ry="10" fill="#E8B547" transform="rotate(25 12 12)"/><path d="M15 3q-5 9-6 18" stroke="#234B3F" stroke-width="2" fill="none"/></svg></li>
+      <li><b>ter</b><span>Embalagem com a data de torra</span></li>
+      <li class="marca"><b>qua</b><span>Aviso no WhatsApp: amanhã chega</span></li>
+      <li class="chega"><b>qui</b><span>Entrega na copa, no dia combinado</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="12" r="9" fill="#fff"/><circle cx="11" cy="12" r="5.5" fill="#5A3A26"/><path d="M20 9a3 3 0 0 1 0 6" stroke="#fff" stroke-width="2" fill="none"/></svg></li>
+      <li><b>sex</b><span>Ainda tem 1 semana de reserva na copa</span></li>
+    </ol>
+    <p class="apoio">Uma semana de exemplo. O dia de vocês é combinado na degustação.</p>
+  </div>
+</section>
+
+<section class="faixa problema" aria-labelledby="h-problema">
+  <div class="dentro">
+    <h2 class="so-leitor" id="h-problema">O problema da copa</h2>
+    <blockquote>"Já é a segunda vez que o café não chega e o pessoal fica reclamando comigo na copa."</blockquote>
+    <p class="fonte">O que a gente ouve de quem cuida da copa.</p>
+    <div class="duas">
+      <div><h3>Quem cuida da copa</h3><p>não quer pensar em café. Quer que ele chegue, no dia certo.</p></div>
+      <div><h3>Café de cápsula</h3><p>pede máquina emprestada e cota mínima de cápsulas todo mês.</p></div>
+      <div><h3>Café de mercado</h3><p>chega sem data de torra. Ninguém sabe há quanto tempo foi torrado.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faixa" id="como">
+  <div class="dentro">
+    <h2>Torra Marcada: o café entra no calendário do escritório</h2>
+    <ol class="etapas" data-desenha>
+      <li><button type="button" aria-expanded="false" aria-controls="e1"><h3>Prova na copa</h3></button><p class="mais" id="e1">A Marina leva 2 cafés da torra da semana para a equipe provar, sem custo. Vocês escolhem qual fica.</p></li>
+      <li><button type="button" aria-expanded="false" aria-controls="e2"><h3>Dia combinado</h3></button><p class="mais" id="e2">O escritório ganha um dia fixo de entrega no calendário de torra. Ele não muda de semana para semana.</p></li>
+      <li><button type="button" aria-expanded="false" aria-controls="e3"><h3>Torra da semana</h3></button><p class="mais" id="e3">O lote de vocês é torrado na semana da entrega. A data de torra vem escrita em cada pacote.</p></li>
+      <li><button type="button" aria-expanded="false" aria-controls="e4"><h3>Aviso e reserva</h3></button><p class="mais" id="e4">Mensagem no WhatsApp na véspera, e 1 semana de café de reserva fica na copa para nada faltar.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="faixa planos" id="planos">
+  <div class="dentro">
+    <h2>O que chega na copa</h2>
+    <div class="seletor" role="tablist" aria-label="Para quem é o café" hidden>
+      <button type="button" role="tab" id="t1" aria-controls="p1" aria-selected="true">Para o escritório</button>
+      <button type="button" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Para casa</button>
+    </div>
+    <div class="painel ativo" id="p1" role="tabpanel" aria-labelledby="t1">
+      <ul>
+        <li>Café em grão, ou moído para o jeito da copa (coado, prensa ou máquina)</li>
+        <li>Entrega própria em dia fixo, no Alto Tietê e em São Paulo</li>
+        <li>Aviso no WhatsApp na véspera de cada entrega</li>
+        <li>1 semana de café de reserva na copa</li>
+        <li>Data de torra em cada pacote</li>
+        <li>Troca de café quando a equipe quiser variar</li>
+      </ul>
+      <div class="preco"><span class="apoio">Plano para escritório</span><b>a partir de <span style="white-space:nowrap">R$ 98 o kg</span></b><p class="apoio">Para escritórios de 10 a 60 pessoas. A quantidade e o dia saem da degustação.</p><a class="btn" href="#degustacao">Pedir a degustação na copa</a></div>
+    </div>
+    <div class="painel" id="p2" role="tabpanel" aria-labelledby="t2">
+      <ul>
+        <li>Café torrado em lotes pequenos, com a data de torra no pacote</li>
+        <li>Entrega para o Brasil todo pela loja online</li>
+        <li>Mantiqueira Clássico 250 g avulso, com notas de chocolate ao leite e caramelo, por R$ 42</li>
+      </ul>
+      <div class="preco"><span class="apoio">Clube Torra Viva</span><b>R$ 79 por mês</b><p class="apoio">A assinatura para tomar em casa.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faixa entrada" id="degustacao">
+  <div class="dentro">
+    <div>
+      <h2>Primeiro a equipe prova. Depois vocês decidem.</h2>
+      <p>A Marina leva 2 cafés da torra da semana até a copa, sem custo. Se o pessoal gostar, o primeiro mês já entra no calendário de entregas.</p>
+      <p>Responda 6 perguntas rápidas. No fim, o WhatsApp abre com a mensagem pronta para enviar.</p>
+      <div class="garante"><h3>Sem multa para sair</h3><p>A qualquer momento, com uma mensagem. Se uma entrega atrasar, vocês encerram na hora, sem custo.</p></div>
+    </div>
+    <div class="form"><iframe id="formulario" src="formulario.html?embed=1" title="Formulário para pedir a degustação na copa"></iframe></div>
+  </div>
+</section>
+
+<section class="faixa onde" id="onde">
+  <div class="dentro">
+    <div>
+      <h2>Torrado em Mogi, entregue perto</h2>
+      <ul class="areas">
+        <li><b>Torrefação</b>Mogi das Cruzes (SP)</li>
+        <li><b>Café para escritório</b>Alto Tietê e cidade de São Paulo, com entrega própria</li>
+        <li><b>Clube e loja online</b>Brasil todo</li>
+      </ul>
+    </div>
+    <div class="mapa">
+      <svg viewBox="0 0 400 300" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="#E7EEE9"/><g fill="none" stroke="#C9D8CF" stroke-width="10" stroke-linecap="round"><path d="M-10 210q120-40 210-20t220-70"/><path d="M150 -10q10 120 60 160t30 170"/></g><circle cx="205" cy="150" r="12" fill="#C23B22"/><text x="205" y="196" text-anchor="middle" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="26" fill="#234B3F">Mogi das Cruzes</text></svg>
+      <iframe src="https://www.google.com/maps?q=Mogi%20das%20Cruzes%2C%20SP&amp;output=embed" loading="lazy" title="Mapa de Mogi das Cruzes, onde fica a torrefação" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="faixa faq">
+  <div class="dentro">
+    <h2>O que costumam perguntar</h2>
+    <details><summary>E se a gente quiser sair?</summary><p>Não tem multa. Uma mensagem no WhatsApp resolve, a qualquer momento.</p></details>
+    <details><summary>E se o café atrasar?</summary><p>Vocês têm dia fixo, recebem aviso na véspera e ficam com 1 semana de reserva na copa. Se uma entrega atrasar, o escritório pode encerrar na hora, sem custo.</p></details>
+    <details><summary>Cápsula não é mais prática?</summary><p>Com grão fresco não tem máquina emprestada nem cota mínima de cápsulas. Na degustação a equipe compara e decide.</p></details>
+  </div>
+</section>
+
+<section class="faixa final">
+  <div class="dentro">
+    <h2>A próxima torra sai esta semana.</h2>
+    <p>Marque a degustação e a equipe prova o café antes de qualquer plano.</p>
+    <a class="btn" href="#degustacao">Pedir a degustação na copa</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <a class="logo" href="#inicio">torra viva</a>
+  <span>Torra Viva Cafés Especiais, Mogi das Cruzes (SP)</span>
+  <span>Instagram @torraviva.exemplo (fictício)</span>
+</footer>
+
+<script>
+const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const cab = document.getElementById('cabecalho');
+addEventListener('scroll', () => cab.classList.toggle('rolou', scrollY > 30), { passive: true });
+
+// etapas acendem uma vez ao entrar na tela
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); }
+}), { threshold: .25 });
+document.querySelectorAll('[data-desenha]').forEach(el => reduz ? el.classList.add('visto') : io.observe(el));
+
+// clicar numa etapa abre o detalhe
+document.querySelectorAll('.etapas button').forEach(b => b.addEventListener('click', () => {
+  const abre = b.getAttribute('aria-expanded') !== 'true';
+  b.setAttribute('aria-expanded', abre);
+  document.getElementById(b.getAttribute('aria-controls')).classList.toggle('aberto', abre);
+}));
+
+// abas: escritório ou casa
+const seletor = document.querySelector('.seletor');
+seletor.hidden = false;
+const abas = [...seletor.querySelectorAll('[role=tab]')];
+function escolhe(t) {
+  abas.forEach(a => {
+    const sim = a === t;
+    a.setAttribute('aria-selected', sim); a.tabIndex = sim ? 0 : -1;
+    document.getElementById(a.getAttribute('aria-controls')).classList.toggle('ativo', sim);
+  });
+}
+abas.forEach((a, i) => {
+  a.addEventListener('click', () => escolhe(a));
+  a.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { const n = abas[(i + 1) % 2]; escolhe(n); n.focus(); }
+  });
+});
+
+// o formulário embutido avisa a altura de cada passo
+const fr = document.getElementById('formulario');
+addEventListener('message', e => { if (e.source === fr.contentWindow && e.data && e.data.torraAltura) fr.style.height = Math.max(420, e.data.torraAltura + 8) + 'px'; });
+</script>
+</body>
+</html>

@@ -1,28 +1,52 @@
 # Imersão IA para empresários · pasta da manhã
 
-Esta pasta é o projeto de uma pessoa aprendendo o Claude Code numa aula presencial. O guia que ela segue é o `README.md`.
+Esta pasta é o projeto de uma pessoa aprendendo o Claude Code. Ela segue o `README.md` e as instruções de `passos/`. A empresa dos exercícios é a **Torra Viva Cafés Especiais**, que é **fictícia**.
 
 ## Como falar
 
 - Português do Brasil, simples. Termo técnico só com tradução na mesma frase.
-- **No máximo 6 linhas por mensagem**, sem elogio e sem preâmbulo. O detalhe vai para o arquivo; no chat, o resumo e onde abrir.
+- Explicações curtas: **no máximo 6 linhas**, sem elogio e sem preâmbulo.
+- Quando a pessoa pedir um texto, uma tabela ou um arquivo, entregue completo, no formato pedido. O limite de 6 linhas vale para as explicações, não para a entrega.
 - Antes de criar, apagar ou rodar algo, dizer em 1 linha o que vai fazer.
 
-## A trilha da manhã (no `README.md`)
+## A Torra Viva (empresa fictícia, só para a aula)
 
-| Fase | O que a pessoa faz | Arquivos |
+- Torrefação pequena de cafés especiais em Mogi das Cruzes (SP), aberta em 2019. 9 pessoas: Helena (fundadora e mestre de torra), Marina (vendas para empresas), Caio (loja online e Instagram) e mais 6 na torra, embalagem, expedição e atendimento.
+- Promessa: "Torrado esta semana, na sua xícara na próxima." Café de pequenos produtores do Sul de Minas e do Cerrado Mineiro.
+- Vende em 4 canais: **Loja online**, **Clube Torra Viva** (assinatura de R$ 79/mês), **Cafeterias parceiras** (café de 1 kg) e **B2B Escritórios** (café todo mês para empresas, com máquina em comodato, que é empréstimo sem custo).
+- Tom de voz: próximo, direto, fala de café sem frescura. Evita "o melhor café do mundo", "gourmet" e exagero.
+- Site e Instagram de mentira: `torraviva.exemplo` e `@torraviva.exemplo`.
+
+## Os arquivos
+
+| Onde | O que tem |
+|---|---|
+| `dados/` | Dados fictícios de exemplo: `vendas-mensais.csv`, `produtos.csv`, `clientes-b2b.csv`, `orcamento.csv` (regras do orçamento para escritório), `politicas-atendimento.md` e `torra-viva.xlsx` (tudo junto, para subir no Google Planilhas) |
+| `passos/0N-.../INSTRUCOES.md` | O que fazer em cada passo, com o prompt pronto |
+| `gabarito/0N-.../` | O resultado pronto de cada passo, para comparar |
+| `meu-trabalho/` | Onde vai tudo o que a pessoa criar |
+| `progresso.md` | O checklist dos 8 passos |
+
+## A trilha (8 passos)
+
+| # | Passo | Fica pronto |
 |---|---|---|
-| 1 · Claude Code | Pergunta o que dá para fazer nesta pasta | — |
-| 2 · MCP | Conecta o Google Drive, pergunta à planilha da lanchonete, monta o orçamento de buffet | Docs "Resumo Bom Pedaço" e "Orçamento Buffet 17/10" no Drive dela |
-| 3 · Skills | `/eli5` (conversa própria) · `/grill-me` → design system → apresentação → PDF no Drive | `sobre-mim.md`, `design-system.md`, `apresentacao.html`, `apresentacao.pdf` |
-| 4 · Contexto | Só assiste | — |
+| 1 | Abrir a pasta no Claude Code | o Claude respondeu nesta pasta |
+| 2 | Google Drive e planilhas | `meu-trabalho/resumo-vendas.md` (ou o Doc no Drive) |
+| 3 | Prompts que funcionam | `meu-trabalho/prompts.md` |
+| 4 | Usar uma skill pronta (`/eli5`) | a explicação na conversa |
+| 5 | Criar uma skill | `.claude/skills/resposta-cliente/SKILL.md` |
+| 6 | Design system | `meu-trabalho/design-system.md` |
+| 7 | Páginas web | `meu-trabalho/calculadora-orcamento.html`, `dashboard-vendas.html`, `apresentacao.html` |
+| 8 | Animação (Claude Motion ou plano B) | o MP4 do Motion ou `meu-trabalho/animacao-torra-viva.html` |
 
-Quando a pessoa perguntar "o que falta?" ou "e agora?": ver quais arquivos da tabela existem na pasta, dizer em 1 linha a próxima etapa e apontar a seção do `README.md`.
+Quando a pessoa perguntar "o que falta?" ou "e agora?": ler `progresso.md`, ver quais arquivos de `meu-trabalho/` existem, dizer em 1 linha o próximo passo e apontar o `passos/0N-.../INSTRUCOES.md`. Quando um passo ficar pronto, marcar `[x]` nele em `progresso.md`.
 
 ## Regras
 
-- **Não inventar.** Número, fato ou link sem fonte não entra. Na planilha, responder só com o que está nela.
-- **Planilha:** `planilha/lanchonete-bom-pedaco.xlsx` tem dados fictícios. No exercício, ler a versão do Google Drive pelo link que a pessoa colar. Nunca alterar a planilha original: resultado vai para arquivo novo.
-- **Orçamento de buffet:** aplicar as regras da aba Buffet na ordem em que estão escritas e mostrar a conta de cada item.
-- **Apresentação:** HTML num arquivo só, com as cores e fontes do `design-system.md`, usando a skill `frontend-design` no visual e a `humanizer` no texto. PDF pela skill `pdf` ou imprimindo o HTML no Chrome sem janela (headless).
-- Um assunto por conversa: se a pessoa mudar de exercício no meio, sugerir uma conversa nova.
+- **Dados fictícios.** Tudo em `dados/` é inventado para a aula. Ao usar esses números num texto, página ou apresentação, escrever "dados fictícios de exemplo" em algum lugar visível.
+- **Não inventar.** Número, nome ou fato que não está em `dados/`, neste arquivo ou no que a pessoa disse não entra. Faltou informação: escrever `[confirmar: ...]`.
+- **CSV:** a primeira linha de cada `.csv` é o aviso `# ... dados fictícios de exemplo`; o cabeçalho vem na linha 2. Valores com ponto decimal (42.00).
+- **Nunca alterar `dados/` nem `gabarito/`.** Resultado vai para arquivo novo em `meu-trabalho/`.
+- **Páginas e apresentações:** HTML num arquivo só (CSS e JavaScript dentro), que abre com dois cliques, com as cores e fontes de `meu-trabalho/design-system.md` se ele existir. Para o acabamento visual, usar a skill `frontend-design`.
+- Um assunto por conversa: se a pessoa mudar de passo no meio, sugerir `/clear` (conversa nova).

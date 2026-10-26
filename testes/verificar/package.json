@@ -1,0 +1,10 @@
+{
+  "name": "verificar-imersao",
+  "private": true,
+  "type": "module",
+  "description": "Confere os arquivos gerados nos testes (testes/manha e testes/tarde). Rode npm install aqui antes.",
+  "dependencies": {
+    "html-validate": "^8.24.0",
+    "playwright-core": "^1.48.0"
+  }
+}

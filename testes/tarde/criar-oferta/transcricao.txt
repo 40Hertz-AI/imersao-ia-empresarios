@@ -1,0 +1,10 @@
+════════ mensagem 1 do aluno ════════
+/criar-oferta
+
+════════ resposta do Claude ════════
+✓ Oferta → `entregas/oferta.md`
+Proposta de valor: para escritórios do Alto Tietê e de SP, a Torra Viva torra o café da semana e entrega em dia marcado · Oferta de entrada: degustação grátis na copa e 1º mês sem multa para sair.
+Atualize o RESULTADO.html: a seção Oferta apareceu (os próximos passos continuam os mesmos).
+Falta confirmar: gramas por xícara (para o preço por café), reajuste pelo preço do grão, café do mês e quantos escritórios atendem hoje.
+Próximo: /criar-pagina (~10 min)
+

@@ -1,0 +1,143 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Torra Viva · carrossel 1 · data de torra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Albert+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--marca:#234B3F;--destaque:#C23B22;--fundo:#F6F1EA;--texto:#2B1D14;--bourbon:#E8B547;--apoio:#6B5E55;--t:'Bricolage Grotesque',sans-serif;--c:'Albert Sans',sans-serif;--s:1}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:#1d1d1d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;overflow:hidden;font-family:var(--c)}
+.palco{width:1080px;height:1350px;zoom:var(--s)}
+.lamina{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--fundo);color:var(--texto);padding:110px 96px 170px;display:flex;flex-direction:column}
+.lamina[hidden]{display:none}
+.lamina h2{font-family:var(--t);font-weight:800;font-size:96px;line-height:1.02;letter-spacing:-.025em}
+.lamina p{font-size:40px;line-height:1.35}
+.rodape{position:absolute;left:96px;right:96px;bottom:64px;display:flex;justify-content:space-between;align-items:center;font-size:28px;color:var(--apoio)}
+.rodape .logo{font-family:var(--t);font-weight:800;font-size:34px;letter-spacing:-.02em;color:var(--texto)}
+.rodape .arraste{display:flex;align-items:center;gap:12px}
+.escura{background:var(--marca);color:var(--fundo)}
+.escura .rodape,.escura .rodape .logo,.grao .rodape,.grao .rodape .logo,.cereja .rodape,.cereja .rodape .logo{color:var(--fundo)}
+.grao{background:var(--texto);color:var(--fundo)}
+.cereja{background:var(--destaque);color:var(--fundo)}
+.etiqueta{align-self:flex-start;background:var(--bourbon);color:var(--texto);font:700 32px/1 var(--c);padding:18px 30px;border-radius:999px}
+/* 1 gancho */
+.gancho h2{font-size:118px;margin-top:auto;margin-bottom:auto}
+/* 2-3 problema */
+.problema h2{font-size:80px}
+.problema p{margin-top:28px;max-width:820px}
+.problema svg{margin-top:auto;align-self:center}
+/* 4-5 metodo */
+.metodo h2{font-size:80px}
+.lista{list-style:none;padding:0;margin-top:auto;display:flex;flex-direction:column;gap:22px}
+.lista li{display:flex;align-items:center;gap:36px;background:#fff;border:2px solid #E4DACB;border-radius:28px;padding:34px 40px;font:700 42px/1.2 var(--c)}
+.lista svg{flex:none}
+/* 6 virada */
+.virada h2{font-size:88px}
+.virada svg{margin-top:auto;align-self:flex-end}
+/* 7 chamada */
+.chamada{justify-content:center}
+.chamada p{font-size:48px}
+.chamada .palavra{font-family:var(--t);font-weight:800;font-size:300px;line-height:.9;letter-spacing:-.05em;margin:24px 0 40px}
+.controles{display:flex;align-items:center;gap:16px;color:#eee;font:600 16px/1 var(--c)}
+.controles button{font:inherit;width:44px;height:44px;border-radius:50%;border:1px solid #666;background:#2a2a2a;color:#fff;cursor:pointer}
+.controles button:disabled{opacity:.3;cursor:default}
+.controles button:focus-visible{outline:2px solid var(--bourbon);outline-offset:2px}
+body.so{background:var(--fundo)} body.so .controles{display:none}
+</style></head><body>
+<div class="palco">
+
+  <section class="lamina escura gancho" aria-label="Lâmina 1 de 7">
+    <span class="etiqueta">Antes de comprar café</span>
+    <h2>Validade de 18 meses não diz quando o seu café foi torrado.</h2>
+    <div class="rodape"><span><b class="logo">torra viva</b>&ensp;@torraviva.exemplo</span><span class="arraste">arraste <svg width="40" height="20" viewBox="0 0 40 20" aria-hidden="true"><path d="M2 10h34M28 2l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>1/7</span></div>
+  </section>
+
+  <section class="lamina problema" aria-label="Lâmina 2 de 7">
+    <h2>O pacote mostra até quando vende.</h2>
+    <p>Não mostra quando o café saiu do torrador.</p>
+    <svg width="560" height="620" viewBox="0 0 560 620" aria-label="Pacote de café com validade de 18 meses e sem data de torra" role="img">
+      <path d="M90 90 L470 90 L500 600 L60 600 Z" fill="#fff" stroke="#2B1D14" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M90 90 L470 90 L470 40 L90 40 Z" fill="#E4DACB" stroke="#2B1D14" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M130 65h300" stroke="#2B1D14" stroke-width="4" stroke-dasharray="10 10"/>
+      <rect x="110" y="250" width="340" height="230" rx="34" fill="#E8B547"/>
+      <text x="140" y="320" font-family="Albert Sans" font-size="30" fill="#2B1D14">Validade</text>
+      <text x="140" y="368" font-family="Bricolage Grotesque" font-weight="800" font-size="44" fill="#2B1D14">18 meses</text>
+      <text x="140" y="430" font-family="Albert Sans" font-size="30" fill="#2B1D14">Torrado em:</text>
+      <path d="M320 425h100" stroke="#C23B22" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+    <div class="rodape"><span><b class="logo">torra viva</b>&ensp;@torraviva.exemplo</span><span class="arraste">arraste <svg width="40" height="20" viewBox="0 0 40 20" aria-hidden="true"><path d="M2 10h34M28 2l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>2/7</span></div>
+  </section>
+
+  <section class="lamina problema" aria-label="Lâmina 3 de 7">
+    <h2>Café torrado há meses perde aroma.</h2>
+    <p>Na xícara, fica sem graça ou amargo.</p>
+    <svg width="888" height="300" viewBox="0 0 888 300" aria-label="Régua do tempo: o aroma cai conforme os meses passam depois da torra" role="img">
+      <defs><linearGradient id="cai" x1="0" x2="1"><stop offset="0" stop-color="#234B3F"/><stop offset=".35" stop-color="#234B3F"/><stop offset="1" stop-color="#E4DACB"/></linearGradient></defs>
+      <text x="0" y="40" font-family="Albert Sans" font-weight="700" font-size="32" fill="#2B1D14">aroma</text>
+      <rect x="0" y="70" width="888" height="70" rx="35" fill="url(#cai)"/>
+      <path d="M4 170v40M300 170v40M884 170v40" stroke="#6B5E55" stroke-width="4"/>
+      <text x="0" y="260" font-family="Albert Sans" font-size="32" fill="#6B5E55">torra</text>
+      <text x="300" y="260" font-family="Albert Sans" font-size="32" fill="#6B5E55">poucas semanas</text>
+      <text x="884" y="260" text-anchor="end" font-family="Albert Sans" font-size="32" fill="#6B5E55">18 meses</text>
+    </svg>
+    <div class="rodape"><span><b class="logo">torra viva</b>&ensp;@torraviva.exemplo</span><span>3/7</span></div>
+  </section>
+
+  <section class="lamina metodo" aria-label="Lâmina 4 de 7">
+    <h2>Antes de comprar, procure três coisas no pacote</h2>
+    <ul class="lista">
+      <li><svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true"><rect x="8" y="14" width="56" height="50" rx="10" fill="none" stroke="#234B3F" stroke-width="5"/><path d="M8 30h56M24 6v14M48 6v14" stroke="#234B3F" stroke-width="5" stroke-linecap="round"/></svg>Data de torra impressa</li>
+      <li><svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true"><path d="M36 66s22-22 22-38a22 22 0 0 0-44 0c0 16 22 38 22 38z" fill="none" stroke="#234B3F" stroke-width="5" stroke-linejoin="round"/><circle cx="36" cy="28" r="8" fill="none" stroke="#234B3F" stroke-width="5"/></svg>Origem e produtor</li>
+      <li><svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true"><ellipse cx="36" cy="36" rx="20" ry="28" fill="none" stroke="#234B3F" stroke-width="5" transform="rotate(30 36 36)"/><path d="M26 16c14 12 6 28 20 40" fill="none" stroke="#234B3F" stroke-width="5" stroke-linecap="round"/></svg>Notas do café</li>
+    </ul>
+    <div class="rodape"><span><b class="logo">torra viva</b>&ensp;@torraviva.exemplo</span><span>4/7</span></div>
+  </section>
+
+  <section class="lamina metodo" aria-label="Lâmina 5 de 7">
+    <h2>Em casa, o frescor dura mais assim</h2>
+    <ul class="lista">
+      <li><svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true"><path d="M18 22h36l4 44H14z" fill="none" stroke="#234B3F" stroke-width="5" stroke-linejoin="round"/><path d="M18 22l4-14h28l4 14M26 14h20" fill="none" stroke="#234B3F" stroke-width="5" stroke-linejoin="round"/></svg>Pacote bem fechado</li>
+      <li><svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="12" fill="none" stroke="#234B3F" stroke-width="5"/><path d="M36 6v8M36 58v8M6 36h8M58 36h8M14 14l6 6M52 52l6 6M58 14l-6 6M14 58l6-6" stroke="#234B3F" stroke-width="5" stroke-linecap="round"/><path d="M10 62L62 10" stroke="#C23B22" stroke-width="5" stroke-linecap="round"/></svg>Longe da luz e do calor</li>
+      <li><svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true"><rect x="16" y="30" width="40" height="36" rx="6" fill="none" stroke="#234B3F" stroke-width="5"/><path d="M22 30l4-12h20l4 12M36 18V8M36 8h18" fill="none" stroke="#234B3F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>Moa só na hora de passar</li>
+    </ul>
+    <div class="rodape"><span><b class="logo">torra viva</b>&ensp;@torraviva.exemplo</span><span>5/7</span></div>
+  </section>
+
+  <section class="lamina grao virada" aria-label="Lâmina 6 de 7">
+    <h2>Torrado esta semana, na sua xícara na próxima.</h2>
+    <svg width="520" height="520" viewBox="0 0 520 520" aria-label="Carimbo: Torra Viva, lotes pequenos, Mogi das Cruzes" role="img">
+      <g transform="rotate(-10 260 260)">
+        <circle cx="260" cy="260" r="240" fill="none" stroke="#E8B547" stroke-width="8"/>
+        <circle cx="260" cy="260" r="200" fill="none" stroke="#E8B547" stroke-width="3"/>
+        <defs><path id="arco" d="M260 260 m-170 0 a170 170 0 1 1 340 0 a170 170 0 1 1 -340 0"/></defs>
+        <text font-family="Albert Sans" font-weight="700" font-size="34" letter-spacing="6" fill="#E8B547"><textPath href="#arco" startOffset="2%">lotes pequenos · Mogi das Cruzes · lotes pequenos ·</textPath></text>
+        <text x="260" y="250" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="800" font-size="74" fill="#E8B547">torra viva</text>
+        <text x="260" y="310" text-anchor="middle" font-family="Albert Sans" font-size="32" fill="#E8B547">café especial</text>
+      </g>
+    </svg>
+    <div class="rodape"><span><b class="logo">torra viva</b>&ensp;@torraviva.exemplo</span><span>6/7</span></div>
+  </section>
+
+  <section class="lamina cereja chamada" aria-label="Lâmina 7 de 7">
+    <p>Comente</p>
+    <p class="palavra">torra</p>
+    <p>e a gente responde com o dia da próxima torra.</p>
+    <div class="rodape"><span><b class="logo">torra viva</b>&ensp;@torraviva.exemplo</span><span>7/7</span></div>
+  </section>
+
+</div>
+<div class="controles"><button type="button" aria-label="Lâmina anterior">&#8249;</button><span class="conta"></span><button type="button" aria-label="Próxima lâmina">&#8250;</button></div>
+<script>
+// Uma lâmina por vez, do tamanho da janela. ?n=3 mostra só a lâmina 3, sem botões (relatório e print).
+const n=+new URLSearchParams(location.search).get('n'), ls=[...document.querySelectorAll('.lamina')];
+const [ant,prox]=document.querySelectorAll('.controles button'), conta=document.querySelector('.conta');
+let i=Math.min(Math.max((n||1)-1,0),ls.length-1);
+if(n) document.body.classList.add('so');
+if(ls.length<2) document.querySelector('.controles').hidden=true;
+function mostra(){ ls.forEach((l,k)=>l.hidden=k!==i); conta.textContent=(i+1)+' / '+ls.length; ant.disabled=i===0; prox.disabled=i===ls.length-1; }
+function escala(){ const folga=n?0:80; document.documentElement.style.setProperty('--s',Math.min(1,innerWidth/1080,(innerHeight-folga)/1350)); }
+ant.onclick=()=>{ if(i>0){i--;mostra();} }; prox.onclick=()=>{ if(i<ls.length-1){i++;mostra();} };
+addEventListener('keydown',e=>{ if(e.key==='ArrowRight') prox.click(); if(e.key==='ArrowLeft') ant.click(); });
+addEventListener('resize',escala); escala(); mostra();
+</script></body></html>

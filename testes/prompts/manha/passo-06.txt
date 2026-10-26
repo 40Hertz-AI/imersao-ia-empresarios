@@ -1,0 +1,4 @@
+Olhe a imagem passos/06-design-system/referencia-design.png e crie o design system da Torra Viva a partir dela.
+Quero: as cores com nome, código hex e para que serve cada uma; as fontes do Google Fonts para títulos e texto, com tamanhos; espaçamentos e cantos arredondados; como são os botões, os cartões e os selos; e o estilo visual em 3 palavras.
+Use a imagem só como inspiração de estilo, sem copiar marca ou texto de ninguém. Confira se o texto tem contraste suficiente com o fundo.
+Salve em meu-trabalho/design-system.md e coloque no fim um bloco de CSS com as variáveis (:root) para eu reaproveitar nas páginas.

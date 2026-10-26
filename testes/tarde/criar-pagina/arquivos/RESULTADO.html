@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- INICIO:titulo -->
+<title>Torra Viva Cafés Especiais · Cérebro da empresa</title>
+<!-- FIM:titulo -->
+<!-- INICIO:marca -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Albert+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --marca:#234B3F;      /* folha · do print do site */
+  --destaque:#C23B22;   /* cereja · do print do site */
+  --fundo:#F6F1EA;      /* leite */
+  --texto:#2B1D14;      /* grão */
+  --fonte-titulo:'Bricolage Grotesque', system-ui, sans-serif;
+  --fonte-texto:'Albert Sans', system-ui, sans-serif;
+}
+</style>
+<!-- FIM:marca -->
+<style>
+/* =====================================================================
+   Cérebro da empresa · relatório
+   As cores e fontes vêm do bloco "marca" acima. Nada abaixo muda por fase.
+   ===================================================================== */
+@property --p{syntax:'<number>';inherits:false;initial-value:100}
+:root{
+  --papel:color-mix(in srgb, #fff 88%, var(--fundo));
+  --suave:color-mix(in srgb, var(--texto) 64%, var(--fundo));
+  --linha:color-mix(in srgb, var(--texto) 13%, var(--fundo));
+  --tinta-marca:color-mix(in srgb, var(--marca) 82%, #000);
+  --banho:color-mix(in srgb, var(--marca) 7%, var(--fundo));
+  --banho-destaque:color-mix(in srgb, var(--destaque) 12%, var(--fundo));
+  --sobre-marca:color-mix(in srgb, #fff 94%, var(--marca));
+  --sobre-marca-suave:color-mix(in srgb, #fff 72%, var(--marca));
+  --ok:#1E7A4C; --ok-f:#E3F3EA;
+  --atencao:#8A5A00; --atencao-f:#FBF1DC;
+  --risco:#A8322B; --risco-f:#FBE7E5;
+  --trilho:236px;
+  --curva:cubic-bezier(.2,.7,.2,1);
+  --r-g:18px; --r-m:12px; --r-p:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:24px}
+body{margin:0;background:var(--fundo);color:var(--texto);font-family:var(--fonte-texto);font-size:17px;line-height:1.6;text-rendering:optimizeLegibility}
+h1,h2,h3,h4{font-family:var(--fonte-titulo);color:var(--tinta-marca);line-height:1.12;margin:0;font-weight:600;text-wrap:balance}
+p{margin:0 0 .9em;text-wrap:pretty}
+ul,ol{margin:0 0 1em;padding-left:1.2em}
+a{color:var(--tinta-marca);text-underline-offset:3px}
+code{font-size:.9em;background:var(--banho);color:var(--tinta-marca);padding:1px 7px;border-radius:6px}
+:focus-visible{outline:3px solid var(--destaque);outline-offset:3px;border-radius:4px}
+::selection{background:var(--banho-destaque)}
+
+/* ---------- navegação ---------- */
+.trilho{position:fixed;inset:0 auto 0 0;width:var(--trilho);border-right:1px solid var(--linha);background:var(--papel);padding:26px 18px 20px;display:flex;flex-direction:column;gap:18px;z-index:5;overflow-y:auto}
+.trilho .nome{font-family:var(--fonte-titulo);font-weight:700;font-size:1.3rem;color:var(--marca);text-decoration:none;line-height:1.15}
+.trilho .nome img{max-width:150px;max-height:44px;display:block}
+.progresso{display:flex;align-items:center;gap:12px;font-size:.82rem;color:var(--suave);line-height:1.3}
+.progresso .anel{--p:0;width:42px;height:42px;border-radius:50%;flex:none;background:conic-gradient(var(--destaque) calc(var(--p)*1%),var(--linha) 0);display:grid;place-items:center;transition:--p 1.2s var(--curva)}
+.progresso .anel::after{content:"";width:32px;height:32px;border-radius:50%;background:var(--papel)}
+.progresso b{display:block;color:var(--texto);font-size:.95rem}
+.trilho ol{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1px}
+.trilho li a{display:flex;gap:10px;align-items:center;padding:6px 10px;border-radius:var(--r-p);text-decoration:none;color:var(--texto);font-size:.9rem;transition:background .2s}
+.trilho li a::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--marca);flex:none;transition:transform .2s}
+.trilho li a.vazio{color:var(--suave)}
+.trilho li a.vazio::before{background:transparent;border:1.5px solid var(--linha)}
+.trilho li a:hover{background:var(--banho)}
+.trilho li a.ativo{background:var(--banho);font-weight:700;color:var(--tinta-marca)}
+.trilho li a.ativo::before{transform:scale(1.4);background:var(--destaque)}
+.botao-aula{font:inherit;font-size:.82rem;display:flex;gap:8px;align-items:center;justify-content:center;border:1px solid var(--linha);background:var(--fundo);color:var(--texto);padding:8px 10px;border-radius:var(--r-p);cursor:pointer}
+.botao-aula[aria-pressed="true"]{background:var(--marca);color:var(--sobre-marca);border-color:var(--marca)}
+.trilho .atualizado{margin-top:auto;font-size:.76rem;color:var(--suave);margin-bottom:0}
+main{margin-left:var(--trilho);overflow-x:clip}
+
+/* ---------- seções ---------- */
+.secao{padding:84px clamp(20px,5vw,64px);max-width:1120px}
+.secao + .secao{border-top:1px solid var(--linha)}
+.fase{display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--suave);margin-bottom:14px}
+.fase code{font-size:.82rem}
+.secao > h2,.secao > .cab h2{font-size:clamp(1.7rem,3.2vw,2.5rem);max-width:24ch;margin-bottom:12px;letter-spacing:-.01em}
+.lede{font-size:1.12rem;color:var(--suave);max-width:62ch;margin-bottom:34px}
+.secao h3{font-size:1.2rem;margin:44px 0 14px}
+.base{font-size:.8rem;color:var(--suave);margin-top:40px}
+.base a{color:var(--suave)}
+
+/* estado vazio: a fase ainda não rodou */
+.pendente{border:1.5px dashed var(--linha);border-radius:var(--r-g);padding:28px 30px;color:var(--suave);max-width:600px;background:repeating-linear-gradient(-45deg,transparent 0 14px,color-mix(in srgb,var(--linha) 35%,transparent) 14px 15px)}
+.pendente strong{color:var(--texto);font-family:var(--fonte-titulo);font-size:1.2rem;display:block;margin-bottom:4px}
+.pendente p{margin:.6em 0 0}
+
+/* ---------- capa ---------- */
+.capa{min-height:min(88vh,860px);display:flex;flex-direction:column;justify-content:flex-end;background:var(--marca);color:var(--sobre-marca);max-width:none;padding-top:64px;padding-bottom:56px;position:relative;overflow:hidden}
+.capa::before{content:"";position:absolute;right:-12vw;top:-18vw;width:58vw;height:58vw;border-radius:50%;border:1px solid color-mix(in srgb,#fff 16%,transparent);box-shadow:0 0 0 7vw color-mix(in srgb,#fff 3%,transparent),0 0 0 14vw color-mix(in srgb,#fff 2%,transparent);pointer-events:none}
+.capa > *{position:relative;max-width:1060px}
+.capa h1{color:#fff;font-size:clamp(2.5rem,6vw,5rem);max-width:15ch;letter-spacing:-.025em;margin-bottom:22px;font-weight:600}
+.capa .lede{color:var(--sobre-marca-suave);font-size:1.2rem}
+.capa .logo{max-height:64px;max-width:220px;margin-bottom:40px;object-fit:contain}
+.capa .tipo{font-size:.95rem;color:var(--sobre-marca-suave);margin-bottom:14px}
+.numeros{display:flex;flex-wrap:wrap;gap:18px 52px;margin-top:40px;padding-top:28px;border-top:1px solid color-mix(in srgb,#fff 20%,transparent)}
+.numeros div{display:flex;flex-direction:column}
+.numeros b{font-family:var(--fonte-titulo);font-size:2.4rem;line-height:1.05;color:#fff;font-weight:600;font-variant-numeric:tabular-nums}
+.numeros span{font-size:.85rem;color:var(--sobre-marca-suave)}
+/* trilha das 6 fases (montada pelo script) */
+.fases{list-style:none;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;padding:0;margin:44px 0 0}
+.fases li{position:relative;padding-top:18px;font-size:.78rem;line-height:1.3;color:var(--sobre-marca-suave)}
+.fases li::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:4px;background:color-mix(in srgb,#fff 18%,transparent)}
+.fases li.feita::before{background:var(--sobre-marca)}
+.fases li.proxima::before{background:linear-gradient(90deg,var(--destaque) 0 40%,color-mix(in srgb,#fff 18%,transparent) 40%);background-size:250% 100%;animation:enche 2.4s var(--curva) infinite}
+.fases li b{display:block;color:#fff;font-weight:500}
+.fases li code{background:none;color:inherit;padding:0;font-size:.95em}
+.fases li.proxima b::after{content:" · próximo";color:var(--destaque);font-weight:700;filter:brightness(1.35)}
+@keyframes enche{0%{background-position:100% 0}60%,100%{background-position:0 0}}
+
+/* ---------- peças base ---------- */
+.grade{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.cartao{background:var(--papel);border:1px solid var(--linha);border-radius:var(--r-m);padding:22px 24px}
+.cartao h4{font-size:1.08rem;margin-bottom:8px}
+.cartao p:last-child,.cartao ul:last-child{margin-bottom:0}
+.cartao.forte{background:var(--marca);border-color:var(--marca);color:var(--sobre-marca)}
+.cartao.forte h4{color:#fff}
+.cartao.forte a{color:#fff}
+.cartao.forte .fonte,.cartao.forte .fonte a{color:var(--sobre-marca-suave)}
+.ficha{display:grid;grid-template-columns:minmax(130px,max-content) 1fr;gap:0;margin:0;border-top:1px solid var(--linha)}
+.ficha dt,.ficha dd{padding:12px 0;border-bottom:1px solid var(--linha)}
+.ficha dt{color:var(--suave);font-size:.9rem;padding-right:28px}
+.ficha dd{margin:0}
+.selo{display:inline-block;font-size:.75rem;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--banho);color:var(--tinta-marca);white-space:nowrap;vertical-align:middle;line-height:1.6}
+.selo.ok{background:var(--ok-f);color:var(--ok)}
+.selo.atencao,.selo.estimativa{background:var(--atencao-f);color:var(--atencao)}
+.selo.risco{background:var(--risco-f);color:var(--risco)}
+.selo.sugestao{background:var(--banho-destaque);color:var(--destaque);font-style:italic}
+.fonte{font-size:.78rem;color:var(--suave);word-break:break-word;margin-bottom:0}
+.fonte a{color:var(--suave)}
+.citacao{font-family:var(--fonte-titulo);font-size:1.18rem;line-height:1.4;color:var(--tinta-marca);border-left:3px solid var(--destaque);padding-left:16px;margin:8px 0}
+.destaque{font-family:var(--fonte-titulo);font-size:clamp(1.35rem,2.5vw,1.9rem);line-height:1.28;color:var(--tinta-marca);max-width:34ch;margin:0 0 24px;font-weight:500}
+
+/* termo com explicação (glossário) */
+.termo{font-style:normal;border-bottom:1.5px dotted var(--destaque);cursor:help;position:relative}
+.termo::after{content:attr(data-def);position:absolute;left:0;max-width:min(280px,80vw);bottom:calc(100% + 8px);width:max-content;max-width:280px;background:var(--texto);color:var(--fundo);font:400 .82rem/1.45 var(--fonte-texto);padding:10px 12px;border-radius:var(--r-p);opacity:0;transform:translateY(4px);pointer-events:none;transition:opacity .18s,transform .18s;z-index:4}
+.termo:hover::after,.termo:focus::after{opacity:1;transform:none}
+
+/* números grandes com fonte */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--linha);border:1px solid var(--linha);border-radius:var(--r-m);overflow:hidden}
+.kpis > div{background:var(--papel);padding:22px 22px 18px;display:flex;flex-direction:column;gap:6px}
+.kpis b{font-family:var(--fonte-titulo);font-size:clamp(1.5rem,2.4vw,2.1rem);white-space:nowrap;line-height:1.05;color:var(--tinta-marca);font-weight:600;font-variant-numeric:tabular-nums}
+.kpis p{margin:0;font-size:.92rem}
+
+/* tabela */
+.tabela-wrap{overflow-x:auto;border:1px solid var(--linha);border-radius:var(--r-m);background:var(--papel)}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--linha);vertical-align:top}
+th{font-size:.8rem;color:var(--suave);font-weight:700;background:var(--banho)}
+tr:last-child td{border-bottom:0}
+tbody tr{transition:background .15s}
+tbody tr:hover{background:var(--banho)}
+tr.nos td{background:var(--banho-destaque);font-weight:700}
+
+/* barras (nota 1–5 ×20, ou % do mix) */
+.barras{display:flex;flex-direction:column;gap:12px}
+.barra{display:grid;grid-template-columns:minmax(110px,200px) 1fr 48px;gap:14px;align-items:center;font-size:.93rem}
+.barra .trilha{height:12px;border-radius:99px;background:var(--linha);overflow:hidden}
+.barra .trilha i{display:block;height:100%;width:calc(var(--v) * 1%);background:var(--marca);border-radius:99px;transition:width 1s var(--curva)}
+.barra.nos .trilha i{background:var(--destaque)}
+.barra.nos{font-weight:700}
+.barra > span:last-child{font-variant-numeric:tabular-nums;text-align:right}
+
+/* rosca (mix de pilares): o script desenha a partir da lista */
+.rosca{display:flex;gap:36px;align-items:center;flex-wrap:wrap}
+.rosca .disco{--p:100;width:220px;height:220px;border-radius:50%;flex:none;position:relative;background:var(--grad,var(--linha));-webkit-mask:conic-gradient(#000 calc(var(--p)*1%),transparent 0);mask:conic-gradient(#000 calc(var(--p)*1%),transparent 0);transition:--p 1.3s var(--curva)}
+.rosca .disco::after{content:"";position:absolute;inset:26%;border-radius:50%;background:var(--fundo)}
+.rosca ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;min-width:220px;flex:1}
+.rosca li{display:grid;grid-template-columns:14px 1fr auto;gap:12px;align-items:baseline}
+.rosca li::before{content:"";width:14px;height:14px;border-radius:4px;background:var(--c,var(--marca));transform:translateY(2px)}
+.rosca li b{font-variant-numeric:tabular-nums}
+.rosca li small{grid-column:2 / 4;color:var(--suave);font-size:.85rem;line-height:1.4}
+
+/* funil (jornada do cliente): --v de 0 a 100 */
+.funil{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;counter-reset:f}
+.funil li{counter-increment:f;display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,38%);gap:18px;align-items:center}
+.funil .faixa{height:52px;width:calc(var(--v)*1%);min-width:120px;background:color-mix(in srgb,var(--marca) calc(40% + var(--v)*.6%),var(--fundo));color:var(--sobre-marca);border-radius:var(--r-p);display:flex;align-items:center;padding:0 16px;gap:10px;font-weight:700;transition:width 1s var(--curva);white-space:nowrap;overflow:hidden}
+.funil .faixa::before{content:counter(f);font-family:var(--fonte-titulo);opacity:.7}
+.funil li.perde .faixa{background:var(--risco)}
+.funil li > span{font-size:.9rem;color:var(--suave);line-height:1.4}
+.funil li.perde > span{color:var(--risco)}
+
+/* etapas em sequência (mecanismo, processo) */
+.etapas{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;counter-reset:e;list-style:none;padding:0;position:relative}
+.etapas li{padding:0 20px 0 0;counter-increment:e;position:relative}
+.etapas li::before{content:counter(e);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--fundo);border:2px solid var(--marca);color:var(--tinta-marca);font-family:var(--fonte-titulo);font-weight:700;font-size:1.15rem;margin-bottom:14px;position:relative;z-index:1;transition:background .3s,color .3s}
+.etapas li::after{content:"";position:absolute;top:22px;left:44px;right:0;height:2px;background:var(--linha)}
+.etapas li:last-child::after{display:none}
+.etapas li b{display:block;color:var(--tinta-marca);margin-bottom:4px;font-family:var(--fonte-titulo);font-size:1.08rem}
+.etapas li.perde::before{border-color:var(--risco);color:var(--risco)}
+.etapas.visto li::before{background:var(--marca);color:var(--sobre-marca)}
+.etapas.visto li.perde::before{background:var(--risco);color:#fff}
+.etapas.visto li::before{transition-delay:calc(var(--i,0) * 180ms)}
+
+/* antes × depois */
+.comparar{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--linha);border-radius:var(--r-m);overflow:hidden}
+.comparar > div{padding:22px 24px}
+.comparar > div:first-child{background:var(--papel)}
+.comparar > div:last-child{background:var(--banho)}
+.comparar h4{font-size:1rem;margin-bottom:10px}
+.comparar ul{margin:0}
+
+/* mapa 2x2 de posicionamento: --x e --y de 0 a 100 */
+.mapa{position:relative;aspect-ratio:1.6/1;max-width:720px;background:var(--papel);border:1px solid var(--linha);border-radius:var(--r-m);margin:8px 0 36px 30px}
+.mapa::before,.mapa::after{content:"";position:absolute;background:var(--linha)}
+.mapa::before{left:50%;top:0;bottom:0;width:1px}
+.mapa::after{top:50%;left:0;right:0;height:1px}
+.mapa .eixo-x{position:absolute;bottom:-30px;left:0;right:0;display:flex;justify-content:space-between;font-size:.78rem;color:var(--suave)}
+.mapa .eixo-y{position:absolute;left:-30px;top:0;bottom:0;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;justify-content:space-between;font-size:.78rem;color:var(--suave)}
+.mapa .ponto{position:absolute;left:calc(var(--x) * 1%);top:calc((100 - var(--y)) * 1%);transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px;font-size:.8rem;white-space:nowrap;z-index:1;cursor:default;transition:transform .5s var(--curva),opacity .5s;border-radius:6px;padding:2px 4px}
+.mapa .ponto::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--suave);flex:none}
+.mapa .ponto.nos{font-weight:700;color:var(--tinta-marca);z-index:2}
+.mapa .ponto.nos::before{width:16px;height:16px;background:var(--destaque);box-shadow:0 0 0 5px color-mix(in srgb,var(--destaque) 25%,transparent)}
+.mapa .ponto[data-nota]:hover,.mapa .ponto[data-nota]:focus{z-index:3;background:var(--papel)}
+.mapa .ponto[data-nota]::after{content:attr(data-nota);position:absolute;top:calc(100% + 6px);left:0;width:230px;white-space:normal;background:var(--texto);color:var(--fundo);font-weight:400;font-size:.8rem;line-height:1.4;padding:8px 10px;border-radius:var(--r-p);opacity:0;pointer-events:none;transition:opacity .15s}
+.mapa .ponto[data-nota]:hover::after,.mapa .ponto[data-nota]:focus::after{opacity:1}
+.mapa .vazio{position:absolute;left:calc(var(--x) * 1%);top:calc((100 - var(--y)) * 1%);transform:translate(-50%,-50%);width:92px;height:92px;border-radius:50%;border:2px dashed var(--destaque);display:grid;place-items:center;text-align:center;font-size:.72rem;line-height:1.2;color:var(--destaque);font-weight:700;padding:8px;background:var(--banho-destaque)}
+
+/* abas: o script monta os botões a partir de data-aba */
+.abas{margin:0}
+.abas [role=tablist]{display:flex;gap:4px;flex-wrap:wrap;border-bottom:1px solid var(--linha);margin-bottom:22px}
+.abas [role=tab]{font:inherit;font-size:.92rem;background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:10px 14px;color:var(--suave);cursor:pointer}
+.abas [role=tab][aria-selected=true]{color:var(--tinta-marca);border-bottom-color:var(--destaque);font-weight:700}
+.abas [data-aba][hidden]{display:none}
+.abas.pronto [data-aba]{animation:entra .28s var(--curva)}
+.abas:not(.pronto) [data-aba]::before{content:attr(data-aba);display:block;font-family:var(--fonte-titulo);font-size:1.1rem;color:var(--tinta-marca);margin:24px 0 10px}
+
+/* identidade: paleta e tipografia da marca */
+.paleta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.cor{border:1px solid var(--linha);border-radius:var(--r-m);overflow:hidden;background:var(--papel);font:inherit;text-align:left;padding:0;cursor:copy;color:var(--texto)}
+.cor::before{content:"";display:block;height:92px;background:var(--c)}
+.cor b,.cor code,.cor span{display:block;padding:0 14px}
+.cor b{padding-top:12px;font-size:.95rem}
+.cor code{background:none;padding-top:2px;color:var(--suave);font-size:.82rem}
+.cor span{padding-bottom:12px;font-size:.8rem;color:var(--suave)}
+.cor.copiado code::after{content:" · copiado";color:var(--ok);font-weight:700}
+.tipos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:12px}
+.tipos > div{border:1px solid var(--linha);border-radius:var(--r-m);padding:22px 24px;background:var(--papel)}
+.tipos .aa{font-size:4rem;line-height:1;color:var(--tinta-marca);display:block;margin-bottom:12px}
+.tipos p{margin:0;font-size:.9rem;color:var(--suave)}
+.tipos b{display:block;color:var(--texto);font-size:1rem}
+
+/* página de vendas em moldura */
+.molduras{display:flex;gap:36px;align-items:flex-start;flex-wrap:wrap}
+.celular{width:300px;height:610px;border:10px solid var(--texto);border-radius:40px;overflow:hidden;background:#fff;flex:none;box-shadow:0 30px 60px -30px color-mix(in srgb,var(--texto) 45%,transparent)}
+.celular iframe{width:390px;height:793px;border:0;transform:scale(.7436);transform-origin:0 0}
+.navegador{width:100%;border:1px solid var(--linha);border-radius:var(--r-m);overflow:hidden;background:var(--papel);box-shadow:0 30px 60px -34px color-mix(in srgb,var(--texto) 40%,transparent)}
+.navegador::before{content:"";display:block;height:30px;background:radial-gradient(circle at 16px 15px,#E5675E 5px,transparent 6px),radial-gradient(circle at 34px 15px,#E5B74E 5px,transparent 6px),radial-gradient(circle at 52px 15px,#5DBB6A 5px,transparent 6px),var(--banho);border-bottom:1px solid var(--linha)}
+.navegador .janela{position:relative;aspect-ratio:16/10;overflow:hidden}
+.navegador iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform:scale(var(--s,.5));transform-origin:0 0}
+.molduras .lado{flex:1;min-width:260px}
+.botao{display:inline-flex;align-items:center;gap:8px;background:var(--destaque);color:#fff;text-decoration:none;font-weight:700;padding:11px 18px;border-radius:999px;font-size:.93rem}
+.botao.leve{background:none;color:var(--tinta-marca);border:1px solid var(--linha)}
+
+/* carrossel: o script põe setas e pontos */
+.post{max-width:440px;background:var(--papel);border:1px solid var(--linha);border-radius:var(--r-m);overflow:hidden;position:relative}
+.post-topo{display:flex;align-items:center;gap:10px;padding:10px 14px;font-weight:700;font-size:.9rem}
+.post-topo i{width:30px;height:30px;border-radius:50%;background:var(--marca);display:block}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth}
+.slides::-webkit-scrollbar{display:none}
+.slide{flex:none;width:100%;aspect-ratio:4/5;scroll-snap-align:start;background:var(--marca);color:#fff;padding:36px 32px;display:flex;flex-direction:column;justify-content:space-between}
+.slide:nth-child(even){background:var(--fundo);color:var(--texto)}
+.slide h4{font-family:var(--fonte-titulo);font-size:1.8rem;line-height:1.12;color:inherit}
+.slide p{font-size:1rem;margin:0}
+.slide small{font-size:.75rem;opacity:.75}
+.slide.img{padding:0;background:var(--linha)}
+.slide.img img{width:100%;height:100%;object-fit:cover;display:block}
+/* lâmina em HTML: o iframe tem 1080 × 1350 e o script ajusta a escala (--s) à largura do slide */
+.slide.html{padding:0;background:var(--linha);position:relative;overflow:hidden}
+.slide.html iframe{position:absolute;top:0;left:0;width:1080px;height:1350px;border:0;transform-origin:0 0;transform:scale(var(--s,.4));pointer-events:none}
+.post-nav{display:flex;align-items:center;justify-content:space-between;padding:8px 10px}
+.post-nav button{font:inherit;width:34px;height:34px;border-radius:50%;border:1px solid var(--linha);background:var(--fundo);color:var(--texto);cursor:pointer;font-size:1rem;line-height:1}
+.post-nav button:disabled{opacity:.35;cursor:default}
+.pontos{display:flex;gap:6px}
+.pontos i{width:6px;height:6px;border-radius:50%;background:var(--linha);transition:background .2s,transform .2s}
+.pontos i.on{background:var(--destaque);transform:scale(1.35)}
+.post-legenda{padding:12px 14px;font-size:.88rem;border-top:1px solid var(--linha);margin:0;white-space:pre-line}
+
+/* bastidor: como a IA chegou aqui (a parte que ensina) */
+.bastidor{margin-top:40px;border:1px solid var(--linha);border-radius:var(--r-m);background:var(--papel);max-width:820px}
+.bastidor summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:12px;padding:14px 18px;font-weight:700;font-size:.93rem;color:var(--tinta-marca)}
+.bastidor summary::-webkit-details-marker{display:none}
+.bastidor summary::before{content:"";width:22px;height:22px;border-radius:50%;flex:none;background:var(--banho-destaque) no-repeat center/10px 10px linear-gradient(var(--destaque),var(--destaque));-webkit-mask:none;box-shadow:inset 0 0 0 1.5px var(--destaque);transition:transform .25s var(--curva)}
+.bastidor summary::after{content:"+";margin-left:auto;font-size:1.3rem;font-weight:400;color:var(--suave);transition:transform .25s var(--curva)}
+.bastidor[open] summary::after{transform:rotate(45deg)}
+.bastidor[open] summary{border-bottom:1px solid var(--linha)}
+.bastidor > div{padding:18px 22px 22px}
+.bastidor[open] > div{animation:entra .3s var(--curva)}
+.passo-ia{list-style:none;padding:0;margin:0 0 18px;display:flex;flex-direction:column;gap:0;border-left:2px solid var(--linha);margin-left:6px}
+.passo-ia li{position:relative;padding:0 0 12px 22px;font-size:.93rem}
+.passo-ia li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--papel);border:2px solid var(--marca)}
+.passo-ia li b{color:var(--tinta-marca)}
+.conceito{background:var(--banho);border-radius:var(--r-p);padding:12px 16px;font-size:.93rem;margin:0 0 12px}
+.conceito b{color:var(--tinta-marca)}
+.faca{font-size:.9rem;margin:0}
+.faca code{display:block;margin-top:6px;padding:10px 12px;white-space:pre-wrap;line-height:1.45;cursor:copy}
+
+/* próximos passos */
+.passos{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;max-width:760px}
+.passos li{display:flex;gap:14px;align-items:flex-start;background:var(--papel);border:1px solid var(--linha);border-radius:var(--r-m);padding:16px 18px;transition:opacity .25s,background .25s}
+.passos li:has(input:checked){opacity:.6;background:var(--banho)}
+.passos li:has(input:checked) b{text-decoration:line-through;text-decoration-color:var(--destaque)}
+.passos input{width:20px;height:20px;accent-color:var(--marca);margin-top:3px;flex:none}
+.conta-passos{font-size:.9rem;color:var(--suave);margin:-14px 0 16px}
+
+/* ---------- movimento ---------- */
+@keyframes entra{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes sobe{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+/* um momento só na abertura: a capa se monta em sequência */
+.js .capa > *{animation:sobe .8s var(--curva) both}
+.js .capa > *:nth-child(2){animation-delay:.08s}
+.js .capa > *:nth-child(3){animation-delay:.18s}
+.js .capa > *:nth-child(4){animation-delay:.3s}
+.js .capa > *:nth-child(5){animation-delay:.42s}
+.js .capa > *:nth-child(6){animation-delay:.54s}
+/* dados se desenham quando entram na tela (uma vez) */
+.js .desenha:not(.visto) .barra .trilha i{width:0}
+.js .desenha:not(.visto) .funil .faixa,.js .funil.desenha:not(.visto) .faixa{width:0;min-width:0}
+.js .rosca.desenha:not(.visto) .disco{--p:0}
+.js .mapa.desenha:not(.visto) .ponto{opacity:0;transform:translate(-50%,-50%) scale(.4)}
+.js .mapa.visto .ponto{transition-delay:calc(var(--i,0) * 90ms)}
+.js .barras.visto .barra:nth-child(n) .trilha i{transition-delay:calc(var(--i,0) * 80ms)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+
+/* ---------- celular ---------- */
+@media (max-width:900px){
+  .trilho{position:sticky;top:0;inset:auto;width:auto;height:auto;flex-direction:row;align-items:center;padding:10px 14px;border-right:0;border-bottom:1px solid var(--linha);overflow-x:auto;gap:14px}
+  .trilho .nome{font-size:1rem;flex:none}
+  .trilho ol{flex-direction:row;flex:none}
+  .trilho li a{white-space:nowrap;font-size:.82rem}
+  .trilho .atualizado,.progresso span{display:none}
+  .progresso .anel{width:30px;height:30px}.progresso .anel::after{width:22px;height:22px}
+  .botao-aula{flex:none;white-space:nowrap}
+  main{margin-left:0}
+  html{scroll-padding-top:70px}
+  .secao{padding:56px 20px}
+  .g2,.g3,.comparar{grid-template-columns:1fr}
+  .tabela-wrap table{min-width:560px}
+  .barra{grid-template-columns:96px 1fr 40px;gap:10px}
+  .funil li{grid-template-columns:1fr}
+  .mapa{margin-left:26px;aspect-ratio:1/1}
+  .mapa .ponto{font-size:.7rem}
+  .fases{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:16px}
+  .etapas{grid-template-columns:1fr;gap:18px}
+  .etapas li{display:grid;grid-template-columns:44px 1fr;column-gap:14px;padding:0}
+  .etapas li::before{margin:0;grid-row:span 2}
+  .etapas li::after{display:none}
+  .molduras{justify-content:center}
+  .capa{min-height:0}
+}
+@media print{
+  .trilho,.post-nav,.botao-aula{display:none}
+  main{margin:0}
+  .secao{break-inside:avoid-page}
+  .bastidor > div{display:block}
+}
+</style>
+</head>
+<body>
+
+<nav class="trilho" aria-label="Seções">
+  <!-- INICIO:nome -->
+  <a class="nome" href="#capa">Torra Viva</a>
+  <!-- FIM:nome -->
+  <div class="progresso" aria-live="polite"><div class="anel"></div><span><b data-fases-feitas>0 de 6 fases</b>do mapa da empresa</span></div>
+  <ol>
+    <li><a href="#ficha">Ficha</a></li>
+    <li><a href="#empresa">Raio-X</a></li>
+    <li><a href="#identidade">Identidade</a></li>
+    <li><a href="#mercado">Mercado</a></li>
+    <li><a href="#cliente">Cliente</a></li>
+    <li><a href="#diagnostico">Diagnóstico</a></li>
+    <li><a href="#concorrentes">Concorrentes</a></li>
+    <li><a href="#oferta">Oferta</a></li>
+    <li><a href="#pagina">Página de vendas</a></li>
+    <li><a href="#conteudo">Conteúdo</a></li>
+    <li><a href="#proximos">Próximos passos</a></li>
+  </ol>
+  <button class="botao-aula" type="button" aria-pressed="false" data-bastidores>Abrir os bastidores</button>
+  <!-- INICIO:atualizado -->
+  <p class="atualizado">Atualizado em 25/10/2026 · fase 5 de 6</p>
+  <!-- FIM:atualizado -->
+</nav>
+
+<main>
+
+<section class="secao capa" id="capa">
+<!-- INICIO:capa -->
+  <p class="tipo">Mogi das Cruzes (SP) · torrefação de cafés especiais</p>
+  <h1>Café especial torrado em Mogi das Cruzes, por assinatura para o Brasil e por plano para escritórios</h1>
+  <p class="lede">Mapa da empresa: 2 de 6 fases.</p>
+  <div class="numeros">
+    <div><b data-conta>9</b><p>pessoas na equipe</p></div>
+    <div><b data-conta>3</b><p>produtos que mais vendem</p></div>
+    <div><b data-conta>2</b><p>frentes de venda: loja online e escritórios</p></div>
+  </div>
+<!-- FIM:capa -->
+  <ol class="fases" data-fases aria-label="As 6 fases do mapa"></ol>
+</section>
+
+<section class="secao" id="ficha">
+<!-- INICIO:ficha -->
+  <p class="fase"><span class="selo">fase 1</span> <code>/instalar</code> · ficha</p>
+  <h2>Uma torrefação de 9 pessoas que cresce por indicação e ainda depende de uma só pessoa para torrar</h2>
+  <p class="lede">O que a Helena contou na entrevista. A loja online já vende para o Brasil todo; o café para escritórios é a aposta dos próximos 12 meses.</p>
+  <dl class="ficha">
+    <dt>Produtos e preços</dt><dd>Clube Torra Viva (<em class="termo" tabindex="0" data-def="o cliente paga todo mês e recebe café em casa">assinatura</em>): R$ 79 por mês<br>Mantiqueira Clássico 250 g: R$ 42<br>Plano de café para escritório: a partir de R$ 98 o kg</dd>
+    <dt>Onde atende</dt><dd>Loja online: Brasil todo<br>Empresas: Alto Tietê e cidade de São Paulo</dd>
+    <dt>Equipe</dt><dd>Helena: fundadora e mestre de torra<br>Marina: vendas para empresas<br>Caio: loja online e Instagram<br>Mais 6 pessoas: torra, embalagem, expedição e atendimento</dd>
+    <dt>Quem compra</dt><dd>Pessoas de 30 a 50 anos que já tomam café especial<br>Escritórios do Alto Tietê e de São Paulo</dd>
+    <dt>Como chega</dt><dd>Pessoas: Instagram e indicação<br>Empresas: indicação de outros clientes</dd>
+  </dl>
+  <div class="grade g2">
+    <div class="cartao forte"><h4>O que mais incomoda hoje</h4><p>Atraso na entrega para empresas: um cliente foi perdido em agosto por isso. E toda a torra depende da Helena.</p></div>
+    <div class="cartao"><h4>Onde quer chegar em 12 meses</h4><p>30 escritórios atendidos e uma segunda pessoa que torra.</p></div>
+  </div>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA fez isto</summary>
+    <div>
+      <ol class="passo-ia">
+        <li><b>Entrevistou</b> a dona com 7 perguntas, uma por vez.</li>
+        <li><b>Gravou</b> as respostas em <code>memoria/</code>, sem completar nada com suposição.</li>
+        <li><b>Separou</b> o financeiro em <code>memoria/numeros.md</code>, que fica só no computador e não aparece aqui.</li>
+      </ol>
+      <p class="conceito"><b>O conceito:</b> <em class="termo" tabindex="0" data-def="arquivos que a IA lê antes de cada conversa">memória</em>. A IA não lembra de conversas passadas; ela lê esta pasta. O que está escrito aqui ela usa sempre, sem você repetir.</p>
+      <p class="faca">Faça na sua pasta:<code>abra memoria/empresa.md e corrija o que quiser</code></p>
+    </div>
+  </details>
+  <p class="base">Fonte: entrevista com a dona, 25/10/2026.</p>
+<!-- FIM:ficha -->
+</section>
+
+<section class="secao" id="empresa">
+<!-- INICIO:empresa -->
+  <p class="fase"><span class="selo">fase 2</span> <code>/mapear-empresa</code> · raio-X</p>
+  <h2>Na internet, a Torra Viva ainda não existe: quem procura não acha</h2>
+  <p class="lede">O site não abriu e nenhuma das buscas pelo nome trouxe a empresa. Hoje todo cliente chega por indicação ou por quem já segue o Instagram.</p>
+  <div class="tabela-wrap"><table>
+    <thead><tr><th>Canal</th><th>Situação</th><th>Como foi visto</th></tr></thead>
+    <tbody>
+      <tr><td>Site</td><td><span class="selo risco">não abre</span></td><td>Endereço testado em 25/10/2026; a dona já disse que ele é lento</td></tr>
+      <tr><td>Loja online</td><td><span class="selo atencao">confirmar</span></td><td>A dona diz que vende para o Brasil todo; não foi possível abrir</td></tr>
+      <tr><td>Instagram</td><td><span class="selo atencao">confirmar</span></td><td>Principal canal, segundo a dona; a busca não achou o perfil</td></tr>
+      <tr><td>Google Meu Negócio</td><td><span class="selo risco">não tem</span></td><td>Nenhum perfil nem nota no Google</td></tr>
+      <tr><td>WhatsApp</td><td><span class="selo atencao">confirmar</span></td><td>Nenhum número público achado</td></tr>
+      <tr><td>Avaliações e Reclame Aqui</td><td><span class="selo">nenhuma</span></td><td>Sem reclamação, mas também sem prova social (opinião de outros clientes)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="grade g3">
+    <div class="cartao"><h4>O que vende</h4><p>Clube Torra Viva a R$ 79 por mês, Mantiqueira Clássico 250 g a R$ 42 e plano para escritório a partir de R$ 98 o kg.</p></div>
+    <div class="cartao"><h4>O que prova</h4><p>Por enquanto, só a indicação boca a boca. Nenhuma avaliação pública mostra a qualidade do café.</p></div>
+    <div class="cartao forte"><h4>O que não diz</h4><p>Que torra em Mogi das Cruzes e entrega fresco no Alto Tietê e em São Paulo: justamente o que nenhum concorrente local mostra.</p></div>
+  </div>
+  <div class="comparar">
+    <div><h4>O que a dona contou</h4><p>Loja online para o Brasil, Instagram com verde-escuro e vermelho, escritórios por indicação, site lento.</p></div>
+    <div><h4>O que a internet mostra</h4><p>Nada sobre a empresa. Não há divergência, mas também não há nada que confirme. Nomes parecidos (Lojas Torra, Hotel Villa Terra Viva) foram descartados.</p></div>
+  </div>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA fez isto</summary>
+    <div>
+      <ol class="passo-ia">
+        <li><b>Tentou abrir</b> o site pelo terminal.</li>
+        <li><b>Buscou</b> o nome com a cidade, com "instagram", "avaliações" e "reclame aqui".</li>
+        <li><b>Descartou</b> empresas de nome parecido em outras cidades.</li>
+      </ol>
+      <p class="conceito"><b>O conceito:</b> <em class="termo" tabindex="0" data-def="dado que não se apoia em fonte e por isso não pode virar afirmação">sem fonte, não entra</em>. A IA não preenche lacuna com suposição: o que não achou fica marcado para você confirmar.</p>
+      <p class="faca">Faça na sua pasta:<code>cole aqui o link do Instagram e da loja online para eu conferir</code></p>
+    </div>
+  </details>
+  <p class="base">Fonte: <code>pesquisa/empresa.md</code>, buscas de 25/10/2026.</p>
+<!-- FIM:empresa -->
+</section>
+
+<section class="secao" id="identidade">
+<!-- INICIO:identidade -->
+  <p class="fase"><span class="selo">extra</span> <code>/marca</code> · identidade</p>
+  <h2>A marca saiu do site novo: verde folha, vermelho cereja e letra grossa e moderna</h2>
+  <p class="lede">As cores e as fontes vieram do print do site novo da Torra Viva. Saiu a sugestão de botica (serifada clássica); entrou o que a empresa já usa: ilustração chapada, botões em pílula e etiquetas amarelas.</p>
+  <div class="paleta">
+    <button class="cor" type="button" style="--c:#234B3F"><b>Folha</b><code>#234B3F</code><span>Cor principal</span></button>
+    <button class="cor" type="button" style="--c:#C23B22"><b>Cereja</b><code>#C23B22</code><span>Botões e preços</span></button>
+    <button class="cor" type="button" style="--c:#F6F1EA"><b>Leite</b><code>#F6F1EA</code><span>Fundo</span></button>
+    <button class="cor" type="button" style="--c:#2B1D14"><b>Grão</b><code>#2B1D14</code><span>Texto e logo</span></button>
+    <button class="cor" type="button" style="--c:#E8B547"><b>Bourbon</b><code>#E8B547</code><span>Etiquetas e notas do café</span></button>
+    <button class="cor" type="button" style="--c:#6B5E55"><b>Apoio</b><code>#6B5E55</code><span>Texto secundário</span></button>
+  </div>
+  <div class="tipos">
+    <div><span class="aa" style="font-family:var(--fonte-titulo);font-weight:800">Aa</span><b>Bricolage Grotesque</b><p>Títulos e logo, em extra negrito. Moderna, com personalidade.</p></div>
+    <div><span class="aa" style="font-family:var(--fonte-texto)">Aa</span><b>Albert Sans</b><p>Texto, regular e negrito. Limpa e fácil de ler no celular.</p></div>
+  </div>
+  <h3>Como a empresa fala</h3>
+  <p>Direta e calorosa. Fala de frescor (data de torra), origem e notas do café, sem palavra difícil.</p>
+  <p class="citacao">"Torrado esta semana, na sua xícara na próxima."</p>
+  <p class="fonte">título do site novo, <code>marca/print-site.png</code></p>
+  <div class="grade g2">
+    <div class="cartao"><h4>Palavras que o site usa</h4><p>torra desta semana, pequenos produtores, Sul de Minas, lotes pequenos, entregues frescos, notas de caramelo.</p></div>
+    <div class="cartao forte"><h4>Palavras a evitar</h4><p>"gourmet", "premium" sem explicar, "fidelidade", "blend tradicional", "solução corporativa de bebidas quentes".</p></div>
+  </div>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA fez isto</summary>
+    <div>
+      <ol class="passo-ia">
+        <li><b>Leu</b> o print do site novo e copiou as 6 cores e as 2 fontes que estavam nele.</li>
+        <li><b>Trocou</b> a sugestão antiga pelo que a empresa já usa: o que vem da empresa vale mais que o gosto da IA.</li>
+        <li><b>Conferiu</b> o contraste: texto branco sobre o vermelho e sobre o verde passa no mínimo de leitura (4,5 para 1).</li>
+      </ol>
+      <p class="conceito"><b>O conceito:</b> <em class="termo" tabindex="0" data-def="o conjunto de cores, fontes e regras que toda peça da marca segue">design system</em>. Gravado em <code>marca/marca.md</code>, ele faz a página, os posts e este relatório saírem com a mesma cara do site.</p>
+      <p class="faca">Faça na sua pasta:<code>salve o logo em marca/logo.png e peça /marca</code></p>
+    </div>
+  </details>
+  <p class="base">Fonte: <code>marca/print-site.png</code> (print do site novo), lido em 25/10/2026.</p>
+<!-- FIM:identidade -->
+</section>
+
+<section class="secao" id="mercado">
+<!-- INICIO:mercado -->
+  <p class="fase"><span class="selo">fase 2</span> <code>/mapear-empresa</code> · mercado</p>
+  <h2>O brasileiro toma menos café, mas o café especial cresce</h2>
+  <p class="lede">O preço alto do grão derrubou o consumo total em 2025. O nicho da Torra Viva vai na direção contrária, e a volta ao escritório ajuda o plano para empresas.</p>
+  <div class="kpis">
+    <div><b>-2,31%</b><p>consumo de café no Brasil entre nov/2024 e out/2025 (21,4 milhões de sacas)</p><p class="fonte"><a href="https://www.cnnbrasil.com.br/economia/cnn-money/consumo-de-cafe-no-brasil-cai-quase-3-em-2025-diz-industria/">ABIC via CNN Brasil, 2025</a></p></div>
+    <div><b>10 a 15%</b><p>crescimento ao ano dos cafés especiais e orgânicos, segundo a BSCA</p><p class="fonte"><a href="https://datasebrae.com.br/wp-content/uploads/2026/07/Mapa-Estrategico-e-Plano-Tatico-do-Segmento-de-Cafe-VERSAO-PRELIMINAR.pdf">Sebrae, 2026</a></p></div>
+    <div><b>9,76%</b><p>alta do cafezinho fora de casa em 12 meses (IPCA, a inflação oficial)</p><p class="fonte"><a href="https://mercadoeconsumo.com.br/15/10/2026/foodservice/cafezinho-sobe-257-em-setembro-e-lidera-altas-da-alimentacao-fora-do-lar/amp/">IBGE via Mercado&amp;Consumo, 2026</a></p></div>
+    <div><b data-conta>16</b><p>% de escritórios vazios em SP, a menor taxa em seis anos</p><p class="fonte"><a href="https://www.infomoney.com.br/?p=3328185">InfoMoney, 2026</a></p></div>
+  </div>
+  <h3>Três tendências</h3>
+  <div class="grade g3">
+    <div class="cartao"><h4>Grão que sobe e desce</h4><p>Recorde em 2025, queda no começo de 2026, nova alta desde junho (<a href="https://cepea.org.br/br/cafe-cepea/cafe-cepea-perspectiva-de-safra-recorde-pressiona-valor-media-e-a-menor-desde-jul-25.aspx">Cepea</a>). Para a Torra Viva: prever reajuste no contrato do escritório.</p></div>
+    <div class="cartao forte"><h4>Volta ao escritório</h4><p>Mais gente na copa, mais café. O rival é a cápsula com máquina emprestada (<a href="https://forbes.com.br/forbesagro/2024/10/cooxupe-se-une-a-master-expresso-para-atuar-em-cafes-para-empresas/">Forbes, 2024</a>). Para a Torra Viva: espaço para café fresco com entrega certa.</p></div>
+    <div class="cartao"><h4>Assinatura e venda direta</h4><p>O Sebrae aponta crescimento do e-commerce e das assinaturas. Para a Torra Viva: o Clube está no formato certo, mas o mercado tem muitos clubes.</p></div>
+  </div>
+  <h3>O que o cliente busca antes de comprar</h3>
+  <div class="tabela-wrap"><table>
+    <thead><tr><th>Busca</th><th>Intenção</th><th>Quem aparece</th></tr></thead>
+    <tbody>
+      <tr class="nos"><td>café especial Mogi das Cruzes</td><td><span class="selo ok">alta</span></td><td>Só cafeterias. Nenhuma torrefação: espaço vazio</td></tr>
+      <tr class="nos"><td>torrefação Mogi das Cruzes / Alto Tietê</td><td><span class="selo ok">alta</span></td><td>Ninguém: espaço vazio</td></tr>
+      <tr><td>café para escritório São Paulo</td><td><span class="selo ok">alta</span></td><td>Nenhum plano de torrefação, só listas de cafeterias</td></tr>
+      <tr><td>fornecedor café para empresas São Paulo</td><td><span class="selo ok">alta</span></td><td>Master Expresso/Cooxupé, Nespresso para empresas</td></tr>
+      <tr><td>assinatura de café especial</td><td><span class="selo ok">alta</span></td><td>Orfeu, Moka Clube, ClubeCafé, Grão Gourmet, COR, Koffi</td></tr>
+      <tr><td>café especial em grão 250g comprar</td><td><span class="selo ok">alta</span></td><td>Magazine Luiza (cerca de R$ 26 a R$ 71), Mercado Livre</td></tr>
+      <tr><td>melhor café especial</td><td><span class="selo atencao">média</span></td><td>não pesquisada</td></tr>
+      <tr><td>como fazer café coado</td><td><span class="selo">baixa</span></td><td>não pesquisada</td></tr>
+    </tbody>
+  </table></div>
+  <p class="destaque">Nicho crescendo, mercado geral apertado: quem vende café especial com entrega certa ganha espaço; quem compete por preço perde.</p>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA fez isto</summary>
+    <div>
+      <ol class="passo-ia">
+        <li><b>Buscou</b> números na ABIC, no Sebrae, no Cepea e no IBGE, cada um com link e ano.</li>
+        <li><b>Descartou</b> o dado sobre a fatia do café especial: as fontes divergiam e nenhuma era o estudo original.</li>
+        <li><b>Pesquisou</b> 6 buscas de cliente e anotou quem aparece em cada uma.</li>
+      </ol>
+      <p class="conceito"><b>O conceito:</b> <em class="termo" tabindex="0" data-def="o quanto uma busca indica que a pessoa está pronta para comprar">intenção de busca</em>. "Torrefação Mogi das Cruzes" é alguém pronto para comprar; "como fazer café coado" ainda está aprendendo. Aqui a intenção foi marcada por observação, sem volume medido.</p>
+      <p class="faca">Faça na sua pasta:<code>pesquise no Google "café especial Mogi das Cruzes" e veja quem aparece</code></p>
+    </div>
+  </details>
+  <p class="base">Fonte: <code>pesquisa/mercado.md</code>, 25/10/2026.</p>
+<!-- FIM:mercado -->
+</section>
+
+<section class="secao" id="cliente">
+<!-- INICIO:cliente -->
+  <p class="fase"><span class="selo">fase 2</span> <code>/mapear-empresa</code> · cliente</p>
+  <h2>O cliente de café especial troca de fornecedor por atraso, não por preço</h2>
+  <p class="lede">As reclamações dos clubes de café no Reclame Aqui falam de entrega atrasada, café velho e cancelamento difícil. É exatamente a dor que fez a Torra Viva perder um escritório em agosto.</p>
+  <div class="grade g3">
+    <div class="cartao forte"><h4>O assinante</h4><p>30 a 50 anos, já tem moedor ou coador, trabalha em casa ou híbrido. Café é ritual da manhã. Decide sozinho e se informa no Instagram e por indicação.</p></div>
+    <div class="cartao forte"><h4>Quem decide no escritório</h4><p>Office manager, RH ou o sócio em empresa pequena. Quer "não ter que pensar nisso". Compara com a cápsula com máquina emprestada.</p></div>
+    <div class="cartao"><h4>Quem não é cliente</h4><p>Quem escolhe o café mais barato (39% dos brasileiros, segundo a ABIC), quem só toma cápsula e o escritório grande que exige máquina e entrega diária.</p></div>
+  </div>
+  <h3>A jornada do escritório</h3>
+  <ol class="etapas">
+    <li><b>Indicação</b>Outra empresa recomenda a Torra Viva.</li>
+    <li><b>Teste</b>Recebe o primeiro café e a equipe aprova.</li>
+    <li><b>Plano</b>Fecha o plano por quilo com a Marina.</li>
+    <li class="perde"><b>Entrega</b>O café atrasa e a copa fica vazia: aqui a Torra Viva perdeu um cliente em agosto.</li>
+    <li><b>Indica</b>Cliente satisfeito indica outro escritório.</li>
+  </ol>
+  <h3>As dores, nas palavras do cliente</h3>
+  <div class="abas">
+    <div data-aba="Atraso">
+      <p class="citacao">"DOIS MESES DE ATRASO NA ENTREGA"</p>
+      <p class="fonte"><a href="https://www.reclameaqui.com.br/coffee-mais/dois-meses-de-atraso-na-entrega-coffee_I4KPoEF3zckOUjyl/">Reclame Aqui, título de reclamação contra um clube de café</a></p>
+    </div>
+    <div data-aba="Café velho">
+      <p class="citacao">"Café velho, 18 meses de validade"</p>
+      <p class="fonte"><a href="https://www.reclameaqui.com.br/coffee-mais/cafe-velho-18-meses-de-validade_hEUtptr73qAZBPcz/">Reclame Aqui, título de reclamação</a></p>
+    </div>
+    <div data-aba="Torra errada">
+      <p class="citacao">"Café Mr. Chocolate puro sabor de queimado"</p>
+      <p class="fonte"><a href="https://www.reclameaqui.com.br/moka-clube/cafe-mr-chocolate-puro-sabor-de-queimado_2AcXZYTFQMeBrNFZ/">Reclame Aqui, título de reclamação</a></p>
+    </div>
+    <div data-aba="Não cancela">
+      <p class="citacao">"URGENTE Não consigo cancelar assinatura quinzenal e empresa não responde"</p>
+      <p class="fonte"><a href="https://www.reclameaqui.com.br/cafe-orfeu/titulo-urgente-nao-consigo-cancelar-assinatura-quinzenal-e-empresa-nao-responde_fX1DTVtibB4ZzHRw/">Reclame Aqui, título de reclamação</a></p>
+    </div>
+    <div data-aba="Copa vazia">
+      <p class="citacao">"Já é a segunda vez que o café não chega e o pessoal fica reclamando comigo na copa."</p>
+      <p class="fonte">inferida pela IA</p>
+    </div>
+  </div>
+  <div class="grade g2">
+    <div class="cartao"><h4>Quando sai procurando</h4><p>Ganhou um moedor novo. O fornecedor do escritório atrasou. O clube atual decepcionou. A empresa voltou ao presencial. Chegou a época de presente.</p></div>
+    <div class="cartao"><h4>O que trava a compra</h4><p>"E se eu não conseguir cancelar?" · "E se atrasar de novo?" · "R$ 79 por mês num café?" A resposta para cada uma está em <code>pesquisa/cliente.md</code>.</p></div>
+  </div>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA fez isto</summary>
+    <div>
+      <ol class="passo-ia">
+        <li><b>Leu</b> reclamações de clubes de café no Reclame Aqui e pesquisas da ABIC.</li>
+        <li><b>Cruzou</b> com o cliente que a dona descreveu na instalação.</li>
+        <li><b>Marcou</b> como inferida a frase que não achou dita por um cliente real.</li>
+      </ol>
+      <p class="conceito"><b>O conceito:</b> <em class="termo" tabindex="0" data-def="retrato de um cliente típico, com hábitos, dores e onde se informa">persona</em>. Escrever com as palavras do cliente faz o anúncio soar como a cabeça dele, não como a da empresa.</p>
+      <p class="faca">Faça na sua pasta:<code>peça à Marina 3 frases que os escritórios dizem e cole em pesquisa/cliente.md</code></p>
+    </div>
+  </details>
+  <p class="base">Fonte: <code>pesquisa/cliente.md</code>, 25/10/2026.</p>
+<!-- FIM:cliente -->
+</section>
+
+<section class="secao" id="diagnostico">
+<!-- INICIO:diagnostico -->
+  <p class="fase"><span class="selo">fase 2</span> <code>/mapear-empresa</code> · diagnóstico</p>
+  <h2>O atraso nos escritórios nasce na torra: uma pessoa só não dá conta de 30 clientes</h2>
+  <p class="lede">A pesquisa confirma o problema que a Helena apontou e mostra a causa: a torra é o teto da empresa. Do lado de fora, a busca local está livre e ninguém está ocupando.</p>
+  <div class="tabela-wrap"><table>
+    <thead><tr><th>Gargalo</th><th>O que a pesquisa diz</th><th>Primeira ação</th></tr></thead>
+    <tbody>
+      <tr class="nos"><td>Atraso na entrega para empresas</td><td><span class="selo ok">confirma</span> e aponta a causa: a torra depende de uma pessoa</td><td>Calendário fixo de torra e entrega por escritório, com aviso na véspera</td></tr>
+      <tr class="nos"><td>Toda a torra depende da Helena</td><td><span class="selo ok">confirma</span>: é o teto para chegar a 30 escritórios</td><td>Escrever os perfis de torra e escolher quem começa a torrar junto</td></tr>
+      <tr><td>A empresa não aparece na internet</td><td><span class="selo risco">novo</span> site fora do ar, sem Google Meu Negócio</td><td>Criar o perfil no Google Meu Negócio</td></tr>
+      <tr><td>Margem sem medida num grão de preço instável</td><td><span class="selo atencao">novo</span> arábica em recorde e voltando a subir</td><td>Calcular a margem de cada produto e prever reajuste no contrato</td></tr>
+      <tr><td>Escritórios só por indicação</td><td><span class="selo atencao">novo</span> lento para a meta de 12 meses</td><td>Página só para escritórios e lista de 20 alvos para a Marina</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Oportunidades</h3>
+  <div class="grade g2">
+    <div class="cartao forte"><h4>★ Ser a torrefação que aparece no Alto Tietê</h4><p>Quem busca "torrefação Mogi das Cruzes" não acha ninguém. Primeiro passo: Google Meu Negócio e pedir avaliação aos clientes atuais.</p></div>
+    <div class="cartao"><h4>Café fresco para escritório em SP</h4><p>Na busca, só aparecem fornecedores de cápsula. Com entrega em dia certo, a Torra Viva oferece o que eles não têm.</p></div>
+    <div class="cartao"><h4>Um clube que resolve o que irrita nos outros</h4><p>Data de torra no pacote e cancelamento pelo WhatsApp respondem às 4 maiores reclamações dos clubes.</p></div>
+    <div class="cartao"><h4>Presente de fim de ano para empresas <span class="selo estimativa">estimativa</span></h4><p>Faltam 2 meses para o Natal. Kits para a equipe dos escritórios atuais, dentro do que a torra aguenta.</p></div>
+  </div>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA fez isto</summary>
+    <div>
+      <ol class="passo-ia">
+        <li><b>Rodou</b> três pesquisas ao mesmo tempo: empresa, mercado e cliente.</li>
+        <li><b>Juntou</b> os achados e comparou com o problema que a dona declarou.</li>
+        <li><b>Separou</b> o que é gargalo (onde perde) do que é oportunidade (onde pode ganhar).</li>
+      </ol>
+      <p class="conceito"><b>O conceito:</b> <em class="termo" tabindex="0" data-def="o ponto mais estreito do processo, que limita todo o resto">gargalo</em>. Melhorar vendas antes de destravar a torra só aumentaria os atrasos. Primeiro o gargalo, depois o crescimento.</p>
+      <p class="faca">Faça na sua pasta:<code>/criar-oferta</code></p>
+    </div>
+  </details>
+  <p class="base">Fonte: <code>pesquisa/diagnostico.md</code>, 25/10/2026.</p>
+<!-- FIM:diagnostico -->
+</section>
+
+<section class="secao" id="concorrentes">
+<!-- INICIO:concorrentes -->
+  <p class="fase"><span class="selo">fase 3</span> <code>/mapear-concorrentes</code> · concorrentes</p>
+  <h2>Ninguém leva café de torrefação ao escritório em dia certo, e a Torra Viva ainda não aparece na internet</h2>
+  <p class="lede">Os clubes online têm site, preço e depoimentos, mas não vendem para empresas. Quem vende para escritório entrega cápsula ou sachê com máquina emprestada. Nenhuma torrefação do Alto Tietê apareceu nas buscas.</p>
+  <h3>Onde cada um está <span class="selo estimativa">estimativa</span></h3>
+  <div class="mapa" role="img" aria-label="Mapa de posicionamento: eixo X da cápsula ao grão fresco, eixo Y do atendimento à distância ao atendimento próximo">
+    <div class="eixo-x"><span>Cápsula ou sachê</span><span>Grão fresco de torrefação</span></div>
+    <div class="eixo-y"><span>Atende à distância</span><span>Atende de perto, em dia certo</span></div>
+    <span class="vazio" style="--x:90;--y:92">espaço vazio</span>
+    <span class="ponto nos" tabindex="0" style="--x:90;--y:65" data-nota="Torra própria e entrega própria no Alto Tietê e em SP. O atraso de agosto puxa para baixo.">Torra Viva</span>
+    <span class="ponto" tabindex="0" style="--x:80;--y:45" data-nota="Cafés torrados diariamente. Tem lojas em SP e WhatsApp para empresas, mas vende à distância.">Moka Clube</span>
+    <span class="ponto" tabindex="0" style="--x:65;--y:25" data-nota="Seleção de cafés de terceiros, sem data de torra na home. Só online.">ClubeCafé</span>
+    <span class="ponto" tabindex="0" style="--x:70;--y:20" data-nota="Marca de café especial. Tem reclamação de cancelamento sem resposta.">Café Orfeu</span>
+    <span class="ponto" tabindex="0" style="--x:70;--y:10" data-nota="Promete frescor, mas tem reclamações de atraso e de café velho.">Coffee++</span>
+    <span class="ponto" tabindex="0" style="--x:10;--y:50" data-nota="Cápsula. Assistência grátis, mas contrato de 12 meses com multa.">Nespresso Pro</span>
+    <span class="ponto" tabindex="0" style="--x:22;--y:58" data-nota="Sachê. Máquina emprestada, degustação grátis, sem contrato.">Master Expresso</span>
+  </div>
+  <h3>Força digital <span class="selo estimativa">estimativa</span></h3>
+  <div class="barras">
+    <div class="barra"><span>ClubeCafé</span><span class="trilha"><i style="--v:80"></i></span><span>4/5</span></div>
+    <div class="barra"><span>Moka Clube</span><span class="trilha"><i style="--v:60"></i></span><span>3/5</span></div>
+    <div class="barra"><span>Café Orfeu</span><span class="trilha"><i style="--v:60"></i></span><span>3/5</span></div>
+    <div class="barra"><span>Coffee++</span><span class="trilha"><i style="--v:60"></i></span><span>3/5</span></div>
+    <div class="barra"><span>Nespresso Pro</span><span class="trilha"><i style="--v:60"></i></span><span>3/5</span></div>
+    <div class="barra"><span>Master Expresso</span><span class="trilha"><i style="--v:40"></i></span><span>2/5</span></div>
+    <div class="barra nos"><span>Torra Viva</span><span class="trilha"><i style="--v:0"></i></span><span>0/5</span></div>
+  </div>
+  <p class="fonte">Mesma régua para todos: site no celular, preço fácil de achar, prova social, Instagram ativo, aparece na busca de compra. O Instagram não pôde ser checado para ninguém, então a nota máxima hoje é 4.</p>
+  <div class="tabela-wrap"><table>
+    <thead><tr><th>Concorrente</th><th>Promessa</th><th>Para quem</th><th>Preço</th><th>Prova</th></tr></thead>
+    <tbody>
+      <tr class="nos"><td>Torra Viva</td><td>Café especial torrado em Mogi</td><td>Quem já toma café especial e escritórios no Alto Tietê e em SP</td><td>Clube R$ 79/mês · 250 g R$ 42 · escritório a partir de R$ 98/kg</td><td><span class="selo risco">nenhuma visível</span></td></tr>
+      <tr><td><a href="https://www.clubecafe.com.br">ClubeCafé</a></td><td>"um novo café especial todo mês"</td><td>Quem quer variar</td><td>A partir de R$ 59,90/mês</td><td><span class="selo ok">depoimentos</span></td></tr>
+      <tr><td><a href="https://www.mokaclube.com.br">Moka Clube</a></td><td>"torra fresca direto para sua casa"</td><td>Casa, e atacado para empresas</td><td>250 g R$ 49</td><td><span class="selo atencao">só selos</span></td></tr>
+      <tr><td><a href="https://cafeorfeu.com.br">Café Orfeu</a></td><td>Clube com 15% a 20% de desconto</td><td>Fã da marca</td><td>250 g R$ 43,90</td><td><span class="selo atencao">não deu para ler</span></td></tr>
+      <tr><td><a href="https://www.coffeemais.com">Coffee++</a></td><td>"origem controlada e frescor garantido"</td><td>Quem está começando no café especial</td><td>250 g R$ 39,99</td><td><span class="selo ok">avaliações</span></td></tr>
+      <tr><td><a href="https://www.nespresso.com/pro/br/en/test-zenius-subs">Nespresso Pro</a></td><td>Máquina emprestada com cápsulas</td><td>Escritório pequeno com CNPJ</td><td>R$ 286/mês por 130 cafés, contrato de 12 meses</td><td><span class="selo risco">nenhuma</span></td></tr>
+      <tr><td><a href="https://www.masterexpresso.com.br">Master Expresso</a></td><td>"sem contratos, sem riscos!"</td><td>Escritórios, clínicas, lojas</td><td>Preço por dose, sem tabela</td><td><span class="selo risco">nenhuma</span></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Espaços vazios</h3>
+  <div class="grade g2">
+    <div class="cartao forte"><h4>★ Café de torrefação com dia fixo no escritório</h4><p>Quem atende escritório vende cápsula ou sachê, e os clubes não vendem para empresa. Resolve o "o café não chegou" que já custou um cliente. Só depois do calendário fixo de torra.</p></div>
+    <div class="cartao"><h4>A busca local no Alto Tietê</h4><p>Nenhuma torrefação aparece. Quem está perto entrega mais rápido e mais fresco: responde ao atraso e ao café velho.</p></div>
+    <div class="cartao"><h4>Clube sem amarra</h4><p>Há reclamação de cancelamento na Orfeu, e a Nespresso cobra multa de 12 meses. Cancelar com uma mensagem no WhatsApp.</p></div>
+    <div class="cartao"><h4>Data de torra no pacote</h4><p>Coffee++ e Moka têm reclamações de café velho e de sabor queimado. Mostrar a data e o perfil de torra de cada lote.</p></div>
+  </div>
+  <h3>O que aprender com eles (o método, não a cara)</h3>
+  <div class="grade g3">
+    <div class="cartao"><h4>2 planos pelo sabor</h4><p>O ClubeCafé separa Clássico e Arrojado e mostra o preço "a partir de" na home.</p></div>
+    <div class="cartao"><h4>Degustação grátis</h4><p>A Master Expresso abre a porta com "Solicite uma degustação gratuita". Tira o risco de quem decide no escritório.</p></div>
+    <div class="cartao"><h4>Preço por café</h4><p>A Nespresso fala em 130 cafés por mês. Dizer quanto sai cada xícara deixa fácil comparar.</p></div>
+  </div>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA fez isto</summary>
+    <div>
+      <ol class="passo-ia">
+        <li><b>Buscou</b> torrefações em Mogi e no Alto Tietê e não achou nenhuma. Então foi para os clubes online e os fornecedores de escritório.</li>
+        <li><b>Abriu</b> o site de cada um e anotou promessa, preço, prova e reclamações.</li>
+        <li><b>Deu nota</b> com a mesma régua para todos, inclusive a Torra Viva.</li>
+        <li><b>Desenhou</b> o mapa com 2 coisas que o cliente valoriza e procurou o canto vazio.</li>
+      </ol>
+      <p class="conceito"><b>O conceito:</b> <em class="termo" tabindex="0" data-def="o lugar que a empresa ocupa na cabeça do cliente, comparado aos outros">posicionamento</em>. Não adianta ser melhor em tudo. Vale ocupar o canto que o cliente quer e onde ninguém está.</p>
+      <p class="faca">Faça na sua pasta:<code>Compare o meu site com o do ClubeCafé e diga as 3 coisas que faltam no meu</code></p>
+    </div>
+  </details>
+  <p class="base">Fonte: <code>pesquisa/concorrentes.md</code>, 25/10/2026.</p>
+<!-- FIM:concorrentes -->
+</section>
+
+<section class="secao" id="oferta">
+<!-- INICIO:oferta -->
+  <p class="fase"><span class="selo">fase 4</span> <code>/criar-oferta</code> · oferta</p>
+  <h2>Vender dia certo, não só café bom</h2>
+  <p class="lede">Os fornecedores de escritório vendem cápsula e os clubes não atendem empresa. A oferta ocupa esse canto: grão da semana, entregue em dia marcado. <span class="selo atencao">hipótese a validar</span></p>
+  <p class="destaque">Para escritórios do Alto Tietê e de São Paulo que querem café bom na copa sem ter que pensar nisso, a Torra Viva torra em Mogi o café da semana e entrega em dia marcado.</p>
+  <h3>A promessa</h3>
+  <p class="citacao">"Café torrado na semana, na copa no dia marcado."</p>
+  <p class="fonte">Promessa sugerida pela IA, a partir da frase do site novo: "Torrado esta semana, na sua xícara na próxima."</p>
+  <h3>O jeito Torra Viva: Torra Marcada</h3>
+  <ol class="etapas">
+    <li><b>Prova na copa</b>Degustação grátis com a equipe para escolher o café.</li>
+    <li><b>Dia combinado</b>Cada escritório ganha um dia fixo no calendário de torra.</li>
+    <li><b>Torra da semana</b>Lote torrado na semana da entrega, com data de torra no pacote.</li>
+    <li><b>Aviso e reserva</b>Mensagem na véspera e 1 semana de café de reserva na copa.</li>
+  </ol>
+  <h3>O que oferecer</h3>
+  <div class="grade g2">
+    <div class="cartao forte"><h4>Principal: plano de café para escritório</h4><p>Para escritórios de 10 a 60 pessoas. Grão torrado na semana, entrega própria em dia fixo, aviso na véspera e reserva de 1 semana. A partir de R$ 98 o kg.</p></div>
+    <div class="cartao"><h4>Entrada: degustação na copa</h4><p>A Marina leva 2 cafés para a equipe provar, sem custo. Se gostarem, o 1º mês entra no calendário sem multa para sair. Responde ao medo nº 1 do cliente: ficar preso.</p></div>
+  </div>
+  <h3>A garantia</h3>
+  <div class="comparar">
+    <div><h4>Sem a garantia</h4><p>Contrato de 12 meses com multa, como o da Nespresso Professional. Quem decide carrega o risco se o café atrasar.</p></div>
+    <div><h4>Com a garantia</h4><p>Sem multa para sair, a qualquer momento, com uma mensagem. Se uma entrega atrasar, o escritório pode encerrar na hora.</p></div>
+  </div>
+  <p>A garantia depende só de a Torra Viva cumprir a própria regra, por isso dá para manter. A oferta só vai para escritório novo quando o calendário fixo de torra estiver rodando.</p>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA fez isto</summary>
+    <div>
+      <ol class="passo-ia">
+        <li><b>Leu</b> a meta de 30 escritórios e escolheu o plano para empresas como oferta principal.</li>
+        <li><b>Cruzou</b> o canto vazio do mapa de concorrentes com a dor do escritório sem café.</li>
+        <li><b>Desenhou</b> a oferta de entrada para derrubar a objeção que mais aparece: o medo de ficar preso.</li>
+        <li><b>Escreveu</b> o roteiro de venda e as mensagens de WhatsApp da Marina (ficam só em <code>entregas/oferta.md</code>).</li>
+      </ol>
+      <p class="conceito"><b>O conceito:</b> <em class="termo" tabindex="0" data-def="o primeiro passo pequeno, barato ou grátis, que deixa o cliente experimentar antes de decidir">oferta de entrada</em>. Ninguém fecha um plano mensal com quem não conhece. Primeiro se prova o café, depois se fala de plano.</p>
+      <p class="faca">Faça na sua pasta:<code>Treine comigo: seja a office manager de um escritório em Suzano e faça as 3 objeções de entregas/oferta.md</code></p>
+    </div>
+  </details>
+  <p class="base">Fonte: <code>entregas/oferta.md</code>, 25/10/2026.</p>
+<!-- FIM:oferta -->
+</section>
+
+<section class="secao" id="pagina">
+<!-- INICIO:pagina -->
+  <p class="fase"><span class="selo">fase 5</span> <code>/criar-pagina</code> · página de vendas</p>
+  <h2>Uma página que vende a degustação, não o café</h2>
+  <p class="lede">O escritório não fecha plano com quem não conhece. A página leva a um passo só: pedir a degustação na copa, com a mensagem pronta no WhatsApp. <span class="selo atencao">divulgar depois do calendário fixo</span></p>
+  <div class="abas">
+    <div data-aba="No celular">
+      <div class="molduras">
+        <div class="celular"><iframe title="Página de vendas da Torra Viva no celular" src="entregas/pagina-de-vendas.html" loading="lazy"></iframe></div>
+        <div class="lado">
+          <p class="destaque">Café torrado na semana, na copa no dia marcado.</p>
+          <p>Título escolhido: é a promessa da oferta e ecoa a frase do site novo. As 3 variações:</p>
+          <ul>
+            <li><b>Dor:</b> Acabou o café da copa de novo? Aqui tem dia marcado.</li>
+            <li><b>Resultado (escolhido):</b> Café torrado na semana, na copa no dia marcado.</li>
+            <li><b>Mecanismo:</b> Seu escritório ganha um dia fixo no nosso calendário de torra.</li>
+          </ul>
+          <a class="botao" href="entregas/pagina-de-vendas.html" target="_blank" rel="noopener">Abrir a página</a> <a class="botao leve" href="entregas/pagina-de-vendas.md" target="_blank" rel="noopener">Ler a copy</a>
+        </div>
+      </div>
+    </div>
+    <div data-aba="No computador">
+      <div class="navegador"><div class="janela"><iframe title="Página de vendas da Torra Viva no computador" src="entregas/pagina-de-vendas.html" loading="lazy"></iframe></div></div>
+      <a class="botao" href="entregas/pagina-de-vendas.html" target="_blank" rel="noopener">Abrir a página</a>
+    </div>
+    <div data-aba="Formulário de pedido">
+      <div class="molduras">
+        <div class="celular"><iframe title="Formulário para pedir a degustação" src="entregas/formulario.html" loading="lazy"></iframe></div>
+        <div class="lado">
+          <p>Uma pergunta por tela, para o link da bio e para responder "quanto custa?" no direct. No fim, o WhatsApp abre com a mensagem pronta.</p>
+          <ol class="etapas">
+            <li><b>Nome e empresa</b>Para a Marina saber com quem falar.</li>
+            <li><b>Cidade</b>Fora do Alto Tietê e de SP, convida para o Clube.</li>
+            <li><b>Pessoas e método</b>Acerta a moagem e a quantidade da prova.</li>
+            <li><b>Dia da degustação</b>A partir de hoje.</li>
+          </ol>
+          <a class="botao" href="entregas/formulario.html" target="_blank" rel="noopener">Abrir o formulário</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3>O que entrou e o que ficou de fora</h3>
+  <div class="comparar">
+    <div><h4>Na página</h4><p>A semana de entrega desenhada no topo, a Torra Marcada em 4 etapas, o plano a partir de R$ 98 o kg, o Clube de R$ 79 para casa, a garantia sem multa e o mapa de Mogi das Cruzes.</p></div>
+    <div><h4>Fora, por falta de fonte</h4><p>Depoimentos, nota no Google e número de escritórios atendidos. Nada foi inventado: o bloco de provas entra quando elas existirem.</p></div>
+  </div>
+  <details class="bastidor">
+    <summary>Bastidores: como a IA fez isto</summary>
+    <div>
+      <ol class="passo-ia">
+        <li><b>Escreveu</b> a copy bloco a bloco com as palavras do cliente e sem as palavras a evitar.</li>
+        <li><b>Planejou</b> o design com as cores e fontes do print do site novo, e escolheu um único elemento marcante: a semana que se desenha.</li>
+        <li><b>Construiu</b> a página e o formulário em arquivos únicos, que abrem sem internet (menos as fontes e o mapa).</li>
+        <li><b>Conferiu</b> com prints no tamanho de celular e de computador e corrigiu o que estava torto.</li>
+      </ol>
+      <p class="conceito"><b>O conceito:</b> <em class="termo" tabindex="0" data-def="página com um único objetivo, que leva a pessoa a uma só ação">página de conversão</em>. Cada bloco responde uma dúvida a caminho do mesmo botão. Menos opções, mais pedidos.</p>
+      <p class="faca">Faça na sua pasta:<code>/impeccable critique entregas/pagina-de-vendas.html</code></p>
+    </div>
+  </details>
+  <p class="base">Fonte: <code>entregas/pagina-de-vendas.md</code>, 25/10/2026.</p>
+<!-- FIM:pagina -->
+</section>
+
+<section class="secao" id="conteudo">
+<!-- INICIO:conteudo -->
+  <div class="pendente"><strong>Conteúdo para redes sociais</strong>Pilares, calendário do mês, um carrossel e dois posts prontos, em HTML que abre no navegador.<p>Aparece depois do <code>/criar-conteudo</code>.</p></div>
+<!-- FIM:conteudo -->
+</section>
+
+<section class="secao" id="proximos">
+<!-- INICIO:proximos -->
+  <h2>Três passos para esta semana</h2>
+  <p class="conta-passos">0 de 3 feitos</p>
+  <ol class="passos">
+    <li><input type="checkbox" aria-label="feito"><div><b>Calendário fixo de torra e entrega para os escritórios</b><br>Acaba com o atraso que já custou um cliente · <code>pesquisa/diagnostico.md</code></div></li>
+    <li><input type="checkbox" aria-label="feito"><div><b>Escrever os perfis de torra e escolher quem aprende</b><br>Tira a torra das mãos de uma pessoa só · <code>memoria/foco.md</code></div></li>
+    <li><input type="checkbox" aria-label="feito"><div><b>Criar o perfil no Google Meu Negócio</b><br>Ninguém ocupa a busca local em Mogi · <code>pesquisa/mercado.md</code></div></li>
+  </ol>
+<!-- FIM:proximos -->
+</section>
+
+</main>
+
+<script>
+/* Tudo aqui é realce: sem o script, a página continua legível. */
+(function(){
+  var doc=document.documentElement;
+  var calmo=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  doc.classList.add('js');
+  var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+
+  /* 1. Menu: seções que ainda não rodaram ficam apagadas */
+  $$('.trilho li a').forEach(function(a){
+    var s=document.querySelector(a.getAttribute('href'));
+    if(!s||s.querySelector('.pendente')) a.classList.add('vazio');
+  });
+
+  /* 2. As 6 fases: quais já rodaram (capa + anel do menu) */
+  var FASES=[
+    ['Instalar','/instalar',['ficha']],
+    ['Mapear a empresa','/mapear-empresa',['empresa','mercado','cliente','diagnostico']],
+    ['Concorrentes','/mapear-concorrentes',['concorrentes']],
+    ['Oferta','/criar-oferta',['oferta']],
+    ['Página de vendas','/criar-pagina',['pagina']],
+    ['Conteúdo','/criar-conteudo',['conteudo']]
+  ];
+  var feitas=0, proxima=-1;
+  var lista=document.querySelector('[data-fases]');
+  FASES.forEach(function(f,i){
+    var ok=f[2].every(function(id){var s=document.getElementById(id);return s&&!s.querySelector('.pendente');});
+    if(ok) feitas++; else if(proxima<0) proxima=i;
+    if(lista){
+      var li=document.createElement('li');
+      li.className=ok?'feita':(proxima===i?'proxima':'');
+      li.innerHTML='<b>'+f[0]+'</b><code>'+f[1]+'</code>';
+      lista.appendChild(li);
+    }
+  });
+  var txt=document.querySelector('[data-fases-feitas]');
+  if(txt) txt.textContent=feitas+' de 6 fases';
+  var anel=document.querySelector('.progresso .anel');
+  if(anel) requestAnimationFrame(function(){ anel.style.setProperty('--p', Math.round(feitas/6*100)); });
+
+  /* 3. Menu acompanha a leitura */
+  var links={};
+  $$('.trilho li a').forEach(function(a){ links[a.getAttribute('href').slice(1)]=a; });
+  if('IntersectionObserver' in window){
+    var espia=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting && links[e.target.id]){
+          $$('.trilho li a.ativo').forEach(function(x){x.classList.remove('ativo');});
+          links[e.target.id].classList.add('ativo');
+        }
+      });
+    },{rootMargin:'-40% 0px -55% 0px'});
+    $$('main > section[id]').forEach(function(s){ espia.observe(s); });
+  }
+
+  /* 4. Rosca: desenha a partir da lista <li data-v="35"> */
+  var CORES=['var(--destaque)','var(--marca)','color-mix(in srgb,var(--marca) 55%,var(--fundo))','color-mix(in srgb,var(--destaque) 45%,var(--fundo))','color-mix(in srgb,var(--texto) 40%,var(--fundo))','color-mix(in srgb,var(--marca) 25%,var(--fundo))'];
+  $$('.rosca').forEach(function(r){
+    var itens=$$('li[data-v]',r), total=0, acc=0, partes=[];
+    itens.forEach(function(li){ total+=parseFloat(li.dataset.v)||0; });
+    if(!total) return;
+    itens.forEach(function(li,i){
+      var v=(parseFloat(li.dataset.v)||0)/total*100, c=CORES[i%CORES.length];
+      li.style.setProperty('--c',c);
+      partes.push(c+' '+acc.toFixed(2)+'% '+(acc+v).toFixed(2)+'%'); acc+=v;
+    });
+    var d=document.createElement('div'); d.className='disco'; d.setAttribute('aria-hidden','true');
+    d.style.setProperty('--grad','conic-gradient('+partes.join(',')+')');
+    r.insertBefore(d,r.firstChild);
+  });
+
+  /* 5. Dados se desenham quando entram na tela, uma vez */
+  var alvos=$$('.barras,.funil,.rosca,.mapa,.etapas,.kpis');
+  alvos.forEach(function(el){
+    el.classList.add('desenha');
+    $$('.barra,.ponto,.etapas > li',el).forEach(function(x,i){ x.style.setProperty('--i',i); });
+    if(el.classList.contains('etapas')) $$(':scope > li',el).forEach(function(x,i){ x.style.setProperty('--i',i); });
+  });
+  function conta(el){
+    $$('b[data-conta]',el).forEach(function(b){
+      var alvo=b.textContent, m=alvo.match(/[\d.]+(,\d+)?/);
+      if(!m||calmo) return;
+      var bruto=m[0], dec=(bruto.split(',')[1]||'').length;
+      var n=parseFloat(bruto.replace(/\./g,'').replace(',','.')), t0=null;
+      function passo(t){
+        if(!t0) t0=t; var k=Math.min(1,(t-t0)/1100), e=1-Math.pow(1-k,3);
+        var v=(n*e).toLocaleString('pt-BR',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+        b.textContent=alvo.replace(bruto,v);
+        if(k<1) requestAnimationFrame(passo); else b.textContent=alvo;
+      }
+      requestAnimationFrame(passo);
+    });
+  }
+  if('IntersectionObserver' in window && !calmo){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visto'); conta(e.target); io.unobserve(e.target);} });
+    },{threshold:.25});
+    alvos.forEach(function(el){ io.observe(el); });
+    /* print de página inteira não rola: depois de 2,5 s tudo aparece desenhado */
+    setTimeout(function(){ alvos.forEach(function(el){ el.classList.add('visto'); }); },2500);
+    var capa=document.getElementById('capa'); if(capa) conta(capa);
+  } else alvos.forEach(function(el){ el.classList.add('visto'); });
+
+  /* 6. Abas: <div class="abas"><div data-aba="Nome">…</div>…</div> */
+  $$('.abas').forEach(function(box,n){
+    var painéis=$$(':scope > [data-aba]',box); if(painéis.length<2) return;
+    var bar=document.createElement('div'); bar.setAttribute('role','tablist');
+    painéis.forEach(function(p,i){
+      var id='aba-'+n+'-'+i, b=document.createElement('button');
+      b.type='button'; b.setAttribute('role','tab'); b.id=id+'-b'; b.textContent=p.dataset.aba;
+      b.setAttribute('aria-controls',id); b.setAttribute('aria-selected',i===0);
+      p.id=id; p.setAttribute('role','tabpanel'); p.setAttribute('aria-labelledby',id+'-b'); p.hidden=i!==0;
+      b.addEventListener('click',function(){
+        $$('[role=tab]',bar).forEach(function(x){x.setAttribute('aria-selected','false');});
+        b.setAttribute('aria-selected','true');
+        painéis.forEach(function(x){x.hidden=x!==p;});
+        escala();
+      });
+      bar.appendChild(b);
+    });
+    box.insertBefore(bar,box.firstChild); box.classList.add('pronto');
+  });
+
+  /* 7. Miniaturas: página de 1440 px no navegador e lâminas de 1080 px no carrossel */
+  function escala(){
+    $$('.navegador .janela').forEach(function(j){ if(j.clientWidth) j.style.setProperty('--s', j.clientWidth/1440); });
+    $$('.slide.html').forEach(function(l){ if(l.clientWidth) l.style.setProperty('--s', l.clientWidth/1080); });
+  }
+  escala(); window.addEventListener('resize',escala);
+
+  /* 8. Carrossel: setas, pontos e contador */
+  $$('.post').forEach(function(post){
+    var trilho=post.querySelector('.slides'); if(!trilho) return;
+    var slides=$$('.slide',trilho); if(slides.length<2) return;
+    var nav=document.createElement('div'); nav.className='post-nav';
+    nav.innerHTML='<button type="button" aria-label="Lâmina anterior">&#8249;</button><div class="pontos"></div><button type="button" aria-label="Próxima lâmina">&#8250;</button>';
+    var pts=nav.querySelector('.pontos');
+    slides.forEach(function(){ pts.appendChild(document.createElement('i')); });
+    trilho.insertAdjacentElement('afterend',nav);
+    var bs=nav.querySelectorAll('button');
+    function atual(){ return Math.round(trilho.scrollLeft/trilho.clientWidth); }
+    function pinta(){ var k=atual(); $$('i',pts).forEach(function(p,i){p.classList.toggle('on',i===k);}); bs[0].disabled=k===0; bs[1].disabled=k===slides.length-1; }
+    bs[0].onclick=function(){ trilho.scrollLeft-=trilho.clientWidth; };
+    bs[1].onclick=function(){ trilho.scrollLeft+=trilho.clientWidth; };
+    trilho.addEventListener('scroll',function(){ requestAnimationFrame(pinta); });
+    trilho.tabIndex=0;
+    trilho.addEventListener('keydown',function(e){ if(e.key==='ArrowRight') bs[1].click(); if(e.key==='ArrowLeft') bs[0].click(); });
+    pinta();
+  });
+
+  /* 9. Bastidores: um botão abre todos (modo aula) */
+  var bot=document.querySelector('[data-bastidores]');
+  var todos=$$('details.bastidor');
+  if(bot){
+    if(!todos.length) bot.hidden=true;
+    bot.addEventListener('click',function(){
+      var abrir=bot.getAttribute('aria-pressed')!=='true';
+      todos.forEach(function(d){ d.open=abrir; });
+      bot.setAttribute('aria-pressed',abrir); bot.textContent=abrir?'Fechar os bastidores':'Abrir os bastidores';
+    });
+  }
+
+  /* 10. Clicar numa cor ou num prompt copia */
+  function copia(el,texto){
+    if(!navigator.clipboard) return;
+    navigator.clipboard.writeText(texto).then(function(){ el.classList.add('copiado'); setTimeout(function(){el.classList.remove('copiado');},1400); });
+  }
+  $$('.cor').forEach(function(c){ c.addEventListener('click',function(){ var h=c.querySelector('code'); if(h) copia(c,h.textContent.trim()); }); });
+  $$('.faca code').forEach(function(c){ c.title='Clique para copiar'; c.addEventListener('click',function(){ copia(c,c.textContent.trim()); }); });
+
+  /* 11. Próximos passos: guarda os checks e conta */
+  var caixas=$$('.passos input[type=checkbox]');
+  var contador=document.querySelector('.conta-passos');
+  function recontar(){ if(contador){ var f=caixas.filter(function(c){return c.checked;}).length; contador.textContent=f+' de '+caixas.length+' feitos'; } }
+  caixas.forEach(function(c,i){
+    var k='cerebro-passo-'+location.pathname+'-'+i;
+    try{ c.checked=localStorage.getItem(k)==='1'; }catch(e){}
+    c.addEventListener('change',function(){ try{localStorage.setItem(k,c.checked?'1':'0');}catch(e){} recontar(); });
+  });
+  recontar();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+════════ mensagem 1 do aluno ════════
+/impeccable critique pagina.html. Só a crítica: não altere nenhum arquivo. Faça tudo nesta resposta, sem deixar nada rodando em segundo plano (este teste roda sem ninguém para receber o aviso depois).
+
+════════ resposta do Claude ════════
+Method: dual-agent (A: acac4195c8c4a1d7d · B: a85007d1a06a46c3e)
+
+# Crítica: `pagina.html` (Forno da Vila, coffee break para empresas)
+
+**Contexto:** não há PRODUCT.md nem DESIGN.md, então a própria página foi a única referência. Tratei a página como modo Persuade (landing page). Nenhum arquivo do projeto foi alterado. O overlay visual no navegador não foi feito, porque exigiria um servidor rodando em segundo plano.
+
+## Nota de saúde do design
+
+| # | Heurística | Nota | Problema principal |
+|---|---|---|---|
+| 1 | Visibilidade do status | 3 | O formulário mostra progresso ("Pergunta X de 5") e um resumo. Depois de "Enviar pelo WhatsApp", a tela não muda e o usuário não sabe se enviou. |
+| 2 | Correspondência com o mundo real | 3 | A comanda e a linguagem de balcão funcionam. "Pedido Confirmado" como título parece status de pedido, não o nome de um processo. |
+| 3 | Controle e liberdade | 2 | "Alterar" no resumo obriga a refazer todos os passos seguintes. |
+| 4 | Consistência e padrões | 2 | O "Pedir orçamento" do topo leva ao formulário; o do hero abre o WhatsApp. Há `role=tab` sem tabpanel e títulos de etapa que viram botões sem função. |
+| 5 | Prevenção de erros | 2 | A regra das 48h não é validada, horário 03:00 passa e restrição em branco vira "nenhuma". |
+| 6 | Reconhecer em vez de lembrar | 3 | Resumo e placeholders ajudam. O valor do slider preenche o passo 4 sem avisar. |
+| 7 | Flexibilidade e eficiência | 2 | Existe atalho direto pelo WhatsApp, mas o link "tela cheia" aponta para `formulario.html`, que não existe. |
+| 8 | Estética minimalista | 3 | O visual é contido, mas "2 horas" aparece 8 vezes e o mapa de 360px não informa nada. |
+| 9 | Recuperação de erros | 3 | As mensagens são específicas e humanas. Falta `aria-live` no `.erro`. |
+| 10 | Ajuda e documentação | 2 | O FAQ tem 3 itens. Faltam nota fiscal/CNPJ, pagamento, cancelamento, pedido mínimo e montagem/recolhimento. |
+| **Total** | | **25/40** | **Aceitável** |
+
+## Veredito de especificidade
+
+**Avaliação do design:** os detalhes são autorais, mas o esqueleto é genérico.
+- **O que é próprio do negócio:**
+  - A comanda com borda serrilhada.
+  - O relógio cujo arco marca exatamente 2 horas.
+  - O carimbo "confirmado".
+  - As 40 bolinhas de lugares à mesa.
+- **O que é genérico:**
+  - A sequência de seções é o molde SaaS: hero com card → faixa escura com depoimento → timeline de 4 passos → card de preço → número de prova social → formulário → mapa → FAQ → garantia → CTA final. Trocando a paleta, serve para um escritório de contabilidade.
+  - Oliva, terracota e creme com Newsreader e Figtree é o reflexo "artesanal" padrão.
+- **A maior lacuna:** uma padaria sem nenhuma foto de comida. A página promete mandar a foto da mesa montada e não mostra nenhuma.
+
+**Detector:** saiu com código 2 e 5 ocorrências.
+- **`low-contrast` ×2: confirmado.** `.aba small` ("até 10" e "até 40") fica em 4.4:1, porque `--suave` com `opacity:.85` dá `#726e62` em texto de ~12px. A falha é pequena, mas real.
+- **`cream-palette`: confirmado como padrão.** Está em `--farinha:#F1EFE7`. O token tem nome temático, o que reforça o veredito acima: é uma escolha consciente, mas previsível.
+- **`tight-leading`: falso positivo.** Os candidatos são títulos de exibição ≥24px ou botões de uma linha. O texto corrido usa 1,6.
+- **`shape-assembled-illustration`: falso positivo parcial.** É o mapa SVG de fallback atrás do iframe, não uma ilustração de hero.
+
+O detector não pegou nenhum dos problemas de fluxo e conversão. Esses vieram da revisão de design.
+
+**Renderização (1440px e 390px):** sem overflow horizontal e as fontes carregam. No mobile, o iframe do Maps carrega pela metade e mostra "Open in Maps" em inglês por cima do mapa desenhado.
+
+## Impressão geral
+
+O texto é honesto ("Às vezes sai mais barato, às vezes não.") e o formulário passo a passo é bem pensado. Mas a página vende certeza sem mostrar o produto, e divide a conversão entre três caminhos, um deles quebrado. A maior oportunidade é a **foto real da mesa montada** carregando o hero e o cardápio.
+
+## O que está funcionando
+
+1. **A comanda do hero.** Resume a proposta inteira (prazo, etapas, confirmação) num objeto do próprio ofício.
+2. **O seletor de tamanho com bolinhas de lugares.** Torna "quantas pessoas" algo concreto e alimenta o formulário.
+3. **A voz.** Clara e sem exagero ("Quem organiza o café da reunião não precisa de mais uma pendência"). Os erros de validação também são humanos.
+
+## Problemas prioritários
+
+1. **[P1] Nenhum apelo de apetite, e o cardápio é incerto**
+   - **O quê:** não há nenhuma foto, e "O que vai na mesa" tem 4 de 5 itens marcados "a confirmar".
+   - **Por que importa:** para comida B2B, a primeira pergunta é "o que chega e como fica na mesa?". A página responde com dúvida.
+   - **Correção:**
+     - Foto real da mesa montada no hero, junto da comanda.
+     - Um cardápio de exemplo por tamanho (Reunião / Equipe / Treinamento) que muda com a aba.
+     - Remover todos os `.confirmar` antes de publicar.
+   - **Comando sugerido:** `/impeccable bolder`
+
+2. **[P1] Conversão fragmentada e link quebrado**
+   - **O quê:**
+     - `formulario.html` (l.444) não existe.
+     - O CTA do topo (l.297) vai para `#pedido`; o do hero (l.309) abre o WhatsApp em branco.
+     - O texto para quem não tem JS (l.505) manda usar "o botão do topo" para o WhatsApp, mas esse botão não leva ao WhatsApp.
+   - **Correção:**
+     - Remover a l.444.
+     - Um caminho principal: formulário → mensagem pronta no WhatsApp. WhatsApp direto como secundário, com rótulo distinto ("Prefiro conversar").
+     - Corrigir a l.505.
+   - **Comando sugerido:** `/impeccable clarify`
+
+3. **[P1] O formulário aceita pedidos impossíveis**
+   - **O quê:** em `valida()`:
+     - 40 pessoas para amanhã passa, contrariando a regra de 48h.
+     - Horário 03:00 passa.
+     - `type=number` aceita "1e3".
+     - Restrição vazia é enviada como "nenhuma" (l.692), o que é risco real de alergia.
+   - **Correção:**
+     - Cruzar pessoas >25 com a data e oferecer a alternativa.
+     - Limitar o horário à faixa de atendimento.
+     - Aceitar só número inteiro.
+     - Enviar "não informado" em vez de "nenhuma".
+   - **Comando sugerido:** `/impeccable harden`
+
+4. **[P2] Contraste e foco**
+   - **O quê:**
+     - O anel de foco `var(--tostado)` sobre oliva dá 1,33:1, invisível nas seções `.pedido` e `.final`.
+     - A borda de campos e chips (`--trigo-linha` sobre `--papel`) dá 1,55:1, abaixo dos 3:1 exigidos para componentes.
+     - As etapas esmaecidas a `opacity:.45` (l.127) ficam entre ~2 e 2,7:1.
+     - Com `prefers-reduced-motion`, a regra `animation:none` (l.275) impede que os pontos fiquem oliva. O check da etapa 3 (traço `#F1EFE7`) some sobre o fundo `--papel`.
+   - **Correção:**
+     - `outline-color: var(--farinha)` nas seções escuras.
+     - Borda dos campos em torno de `#8F876F`.
+     - Opacidade mínima de .75 nas etapas.
+     - Definir o estado final dos pontos fora do keyframe.
+   - **Comando sugerido:** `/impeccable audit`
+
+5. **[P2] Fim do formulário sem retorno, e "Alterar" caro**
+   - **O quê:** depois do envio nada muda na tela, e "Alterar" força percorrer os passos de novo.
+   - **Correção:**
+     - Uma tela de confirmação ("Mensagem aberta no WhatsApp. Respondemos até HH:MM. Não enviou? Toque de novo.").
+     - Um modo de edição que volta direto ao resumo.
+   - **Comando sugerido:** `/impeccable harden`
+
+## Alertas por persona
+
+- **Jordan (primeira visita):**
+  - A comanda "Pedido Confirmado" parece o status de um pedido dele.
+  - "Você manda 5 respostas" aparece antes de ele saber quais são.
+  - O preço só aparece no meio da página.
+  - Nada sobre nota fiscal ou pagamento.
+- **Riley (casos-limite):**
+  - 40 pessoas para amanhã passa, assim como "1e3" e 03:00.
+  - O slider começa em 10, então não representa uma reunião de 5 pessoas.
+  - A aba "Reunião" sobrescreve o número escolhido.
+  - Sem JS, "Continuar" faz um GET para a própria página e perde os dados.
+- **Casey (celular, uma mão):**
+  - O único CTA fixo fica no topo, fora do alcance do polegar.
+  - No passo 5, o foco automático abre o teclado por cima dos chips.
+  - "Alterar" tem alvo de ~22px.
+  - O slider de 10 a 40, de 1 em 1, é impreciso com o polegar.
+  - O mapa de 360px pode prender a rolagem.
+
+## Observações menores
+
+- "Confirmado" e o carimbo "confirmado" lado a lado são redundantes (l.336).
+- As abas de tamanho são presets: usar `aria-pressed` ou um radiogroup em vez de `role=tab`.
+- `.mapa-selo` fica no canto onde o Google costuma pôr a atribuição.
+- O h1 com `max-width:13.5ch` quebra em 5 linhas no desktop e no mobile.
+- A 5ª estrela a 35% de opacidade passa uma nota visual perto de 4,0, não 4,8.
+- "Grátis e sem compromisso" é clichê. A garantia de 10% no próximo pedido é fraca para quem acabou de levar atraso numa reunião.
+
+## Perguntas para pensar
+
+- Se vocês mandam ao cliente a foto da mesa montada, por que a página não mostra nenhuma?
+- O produto é o pão ou a certeza? Se for a certeza, por que o relógio vive só no hero, em vez de virar o sistema visual (horário de chegada no resumo, prazo calculado na resposta)?
+- Se o WhatsApp é o canal real, o formulário deveria ser o único caminho até ele, ou deveria sumir?
+
+**Snapshot e tendência:** não gravei o snapshot em `.impeccable/critique/` porque você pediu para não alterar nenhum arquivo, então também não há tendência. Os diretórios temporários de screenshots dos dois agentes, fora do projeto, já foram apagados.
+
+---
+
+Como há 5 problemas prioritários, ficam três perguntas para orientar o próximo passo (responda com as letras):
+
+1. **Por onde começar?** (a) Apetite e cardápio: foto e cardápio por tamanho · (b) Conversão: caminho único e link quebrado · (c) Robustez do formulário: validação, contraste e foco
+2. **Tom:** a paleta creme, oliva e terracota é intencional e deve ficar? (a) Fica, só corrigir os problemas · (b) Fica, mas mais ousada, com a foto assumindo o protagonismo · (c) Repensar a identidade visual
+3. **Escopo:** (a) Só os 3 P1 · (b) Todos os 5 prioritários · (c) Tudo, incluindo as observações menores
+

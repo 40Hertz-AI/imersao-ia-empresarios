@@ -1,0 +1,14 @@
+════════ mensagem 1 do aluno ════════
+/sugerir-automacoes
+
+(Se perguntar se quero rodar /sobre-mim antes, escolha as perguntas rápidas e responda você mesmo como se fosse o aluno Jorge, sem esperar por mim: dono da Padaria Trigo Azul, fictícia, em Campinas. As tarefas que mais tomam tempo: responder pedidos de café da manhã para empresas no WhatsApp (20 minutos cada, 5 por semana, calcula no celular e anota no caderno) e fazer as compras da semana (2 horas toda segunda, liga para 3 fornecedores). Os dados estão no WhatsApp e num caderno; não usa planilha.)
+
+════════ resposta do Claude ════════
+Criei o plano com as respostas do Jorge. Os tempos poupados são estimativas feitas só com os números que ele deu: os 5 pedidos de 20 minutos e as 2 horas de compras na segunda. Não inventei nenhum preço. O cardápio e os fornecedores ficam como arquivos para o Jorge preencher. Como esta pasta não tem a skill `/sobre-mim`, o plano termina sugerindo instalar essa skill e rodar depois, para guardar o mapa do trabalho.
+
+```
+✓ Plano de automações → entregas/sugestoes.md
+Top 3: Passar o cardápio e os preços para a pasta · /orcamento-cafe · /lista-compras (toda segunda)
+Começo por qual? Se for uma skill, eu crio agora e testamos com um caso seu.
+```
+

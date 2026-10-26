@@ -1,0 +1,12 @@
+════════ mensagem 1 do aluno ════════
+/criar-conteudo
+
+════════ resposta do Claude ════════
+✓ Conteúdo do mês → `entregas/conteudo.md` + `entregas/posts/` (HTML)
+Pilares: Frescor que se lê 30%, Café na copa com dia marcado 25%, Da torra em Mogi 25%, Sem amarra 20%. Carrossel: "Validade de 18 meses não diz quando o café foi torrado". 2 pautas para escritório só vão ao ar depois que o calendário fixo de torra estiver rodando.
+Abra `entregas/posts/carrossel-1.html` no navegador (setas para passar). Atualize o RESULTADO.html: a seção Conteúdo apareceu.
+Falta confirmar: como se cancela o Clube, se o pacote traz a data de torra, quanto tempo leva a torra, há quantos anos a Helena torra e a data de 2 notícias.
+Próximo: poste o carrossel esta semana (print de cada lâmina em tela cheia) e escolha 1 dos próximos passos do RESULTADO.html.
+
+Fontes: [Mercado & Consumo](https://mercadoeconsumo.com.br/23/09/2026/noticias-varejo/consumo-de-cafe-no-varejo-sobe-465-e-preco-ao-consumidor-recua-mostra-abic/amp/) · [Folha Vitória](https://www.folhavitoria.com.br/folha-business/cafe-tradicional-fica-mais-barato-e-especial-tem-alta-no-inicio-do-ano/) · [Boca Notícias](https://boca.com.br/agronegocio/cup-of-excellence-2026-seleciona-melhores-cafes-arabica-brasil)
+

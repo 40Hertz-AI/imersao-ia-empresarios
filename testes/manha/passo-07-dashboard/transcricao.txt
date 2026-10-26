@@ -1,0 +1,15 @@
+════════ mensagem 1 do aluno ════════
+Crie meu-trabalho/dashboard-vendas.html: um painel das vendas da Torra Viva de janeiro a setembro de 2026, num arquivo só, com os dados de dados/vendas-mensais.csv e dados/clientes-b2b.csv embutidos no próprio HTML (para abrir sem internet).
+Mostre: 4 números grandes (faturamento total, lucro bruto, melhor mês e clientes B2B ativos em setembro), um gráfico de faturamento por mês, um gráfico por canal, a tabela dos 5 produtos que mais faturaram e um filtro por canal que atualiza tudo.
+Desenhe os gráficos com SVG, sem biblioteca de fora. Use meu-trabalho/design-system.md e a skill frontend-design. Escreva "Dados fictícios de exemplo" no topo.
+
+════════ resposta do Claude ════════
+Criei o `meu-trabalho/dashboard-vendas.html`. Abri a página no navegador em tamanho de computador e de celular, tirei fotos e conferi. Os números batem com o gabarito: faturamento de R$ 765.578,40, lucro bruto de R$ 445.207,30, melhor mês agosto e 12 clientes B2B ativos em setembro.
+
+- **No topo:** o selo amarelo "Dados fictícios de exemplo" e, logo abaixo, o filtro por canal: Todos, Loja online, Clube, Cafeterias e B2B.
+- **O filtro muda tudo:** os números grandes, o gráfico por mês, a tabela dos 5 produtos e o gráfico por canal, que mantém os 4 canais e deixa os outros apagados. Cada canal tem sempre a mesma cor.
+- **Clientes B2B:** esse número só existe para o canal B2B Escritórios. Nos filtros dos outros canais ele continua 12, fica cinza e ganha uma nota explicando.
+- **Sem internet:** os dois CSVs estão copiados dentro do arquivo. Só as fontes vêm da internet; sem conexão, a página usa fontes parecidas e funciona igual.
+
+O passo 7 ainda não está marcado em `progresso.md`, porque faltam a calculadora e a apresentação. Para a próxima página, comece uma conversa nova com `/clear`.
+

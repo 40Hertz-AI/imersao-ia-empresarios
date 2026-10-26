@@ -1,0 +1,21 @@
+════════ mensagem 1 do aluno ════════
+/instalar
+
+Responda você mesmo, como se fosse a aluna Helena, dona da empresa, a cada pergunta da entrevista, usando só estas respostas (vá até o fim, sem esperar por mim):
+1) Torra Viva Cafés Especiais. Site torraviva.exemplo e Instagram @torraviva.exemplo (a empresa é fictícia, criada para o teste: o site não existe). Mogi das Cruzes (SP). A loja online vende para o Brasil todo; café para empresas, só no Alto Tietê e na cidade de São Paulo.
+2) Clube Torra Viva (assinatura), R$ 79 por mês; Mantiqueira Clássico 250 g, R$ 42; plano de café para escritório, a partir de R$ 98 o kg.
+3) Pessoas de 30 a 50 anos que já tomam café especial, que chegam pelo Instagram e por indicação. As empresas chegam por indicação de outros clientes.
+4) 9 pessoas: eu (Helena, fundadora e mestre de torra), a Marina (vendas para empresas), o Caio (loja online e Instagram) e mais 6 na torra, embalagem, expedição e atendimento.
+5) Uns R$ 100 mil por mês, uns 900 clientes por mês. Margem eu não sei.
+6) Gosto das cores do nosso Instagram (verde-escuro e vermelho), não gosto do site, que é lento. Admiro o visual da Granado.
+7) O maior problema é atrasar entrega para empresa: perdemos um cliente em agosto por isso. E tudo depende de mim para torrar. Em 12 meses quero 30 escritórios atendidos e uma segunda pessoa que torra.
+
+════════ resposta do Claude ════════
+✓ Memória da empresa → memoria/
+Torra Viva vende café especial por assinatura (R$ 79/mês) e loja online para o Brasil todo, e atende escritórios no Alto Tietê e em São Paulo.
+Clientes: pessoas de 30 a 50 anos que já tomam café especial e chegam pelo Instagram e por indicação; as empresas chegam por indicação de outros clientes.
+Problema nº 1: atraso na entrega para empresas, e toda a torra depende da Helena. Faturamento e clientes por mês ficaram só em `memoria/numeros.md`.
+Abri o RESULTADO.html: a capa e a ficha já estão lá.
+Falta confirmar: margem e ticket médio (`memoria/numeros.md`), e o site não existe (empresa fictícia), então o `/mapear-empresa` não vai achar nada nele.
+Próximo: /mapear-empresa (~10 min)
+

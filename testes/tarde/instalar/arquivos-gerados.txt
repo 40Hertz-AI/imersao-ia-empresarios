@@ -1,0 +1,6 @@
+RESULTADO.html	45426 bytes
+controle/progresso.md	869 bytes
+marca/marca.md	445 bytes
+memoria/empresa.md	1372 bytes
+memoria/foco.md	562 bytes
+memoria/numeros.md	549 bytes

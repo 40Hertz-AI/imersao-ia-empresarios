@@ -1,0 +1,1 @@
+Leia os arquivos .csv da pasta dados/ e me diga, em poucas linhas, o que tem em cada um.

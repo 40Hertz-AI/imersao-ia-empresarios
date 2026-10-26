@@ -1,0 +1,23 @@
+════════ mensagem 1 do aluno ════════
+Papel: você cuida do Instagram da Torra Viva Cafés Especiais.
+Contexto: chegou um lote novo do Etiópia Yirgacheffe: torra clara, notas florais e de limão-siciliano, R$ 68 o pacote de 250 g. O público já toma café especial e gosta de provar coisas diferentes. Tom próximo, sem exagero: nada de "o melhor café do mundo".
+Tarefa: escreva a legenda do post que anuncia o lote novo.
+Formato: primeira linha com até 10 palavras que dê vontade de ler o resto, 3 parágrafos curtos, uma pergunta para o seguidor responder nos comentários, 5 hashtags e no máximo 2 emojis.
+
+════════ resposta do Claude ════════
+Esse café tem cheiro de flor. E gosto de limão. 🍋
+
+Chegou lote novo do Etiópia Yirgacheffe. Fizemos uma torra clara para deixar o grão mostrar o que tem: notas florais e de limão-siciliano, do primeiro gole ao último.
+
+Se você costuma tomar café mais encorpado e achocolatado, esse vai te tirar do lugar. É outro tipo de xícara, e é para isso que vale provar.
+
+O pacote de 250 g custa R$ 68. Torrado esta semana, na sua xícara na próxima. Já está na loja: torraviva.exemplo ☕
+
+Como você vai passar o seu primeiro Yirgacheffe: coado, prensa francesa ou outro método? Conta aqui nos comentários.
+
+#CafeEspecial #Yirgacheffe #CafeEtiope #TorraClara #TorraViva
+
+---
+
+A legenda segue o formato pedido. A primeira linha tem 10 palavras, e há 3 parágrafos, 1 pergunta, 5 hashtags e 2 emojis. Usei só as informações que você me passou e a frase de promessa da marca. Por isso não citei produtor, região nem altitude. Se quiser, salvo a legenda em `meu-trabalho/prompts.md`, que é o arquivo do passo 3.
+

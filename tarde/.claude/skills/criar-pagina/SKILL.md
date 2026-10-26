@@ -1,22 +1,27 @@
 ---
 name: criar-pagina
-description: Use após o /criar-oferta ou quando pedirem /criar-pagina, página de vendas, landing, site, formulário de pedido ou mapa. Escreve a copy e gera a página completa (com formulário, mapa e motion) e o formulário de pedido em HTML com a marca da empresa (10 min).
+description: Use após o /criar-oferta ou quando pedirem /criar-pagina, página de vendas, landing, site, formulário de pedido ou mapa. Escreve a copy e gera a página completa (com formulário, mapa e motion) e o formulário de pedido em HTML com a marca da empresa (10 min). Funciona em qualquer pasta.
 ---
 
 # /criar-pagina: página de vendas completa + formulário de pedido
 
 **Sem perguntas.** Lê `memoria/`, `marca/marca.md`, `pesquisa/cliente.md` e `entregas/oferta.md`. Sem a oferta: avisar em 1 linha e montar a oferta mínima a partir do estudo (proposta de valor + oferta de entrada), anotando isso no topo da copy.
 
+**Pasta fora da aula:**
+- Sem `memoria/empresa.md` (ou vazio): perguntar **numa mensagem só** "Para a página, me diga: nome da empresa, cidade, o que vende (com preço ou faixa) e para quem, o WhatsApp de contato e o que o cliente precisa informar para pedir." Gravar em `memoria/empresa.md` (criar a pasta) e seguir.
+- Sem `marca/marca.md` e sem a skill `marca`: escolher 4 cores e 2 fontes do Google Fonts coerentes com o produto, gravar em `marca/marca.md` marcado `[sugestão]` e avisar no fechamento.
+- Sem `references/` desta skill: seguir só este arquivo. Sem `RESULTADO.html` ou `controle/`: pular o passo 5 e o progresso; os prints de conferência vão para uma pasta temporária (`/tmp` ou `%TEMP%`).
+
 **Antes de escrever o HTML:**
 1. Se `marca/marca.md` estiver sem cores ou fontes, rodar a skill `marca` primeiro (ela pede print se não achar nada).
-2. Carregar a skill `frontend-design` e seguir o processo dela (plano de tokens → revisão → código → print → crítica). O plano vai numa seção "Plano de design" no fim de `entregas/pagina-de-vendas.md` e **não precisa de aprovação** (a fase é sem perguntas). `marca/marca.md` vence os avisos de clichê da frontend-design: a skill decide o layout, a marca decide cor e fonte.
+2. Carregar a skill `frontend-design` (se existir) e seguir o processo dela (plano de tokens → revisão → código → print → crítica). O plano vai numa seção "Plano de design" no fim de `entregas/pagina-de-vendas.md` e **não precisa de aprovação** (a fase é sem perguntas). `marca/marca.md` vence os avisos de clichê da frontend-design: a skill decide o layout, a marca decide cor e fonte.
 3. Ler `references/secoes.md` (o que vai em cada bloco) e `references/motion.md` (as regras de movimento).
 
 ## 1. Copy → `entregas/pagina-de-vendas.md`
 
 Bloco a bloco, na linguagem do cliente (`pesquisa/cliente.md`), nunca com as palavras a evitar:
 1. **Topo:** 3 títulos (dor, resultado, mecanismo), até 12 palavras cada. Escolher 1 e dizer por quê. Subtítulo e botão.
-2. **Problema:** a dor nº 1 com a frase real do cliente.
+2. **Problema:** a dor nº 1 com a frase real do cliente e a fonte. Frase marcada `(inferida)` em `pesquisa/cliente.md` **não vira citação**: sem aspas e sem "o que a gente ouve"; escrever como pergunta ou descrição da cena (ex.: "Acabou o café da copa de novo?").
 3. **Como funciona:** o mecanismo, etapa por etapa.
 4. **O que vai / planos:** o que o cliente leva, por tamanho ou plano. Preço só o que o dono deu.
 5. **Provas:** só as que existem (nota no Google, clientes, anos de mercado). Sem prova: bloco fora. **Nunca inventar depoimento.**
@@ -48,15 +53,25 @@ A página só do pedido, para o link da bio e para responder "quanto custa?" no 
 
 Abrir no navegador (`open` no Mac, `start ""` no Windows). Tirar print no tamanho de celular e de computador:
 ```bash
-npx --yes playwright screenshot --full-page --wait-for-timeout=4000 --viewport-size=390,844 entregas/pagina-de-vendas.html controle/prints/celular.png
-npx --yes playwright screenshot --full-page --wait-for-timeout=4000 --viewport-size=1440,900 entregas/pagina-de-vendas.html controle/prints/computador.png
+npx --yes playwright screenshot --channel chrome --full-page --wait-for-timeout=4000 --viewport-size=390,844 entregas/pagina-de-vendas.html controle/prints/celular.png
+npx --yes playwright screenshot --channel chrome --full-page --wait-for-timeout=4000 --viewport-size=1440,900 entregas/pagina-de-vendas.html controle/prints/computador.png
 ```
 Olhar os prints: texto cortado, botão fora da tela, cor ilegível, mapa vazio, seção em branco → corrigir e tirar de novo. Animação de abertura pela metade no print não é bug: não tirar a animação por isso. Conteúdo que só aparece rolando é bug (regra 5 de `references/motion.md`). Sem Node: pedir ao dono para olhar no navegador.
 
 ## 5. Atualizar o RESULTADO.html
 
-Trocar `pagina`, `proximos` e `atualizado` seguindo `controle/componentes.md`: `.abas` com três painéis, "No celular" (`.molduras` + `.celular` com a página), "No computador" (`.navegador`) e "Formulário de pedido" (`.celular` com o formulário), mais os botões para abrir cada um. Fechar a seção com um `.bastidor` contando os passos.
+Se existir. Trocar `pagina`, `proximos` e `atualizado` seguindo `controle/componentes.md`: `.abas` com três painéis, "No celular" (`.molduras` + `.celular` com a página), "No computador" (`.navegador`) e "Formulário de pedido" (`.celular` com o formulário), mais os botões para abrir cada um. Fechar a seção com um `.bastidor` contando os passos.
 
 ## Fechar
 
-Marcar a fase em `controle/progresso.md` e responder no formato do `CLAUDE.md`. Resumo: o título escolhido · o formulário manda para onde. Próximo: `/criar-conteudo` (~8 min).
+Marcar a fase em `controle/progresso.md` (se existir) e responder:
+
+```
+✓ Página de vendas → entregas/pagina-de-vendas.html + formulario.html
+Título: <o escolhido> · O formulário manda para: <WhatsApp com número / sem número>
+Atualize o RESULTADO.html: a seção Página de vendas apareceu.
+Falta confirmar: <o que ficou [a confirmar]; omitir se nada>
+Próximo: /criar-conteudo (~10 min)
+```
+
+Sem RESULTADO.html (pasta fora da aula), a terceira linha vira "Abra entregas/pagina-de-vendas.html no navegador." No "Próximo", citar só os comandos que existem em `.claude/skills/`.

@@ -13,7 +13,7 @@ Abra `exemplo-forno-da-vila/RESULTADO.html` no navegador (clique duas vezes no a
 ## Como começar
 
 1. Descompacte o ZIP na **Área de Trabalho** e renomeie a pasta `imersao-tarde` com o nome da sua empresa (ex.: `padaria-sao-jorge`).
-2. Abra o app do Claude → aba **Code** → escolha a pasta.
+2. Abra o app do Claude → aba **Code** → escolha a pasta. Ou, no terminal, entre na pasta com `cd` e digite `claude` (o passo a passo está no passo 1 da manhã).
 3. Digite `/instalar` e responda as 7 perguntas.
 
 Parou no meio? Digite `o que falta?`.
@@ -27,9 +27,19 @@ Parou no meio? Digite `o que falta?`.
 | 3 | `/mapear-concorrentes` | Quem disputa o seu cliente e onde está o espaço vazio | 6 min |
 | 4 | `/criar-oferta` | Proposta de valor, oferta e roteiro de venda | 6 min |
 | 5 | `/criar-pagina` | Página de vendas completa com a sua marca, formulário de pedido e mapa | 10 min |
-| 6 | `/criar-conteudo` | Pilares, 12 pautas, calendário e 1 carrossel em imagens prontas para postar | 10 min |
+| 6 | `/criar-conteudo` | Pilares, 12 pautas, calendário, 1 carrossel e 2 posts em HTML que abrem no navegador | 10 min |
 
 Sem site? Arraste um print do Instagram ou o logo para a conversa e digite `/marca`: tudo sai com as cores da sua empresa.
+
+**Extras** (rodam a qualquer hora, também fora desta pasta):
+
+| Comando | O que faz | Tempo |
+|---|---|---|
+| `/sobre-mim` | Entrevista sobre o **seu** trabalho: rotina, processos, ferramentas, dores. Grava o mapa em `memoria/sobre-mim.md` | 15 min |
+| `/sugerir-automacoes` | Lê a pasta (e o mapa do `/sobre-mim`) e sugere automações, rotinas e skills por impacto e esforço, cada uma com o próximo passo | 5 a 10 min |
+| `/impeccable` | Skill de design: revisa e melhora a página ou os posts. Ex.: `/impeccable critique entregas/pagina-de-vendas.html` | 5 min |
+
+**Os posts são HTML.** Abra `entregas/posts/carrossel-1.html` no navegador e passe as lâminas com as setas. Para postar: abra cada lâmina sozinha (`carrossel-1.html?n=1`, `?n=2`...) em tela cheia e tire um print (Windows: **Win+Shift+S**; Mac: **Cmd+Shift+4**).
 
 Depois da fase 2, as fases 3 a 6 rodam em qualquer ordem. A cada fase, atualize o `RESULTADO.html` no navegador: uma seção nova aparece.
 
@@ -40,6 +50,7 @@ Depois da fase 2, as fases 3 a 6 rodam em qualquer ordem. A cada fase, atualize 
 | A · A base | `/instalar` → `/mapear-empresa` | você lê o diagnóstico e acha 1 coisa sobre a sua empresa que nunca tinha visto assim |
 | B · Contra quem e o que vender | `/mapear-concorrentes` → `/criar-oferta` | você reconhece os concorrentes e diria a proposta de valor para um cliente |
 | C · Colocar na rua | `/criar-pagina` → `/criar-conteudo` | você mandaria a página para um cliente e postaria o carrossel esta semana |
+| D · Você e as automações | `/sobre-mim` → `/sugerir-automacoes` | você sai com 3 coisas para a IA fazer por você já na próxima semana |
 
 ## As pastas
 
@@ -52,7 +63,12 @@ controle/             em que fase você está + o modelo do relatório
 dados/                solte aqui planilhas e PDFs                    (privado)
 RESULTADO.html        o relatório da empresa (nasce no /instalar)
 exemplo-forno-da-vila/  o exemplo pronto, só para consulta
+.claude/              as skills (e os agentes e a configuração do Impeccable)
+.impeccable/          configuração do Impeccable (telemetria desligada)
+licencas/             licenças de terceiros (Impeccable)
 ```
+
+No Mac, as pastas que começam com ponto (`.claude`, `.impeccable`) ficam escondidas no Finder (**Cmd+Shift+.** mostra). Elas estão lá, e o Claude Code as encontra sozinho.
 
 **Privacidade:** `memoria/numeros.md` e `dados/` ficam só no seu computador e não aparecem no `RESULTADO.html`. Não suba esta pasta preenchida para lugar público.
 
@@ -68,5 +84,11 @@ exemplo-forno-da-vila/  o exemplo pronto, só para consulta
 1. Digite `o que falta?`.
 2. Pergunte ao vizinho.
 3. Post-it vermelho: um monitor vem até você.
+
+## Créditos e licenças
+
+- **Impeccable**: skill de design de **Paul Bakaus**, licença Apache 2.0 ([github.com/pbakaus/impeccable](https://github.com/pbakaus/impeccable), [impeccable.style](https://impeccable.style)). Vem dentro da pasta, sem plugin: a skill em `.claude/skills/impeccable/`, os agentes em `.claude/agents/impeccable-*.md` e a conferência automática de HTML em `.claude/settings.json`. Licença e avisos em `licencas/impeccable/` (`LICENSE` e `NOTICE.md`). Gerada sem alterações a partir do repositório original (versão 4.7.1, motor 0.1.17). A telemetria está desligada em `.impeccable/config.json` (`"telemetry": false`). Na primeira vez, ela baixa o motor (uns 20 MB) do GitHub do projeto.
+- `frontend-design`: [anthropics/skills](https://github.com/anthropics/skills) (Apache 2.0), licença dentro da pasta da skill.
+- `instalar`, `mapear-empresa`, `mapear-concorrentes`, `criar-oferta`, `criar-pagina`, `criar-conteudo`, `marca`, `sobre-mim` e `sugerir-automacoes`: escritas para esta imersão.
 
 Material da imersão com Lucas Santana · Instagram [@lucasantanas_](https://www.instagram.com/lucasantanas_/)

@@ -1,0 +1,23 @@
+════════ mensagem 1 do aluno ════════
+Crie uma skill chamada resposta-cliente, no arquivo .claude/skills/resposta-cliente/SKILL.md.
+Ela recebe a mensagem de um cliente (WhatsApp, e-mail ou Instagram) e devolve:
+1) o tipo da mensagem (dúvida, pedido, reclamação ou elogio) e a urgência (baixa, média ou alta);
+2) a resposta pronta para copiar, no tom da empresa: próxima, direta, sem exagero, com no máximo 80 palavras;
+3) se for reclamação: o que fazer por dentro (quem resolve e até quando).
+Regras: usar só o que está na pasta (CLAUDE.md, dados/politicas-atendimento.md e os outros arquivos de dados/) ou na própria mensagem; nunca prometer prazo, desconto ou reembolso que não esteja escrito; se faltar informação, escrever [confirmar: ...] dentro da resposta.
+Se a pasta não tiver dados da empresa, a skill pergunta antes o nome da empresa e o tom de voz, numa pergunta só.
+Use a skill-creator se ela estiver disponível. No fim, me explique a skill em 5 linhas.
+
+════════ resposta do Claude ════════
+Criei a skill em `.claude/skills/resposta-cliente/SKILL.md`. A `skill-creator` não estava disponível, então escrevi a skill sem ela, no mesmo formato da `eli5`.
+
+Ela funciona assim:
+
+1. **Quando entra em ação:** quando você digita `/resposta-cliente` e cola a mensagem do cliente, ou pede ajuda para responder alguém.
+2. **Onde busca as informações:** no `CLAUDE.md`, em `dados/politicas-atendimento.md` e nos outros arquivos de `dados/` quando a mensagem fala de produto, preço ou cliente de empresa. Se a pasta não tiver dados da empresa, ela pergunta antes o nome e o tom de voz, numa pergunta só.
+3. **O que devolve:** o tipo da mensagem e a urgência, com o motivo. Depois, a resposta pronta para copiar, com no máximo 80 palavras.
+4. **Se for reclamação:** diz quem resolve (atendimento, Marina ou Helena), até quando, e 2 ou 3 próximos passos.
+5. **O que ela não faz:** prometer prazo, desconto ou reembolso que não esteja escrito. O que faltar aparece como `[confirmar: ...]` na própria resposta.
+
+Ainda não testei a skill. Faça `/clear` e teste as 3 mensagens de `passos/05-criar-uma-skill/mensagens-de-clientes.md`. Se ela não aparecer no `/`, feche com `/exit` e abra de novo com `claude`. Quando as 3 respostas saírem certas, eu marco o passo 5 em `progresso.md`.
+

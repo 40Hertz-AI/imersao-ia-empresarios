@@ -1,0 +1,16 @@
+# Torra Viva Cafés Especiais · dados fictícios de exemplo
+id,empresa,segmento,cidade,funcionarios,cafe_do_plano,kg_mes,contrato,valor_mensal,cliente_desde,status,status_desde,nps,observacao
+B01,Contábil Horizonte,Contabilidade,Mogi das Cruzes,18,Blend Escritório,8,mensal,784.00,2025-08,ativo,,9,Pede nota fiscal até o dia 5.
+B02,Clínica Bem Viver,Saúde,Suzano,32,Mantiqueira Clássico,14,anual,1764.00,2025-11,ativo,,10,Elogiou o café na pesquisa de satisfação.
+B03,Agência Faro Digital,Marketing,São Paulo,24,Mantiqueira Clássico,11,mensal,1463.00,2026-01,ativo,,8,Quer conhecer o Etiópia para as reuniões com clientes.
+B04,Rocha & Lima Advogados,Jurídico,São Paulo,40,Mantiqueira Clássico,17,anual,2142.00,2026-02,ativo,,9,
+B05,Coworking Ponto de Encontro,Coworking,Mogi das Cruzes,60,Blend Escritório,26,anual,2165.80,2026-03,ativo,,7,Pediu orçamento para incluir chás.
+B06,Imobiliária Casa Certa,Imobiliário,Guarulhos,12,Blend Escritório,6,mensal,743.00,2026-03,pausado,2026-07,6,Pausou o plano durante a reforma do escritório; volta em novembro.
+B07,Fala Mundo Idiomas,Educação,Mogi das Cruzes,22,Cerrado Doce,10,mensal,1216.00,2026-04,ativo,,8,
+B08,TechNorte Sistemas,Tecnologia,São Paulo,85,Blend Escritório,36,anual,2998.80,2026-04,ativo,,9,Maior cliente em kg.
+B09,Laboratório Vida Clara,Saúde,Suzano,28,Cerrado Doce,12,mensal,1459.20,2026-05,cancelado,2026-08,4,Cancelou depois de duas entregas atrasadas em julho.
+B10,Traço Livre Arquitetura,Arquitetura,São Paulo,9,Mantiqueira Clássico,4,mensal,715.00,2026-06,ativo,,10,
+B11,Construtora Alicerce,Construção,Arujá,45,Blend Escritório,19,anual,1675.80,2026-07,ativo,,8,
+B12,Prumo Consultoria,Consultoria,São Paulo,15,Cerrado Doce,7,mensal,1016.00,2026-08,ativo,,9,
+B13,Sorriso Pleno Odontologia,Saúde,Mogi das Cruzes,14,Blend Escritório,6,mensal,743.00,2026-09,ativo,,,Cliente novo: ainda sem pesquisa de satisfação.
+B14,Hotel Serra Azul,Hotelaria,Mogi das Cruzes,50,Mantiqueira Clássico,21,anual,2499.00,2026-09,ativo,,,Cliente novo: ainda sem pesquisa de satisfação.

@@ -1,0 +1,11 @@
+════════ mensagem 1 do aluno ════════
+/criar-pagina
+
+════════ resposta do Claude ════════
+✓ Página de vendas → entregas/pagina-de-vendas.html + formulario.html
+Título: "Café torrado na semana, na copa no dia marcado." · O formulário manda para: WhatsApp sem número (6 perguntas, uma por tela)
+Atualize o RESULTADO.html: a seção Página de vendas apareceu.
+Falta confirmar: o número do WhatsApp; a regra "sem multa para sair, e encerra na hora se atrasar"; o endereço e o horário públicos (o mapa mostra só Mogi das Cruzes).
+Ajuste de design: deixei mais legível o texto sobre o verde (mapa e abas) e dei mais espaço aos dias da semana do topo. O fundo creme ficou porque é a cor da marca, e a conferência de design não aponta mais isso nesses arquivos.
+Próximo: /sugerir-automacoes (~5 min). As 6 fases estão feitas.
+

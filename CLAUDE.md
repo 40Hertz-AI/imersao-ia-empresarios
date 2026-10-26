@@ -10,6 +10,8 @@ Material público e portal do **treinamento de IA para empresários** da 40 Hert
 | `site/` | Portal do aluno, em HTML estático | Sim |
 | `site/downloads/` | ZIPs das pastas e guias. **Tudo aqui é público** | Não: são gerados por script |
 | `manha/`, `tarde/` | Pastas dos alunos (projetos do Claude Code com skills em `.claude/skills/`) | **Não.** São espelho de uma fonte privada e a próxima publicação sobrescreve |
+| `scripts/` | Geradores: dados fictícios da Torra Viva, mockup do passo 6, respostas certas, gabarito da manhã e os ZIPs (`scripts/gerar-zips.py`) | Sim |
+| `testes/` | Testes de cada passo e skill com `claude -p` (harness, prompts, provas e `RESULTADOS.md`). Não vão nos ZIPs | Sim |
 
 ## Deploy
 - Vercel, time **40 Hertz**, projeto `ia-para-empresarios-v2`, com Root Directory `site`.
@@ -19,6 +21,7 @@ Material público e portal do **treinamento de IA para empresários** da 40 Hert
 ## Regras
 - O portal tem uma trava de downloads por data (horário de Brasília) e uma pesquisa pós-aula que libera o material. Para testar, intercepte a rede: **nunca** envie dado de teste para a planilha ou o endpoint reais.
 - Para dizer que um material foi atualizado, compare o hash do arquivo baixado do ar, e não o do disco.
+- Mudou `manha/` ou `tarde/`? Rode os testes da área (`testes/rodar-manha.sh`, `testes/rodar-tarde.sh`), a verificação (`testes/verificar/`) e `scripts/gerar-zips.py`.
 - Não comite dado de aluno: e-mail, nome, respostas.
 
 ## Tasks

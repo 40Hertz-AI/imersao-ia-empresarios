@@ -1,0 +1,18 @@
+════════ mensagem 1 do aluno ════════
+O que você consegue fazer nesta pasta?
+
+════════ resposta do Claude ════════
+A pasta `/tmp/vazia-manha-passo-01` está vazia: não tem arquivos e também não é um repositório git. Então não há nada aqui para analisar ainda, mas dá para começar algo do zero. Por exemplo, posso:
+
+- **Criar um projeto novo** (um script em Python, uma API em Node, um site estático, uma ferramenta de linha de comando etc.), com a estrutura de pastas, as dependências e os testes.
+- **Iniciar um repositório git** (`git init`) e fazer os commits enquanto trabalhamos.
+- **Escrever e rodar scripts** para automatizar tarefas, processar dados ou gerar arquivos.
+- **Fazer análises e gráficos** a partir de dados que você trouxer para cá.
+- **Baixar ou clonar código** de algum lugar para revisar, depurar ou modificar.
+- **Pesquisar na web** documentação ou referências para o que você quiser construir.
+- **Criar um app com a API do Claude**, como um chatbot, um agente ou um classificador de texto.
+
+Também posso configurar o próprio Claude Code (permissões, hooks, status line, atalhos) ou agendar tarefas recorrentes.
+
+O que você tem em mente? Se me disser o objetivo, já começo a montar a estrutura.
+

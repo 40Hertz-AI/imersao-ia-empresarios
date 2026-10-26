@@ -1,0 +1,28 @@
+# /eli5 dados/orcamento.csv
+
+> Gerado de verdade pelo Claude Code (modelo Opus) nesta pasta, com o prompt do passo, em 25/10/2026. **Dados fictícios de exemplo.** O seu resultado vai sair diferente nas palavras; o que importa é chegar no mesmo tipo de entrega.
+
+**Você:**
+
+```
+/eli5 dados/orcamento.csv
+```
+
+**Claude:**
+
+**Em uma frase:** este arquivo é a receita que a Torra Viva segue para calcular quanto custa mandar café todo mês para um escritório. Os dados são fictícios, de exemplo.
+
+**Pensa assim:** é como fazer as compras do mês para uma casa. Você conta quantas pessoas tomam café, quanto cada uma bebe e quantos dias a casa fica cheia. Daí sai quantos pacotes comprar. Comprando muito, ganha desconto.
+*Onde a comparação falha:* em casa ninguém te empresta a cafeteira. Aqui, quem compra 8 kg ou mais por mês recebe a máquina emprestada, sem pagar nada.
+
+**Como funciona, passo a passo:**
+1. Conta o café: pessoas × 2 xícaras × 10 g × 21 dias. O resultado vira kg e sobe para o pacote inteiro mais próximo.
+2. Multiplica pelo preço do café escolhido, que vai de R$ 98 a R$ 140 o kg.
+3. Tira o desconto: 5%, 10% ou 15% conforme o volume, e mais 5% se o contrato for de 1 ano.
+4. Soma a máquina (R$ 120 de aluguel abaixo de 8 kg) e o frete (R$ 35, que sai de graça a partir de R$ 600 de café).
+5. Divide o total pelo número de xícaras e chega no custo de cada cafezinho.
+
+**Por que isso importa:** com a regra escrita, qualquer pessoa da equipe faz o mesmo orçamento, sempre com o mesmo resultado. O orçamento vale por 15 dias.
+
+**Quer ir um nível acima?** No passo 7, esta receita vira uma calculadora de orçamento numa página web.
+

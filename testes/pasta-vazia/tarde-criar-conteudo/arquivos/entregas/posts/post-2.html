@@ -1,0 +1,103 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trigo Azul · post 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--marca:#1F3A5F;--destaque:#E3A93B;--fundo:#F6EFE2;--texto:#1B1B1B;--t:'Fraunces',serif;--c:'DM Sans',sans-serif;--s:1}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:#1d1d1d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;overflow:hidden;font-family:var(--c)}
+.palco{width:1080px;height:1350px;zoom:var(--s)}
+.lamina{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--fundo);color:var(--texto);padding:110px 96px;display:flex;flex-direction:column}
+.lamina[hidden]{display:none}
+.lamina h2{font-family:var(--t);font-size:96px;line-height:1.02;letter-spacing:-.02em;font-weight:800}
+.lamina p{font-size:40px;line-height:1.35}
+.rodape{position:absolute;left:96px;right:96px;bottom:64px;display:flex;justify-content:space-between;font-size:28px;opacity:.7}
+.controles{display:flex;align-items:center;gap:16px;color:#eee;font:600 16px/1 var(--c)}
+.controles button{font:inherit;width:44px;height:44px;border-radius:50%;border:1px solid #666;background:#2a2a2a;color:#fff;cursor:pointer}
+.controles button:disabled{opacity:.3;cursor:default}
+body.so{background:var(--fundo)} body.so .controles{display:none}
+
+/* funções */
+.escura{background:var(--marca);color:var(--fundo)}
+.trigo{background:var(--destaque);color:var(--marca)}
+.olho{font:700 36px/1.2 var(--c);letter-spacing:.08em;text-transform:uppercase}
+.escura .olho{color:var(--destaque)}
+.clara h2{color:var(--marca)}
+.base{margin-top:auto}
+.arraste{display:flex;align-items:center;gap:20px;font:700 36px/1 var(--c);color:var(--destaque)}
+
+/* gancho */
+.gancho h2{font-size:132px;line-height:.98;margin-top:56px}
+.gancho .espiga{position:absolute;right:-40px;top:70px;opacity:.18}
+
+/* problema: agenda e conversa */
+.cartao{background:#fff;border-radius:28px;padding:48px 52px;box-shadow:0 18px 0 rgba(31,58,95,.12);border:3px solid var(--marca)}
+.cartao .hora{font:700 36px/1 var(--c);color:var(--marca)}
+.cartao .evento{font:800 64px/1.05 var(--t);color:var(--marca);margin:18px 0 12px}
+.cartao .det{font-size:36px;color:#3b3b3b}
+.cartao .falta{margin-top:36px;padding-top:32px;border-top:3px dashed var(--marca);display:flex;justify-content:space-between;align-items:center;font:700 48px/1 var(--c);color:var(--marca)}
+.cartao .falta b{font:800 96px/1 var(--t)}
+.balao{font-size:40px;line-height:1.3;padding:30px 40px;border-radius:36px;max-width:660px}
+.balao.a{background:#fff;border:3px solid var(--marca);border-bottom-left-radius:6px}
+.balao.b{background:var(--marca);color:var(--fundo);align-self:flex-end;border-bottom-right-radius:6px}
+.conversa{display:flex;flex-direction:column;gap:28px;margin:72px 0 0}
+.conversa small{font-size:28px;color:#4a4a4a;display:block;margin-bottom:6px}
+.balao.b small{color:#d9dde4}
+
+/* método */
+.lista{list-style:none;padding:0;display:flex;flex-direction:column;gap:44px}
+.lista li{display:flex;align-items:center;gap:40px;font:700 56px/1.1 var(--c);color:var(--marca)}
+.lista .num{font:800 40px/1 var(--t);width:88px;height:88px;border-radius:50%;border:4px solid var(--marca);display:flex;align-items:center;justify-content:center;flex:none}
+.lista svg{flex:none}
+.conta{border-top:4px solid var(--marca);padding-top:36px}
+.linha{display:flex;justify-content:space-between;font:500 48px/1.6 var(--c);color:var(--marca)}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:24px;padding-top:28px;border-top:4px dashed var(--marca);color:var(--marca)}
+.total span{font:700 40px/1 var(--c)} .total b{font:800 120px/1 var(--t)}
+
+/* virada */
+.selo{width:560px;height:560px;margin:40px auto 0;display:block}
+.virada p{text-align:center;font-size:44px}
+
+/* chamada */
+.chamada .palavra{font:800 300px/.9 var(--t);letter-spacing:-.04em;margin:28px 0 40px}
+.chamada p{font-size:44px;font-weight:500}
+.chamada .zap{font:700 44px/1.2 var(--c);margin-top:28px}
+</style><style>
+.post h2{font-size:104px}
+.post .preco{font:800 200px/1 var(--t);color:var(--destaque);letter-spacing:-.03em}
+.clara .preco{color:var(--marca)}
+.post .zap{font:700 40px/1.25 var(--c)}
+.post .grafismo{position:absolute;right:96px;bottom:150px}
+</style></head><body>
+<div class="palco">
+  <section class="lamina clara post">
+    <span class="olho" style="color:var(--marca)">Para o escritório</span>
+    <h2 style="margin-top:40px">O parabéns das 16h cabe num bolo inteiro.</h2>
+    <div class="base" style="margin-bottom:90px">
+      <div class="preco">R$ 70</div>
+      <div class="zap" style="color:var(--marca);margin-top:20px">Peça: (19) 90000-0000</div>
+    </div>
+    <svg class="grafismo" width="340" height="340" viewBox="0 0 120 120" fill="none" stroke="#1F3A5F" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M18 108h84M24 108V66h72v42"/>
+      <path d="M24 82c8 6 16 6 24 0s16-6 24 0 16 6 24 0"/>
+      <path d="M60 66V46"/>
+      <path d="M60 30c-5 6-5 10 0 12 5-2 5-6 0-12z" fill="#E3A93B" stroke="#1F3A5F"/>
+    </svg>
+    <div class="rodape"><span>@trigoazul.cambui</span><span>Padaria Trigo Azul · Cambuí</span></div>
+  </section>
+</div>
+<div class="controles"><button type="button" aria-label="Lâmina anterior">&#8249;</button><span class="conta-n"></span><button type="button" aria-label="Próxima lâmina">&#8250;</button></div>
+<script>
+// Uma lâmina por vez, do tamanho da janela. ?n=3 mostra só a lâmina 3, sem botões (relatório e print).
+const n=+new URLSearchParams(location.search).get('n'), ls=[...document.querySelectorAll('.lamina')];
+const [ant,prox]=document.querySelectorAll('.controles button'), conta=document.querySelector('.conta-n');
+let i=Math.min(Math.max((n||1)-1,0),ls.length-1);
+if(n) document.body.classList.add('so');
+if(ls.length<2) document.querySelector('.controles').hidden=true;
+function mostra(){ ls.forEach((l,k)=>l.hidden=k!==i); conta.textContent=(i+1)+' / '+ls.length; ant.disabled=i===0; prox.disabled=i===ls.length-1; }
+function escala(){ const folga=n?0:80; document.documentElement.style.setProperty('--s',Math.min(1,innerWidth/1080,(innerHeight-folga)/1350)); }
+ant.onclick=()=>{ if(i>0){i--;mostra();} }; prox.onclick=()=>{ if(i<ls.length-1){i++;mostra();} };
+addEventListener('keydown',e=>{ if(e.key==='ArrowRight') prox.click(); if(e.key==='ArrowLeft') ant.click(); });
+addEventListener('resize',escala); escala(); mostra();
+</script></body></html>

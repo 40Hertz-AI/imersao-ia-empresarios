@@ -1,0 +1,4 @@
+entregas/oferta.md	4545 bytes
+memoria/empresa.md	619 bytes
+memoria/foco.md	148 bytes
+memoria/preferencias.md	74 bytes

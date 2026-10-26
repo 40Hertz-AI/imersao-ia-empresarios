@@ -1,0 +1,19 @@
+# Torra Viva Cafés Especiais · dados fictícios de exemplo
+regra,valor,unidade,como_aplicar
+xicaras_por_pessoa_por_dia,2,xícaras,"Padrão. Se o cliente informar outro número, usar o dele."
+gramas_por_xicara,10,g,Dose de um café coado ou espresso.
+dias_uteis_por_mes,21,dias,"Padrão. Se o cliente informar outro número, usar o dele."
+arredondamento_kg,1,kg,Arredondar o total de kg do mês para cima (o café vai em pacotes de 1 kg).
+preco_blend_escritorio,98.00,R$/kg,Blend Escritório 1 kg (TV-102).
+preco_mantiqueira_classico,140.00,R$/kg,Mantiqueira Clássico 1 kg (TV-103).
+preco_cerrado_doce,128.00,R$/kg,Cerrado Doce 1 kg (TV-104).
+desconto_volume_10kg,5,%,A partir de 10 kg/mês. Sobre o valor do café.
+desconto_volume_20kg,10,%,A partir de 20 kg/mês. Substitui o de 10 kg.
+desconto_volume_40kg,15,%,A partir de 40 kg/mês. Substitui os anteriores.
+desconto_contrato_anual,5,%,Contrato de 12 meses. Soma com o desconto de volume; os dois valem sobre o valor do café.
+maquina_comodato_minimo,8,kg/mês,"A partir de 8 kg/mês a máquina de café vai em comodato (empréstimo), sem custo."
+maquina_aluguel,120.00,R$/mês,"Abaixo de 8 kg/mês, a máquina custa este aluguel. O cliente pode dispensar a máquina."
+frete_mensal,35.00,R$/mês,Uma entrega por mês.
+frete_gratis_a_partir_de,600.00,R$,"Frete grátis quando o café com desconto der R$ 600,00 ou mais no mês."
+validade_orcamento,15,dias,Prazo de validade do orçamento.
+ordem_do_calculo,1 a 7,passos,"1) kg = pessoas × xícaras × gramas × dias ÷ 1000, arredondado para cima; 2) café = kg × preço do kg; 3) desconto = volume + anual; café com desconto = café × (1 − desconto); 4) máquina; 5) frete; 6) total do mês = café com desconto + máquina + frete; 7) custo por xícara = total ÷ (pessoas × xícaras × dias)."

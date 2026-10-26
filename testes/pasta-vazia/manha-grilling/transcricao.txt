@@ -1,0 +1,12 @@
+════════ mensagem 1 do aluno ════════
+Me grelhe (grill me) sobre este plano antes de eu começar: quero oferecer cestas de café da manhã para empresas na minha padaria em Campinas. Responda você mesmo, como se fosse o dono, o Jorge, a cada rodada, usando só isto: ele já faz cestas para presente; tem 1 carro de entrega; quer começar em dezembro; não sabe o preço que vai cobrar. O que ele não souber, ele diz "não sei". No máximo 2 rodadas; no fim, salve as decisões em plano-cestas.md.
+
+════════ resposta do Claude ════════
+Fiz as duas rodadas e salvei o resultado em `/tmp/vazia-manha-grilling/plano-cestas.md`.
+
+O plano tem pouca coisa decidida. Só três pontos estão firmes, e todos vieram dos fatos que você deu: o produto parte das cestas de presente, existe 1 carro de entrega e o início é em dezembro. As outras 9 perguntas ficaram em "não sei". Cada uma está no arquivo com a minha recomendação.
+
+**O maior risco:** dezembro também é o pico das cestas de presente. Com um carro só, as entregas para empresas, que precisam chegar de manhã cedo, vão disputar o carro com as entregas de Natal.
+
+**Antes de começar:** defina o preço. Uma forma é calcular quanto custa uma cesta de presente atual e usar isso como base. Sem preço, não dá para oferecer o serviço às empresas a tempo de dezembro.
+
