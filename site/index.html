@@ -1117,9 +1117,9 @@ git --version</pre><button type="button">Copiar</button></div>
 (function(){
   // ---------- DATAS DA TURMA (horário de Brasília) ----------
   // DIA_AULA: dia da aula (contagem regressiva).
-  // LIBERA_EM: a partir deste dia (00:00 de Brasília) abrem a avaliação e os downloads.
+  // LIBERA_EM: a partir deste dia (00:00 de Brasília) abrem os downloads. A avaliação abre no dia seguinte ao DIA_AULA.
   // Para liberar antes, troque LIBERA_EM aqui E em site/middleware.js (que bloqueia /downloads no servidor).
-  var DIA_AULA = '2026-10-27', LIBERA_EM = '2026-10-28', LIBERA_TXT = '28/10';
+  var DIA_AULA = '2026-10-27', LIBERA_EM = '2026-10-27', LIBERA_TXT = '27/10';
   var agora = new Date();
   var hojeBR = new Date(agora.toLocaleString('en-US',{timeZone:'America/Sao_Paulo'}));
   var hoje0 = new Date(hojeBR.getFullYear(), hojeBR.getMonth(), hojeBR.getDate());
@@ -1143,7 +1143,7 @@ git --version</pre><button type="button">Copiar</button></div>
   else if (faltam === 0) {
     rot.textContent = 'Acontecendo'; num.textContent = 'Hoje';
     document.getElementById('aviso-titulo').textContent = 'É hoje. Nos vemos na aula.';
-    document.getElementById('aviso-texto').textContent = 'Traga o notebook com tudo instalado. Os materiais liberam aqui no dia ' + LIBERA_TXT + '.';
+    document.getElementById('aviso-texto').textContent = 'Traga o notebook com tudo instalado. A pasta minha-empresa você baixa aqui antes do almoço, quando o Lucas pedir.';
     var b = document.getElementById('aviso-btn'); b.href = '#instalar';
     b.firstChild.textContent = 'Conferir a instalação ';
   } else {
@@ -1336,7 +1336,7 @@ git --version</pre><button type="button">Copiar</button></div>
     var bar = document.getElementById('av-bar'), msg = document.getElementById('aval-msg');
     var btn = document.getElementById('aval-btn'), motivo = document.getElementById('av-motivo');
     var ultimoFoco = null;
-    var depoisDaAula = liberado;
+    var depoisDaAula = hoje0 > dia0; // a pesquisa abre só depois do dia da aula
 
     // escala 0–10
     var scale = document.getElementById('av-scale');
