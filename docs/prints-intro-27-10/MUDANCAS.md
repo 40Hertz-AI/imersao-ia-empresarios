@@ -2,6 +2,8 @@
 
 PDF: `site/downloads/apresentacao-imersao-ia.pdf`. Antes 75 páginas, agora **94** (introdução: 13 → 31 páginas). Fonte dos slides novos e script de build em `deck/intro-2026-10-27/`.
 
+> **Atualização (25/10/2026):** a manhã e a tarde também foram refeitas e o deck passou a ter **102 páginas**. A introdução (1 a 31) não mudou; a página 32 agora é "A manhã" e a Fase 1 começa na 33, e Previsibilidade foi para a 85. A ordem atual está em `deck/intro-2026-10-27/README.md`. Os números de página abaixo valem para a versão de 94 páginas.
+
 Os prints desta pasta saem do PDF final (`pdftoppm -r 100`). O prefixo é a página nova. Também há prints da pág. 32 (Fase 1, para conferir a emenda) e da pág. 79 (Previsibilidade, na tarde).
 
 ## O que saiu
