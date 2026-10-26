@@ -20,11 +20,15 @@ Os Artifacts do Claude Code funcionam nos planos Pro, Max, Team e Enterprise, co
 ## 1. Calculadora de orçamento
 
 ```
-Crie meu-trabalho/calculadora-orcamento.html e publique como artifact: uma calculadora de orçamento de café para escritório da Torra Viva, num arquivo só (HTML, CSS e JavaScript juntos).
+Crie uma calculadora e publique no artefato.
+
+Uma calculadora de orçamento de café para escritório da Torra Viva.
+
 Campos: número de pessoas, xícaras por pessoa por dia (padrão 2), dias úteis no mês (padrão 21), café (Blend Escritório, Mantiqueira Clássico ou Cerrado Doce), contrato anual (sim ou não) e máquina de café (sim ou não).
+
 Siga as regras de dados/orcamento.csv, na ordem em que estão escritas, e mostre a conta de cada linha: kg por mês, valor do café, desconto, máquina, frete, total do mês e custo por xícara. O resultado muda na hora, a cada alteração.
-Use a skill frontend-design no acabamento. Escreva no rodapé "Dados fictícios de exemplo".
-Para dar para testar, deixe a conta numa função calcularOrcamento({pessoas, xicaras, dias, cafe, anual, maquina}) que devolve {kg, valorCafe, descontoPct, cafeComDesconto, maquina, frete, total, custoPorXicara}.
+
+Use a skill frontend-design no acabamento.
 ```
 
 **Confira na mão:** 25 pessoas, 2 xícaras, 21 dias, Blend Escritório, contrato anual, com máquina → 11 kg, café R$ 1.078,00, desconto de 10%, café com desconto R$ 970,20, máquina e frete grátis, **total R$ 970,20 por mês**, R$ 0,92 por xícara.
@@ -32,9 +36,13 @@ Para dar para testar, deixe a conta numa função calcularOrcamento({pessoas, xi
 ## 2. Dashboard de vendas
 
 ```
-Crie meu-trabalho/dashboard-vendas.html e publique como artifact: um painel das vendas da Torra Viva de janeiro a setembro de 2026, num arquivo só, com os dados de dados/vendas-mensais.csv e dados/clientes-b2b.csv embutidos no próprio HTML (para abrir sem internet).
+Crie uma dashboard e publique no artefato.
+
+Um painel das vendas da Torra Viva de janeiro a setembro de 2026, num arquivo só, com os dados de dados/vendas-mensais.csv e dados/clientes-b2b.csv.
+
 Mostre: 4 números grandes (faturamento total, lucro bruto, melhor mês e clientes B2B ativos em setembro), um gráfico de faturamento por mês, um gráfico por canal, a tabela dos 5 produtos que mais faturaram e um filtro por canal que atualiza tudo.
-Desenhe os gráficos com SVG, sem biblioteca de fora. Use a skill frontend-design no acabamento. Escreva "Dados fictícios de exemplo" no topo.
+
+Desenhe os gráficos. Use a skill frontend-design no acabamento.
 ```
 
 **Confira:** faturamento total de janeiro a setembro: R$ 765.578,40 · melhor mês: agosto · 12 clientes B2B ativos em setembro.
@@ -42,11 +50,13 @@ Desenhe os gráficos com SVG, sem biblioteca de fora. Use a skill frontend-desig
 ## 3. Apresentação
 
 ```
-Crie meu-trabalho/apresentacao.html e publique como artifact: uma apresentação de 6 slides com os resultados da Torra Viva de janeiro a setembro de 2026, para a reunião com a equipe.
-Use os dados da pasta dados/ (sem inventar número), com a skill frontend-design no visual e a humanizer no texto.
-Um arquivo só. Passa de slide com as setas do teclado e com clique, e mostra o número do slide. Tudo cabe numa tela de notebook (1280 × 720) sem nada sobreposto.
+Crie uma apresentação e publique como artifact.
+
+Uma apresentação de 6 slides com os resultados da Torra Viva de janeiro a setembro de 2026, para a reunião com a equipe.
+
+Use os dados da pasta dados, com a skill frontend-design no visual e a humanizer no texto.
+
 Slides: 1) título; 2) os números do período; 3) o canal que mais cresceu; 4) os clientes B2B: quem entrou, quem saiu e por quê; 5) 3 ações para o último trimestre; 6) obrigado.
-Rodapé em todos os slides: "Dados fictícios de exemplo".
 ```
 
 Quer em PDF? Abra o arquivo no Chrome → **Ctrl+P** (Mac: **Cmd+P**) → Destino: **Salvar como PDF**.
@@ -57,7 +67,7 @@ Quer em PDF? Abra o arquivo no Chrome → **Ctrl+P** (Mac: **Cmd+P**) → Destin
 
 | O quê | Onde |
 |---|---|
-| Os arquivos | `meu-trabalho/calculadora-orcamento.html`, `meu-trabalho/dashboard-vendas.html` e `meu-trabalho/apresentacao.html`. Dois cliques abrem no navegador |
+| Os arquivos | Os `.html` em `meu-trabalho/`. Dois cliques abrem no navegador |
 | Os Artifacts | No link que o Claude Code mostra no fim da resposta. Para achar depois: digite `/artifacts` no Claude Code ou abra [claude.ai/code/artifacts](https://claude.ai/code/artifacts) |
 
 O Artifact começa privado. Para mostrar a alguém, abra o Artifact e clique em **Share** (Compartilhar), no topo da página.
@@ -73,9 +83,9 @@ Use se o Claude Code não abriu no seu computador. Comece pela calculadora.
    - calculadora: `dados/orcamento.csv`;
    - dashboard: `dados/vendas-mensais.csv` e `dados/clientes-b2b.csv`;
    - apresentação: `dados/vendas-mensais.csv`, `dados/clientes-b2b.csv` e `dados/produtos.csv`.
-3. Cole o prompt do item 1, 2 ou 3 e troque só o começo, até os dois-pontos, por:
+3. Cole o prompt do item 1, 2 ou 3 e troque só a primeira linha por:
    ```
-   Com os arquivos anexados, crie um artifact:
+   Com os arquivos anexados, crie um artifact.
    ```
 4. A página aparece ao lado da conversa. Para guardar: clique no **título do Artifact** → **Export** (Exportar) → **HTML**. O arquivo vai para a pasta Downloads: mova para `meu-trabalho/` com o mesmo nome do item (`calculadora-orcamento.html`, `dashboard-vendas.html` ou `apresentacao.html`).
 
@@ -85,7 +95,7 @@ Repare: no claude.ai, o Claude só sabe o que você anexou. Na pasta, ele já li
 
 ## Resultado esperado
 
-Três arquivos em `meu-trabalho/`: `calculadora-orcamento.html`, `dashboard-vendas.html` e `apresentacao.html`, e três Artifacts no claude.ai.
+Três arquivos `.html` em `meu-trabalho/` (calculadora, dashboard e apresentação) e três Artifacts no claude.ai.
 
 **O que reparar:** a calculadora seguiu regras que estão num arquivo (`orcamento.csv`), não na sua cabeça · o mesmo pedido virou um arquivo na pasta e uma página no claude.ai · mudou a regra? Mude o CSV e peça para atualizar a calculadora.
 

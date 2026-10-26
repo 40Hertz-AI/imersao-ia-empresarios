@@ -51,9 +51,10 @@ b = blocos("06-paginas-web")
 grava("passo-06-calculadora", b[0])
 grava("passo-06-dashboard", b[1])
 grava("passo-06-apresentacao", b[2])
-# plano B (claude.ai): o começo do prompt, até os dois-pontos, troca pelo bloco do INSTRUCOES; os anexos ficam em anexos/
-inicio, _, resto = b[0].partition(":")
-assert inicio.startswith("Crie meu-trabalho/calculadora-orcamento.html") and b[3].endswith(":")
+# plano B (claude.ai): a primeira linha do prompt troca pelo bloco do INSTRUCOES; os anexos ficam em anexos/
+inicio, _, resto = b[0].partition("\n")
+assert inicio.startswith("Crie uma calculadora") and b[3].startswith("Com os arquivos anexados")
+resto = "\n" + resto
 grava("passo-06-claudeai-calculadora",
       "(Simulação do claude.ai: os arquivos que o aluno anexou à conversa estão na pasta anexos/. "
       "Salve o artifact como calculadora-orcamento.html nesta pasta, que é o que o aluno baixaria em Export → HTML.)\n\n"
