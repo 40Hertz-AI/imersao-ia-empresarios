@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>IA para empresários · nova introdução (27/10/2026)</title>
 <!--
-  Fonte dos slides novos da introdução (9h–10h). Cada <section class="slide"> vira
+  Fonte dos slides novos (introdução, manhã e tarde). Cada <section class="slide"> vira
   uma página de 960x540pt no PDF. A ordem aqui é a ordem em que os slides novos
   entram no deck; build.sh intercala com as páginas reaproveitadas do PDF original.
   O atributo data-id é o número do slide no roteiro (roteiro.md).
@@ -461,14 +461,24 @@ h1.xl { font-size: 72px; line-height: 1.06; }
 .v3 .fl div.vi { border-color: rgba(167,139,250,.42); } .v3 .fl div.vi b { color: #a78bfa; }
 .v3 .fl div.ye { border-color: rgba(251,189,4,.42); } .v3 .fl div.ye b { color: #fbbd04; }
 
-/* trilha: 8 passos em duas colunas */
-.v3 .tl { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; }
-.v3 .ti { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 14px; padding: 12px 18px; display: grid; grid-template-columns: 56px 34px 1fr auto; gap: 14px; align-items: center; min-height: 66px; }
-.v3 .ti .tt { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: -.01em; line-height: 1.25; }
-.v3 .ti .ds { font-size: 14px; color: #909090; margin-top: 3px; line-height: 1.3; }
-.v3 .ti .ds code { font-size: 12.5px; padding: 1px 5px; }
-.v3 .ti .mn { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fb923c; white-space: nowrap; }
+/* trilha: 6 passos em duas colunas (1 a 3 à esquerda, 4 a 6 à direita) */
+.v3 .tl { margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 18px; }
+.v3 .ti { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 14px; padding: 16px 20px; display: grid; grid-template-columns: 34px 1fr; gap: 16px; align-items: center; min-height: 82px; }
+.v3 .ti .tt { font-size: 19px; font-weight: 700; color: #fff; letter-spacing: -.01em; line-height: 1.25; }
+.v3 .ti .ds { font-size: 15px; color: #909090; margin-top: 4px; line-height: 1.3; }
+.v3 .ti .ds code { font-size: 13px; padding: 1px 5px; }
 .v3 .ti.h { background: rgba(251,189,4,.07); border-color: rgba(251,189,4,.4); }
+
+/* prompt: as 4 partes em cartões maiores; ruim × bom lado a lado */
+.v3 .c4.pq { margin-top: 28px; }
+.v3 .c4.pq .cc { padding: 26px 26px 28px; }
+.v3 .c4.pq .q { font-size: 22px; }
+.v3 .c4.pq .ex { font-size: 16px; margin-top: 16px; padding-top: 16px; }
+.v3 .p2.rb { margin-top: 26px; grid-template-columns: 5fr 7fr; }
+.v3 .rb .pr { margin: 20px 0 16px; font-size: 25px; font-weight: 700; line-height: 1.3; letter-spacing: -.015em; color: #fff; }
+.v3 .rb .sx { font-size: 16px; line-height: 1.5; color: #909090; }
+.v3 .rb .pb { margin-top: 18px; font-size: 15.5px; line-height: 1.55; color: #e8e3d9; }
+.v3 .rb .pb b { color: #fbbd04; font-weight: 700; }
 
 /* fechamento: 3 momentos + checklist */
 .v3 .c3.cp .cc { min-height: 0; padding: 18px 22px 20px; font-size: 15.5px; line-height: 1.45; }
@@ -974,22 +984,6 @@ h1.xl { font-size: 72px; line-height: 1.06; }
      em montar.py. Fonte da verdade do conteúdo: manha/ e tarde/ do repo.
      ===================================================================== -->
 
-<!-- ============ M00 · A manhã (10h00) ============ -->
-<section class="slide v3 dk" data-id="m00" data-nome="manha-agenda">
-  <div class="vb">
-    <div class="vk"><i data-i="clock"></i>A manhã <span class="tp"><span class="hm">10h00–12h30</span></span></div>
-    <h2>Primeiro eu mostro. <span class="y">Depois vocês fazem.</span></h2>
-    <div class="c4">
-      <div class="cc"><div class="hh">10h00–10h45</div><div class="tt">Teoria demonstrada</div>Modelo, prompt, pasta, conexões, skills e contexto. Só eu no computador; vocês assistem.</div>
-      <div class="cc"><div class="hh">10h45–10h55</div><div class="tt">Intervalo</div>Os monitores conferem a instalação e o login de cada um.</div>
-      <div class="cc h"><div class="hh">10h55–12h12</div><div class="tt">Trilha prática</div>8 passos com a Torra Viva Cafés Especiais, todos na mesma ordem.</div>
-      <div class="cc"><div class="hh">12h12–12h30</div><div class="tt">Fechamento</div>Tempo livre, 2 ou 3 resultados no telão e o checkpoint da manhã.</div>
-    </div>
-    <div class="co">A IA só sabe o que está na mesa.</div>
-  </div>
-  <div class="vf">Almoço das 12h30 às 13h30. A tarde começa às 13h30.</div>
-</section>
-
 <!-- ============ M01 · Fase 1: o modelo (divisor) ============ -->
 <section class="slide v3 dk" data-id="m01" data-nome="fase-1-modelo">
   <div class="vb">
@@ -1005,20 +999,33 @@ h1.xl { font-size: 72px; line-height: 1.06; }
   <div class="vf">Teoria · só eu mostro</div>
 </section>
 
-<!-- ============ M02 · Prompt: Papel, Contexto, Tarefa e Formato (10h08) ============ -->
-<section class="slide v3 dk" data-id="m02" data-nome="prompt-quatro-partes">
+<!-- ============ M02a · Prompt: as 4 partes (Papel, Contexto, Tarefa, Formato) ============ -->
+<section class="slide v3 dk" data-id="m02a" data-nome="prompt-quatro-partes">
   <div class="vb">
     <div class="vk v"><i data-i="monitor"></i>Ao vivo · eu mostro</div>
     <h2>Prompt bom é <span class="y">briefing de agência.</span></h2>
-    <div class="cx"><div class="cd lg"><span class="lb">Prompt ruim</span>Escreve um e-mail avisando que o preço vai subir.</div></div>
-    <div class="c4" style="margin-top:18px">
-      <div class="cc"><div class="lb">Papel</div><div class="q">Quem a IA deve ser?</div><div class="ex">"Você é a Marina, gerente comercial da Torra Viva."</div></div>
-      <div class="cc"><div class="lb">Contexto</div><div class="q">O que ela precisa saber?</div><div class="ex">Clínica Bem Viver, cliente desde nov/2025. O kg sobe 6% em 01/12; quem renovar até 30/11 mantém o preço.</div></div>
-      <div class="cc"><div class="lb">Tarefa</div><div class="q">O que exatamente fazer?</div><div class="ex">"Escreva o e-mail avisando o reajuste e oferecendo a renovação."</div></div>
-      <div class="cc h"><div class="lb">Formato</div><div class="q">Como deve vir a resposta?</div><div class="ex">"Assunto + até 150 palavras, sem jargão, com uma chamada clara no fim."</div></div>
+    <p class="vl">Quatro partes. A que faltar, a IA chuta.</p>
+    <div class="c4 pq">
+      <div class="cc"><div class="lb">01 · Papel</div><div class="q">Quem a IA deve ser?</div><div class="ex">"Você é a Marina, gerente comercial da Torra Viva."</div></div>
+      <div class="cc"><div class="lb">02 · Contexto</div><div class="q">O que ela precisa saber?</div><div class="ex">Cliente, situação, números e tom: o que você contaria a alguém que chegou hoje.</div></div>
+      <div class="cc"><div class="lb">03 · Tarefa</div><div class="q">O que exatamente fazer?</div><div class="ex">"Escreva o e-mail avisando o reajuste e oferecendo a renovação."</div></div>
+      <div class="cc h"><div class="lb">04 · Formato</div><div class="q">Como deve vir a resposta?</div><div class="ex">"Assunto + até 150 palavras, sem jargão, com uma chamada clara no fim."</div></div>
     </div>
   </div>
-  <div class="vf">Exemplo 1 do passo 3 (Torra Viva, empresa fictícia). O Formato é a parte que as pessoas mais esquecem.</div>
+  <div class="vf">As 4 partes do passo 3 (Torra Viva, empresa fictícia). O Formato é a parte que as pessoas mais esquecem.</div>
+</section>
+
+<!-- ============ M02b · Prompt ruim × prompt bom, lado a lado ============ -->
+<section class="slide v3 dk" data-id="m02b" data-nome="prompt-ruim-x-bom">
+  <div class="vb">
+    <div class="vk v"><i data-i="monitor"></i>Ao vivo · eu mostro</div>
+    <h2>Mesmo pedido. <span class="y">Dois prompts.</span></h2>
+    <div class="p2 rb">
+      <div class="pn"><span class="ch">Prompt ruim</span><p class="pr">Escreve um e-mail avisando que o preço vai subir.</p><p class="sx">Sem papel, sem contexto, sem formato: a IA chuta o cliente, o motivo, o prazo e o tom. O texto sai genérico e você reescreve.</p></div>
+      <div class="pn h"><span class="ch">Prompt bom</span><p class="pb"><b>Papel:</b> você é a Marina, gerente comercial da Torra Viva Cafés Especiais, e fala com os clientes de um jeito próximo e direto.<br><b>Contexto:</b> a Clínica Bem Viver é cliente desde novembro de 2025, tem 32 funcionários, plano Mantiqueira Clássico com contrato anual e deu nota 10 na última pesquisa. O preço do kg vai subir 6% a partir de 01/12/2026, porque o café verde (o grão cru, antes da torra) ficou mais caro. Quem renovar o contrato anual até 30/11 mantém o preço atual por mais 12 meses.<br><b>Tarefa:</b> escreva o e-mail avisando o reajuste e oferecendo a renovação.<br><b>Formato:</b> assunto + corpo de até 150 palavras, sem jargão, com uma chamada clara no fim. Assine "Marina, Torra Viva".</p></div>
+    </div>
+  </div>
+  <div class="vf">Exemplo 1 do passo 3 (Torra Viva, empresa fictícia). Cole um, digite /clear, cole o outro e compare.</div>
 </section>
 
 <!-- ============ M03 · Fase 2: MCP (divisor) ============ -->
@@ -1036,7 +1043,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
   <div class="vf">Teoria · só eu mostro</div>
 </section>
 
-<!-- ============ M04 · Demo: do Drive para a resposta (10h18) ============ -->
+<!-- ============ M04 · Demo: do Drive para a resposta ============ -->
 <section class="slide v3 dk" data-id="m04" data-nome="demo-drive-planilha">
   <div class="vb">
     <div class="vk v"><i data-i="monitor"></i>Ao vivo · eu mostro</div>
@@ -1066,7 +1073,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
   <div class="vf">Teoria · só eu mostro</div>
 </section>
 
-<!-- ============ M06 · Demo: /eli5 já veio na pasta (10h25) ============ -->
+<!-- ============ M06 · Demo: /eli5 já veio na pasta ============ -->
 <section class="slide v3 dk" data-id="m06" data-nome="demo-eli5">
   <div class="vb">
     <div class="vk v"><i data-i="monitor"></i>Ao vivo · eu mostro</div>
@@ -1081,7 +1088,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
   <div class="vf">Pasta da manhã · .claude/skills/</div>
 </section>
 
-<!-- ============ M08 · A pasta é a sala de reunião (10h33) ============ -->
+<!-- ============ M08 · A pasta é a sala de reunião ============ -->
 <section class="slide v3 dk" data-id="m08" data-nome="pasta-sala-de-reuniao">
   <div class="pa">
     <div>
@@ -1094,7 +1101,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
     <div class="fl">
       <div class="ye"><b>CLAUDE.md</b>a ficha da Torra Viva e as regras da casa</div>
       <div><b>dados/</b>vendas, produtos, clientes e orçamento (fictícios)</div>
-      <div><b>passos/</b>os 8 passos, com os prompts prontos</div>
+      <div><b>passos/</b>os 6 passos, com os prompts prontos</div>
       <div><b>gabarito/</b>o resultado pronto de cada passo</div>
       <div><b>.claude/skills/</b>as skills que já vieram</div>
       <div><b>progresso.md</b>o checklist: "o que falta?"</div>
@@ -1116,41 +1123,28 @@ h1.xl { font-size: 72px; line-height: 1.06; }
   </div>
 </section>
 
-<!-- ============ M09 · Intervalo (10h45–10h55) ============ -->
-<section class="slide v3 pz" data-id="m09" data-nome="intervalo-manha">
-  <div class="ph"></div>
-  <div class="pl">
-    <div class="vk"><i data-i="clock"></i>Pausa</div>
-    <h2>Intervalo.</h2>
-    <div class="hr">10h45 às 10h55</div>
-    <div class="nt">Os monitores conferem a instalação e o login. Na volta, a trilha prática com a Torra Viva.</div>
-  </div>
-</section>
-
-<!-- ============ M10 · A trilha: 8 passos (10h55–12h12) ============ -->
-<section class="slide v3" data-id="m10" data-nome="trilha-8-passos">
+<!-- ============ M10 · Sua vez: a trilha de 6 passos ============ -->
+<section class="slide v3" data-id="m10" data-nome="trilha-6-passos">
   <div class="vb">
-    <div class="vk">Sua vez · trilha prática <span class="tp"><i data-i="clock"></i><span class="hm">10h55–12h12</span></span></div>
-    <h2 class="sm">8 passos com a <span class="y">Torra Viva Cafés Especiais.</span></h2>
+    <div class="vk">Sua vez · trilha prática</div>
+    <h2 class="sm">6 passos com a <span class="y">Torra Viva Cafés Especiais.</span></h2>
     <div class="tl">
-      <div class="ti"><span class="hh">10h55</span><span class="bd">1</span><div><div class="tt">Abrir a pasta</div><div class="ds">o Claude responde nesta pasta</div></div><span class="mn">5 min</span></div>
-      <div class="ti"><span class="hh">11h23</span><span class="bd">5</span><div><div class="tt">Criar uma skill: /resposta-cliente</div><div class="ds"><code>.claude/skills/resposta-cliente/</code></div></div><span class="mn">8 min</span></div>
-      <div class="ti"><span class="hh">11h00</span><span class="bd">2</span><div><div class="tt">Google Drive e planilhas</div><div class="ds">o Doc no Drive ou <code>meu-trabalho/resumo-vendas.md</code></div></div><span class="mn">8 min</span></div>
-      <div class="ti"><span class="hh">11h31</span><span class="bd">6</span><div><div class="tt">Design system</div><div class="ds"><code>meu-trabalho/design-system.md</code></div></div><span class="mn">9 min</span></div>
-      <div class="ti"><span class="hh">11h08</span><span class="bd">3</span><div><div class="tt">Prompts que funcionam</div><div class="ds"><code>meu-trabalho/prompts.md</code></div></div><span class="mn">10 min</span></div>
-      <div class="ti"><span class="hh">11h40</span><span class="bd">7</span><div><div class="tt">Páginas web</div><div class="ds">calculadora, dashboard e apresentação</div></div><span class="mn">20 min</span></div>
-      <div class="ti"><span class="hh">11h18</span><span class="bd">4</span><div><div class="tt">Usar uma skill pronta: /eli5</div><div class="ds">a explicação em 5 partes</div></div><span class="mn">5 min</span></div>
-      <div class="ti"><span class="hh">12h00</span><span class="bd">8</span><div><div class="tt">Animação</div><div class="ds">Claude Motion ou o plano B em HTML</div></div><span class="mn">12 min</span></div>
+      <div class="ti"><span class="bd">1</span><div><div class="tt">Abrir a pasta</div><div class="ds">o Claude responde nesta pasta</div></div></div>
+      <div class="ti"><span class="bd">4</span><div><div class="tt">Usar uma skill pronta: /eli5</div><div class="ds">a explicação em 5 partes</div></div></div>
+      <div class="ti"><span class="bd">2</span><div><div class="tt">Google Drive e planilhas</div><div class="ds">o Doc no Drive ou <code>meu-trabalho/resumo-vendas.md</code></div></div></div>
+      <div class="ti"><span class="bd">5</span><div><div class="tt">Criar uma skill: /resposta-cliente</div><div class="ds"><code>.claude/skills/resposta-cliente/</code></div></div></div>
+      <div class="ti"><span class="bd">3</span><div><div class="tt">Prompts que funcionam</div><div class="ds"><code>meu-trabalho/prompts.md</code></div></div></div>
+      <div class="ti h"><span class="bd">6</span><div><div class="tt">Páginas web com Artifacts</div><div class="ds">calculadora, dashboard e apresentação</div></div></div>
     </div>
-    <div class="wn"><i data-i="alert"></i><div><b>Um passo por conversa:</b> <span class="mono">/clear</span>. Prompts prontos em <span class="mono">passos/</span>. Travou? Post-it vermelho. Acabou o tempo: confira o <span class="mono">gabarito/</span> e siga.</div></div>
+    <div class="wn"><i data-i="alert"></i><div><b>Um passo por conversa:</b> <span class="mono">/clear</span>. Prompts prontos em <span class="mono">passos/</span>. Travou? Post-it vermelho. Ficou para trás: confira o <span class="mono">gabarito/</span> e siga.</div></div>
   </div>
   <div class="vf">Empresa fictícia, dados fictícios de exemplo. Tudo o que vocês criarem vai para meu-trabalho/.</div>
 </section>
 
-<!-- ============ M11 · Passo 1: abrir a pasta (10h55) ============ -->
+<!-- ============ M11 · Passo 1: abrir a pasta ============ -->
 <section class="slide v3" data-id="m11" data-nome="passo-1-abrir-a-pasta">
   <div class="vb">
-    <div class="vk">Sua vez · passo 1 <span class="tp"><i data-i="clock"></i><span class="hm">10h55</span> · 5 min</span></div>
+    <div class="vk">Sua vez · passo 1</div>
     <h2>Passo 1: <span class="y">abrir a pasta.</span></h2>
     <div class="rw">
       <div class="r"><span class="bd">1</span><div><div class="tt">Baixe e descompacte</div><div class="ds">no portal → Baixar a pasta da manhã → extraia na Área de Trabalho: <code>imersao-manha</code>.</div></div></div>
@@ -1165,7 +1159,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
 <!-- ============ M12 · Passo 2: a planilha da Torra Viva (no lugar da antiga pág. 45) ============ -->
 <section class="slide v3" data-id="m12" data-nome="passo-2-planilha-torra-viva">
   <div class="vb">
-    <div class="vk">Sua vez · passo 2 · o caminho <span class="tp"><i data-i="clock"></i><span class="hm">11h00</span> · 8 min</span></div>
+    <div class="vk">Sua vez · passo 2 · o caminho</div>
     <h2>A planilha da <span class="y">Torra Viva</span>, em 3 passos.</h2>
     <div class="c3" style="margin-top:24px">
       <div class="cc h"><div class="tt">01 · Já está na pasta</div><p>Na sua pasta da manhã:</p><p><code>dados/</code> → <code>torra-viva.xlsx</code></p></div>
@@ -1179,7 +1173,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
 <!-- ============ M13 · Passo 2: pergunte à planilha (no lugar da antiga pág. 46) ============ -->
 <section class="slide v3" data-id="m13" data-nome="passo-2-pergunte-a-planilha">
   <div class="vb">
-    <div class="vk">Sua vez · passo 2 <span class="tp"><i data-i="clock"></i><span class="hm">11h00</span> · 8 min</span></div>
+    <div class="vk">Sua vez · passo 2</div>
     <h2 class="sm">Pergunte à planilha. <span class="y">Uma de cada vez.</span></h2>
     <div class="cx">
       <div class="cd s"><span class="n">1.</span>Procure no meu Google Drive a planilha "Torra Viva (dados fictícios)" e me diga, em poucas linhas, o que tem em cada aba.</div>
@@ -1193,24 +1187,10 @@ h1.xl { font-size: 72px; line-height: 1.06; }
   <div class="vf">Mesma conversa, uma pergunta por vez. Repare na 2: o que mais vende em unidades não é o que mais fatura.</div>
 </section>
 
-<!-- ============ M14 · Passo 2: plano B sem Google (no lugar da antiga pág. 47) ============ -->
-<section class="slide v3" data-id="m14" data-nome="passo-2-plano-b">
-  <div class="vb">
-    <div class="vk">Sua vez · passo 2 · plano B <span class="tp"><i data-i="clock"></i><span class="hm">11h00</span> · 8 min</span></div>
-    <h2>Sem Google? <span class="y">Os dados estão na pasta.</span></h2>
-    <div class="cx">
-      <div class="cd lg"><span class="lb">Troque só a primeira pergunta</span>Leia os arquivos .csv da pasta dados/ e me diga, em poucas linhas, o que tem em cada um.</div>
-      <div class="cd lg"><span class="lb">Depois das perguntas 2 a 5</span>Salve essas respostas em meu-trabalho/resumo-vendas.md, com "Dados fictícios de exemplo" no topo.</div>
-    </div>
-    <div class="wn"><i data-i="alert"></i><div>Confira <b>1 número</b> com os seus olhos: o Mantiqueira Clássico 250 g vende mais unidades (2.910), mas quem mais fatura é o Clube Torra Viva (R$ 165.189,00).</div></div>
-  </div>
-  <div class="vf">Respostas certas: gabarito/02-google-drive-e-planilhas/respostas-certas.md · dados fictícios de exemplo</div>
-</section>
-
-<!-- ============ M15 · Passo 3: prompt ruim × prompt bom (11h08) ============ -->
+<!-- ============ M15 · Passo 3: prompt ruim × prompt bom ============ -->
 <section class="slide v3" data-id="m15" data-nome="passo-3-prompts">
   <div class="vb">
-    <div class="vk">Sua vez · passo 3 <span class="tp"><i data-i="clock"></i><span class="hm">11h08</span> · 10 min</span></div>
+    <div class="vk">Sua vez · passo 3</div>
     <h2>Passo 3: <span class="y">prompt ruim × prompt bom.</span></h2>
     <div class="cx">
       <div class="cd s"><span class="lb">1 · Cole o ruim</span>Escreve um e-mail avisando que o preço vai subir.</div>
@@ -1221,10 +1201,10 @@ h1.xl { font-size: 72px; line-height: 1.06; }
   <div class="vf">Os 4 exemplos (e-mail, post, análise de vendas, mensagem) em passos/03-prompts-que-funcionam/INSTRUCOES.md</div>
 </section>
 
-<!-- ============ M16 · Passo 4: /eli5 (11h18) ============ -->
+<!-- ============ M16 · Passo 4: /eli5 ============ -->
 <section class="slide v3" data-id="m16" data-nome="passo-4-eli5">
   <div class="vb">
-    <div class="vk">Sua vez · passo 4 <span class="tp"><i data-i="clock"></i><span class="hm">11h18</span> · 5 min</span></div>
+    <div class="vk">Sua vez · passo 4</div>
     <h2><span class="y">/eli5:</span> me explique como se eu tivesse 5 anos.</h2>
     <div class="cx">
       <div class="cd">/eli5 o que é margem de contribuição</div>
@@ -1236,10 +1216,10 @@ h1.xl { font-size: 72px; line-height: 1.06; }
   <div class="vf">Respostas prontas: gabarito/04-usar-uma-skill-pronta/</div>
 </section>
 
-<!-- ============ M17 · Passo 5: criar a /resposta-cliente (11h23) ============ -->
+<!-- ============ M17 · Passo 5: criar a /resposta-cliente ============ -->
 <section class="slide v3" data-id="m17" data-nome="passo-5-resposta-cliente">
   <div class="vb">
-    <div class="vk">Sua vez · passo 5 <span class="tp"><i data-i="clock"></i><span class="hm">11h23</span> · 8 min</span></div>
+    <div class="vk">Sua vez · passo 5</div>
     <h2>Passo 5: <span class="y">crie a /resposta-cliente.</span></h2>
     <div class="cx">
       <div class="cd s"><span class="lb">Cole no Claude Code</span>Crie uma skill chamada resposta-cliente, no arquivo .claude/skills/resposta-cliente/SKILL.md.<br>Ela recebe a mensagem de um cliente (WhatsApp, e-mail ou Instagram) e devolve:<br>1) o tipo da mensagem (dúvida, pedido, reclamação ou elogio) e a urgência (baixa, média ou alta);<br>2) a resposta pronta para copiar, no tom da empresa: próxima, direta, sem exagero, com no máximo 80 palavras;<br>3) se for reclamação: o que fazer por dentro (quem resolve e até quando).<br>Regras: usar só o que está na pasta (CLAUDE.md, dados/politicas-atendimento.md e os outros arquivos de dados/) ou na própria mensagem; nunca prometer prazo, desconto ou reembolso que não esteja escrito; se faltar informação, escrever [confirmar: ...] dentro da resposta.<br>Se a pasta não tiver dados da empresa, a skill pergunta antes o nome da empresa e o tom de voz, numa pergunta só.<br>Use a skill-creator se ela estiver disponível. No fim, me explique a skill em 5 linhas.</div>
@@ -1249,86 +1229,35 @@ h1.xl { font-size: 72px; line-height: 1.06; }
   <div class="vf">Mais mensagens em passos/05-criar-uma-skill/mensagens-de-clientes.md. Não apareceu? /exit e claude de novo. Funciona sem a skill-creator.</div>
 </section>
 
-<!-- ============ M18 · Passo 6: design system (11h31) ============ -->
-<section class="slide v3" data-id="m18" data-nome="passo-6-design-system">
+<!-- ============ M19 · Passo 6: três páginas web com Artifacts ============ -->
+<section class="slide v3" data-id="m19" data-nome="passo-6-paginas-web-artifacts">
   <div class="vb">
-    <div class="vk">Sua vez · passo 6 <span class="tp"><i data-i="clock"></i><span class="hm">11h31</span> · 9 min</span></div>
-    <h2>Passo 6: <span class="y">o design system.</span></h2>
-    <div class="cx">
-      <div class="cd s"><span class="lb">Cole no Claude Code</span>Olhe a imagem passos/06-design-system/referencia-design.png e crie o design system da Torra Viva a partir dela.<br>Quero: as cores com nome, código hex e para que serve cada uma; as fontes do Google Fonts para títulos e texto, com tamanhos; espaçamentos e cantos arredondados; como são os botões, os cartões e os selos; e o estilo visual em 3 palavras.<br>Use a imagem só como inspiração de estilo, sem copiar marca ou texto de ninguém. Confira se o texto tem contraste suficiente com o fundo.<br>Salve em meu-trabalho/design-system.md e coloque no fim um bloco de CSS com as variáveis (:root) para eu reaproveitar nas páginas.</div>
-    </div>
-    <div class="wn"><i data-i="alert"></i><div>Quer escolher o visual? Abra <b>dribbble.com/search/coffee-branding</b>, tire um print, salve em <b>meu-trabalho/minha-referencia.png</b> e troque o caminho no prompt. O site é só inspiração: não copie o trabalho de ninguém.</div></div>
-  </div>
-  <div class="vf">O Dribbble pediu login? Use a referencia-design.png. Atrasou? Copie gabarito/06-design-system/design-system.md para meu-trabalho/.</div>
-</section>
-
-<!-- ============ M19 · Passo 7: páginas web (11h40) ============ -->
-<section class="slide v3" data-id="m19" data-nome="passo-7-paginas-web">
-  <div class="vb">
-    <div class="vk">Sua vez · passo 7 <span class="tp"><i data-i="clock"></i><span class="hm">11h40</span> · 20 min</span></div>
-    <h2>Passo 7: <span class="y">três páginas web.</span></h2>
+    <div class="vk">Sua vez · passo 6</div>
+    <h2>Passo 6: <span class="y">três páginas web.</span></h2>
     <div class="c3" style="margin-top:24px">
       <div class="cc h"><div class="tt">01 · Calculadora</div><p><code class="pt">meu-trabalho/calculadora-orcamento.html</code></p><p>Confira: 25 pessoas, 2 xícaras, 21 dias, Blend Escritório, anual, com máquina → <b>R$ 970,20/mês</b>.</p></div>
       <div class="cc h"><div class="tt">02 · Dashboard</div><p><code class="pt">meu-trabalho/dashboard-vendas.html</code></p><p>Confira: <b>R$ 765.578,40</b> de janeiro a setembro, melhor mês agosto, 12 clientes B2B ativos.</p></div>
       <div class="cc h"><div class="tt">03 · Apresentação</div><p><code class="pt">meu-trabalho/apresentacao.html</code></p><p>6 slides, passa com as setas, cabe em 1280 × 720.</p></div>
     </div>
-    <div class="wn"><i data-i="alert"></i><div><b>/clear</b> entre uma página e outra. As três seguem o design-system.md e a skill frontend-design. Adiantado? Os mesmos pedidos no claude.ai, em Artifacts: Doc, Slides e Dashboard.</div></div>
+    <div class="wn"><i data-i="alert"></i><div><b>Em HTML, com Claude Artifacts:</b> cada pedido grava o arquivo em <span class="mono">meu-trabalho/</span> e publica um Artifact no claude.ai, privado, que abre sozinho no navegador. <span class="mono">/clear</span> entre uma página e outra.</div></div>
   </div>
-  <div class="vf">Prompts em passos/07-paginas-web/INSTRUCOES.md. Atrasou? Faça só a calculadora. Prontas: gabarito/07-paginas-web/</div>
+  <div class="vf">Prompts em passos/06-paginas-web/INSTRUCOES.md. Sem Claude Code: o mesmo pedido no claude.ai (plano B). Prontas: gabarito/06-paginas-web/</div>
 </section>
 
-<!-- ============ M20 · Passo 8: animação (Motion ou plano B em HTML) (12h00) ============ -->
-<section class="slide v3" data-id="m20" data-nome="passo-8-animacao">
-  <div class="vb">
-    <div class="vk">Sua vez · passo 8 <span class="tp"><i data-i="clock"></i><span class="hm">12h00</span> · 12 min</span></div>
-    <h2>Passo 8: <span class="y">a animação.</span></h2>
-    <div class="p2" style="margin-top:24px">
-      <div class="pn"><span class="ch">Caminho A · Claude Motion</span><p>No claude.ai, digite <code>/motion</code>, anexe <code>dados/vendas-mensais.csv</code> e o design-system.md e cole o prompt do passo 8.</p><p>Só nos planos Team e Enterprise, em beta. Exporte em MP4.</p></div>
-      <div class="pn h"><span class="ch">Plano B · animação em HTML</span><p class="st">No Claude Code, em qualquer plano: <code>meu-trabalho/animacao-torra-viva.html</code>, 20 s, vertical, 4 cenas, com os números do CSV.</p><p>Para virar vídeo, grave a tela: Win+Alt+R no Windows, Cmd+Shift+5 no Mac.</p></div>
-    </div>
-    <div class="wn"><i data-i="alert"></i><div>Plano Pro ou Max? O Motion não aparece: <b>vá direto ao plano B.</b> O resultado é parecido.</div></div>
-  </div>
-  <div class="vf">Prompts em passos/08-claude-motion/INSTRUCOES.md. Pronta: gabarito/08-claude-motion/animacao-torra-viva.html</div>
-</section>
-
-<!-- ============ M21 · Fechamento e checkpoint (12h12–12h30) ============ -->
-<section class="slide v3" data-id="m21" data-nome="fechamento-checkpoint">
-  <div class="vb">
-    <div class="vk">Fechamento da manhã <span class="tp"><i data-i="clock"></i><span class="hm">12h12–12h30</span></span></div>
-    <h2>Checkpoint <span class="y">da manhã.</span></h2>
-    <div class="c3 cp">
-      <div class="cc"><span class="hh">12h12</span><div class="tt">Tempo livre</div>Terminou? Um desafio extra. Atrasou? Complete o passo 7 ou o 8.</div>
-      <div class="cc"><span class="hh">12h17</span><div class="tt">Compartilhamento</div>2 ou 3 de vocês no telão: página, dashboard ou animação.</div>
-      <div class="cc h"><span class="hh">12h25</span><div class="tt">Checkpoint</div>Mão levantada para cada item abaixo.</div>
-    </div>
-    <div class="ck">
-      <div><i data-i="check"></i>Explico por que a IA só sabe o que está no contexto</div>
-      <div><i data-i="check"></i>Escrevo um prompt com Papel, Contexto, Tarefa e Formato</div>
-      <div><i data-i="check"></i>Abro a pasta certa e pergunto sobre os arquivos</div>
-      <div><i data-i="check"></i>Pergunto a uma planilha e confiro 1 número na fonte</div>
-      <div><i data-i="check"></i>Uso e crio uma skill (é só um arquivo de texto)</div>
-      <div><i data-i="check"></i>Transformo um print num design-system.md</div>
-      <div><i data-i="check"></i>Gero uma página que abre no navegador, em meu-trabalho/</div>
-    </div>
-  </div>
-  <div class="vf">Marcou menos de 5 itens? Um monitor ajuda você às 13h30.</div>
-</section>
-
-<!-- ============ M22 · Almoço (12h30–13h30), no lugar da antiga pág. 66 ============ -->
+<!-- ============ M22 · Almoço, no lugar da antiga pág. 66 ============ -->
 <section class="slide v3 pz" data-id="m22" data-nome="almoco">
   <div class="ph"></div>
   <div class="pl">
     <div class="vk"><i data-i="clock"></i>Pausa</div>
     <h2>Almoço.</h2>
-    <div class="hr">12h30 às 13h30</div>
-    <div class="nt">No almoço, anote 3 processos da sua empresa que você entregaria à IA. Eles entram à tarde.</div>
+    <div class="nt" style="margin-top:26px">No almoço, anote 3 processos da sua empresa que você entregaria à IA. Eles entram à tarde.</div>
   </div>
 </section>
 
-<!-- ============ T01 · 3 empresas da sala (13h30–13h40) ============ -->
+<!-- ============ T01 · 3 empresas da sala ============ -->
 <section class="slide v3 dk" data-id="t01" data-nome="tres-empresas-da-sala">
   <div class="vb">
-    <div class="vk">Abertura da tarde <span class="tp"><i data-i="clock"></i><span class="hm">13h30</span> · 10 min</span></div>
+    <div class="vk">Abertura da tarde</div>
     <h2>Três empresas desta sala. <span class="y">Antes e depois.</span></h2>
     <div class="c3" style="margin-top:24px">
       <div class="cc"><div class="lb">01 · Site atual × página nova</div>A página feita com o <code>/criar-pagina</code> e revisada com o <code>/impeccable</code>.</div>
@@ -1340,10 +1269,10 @@ h1.xl { font-size: 72px; line-height: 1.06; }
   <div class="vf">Material gerado antes da aula, com autorização dos donos e sem números financeiros. Uns 3 minutos por empresa.</div>
 </section>
 
-<!-- ============ T02 · Bloco A: fases 1 a 3 (13h40–14h45), no lugar da antiga pág. 80 ============ -->
+<!-- ============ T02 · Bloco A: fases 1 a 3, no lugar da antiga pág. 80 ============ -->
 <section class="slide v3" data-id="t02" data-nome="bloco-a-fases-1-a-3">
   <div class="vb">
-    <div class="vk">Bloco A <span class="tp"><i data-i="clock"></i><span class="hm">13h40</span> · 65 min</span></div>
+    <div class="vk">Bloco A</div>
     <h2>O cérebro da empresa: <span class="y">fases 1 a 3.</span></h2>
     <div class="cx">
       <div class="cd">/instalar</div>
@@ -1356,13 +1285,13 @@ h1.xl { font-size: 72px; line-height: 1.06; }
       <div class="cc o"><div class="lb">Se atrasar</div>Pesquisa lenta: só a Frente A do /mapear-empresa, ou em par. Perdeu o fio: "o que falta?"</div>
     </div>
   </div>
-  <div class="vf">A cada fase, atualize o RESULTADO.html: uma seção nova aparece. Às 14h45, todo mundo na fase 3 de 6.</div>
+  <div class="vf">A cada fase, atualize o RESULTADO.html: uma seção nova aparece. Antes do Bloco B, todo mundo na fase 3 de 6.</div>
 </section>
 
-<!-- ============ T03 · Bloco B: página com o Impeccable (14h45–15h25), no lugar da antiga pág. 81 ============ -->
+<!-- ============ T03 · Bloco B: página com o Impeccable, no lugar da antiga pág. 81 ============ -->
 <section class="slide v3" data-id="t03" data-nome="bloco-b-pagina-impeccable">
   <div class="vb">
-    <div class="vk">Bloco B <span class="tp"><i data-i="clock"></i><span class="hm">14h45</span> · 40 min</span></div>
+    <div class="vk">Bloco B</div>
     <h2>A página: <span class="y">/criar-pagina + Impeccable.</span></h2>
     <div class="cx">
       <div class="cd">/criar-pagina</div>
@@ -1377,10 +1306,10 @@ h1.xl { font-size: 72px; line-height: 1.06; }
   <div class="vf">Impeccable, de Paul Bakaus (Apache 2.0), já está na pasta: .claude/skills/impeccable/. Na 1ª vez, baixa o motor (uns 20 MB).</div>
 </section>
 
-<!-- ============ T04 · Bloco C: conteúdo só em HTML (15h35–16h10), no lugar da antiga pág. 82 ============ -->
+<!-- ============ T04 · Bloco C: conteúdo só em HTML, no lugar da antiga pág. 82 ============ -->
 <section class="slide v3" data-id="t04" data-nome="bloco-c-conteudo-html">
   <div class="vb">
-    <div class="vk">Bloco C <span class="tp"><i data-i="clock"></i><span class="hm">15h35</span> · 35 min</span></div>
+    <div class="vk">Bloco C</div>
     <h2>Conteúdo: <span class="y">só HTML, no navegador.</span></h2>
     <div class="cx">
       <div class="cd">/criar-conteudo</div>
@@ -1395,10 +1324,10 @@ h1.xl { font-size: 72px; line-height: 1.06; }
   <div class="vf">Para postar: abra carrossel-1.html?n=1 em tela cheia e tire um print (Win+Shift+S no Windows, Cmd+Shift+4 no Mac).</div>
 </section>
 
-<!-- ============ T05 · Bloco D: /sobre-mim (16h10–16h35) ============ -->
+<!-- ============ T05 · Bloco D: /sobre-mim ============ -->
 <section class="slide v3" data-id="t05" data-nome="bloco-d-sobre-mim">
   <div class="vb">
-    <div class="vk">Bloco D <span class="tp"><i data-i="clock"></i><span class="hm">16h10</span> · 25 min</span></div>
+    <div class="vk">Bloco D</div>
     <h2>Agora, você: <span class="y">/sobre-mim.</span></h2>
     <div class="cx">
       <div class="cd">/sobre-mim</div>
@@ -1413,10 +1342,10 @@ h1.xl { font-size: 72px; line-height: 1.06; }
   <div class="vf">Uma pergunta por vez, uns 15 min. "Não sei" vale. Use os 3 processos que você anotou no almoço.</div>
 </section>
 
-<!-- ============ T06 · Bloco E: /sugerir-automacoes (16h35–17h05) ============ -->
+<!-- ============ T06 · Bloco E: /sugerir-automacoes ============ -->
 <section class="slide v3" data-id="t06" data-nome="bloco-e-sugerir-automacoes">
   <div class="vb">
-    <div class="vk">Bloco E <span class="tp"><i data-i="clock"></i><span class="hm">16h35</span> · 30 min</span></div>
+    <div class="vk">Bloco E</div>
     <h2>O que a IA pode <span class="y">fazer por você.</span></h2>
     <div class="cx">
       <div class="cd">/sugerir-automacoes</div>
