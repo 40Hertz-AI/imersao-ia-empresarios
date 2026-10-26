@@ -1,6 +1,6 @@
 # IA para empresários: material da imersão
 
-Imersão com Lucas Santana, 29/09/2026. São duas pastas, uma para cada parte do dia. Cada uma é um projeto do Claude Code: as skills já vêm dentro, em `.claude/skills/`, e funcionam assim que você abre a pasta.
+Imersão com Lucas Santana, 27/10/2026. São duas pastas, uma para cada parte do dia. Cada uma é um projeto do Claude Code: as skills já vêm dentro, em `.claude/skills/`, e funcionam assim que você abre a pasta.
 
 | Parte | Pasta | Baixar | O que tem |
 |---|---|---|---|

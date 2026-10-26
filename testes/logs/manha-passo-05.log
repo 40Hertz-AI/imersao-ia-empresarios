@@ -1,0 +1,35 @@
+prova em: /workspace/imersao-ia-empresarios/testes/manha/passo-05-criar
+pasta: /tmp/teste-manha-passo-05-criar
+modo: aula · skills na pasta vazia: nenhuma
+claude: 2.1.309 (Claude Code)
+início: 2026-10-25T16:07:39-03:00
+mensagem 1: saída 0 em 1496 s
+fim: 2026-10-25T16:32:35-03:00 · total 1496 s
+prova em: /workspace/imersao-ia-empresarios/testes/manha/passo-05-uso-1
+pasta: /tmp/teste-manha-passo-05-criar
+modo: aula · skills na pasta vazia: nenhuma
+claude: 2.1.309 (Claude Code)
+início: 2026-10-25T16:32:36-03:00
+mensagem 1: saída 0 em 14 s
+fim: 2026-10-25T16:32:50-03:00 · total 14 s
+prova em: /workspace/imersao-ia-empresarios/testes/manha/passo-05-uso-2
+pasta: /tmp/teste-manha-passo-05-criar
+modo: aula · skills na pasta vazia: nenhuma
+claude: 2.1.309 (Claude Code)
+início: 2026-10-25T16:32:51-03:00
+mensagem 1: saída 0 em 15 s
+fim: 2026-10-25T16:33:06-03:00 · total 15 s
+prova em: /workspace/imersao-ia-empresarios/testes/manha/passo-05-uso-3
+pasta: /tmp/teste-manha-passo-05-criar
+modo: aula · skills na pasta vazia: nenhuma
+claude: 2.1.309 (Claude Code)
+início: 2026-10-25T16:33:07-03:00
+mensagem 1: saída 0 em 10 s
+fim: 2026-10-25T16:33:17-03:00 · total 10 s
+prova em: /workspace/imersao-ia-empresarios/testes/pasta-vazia/manha-passo-05-resposta-cliente
+pasta: /tmp/vazia-manha-passo-05-resposta-cliente
+modo: vazia · skills na pasta vazia: nenhuma
+claude: 2.1.309 (Claude Code)
+início: 2026-10-25T16:33:18-03:00
+mensagem 1: saída 0 em 13 s
+fim: 2026-10-25T16:33:31-03:00 · total 13 s

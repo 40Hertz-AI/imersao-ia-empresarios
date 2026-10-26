@@ -2,7 +2,7 @@
 
 > Se você é aluno, abra a pasta `manha/` ou `tarde/` no Claude Code. Este arquivo é para quem mantém o repositório.
 
-Material público e portal do **treinamento de IA para empresários** da 40 Hertz. A 1ª turma foi em 29/09/2026.
+Material público e portal do **treinamento de IA para empresários** da 40 Hertz. A 1ª turma foi em 29/09/2026; a turma atual é 27/10/2026 (datas em `site/index.html` e `site/middleware.js`).
 
 ## Estrutura
 | Pasta | O que é | Pode editar aqui? |
