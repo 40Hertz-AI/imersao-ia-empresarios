@@ -499,11 +499,55 @@ h1.xl { font-size: 72px; line-height: 1.06; }
 .v3 .ck div { display: flex; gap: 14px; align-items: center; background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 11px 18px;
               font-size: 16.5px; line-height: 1.35; color: #fff; min-height: 50px; }
 .v3 .ck svg { width: 21px; height: 21px; color: #fbbd04; flex: none; }
+/* ---------- slide 05a: contexto (como a IA chegou e as novas empresas) ---------- */
+.ctx { display: flex; flex-direction: column; gap: 14px; margin-top: 34px; }
+.ctx .card { display: grid; grid-template-columns: 200px 1fr; align-items: center; padding: 24px 30px; }
+.ctx .lb { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
+.ctx .card.v .lb { color: var(--violet); }
+.ctx .lb b { display: block; font-size: 24px; letter-spacing: -.02em; text-transform: none; color: var(--white); margin-top: 6px; }
+.ctx .tl { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; position: relative; padding-top: 22px; }
+.ctx .tl::before { content: ""; position: absolute; left: 0; right: 0; top: 5px; height: 1px; background: var(--line2); }
+.ctx .pt { position: relative; }
+.ctx .pt::before { content: ""; position: absolute; left: 0; top: -22px; width: 11px; height: 11px; border-radius: 50%; background: var(--dim); }
+.ctx .pt.h::before { background: var(--yellow); }
+.ctx .dt { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.ctx .pt.h .dt { color: var(--yellow); }
+.ctx .tx { font-size: 16px; line-height: 1.4; color: var(--text); margin-top: 6px; }
+.ctx .tx b { color: var(--white); }
 </style>
 </head>
 <body>
 
 <!-- ============ 03 · Ruptura: casos ============ -->
+<!-- ============ 05a · Contexto: como a IA chegou e como as novas empresas estão chegando ============ -->
+<section class="slide" data-id="05a" data-nome="contexto-ia-chegou">
+  <div class="body">
+    <div class="k"><i data-i="sparkles"></i>O contexto</div>
+    <h1 class="m">Como a IA chegou.<br><span class="y">E como as novas empresas estão chegando.</span></h1>
+    <div class="ctx">
+      <div class="card">
+        <div class="lb">Parte 1<b>A IA chegou</b></div>
+        <div class="tl">
+          <div class="pt"><div class="dt">nov/2022</div><div class="tx"><b>ChatGPT</b> é lançado.</div></div>
+          <div class="pt"><div class="dt">jan/2023</div><div class="tx"><b>100 mi</b> de usuários em 2 meses.</div></div>
+          <div class="pt"><div class="dt">out/2025</div><div class="tx"><b>800 mi</b> de usuários por semana.</div></div>
+          <div class="pt h"><div class="dt">2026</div><div class="tx"><b>53%</b> de adoção em 3 anos, mais rápido que o PC e a internet.</div></div>
+        </div>
+      </div>
+      <div class="card v">
+        <div class="lb">Parte 2<b>As novas empresas</b></div>
+        <div class="tl">
+          <div class="pt"><div class="dt">jun/2025</div><div class="tx"><b>Base44:</b> um dono, vendida por US$ 80 mi.</div></div>
+          <div class="pt"><div class="dt">jul/2025</div><div class="tx"><b>Lovable:</b> 45 pessoas, US$ 100 mi de ARR.</div></div>
+          <div class="pt"><div class="dt">fev/2026</div><div class="tx"><b>Lovable:</b> 146 pessoas, US$ 400 mi de ARR.</div></div>
+          <div class="pt h"><div class="dt">set/2026</div><div class="tx"><b>Lovable:</b> mais de US$ 600 mi de ARR.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><b>Fonte:</b> UBS via Reuters, fev/2023; TechCrunch (Sam Altman, out/2025; Base44, 18/06/2025; Lovable, 2025 e 2026); Stanford HAI, AI Index Report 2026</div>
+</section>
+
 <!-- ============ 05 · 100 mi + selo Stanford ============ -->
 <section class="slide s05" data-id="05" data-nome="adocao-100mi-stanford">
   <div class="left">
@@ -533,30 +577,6 @@ h1.xl { font-size: 72px; line-height: 1.06; }
     <div class="note">Internet: web aberta em 1991, 817 mi de usuários em 2004 (Internet World Stats). ChatGPT: 800 mi semanais em out/2025 (Sam Altman, via TechCrunch).</div>
   </div>
   <div class="foot"><b>Fonte:</b> estudo UBS, noticiado pela Reuters, fev/2023; Stanford HAI, AI Index Report 2026</div>
-</section>
-
-<!-- ============ 07 · As empresas desta era ============ -->
-<section class="slide" data-id="07" data-nome="empresas-desta-era">
-  <div class="body">
-    <div class="k v"><i data-i="building"></i>Novas empresas</div>
-    <h1>As empresas desta era.</h1>
-    <p class="lead">Receita por funcionário virou a métrica que mostra a ruptura.</p>
-    <div class="era">
-      <div class="card">
-        <div class="co">Lovable</div>
-        <div class="val">US$ 2,77 mi</div>
-        <div class="what">de receita anualizada por funcionário</div>
-        <div class="det">US$ 400 mi de receita recorrente anualizada com 146 funcionários, em fev/2026.</div>
-      </div>
-      <div class="card">
-        <div class="co">Base44</div>
-        <div class="val">US$ 80 mi</div>
-        <div class="what">vendida para a Wix, em dinheiro</div>
-        <div class="det">Empresa de um dono só, vendida 6 meses depois de fundada, em jun/2025.</div>
-      </div>
-    </div>
-  </div>
-  <div class="foot"><b>Fonte:</b> TechCrunch, 11/03/2026 (Lovable, dado informado pela empresa) e 18/06/2025 (Base44)</div>
 </section>
 
 <!-- ============ 08 · Lovable ============ -->
@@ -670,42 +690,6 @@ h1.xl { font-size: 72px; line-height: 1.06; }
     </div>
   </div>
   <div class="foot">Redesenho 40 Hertz a partir de ilustração de referência</div>
-</section>
-
-<!-- ============ 12 · Arquiteto de fluxos ============ -->
-<section class="slide" data-id="12" data-nome="gestor-arquiteto-de-fluxos">
-  <div class="body">
-    <div class="k v"><i data-i="network"></i>Orquestradores</div>
-    <h1>O gestor vira <span class="y">arquiteto de fluxos.</span></h1>
-    <div class="qa">
-      <div class="q old">Quantas pessoas eu preciso contratar?</div>
-      <div class="ar"><i data-i="arrow"></i></div>
-      <div class="q new">Como eu redesenho os processos para cada pessoa produzir muito mais com IA?</div>
-    </div>
-    <div class="five">
-      <div class="card"><div class="ic"><i data-i="bot"></i></div><div class="t">O que delegar para a IA</div><div class="num">01</div></div>
-      <div class="card"><div class="ic"><i data-i="user"></i></div><div class="t">O que fica com o humano</div><div class="num">02</div></div>
-      <div class="card"><div class="ic"><i data-i="file"></i></div><div class="t">Qual contexto a IA precisa</div><div class="num">03</div></div>
-      <div class="card"><div class="ic"><i data-i="eye"></i></div><div class="t">Onde revisar</div><div class="num">04</div></div>
-      <div class="card"><div class="ic"><i data-i="shield"></i></div><div class="t">Quais regras não podem ser quebradas</div><div class="num">05</div></div>
-    </div>
-  </div>
-  <div class="foot">Conceito de referência: aula Acelera IA (@leosoares.ia). Redesenho 40 Hertz</div>
-</section>
-
-<!-- ============ 12b · IA como primeiro recurso ============ -->
-<section class="slide s12b" data-id="12b" data-nome="ia-primeiro-recurso">
-  <div class="left">
-    <div class="k y"><i data-i="sparkles"></i>AI First</div>
-    <h1>IA como <span class="y">primeiro recurso.</span></h1>
-    <p class="lead">Diante de qualquer problema, a primeira pergunta é: como a IA resolve isso para ele não voltar?</p>
-    <p class="lead" style="margin-top:14px;color:var(--muted);font-size:18px">Resposta ruim quase sempre é falta de contexto.</p>
-  </div>
-  <div class="chatbox">
-    <div class="top"><span class="lb">Termine o seu pedido com</span><b>“Me faz as perguntas que você precisa saber para me dar a melhor resposta.”</b></div>
-    <div class="bot"><span>Explique como explicaria para um funcionário novo.</span><span class="send"><i data-i="up"></i></span></div>
-  </div>
-  <div class="foot">Conceito de referência: aula Acelera IA (@leosoares.ia). Redesenho 40 Hertz</div>
 </section>
 
 <!-- ============ 12c · Shopify ============ -->

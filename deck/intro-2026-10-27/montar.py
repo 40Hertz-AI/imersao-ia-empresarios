@@ -14,19 +14,12 @@ INTRO = [
     ("orig", 1),     # 01 capa
     ("orig", 2),     # ruptura: sem internet
     ("orig", 3),     # ruptura silenciosa (plataformas)
-    ("orig", 4),     # previsibilidade
-    ("orig", 7),     # a IA só dá certo depois de processos e pessoas (voltou em 26/10)
-    ("orig", 8),     # hoje vocês saem do chat (voltou em 26/10)
-    ("orig", 9),     # quem sou
-    ("orig", 11),    # cada virada mudou como se trabalha
+    ("novo", "05a"), # contexto: como a IA chegou e como as novas empresas estão chegando (novo em 26/10)
     ("novo", "05"),  # 100 mi + selo Stanford 53% (substitui p12)
-    ("novo", "07"),  # as empresas desta era
     ("novo", "08"),  # Lovable
     ("novo", "09"),  # Base44
     ("novo", "10"),  # a pergunta
     ("novo", "11"),  # sistemas de inteligência
-    ("novo", "12"),  # arquiteto de fluxos
-    ("novo", "12b"),
     ("novo", "12c"),
     ("novo", "12d"),
     ("novo", "12e"),
@@ -35,9 +28,12 @@ INTRO = [
     ("novo", "15"),
     ("novo", "16"),
     ("novo", "17"),
+    ("orig", 4),     # previsibilidade (desceu para depois do abismo em 26/10, 3ª rodada)
+    ("orig", 7),     # a IA só dá certo depois de processos e pessoas
     ("novo", "19"),
     ("orig", 10),    # gráfico Anthropic
     ("novo", "21"),
+    ("orig", 9),     # quem sou (desceu para antes da promessa em 26/10, 3ª rodada)
     ("novo", "22"),  # promessa + 5 fases
     ("orig", 13),    # vídeo GPT-6 Astra (opcional)
 ]
@@ -123,6 +119,8 @@ SAIRAM = {
     58,                  # CLAUDE.md é a regra da casa (saiu em 26/10)
     46,                  # ponte "vocês deram contexto a manhã inteira" (saiu em 26/10, 2ª rodada)
     57, 59, 60,          # pasta cerebro-da-empresa, 6 fases e baixar e abrir -> t08, t09, t10 (minha-empresa)
+    8,                   # hoje vocês saem do chat (saiu em 26/10, 3ª rodada: repetia o título da promessa)
+    11,                  # cada virada mudou como se trabalha (saiu em 26/10, 3ª rodada)
     70, 71, 72, 73, 74, 75,  # FDE, quatro lados, AI-native, escada, depoimentos e fecho (saíram em 26/10)
 }
 
