@@ -39,28 +39,26 @@ Sem horários: o deck não mostra agenda. Pontos de controle do ritmo: págs. 9,
 | 31 | 22 A promessa + 5 fases | Todo orquestrador precisa entender o motor. Vamos abrir o capô: o que é um LLM. A maioria aqui está na fase 1. | – |
 | 32 | Vídeo GPT-6 Astra (opcional) | (Vídeo de 2 min 30 s.) No fim do dia vocês vão entender cada peça disso. Pular se o tempo apertar. | OpenAI, 03/09/2026 |
 
-## Depois da introdução (mapa do deck de 89 páginas)
+## Depois da introdução (mapa do deck de 80 páginas)
 
-Sem horários. A lista completa, página a página, está em `README.md` ("Ordem final").
+Sem horários. A lista completa, página a página, está em `README.md` ("Ordem final"). De manhã, só o Lucas no computador, na pasta `torra-viva`; os alunos assistem.
 
 | Págs. | Bloco |
 |---|---|
-| 33–43 | Fase 1, o modelo (só o Lucas no computador). O prompt em dois slides: as 4 partes (40) e ruim × bom lado a lado (41) |
-| 44–46 | Fase 2, MCP: do Drive para a resposta (46) |
-| 47–51 | Fase 3, skills: as skills já vieram na pasta, /eli5 (51) |
-| 52–55 | Fase 4, contexto: mesma pergunta, duas respostas (54) e janela de contexto (55) |
-| 56 | A pasta `imersao-manha`: abre a parte prática |
-| 57–65 | Trilha prática com a Torra Viva: visão geral (57) e passos 1 a 6 (58–65); o passo 6 são as três páginas com Artifacts |
-| 66 | Vocês deram contexto a manhã inteira (ponte para a tarde) |
-| 67 | Almoço |
-| 68–69 | Como foi a primeira parte e 3 empresas da sala (69) |
-| 70–74 | Harness numa pasta, a pasta da tarde, a empresa em 6 fases, baixar e abrir e o Bloco A (fases 1 a 3) |
-| 75 | Bloco B: página com /criar-pagina |
-| 76–77 | Blocos C (/criar-conteudo em HTML) e D (/sobre-mim) |
-| 78–82 | "Vocês acabaram de virar orquestradores" até o Apolo (receita previsível em 90 dias) |
-| 83 | Café da tarde |
-| 84–89 | FDE até "A IA executa. Você lidera." (sem mudança) |
+| 30–37 | Fase 1, o modelo, e Claude Code = o Claude com acesso a uma pasta (38) |
+| 39–41 | Fase 2, MCP: do Drive para a resposta (41) |
+| 42–46 | Fase 3, skills: as skills já vieram na pasta, /eli5 (46) |
+| 47–50 | Fase 4, contexto: mesma pergunta, duas respostas (49) e janela de contexto (50) |
+| 51 | A pasta `torra-viva`: daqui em diante o Lucas trabalha nela |
+| 52–61 | Os 6 passos ao vivo: visão geral (52), passos 1 e 2 (53–56), como montar um bom prompt: Papel, Contexto, Tarefa e Formato (57), passo 3, o exemplo (58), e passos 4 a 6 (59–61: /eli5, /resposta-cliente e calculadora, dashboard e apresentação) |
+| 62–64 | Agora os alunos: a pasta `minha-empresa` (62), as 8 fases (63) e baixar e abrir (64) |
+| 65–67 | Blocos A (/instalar, /mapear-empresa, /mapear-concorrentes), B (/sobre-mim) e C (/sugerir-automacoes) |
+| 68 | Almoço |
+| 69–71 | Como foi a primeira parte, 3 empresas da sala (antes e depois) e harness numa pasta |
+| 72–74 | Blocos D (/criar-oferta), E (/criar-pagina) e F (/criar-conteudo, com o botão "Gerar prompt de imagem") |
+| 75–79 | "Vocês acabaram de virar orquestradores" até o Apolo (receita previsível em 90 dias) |
+| 80 | Café da tarde (último slide) |
 
 ## Tarde
 
-- Na pág. 78 ("Vocês acabaram de virar orquestradores"), retomar o número anotado no slide 10 ("quantas pessoas a sua empresa precisaria se nascesse hoje?", pág. 12) e as 3 respostas da pág. 3.
+- Na pág. 75 ("Vocês acabaram de virar orquestradores"), retomar o número anotado no slide 10 ("quantas pessoas a sua empresa precisaria se nascesse hoje?", pág. 12) e as 3 respostas da pág. 3.

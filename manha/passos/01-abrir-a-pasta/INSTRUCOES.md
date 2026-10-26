@@ -11,11 +11,11 @@ Você precisa de: uma conta do Claude paga (Pro, Max, Team ou Enterprise; o plan
 ## No Windows
 
 **1. Baixar e descompactar**
-1. No portal da aula, clique em **Baixar a pasta da manhã**. O arquivo `imersao-manha.zip` vai para a pasta **Downloads**.
+1. No portal da aula, clique em **Baixar a pasta torra-viva**. O arquivo `torra-viva.zip` vai para a pasta **Downloads**.
 2. Abra o **Explorador de Arquivos** (ícone de pasta amarela na barra de tarefas) → **Downloads**.
-3. Clique com o botão direito em `imersao-manha.zip` → **Extrair tudo...**
+3. Clique com o botão direito em `torra-viva.zip` → **Extrair tudo...**
 4. No campo do destino, clique em **Procurar** e escolha **Área de Trabalho** → **Extrair**.
-5. Abra a pasta `imersao-manha` na Área de Trabalho. Se dentro dela houver outra pasta `imersao-manha`, use a de dentro (é a que tem o `README.md`).
+5. Abra a pasta `torra-viva` na Área de Trabalho. Se dentro dela houver outra pasta `torra-viva`, use a de dentro (é a que tem o `README.md`).
 
 **2. Instalar o Claude Code** (só na primeira vez)
 1. Clique no menu **Iniciar**, digite `PowerShell` e abra o **Windows PowerShell**. Abre uma janela com texto e um cursor piscando: é o terminal.
@@ -29,13 +29,13 @@ Você precisa de: uma conta do Claude paga (Pro, Max, Team ou Enterprise; o plan
 5. Recomendado: instale também o [Git para Windows](https://git-scm.com/downloads/win) (avançar, avançar, concluir). Com ele, o Claude Code roda mais comandos.
 
 **3. Abrir o terminal dentro da pasta**
-- Jeito mais fácil: abra a pasta `imersao-manha` no Explorador, clique na **barra de endereço** (onde aparece o caminho), apague, digite `powershell` e aperte **Enter**. O PowerShell abre já dentro da pasta.
+- Jeito mais fácil: abra a pasta `torra-viva` no Explorador, clique na **barra de endereço** (onde aparece o caminho), apague, digite `powershell` e aperte **Enter**. O PowerShell abre já dentro da pasta.
 - Windows 11: clique com o botão direito num espaço vazio dentro da pasta → **Abrir no Terminal**.
 - Pelo comando `cd` (se a Área de Trabalho estiver no OneDrive, o caminho muda):
   ```powershell
-  cd "$HOME\Desktop\imersao-manha"
+  cd "$HOME\Desktop\torra-viva"
   ```
-  Deu erro? Tente `cd "$HOME\OneDrive\Área de Trabalho\imersao-manha"`.
+  Deu erro? Tente `cd "$HOME\OneDrive\Área de Trabalho\torra-viva"`.
 
 **4. Abrir o Claude Code**
 Digite `claude` e aperte Enter. Siga para "Primeira vez" lá embaixo.
@@ -45,9 +45,9 @@ Digite `claude` e aperte Enter. Siga para "Primeira vez" lá embaixo.
 ## No Mac
 
 **1. Baixar e descompactar**
-1. No portal da aula, clique em **Baixar a pasta da manhã**.
-2. Abra o **Finder** → **Downloads**. Se aparecer `imersao-manha.zip`, dê dois cliques: ele vira a pasta `imersao-manha` (o Safari às vezes já faz isso sozinho).
-3. Arraste a pasta `imersao-manha` para a **Mesa** (Área de Trabalho) na barra lateral do Finder.
+1. No portal da aula, clique em **Baixar a pasta torra-viva**.
+2. Abra o **Finder** → **Downloads**. Se aparecer `torra-viva.zip`, dê dois cliques: ele vira a pasta `torra-viva` (o Safari às vezes já faz isso sozinho).
+3. Arraste a pasta `torra-viva` para a **Mesa** (Área de Trabalho) na barra lateral do Finder.
 
 **2. Instalar o Claude Code** (só na primeira vez)
 1. Aperte **Cmd+Espaço**, digite `Terminal` e aperte **Enter**. Abre uma janela com texto: é o terminal.
@@ -63,9 +63,9 @@ Digite `claude` e aperte Enter. Siga para "Primeira vez" lá embaixo.
    ```
 
 **3. Entrar na pasta**
-Digite `cd ` (com um espaço no fim), **arraste a pasta `imersao-manha` do Finder para dentro do Terminal** (o caminho aparece sozinho) e aperte **Enter**. Ou digite:
+Digite `cd ` (com um espaço no fim), **arraste a pasta `torra-viva` do Finder para dentro do Terminal** (o caminho aparece sozinho) e aperte **Enter**. Ou digite:
 ```bash
-cd ~/Desktop/imersao-manha
+cd ~/Desktop/torra-viva
 ```
 
 **4. Abrir o Claude Code**
@@ -82,7 +82,7 @@ Dica: no Finder, a pasta `.claude` (onde ficam as skills) é escondida. **Cmd+Sh
 3. Ele pergunta se você confia nos arquivos desta pasta (*Do you trust the files in this folder?*): escolha **Sim** (*Yes, proceed*).
 4. Pronto: aparece uma caixa para digitar. É ali que você conversa.
 
-Sem terminal? Também dá pelo **app do Claude** (computador): aba **Code** → escolha a pasta `imersao-manha`. O resto da manhã funciona igual.
+Sem terminal? Também dá pelo **app do Claude** (computador): aba **Code** → escolha a pasta `torra-viva`. O resto da manhã funciona igual.
 
 ## O prompt
 

@@ -90,11 +90,17 @@ Também:
 - Usar as palavras da pessoa. Não somar horas que ela não disse.
 - Nunca gravar senha, salário de terceiros ou dados pessoais de clientes (nome completo, telefone, documento).
 
+**Na pasta do cérebro da empresa** (fase 4 de 8), se existirem:
+- `RESULTADO.html`: trocar os blocos `voce`, `proximos` e `atualizado` seguindo `controle/componentes.md` e as regras do `CLAUDE.md` (só o trecho entre `INICIO` e `FIM`, sem ler o arquivo inteiro).
+- `controle/progresso.md`: marcar a fase 4 com `[x]` e a data.
+
 ## 6 · Fechar
 
 ```
 ✓ Mapa do seu trabalho → <caminho do mapa>
 <papel em 1 linha> · <N> processos mapeados · maior dor: <dor>
+Abra o RESULTADO.html (ou atualize a página): a seção Seu trabalho apareceu.
 Falta trazer: <3 primeiros itens>
-Próximo: traga esses arquivos (ou conecte onde eles estão) e peça /sugerir-automacoes.
+Próximo: /sugerir-automacoes (~10 min). Se der, traga antes 1 ou 2 desses arquivos para dados/.
 ```
+Sem RESULTADO.html, omitir a terceira linha.

@@ -21,10 +21,16 @@ body.so{background:var(--fundo)} body.so .controles{display:none}
 .cesta-baixo .texto{max-width:470px}
 .chama{font-family:var(--t);font-style:italic;font-size:88px;line-height:1;color:var(--destaque);margin-top:44px}
 .cesta{width:380px;height:380px;flex:none}
-.controles[hidden]{display:none}
+.nav{display:flex;align-items:center;gap:16px}
+.nav[hidden]{display:none} /* display:flex venceria o atributo hidden */
+.controles .gerar{width:auto;border-radius:22px;padding:0 18px}
+.caixa{margin:auto;max-width:640px;width:calc(100% - 32px);border:0;border-radius:12px;padding:24px;font:16px/1.5 var(--c)}
+.caixa::backdrop{background:rgba(0,0,0,.6)}
+.caixa textarea{width:100%;height:220px;margin:12px 0;font:15px/1.5 var(--c);padding:12px}
+.caixa button{font:600 15px/1 var(--c);padding:12px 18px;border-radius:8px;border:1px solid #999;background:#fff;cursor:pointer;margin-right:8px}
 </style></head><body>
 <div class="palco">
-  <section class="lamina">
+  <section class="lamina" data-prompt="Crie uma imagem vertical 4:5 (1080 × 1350 px) para um post de Instagram da Forno da Vila, padaria de fermentação natural em Mogi das Cruzes. Cena: uma cesta de vime com um pão redondo de fermentação natural e um laço simples, sobre fundo cor de farinha. Estilo: fotografia calma, luz natural, muito espaço vazio e poucas cores, como a Aesop. Cores: verde oliva #4A5230, terracota #9A4A26 e fundo cor de farinha #F1EFE7. Texto na imagem, exatamente assim, em português, com letra serifada elegante: &quot;Presente de fim de ano para cliente: pão em vez de flor.&quot;, sem logos, sem marca d&#x27;água e sem nenhuma outra palavra.">
     <h2>Presente de fim de ano para cliente: pão em vez de flor.</h2>
     <div class="cesta-baixo">
       <div class="texto">
@@ -42,17 +48,23 @@ body.so{background:var(--fundo)} body.so .controles{display:none}
     <div class="rodape"><span>@fornodavila.exemplo</span><span>Forno da Vila</span></div>
   </section>
 </div>
-<div class="controles"><button type="button" aria-label="Lâmina anterior">&#8249;</button><span class="conta"></span><button type="button" aria-label="Próxima lâmina">&#8250;</button></div>
+<div class="controles"><span class="nav"><button type="button" aria-label="Lâmina anterior">&#8249;</button><span class="conta"></span><button type="button" aria-label="Próxima lâmina">&#8250;</button></span><button type="button" class="gerar">Gerar prompt de imagem</button></div>
+<dialog class="caixa"><b>Prompt de imagem desta lâmina</b><br>Cole no ChatGPT (ou outro gerador de imagem) para criar a imagem.<textarea readonly></textarea><button type="button" class="copiar">Copiar</button><button type="button" class="fechar">Fechar</button></dialog>
 <script>
 // Uma lâmina por vez, do tamanho da janela. ?n=3 mostra só a lâmina 3, sem botões (relatório e print).
 const n=+new URLSearchParams(location.search).get('n'), ls=[...document.querySelectorAll('.lamina')];
-const [ant,prox]=document.querySelectorAll('.controles button'), conta=document.querySelector('.conta');
+const [ant,prox]=document.querySelectorAll('.nav button'), conta=document.querySelector('.conta');
 let i=Math.min(Math.max((n||1)-1,0),ls.length-1);
 if(n) document.body.classList.add('so');
-if(ls.length<2) document.querySelector('.controles').hidden=true;
+if(ls.length<2) document.querySelector('.nav').hidden=true;
 function mostra(){ ls.forEach((l,k)=>l.hidden=k!==i); conta.textContent=(i+1)+' / '+ls.length; ant.disabled=i===0; prox.disabled=i===ls.length-1; }
 function escala(){ const folga=n?0:80; document.documentElement.style.setProperty('--s',Math.min(1,innerWidth/1080,(innerHeight-folga)/1350)); }
 ant.onclick=()=>{ if(i>0){i--;mostra();} }; prox.onclick=()=>{ if(i<ls.length-1){i++;mostra();} };
-addEventListener('keydown',e=>{ if(e.key==='ArrowRight') prox.click(); if(e.key==='ArrowLeft') ant.click(); });
+addEventListener('keydown',e=>{ if(caixa.open) return; if(e.key==='ArrowRight') prox.click(); if(e.key==='ArrowLeft') ant.click(); });
+// Gerar prompt de imagem: mostra e copia o data-prompt da lâmina atual.
+const caixa=document.querySelector('.caixa'), txt=caixa.querySelector('textarea');
+function copia(){ txt.select(); document.execCommand('copy'); }
+document.querySelector('.gerar').onclick=()=>{ txt.value=ls[i].dataset.prompt; caixa.showModal(); copia(); };
+caixa.querySelector('.copiar').onclick=copia; caixa.querySelector('.fechar').onclick=()=>caixa.close();
 addEventListener('resize',escala); escala(); mostra();
 </script></body></html>

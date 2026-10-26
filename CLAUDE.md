@@ -1,6 +1,6 @@
 # CLAUDE.md — imersao-ia-empresarios
 
-> Se você é aluno, abra a pasta `manha/` ou `tarde/` no Claude Code. Este arquivo é para quem mantém o repositório.
+> Se você é aluno, abra a pasta `torra-viva` (fonte: `manha/`) ou `minha-empresa` (fonte: `tarde/`) no Claude Code. Este arquivo é para quem mantém o repositório.
 
 Material público e portal do **treinamento de IA para empresários** da 40 Hertz. A 1ª turma foi em 29/09/2026; a turma atual é 27/10/2026 (datas em `site/index.html` e `site/middleware.js`).
 
@@ -9,7 +9,7 @@ Material público e portal do **treinamento de IA para empresários** da 40 Hert
 |---|---|---|
 | `site/` | Portal do aluno, em HTML estático | Sim |
 | `site/downloads/` | ZIPs das pastas e guias. **Tudo aqui é público** | Não: são gerados por script |
-| `manha/`, `tarde/` | Pastas dos alunos (projetos do Claude Code com skills em `.claude/skills/`) | Sim. Depois, rode os testes e regere os ZIPs (ver Regras) |
+| `manha/`, `tarde/` | As pastas da aula (projetos do Claude Code com skills em `.claude/skills/`). Saem nos ZIPs como `torra-viva/` (manhã, o Lucas demonstra) e `minha-empresa/` (o aluno usa antes e depois do almoço) | Sim. Depois, rode os testes e regere os ZIPs (ver Regras) |
 | `scripts/` | Geradores: dados fictícios da Torra Viva, mockup de referência (teste do `/marca`), respostas certas do passo 2 e os ZIPs (`scripts/gerar-zips.py`) | Sim |
 | `testes/` | Testes de cada passo e skill com `claude -p` (harness, prompts, provas e `RESULTADOS.md`). Não vão nos ZIPs | Sim |
 

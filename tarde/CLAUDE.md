@@ -44,22 +44,22 @@ Esta pasta é o cérebro da empresa: a memória, a pesquisa e tudo o que a IA pr
 | 1 | `/instalar` | `memoria/` + `marca/marca.md` | Capa e Ficha |
 | 2 | `/mapear-empresa` | `pesquisa/empresa.md`, `mercado.md`, `cliente.md`, `diagnostico.md` + `marca/marca.md` | Raio-X, Identidade, Mercado, Cliente, Diagnóstico |
 | 3 | `/mapear-concorrentes` | `pesquisa/concorrentes.md` | Concorrentes |
-| 4 | `/criar-oferta` | `entregas/oferta.md` | Oferta |
-| 5 | `/criar-pagina` | `entregas/pagina-de-vendas.html` + `.md` + `formulario.html` | Página de vendas |
-| 6 | `/criar-conteudo` | `entregas/conteudo.md` + `entregas/posts/*.html` (carrossel e 2 posts, só HTML) | Conteúdo |
+| 4 | `/sobre-mim` | `memoria/sobre-mim.md` + `memoria/falta-trazer.md` (o mapa do trabalho do dono) | Seu trabalho |
+| 5 | `/sugerir-automacoes` | `entregas/sugestoes.md` (automações, rotinas e skills, por impacto e esforço) | Automações |
+| 6 | `/criar-oferta` | `entregas/oferta.md` | Oferta |
+| 7 | `/criar-pagina` | `entregas/pagina-de-vendas.html` + `.md` + `formulario.html` | Página de vendas |
+| 8 | `/criar-conteudo` | `entregas/conteudo.md` + `entregas/posts/*.html` (carrossel e 2 posts, só HTML, com o botão "Gerar prompt de imagem") | Conteúdo |
 | extra | `/marca` | `marca/marca.md` (do site, do Instagram ou de um print) | Identidade |
-| extra | `/sobre-mim` | `memoria/sobre-mim.md` + `memoria/falta-trazer.md` (o mapa do trabalho do dono) | — |
-| extra | `/sugerir-automacoes` | `entregas/sugestoes.md` (automações, rotinas e skills, por impacto e esforço) | — |
 | extra | `/frontend-design` | melhora o visual de uma página ou post que já existe | — |
 
-As fases 3 a 6 podem rodar em qualquer ordem depois da 2. Cada uma usa o que existir e marca o resto como `[a confirmar]`. Quando a pessoa perguntar "e agora?" ou "o que falta?": ler `controle/progresso.md` e apontar a próxima fase em 1 linha.
+Na aula, as fases 1 a 5 são antes do almoço (a empresa e você) e as 6 a 8 depois (marketing e vendas). As fases 3 a 8 podem rodar em qualquer ordem depois da 2. Cada uma usa o que existir e marca o resto como `[a confirmar]`. Quando a pessoa perguntar "e agora?" ou "o que falta?": ler `controle/progresso.md` e apontar a próxima fase em 1 linha.
 
 ## O RESULTADO.html
 
 - Nasce no `/instalar` a partir de `controle/modelo-resultado.html`. Depois disso, **nunca reescrever o arquivo inteiro**.
 - Cada fase troca só o próprio bloco: tudo entre `<!-- INICIO:<id> -->` e `<!-- FIM:<id> -->`, com a ferramenta de edição. O resto do arquivo fica intacto.
 - **Não ler o arquivo inteiro** (ele passa de 70 KB e gasta o limite do plano): achar a linha com `grep -n "INICIO:<id>\|FIM:<id>" RESULTADO.html` e ler só esse trecho.
-- `atualizado` diz "fase N de 6" com N = número das 6 fases marcadas `[x]` em `controle/progresso.md` (os extras não contam).
+- `atualizado` diz "fase N de 8" com N = número das 8 fases marcadas `[x]` em `controle/progresso.md` (os extras não contam).
 - Conferir no fim: `{`, `undefined` ou `N/A` **dentro dos blocos que você trocou** (o CSS e o script do arquivo têm `{` de propósito).
 - Usar só os componentes de `controle/componentes.md`. Não criar CSS novo nem trazer biblioteca de fora.
 - Toda fase, ao terminar, também troca o bloco `proximos` (as **3 primeiras** ações de `memoria/foco.md`; ação já feita sai de lá) e a data em `atualizado`.

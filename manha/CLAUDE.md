@@ -1,4 +1,4 @@
-# Imersão IA para empresários · pasta da manhã
+# Imersão IA para empresários · pasta torra-viva (a demonstração da manhã)
 
 Esta pasta é o projeto de uma pessoa aprendendo o Claude Code. Ela segue o `README.md` e as instruções de `passos/`. A empresa dos exercícios é a **Torra Viva Cafés Especiais**, que é **fictícia**.
 

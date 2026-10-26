@@ -71,7 +71,7 @@ Marcar a fase em `controle/progresso.md` (se existir) e responder:
 Maior gargalo: <1 linha>
 Maior oportunidade: <1 linha>
 Atualize o RESULTADO.html: agora com as cores da empresa. Raio-X, Identidade, Mercado, Cliente e Diagnóstico apareceram.
-Próximo: /mapear-concorrentes (~6 min) · ou /criar-oferta, /criar-pagina, /criar-conteudo, na ordem que quiser
+Próximo: /mapear-concorrentes (~6 min)
 ```
 
 Sem RESULTADO.html (pasta fora da aula), a quarta linha vira "O estudo completo está em pesquisa/diagnostico.md." No "Próximo", citar só os comandos que existem em `.claude/skills/`; sem nenhum, sugerir em 1 linha o que pedir a seguir (ex.: "peça uma oferta a partir do diagnóstico").

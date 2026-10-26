@@ -78,12 +78,18 @@ Regras:
 - Não prometer automação que rode sozinha. Se algo pedir agendamento ou sistema externo, dizer isso e marcar esforço 3.
 - Não sugerir nada que envie mensagem, publique ou pague sem a pessoa revisar.
 
+**Na pasta do cérebro da empresa** (fase 5 de 8), se existirem:
+- `RESULTADO.html`: trocar os blocos `automacoes`, `proximos` e `atualizado` seguindo `controle/componentes.md` e as regras do `CLAUDE.md` (só o trecho entre `INICIO` e `FIM`, sem ler o arquivo inteiro).
+- `controle/progresso.md`: marcar a fase 5 com `[x]` e a data.
+
 ## 5 · Fechar
 
 ```
 ✓ Plano de automações → <caminho>
 Top 3: <1> · <2> · <3>
+Abra o RESULTADO.html (ou atualize a página): a seção Automações apareceu.
 Começo por qual? Se for uma skill, eu crio agora e testamos com um caso seu.
 ```
+Sem RESULTADO.html, omitir a terceira linha. Na aula, depois desta fase vem o almoço; à tarde, `/criar-oferta`.
 
 Se a pessoa escolher uma skill: usar a `skill-creator` (se não estiver disponível, escrever o SKILL.md direto), salvar em `.claude/skills/<nome>/`, testar com um caso real dela e marcar a sugestão como feita no arquivo.

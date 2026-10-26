@@ -63,17 +63,23 @@ body.so{background:var(--fundo)} body.so .controles{display:none}
 .chamada h2{margin-top:auto;font-size:96px}
 .chamada .palavra{font-family:var(--t);font-style:italic;font-size:300px;line-height:.9;letter-spacing:-.03em;color:var(--destaque);margin:10px 0 60px -8px}
 .chamada p.depois{max-width:760px}
-.controles[hidden]{display:none}
+.nav{display:flex;align-items:center;gap:16px}
+.nav[hidden]{display:none} /* display:flex venceria o atributo hidden */
+.controles .gerar{width:auto;border-radius:22px;padding:0 18px}
+.caixa{margin:auto;max-width:640px;width:calc(100% - 32px);border:0;border-radius:12px;padding:24px;font:16px/1.5 var(--c)}
+.caixa::backdrop{background:rgba(0,0,0,.6)}
+.caixa textarea{width:100%;height:220px;margin:12px 0;font:15px/1.5 var(--c);padding:12px}
+.caixa button{font:600 15px/1 var(--c);padding:12px 18px;border-radius:8px;border:1px solid #999;background:#fff;cursor:pointer;margin-right:8px}
 </style></head><body>
 <div class="palco">
 
-  <section class="lamina oliva gancho">
+  <section class="lamina oliva gancho" data-prompt="Crie uma imagem vertical 4:5 (1080 × 1350 px) para um post de Instagram da Forno da Vila, padaria de fermentação natural em Mogi das Cruzes. Cena: um celular sobre uma mesa de madeira clara mostrando uma conversa de WhatsApp sem resposta, ao lado de uma xícara de café vazia. Estilo: fotografia calma, luz natural, muito espaço vazio e poucas cores, como a Aesop. Cores: verde oliva #4A5230, terracota #9A4A26 e fundo cor de farinha #F1EFE7. Texto na imagem, exatamente assim, em português, com letra serifada elegante: &quot;Pediu o café da reunião na segunda. A resposta veio na quinta.&quot;, sem logos, sem marca d&#x27;água e sem nenhuma outra palavra.">
     <p class="assina">Forno da Vila</p>
     <h2>Pediu o café da reunião na segunda. <span>A resposta veio na quinta.</span></h2>
     <div class="rodape"><span>@fornodavila.exemplo</span><span class="arraste">arraste <svg width="44" height="20" viewBox="0 0 44 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 10h38M32 2l8 8-8 8"/></svg> 1/7</span></div>
   </section>
 
-  <section class="lamina">
+  <section class="lamina" data-prompt="Crie uma imagem vertical 4:5 (1080 × 1350 px) para um post de Instagram da Forno da Vila, padaria de fermentação natural em Mogi das Cruzes. Cena: uma pessoa de costas, numa sala de reunião ainda vazia, olhando o celular à espera de uma confirmação. Estilo: fotografia calma, luz natural, muito espaço vazio e poucas cores, como a Aesop. Cores: verde oliva #4A5230, terracota #9A4A26 e fundo cor de farinha #F1EFE7. Texto na imagem, exatamente assim, em português, com letra serifada elegante: &quot;Quem organiza a reunião não tem tempo de correr atrás de confirmação.&quot;, sem logos, sem marca d&#x27;água e sem nenhuma outra palavra.">
     <h2>Quem organiza a reunião não tem tempo de correr atrás de confirmação.</h2>
     <div class="conversa" aria-label="Mensagem enviada sem resposta">
       <div class="balao"><p>Oi! Café para a reunião de quinta, 20 pessoas?</p></div>
@@ -83,7 +89,7 @@ body.so{background:var(--fundo)} body.so .controles{display:none}
     <div class="rodape"><span>@fornodavila.exemplo</span><span class="arraste">arraste <svg width="44" height="20" viewBox="0 0 44 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 10h38M32 2l8 8-8 8"/></svg> 2/7</span></div>
   </section>
 
-  <section class="lamina forno">
+  <section class="lamina forno" data-prompt="Crie uma imagem vertical 4:5 (1080 × 1350 px) para um post de Instagram da Forno da Vila, padaria de fermentação natural em Mogi das Cruzes. Cena: sala de reunião com pessoas já sentadas e a mesa ainda sem café; um relógio na parede marca 8h40. Estilo: fotografia calma, luz natural, muito espaço vazio e poucas cores, como a Aesop. Cores: verde oliva #4A5230, terracota #9A4A26 e fundo cor de farinha #F1EFE7. Texto na imagem, exatamente assim, em português, com letra serifada elegante: &quot;Reunião às 8h. Café às 8h40. Cliente já sentado.&quot;, sem logos, sem marca d&#x27;água e sem nenhuma outra palavra.">
     <h2>Reunião às 8h.<br>Café às 8h40.<br>Cliente já sentado.</h2>
     <svg class="relogio" viewBox="0 0 500 500" fill="none" aria-label="Relógio marcando 8h40: quarenta minutos de atraso">
       <path d="M250 50 A200 200 0 1 1 76.8 350 L250 250 Z" fill="#F1EFE7" fill-opacity=".14"/>
@@ -98,7 +104,7 @@ body.so{background:var(--fundo)} body.so .controles{display:none}
     <div class="rodape"><span>@fornodavila.exemplo</span><span>3/7</span></div>
   </section>
 
-  <section class="lamina">
+  <section class="lamina" data-prompt="Crie uma imagem vertical 4:5 (1080 × 1350 px) para um post de Instagram da Forno da Vila, padaria de fermentação natural em Mogi das Cruzes. Cena: uma prancheta com uma lista curta de 5 itens sobre a bancada, ao lado de pães de fermentação natural. Estilo: fotografia calma, luz natural, muito espaço vazio e poucas cores, como a Aesop. Cores: verde oliva #4A5230, terracota #9A4A26 e fundo cor de farinha #F1EFE7. Texto na imagem, exatamente assim, em português, com letra serifada elegante: &quot;Aqui, o pedido tem 5 perguntas.&quot;, sem logos, sem marca d&#x27;água e sem nenhuma outra palavra.">
     <h2>Aqui, o pedido tem 5 perguntas.</h2>
     <ol class="perguntas">
       <li>Empresa</li><li>Data</li><li>Horário</li><li>Quantas pessoas</li><li>Restrições</li>
@@ -106,7 +112,7 @@ body.so{background:var(--fundo)} body.so .controles{display:none}
     <div class="rodape"><span>@fornodavila.exemplo</span><span>4/7</span></div>
   </section>
 
-  <section class="lamina">
+  <section class="lamina" data-prompt="Crie uma imagem vertical 4:5 (1080 × 1350 px) para um post de Instagram da Forno da Vila, padaria de fermentação natural em Mogi das Cruzes. Cena: um orçamento impresso sobre a bancada da padaria, ao lado de um pequeno relógio de mesa. Estilo: fotografia calma, luz natural, muito espaço vazio e poucas cores, como a Aesop. Cores: verde oliva #4A5230, terracota #9A4A26 e fundo cor de farinha #F1EFE7. Texto na imagem, exatamente assim, em português, com letra serifada elegante: &quot;Orçamento por escrito em até 2 horas.&quot;, sem logos, sem marca d&#x27;água e sem nenhuma outra palavra.">
     <h2>Orçamento por escrito em até 2 horas.</h2>
     <div class="passos">
       <svg viewBox="0 0 888 120" fill="none" aria-hidden="true">
@@ -125,7 +131,7 @@ body.so{background:var(--fundo)} body.so .controles{display:none}
     <div class="rodape"><span>@fornodavila.exemplo</span><span>5/7</span></div>
   </section>
 
-  <section class="lamina casca">
+  <section class="lamina casca" data-prompt="Crie uma imagem vertical 4:5 (1080 × 1350 px) para um post de Instagram da Forno da Vila, padaria de fermentação natural em Mogi das Cruzes. Cena: mesa de reunião posta com café, pães e frutas, tudo pronto antes de as pessoas chegarem, luz da manhã. Estilo: fotografia calma, luz natural, muito espaço vazio e poucas cores, como a Aesop. Cores: verde oliva #4A5230, terracota #9A4A26 e fundo cor de farinha #F1EFE7. Texto na imagem, exatamente assim, em português, com letra serifada elegante: &quot;Confirmado é confirmado.&quot;, sem logos, sem marca d&#x27;água e sem nenhuma outra palavra.">
     <svg class="carimbo" viewBox="0 0 470 470" fill="none" aria-label="Carimbo: confirmado">
       <defs><path id="anel" d="M235 75a160 160 0 1 1 0 320a160 160 0 1 1 0-320"/></defs>
       <circle cx="235" cy="235" r="215" stroke="#F1EFE7" stroke-width="5"/>
@@ -138,7 +144,7 @@ body.so{background:var(--fundo)} body.so .controles{display:none}
     <div class="rodape"><span>@fornodavila.exemplo</span><span>6/7</span></div>
   </section>
 
-  <section class="lamina chamada">
+  <section class="lamina chamada" data-prompt="Crie uma imagem vertical 4:5 (1080 × 1350 px) para um post de Instagram da Forno da Vila, padaria de fermentação natural em Mogi das Cruzes. Cena: close de pães e xícaras de café numa bancada de padaria, com espaço vazio em cima para o texto. Estilo: fotografia calma, luz natural, muito espaço vazio e poucas cores, como a Aesop. Cores: verde oliva #4A5230, terracota #9A4A26 e fundo cor de farinha #F1EFE7. Texto na imagem, exatamente assim, em português, com letra serifada elegante: &quot;Comente café&quot;, sem logos, sem marca d&#x27;água e sem nenhuma outra palavra.">
     <p class="pergunta">Quer as 5 perguntas?</p>
     <h2>Comente</h2>
     <p class="palavra">café</p>
@@ -147,17 +153,23 @@ body.so{background:var(--fundo)} body.so .controles{display:none}
   </section>
 
 </div>
-<div class="controles"><button type="button" aria-label="Lâmina anterior">&#8249;</button><span class="conta"></span><button type="button" aria-label="Próxima lâmina">&#8250;</button></div>
+<div class="controles"><span class="nav"><button type="button" aria-label="Lâmina anterior">&#8249;</button><span class="conta"></span><button type="button" aria-label="Próxima lâmina">&#8250;</button></span><button type="button" class="gerar">Gerar prompt de imagem</button></div>
+<dialog class="caixa"><b>Prompt de imagem desta lâmina</b><br>Cole no ChatGPT (ou outro gerador de imagem) para criar a imagem.<textarea readonly></textarea><button type="button" class="copiar">Copiar</button><button type="button" class="fechar">Fechar</button></dialog>
 <script>
 // Uma lâmina por vez, do tamanho da janela. ?n=3 mostra só a lâmina 3, sem botões (relatório e print).
 const n=+new URLSearchParams(location.search).get('n'), ls=[...document.querySelectorAll('.lamina')];
-const [ant,prox]=document.querySelectorAll('.controles button'), conta=document.querySelector('.conta');
+const [ant,prox]=document.querySelectorAll('.nav button'), conta=document.querySelector('.conta');
 let i=Math.min(Math.max((n||1)-1,0),ls.length-1);
 if(n) document.body.classList.add('so');
-if(ls.length<2) document.querySelector('.controles').hidden=true;
+if(ls.length<2) document.querySelector('.nav').hidden=true;
 function mostra(){ ls.forEach((l,k)=>l.hidden=k!==i); conta.textContent=(i+1)+' / '+ls.length; ant.disabled=i===0; prox.disabled=i===ls.length-1; }
 function escala(){ const folga=n?0:80; document.documentElement.style.setProperty('--s',Math.min(1,innerWidth/1080,(innerHeight-folga)/1350)); }
 ant.onclick=()=>{ if(i>0){i--;mostra();} }; prox.onclick=()=>{ if(i<ls.length-1){i++;mostra();} };
-addEventListener('keydown',e=>{ if(e.key==='ArrowRight') prox.click(); if(e.key==='ArrowLeft') ant.click(); });
+addEventListener('keydown',e=>{ if(caixa.open) return; if(e.key==='ArrowRight') prox.click(); if(e.key==='ArrowLeft') ant.click(); });
+// Gerar prompt de imagem: mostra e copia o data-prompt da lâmina atual.
+const caixa=document.querySelector('.caixa'), txt=caixa.querySelector('textarea');
+function copia(){ txt.select(); document.execCommand('copy'); }
+document.querySelector('.gerar').onclick=()=>{ txt.value=ls[i].dataset.prompt; caixa.showModal(); copia(); };
+caixa.querySelector('.copiar').onclick=copia; caixa.querySelector('.fechar').onclick=()=>caixa.close();
 addEventListener('resize',escala); escala(); mostra();
 </script></body></html>

@@ -1,11 +1,11 @@
 # IA para empresários: material da imersão
 
-Imersão com Lucas Santana, 27/10/2026. São duas pastas, uma para cada parte do dia. Cada uma é um projeto do Claude Code: as skills já vêm dentro, em `.claude/skills/`, e funcionam assim que você abre a pasta.
+Imersão com Lucas Santana, 27/10/2026. São duas pastas. Cada uma é um projeto do Claude Code: as skills já vêm dentro, em `.claude/skills/`, e funcionam assim que você abre a pasta.
 
-| Parte | Pasta | Baixar | O que tem |
+| Pasta | Fonte | Baixar | O que tem |
 |---|---|---|---|
-| Manhã | [`manha/`](manha/) | [imersao-manha.zip](https://ia-para-empresarios-v2.vercel.app/downloads/imersao-manha.zip) | 6 passos com os prompts prontos, os dados fictícios da Torra Viva Cafés Especiais e as skills da manhã |
-| Tarde | [`tarde/`](tarde/) | [imersao-tarde.zip](https://ia-para-empresarios-v2.vercel.app/downloads/imersao-tarde.zip) | O cérebro da empresa (6 skills da trilha, mais `/sobre-mim`, `/sugerir-automacoes` e a skill de design `frontend-design`) e o exemplo pronto Forno da Vila |
+| torra-viva | [`manha/`](manha/) | [torra-viva.zip](https://ia-para-empresarios-v2.vercel.app/downloads/torra-viva.zip) | A demonstração da manhã (o Lucas faz ao vivo; o aluno não precisa baixar): 6 passos com os prompts prontos, os dados fictícios da Torra Viva Cafés Especiais e as skills |
+| minha-empresa | [`tarde/`](tarde/) | [minha-empresa.zip](https://ia-para-empresarios-v2.vercel.app/downloads/minha-empresa.zip) | O cérebro da empresa, que o aluno baixa antes do almoço: 8 fases em trilha (`/instalar`, `/mapear-empresa`, `/mapear-concorrentes`, `/sobre-mim` e `/sugerir-automacoes` antes do almoço; `/criar-oferta`, `/criar-pagina` e `/criar-conteudo` depois), a skill de design `frontend-design` e o exemplo pronto Forno da Vila |
 
 ## Como usar
 

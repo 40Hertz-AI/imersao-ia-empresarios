@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Gera site/downloads/imersao-manha.zip e imersao-tarde.zip a partir do que está commitado (git archive HEAD).
+"""Gera site/downloads/torra-viva.zip (de manha/) e minha-empresa.zip (de tarde/) a partir do que está commitado (git archive HEAD).
 
-A pasta de cima se chama imersao-manha/ e imersao-tarde/, como nos ZIPs anteriores. Fica de fora tudo o que
+A pasta de cima tem o mesmo nome do ZIP: torra-viva/ e minha-empresa/. Fica de fora tudo o que
 não está dentro de manha/ e tarde/ (testes/, scripts/...). Datas fixas e ordem fixa: o ZIP sai igual se nada
 mudou (para saber se o material do ar foi atualizado, compare o hash do ZIP baixado do ar, não o do disco).
 As permissões Unix vão junto.
@@ -19,14 +19,14 @@ RAIZ = Path(__file__).resolve().parent.parent
 DATA = (2026, 10, 26, 0, 0, 0)
 IGNORA = {".DS_Store", "Thumbs.db"}
 
-for area in ("manha", "tarde"):
+for area, pasta in (("manha", "torra-viva"), ("tarde", "minha-empresa")):
     tar = subprocess.run(["git", "-C", str(RAIZ), "archive", "--format=tar", "HEAD", area], check=True, capture_output=True).stdout
-    destino = RAIZ / "site" / "downloads" / f"imersao-{area}.zip"
+    destino = RAIZ / "site" / "downloads" / f"{pasta}.zip"
     with tarfile.open(fileobj=io.BytesIO(tar)) as t, zipfile.ZipFile(destino, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
         membros = sorted((m for m in t.getmembers() if Path(m.name).name not in IGNORA), key=lambda m: m.name)
         n = 0
         for m in membros:
-            nome = f"imersao-{area}" + m.name[len(area):]
+            nome = pasta + m.name[len(area):]
             if m.isdir():
                 info = zipfile.ZipInfo(nome.rstrip("/") + "/", DATA)
                 info.external_attr = (0o40755 << 16) | 0x10

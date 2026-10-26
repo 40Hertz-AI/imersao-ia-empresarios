@@ -1,6 +1,6 @@
 # Exemplo: Forno da Vila (empresa fictícia)
 
-Como a pasta da tarde fica depois das 6 fases. Abra o `RESULTADO.html` no navegador.
+Como a pasta minha-empresa fica depois das fases da empresa (oferta, página e conteúdo incluídos). Abra o `RESULTADO.html` no navegador.
 
 Aqui ficam só os arquivos que a IA preencheu: `memoria/`, `marca/`, `pesquisa/`, `entregas/`, `controle/progresso.md` e o `RESULTADO.html`. As skills e as regras são as da pasta de cima.
 

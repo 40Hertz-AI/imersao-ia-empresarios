@@ -41,8 +41,11 @@ INTRO = [
     ("novo", "22"),  # promessa + 5 fases
     ("orig", 13),    # vídeo GPT-6 Astra (opcional)
 ]
-# Manhã: teoria demonstrada (fases 1 a 4), a pasta abre a parte prática, trilha de 6 passos com a
-# Torra Viva e almoço. Sem horários no deck. Comentários "pág. NN" = página no PDF anterior, de 102.
+# Manhã: o Lucas mostra tudo ao vivo na pasta torra-viva (fases 1 a 4 e os 6 passos da Torra Viva).
+# Antes do almoço os alunos baixam a pasta minha-empresa e rodam as fases 1 a 5 (a empresa e eles).
+# Sem horários no deck. Mudanças de 26/10 (pedido do Lucas): o prompt em 4 partes (m02a) foi para antes
+# do passo 3, o ruim × bom (m02b) e a ponte (orig 46) saíram, e a pasta, as fases e o "baixar" da tarde
+# (orig 57, 59, 60) foram refeitos para a minha-empresa (t08, t09, t10) e subiram para antes do almoço.
 MANHA = [
     ("novo", "m01"),  # Fase 1: o modelo (rodapé "só eu mostro")
     ("orig", 15),     # o que é um LLM
@@ -51,8 +54,6 @@ MANHA = [
     ("orig", 18),     # respostas diferentes
     ("orig", 19),     # quem está na frente
     ("orig", 20),     # inteligência x custo
-    ("novo", "m02a"), # prompt: as 4 partes (era a pág. 40, dividida em duas)
-    ("novo", "m02b"), # prompt ruim x prompt bom, lado a lado
     ("orig", 21),     # o LLM é só o motor
     ("orig", 22),     # Claude Code = o Claude com acesso a uma pasta
     ("novo", "m03"),  # Fase 2: MCP
@@ -67,44 +68,39 @@ MANHA = [
     ("orig", 44),     # a IA não é burra, ela não tem contexto
     ("novo", "m07"),  # mesma pergunta, duas respostas (Torra Viva)
     ("orig", 47),     # janela de contexto
-    ("novo", "m08"),  # a pasta imersao-manha: abre a parte prática
-    ("novo", "m10"),  # sua vez: a trilha de 6 passos
+    ("novo", "m08"),  # a pasta torra-viva: o Lucas trabalha nela daqui em diante
+    ("novo", "m10"),  # ao vivo: a trilha de 6 passos
     ("novo", "m11"),  # passo 1 · abrir a pasta
     ("novo", "m12"),  # passo 2 · a planilha da Torra Viva
-    ("orig", 26),     # passo 2 · façam junto: conectar o Google Drive
+    ("orig", 26),     # passo 2 · conectar o Google Drive
     ("novo", "m13"),  # passo 2 · pergunte à planilha
-    ("novo", "m15"),  # passo 3 · prompts
+    ("novo", "m02a"), # como montar um bom prompt: Papel, Contexto, Tarefa e Formato
+    ("novo", "m15"),  # passo 3 · prompts (o exemplo das 4 partes)
     ("novo", "m16"),  # passo 4 · /eli5
     ("novo", "m17"),  # passo 5 · /resposta-cliente
-    ("novo", "m19"),  # passo 6 · três páginas web com Artifacts
-    ("orig", 46),     # vocês deram contexto a manhã inteira (ponte)
+    ("novo", "m19"),  # passo 6 · calculadora, dashboard e apresentação
+    ("novo", "t08"),  # a pasta minha-empresa (era orig 57, cerebro-da-empresa)
+    ("novo", "t09"),  # a empresa em 8 fases (era orig 59, 6 fases)
+    ("novo", "t10"),  # façam junto: baixar e abrir (era orig 60)
+    ("novo", "t02"),  # bloco A: fases 1 a 3
+    ("novo", "t05"),  # bloco B: /sobre-mim (fase 4)
+    ("novo", "t06"),  # bloco C: /sugerir-automacoes (fase 5)
     ("novo", "m22"),  # almoço
 ]
-# Tarde. Do "orquestradores" (orig 64) em diante, sem mudança de conteúdo:
-# só o Café da tarde (orig 69) entra entre o Apolo (orig 68) e o FDE (orig 70).
+# Tarde: marketing e vendas (fases 6 a 8) e o fechamento até o café da tarde, que é o último slide.
 TARDE = [
     ("orig", 49),     # como foi a primeira parte?
-    ("novo", "t01"),  # abertura: 3 empresas da sala
+    ("novo", "t01"),  # abertura: 3 empresas da sala, antes e depois
     ("orig", 56),     # harness = tudo numa pasta
-    ("orig", 57),     # a pasta cerebro-da-empresa
-    ("orig", 59),     # a empresa em 6 fases
-    ("orig", 60),     # baixar e abrir
-    ("novo", "t02"),  # bloco A: fases 1 a 3
-    ("novo", "t03"),  # bloco B: página com o /criar-pagina
-    ("novo", "t04"),  # bloco C: conteúdo em HTML
-    ("novo", "t05"),  # bloco D: /sobre-mim
+    ("novo", "t07"),  # bloco D: /criar-oferta (fase 6)
+    ("novo", "t03"),  # bloco E: /criar-pagina (fase 7)
+    ("novo", "t04"),  # bloco F: /criar-conteudo, com o prompt de imagem (fase 8)
     ("orig", 64),     # vocês acabaram de virar orquestradores
     ("orig", 65),
     ("orig", 66),
     ("orig", 67),
     ("orig", 68),     # Apolo · receita previsível
-    ("orig", 69),     # café da tarde (depois do Apolo, antes do FDE)
-    ("orig", 70),     # FDE
-    ("orig", 71),
-    ("orig", 72),
-    ("orig", 73),
-    ("orig", 74),     # depoimentos
-    ("orig", 75),     # a IA executa. Você lidera.
+    ("orig", 69),     # café da tarde: último slide
 ]
 ORDEM = INTRO + MANHA + TARDE
 # Páginas do PDF base que saíram (com o que as substitui):
@@ -125,6 +121,9 @@ SAIRAM = {
     50, 51, 52,          # cases GCC, Miss Wise e Meng, plano B da abertura (saíram em 26/10)
     54, 55,              # Fase 5: agentes e harness = arreio (saíram em 26/10)
     58,                  # CLAUDE.md é a regra da casa (saiu em 26/10)
+    46,                  # ponte "vocês deram contexto a manhã inteira" (saiu em 26/10, 2ª rodada)
+    57, 59, 60,          # pasta cerebro-da-empresa, 6 fases e baixar e abrir -> t08, t09, t10 (minha-empresa)
+    70, 71, 72, 73, 74, 75,  # FDE, quatro lados, AI-native, escada, depoimentos e fecho (saíram em 26/10)
 }
 
 

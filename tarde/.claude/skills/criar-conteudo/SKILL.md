@@ -32,6 +32,7 @@ Carregar a skill `frontend-design` (se existir). Ler `references/lamina.md` (o s
 - **Um sistema só**, com layout que muda pela função da lâmina: gancho (tipografia dominante), problema (um elemento gráfico que mostra a cena), método (lista desenhada), virada (selo ou carimbo), chamada (a palavra para comentar em destaque).
 - Cores e fontes de `marca/marca.md`. Grafismos em SVG desenhados no arquivo; fotos só se o dono pôs em `marca/`. Nada de foto de banco nem emoji.
 - Fixos em todas: @ da empresa, contador `1/7` (no carrossel), indicação de "arraste" nas primeiras.
+- **Botão "Gerar prompt de imagem"** em todo arquivo: cada lâmina leva um `data-prompt` com o prompt para o ChatGPT criar uma imagem daquela lâmina (como escrever: `references/lamina.md`). O botão mostra e copia o prompt da lâmina na tela.
 - Legível no celular: título ≥ 72 px, apoio ≥ 36 px.
 
 ## 3. Conferir (sem print)
@@ -41,6 +42,7 @@ Reler cada arquivo e corrigir antes de seguir:
 - Contraste: texto sobre o fundo de cada lâmina passa 4,5:1 (calcular com os hex de `marca/marca.md`).
 - O `<link>` do Google Fonts tem as duas fontes; `font-family` das lâminas usa as variáveis.
 - `?n=` funciona: o script lê o número e mostra só aquela lâmina.
+- Toda lâmina tem `data-prompt` preenchido, com o título exato da lâmina e as cores da marca.
 - Nada de fora além do Google Fonts: sem imagem da internet, sem biblioteca.
 
 Abrir o carrossel no navegador para o dono: `open` (Mac), `start ""` (Windows), `xdg-open` (Linux). Se falhar, só dar o caminho.
@@ -60,7 +62,7 @@ Marcar a fase em `controle/progresso.md` (se existir) e responder:
 ```
 ✓ Conteúdo do mês → entregas/conteudo.md + entregas/posts/ (HTML)
 <os 4 pilares em 1 linha> · carrossel: <tema>
-Abra entregas/posts/carrossel-1.html no navegador (setas para passar). Atualize o RESULTADO.html: a seção Conteúdo apareceu.
+Abra entregas/posts/carrossel-1.html no navegador (setas para passar; "Gerar prompt de imagem" copia o prompt para o ChatGPT). Atualize o RESULTADO.html: a seção Conteúdo apareceu.
 Falta confirmar: <o que ficou [a confirmar]; omitir se nada>
 Próximo: poste o carrossel esta semana (print de cada lâmina em tela cheia) e escolha 1 dos próximos passos do RESULTADO.html.
 ```

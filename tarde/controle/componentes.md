@@ -153,8 +153,8 @@ Regras de todas as seções:
 | `titulo` | 1 | `<title><Nome> · Cérebro da empresa</title>` |
 | `marca` | 1, 2 ou `/marca` | O `<link>` do Google Fonts e o `:root` com as 6 variáveis de `marca/marca.md` |
 | `nome` | 1 | `<a class="nome" href="#capa">Nome</a>`. Se existir `marca/logo.*`: `<a class="nome" href="#capa"><img src="marca/logo.png" alt="Nome"></a>` |
-| `atualizado` | todas | `<p class="atualizado">Atualizado em DD/MM/AAAA · fase N de 6</p>` |
-| `capa` | 1, refinada na 2 | `<p class="tipo">` cidade e setor · `<h1>` a empresa em 1 frase · `.lede` · `.numeros` com 3–4 números **públicos**, cada `<b data-conta>`. Logo: `<img class="logo" src="marca/logo.png" alt="Nome">` se existir. A trilha das 6 fases aparece sozinha |
+| `atualizado` | todas | `<p class="atualizado">Atualizado em DD/MM/AAAA · fase N de 8</p>` |
+| `capa` | 1, refinada na 2 | `<p class="tipo">` cidade e setor · `<h1>` a empresa em 1 frase · `.lede` · `.numeros` com 3–4 números **públicos**, cada `<b data-conta>`. Logo: `<img class="logo" src="marca/logo.png" alt="Nome">` se existir. A trilha das 8 fases aparece sozinha |
 | `ficha` | 1 | `.ficha` com o que o dono contou · `.grade g2` com "O que mais incomoda hoje" (forte) e "Onde quer chegar em 12 meses" · bastidor sobre memória. Sem faturamento |
 | `empresa` | 2 | Presença digital em tabela com selos · o que vende, prova e não diz (`.g3`) · `.comparar` dono × internet · bastidor |
 | `identidade` | 2 ou `/marca` | `.paleta` · `.tipos` · como a empresa fala (citação + palavras a evitar) · bastidor sobre de onde veio a marca |
@@ -162,7 +162,9 @@ Regras de todas as seções:
 | `cliente` | 2 | Persona em cartão forte + anti-cliente · jornada em `.etapas` com `perde` · dores em `.abas` (uma aba por dor, com `.citacao` e `.fonte`) · gatilhos e objeções · bastidor |
 | `diagnostico` | 2 | Gargalos em tabela (confirma ou não o problema do dono) · oportunidades em cartões, ★ na mais forte · bastidor |
 | `concorrentes` | 3 | `.mapa` com `data-nota` e `.vazio` · `.barras` de força digital · tabela com linha `nos` · espaços vazios em cartões · bastidor |
-| `oferta` | 4 | `.destaque` com a proposta de valor · mecanismo em `.etapas` · principal × entrada em `.g2` · garantia · selo "hipótese a validar" · bastidor |
-| `pagina` | 5 | `.abas`: "No celular" (`.molduras` + `.celular`), "No computador" (`.navegador`), "Formulário de pedido" · botões para abrir · bastidor |
-| `conteudo` | 6 | `.molduras`: o `.post` com uma `.slide html` por lâmina do carrossel e, no `.lado`, a `.rosca` dos pilares e os botões `.botao` para abrir o carrossel e os 2 posts · calendário em tabela com selo de formato · bastidor |
+| `voce` | 4 | `<h2>` com o papel em 1 frase · `.ficha` com papel e decisões, a semana e com quem fala · tabela dos processos (processo, gatilho, tempo, frequência, dor principal) · bastidor sobre o mapa como memória. Sem salário, senha nem dado pessoal de cliente |
+| `automacoes` | 5 | `<h2>` com a ideia central · as 3 primeiras em `.grade g3` (o que é, tipo, impacto/esforço e o próximo passo em `<code>`) · tabela com todas as sugestões · bastidor sobre skill, rotina e conexão |
+| `oferta` | 6 | `.destaque` com a proposta de valor · mecanismo em `.etapas` · principal × entrada em `.g2` · garantia · selo "hipótese a validar" · bastidor |
+| `pagina` | 7 | `.abas`: "No celular" (`.molduras` + `.celular`), "No computador" (`.navegador`), "Formulário de pedido" · botões para abrir · bastidor |
+| `conteudo` | 8 | `.molduras`: o `.post` com uma `.slide html` por lâmina do carrossel e, no `.lado`, a `.rosca` dos pilares e os botões `.botao` para abrir o carrossel e os 2 posts · calendário em tabela com selo de formato · bastidor |
 | `proximos` | todas | `<h2>` · `.conta-passos` · `.passos` com as 3 primeiras ações de `memoria/foco.md`, cada uma com o comando ou arquivo que ajuda (sem nenhum, omitir) |

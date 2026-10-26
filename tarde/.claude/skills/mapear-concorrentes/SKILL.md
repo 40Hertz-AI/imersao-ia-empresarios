@@ -51,5 +51,5 @@ Marcar a fase em `controle/progresso.md` (se existir) e responder:
 Mais forte: <concorrente, em 1 linha> · Espaço vazio nº 1: <1 linha>
 Atualize o RESULTADO.html: a seção Concorrentes apareceu.
 Falta confirmar: <o que ficou [a confirmar]; omitir se nada>
-Próximo: /criar-oferta (~6 min)
+Próximo: /sobre-mim (~15 min)
 ```

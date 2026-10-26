@@ -469,6 +469,17 @@ h1.xl { font-size: 72px; line-height: 1.06; }
 .v3 .ti .ds code { font-size: 13px; padding: 1px 5px; }
 .v3 .ti.h { background: rgba(251,189,4,.07); border-color: rgba(251,189,4,.4); }
 
+/* trilha da pasta minha-empresa: 8 fases em 4 colunas (1 a 5 antes do almoço, 6 a 8 depois) */
+.v3 .tl.f8 { grid-template-columns: repeat(4, 1fr); margin-top: 22px; }
+.v3 .tl.f8 .ti { grid-template-columns: 34px 1fr; padding: 14px 16px; gap: 12px; min-height: 96px; }
+.v3 .tl.f8 .ti .tt { font-size: 17.5px; }
+.v3 .tl.f8 .ti .ds { font-size: 13.5px; }
+.v3 .tl.f8 .ti .ds code { font-size: 12.5px; }
+.v3 .tl.f8 .ti.dp { border-color: rgba(167,139,250,.42); }
+.v3 .tl.f8 .ti.dp .bd { background: rgba(167,139,250,.10); border-color: rgba(167,139,250,.5); color: #a78bfa; }
+.v3 .gl { margin-top: 18px; display: flex; gap: 28px; font-size: 15px; color: #cccccc; }
+.v3 .gl .y { font-weight: 700; } .v3 .gl .vi { color: #a78bfa; font-weight: 700; }
+
 /* prompt: as 4 partes em cartões maiores; ruim × bom lado a lado */
 .v3 .c4.pq { margin-top: 28px; }
 .v3 .c4.pq .cc { padding: 26px 26px 28px; }
@@ -926,20 +937,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
       <div class="cc h"><div class="lb">04 · Formato</div><div class="q">Como deve vir a resposta?</div><div class="ex">"Assunto + até 150 palavras, sem jargão, com uma chamada clara no fim."</div></div>
     </div>
   </div>
-  <div class="vf">As 4 partes do passo 3 (Torra Viva, empresa fictícia). O Formato é a parte que as pessoas mais esquecem.</div>
-</section>
-
-<!-- ============ M02b · Prompt ruim × prompt bom, lado a lado ============ -->
-<section class="slide v3 dk" data-id="m02b" data-nome="prompt-ruim-x-bom">
-  <div class="vb">
-    <div class="vk v"><i data-i="monitor"></i>Ao vivo · eu mostro</div>
-    <h2>Mesmo pedido. <span class="y">Dois prompts.</span></h2>
-    <div class="p2 rb">
-      <div class="pn"><span class="ch">Prompt ruim</span><p class="pr">Escreve um e-mail avisando que o preço vai subir.</p><p class="sx">Sem papel, sem contexto, sem formato: a IA chuta o cliente, o motivo, o prazo e o tom. O texto sai genérico e você reescreve.</p></div>
-      <div class="pn h"><span class="ch">Prompt bom</span><p class="pb"><b>Papel:</b> você é a Marina, gerente comercial da Torra Viva Cafés Especiais, e fala com os clientes de um jeito próximo e direto.<br><b>Contexto:</b> a Clínica Bem Viver é cliente desde novembro de 2025, tem 32 funcionários, plano Mantiqueira Clássico com contrato anual e deu nota 10 na última pesquisa. O preço do kg vai subir 6% a partir de 01/12/2026, porque o café verde (o grão cru, antes da torra) ficou mais caro. Quem renovar o contrato anual até 30/11 mantém o preço atual por mais 12 meses.<br><b>Tarefa:</b> escreva o e-mail avisando o reajuste e oferecendo a renovação.<br><b>Formato:</b> assunto + corpo de até 150 palavras, sem jargão, com uma chamada clara no fim. Assine "Marina, Torra Viva".</p></div>
-    </div>
-  </div>
-  <div class="vf">Exemplo 1 do passo 3 (Torra Viva, empresa fictícia). Cole um, digite /clear, cole o outro e compare.</div>
+  <div class="vf">O exemplo é o passo 3, a seguir (Torra Viva, empresa fictícia). O Formato é a parte que as pessoas mais esquecem.</div>
 </section>
 
 <!-- ============ M03 · Fase 2: MCP (divisor) ============ -->
@@ -963,13 +961,13 @@ h1.xl { font-size: 72px; line-height: 1.06; }
     <div class="vk v"><i data-i="monitor"></i>Ao vivo · eu mostro</div>
     <h2>Do Drive <span class="y">para a resposta.</span></h2>
     <div class="rw">
-      <div class="r"><span class="bd">1</span><div><div class="tt">A planilha no Google</div><div class="ds"><code>sheets.new</code> → Arquivo → Importar → <code>dados/torra-viva.xlsx</code> da pasta da manhã.</div></div></div>
+      <div class="r"><span class="bd">1</span><div><div class="tt">A planilha no Google</div><div class="ds"><code>sheets.new</code> → Arquivo → Importar → <code>dados/torra-viva.xlsx</code> da pasta torra-viva.</div></div></div>
       <div class="r"><span class="bd">2</span><div><div class="tt">O conector</div><div class="ds">claude.ai → Configurações → Conectores → Google Drive.</div></div></div>
       <div class="r"><span class="bd">3</span><div><div class="tt">No Claude Code, <code>/mcp</code></div><div class="ds">o Google Drive aparece na lista.</div></div></div>
       <div class="r"><span class="bd">4</span><div><div class="tt">A pergunta</div><div class="ds">"Qual foi o faturamento de cada mês?" Sem copiar e colar: ele busca o dado onde o dado está.</div></div></div>
     </div>
   </div>
-  <div class="vf">Vocês fazem o mesmo no passo 2. Sem conector, os arquivos de dados/ servem de plano B.</div>
+  <div class="vf">No passo 2 eu faço com a planilha inteira. Sem conector, os arquivos de dados/ servem de plano B.</div>
 </section>
 
 <!-- ============ M05 · Fase 3: skills (divisor) ============ -->
@@ -999,7 +997,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
     </div>
     <div class="sk"><span>eli5</span><span>frontend-design</span><span>humanizer</span><span>find-skills</span><span>grill-me</span><span>grilling</span></div>
   </div>
-  <div class="vf">Pasta da manhã · .claude/skills/</div>
+  <div class="vf">Pasta torra-viva · .claude/skills/</div>
 </section>
 
 <!-- ============ M08 · A pasta é a sala de reunião ============ -->
@@ -1007,9 +1005,9 @@ h1.xl { font-size: 72px; line-height: 1.06; }
   <div class="pa">
     <div>
       <div class="vk"><i data-i="folder"></i>A pasta</div>
-      <div class="nm">imersao-manha</div>
+      <div class="nm">torra-viva</div>
       <div class="tx">A pasta é a sala de reunião: o Claude só vê o que está na mesa. O <span class="mono">CLAUDE.md</span> é o manual de boas-vindas.</div>
-      <div class="lg"><span class="y">Amarelo</span> = ele lê primeiro.<br><span class="te">Teal</span> = já veio na pasta.<br><span class="vi">Violeta</span> = o que vocês criam.</div>
+      <div class="lg"><span class="y">Amarelo</span> = ele lê primeiro.<br><span class="te">Teal</span> = já veio na pasta.<br><span class="vi">Violeta</span> = o que eu crio ao vivo.</div>
       <div class="tz">Teste ao vivo, aqui e numa pasta vazia:<br><q>O que você sabe sobre esta empresa?</q></div>
     </div>
     <div class="fl">
@@ -1018,7 +1016,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
       <div><b>passos/</b>os 6 passos, com os prompts prontos</div>
       <div><b>.claude/skills/</b>as skills que já vieram</div>
       <div><b>progresso.md</b>o checklist: "o que falta?"</div>
-      <div class="vi"><b>meu-trabalho/</b>tudo o que vocês criarem</div>
+      <div class="vi"><b>meu-trabalho/</b>tudo o que eu criar ao vivo</div>
     </div>
   </div>
 </section>
@@ -1031,7 +1029,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
     <div class="cx"><div class="cd lg"><span class="lb">A pergunta</span>Qual o produto mais vendido da Torra Viva?</div></div>
     <div class="p2" style="height:402px">
       <div class="pn"><span class="ch">Sem contexto · pasta vazia</span><p>Ele não conhece a empresa: avisa que não sabe ou chuta.</p></div>
-      <div class="pn h"><span class="ch">Com contexto · pasta imersao-manha</span><p class="st">Ele lê o CLAUDE.md e <code>dados/vendas-mensais.csv</code>: Mantiqueira Clássico 250 g, 2.910 unidades de janeiro a setembro.</p><p>A resposta deixa de ser chute e passa a usar o dado. (Dados fictícios de exemplo.)</p></div>
+      <div class="pn h"><span class="ch">Com contexto · pasta torra-viva</span><p class="st">Ele lê o CLAUDE.md e <code>dados/vendas-mensais.csv</code>: Mantiqueira Clássico 250 g, 2.910 unidades de janeiro a setembro.</p><p>A resposta deixa de ser chute e passa a usar o dado. (Dados fictícios de exemplo.)</p></div>
     </div>
   </div>
 </section>
@@ -1039,7 +1037,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
 <!-- ============ M10 · Sua vez: a trilha de 6 passos ============ -->
 <section class="slide v3" data-id="m10" data-nome="trilha-6-passos">
   <div class="vb">
-    <div class="vk">Sua vez · trilha prática</div>
+    <div class="vk v"><i data-i="monitor"></i>Ao vivo · eu mostro</div>
     <h2 class="sm">6 passos com a <span class="y">Torra Viva Cafés Especiais.</span></h2>
     <div class="tl">
       <div class="ti"><span class="bd">1</span><div><div class="tt">Abrir a pasta</div><div class="ds">o Claude responde nesta pasta</div></div></div>
@@ -1049,33 +1047,33 @@ h1.xl { font-size: 72px; line-height: 1.06; }
       <div class="ti"><span class="bd">3</span><div><div class="tt">Prompts que funcionam</div><div class="ds"><code>meu-trabalho/prompts.md</code></div></div></div>
       <div class="ti h"><span class="bd">6</span><div><div class="tt">Páginas web com Artifacts</div><div class="ds">calculadora, dashboard e apresentação</div></div></div>
     </div>
-    <div class="wn"><i data-i="alert"></i><div><b>Um passo por conversa:</b> <span class="mono">/clear</span>. Prompts prontos em <span class="mono">passos/</span>. Travou? Post-it vermelho. Ficou para trás: pule para o passo da turma.</div></div>
+    <div class="wn"><i data-i="alert"></i><div><b>Agora só olhem:</b> eu faço os 6 passos na tela, um por conversa (<span class="mono">/clear</span>). Antes do almoço é a vez de vocês, na sua empresa.</div></div>
   </div>
-  <div class="vf">Empresa fictícia, dados fictícios de exemplo. Tudo o que vocês criarem vai para meu-trabalho/.</div>
+  <div class="vf">Empresa fictícia, dados fictícios de exemplo. Tudo o que eu criar vai para meu-trabalho/.</div>
 </section>
 
 <!-- ============ M11 · Passo 1: abrir a pasta ============ -->
 <section class="slide v3" data-id="m11" data-nome="passo-1-abrir-a-pasta">
   <div class="vb">
-    <div class="vk">Sua vez · passo 1</div>
+    <div class="vk v"><i data-i="monitor"></i>Ao vivo · passo 1</div>
     <h2>Passo 1: <span class="y">abrir a pasta.</span></h2>
     <div class="rw">
-      <div class="r"><span class="bd">1</span><div><div class="tt">Baixe e descompacte</div><div class="ds">no portal → Baixar a pasta da manhã → extraia na Área de Trabalho: <code>imersao-manha</code>.</div></div></div>
+      <div class="r"><span class="bd">1</span><div><div class="tt">Baixe e descompacte</div><div class="ds">no portal → pasta torra-viva → extraia na Área de Trabalho: <code>torra-viva</code>.</div></div></div>
       <div class="r"><span class="bd">2</span><div><div class="tt">Abra o terminal dentro da pasta</div><div class="ds">Windows: barra de endereço da pasta → <code>powershell</code> → Enter. Mac: <code>cd </code> e arraste a pasta para o Terminal.</div></div></div>
       <div class="r"><span class="bd">3</span><div><div class="tt">Digite <code>claude</code></div><div class="ds">entre com a conta do Claude. "Confia nos arquivos desta pasta?" → Sim.</div></div></div>
       <div class="r"><span class="bd">4</span><div><div class="tt">Primeira pergunta</div><div class="ds">"O que você consegue fazer nesta pasta?"</div></div></div>
     </div>
   </div>
-  <div class="vf">Sem terminal: app do Claude → aba Code → pasta imersao-manha. Post-it vermelho = chama o monitor.</div>
+  <div class="vf">Sem terminal: app do Claude → aba Code → pasta torra-viva.</div>
 </section>
 
 <!-- ============ M12 · Passo 2: a planilha da Torra Viva (no lugar da antiga pág. 45) ============ -->
 <section class="slide v3" data-id="m12" data-nome="passo-2-planilha-torra-viva">
   <div class="vb">
-    <div class="vk">Sua vez · passo 2 · o caminho</div>
+    <div class="vk v"><i data-i="monitor"></i>Ao vivo · passo 2 · o caminho</div>
     <h2>A planilha da <span class="y">Torra Viva</span>, em 3 passos.</h2>
     <div class="c3" style="margin-top:24px">
-      <div class="cc h"><div class="tt">01 · Já está na pasta</div><p>Na sua pasta da manhã:</p><p><code>dados/</code> → <code>torra-viva.xlsx</code></p></div>
+      <div class="cc h"><div class="tt">01 · Já está na pasta</div><p>Na pasta torra-viva:</p><p><code>dados/</code> → <code>torra-viva.xlsx</code></p></div>
       <div class="cc h"><div class="tt">02 · Salvar no Google</div><p><code>sheets.new</code> → Arquivo → Importar → Fazer upload → <b>Substituir planilha</b></p></div>
       <div class="cc h"><div class="tt">03 · Renomear</div><p>"Torra Viva (dados fictícios)"</p><p>Abas: Sobre, Vendas, Produtos, Clientes B2B, Orçamento.</p></div>
     </div>
@@ -1086,7 +1084,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
 <!-- ============ M13 · Passo 2: pergunte à planilha (no lugar da antiga pág. 46) ============ -->
 <section class="slide v3" data-id="m13" data-nome="passo-2-pergunte-a-planilha">
   <div class="vb">
-    <div class="vk">Sua vez · passo 2</div>
+    <div class="vk v"><i data-i="monitor"></i>Ao vivo · passo 2</div>
     <h2 class="sm">Pergunte à planilha. <span class="y">Uma de cada vez.</span></h2>
     <div class="cx">
       <div class="cd s"><span class="n">1.</span>Procure no meu Google Drive a planilha "Torra Viva (dados fictícios)" e me diga, em poucas linhas, o que tem em cada aba.</div>
@@ -1103,13 +1101,13 @@ h1.xl { font-size: 72px; line-height: 1.06; }
 <!-- ============ M15 · Passo 3: prompt ruim × prompt bom ============ -->
 <section class="slide v3" data-id="m15" data-nome="passo-3-prompts">
   <div class="vb">
-    <div class="vk">Sua vez · passo 3</div>
+    <div class="vk v"><i data-i="monitor"></i>Ao vivo · passo 3</div>
     <h2>Passo 3: <span class="y">prompt ruim × prompt bom.</span></h2>
     <div class="cx">
       <div class="cd s"><span class="lb">1 · Cole o ruim</span>Escreve um e-mail avisando que o preço vai subir.</div>
       <div class="cd s"><span class="lb">2 · /clear e cole o bom</span>Papel: você é a Marina, gerente comercial da Torra Viva Cafés Especiais, e fala com os clientes de um jeito próximo e direto.<br>Contexto: a Clínica Bem Viver é cliente desde novembro de 2025, tem 32 funcionários, plano Mantiqueira Clássico com contrato anual e deu nota 10 na última pesquisa. O preço do kg vai subir 6% a partir de 01/12/2026, porque o café verde (o grão cru, antes da torra) ficou mais caro. Quem renovar o contrato anual até 30/11 mantém o preço atual por mais 12 meses.<br>Tarefa: escreva o e-mail avisando o reajuste e oferecendo a renovação.<br>Formato: assunto + corpo de até 150 palavras, sem jargão, com uma chamada clara no fim. Assine "Marina, Torra Viva".</div>
     </div>
-    <div class="wn"><i data-i="alert"></i><div>Compare foco, precisão e formato. Faça pelo menos 2 dos 4 exemplos e salve um prompt seu em <b>meu-trabalho/prompts.md</b>.</div></div>
+    <div class="wn"><i data-i="alert"></i><div>Comparem foco, precisão e formato: o bom tem as 4 partes do slide anterior. Papel, Contexto, Tarefa e Formato.</div></div>
   </div>
   <div class="vf">Os 4 exemplos (e-mail, post, análise de vendas, mensagem) em passos/03-prompts-que-funcionam/INSTRUCOES.md</div>
 </section>
@@ -1117,7 +1115,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
 <!-- ============ M16 · Passo 4: /eli5 ============ -->
 <section class="slide v3" data-id="m16" data-nome="passo-4-eli5">
   <div class="vb">
-    <div class="vk">Sua vez · passo 4</div>
+    <div class="vk v"><i data-i="monitor"></i>Ao vivo · passo 4</div>
     <h2><span class="y">/eli5:</span> me explique como se eu tivesse 5 anos.</h2>
     <div class="cx">
       <div class="cd">/eli5 o que é margem de contribuição</div>
@@ -1131,7 +1129,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
 <!-- ============ M17 · Passo 5: criar a /resposta-cliente ============ -->
 <section class="slide v3" data-id="m17" data-nome="passo-5-resposta-cliente">
   <div class="vb">
-    <div class="vk">Sua vez · passo 5</div>
+    <div class="vk v"><i data-i="monitor"></i>Ao vivo · passo 5</div>
     <h2>Passo 5: <span class="y">crie a /resposta-cliente.</span></h2>
     <div class="cx">
       <div class="cd s"><span class="lb">Cole no Claude Code</span>Crie uma skill chamada resposta-cliente<br>Ela recebe a mensagem de um cliente (WhatsApp, e-mail ou Instagram) e devolve:<br>1) o tipo da mensagem (dúvida, pedido, reclamação ou elogio) e a urgência (baixa, média ou alta);<br>2) a resposta pronta para copiar, no tom da empresa: próxima, direta, sem exagero, com no máximo 80 palavras.</div>
@@ -1144,7 +1142,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
 <!-- ============ M19 · Passo 6: três páginas web com Artifacts ============ -->
 <section class="slide v3" data-id="m19" data-nome="passo-6-paginas-web-artifacts">
   <div class="vb">
-    <div class="vk">Sua vez · passo 6</div>
+    <div class="vk v"><i data-i="monitor"></i>Ao vivo · passo 6</div>
     <h2>Passo 6: <span class="y">três páginas web.</span></h2>
     <div class="c3" style="margin-top:24px">
       <div class="cc h"><div class="tt">01 · Calculadora</div><p><code class="pt">meu-trabalho/calculadora-orcamento.html</code></p><p>Confira: 25 pessoas, 2 xícaras, 21 dias, Blend Escritório, anual, com máquina → <b>R$ 970,20/mês</b>.</p></div>
@@ -1162,7 +1160,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
   <div class="pl">
     <div class="vk"><i data-i="clock"></i>Pausa</div>
     <h2>Almoço.</h2>
-    <div class="nt" style="margin-top:26px">No almoço, anote 3 processos da sua empresa que você entregaria à IA. Eles entram à tarde.</div>
+    <div class="nt" style="margin-top:26px">No almoço, escolha 1 das automações sugeridas para testar. Depois do almoço: oferta, página e conteúdo.</div>
   </div>
 </section>
 
@@ -1176,7 +1174,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
       <div class="cc"><div class="lb">02 · Diagnóstico</div>O estudo do <code>/mapear-empresa</code> e do <code>/mapear-concorrentes</code>.</div>
       <div class="cc"><div class="lb">03 · Conteúdo</div>O carrossel e o calendário do <code>/criar-conteudo</code>.</div>
     </div>
-    <div class="co">Feito com as mesmas skills que vocês vão rodar agora.</div>
+    <div class="co">Feito com as mesmas skills que vocês estão rodando.</div>
   </div>
   <div class="vf">Material gerado antes da aula, com autorização dos donos e sem números financeiros. Uns 3 minutos por empresa.</div>
 </section>
@@ -1184,7 +1182,7 @@ h1.xl { font-size: 72px; line-height: 1.06; }
 <!-- ============ T02 · Bloco A: fases 1 a 3, no lugar da antiga pág. 80 ============ -->
 <section class="slide v3" data-id="t02" data-nome="bloco-a-fases-1-a-3">
   <div class="vb">
-    <div class="vk">Bloco A</div>
+    <div class="vk">Bloco A · fases 1 a 3 de 8</div>
     <h2>O cérebro da empresa: <span class="y">fases 1 a 3.</span></h2>
     <div class="cx">
       <div class="cd">/instalar</div>
@@ -1192,18 +1190,18 @@ h1.xl { font-size: 72px; line-height: 1.06; }
       <div class="cd">/mapear-concorrentes</div>
     </div>
     <div class="c3">
-      <div class="cc"><div class="lb">Sai com</div><code>memoria/</code>, <code>pesquisa/</code> (empresa, mercado, cliente, diagnóstico e concorrentes) e o <code>RESULTADO.html</code> na fase 3 de 6</div>
+      <div class="cc"><div class="lb">Sai com</div><code>memoria/</code>, <code>pesquisa/</code> (empresa, mercado, cliente, diagnóstico e concorrentes) e o <code>RESULTADO.html</code> na fase 3 de 8</div>
       <div class="cc h"><div class="lb">Ficou bom se</div>Você acha 1 coisa sobre a sua empresa que nunca tinha visto assim e reconhece 2 concorrentes.</div>
       <div class="cc o"><div class="lb">Se atrasar</div>Pesquisa lenta: só a Frente A do /mapear-empresa, ou em par. Perdeu o fio: "o que falta?"</div>
     </div>
   </div>
-  <div class="vf">A cada fase, atualize o RESULTADO.html: uma seção nova aparece. Antes do Bloco B, todo mundo na fase 3 de 6.</div>
+  <div class="vf">A cada fase, atualize o RESULTADO.html: uma seção nova aparece. Antes do Bloco B, todo mundo na fase 3 de 8.</div>
 </section>
 
-<!-- ============ T03 · Bloco B: página com o /criar-pagina, no lugar da antiga pág. 81 ============ -->
+<!-- ============ T03 · Bloco E: página com o /criar-pagina, no lugar da antiga pág. 81 ============ -->
 <section class="slide v3" data-id="t03" data-nome="bloco-b-pagina">
   <div class="vb">
-    <div class="vk">Bloco B</div>
+    <div class="vk">Bloco E · depois do almoço</div>
     <h2>A página: <span class="y">/criar-pagina.</span></h2>
     <div class="cx">
       <div class="cd">/criar-pagina</div>
@@ -1217,28 +1215,28 @@ h1.xl { font-size: 72px; line-height: 1.06; }
   <div class="vf">Mude o que quiser pedindo em português: "deixe o título maior", "troque a cor do botão".</div>
 </section>
 
-<!-- ============ T04 · Bloco C: conteúdo só em HTML, no lugar da antiga pág. 82 ============ -->
+<!-- ============ T04 · Bloco F: conteúdo só em HTML, no lugar da antiga pág. 82 ============ -->
 <section class="slide v3" data-id="t04" data-nome="bloco-c-conteudo-html">
   <div class="vb">
-    <div class="vk">Bloco C</div>
+    <div class="vk">Bloco F · depois do almoço</div>
     <h2>Conteúdo: <span class="y">só HTML, no navegador.</span></h2>
     <div class="cx">
       <div class="cd">/criar-conteudo</div>
       <div class="cd">Escreva 2 roteiros de Reels de até 30 s com base em pesquisa/cliente.md. Salve em entregas/reels.md.</div>
     </div>
     <div class="c3">
-      <div class="cc"><div class="lb">Sai com</div><code>entregas/conteudo.md</code> (pilares, 12 pautas, calendário) e <code>entregas/posts/</code>: carrossel e 2 posts em HTML, sem PNG</div>
+      <div class="cc"><div class="lb">Sai com</div><code>entregas/conteudo.md</code> (pilares, 12 pautas, calendário) e <code>entregas/posts/</code>: carrossel e 2 posts em HTML, cada lâmina com o botão <b>Gerar prompt de imagem</b></div>
       <div class="cc h"><div class="lb">Ficou bom se</div>Você postaria o carrossel esta semana, e ele fala com a dor do seu cliente.</div>
       <div class="cc o"><div class="lb">Se atrasar</div>Faça só o carrossel. Não abriu com dois cliques? Arraste o arquivo para o navegador.</div>
     </div>
   </div>
-  <div class="vf">Para postar: abra carrossel-1.html?n=1 em tela cheia e tire um print (Win+Shift+S no Windows, Cmd+Shift+4 no Mac).</div>
+  <div class="vf">Imagem: "Gerar prompt de imagem" copia o prompt da lâmina → cole no ChatGPT. Para postar o HTML: carrossel-1.html?n=1 em tela cheia e print.</div>
 </section>
 
-<!-- ============ T05 · Bloco D: /sobre-mim ============ -->
+<!-- ============ T05 · Bloco B: /sobre-mim ============ -->
 <section class="slide v3" data-id="t05" data-nome="bloco-d-sobre-mim">
   <div class="vb">
-    <div class="vk">Bloco D</div>
+    <div class="vk">Bloco B · fase 4 de 8</div>
     <h2>Agora, você: <span class="y">/sobre-mim.</span></h2>
     <div class="cx">
       <div class="cd">/sobre-mim</div>
@@ -1250,7 +1248,97 @@ h1.xl { font-size: 72px; line-height: 1.06; }
       <div class="cc o"><div class="lb">Se atrasar</div>Mapeie só 1 processo. Travou: "Pule para a próxima parte."</div>
     </div>
   </div>
-  <div class="vf">Uma pergunta por vez, uns 15 min. "Não sei" vale. Use os 3 processos que você anotou no almoço.</div>
+  <div class="vf">Uma pergunta por vez, uns 15 min. "Não sei" vale. Pense nos 3 processos que mais tomam o seu tempo.</div>
+</section>
+
+<!-- ============ T06 · Bloco C: /sugerir-automacoes (voltou antes do almoço) ============ -->
+<section class="slide v3" data-id="t06" data-nome="bloco-c-sugerir-automacoes">
+  <div class="vb">
+    <div class="vk">Bloco C · fase 5 de 8</div>
+    <h2>O que a IA pode <span class="y">fazer por você.</span></h2>
+    <div class="cx">
+      <div class="cd">/sugerir-automacoes</div>
+      <div class="cd">Começo pela 1. Crie a skill com a skill-creator e teste agora com &lt;caso real&gt;.</div>
+    </div>
+    <div class="c3">
+      <div class="cc"><div class="lb">Sai com</div><code>entregas/sugestoes.md</code>: até 10 sugestões com impacto, esforço e próximo passo, e a seção Automações no <code>RESULTADO.html</code></div>
+      <div class="cc h"><div class="lb">Ficou bom se</div>O Top 3 vem do seu mapa, não é genérico, e você testaria a primeira já na semana que vem.</div>
+      <div class="cc o"><div class="lb">Se atrasar</div>Sem arquivos: rode só com o mapa. Sem tempo: o comando pronto da sugestão 1.</div>
+    </div>
+  </div>
+  <div class="vf">Depois desta fase, almoço. Rotina, aqui, é um comando que você dispara.</div>
+</section>
+
+<!-- ============ T07 · Bloco D: /criar-oferta (depois do almoço) ============ -->
+<section class="slide v3" data-id="t07" data-nome="bloco-d-criar-oferta">
+  <div class="vb">
+    <div class="vk">Bloco D · depois do almoço</div>
+    <h2>A oferta: <span class="y">/criar-oferta.</span></h2>
+    <div class="cx">
+      <div class="cd">/criar-oferta</div>
+    </div>
+    <div class="c3">
+      <div class="cc"><div class="lb">Sai com</div><code>entregas/oferta.md</code>: proposta de valor, o jeito da empresa de resolver o problema, a oferta de entrada e o roteiro de venda</div>
+      <div class="cc h"><div class="lb">Ficou bom se</div>Você diria essa proposta de valor a um cliente amanhã, sem mudar uma palavra.</div>
+      <div class="cc o"><div class="lb">Se atrasar</div>Peça em português: "deixe a oferta mais simples". A página e o conteúdo usam o que existir.</div>
+    </div>
+  </div>
+  <div class="vf">Marketing e vendas só depois do almoço: oferta → página → conteúdo, nesta ordem.</div>
+</section>
+
+<!-- ============ T08 · A pasta minha-empresa (no lugar da original p57, "cerebro-da-empresa") ============ -->
+<section class="slide v3 dk" data-id="t08" data-nome="pasta-minha-empresa">
+  <div class="pa">
+    <div>
+      <div class="vk"><i data-i="folder"></i>A pasta</div>
+      <div class="nm">minha-empresa</div>
+      <div class="tx">Agora é a vez de vocês, com a sua empresa. Tudo o que eu mostrei de manhã, junto numa pasta.</div>
+      <div class="lg"><span class="te">Teal</span> = você conta.<br><span class="vi">Violeta</span> = a IA pesquisa e produz.</div>
+    </div>
+    <div class="fl">
+      <div><b>memoria/</b>o que você contou: empresa, números, foco, seu trabalho</div>
+      <div><b>marca/</b>cores, fontes, logo</div>
+      <div class="vi"><b>pesquisa/</b>empresa, mercado, cliente, concorrentes</div>
+      <div class="vi"><b>entregas/</b>automações, oferta, página, conteúdo</div>
+      <div class="vi"><b>controle/</b>em que fase está</div>
+      <div><b>dados/</b>suas planilhas e PDFs</div>
+      <div class="vi"><b>RESULTADO.html</b>o relatório da empresa, cresce a cada fase</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ T09 · A empresa em 8 fases (no lugar da original p59) ============ -->
+<section class="slide v3" data-id="t09" data-nome="empresa-em-8-fases">
+  <div class="vb">
+    <div class="vk">A trilha</div>
+    <h2>A empresa em <span class="y">8 fases.</span></h2>
+    <div class="tl f8">
+      <div class="ti"><span class="bd">1</span><div><div class="tt">Entrevista</div><div class="ds"><code>/instalar</code></div></div></div>
+      <div class="ti"><span class="bd">2</span><div><div class="tt">Estudo da empresa</div><div class="ds"><code>/mapear-empresa</code></div></div></div>
+      <div class="ti"><span class="bd">3</span><div><div class="tt">Concorrentes</div><div class="ds"><code>/mapear-concorrentes</code></div></div></div>
+      <div class="ti"><span class="bd">4</span><div><div class="tt">Sobre mim</div><div class="ds"><code>/sobre-mim</code></div></div></div>
+      <div class="ti"><span class="bd">5</span><div><div class="tt">Automações</div><div class="ds"><code>/sugerir-automacoes</code></div></div></div>
+      <div class="ti dp"><span class="bd">6</span><div><div class="tt">Oferta</div><div class="ds"><code>/criar-oferta</code></div></div></div>
+      <div class="ti dp"><span class="bd">7</span><div><div class="tt">Página de vendas</div><div class="ds"><code>/criar-pagina</code></div></div></div>
+      <div class="ti dp"><span class="bd">8</span><div><div class="tt">Conteúdo</div><div class="ds"><code>/criar-conteudo</code></div></div></div>
+    </div>
+    <div class="gl"><span><span class="y">1 a 5</span> · antes do almoço: a empresa e você</span><span><span class="vi">6 a 8</span> · depois do almoço: marketing e vendas</span></div>
+  </div>
+  <div class="vf">7 perguntas, e o resto a IA pesquisa e escreve. A cada fase, uma seção nova no RESULTADO.html.</div>
+</section>
+
+<!-- ============ T10 · Baixar e abrir (no lugar da original p60) ============ -->
+<section class="slide v3" data-id="t10" data-nome="baixar-e-abrir-minha-empresa">
+  <div class="vb">
+    <div class="vk">Façam junto</div>
+    <h2>Baixar e abrir.</h2>
+    <div class="rw">
+      <div class="r"><span class="bd">1</span><div><div class="tt">Baixe a pasta minha-empresa</div><div class="ds">no portal da imersão → descompacte na Área de Trabalho. Se quiser, troque o nome pelo da sua empresa.</div></div></div>
+      <div class="r"><span class="bd">2</span><div><div class="tt">App do Claude → Code</div><div class="ds">escolha a pasta. Antes, abra o exemplo: <code>exemplo-forno-da-vila/RESULTADO.html</code>.</div></div></div>
+      <div class="r"><span class="bd">3</span><div><div class="tt">Digite <code>/instalar</code></div><div class="ds">e responda as 7 perguntas.</div></div></div>
+    </div>
+  </div>
+  <div class="vf">As skills da trilha já estão na pasta. Post-it verde = /instalar rodando. Post-it vermelho = chama o monitor.</div>
 </section>
 
 <script>

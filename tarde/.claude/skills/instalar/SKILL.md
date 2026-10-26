@@ -55,7 +55,7 @@ Só se existir `controle/modelo-resultado.html` (a pasta da aula). Sem ele, pula
    - `capa`: `<p class="tipo">` cidade e setor · `<h1>` a empresa em 1 frase · `.lede` "Mapa da empresa em construção." (sem contar fases: o contador do menu e a trilha da capa já mostram) · `.numeros` com 2 a 4 números que o dono contou e podem ir para o telão: pessoas na equipe, linhas de produto, anos de mercado, cidades atendidas. Cada um em `<b data-conta>`. **Nada do financeiro.**
    - `ficha`: `<h2>` com a conclusão (ex.: "Uma empresa de 6 pessoas que vive de indicação") · `.ficha` com produtos e preços, onde atende, equipe, como o cliente chega · `.grade g2` com dois cartões: "O que mais incomoda hoje" (cartão `forte`) e "Onde quer chegar em 12 meses".
    - `ficha`: termina com o `.bastidor` (o que a IA fez: entrevistou, gravou, separou o privado; conceito: memória) e o `<p class="base">`.
-   - `atualizado`: "fase 1 de 6".
+   - `atualizado`: "fase 1 de 8".
    - `proximos`: as 3 primeiras ações: rodar `/mapear-empresa`, completar o que ficou `[não sei ainda]` em `memoria/numeros.md`, salvar o logo em `marca/logo.png`.
 3. Abrir no navegador: `open RESULTADO.html` (Mac), `start "" RESULTADO.html` (Windows) ou `xdg-open RESULTADO.html` (Linux). Se falhar, só dar o caminho.
 
@@ -72,4 +72,4 @@ Próximo: /mapear-empresa (~10 min)
 
 Sem RESULTADO.html (pasta fora da aula), a terceira linha vira: "O relatório visual (RESULTADO.html) só existe na pasta da aula; a memória já vale para as próximas conversas." Se a skill `mapear-empresa` não existir na pasta, a última linha vira: "Próximo: peça o que quiser; eu já sei da empresa."
 
-Se a pasta ainda tiver nome genérico (`imersao-tarde` ou `cerebro-da-empresa`), sugerir em 1 linha renomear para o nome da empresa.
+Se a pasta ainda tiver nome genérico (`minha-empresa`, `imersao-tarde` ou `cerebro-da-empresa`), sugerir em 1 linha renomear para o nome da empresa.

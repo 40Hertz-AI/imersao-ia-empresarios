@@ -19,7 +19,7 @@ O passo a passo detalhado, tela por tela, no Windows e no Mac, está em [`passos
 
 | | Windows | Mac |
 |---|---|---|
-| **1. Baixar** | No portal da aula, **Baixar a pasta da manhã**. Em Downloads, botão direito no ZIP → **Extrair tudo** → Área de Trabalho | No portal, **Baixar a pasta da manhã**. Em Downloads, dois cliques no ZIP e arraste a pasta `imersao-manha` para a Mesa |
+| **1. Baixar** | No portal da aula, **Baixar a pasta torra-viva**. Em Downloads, botão direito no ZIP → **Extrair tudo** → Área de Trabalho | No portal, **Baixar a pasta torra-viva**. Em Downloads, dois cliques no ZIP e arraste a pasta `torra-viva` para a Mesa |
 | **2. Abrir o terminal** | Menu Iniciar → digite `PowerShell` → abrir | **Cmd+Espaço** → digite `Terminal` → Enter |
 | **3. Instalar** (só 1ª vez) | Cole o comando do Windows (abaixo) → Enter, depois feche e abra o PowerShell | Cole o comando do Mac (abaixo) → Enter, depois feche e abra o Terminal |
 | **4. Entrar na pasta** | Abra a pasta no Explorador, clique na barra de endereço, digite `powershell` e Enter | Digite `cd ` (com espaço), arraste a pasta para o Terminal e Enter |
@@ -39,7 +39,7 @@ curl -fsSL https://claude.ai/install.sh | bash
 
 Na primeira vez ele pede o login (abre o navegador: entre com a conta do Claude e autorize) e pergunta se você confia nesta pasta: responda **Sim**.
 
-Sem terminal? Use o **app do Claude** no computador: aba **Code** → escolha a pasta `imersao-manha`.
+Sem terminal? Use o **app do Claude** no computador: aba **Code** → escolha a pasta `torra-viva`.
 
 **Mac:** a pasta `.claude` fica escondida no Finder (**Cmd+Shift+.** mostra). Ela está lá, e o Claude Code a encontra sozinho.
 
@@ -65,7 +65,7 @@ Perdeu o fio? Pergunte ao Claude: `o que falta?`
 ## O que tem na pasta
 
 ```
-imersao-manha/
+torra-viva/
 ├── README.md          este guia
 ├── CLAUDE.md          as regras e o contexto da Torra Viva que o Claude lê sozinho
 ├── progresso.md       o checklist dos 6 passos
