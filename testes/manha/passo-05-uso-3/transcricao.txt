@@ -2,14 +2,12 @@
 /resposta-cliente Vi o Etiópia de vocês. Ele fica bom na cafeteira italiana? Vocês moem ou só vendem em grão?
 
 ════════ resposta do Claude ════════
-**1. Classificação**
-- **Tipo:** dúvida
-- **Urgência:** média. É uma dúvida que trava a compra.
+**Tipo:** dúvida · **Urgência:** média
+É uma dúvida que trava a compra: o cliente quer saber se o café serve para o jeito que ele prepara.
 
-**2. Resposta pronta para copiar**
+**Resposta para copiar** (75 palavras):
+> Oi! O Etiópia Yirgacheffe é de torra clara, com notas de floral, limão-siciliano e chá preto. Na cafeteira italiana ele funciona, mas sai mais leve e ácido que um café de torra média. Se você prefere algo mais encorpado, o Mantiqueira Clássico (chocolate ao leite e caramelo) é uma boa. Sobre moagem: [confirmar: se a loja online vende moído e em quais moagens]. Me diz qual prefere que eu já te passo o link do pedido.
 
-> Oi! O Etiópia Yirgacheffe tem torra clara e notas de floral, limão-siciliano e chá preto. O pacote de 250 g sai por R$ 68,00. Na cafeteira italiana ele [confirmar: se a Helena recomenda o Etiópia para italiana ou indica outro café]. Sobre a moagem, [confirmar: se a loja online vende moído ou só em grão, e quais moagens tem]. Assim que eu confirmar isso, te passo certinho. Combinado?
-
----
-As políticas e o `produtos.csv` não dizem se a loja online vende café moído (só o Clube fala em "trocar a moagem"). Também não dizem qual café vai melhor na italiana. Por isso deixei esses dois pontos como `[confirmar: ...]`. Vale perguntar para a Helena antes de mandar.
+**Pontos a confirmar:**
+- `[confirmar: se a loja online vende moído e em quais moagens]`. A política só fala em "trocar a moagem" no Clube. Para a loja online não há nada escrito.
 

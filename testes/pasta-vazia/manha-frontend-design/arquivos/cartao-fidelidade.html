@@ -3,410 +3,466 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#C79E70">
-<title>Cartão fidelidade da Padaria Nova Aurora</title>
+<meta name="theme-color" content="#163828">
+<title>Cartão fidelidade · Padaria Estrela da Vila</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo:wdth,wght@75..100,400..800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --pardo: #C79E70;
-    --pardo-escuro: #A57B4F;
-    --pardo-claro: #DDBE96;
-    --tinta: #26307A;
-    --tinta-impressa: rgba(38, 48, 122, .68);
-    --fibras: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9 .06' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .3 0 0 0 0 .16 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+    --kraft: #C9A57E;
+    --kraft-sombra: #A47E57;
+    --grafica: #1E4A35;
+    --carimbo: #4535A8;
+    --balcao: #163828;
+    --slab: "Alfa Slab One", "Rockwell", "Roboto Slab", Georgia, serif;
+    --texto: "Archivo", "Arial Narrow", system-ui, sans-serif;
   }
 
   * { box-sizing: border-box; }
 
-  html { background: var(--pardo-escuro); }
+  html { -webkit-text-size-adjust: 100%; }
 
   body {
     margin: 0;
-    min-height: 100svh;
-    font-family: "Bricolage Grotesque", system-ui, sans-serif;
-    font-size: 1rem;
-    line-height: 1.45;
-    color: var(--tinta);
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding: 24px 16px calc(24px + env(safe-area-inset-bottom));
+    background-color: var(--balcao);
+    background-image:
+      radial-gradient(circle at 50% 50%, rgb(255 255 255 / .05) 1.5px, transparent 2px);
+    background-size: 22px 22px;
+    font-family: var(--texto);
+    color: var(--grafica);
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* O saco de papel: ocupa a tela no celular, vira uma folha no desktop */
+  /* ---------- O saco de pão ---------- */
   .saco {
     position: relative;
-    max-width: 30rem;
-    min-height: 100svh;
-    margin: 0 auto;
-    padding: 3.25rem 1.5rem calc(2rem + env(safe-area-inset-bottom));
-    background: var(--fibras), var(--pardo);
+    width: min(100%, 420px);
+    padding: 44px 22px 26px;
+    background-color: var(--kraft);
+    /* fibra do papel */
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9 .18' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .22 0 0 0 0 .1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='.55'/%3E%3C/svg%3E"),
+      linear-gradient(90deg, rgb(0 0 0 / .06), transparent 9%, transparent 91%, rgb(0 0 0 / .07));
+    /* borda serrilhada do corte do saco */
+    --dente: 9px;
+    -webkit-mask:
+      conic-gradient(from 135deg at top, #000 90deg, #0000 0) 50% 0 / calc(var(--dente) * 2) var(--dente) repeat-x,
+      linear-gradient(#000 0 0) 0 calc(var(--dente) - 1px) / 100% 100% no-repeat;
+    mask:
+      conic-gradient(from 135deg at top, #000 90deg, #0000 0) 50% 0 / calc(var(--dente) * 2) var(--dente) repeat-x,
+      linear-gradient(#000 0 0) 0 calc(var(--dente) - 1px) / 100% 100% no-repeat;
+    filter: drop-shadow(0 18px 30px rgb(0 0 0 / .35));
   }
 
-  /* corte serrilhado da boca do saco */
+  /* dobra lateral do saco */
   .saco::before {
     content: "";
     position: absolute;
-    inset: 0 0 auto 0;
-    height: 14px;
-    background:
-      linear-gradient(135deg, var(--pardo-escuro) 50%, transparent 50%) 0 0 / 14px 14px repeat-x,
-      linear-gradient(225deg, var(--pardo-escuro) 50%, transparent 50%) 0 0 / 14px 14px repeat-x;
-  }
-
-  @media (min-width: 34rem) {
-    body { padding: 2.5rem 0; }
-    .saco { min-height: auto; }
-  }
-
-  /* ---------- cabeçalho impresso ---------- */
-  .marca { margin: 0 0 1.75rem; }
-
-  .marca small {
-    display: block;
-    font-weight: 600;
-    font-size: 1.0625rem;
-    letter-spacing: .02em;
-  }
-
-  .marca h1 {
-    margin: -.1rem 0 .5rem;
-    font-family: "Alfa Slab One", Rockwell, "Roboto Slab", serif;
-    font-weight: 400;
-    font-size: clamp(2.6rem, 13vw, 3.6rem);
-    line-height: .92;
-    letter-spacing: -.01em;
-  }
-
-  .marca p {
-    margin: 0;
-    font-size: .9375rem;
-    color: var(--tinta-impressa);
-    max-width: 30ch;
-  }
-
-  /* ---------- nome do cliente ---------- */
-  .nome {
-    display: flex;
-    align-items: baseline;
-    gap: .5rem;
-    margin-bottom: 1.75rem;
-    font-weight: 600;
-  }
-
-  .nome input {
-    flex: 1;
-    min-width: 0;
-    padding: 0 .25rem .1rem;
-    border: 0;
-    border-bottom: 2px dotted var(--tinta-impressa);
-    border-radius: 0;
-    background: transparent;
-    font-family: "Caveat", "Comic Sans MS", cursive;
-    font-size: 1.75rem;
-    line-height: 1.1;
-    color: #1d1d4f;
-  }
-
-  .nome input::placeholder { color: rgba(38, 48, 122, .35); }
-  .nome input:focus { outline: none; border-bottom-style: solid; border-bottom-color: var(--tinta); }
-
-  /* ---------- carimbos ---------- */
-  .cartela {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: .75rem;
-    margin: 0 0 1.5rem;
-    padding: 0;
-    list-style: none;
-  }
-
-  .carimbo {
-    position: relative;
-    display: grid;
-    place-items: center;
-    width: 100%;
-    aspect-ratio: 1;
-    padding: 0;
-    border: 0;
-    background: none;
-    color: var(--tinta);
-    font: inherit;
-    cursor: pointer;
-    touch-action: manipulation;
-  }
-
-  .carimbo:focus-visible {
-    outline: 3px solid var(--tinta);
-    outline-offset: 2px;
-    border-radius: 50%;
-  }
-
-  .espaco {
-    position: absolute;
-    inset: 6%;
-    border: 2px dashed var(--tinta-impressa);
-    border-radius: 50%;
-  }
-
-  .numero {
-    font-family: "Alfa Slab One", Rockwell, serif;
-    font-size: 1.75rem;
-    color: var(--tinta-impressa);
-    transition: opacity .15s ease;
-  }
-
-  .carimbo[aria-pressed="true"] .numero { opacity: 0; }
-
-  .tinta {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transform: rotate(var(--giro, 0deg)) scale(.92);
-    transition: opacity .18s ease, transform .18s ease;
+    inset: 0 auto 0 14px;
+    width: 1px;
+    background: rgb(70 40 15 / .18);
+    box-shadow: 1px 0 0 rgb(255 240 220 / .18);
     pointer-events: none;
   }
 
-  .carimbo[aria-pressed="true"] .tinta {
-    opacity: .9;
-    transform: rotate(var(--giro, 0deg)) scale(1);
+  /* ---------- Impressão da gráfica ---------- */
+  .marca {
+    text-align: center;
+    margin: 0 0 22px;
   }
 
-  .carimbo.batendo .tinta { animation: bater .3s cubic-bezier(.3, 1.6, .5, 1) both; }
+  .marca h1 {
+    margin: 0;
+    font-family: var(--slab);
+    font-weight: 400;
+    font-size: clamp(2.35rem, 11vw, 3rem);
+    line-height: .92;
+    letter-spacing: -.01em;
+    color: var(--grafica);
+    /* tinta de gráfica: levemente gasta */
+    text-shadow: 0 0 .5px var(--grafica);
+  }
 
-  @keyframes bater {
+  .marca h1 span { display: block; }
+
+  .marca h1 .de {
+    font-family: var(--texto);
+    font-stretch: 75%;
+    font-weight: 700;
+    font-size: .36em;
+    line-height: 1.5;
+    letter-spacing: .02em;
+  }
+
+  .marca p {
+    margin: 10px 0 0;
+    font-stretch: 80%;
+    font-size: .95rem;
+    font-weight: 500;
+  }
+
+  .regra {
+    margin: 0 0 18px;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  /* ---------- Grade de carimbos ---------- */
+  .grade {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .grade li { display: contents; }
+
+  .espaco {
+    position: relative;
+    aspect-ratio: 1;
+    width: 100%;
+    padding: 0;
+    border: 2px dashed rgb(30 74 53 / .55);
+    border-radius: 50%;
+    background: rgb(255 245 230 / .14);
+    color: var(--grafica);
+    font: inherit;
+    cursor: pointer;
+    touch-action: manipulation;
+    display: grid;
+    place-items: center;
+  }
+
+  .espaco .num {
+    font-family: var(--slab);
+    font-size: 1.5rem;
+    opacity: .45;
+    transition: opacity .2s;
+  }
+
+  .espaco:hover { background: rgb(255 245 230 / .24); }
+
+  .espaco:focus-visible {
+    outline: 3px solid var(--grafica);
+    outline-offset: 3px;
+  }
+
+  .espaco[aria-pressed="true"] .num { opacity: 0; }
+
+  .tinta {
+    position: absolute;
+    inset: -6%;
+    width: 112%;
+    height: 112%;
+    color: var(--carimbo);
+    opacity: 0;
+    transform: rotate(var(--giro, 0deg)) scale(.9);
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+
+  .espaco[aria-pressed="true"] .tinta {
+    opacity: .9;
+    transform: rotate(var(--giro, 0deg));
+  }
+
+  .espaco.batendo .tinta {
+    animation: bate .32s cubic-bezier(.2, .8, .3, 1.2);
+  }
+
+  @keyframes bate {
     0%   { opacity: 0;  transform: rotate(var(--giro)) scale(1.35); }
-    55%  { opacity: .95; transform: rotate(var(--giro)) scale(.96); }
+    55%  { opacity: .95; transform: rotate(var(--giro)) scale(.94); }
     100% { opacity: .9; transform: rotate(var(--giro)) scale(1); }
   }
 
-  /* o 10º: a linha inteira, o pão da casa */
-  .da-casa { grid-column: 1 / -1; }
-
-  .da-casa .carimbo {
+  /* ---------- O décimo: o pão da casa ---------- */
+  .espaco.casa {
+    grid-column: 1 / -1;
     aspect-ratio: auto;
-    grid-template-columns: 7.5rem 1fr;
-    gap: 1rem;
-    place-items: center start;
+    min-height: 116px;
+    border-radius: 999px;
+    border: 3px solid var(--grafica);
+    background: rgb(30 74 53 / .08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 12px 22px;
+    margin-top: 6px;
     text-align: left;
-    padding: .25rem 0;
   }
 
-  .da-casa .alvo {
-    position: relative;
-    display: grid;
-    place-items: center;
-    width: 7.5rem;
-    aspect-ratio: 1;
+  .espaco.casa:hover { background: rgb(30 74 53 / .14); }
+
+  .casa .pao {
+    flex: none;
+    width: 76px;
+    height: auto;
+    color: var(--grafica);
   }
 
-  .da-casa .espaco { border-style: solid; border-width: 2.5px; }
+  .casa .dizer {
+    font-family: var(--slab);
+    font-size: 1.45rem;
+    line-height: 1;
+  }
 
-  .da-casa .texto strong {
+  .casa .dizer small {
     display: block;
-    font-family: "Alfa Slab One", Rockwell, serif;
-    font-weight: 400;
-    font-size: 1.5rem;
-    line-height: 1.05;
+    margin-top: 6px;
+    font-family: var(--texto);
+    font-size: .9rem;
+    font-weight: 600;
+    font-stretch: 85%;
   }
 
-  .da-casa .texto span { color: var(--tinta-impressa); font-size: .9375rem; }
+  .casa .tinta {
+    inset: auto;
+    left: 50%;
+    top: 50%;
+    width: 132px;
+    height: 132px;
+    margin: -66px 0 0 -66px;
+  }
 
-  .da-casa .carimbo:focus-visible { border-radius: 4rem; }
+  .espaco.casa[aria-pressed="true"] .pao,
+  .espaco.casa[aria-pressed="true"] .dizer { opacity: .35; }
 
-  /* ---------- situação e regra ---------- */
+  /* quando falta só o da casa, ele se destaca */
+  .grade.pronto .casa:not([aria-pressed="true"]) {
+    background: var(--grafica);
+    color: var(--kraft);
+  }
+  .grade.pronto .casa:not([aria-pressed="true"]) .pao { color: var(--kraft); --corte: var(--grafica); }
+
+  /* ---------- Situação ---------- */
   .situacao {
-    min-height: 3em;
-    margin: 0 0 1rem;
-    font-size: 1.1875rem;
-    font-weight: 800;
-    line-height: 1.3;
-    max-width: 28ch;
+    margin: 20px 0 0;
+    min-height: 2.8em;
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.35;
+    text-wrap: balance;
   }
 
   .novo {
-    display: none;
-    margin: 0 0 1.75rem;
-    padding: .8rem 1.25rem;
-    border: 2.5px solid var(--tinta);
+    display: block;
+    margin: 12px auto 0;
+    padding: 12px 22px;
+    border: 2px solid var(--grafica);
     border-radius: 999px;
-    background: var(--tinta);
-    color: var(--pardo-claro);
-    font: inherit;
-    font-weight: 800;
+    background: transparent;
+    color: var(--grafica);
+    font: 700 1rem/1 var(--texto);
     cursor: pointer;
   }
+  .novo:hover { background: rgb(30 74 53 / .1); }
+  .novo:focus-visible { outline: 3px solid var(--grafica); outline-offset: 3px; }
+  .novo[hidden] { display: none; }
 
-  .novo.visivel { display: inline-block; }
-  .novo:focus-visible { outline: 3px solid var(--tinta); outline-offset: 3px; }
+  .rodape {
+    margin: 22px 0 0;
+    padding-top: 14px;
+    border-top: 2px solid rgb(30 74 53 / .35);
+    text-align: center;
+    font-size: .85rem;
+    font-stretch: 85%;
+    line-height: 1.5;
+  }
 
-  .regra {
-    margin: 0;
-    padding-top: 1rem;
-    border-top: 2px solid var(--tinta-impressa);
-    font-size: .875rem;
-    color: var(--tinta-impressa);
-    max-width: 44ch;
+  @media (max-width: 360px) {
+    .saco { padding-inline: 16px; }
+    .grade { gap: 8px; }
+    .casa .pao { width: 58px; }
+    .casa .dizer { font-size: 1.2rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .tinta { transition: none; }
-    .carimbo.batendo .tinta { animation: none; }
+    .espaco.batendo .tinta { animation: none; }
+    .espaco .num { transition: none; }
   }
 </style>
 </head>
 <body>
 
-<!-- tinta de carimbo: bordas tremidas e falhas de tinta -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
+    <!-- falhas de tinta do carimbo de borracha -->
     <filter id="borracha" x="-10%" y="-10%" width="120%" height="120%">
-      <feTurbulence type="fractalNoise" baseFrequency=".08" numOctaves="2" seed="7" result="tremor"/>
-      <feDisplacementMap in="SourceGraphic" in2="tremor" scale="3.5" result="tremido"/>
-      <feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="2" seed="2" result="grao"/>
-      <feColorMatrix in="grao" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2 1.75" result="falhas"/>
-      <feComposite in="tremido" in2="falhas" operator="in"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".45" numOctaves="3" seed="7" result="ruido"/>
+      <feColorMatrix in="ruido" type="matrix"
+        values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -6 3.9" result="falhas"/>
+      <feComposite in="SourceGraphic" in2="falhas" operator="in" result="manchado"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="1" seed="2" result="ondas"/>
+      <feDisplacementMap in="manchado" in2="ondas" scale="2.5"/>
     </filter>
-    <symbol id="pao" viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="5"/>
-      <circle cx="50" cy="50" r="37" fill="none" stroke="currentColor" stroke-width="1.6"/>
-      <path d="M17 55 C 20 36, 74 28, 84 45 C 90 57, 72 69, 49 70 C 29 71, 15 65, 17 55 Z" fill="currentColor"/>
-      <path d="M29 54 C 41 43, 59 39, 73 45" fill="none" stroke="#C79E70" stroke-width="4.5" stroke-linecap="round"/>
+
+    <symbol id="carimbo" viewBox="0 0 120 120">
+      <g filter="url(#borracha)" fill="none" stroke="currentColor">
+        <circle cx="60" cy="60" r="54" stroke-width="4.5"/>
+        <circle cx="60" cy="60" r="46" stroke-width="1.6"/>
+        <path id="arco" d="M22 60 a38 38 0 0 1 76 0" stroke="none"/>
+        <text font-family="Archivo, sans-serif" font-weight="800" font-size="11.5" letter-spacing="1.4" fill="currentColor" stroke="none">
+          <textPath href="#arco" startOffset="50%" text-anchor="middle">Estrela da Vila</textPath>
+        </text>
+        <!-- pão francês -->
+        <path d="M33 66 C33 55 47 50 60 50 C73 50 87 55 87 66 C87 74 74 77 60 77 C46 77 33 74 33 66 Z"
+              fill="currentColor" stroke="none"/>
+        <path d="M45 61 l7 -5 M56 61 l7 -5 M67 61 l7 -5" stroke="#C9A57E" stroke-width="3" stroke-linecap="round"/>
+        <text class="data" x="60" y="95" text-anchor="middle" font-family="Archivo, sans-serif"
+              font-weight="800" font-size="12" fill="currentColor" stroke="none"></text>
+      </g>
     </symbol>
   </defs>
 </svg>
 
 <main class="saco">
   <header class="marca">
-    <small>Padaria e Confeitaria</small>
-    <h1>Nova Aurora</h1>
-    <p>Pão francês saindo às 6h e às 16h. Rua das Palmeiras, 214, Vila Mariana.</p>
+    <h1>
+      <span class="de">Panificadora</span>
+      <span>Estrela<br>da Vila</span>
+    </h1>
+    <p>Pão quentinho às 6h e às 16h</p>
   </header>
 
-  <label class="nome">
-    Nome
-    <input id="nome" type="text" autocomplete="given-name" placeholder="escreva aqui" maxlength="40">
-  </label>
+  <p class="regra">A cada pão, um carimbo. Junte nove e o décimo é por conta da casa.</p>
 
-  <ol class="cartela" id="cartela" aria-label="Carimbos do cartão"></ol>
+  <ul class="grade" id="grade"></ul>
 
   <p class="situacao" id="situacao" aria-live="polite"></p>
-  <button class="novo" id="novo" type="button">Começar cartão novo</button>
+  <button class="novo" id="novo" type="button" hidden>Começar cartão novo</button>
 
-  <p class="regra">Peça um carimbo no caixa a cada compra de pão. Com nove carimbos, o décimo pão é por conta da casa. Para tirar um carimbo marcado por engano, toque nele de novo.</p>
+  <p class="rodape">Rua das Laranjeiras, 214<br>Aberto todo dia, das 6h às 20h</p>
 </main>
 
 <script>
+(() => {
+  const CHAVE = "estrela-da-vila:cartao";
   const TOTAL = 10;
-  const CHAVE = "nova-aurora-cartao";
-  const cartela = document.getElementById("cartela");
+  const grade = document.getElementById("grade");
   const situacao = document.getElementById("situacao");
   const novo = document.getElementById("novo");
-  const nome = document.getElementById("nome");
+  const reduzir = matchMedia("(prefers-reduced-motion: reduce)");
 
-  // cada posição guarda o ângulo do carimbo, ou null se estiver vazia
-  let estado = carregar();
+  // cada espaço guarda a data do carimbo e o ângulo em que foi batido
+  let cartao = carregar();
 
   function carregar() {
     try {
       const salvo = JSON.parse(localStorage.getItem(CHAVE));
-      if (salvo && Array.isArray(salvo.carimbos) && salvo.carimbos.length === TOTAL) {
-        nome.value = salvo.nome || "";
-        return salvo.carimbos;
-      }
-    } catch (e) {}
+      if (Array.isArray(salvo) && salvo.length === TOTAL) return salvo;
+    } catch {}
     return Array(TOTAL).fill(null);
   }
 
   function salvar() {
-    try {
-      localStorage.setItem(CHAVE, JSON.stringify({ carimbos: estado, nome: nome.value }));
-    } catch (e) {}
+    try { localStorage.setItem(CHAVE, JSON.stringify(cartao)); } catch {}
   }
 
-  function anguloAleatorio() {
-    return Math.round(Math.random() * 50 - 25);
-  }
+  const hoje = () => {
+    const d = new Date();
+    return String(d.getDate()).padStart(2, "0") + "/" + String(d.getMonth() + 1).padStart(2, "0");
+  };
+
+  const svgPao = `
+    <svg class="pao" viewBox="0 0 80 44" aria-hidden="true">
+      <path d="M4 26 C4 12 22 5 40 5 C58 5 76 12 76 26 C76 36 58 40 40 40 C22 40 4 36 4 26 Z" fill="currentColor"/>
+      <path d="M20 22 l9 -7 M35 22 l9 -7 M50 22 l9 -7" style="stroke: var(--corte, var(--kraft))" stroke-width="3.5" stroke-linecap="round"/>
+    </svg>`;
 
   function montar() {
     for (let i = 0; i < TOTAL; i++) {
       const li = document.createElement("li");
-      const botao = document.createElement("button");
-      botao.type = "button";
-      botao.className = "carimbo";
-      botao.dataset.i = i;
-
-      const tinta = `<svg class="tinta" filter="url(#borracha)" aria-hidden="true"><use href="#pao"/></svg>`;
-
-      if (i === TOTAL - 1) {
-        li.className = "da-casa";
-        botao.innerHTML = `
-          <span class="alvo"><span class="espaco"></span><span class="numero" aria-hidden="true">10</span>${tinta}</span>
-          <span class="texto"><strong>Esse é por conta da casa</strong><span>Seu décimo pão sai de graça.</span></span>`;
-      } else {
-        botao.innerHTML = `<span class="espaco"></span><span class="numero" aria-hidden="true">${i + 1}</span>${tinta}`;
-      }
-
-      botao.addEventListener("click", () => alternar(i, botao));
-      botao.addEventListener("animationend", () => botao.classList.remove("batendo"));
-      li.appendChild(botao);
-      cartela.appendChild(li);
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "espaco" + (i === TOTAL - 1 ? " casa" : "");
+      b.dataset.i = i;
+      b.innerHTML =
+        (i === TOTAL - 1
+          ? svgPao + `<span class="dizer">Este é da casa<small>O 10º pão sai de graça</small></span>`
+          : `<span class="num" aria-hidden="true">${i + 1}</span>`) +
+        `<svg class="tinta" aria-hidden="true"><use href="#carimbo"/></svg>`;
+      b.addEventListener("click", () => alternar(i, b));
+      li.append(b);
+      grade.append(li);
     }
   }
 
   function alternar(i, botao) {
-    if (estado[i] === null) {
-      estado[i] = anguloAleatorio();
-      botao.classList.add("batendo");
-      if (navigator.vibrate) navigator.vibrate(12);
+    if (cartao[i]) {
+      cartao[i] = null;
     } else {
-      estado[i] = null;
-      botao.classList.remove("batendo");
+      cartao[i] = { data: hoje(), giro: Math.round(Math.random() * 36 - 18) };
+      if (!reduzir.matches) {
+        botao.classList.remove("batendo");
+        void botao.offsetWidth;
+        botao.classList.add("batendo");
+      }
+      if (navigator.vibrate) navigator.vibrate(18);
     }
     salvar();
-    atualizar();
+    desenhar();
   }
 
-  function atualizar() {
-    cartela.querySelectorAll(".carimbo").forEach((botao, i) => {
-      const marcado = estado[i] !== null;
-      botao.setAttribute("aria-pressed", marcado);
-      if (marcado) botao.style.setProperty("--giro", estado[i] + "deg");
-      const qual = i === TOTAL - 1 ? "Carimbo 10, o pão por conta da casa" : `Carimbo ${i + 1}`;
-      botao.setAttribute("aria-label", `${qual}, ${marcado ? "marcado" : "vazio"}`);
+  function desenhar() {
+    const botoes = grade.querySelectorAll(".espaco");
+    botoes.forEach((b, i) => {
+      const c = cartao[i];
+      const casa = i === TOTAL - 1;
+      b.setAttribute("aria-pressed", c ? "true" : "false");
+      b.style.setProperty("--giro", (c ? c.giro : 0) + "deg");
+      // a data vai dentro do próprio carimbo: clona o símbolo para este espaço
+      const tinta = b.querySelector(".tinta");
+      tinta.innerHTML = c ? carimboCom(c.data) : "";
+      const nome = casa ? "Pão por conta da casa" : `Carimbo ${i + 1}`;
+      b.setAttribute("aria-label", c ? `${nome}, carimbado em ${c.data}. Toque para desmarcar.` : `${nome}, vazio. Toque para carimbar.`);
     });
 
-    const pagos = estado.slice(0, TOTAL - 1).filter(a => a !== null).length;
-    const gratisUsado = estado[TOTAL - 1] !== null;
+    const pagos = cartao.slice(0, TOTAL - 1).filter(Boolean).length;
     const faltam = TOTAL - 1 - pagos;
+    const casaFeita = Boolean(cartao[TOTAL - 1]);
+    grade.classList.toggle("pronto", faltam === 0);
 
-    if (gratisUsado && faltam === 0) {
+    if (casaFeita) {
       situacao.textContent = "Pão da casa entregue. Bom proveito!";
     } else if (faltam === 0) {
-      situacao.textContent = "Cartão cheio. Seu próximo pão é por conta da casa.";
+      situacao.textContent = "Cartão cheio! Mostre no balcão e leve o próximo pão de graça.";
     } else if (pagos === 0) {
-      situacao.textContent = "Cartão novo. Peça o primeiro carimbo no caixa.";
-    } else if (faltam === 1) {
-      situacao.textContent = "Falta um carimbo para o pão por conta da casa.";
+      situacao.textContent = "Compre um pão e peça o seu primeiro carimbo no caixa.";
     } else {
-      situacao.textContent = `Faltam ${faltam} carimbos para o pão por conta da casa.`;
+      situacao.textContent = `Falta${faltam > 1 ? "m" : ""} ${faltam} carimbo${faltam > 1 ? "s" : ""} para o pão por conta da casa.`;
     }
+    novo.hidden = !casaFeita;
+  }
 
-    novo.classList.toggle("visivel", gratisUsado && faltam === 0);
+  const modelo = document.getElementById("carimbo");
+  function carimboCom(data) {
+    const vb = modelo.getAttribute("viewBox");
+    const corpo = modelo.innerHTML.replace(/(<text class="data"[^>]*>)(<\/text>)/, `$1${data}$2`);
+    return `<svg viewBox="${vb}" width="100%" height="100%">${corpo}</svg>`;
   }
 
   novo.addEventListener("click", () => {
-    estado = Array(TOTAL).fill(null);
+    cartao = Array(TOTAL).fill(null);
     salvar();
-    atualizar();
-    cartela.querySelector(".carimbo").focus();
+    desenhar();
+    grade.querySelector(".espaco").focus();
   });
 
-  nome.addEventListener("input", salvar);
-
   montar();
-  atualizar();
+  desenhar();
+})();
 </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # Passo 2 · A conversa do plano B (lendo os CSV da pasta)
 
-> Gerado de verdade pelo Claude Code (modelo Opus) nesta pasta, com o prompt do passo, em 25/10/2026. **Dados fictícios de exemplo.** O seu resultado vai sair diferente nas palavras; o que importa é chegar no mesmo tipo de entrega.
+> Gerado de verdade pelo Claude Code (modelo Opus) nesta pasta, com o prompt do passo, em 26/10/2026. **Dados fictícios de exemplo.** O seu resultado vai sair diferente nas palavras; o que importa é chegar no mesmo tipo de entrega.
 
 As respostas certas, para conferir, estão em `respostas-certas.md`.
 
@@ -12,12 +12,12 @@ Leia os arquivos .csv da pasta dados/ e me diga, em poucas linhas, o que tem em 
 
 **Claude:**
 
-São 4 arquivos .csv, todos com dados fictícios de exemplo:
+Os 4 arquivos de `dados/` (todos com dados fictícios de exemplo):
 
-- **`vendas-mensais.csv`**: 107 linhas de vendas, de janeiro a setembro de 2026. Cada linha traz o mês, o produto, o canal, a quantidade, o preço, o faturamento, o custo e o lucro bruto.
-- **`produtos.csv`**: os 12 produtos à venda, com código, origem, tipo de torra, notas de sabor, preço, custo e margem (a porcentagem que sobra do preço depois do custo).
-- **`clientes-b2b.csv`**: as 14 empresas do B2B Escritórios. Mostra o café do plano, os kg por mês, o valor mensal, o NPS (nota de satisfação de 0 a 10) e a situação: 12 ativas, 1 pausada e 1 cancelada.
-- **`orcamento.csv`**: as 17 regras para montar o orçamento de um escritório. Por exemplo: 2 xícaras por pessoa por dia, 10 g por xícara, 21 dias úteis no mês, total arredondado para cima em pacotes de 1 kg, e os preços por kg.
+- **`vendas-mensais.csv`**: 107 linhas de vendas de janeiro a setembro de 2026. Cada linha mostra mês, produto, canal, quantidade, preço, faturamento, custo e lucro bruto.
+- **`produtos.csv`**: catálogo com 12 produtos (cafés de 250 g, drip bag, kit presente, assinatura etc.). Traz origem, torra, notas de sabor, preço, custo, margem e desde quando cada um é vendido.
+- **`clientes-b2b.csv`**: 14 empresas clientes do B2B Escritórios. Mostra segmento, cidade, nº de funcionários, café do plano, kg por mês, tipo de contrato, valor mensal, status (ativo/pausado), NPS (nota de satisfação) e observações.
+- **`orcamento.csv`**: 17 regras para montar orçamento de escritório: xícaras por pessoa, preço por kg, descontos por volume e por contrato anual, máquina em comodato, frete, validade e a ordem do cálculo.
 
 
 **Você:**
@@ -30,10 +30,10 @@ Qual produto mais faturou de janeiro a setembro? E qual vendeu mais unidades?
 
 Somei todos os canais, de janeiro a setembro de 2026 (dados fictícios de exemplo):
 
-- **Mais faturou:** o Clube Torra Viva (a assinatura), com **R$ 165.189,00**. Em segundo vem o Mantiqueira Clássico 250 g, com R$ 122.220,00.
-- **Mais vendeu unidades:** o **Mantiqueira Clássico 250 g**, com **2.910 pacotes**. Depois vêm o Cerrado Doce 250 g (2.100) e o Clube (2.091 mensalidades).
+- **Maior faturamento:** Clube Torra Viva (a assinatura), com **R$ 165.189,00**. Em 2º lugar ficou o Mantiqueira Clássico 250 g, com R$ 122.220,00.
+- **Mais unidades vendidas:** Mantiqueira Clássico 250 g, com **2.910 unidades**. Depois vêm o Cerrado Doce 250 g (2.100) e o Clube (2.091 assinaturas-mês).
 
-As unidades não são do mesmo tamanho: um pacote de 250 g, um de 1 kg e uma mensalidade do Clube contam como 1 cada. Por isso o faturamento compara melhor os produtos.
+Os rankings são diferentes porque o Clube custa R$ 79 por mês e o pacote de 250 g do Mantiqueira custa R$ 42.
 
 
 **Você:**
@@ -44,24 +44,21 @@ Qual mês vendeu mais e qual vendeu menos? Mostre o faturamento de cada um.
 
 **Claude:**
 
-Faturamento de cada mês em 2026, somando todos os canais (dados fictícios de exemplo):
+Faturamento por mês em 2026, somando todos os canais (dados fictícios de exemplo):
 
 | Mês | Faturamento |
 |---|---|
 | Janeiro | R$ 59.494,00 |
-| Fevereiro | R$ 56.095,00 ⬇️ menor |
+| Fevereiro | R$ 56.095,00 ⬇ **menor** |
 | Março | R$ 70.356,80 |
 | Abril | R$ 77.616,60 |
 | Maio | R$ 93.928,80 |
 | Junho | R$ 90.838,80 |
 | Julho | R$ 98.464,60 |
-| Agosto | R$ 113.768,40 ⬆️ maior |
+| Agosto | R$ 113.768,40 ⬆ **maior** |
 | Setembro | R$ 105.015,40 |
-| **Total** | **R$ 765.578,40** |
 
-- **Maior:** agosto, com R$ 113.768,40.
-- **Menor:** fevereiro, com R$ 56.095,00. Agosto faturou cerca de o dobro de fevereiro.
-- Junho e setembro caíram em relação ao mês anterior. Nos outros meses o faturamento subiu.
+Agosto faturou cerca de 2 vezes o que fevereiro faturou. De fevereiro a agosto o faturamento subiu quase todo mês. As únicas quedas foram em junho e setembro.
 
 
 **Você:**
@@ -72,17 +69,16 @@ Qual canal de venda mais cresceu de janeiro para setembro? Mostre a conta.
 
 **Claude:**
 
-Comparei o faturamento de cada canal em janeiro e em setembro de 2026 (dados fictícios de exemplo). A conta é: **crescimento = (setembro − janeiro) ÷ janeiro × 100**.
+Em percentual, o canal que mais cresceu foi o **B2B Escritórios**. Em reais, quem mais cresceu foi a **Loja online** (dados fictícios de exemplo).
 
-| Canal | Janeiro | Setembro | Diferença | Crescimento |
+| Canal | Jan/2026 | Set/2026 | Diferença (set − jan) | Crescimento (diferença ÷ jan) |
 |---|---|---|---|---|
-| **B2B Escritórios** | R$ 4.011,00 | R$ 18.752,40 | + R$ 14.741,40 | 14.741,40 ÷ 4.011,00 = **+367,5%** |
-| Assinatura (Clube) | R$ 14.299,00 | R$ 23.542,00 | + R$ 9.243,00 | 9.243,00 ÷ 14.299,00 = +64,6% |
+| B2B Escritórios | R$ 4.011,00 | R$ 18.752,40 | + R$ 14.741,40 | 14.741,40 ÷ 4.011,00 = **+367,5%** |
+| Clube Torra Viva (no arquivo aparece como "Assinatura") | R$ 14.299,00 | R$ 23.542,00 | + R$ 9.243,00 | 9.243,00 ÷ 14.299,00 = +64,6% |
 | Loja online | R$ 29.601,00 | R$ 46.535,00 | **+ R$ 16.934,00** | 16.934,00 ÷ 29.601,00 = +57,2% |
 | Cafeterias parceiras | R$ 11.583,00 | R$ 16.186,00 | + R$ 4.603,00 | 4.603,00 ÷ 11.583,00 = +39,7% |
 
-- **Em porcentagem**, o B2B Escritórios foi o que mais cresceu: o faturamento ficou cerca de 4,7 vezes maior.
-- **Em reais**, quem mais ganhou foi a Loja online, com R$ 16.934,00 a mais. Ela partiu de uma base maior, por isso a porcentagem é menor.
+O B2B Escritórios quase quintuplicou, mas partiu de uma base pequena. A Loja online cresceu menos em percentual e mesmo assim foi a que mais somou em reais.
 
 
 **Você:**
@@ -93,19 +89,23 @@ Quais clientes B2B precisam de atenção (pausados, cancelados ou com nota de sa
 
 **Claude:**
 
-Para "nota baixa" usei a regra comum do NPS: nota de 0 a 6 é cliente insatisfeito, 7 e 8 é neutro, e 9 e 10 é satisfeito. Dados fictícios de exemplo.
+Pela regra comum do NPS, quem dá nota de 0 a 6 é um cliente insatisfeito. Com essa regra, 2 clientes precisam de atenção, e há outros 3 para acompanhar (dados fictícios de exemplo).
 
 **Precisam de atenção**
 
-| Cliente | Situação | Nota | Valor/mês | Motivo |
-|---|---|---|---|---|
-| **B09 · Laboratório Vida Clara** (Suzano) | Cancelado desde 2026-08 | 4 | R$ 1.459,20 | Cancelou depois de duas entregas atrasadas em julho. É a nota mais baixa da lista. |
-| **B06 · Imobiliária Casa Certa** (Guarulhos) | Pausado desde 2026-07 | 6 | R$ 743,00 | Pausou durante a reforma do escritório e diz que volta em novembro. A nota 6 também está na faixa de insatisfeito. |
+| Cliente | Situação | Motivo |
+|---|---|---|
+| B09 · Laboratório Vida Clara | **Cancelado** desde ago/2026 · NPS 4 | Cancelou depois de duas entregas atrasadas em julho. Pagava R$ 1.459,20/mês. Tem a nota mais baixa da lista. |
+| B06 · Imobiliária Casa Certa | **Pausado** desde jul/2026 · NPS 6 | Pausou durante a reforma do escritório e diz que volta em novembro. Pagava R$ 743,00/mês. A nota 6 já conta como insatisfeito. |
 
-**Vale acompanhar**
+**Para acompanhar**
 
-- **B05 · Coworking Ponto de Encontro:** nota 7 (neutro). Pediu orçamento para incluir chás e ainda não há resposta registrada. Paga R$ 2.165,80 por mês.
-- **B13 · Sorriso Pleno Odontologia** e **B14 · Hotel Serra Azul:** são clientes novos, de 2026-09, e ainda não responderam à pesquisa de satisfação.
+| Cliente | Motivo |
+|---|---|
+| B05 · Coworking Ponto de Encontro | NPS 7, a nota mais baixa entre os ativos. Pediu orçamento para incluir chás, e esse pedido está em aberto. |
+| B13 · Sorriso Pleno Odontologia e B14 · Hotel Serra Azul | Entraram em set/2026 e ainda não responderam à pesquisa de satisfação. |
+
+Para novembro, a sugestão é falar com a Casa Certa para confirmar a volta do plano. O Vida Clara saiu por causa de atraso na entrega, então vale conferir se o problema se repetiu com outros clientes: `[confirmar: houve outros atrasos?]`.
 
 
 **Você:**
@@ -116,9 +116,9 @@ Salve essas respostas em meu-trabalho/resumo-vendas.md, com "Dados fictícios de
 
 **Claude:**
 
-Salvei as 5 respostas em `meu-trabalho/resumo-vendas.md`, com o aviso "Dados fictícios de exemplo" no topo. Também coloquei a tabela completa de faturamento e unidades de cada produto.
+Salvei as quatro respostas em `meu-trabalho/resumo-vendas.md`, com "Dados fictícios de exemplo" no topo.
 
-No `progresso.md`, marquei os passos 1 e 2 como feitos.
+Também marquei o passo 2 como feito no `progresso.md`. O passo 1 continua desmarcado. Se você já abriu a pasta no Claude Code, peça "marque o passo 1 como feito".
 
-O próximo é o passo 3, "Prompts que funcionam", em `passos/03-prompts-que-funcionam/INSTRUCOES.md`. Use `/clear` antes para começar uma conversa nova.
+O próximo é o passo 3, em `passos/03-prompts-que-funcionam/INSTRUCOES.md`. É outro assunto, então comece uma conversa nova com `/clear`.
 

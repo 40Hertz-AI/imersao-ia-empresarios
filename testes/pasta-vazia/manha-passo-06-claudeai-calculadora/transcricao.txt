@@ -1,0 +1,18 @@
+════════ mensagem 1 do aluno ════════
+(Simulação do claude.ai: os arquivos que o aluno anexou à conversa estão na pasta anexos/. Salve o artifact como calculadora-orcamento.html nesta pasta, que é o que o aluno baixaria em Export → HTML.)
+
+Com os arquivos anexados, crie um artifact: uma calculadora de orçamento de café para escritório da Torra Viva, num arquivo só (HTML, CSS e JavaScript juntos).
+Campos: número de pessoas, xícaras por pessoa por dia (padrão 2), dias úteis no mês (padrão 21), café (Blend Escritório, Mantiqueira Clássico ou Cerrado Doce), contrato anual (sim ou não) e máquina de café (sim ou não).
+Siga as regras de dados/orcamento.csv, na ordem em que estão escritas, e mostre a conta de cada linha: kg por mês, valor do café, desconto, máquina, frete, total do mês e custo por xícara. O resultado muda na hora, a cada alteração.
+Use a skill frontend-design no acabamento. Escreva no rodapé "Dados fictícios de exemplo".
+Para dar para testar, deixe a conta numa função calcularOrcamento({pessoas, xicaras, dias, cafe, anual, maquina}) que devolve {kg, valorCafe, descontoPct, cafeComDesconto, maquina, frete, total, custoPorXicara}.
+
+════════ resposta do Claude ════════
+A calculadora está pronta em `calculadora-orcamento.html`, nesta pasta. É um arquivo só, abre com dois cliques e o resultado muda a cada alteração.
+
+- **Contas:** as 7 linhas seguem a ordem do `orcamento.csv`. Abaixo de cada valor aparece a conta, por exemplo: "20 pessoas × 2 xícaras × 10 g × 21 dias = 8,4 kg → arredonda para cima: 9 kg".
+- **Função de teste:** `calcularOrcamento({pessoas, xicaras, dias, cafe, anual, maquina})` devolve os 8 campos pedidos. Testei 5 casos e os resultados bateram com as regras. Um deles: 50 pessoas, Cerrado Doce, contrato anual → 21 kg, desconto de 15%, total de R$ 2.284,80.
+- **Valores do café:** `cafe` aceita `blend_escritorio`, `mantiqueira_classico` ou `cerrado_doce`. `anual` e `maquina` aceitam `true`/`false` ou `"sim"`/`"nao"`.
+- **Rodapé e validade:** o rodapé diz "Dados fictícios de exemplo". Coloquei também "Orçamento válido por 15 dias", que vem do CSV.
+- **Acabamento:** a skill `frontend-design` não está instalada aqui, então eu mesmo fiz o visual. Usei cores de café e só fontes do próprio computador, sem nada de fora.
+

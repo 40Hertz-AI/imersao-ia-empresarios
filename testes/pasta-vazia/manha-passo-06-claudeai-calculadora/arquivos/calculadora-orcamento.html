@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orçamento de café para escritório · Torra Viva</title>
+<style>
+  :root {
+    --papel: #f4ede1;
+    --papel-2: #ebe1d0;
+    --tinta: #2a1d15;
+    --tinta-suave: #6b5a4c;
+    --torra: #5a3522;
+    --cereja: #b4452c;
+    --folha: #4f6b3a;
+    --linha: #d6c7b0;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --mono: "SF Mono", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background:
+      radial-gradient(circle at 12% 8%, rgba(180,69,44,.08), transparent 40%),
+      radial-gradient(circle at 92% 90%, rgba(79,107,58,.08), transparent 45%),
+      var(--papel);
+    color: var(--tinta);
+    font-family: var(--sans);
+    line-height: 1.45;
+    min-height: 100vh;
+  }
+  .pagina { max-width: 1080px; margin: 0 auto; padding: 40px 24px 24px; }
+
+  header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+           border-bottom: 2px solid var(--tinta); padding-bottom: 18px; margin-bottom: 32px; }
+  .marca { font-family: var(--serif); font-size: 15px; letter-spacing: .18em; text-transform: uppercase; color: var(--cereja); margin: 0 0 6px; }
+  h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 4.4vw, 48px); line-height: 1.05; margin: 0; }
+  h1 em { font-style: italic; color: var(--torra); }
+  .lema { font-family: var(--serif); font-style: italic; color: var(--tinta-suave); margin: 0; max-width: 300px; text-align: right; }
+
+  main { display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: 32px; align-items: start; }
+  @media (max-width: 820px) { main { grid-template-columns: 1fr; } .lema { text-align: left; } }
+
+  /* Formulário */
+  form { background: var(--papel-2); border: 1px solid var(--linha); border-radius: 4px; padding: 24px; }
+  .rotulo-secao { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--tinta-suave); margin: 0 0 16px; }
+  .campo { margin-bottom: 18px; }
+  .campo > label, .campo > .legenda { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+  .campo small { display: block; color: var(--tinta-suave); font-size: 12px; margin-top: 4px; }
+  input[type=number] {
+    width: 100%; font: 600 20px var(--mono); color: var(--tinta);
+    background: var(--papel); border: 1px solid var(--linha); border-bottom: 2px solid var(--torra);
+    border-radius: 2px; padding: 8px 10px;
+  }
+  input[type=number]:focus, select:focus { outline: 2px solid var(--cereja); outline-offset: 1px; }
+  select {
+    width: 100%; font: 15px var(--sans); color: var(--tinta);
+    background: var(--papel); border: 1px solid var(--linha); border-bottom: 2px solid var(--torra);
+    border-radius: 2px; padding: 10px;
+  }
+  .duplo { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .alternar { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--torra); border-radius: 2px; overflow: hidden; }
+  .alternar input { position: absolute; opacity: 0; pointer-events: none; }
+  .alternar label { text-align: center; padding: 9px 0; font-size: 14px; cursor: pointer; background: var(--papel); transition: background .15s, color .15s; }
+  .alternar label + input + label { border-left: 1px solid var(--torra); }
+  .alternar input:checked + label { background: var(--torra); color: var(--papel); font-weight: 600; }
+  .alternar input:focus-visible + label { outline: 2px solid var(--cereja); outline-offset: -3px; }
+
+  /* Resultado */
+  .resultado { background: #fffaf2; border: 1px solid var(--linha); border-radius: 4px; padding: 28px 28px 20px;
+               box-shadow: 0 1px 0 var(--linha), 0 18px 40px -28px rgba(42,29,21,.45); }
+  .destaque { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap;
+              border-bottom: 1px dashed var(--linha); padding-bottom: 20px; margin-bottom: 8px; }
+  .destaque .rotulo-secao { margin-bottom: 4px; }
+  .total-grande { font-family: var(--serif); font-size: clamp(40px, 6vw, 60px); line-height: 1; color: var(--torra); }
+  .por-xicara { text-align: right; }
+  .por-xicara strong { font-family: var(--serif); font-size: 28px; color: var(--cereja); font-weight: 400; display: block; }
+
+  ol.contas { list-style: none; margin: 0; padding: 0; counter-reset: passo; }
+  ol.contas li { counter-increment: passo; display: grid; grid-template-columns: 34px 1fr auto; gap: 4px 14px;
+                 padding: 14px 0; border-bottom: 1px solid var(--papel-2); align-items: baseline; }
+  ol.contas li::before { content: counter(passo); font-family: var(--serif); font-size: 22px; color: var(--cereja); grid-row: span 2; line-height: 1; }
+  .nome { font-weight: 600; }
+  .valor { font: 600 17px var(--mono); text-align: right; white-space: nowrap; }
+  .conta { grid-column: 2 / 4; font: 13px var(--mono); color: var(--tinta-suave); }
+  .valor.verde { color: var(--folha); }
+  ol.contas li.final { border-bottom: 2px solid var(--tinta); }
+  ol.contas li.final .nome, ol.contas li.final .valor { font-size: 18px; }
+
+  .aviso { margin: 16px 0 0; font-size: 13px; color: var(--tinta-suave); }
+  .aviso.erro { color: var(--cereja); font-weight: 600; }
+
+  footer { margin-top: 40px; padding-top: 14px; border-top: 1px solid var(--linha); display: flex; justify-content: space-between;
+           flex-wrap: wrap; gap: 8px; font-size: 13px; color: var(--tinta-suave); }
+  footer strong { color: var(--cereja); }
+</style>
+</head>
+<body>
+<div class="pagina">
+  <header>
+    <div>
+      <p class="marca">Torra Viva · B2B Escritórios</p>
+      <h1>Quanto custa o <em>café do escritório</em>?</h1>
+    </div>
+    <p class="lema">Torrado esta semana, na sua xícara na próxima.</p>
+  </header>
+
+  <main>
+    <form id="form" autocomplete="off" onsubmit="return false">
+      <p class="rotulo-secao">Sua equipe</p>
+      <div class="campo">
+        <label for="pessoas">Número de pessoas</label>
+        <input type="number" id="pessoas" min="1" step="1" value="20" inputmode="numeric">
+      </div>
+      <div class="duplo">
+        <div class="campo">
+          <label for="xicaras">Xícaras/pessoa/dia</label>
+          <input type="number" id="xicaras" min="0" step="1" value="2" inputmode="decimal">
+          <small>Padrão: 2</small>
+        </div>
+        <div class="campo">
+          <label for="dias">Dias úteis no mês</label>
+          <input type="number" id="dias" min="1" max="31" step="1" value="21" inputmode="numeric">
+          <small>Padrão: 21</small>
+        </div>
+      </div>
+
+      <p class="rotulo-secao" style="margin-top:8px">O pedido</p>
+      <div class="campo">
+        <label for="cafe">Café</label>
+        <select id="cafe">
+          <option value="blend_escritorio">Blend Escritório · R$ 98,00/kg</option>
+          <option value="mantiqueira_classico">Mantiqueira Clássico · R$ 140,00/kg</option>
+          <option value="cerrado_doce">Cerrado Doce · R$ 128,00/kg</option>
+        </select>
+      </div>
+      <div class="campo">
+        <span class="legenda" id="leg-anual">Contrato anual</span>
+        <div class="alternar" role="radiogroup" aria-labelledby="leg-anual">
+          <input type="radio" name="anual" id="anual-sim" value="sim"><label for="anual-sim">Sim</label>
+          <input type="radio" name="anual" id="anual-nao" value="nao" checked><label for="anual-nao">Não</label>
+        </div>
+        <small>12 meses: mais 5% de desconto no café.</small>
+      </div>
+      <div class="campo">
+        <span class="legenda" id="leg-maquina">Máquina de café</span>
+        <div class="alternar" role="radiogroup" aria-labelledby="leg-maquina">
+          <input type="radio" name="maquina" id="maquina-sim" value="sim" checked><label for="maquina-sim">Sim</label>
+          <input type="radio" name="maquina" id="maquina-nao" value="nao"><label for="maquina-nao">Não</label>
+        </div>
+        <small>Comodato (empréstimo sem custo) a partir de 8 kg/mês.</small>
+      </div>
+    </form>
+
+    <section class="resultado" aria-live="polite">
+      <div class="destaque">
+        <div>
+          <p class="rotulo-secao">Total do mês</p>
+          <div class="total-grande" id="r-total-grande">—</div>
+        </div>
+        <div class="por-xicara">
+          <p class="rotulo-secao">Custo por xícara</p>
+          <strong id="r-xicara-grande">—</strong>
+        </div>
+      </div>
+
+      <ol class="contas">
+        <li><span class="nome">Café por mês</span><span class="valor" id="r-kg">—</span><span class="conta" id="c-kg"></span></li>
+        <li><span class="nome">Valor do café</span><span class="valor" id="r-cafe">—</span><span class="conta" id="c-cafe"></span></li>
+        <li><span class="nome">Desconto</span><span class="valor verde" id="r-desc">—</span><span class="conta" id="c-desc"></span></li>
+        <li><span class="nome">Máquina</span><span class="valor" id="r-maq">—</span><span class="conta" id="c-maq"></span></li>
+        <li><span class="nome">Frete</span><span class="valor" id="r-frete">—</span><span class="conta" id="c-frete"></span></li>
+        <li class="final"><span class="nome">Total do mês</span><span class="valor" id="r-total">—</span><span class="conta" id="c-total"></span></li>
+        <li><span class="nome">Custo por xícara</span><span class="valor" id="r-xic">—</span><span class="conta" id="c-xic"></span></li>
+      </ol>
+      <p class="aviso" id="aviso">Orçamento válido por 15 dias.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span><strong>Dados fictícios de exemplo</strong> · Torra Viva Cafés Especiais é uma empresa fictícia.</span>
+    <span>torraviva.exemplo · @torraviva.exemplo</span>
+  </footer>
+</div>
+
+<script>
+// Regras de dados/orcamento.csv (dados fictícios de exemplo)
+const REGRAS = {
+  gramasPorXicara: 10,
+  precos: { blend_escritorio: 98.00, mantiqueira_classico: 140.00, cerrado_doce: 128.00 },
+  nomes: { blend_escritorio: "Blend Escritório", mantiqueira_classico: "Mantiqueira Clássico", cerrado_doce: "Cerrado Doce" },
+  descontoVolume: [ { kg: 40, pct: 15 }, { kg: 20, pct: 10 }, { kg: 10, pct: 5 } ],
+  descontoAnual: 5,
+  comodatoMinKg: 8,
+  aluguelMaquina: 120.00,
+  frete: 35.00,
+  freteGratisAPartir: 600.00,
+};
+
+const centavos = v => Math.round(v * 100) / 100;
+
+function calcularOrcamento({ pessoas, xicaras = 2, dias = 21, cafe, anual, maquina }) {
+  const sim = v => v === true || v === "sim";
+  const preco = REGRAS.precos[cafe];
+  if (preco === undefined) throw new Error("Café desconhecido: " + cafe);
+
+  // 1) kg do mês, arredondado para cima (pacotes de 1 kg)
+  const gramas = pessoas * xicaras * REGRAS.gramasPorXicara * dias;
+  const kg = Math.ceil(Math.round(gramas) / 1000);
+
+  // 2) valor do café
+  const valorCafe = centavos(kg * preco);
+
+  // 3) desconto = volume + anual, sobre o valor do café
+  const faixa = REGRAS.descontoVolume.find(f => kg >= f.kg);
+  const descontoPct = (faixa ? faixa.pct : 0) + (sim(anual) ? REGRAS.descontoAnual : 0);
+  const cafeComDesconto = centavos(valorCafe * (1 - descontoPct / 100));
+
+  // 4) máquina: dispensada = 0; comodato a partir de 8 kg; abaixo disso, aluguel
+  const valorMaquina = !sim(maquina) ? 0 : (kg >= REGRAS.comodatoMinKg ? 0 : REGRAS.aluguelMaquina);
+
+  // 5) frete: grátis se o café com desconto der R$ 600,00 ou mais
+  const frete = cafeComDesconto >= REGRAS.freteGratisAPartir ? 0 : REGRAS.frete;
+
+  // 6) total do mês
+  const total = centavos(cafeComDesconto + valorMaquina + frete);
+
+  // 7) custo por xícara
+  const xicarasMes = pessoas * xicaras * dias;
+  const custoPorXicara = xicarasMes > 0 ? centavos(total / xicarasMes) : null;
+
+  return { kg, valorCafe, descontoPct, cafeComDesconto, maquina: valorMaquina, frete, total, custoPorXicara };
+}
+
+// ---------- Tela ----------
+const brl = v => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+const num = v => v.toLocaleString("pt-BR", { maximumFractionDigits: 2 });
+const $ = id => document.getElementById(id);
+
+function lerEntrada() {
+  return {
+    pessoas: parseFloat($("pessoas").value),
+    xicaras: $("xicaras").value === "" ? 2 : parseFloat($("xicaras").value),
+    dias: $("dias").value === "" ? 21 : parseFloat($("dias").value),
+    cafe: $("cafe").value,
+    anual: document.querySelector("input[name=anual]:checked").value === "sim",
+    maquina: document.querySelector("input[name=maquina]:checked").value === "sim",
+  };
+}
+
+function limpar(msg) {
+  ["r-total-grande", "r-xicara-grande", "r-kg", "r-cafe", "r-desc", "r-maq", "r-frete", "r-total", "r-xic"].forEach(id => $(id).textContent = "—");
+  ["c-kg", "c-cafe", "c-desc", "c-maq", "c-frete", "c-total", "c-xic"].forEach(id => $(id).textContent = "");
+  $("aviso").textContent = msg;
+  $("aviso").className = "aviso erro";
+}
+
+function atualizar() {
+  const e = lerEntrada();
+  if (!(e.pessoas > 0) || !(e.xicaras > 0) || !(e.dias > 0)) {
+    return limpar("Preencha pessoas, xícaras e dias com números maiores que zero.");
+  }
+  const r = calcularOrcamento(e);
+  const preco = REGRAS.precos[e.cafe];
+  const gramas = e.pessoas * e.xicaras * REGRAS.gramasPorXicara * e.dias;
+  const xicarasMes = e.pessoas * e.xicaras * e.dias;
+  const faixa = REGRAS.descontoVolume.find(f => r.kg >= f.kg);
+  const volPct = faixa ? faixa.pct : 0;
+
+  $("r-kg").textContent = r.kg + " kg";
+  $("c-kg").textContent = `${num(e.pessoas)} pessoas × ${num(e.xicaras)} xícaras × ${REGRAS.gramasPorXicara} g × ${num(e.dias)} dias = ${num(gramas / 1000)} kg → arredonda para cima: ${r.kg} kg`;
+
+  $("r-cafe").textContent = brl(r.valorCafe);
+  $("c-cafe").textContent = `${r.kg} kg × ${brl(preco)} (${REGRAS.nomes[e.cafe]})`;
+
+  const valorDesconto = centavos(r.valorCafe - r.cafeComDesconto);
+  $("r-desc").textContent = r.descontoPct ? "− " + brl(valorDesconto) : brl(0);
+  const partes = [`volume ${volPct}%` + (faixa ? ` (a partir de ${faixa.kg} kg)` : " (abaixo de 10 kg)"),
+                  `anual ${e.anual ? REGRAS.descontoAnual : 0}%`];
+  $("c-desc").textContent = `${partes.join(" + ")} = ${r.descontoPct}% · café com desconto: ${brl(r.valorCafe)} × ${num(1 - r.descontoPct / 100)} = ${brl(r.cafeComDesconto)}`;
+
+  $("r-maq").textContent = brl(r.maquina);
+  $("c-maq").textContent = !e.maquina ? "Cliente dispensou a máquina"
+    : r.kg >= REGRAS.comodatoMinKg ? `${r.kg} kg ≥ ${REGRAS.comodatoMinKg} kg → comodato, sem custo`
+    : `${r.kg} kg < ${REGRAS.comodatoMinKg} kg → aluguel de ${brl(REGRAS.aluguelMaquina)}/mês`;
+
+  $("r-frete").textContent = r.frete ? brl(r.frete) : "Grátis";
+  $("c-frete").textContent = r.frete
+    ? `Café com desconto ${brl(r.cafeComDesconto)} < ${brl(REGRAS.freteGratisAPartir)} → uma entrega por mês`
+    : `Café com desconto ${brl(r.cafeComDesconto)} ≥ ${brl(REGRAS.freteGratisAPartir)} → frete grátis`;
+
+  $("r-total").textContent = brl(r.total);
+  $("c-total").textContent = `${brl(r.cafeComDesconto)} + ${brl(r.maquina)} + ${brl(r.frete)}`;
+
+  $("r-xic").textContent = brl(r.custoPorXicara);
+  $("c-xic").textContent = `${brl(r.total)} ÷ ${num(xicarasMes)} xícaras (${num(e.pessoas)} × ${num(e.xicaras)} × ${num(e.dias)})`;
+
+  $("r-total-grande").textContent = brl(r.total);
+  $("r-xicara-grande").textContent = brl(r.custoPorXicara);
+  $("aviso").textContent = "Orçamento válido por 15 dias.";
+  $("aviso").className = "aviso";
+}
+
+$("form").addEventListener("input", atualizar);
+$("form").addEventListener("change", atualizar);
+atualizar();
+</script>
+</body>
+</html>

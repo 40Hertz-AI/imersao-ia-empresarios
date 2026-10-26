@@ -1,35 +1,34 @@
-# Plano: Segunda Loja da Padaria do Jorge
+# Plano – Segunda loja da padaria do Jorge
 
-## Contexto (o que se sabe)
-- Padaria atual em Campinas, com bom faturamento **de manhã**.
-- Bairro candidato a **~5 km** da loja atual.
-- Capital disponível: **R$ 150 mil**.
-- O padeiro-chefe topa **treinar uma equipe nova**.
-- Aluguel no bairro novo: **não se sabe**.
+> Gerado em 2026-10-26 a partir de 2 rodadas de perguntas (respostas do Jorge simuladas).
 
-## Decisões tomadas
-1. **Foco na manhã**: copiar o modelo que já funciona (café da manhã, pão francês).
-2. **Bairro a ~5 km** como alvo principal, sujeito a validação.
-3. **Divisão do capital (ponto de partida)**: até R$ 100 mil de investimento (reforma, equipamentos, estoque inicial, caução) e **R$ 50 mil de reserva** que não pode ser usada.
-4. **Treinamento** feito pelo padeiro-chefe antes da inauguração.
-5. **Contagem de movimento** no bairro antes de alugar.
+## O que já se sabe
+- A padaria atual fica em Campinas e **fatura bem de manhã**.
+- O bairro candidato fica a **~5 km** da loja atual.
+- O capital disponível é de **R$ 150 mil** guardados.
+- O **padeiro-chefe topa treinar** uma equipe nova.
+
+## O que ainda não se sabe (bloqueia a decisão)
+| Incógnita | Como descobrir |
+|---|---|
+| Valor do aluguel no bairro novo | Levantar pelo menos 3 pontos comerciais (imobiliárias, placas, portais) |
+| Movimento matinal e concorrência no bairro | Contar pedestres das 6h às 9h por uma semana; mapear padarias num raio de ~1 km |
+| Modelo da loja (produção própria ou ponto de venda) | Orçar os dois modelos depois de saber o aluguel e o tamanho do ponto |
+| Divisão do capital | Definir depois dos orçamentos |
+| Duração do treinamento / cobertura na matriz | Conversar com o padeiro-chefe |
+| Prazo para empatar / critério para fechar | Definir com os números do estudo |
+
+## Recomendações (a confirmar pelo Jorge)
+1. **Modelo:** começar como **ponto de venda abastecido pela matriz**. É mais barato e mantém o padrão do pão.
+2. **Foco:** abrir com **ênfase na manhã**, que é o que já funciona, e ampliar o horário só com dados.
+3. **Capital:** investir até **R$ 100 mil** e manter **R$ 50 mil de reserva** (~6 meses de custos fixos).
+4. **Aluguel:** teto de **~10% do faturamento esperado**. Se nenhum ponto couber, reavaliar o bairro.
+5. **Equipe:** treinar a equipe nova **na própria matriz**, antes da inauguração, com o padeiro-chefe.
+6. **Sucesso:** meta de empatar em **12 meses**. Se a reserva acabar com prejuízo recorrente, fechar.
 
 ## Próximos passos
-1. **Pesquisar aluguel**: levantar pelo menos 3 imóveis no bairro (valor, caução, tamanho, se precisa de reforma).
-2. **Contar movimento**: em 3 manhãs de dias úteis (6h–9h), contar quem passa nos pontos candidatos (escolas, pontos de ônibus, prédios).
-3. **Definir teto de aluguel**: cerca de 10% do faturamento esperado (estimar pelo faturamento matinal da loja atual).
-4. **Revisar orçamento**: confirmar se R$ 100 mil cobrem a montagem com o imóvel escolhido.
-5. **Planejar treinamento**: combinar com o padeiro-chefe 4 a 6 semanas de treino e escolher um encarregado fixo para a loja nova.
-
-## Pontos em aberto ("não sei")
-- **Formato da loja**: produção própria ou ponto de venda abastecido pela loja atual. *Sugestão:* ponto de venda com forno de finalização (mais barato).
-- Valor do aluguel no bairro.
-- Se o bairro tem movimento de manhã.
-- Se R$ 100 mil bastam para montar a loja.
-- Por quanto tempo o padeiro-chefe vai treinar a equipe.
-- Se vale fazer o teste com banca de café.
-
-## Critérios para desistir (sugeridos, a confirmar com o Jorge)
-- **Não abrir** se o aluguel passar do teto ou se a contagem mostrar pouco movimento de manhã.
-- **Rever ou fechar** se, depois de aberta, a reserva cair abaixo de **R$ 20 mil**.
-- Princípio do Jorge: *"não quero perder tudo o que guardei"*.
+1. Pesquisar o aluguel de 3 pontos no bairro.
+2. Fazer a contagem de movimento matinal e o mapa de concorrência.
+3. Orçar a reforma e os equipamentos dos dois modelos.
+4. Combinar o cronograma de treinamento com o padeiro-chefe.
+5. Revisar este plano com os números em mãos e decidir: seguir ou não.

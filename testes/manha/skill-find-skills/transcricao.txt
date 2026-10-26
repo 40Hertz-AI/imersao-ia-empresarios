@@ -2,18 +2,15 @@
 /find-skills Quero uma skill que crie apresentações em PowerPoint (.pptx). Procure e me diga as 3 melhores opções, com quem fez e quantas instalações. Não instale nada.
 
 ════════ resposta do Claude ════════
-Fiz a busca no catálogo skills.sh e não instalei nada. Estas são as 3 melhores que geram arquivo **.pptx** de verdade:
+Não instalei nada. Pelos resultados da busca, estas são as 3 melhores para criar arquivos .pptx:
 
-| # | Skill | Quem fez | Instalações | O que faz |
+| # | Skill | Quem fez | Instalações | Link |
 |---|---|---|---|---|
-| 1 | `pptx` | **Anthropic**, a empresa que faz o Claude | **242 mil** | Cria, lê e edita .pptx. É a mais usada e vem de fonte oficial. |
-| 2 | `ppt-visual` | **claude-office-skills** (comunidade) | **12,1 mil** | Foca no visual dos slides. |
-| 3 | `pptx-generator` | **MiniMax**, empresa de IA | **6 mil** | Gera apresentações .pptx. |
+| 1 | `pptx` | **Anthropic** (a empresa que faz o Claude) | 242,5 mil | https://skills.sh/anthropics/skills/pptx |
+| 2 | `ppt-visual` | claude-office-skills (grupo independente) | 12,1 mil | https://skills.sh/claude-office-skills/skills/ppt-visual |
+| 3 | `pptx-generator` | MiniMax (empresa chinesa de IA) | 6 mil | https://skills.sh/minimax-ai/skills/pptx-generator |
 
-Para instalar depois, se quiser:
-- `npx skills add anthropics/skills@pptx` (página: https://skills.sh/anthropics/skills/pptx)
-- `npx skills add claude-office-skills/skills@ppt-visual`
-- `npx skills add minimax-ai/skills@pptx-generator`
+Recomendo a 1ª: é oficial e tem de longe mais instalações. Eu escolhi pelo nome, pelo autor e pelo número de instalações. Não abri o conteúdo de nenhuma skill nem conferi as estrelas no GitHub.
 
-Minha recomendação é a nº 1, por ser oficial e de longe a mais instalada. Deixei de fora resultados com mais instalações que não geram .pptx: `slideshow` (HeyGen), que faz vídeo, a de Google Apresentações e as de slides em HTML (página web). Não conferi o repositório no GitHub (onde fica o código) de cada uma, só os números da busca.
+Para instalar depois: `npx skills add anthropics/skills@pptx`
 

@@ -2,19 +2,17 @@
 /resposta-cliente Bom dia! Sou do RH de uma escola de idiomas com 30 funcionários. Vocês fazem café para empresa? Quanto ficaria por mês? A gente precisa de máquina.
 
 ════════ resposta do Claude ════════
-**1. Classificação**
-- **Tipo:** dúvida
-- **Urgência:** média, porque a dúvida trava uma compra (orçamento B2B).
+**Tipo:** pedido (orçamento B2B) · **Urgência:** média
+A pessoa está avaliando a compra e precisa do preço para decidir. Não há reclamação nem prazo.
 
-**2. Resposta pronta para copiar**
+**Resposta para copiar** (78 palavras):
+> Bom dia! Fazemos, sim. Para 30 pessoas tomando 2 xícaras por dia, são cerca de 13 kg de Blend Escritório por mês: R$ 1.210,30, já com 5% de desconto por volume. A máquina vai em comodato (empréstimo, sem custo) e o frete é grátis. Dá uns R$ 0,96 por xícara. No contrato anual, cai para R$ 1.146,60. A Marina, que cuida das empresas, pode te mandar o orçamento certinho: quantas xícaras por dia o pessoal toma, em média?
 
-> Bom dia! Fazemos, sim. Para 30 pessoas tomando 2 cafés por dia, dá cerca de 13 kg por mês. Com o nosso Blend Escritório, fica R$ 1.210,30/mês, já com 5% de desconto por volume. A máquina vai emprestada, sem custo, e o frete é grátis. No contrato anual, o valor cai para R$ 1.146,60. O orçamento vale 15 dias. Me passa seu nome e telefone? A Marina, que cuida das empresas, fala com você.
+**Pontos a confirmar:** nenhum dentro da resposta. A conta usa o padrão de `orcamento.csv` (2 xícaras por pessoa por dia, 21 dias úteis). Se o cliente disser outro número, refaça a conta.
 
-**Como cheguei no valor** (regras de `dados/orcamento.csv`):
-- 30 pessoas × 2 xícaras × 10 g × 21 dias = 12,6 kg. Arredondado para cima, dá **13 kg**.
-- 13 kg × R$ 98,00 (Blend Escritório) = R$ 1.274,00. Com 5% de desconto por volume (a partir de 10 kg), fica **R$ 1.210,30**.
-- A máquina é emprestada sem custo a partir de 8 kg/mês, e o frete é grátis a partir de R$ 600,00. Isso dá cerca de R$ 0,96 por xícara.
-- Contrato anual: são 5% a mais de desconto, 10% no total, e o valor fica em **R$ 1.146,60**.
-
-Não entra a parte "o que fazer por dentro", porque a mensagem não é reclamação. Todos os valores são dados fictícios de exemplo.
+**Como cheguei no valor** (dados fictícios de exemplo):
+- 30 pessoas × 2 xícaras × 10 g × 21 dias = 12,6 kg, arredondado para 13 kg
+- 13 kg × R$ 98,00 = R$ 1.274,00, com 5% de desconto = **R$ 1.210,30**
+- Máquina sem custo porque passa de 8 kg por mês. Frete grátis porque passa de R$ 600,00
+- No contrato anual o desconto é 5% de volume + 5% do anual = 10%, o que dá R$ 1.146,60
 

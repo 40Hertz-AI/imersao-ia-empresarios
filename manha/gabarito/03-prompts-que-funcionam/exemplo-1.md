@@ -1,6 +1,6 @@
 # Exemplo 1 · E-mail de reajuste
 
-> Gerado de verdade pelo Claude Code (modelo Opus) nesta pasta, com o prompt do passo, em 25/10/2026. **Dados fictícios de exemplo.** O seu resultado vai sair diferente nas palavras; o que importa é chegar no mesmo tipo de entrega.
+> Gerado de verdade pelo Claude Code (modelo Opus) nesta pasta, com o prompt do passo, em 26/10/2026. **Dados fictícios de exemplo.** O seu resultado vai sair diferente nas palavras; o que importa é chegar no mesmo tipo de entrega.
 
 ## ❌ Prompt ruim
 
@@ -12,28 +12,29 @@ Escreve um e-mail avisando que o preço vai subir.
 
 **Claude:**
 
-**Assunto:** Um aviso sobre o preço dos nossos cafés
+Seu pedido não diz qual cliente, quanto o preço sobe nem a partir de quando. Por isso deixei esses pontos marcados com `[confirmar: ...]`.
+
+---
+
+**Assunto:** Novo preço do café a partir de [confirmar: data]
 
 Olá, [confirmar: nome do cliente],
 
-Queremos te avisar com antecedência: a partir de [confirmar: data], o preço dos cafés da Torra Viva vai subir [confirmar: percentual ou novos valores].
+Queremos te avisar com antecedência: a partir de **[confirmar: data]**, o preço dos nossos cafés vai subir **[confirmar: percentual ou novos valores]**.
 
-O motivo é simples: o café verde, que é o grão cru que compramos dos pequenos produtores do Sul de Minas e do Cerrado Mineiro, ficou mais caro [confirmar: motivo do reajuste]. A gente segurou o preço o quanto deu. Para continuar pagando bem quem planta e entregando café torrado na semana, precisamos fazer esse ajuste.
+O motivo é que o café verde (o grão cru, antes da torra) que compramos de pequenos produtores do Sul de Minas e do Cerrado Mineiro ficou mais caro. A gente segurou o preço o quanto deu e não vai mexer na qualidade nem no frescor: o café continua torrado esta semana e chegando na sua xícara na próxima.
 
-O que não muda: o café continua sendo torrado esta semana e chegando na sua xícara na próxima, com o mesmo cuidado de sempre.
+[confirmar: existe alguma condição especial, como manter o preço atual para quem renovar ou comprar até certa data?]
 
-[confirmar: existe alguma condição para quem fechar antes do reajuste? Ex.: renovar o contrato e manter o preço atual]
+Se tiver qualquer dúvida, é só responder este e-mail.
 
-Se tiver qualquer dúvida, é só responder este e-mail ou chamar no WhatsApp [confirmar: número].
-
-Obrigado por estar com a gente.
-
+Um abraço,
 [confirmar: quem assina], Torra Viva Cafés Especiais
 torraviva.exemplo
 
 ---
 
-Seu pedido não dizia o cliente, a data, o percentual, o motivo nem quem assina. Por isso deixei os `[confirmar: ...]`, e o e-mail saiu genérico. Esse é o "prompt ruim" do Exemplo 1 do passo 3. Agora digite `/clear` e cole o prompt bom de `passos/03-prompts-que-funcionam/INSTRUCOES.md` para comparar.
+O e-mail ficou genérico e cheio de lacunas porque o prompt era vago. É isso que o passo 3 quer mostrar. Agora digite `/clear` e cole o prompt "bom" do Exemplo 1 em `passos/03-prompts-que-funcionam/INSTRUCOES.md` para comparar os dois.
 
 
 ## ✅ Prompt bom
@@ -49,18 +50,22 @@ Formato: assunto + corpo de até 150 palavras, sem jargão, com uma chamada clar
 
 **Claude:**
 
-**Assunto:** Seu café vai ter reajuste em dezembro. Veja como manter o preço atual
+**Assunto:** Clínica Bem Viver: mantenha o preço atual do café por mais 12 meses
 
-Olá, pessoal da Clínica Bem Viver,
+Olá, [confirmar: nome do contato na clínica],
 
-Antes de tudo, obrigada pela nota 10 na última pesquisa. É muito bom fazer parte do café de vocês desde novembro de 2025.
+Obrigada pela nota 10 na última pesquisa. Ficamos muito contentes em saber que o café está agradando a equipe da Bem Viver.
 
-Quero avisar com antecedência: a partir de 01/12/2026, o preço do kg vai subir 6%. O motivo é o café verde, o grão cru que compramos dos produtores antes da torra, que ficou mais caro.
+Quero avisar com antecedência: a partir de 01/12/2026, o preço do kg vai subir 6%. O motivo é o café verde, que é o grão cru que compramos dos produtores antes da torra. Ele ficou mais caro.
 
-Vocês podem ficar fora desse reajuste. Se renovarem o contrato anual do plano Mantiqueira Clássico até 30/11, o preço atual fica valendo por mais 12 meses. O resto continua como está.
+Vocês podem ficar fora desse aumento. Se renovarem o contrato anual do Mantiqueira Clássico até 30/11, o preço atual fica valendo por mais 12 meses.
 
-**Quer garantir o preço atual? Responda este e-mail com "renovar" até 30/11 e eu cuido do resto.**
+Querem garantir? É só responder este e-mail com "quero renovar" até 30/11 que eu cuido do resto.
 
 Um abraço,
 Marina, Torra Viva
+
+---
+
+O corpo tem cerca de 100 palavras. Como você não passou o nome do contato, deixei a marcação `[confirmar: ...]` para preencher.
 

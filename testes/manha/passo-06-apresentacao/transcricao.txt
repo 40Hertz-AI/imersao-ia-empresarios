@@ -1,0 +1,17 @@
+════════ mensagem 1 do aluno ════════
+Crie meu-trabalho/apresentacao.html e publique como artifact: uma apresentação de 6 slides com os resultados da Torra Viva de janeiro a setembro de 2026, para a reunião com a equipe.
+Use os dados da pasta dados/ (sem inventar número), com a skill frontend-design no visual e a humanizer no texto.
+Um arquivo só. Passa de slide com as setas do teclado e com clique, e mostra o número do slide. Tudo cabe numa tela de notebook (1280 × 720) sem nada sobreposto.
+Slides: 1) título; 2) os números do período; 3) o canal que mais cresceu; 4) os clientes B2B: quem entrou, quem saiu e por quê; 5) 3 ações para o último trimestre; 6) obrigado.
+Rodapé em todos os slides: "Dados fictícios de exemplo".
+
+════════ resposta do Claude ════════
+Criei a apresentação em `meu-trabalho/apresentacao.html`. Não consegui publicar como Artifact porque essa ferramenta não está disponível nesta sessão. Para ver, é só abrir o arquivo com dois cliques.
+
+- **Teste:** fotografei os 6 slides numa tela de 1280 × 720 e nada fica por cima de nada. O rodapé "Dados fictícios de exemplo" e o número do slide (ex.: 3 / 6) aparecem em todos.
+- **Navegação:** as setas do teclado passam os slides. Um clique avança, e um clique no terço esquerdo da tela volta.
+- **Números:** todos são calculados a partir da pasta `dados/`. O canal que mais cresceu foi o B2B Escritórios: saiu de R$ 4.011,00 em janeiro para R$ 18.752,40 em setembro.
+- **Para você confirmar:** deixei 2 lacunas no slide 5. Uma é quem confere as entregas. A outra é o preço dos chás que o Coworking pediu, porque chá não está no catálogo.
+
+O passo 6 ainda não está marcado em `progresso.md`: ainda faltam a calculadora e o dashboard.
+

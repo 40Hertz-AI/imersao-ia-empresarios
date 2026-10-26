@@ -2,31 +2,24 @@
 /find-skills Quero uma skill que crie apresentações em PowerPoint (.pptx). Procure e me diga as 3 melhores opções, com quem fez e quantas instalações. Não instale nada.
 
 ════════ resposta do Claude ════════
-Pesquisei `pptx` e `powerpoint` com `npx skills find` e conferi as estrelas dos repositórios no GitHub. Não instalei nada.
+Pesquisei com `npx skills find` usando os termos "pptx" e "powerpoint". Não instalei nada. Estas são as 3 melhores opções para criar arquivos .pptx:
 
-## As 3 melhores opções
-
-| # | Skill | Quem fez | Instalações | Estrelas do repo |
+| # | Skill | Quem fez | Instalações | O que faz |
 |---|---|---|---|---|
-| 1 | **pptx** | **Anthropic** (`anthropics/skills`), oficial | **242K** | ~184K |
-| 2 | **pptx-generator** | **MiniMax AI** (`minimax-ai/skills`) | **6K** | ~13,7K |
-| 3 | **pptx-manipulation** | **claude-office-skills** (`claude-office-skills/skills`) | **5,6K** | ~540 |
+| 1 | **pptx** | **Anthropic** (`anthropics/skills`), fonte oficial | **242,5 mil** | Cria, edita e lê arquivos .pptx e .potx: apresentações de slides, pitch decks etc. |
+| 2 | **pptx-generator** | **MiniMax** (`minimax-ai/skills`) | **6 mil** | Gera e edita apresentações com PptxGenJS e já inclui modelos de capa, sumário, conteúdo, divisória de seção e resumo |
+| 3 | **powerpoint** | **igorwarzocha** (`igorwarzocha/opencode-workflows`), autor independente | **6 mil** | Cria e analisa .pptx com foco em design: pitch decks, relatórios de status e contar histórias com imagens |
 
-**1. `anthropics/skills@pptx`:** é a escolha mais segura, de longe. É oficial da Anthropic, cria e edita arquivos .pptx, e tem muito mais instalações que qualquer outra.
-- Instalar: `npx skills add anthropics/skills@pptx`
-- Mais informações: https://skills.sh/anthropics/skills/pptx
+**Minha recomendação:** a da Anthropic. Ela é oficial e tem cerca de 40 vezes mais instalações que as outras.
 
-**2. `minimax-ai/skills@pptx-generator`:** vem de uma empresa conhecida de IA, e o repositório tem bastante estrela.
-- Instalar: `npx skills add minimax-ai/skills@pptx-generator`
-- Mais informações: https://skills.sh/minimax-ai/skills/pptx-generator
+**Observações:**
+- A `claude-office-skills/skills@ppt-visual` tem 12,1 mil instalações, mas ficou de fora porque não gera o arquivo .pptx. Ela só dá sugestões de layout e design para os slides.
+- Uma alternativa próxima do 3º lugar é a `claude-office-skills/skills@pptx-manipulation`, com 5,6 mil instalações.
+- Não verifiquei as estrelas no GitHub dos repositórios da MiniMax e do igorwarzocha.
 
-**3. `claude-office-skills/skills@pptx-manipulation`:** é feita pela comunidade e tem um número razoável de instalações, mas o repositório é bem menos conhecido.
-- Instalar: `npx skills add claude-office-skills/skills@pptx-manipulation`
-- Mais informações: https://skills.sh/claude-office-skills/skills/pptx-manipulation
-
-## Outras que apareceram
-- `claude-office-skills/skills@ppt-visual` tem 12,1K instalações, mais que as opções 2 e 3. Pelo nome, parece tratar mais do visual dos slides do que de gerar o .pptx, mas não abri a skill para confirmar.
-- `igorwarzocha/opencode-workflows@powerpoint` (6K instalações) e `willem4130/claude-code-skills@elite-powerpoint-designer` (5,3K instalações) estão em repositórios com poucas estrelas: 122 e 9. Por isso não entraram na lista.
-
-Minha recomendação é a **`anthropics/skills@pptx`**.
+Se quiser instalar uma delas depois:
+```
+npx skills add anthropics/skills@pptx
+```
+Mais detalhes em https://skills.sh/anthropics/skills/pptx
 

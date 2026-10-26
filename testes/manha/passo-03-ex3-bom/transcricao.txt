@@ -5,22 +5,24 @@ Tarefa: compare os 4 canais de venda: faturamento total, crescimento de janeiro 
 Formato: uma tabela (canal | faturamento jan a set | crescimento jan → set em % | lucro bruto) e 3 recomendações de 1 linha cada. Use só os dados do arquivo e mostre a conta do crescimento.
 
 ════════ resposta do Claude ════════
-**Torra Viva · canais de venda, janeiro a setembro de 2026** (dados fictícios de exemplo)
+**Vendas por canal, janeiro a setembro de 2026** (dados fictícios de exemplo, `dados/vendas-mensais.csv`)
 
-| Canal | Faturamento jan a set | Crescimento jan → set em % | Lucro bruto (margem) |
+| Canal | Faturamento jan a set | Crescimento jan → set em % | Lucro bruto |
 |---|---|---|---|
-| Loja online | R$ 356.049,00 | (46.535,00 − 29.601,00) ÷ 29.601,00 = **+57,2%** | R$ 216.585,90 (60,8%) |
-| Assinatura (Clube Torra Viva) | R$ 165.189,00 | (23.542,00 − 14.299,00) ÷ 14.299,00 = **+64,6%** | R$ 96.186,00 (58,2%) |
-| Cafeterias parceiras | R$ 131.780,00 | (16.186,00 − 11.583,00) ÷ 11.583,00 = **+39,7%** | R$ 74.760,00 (56,7%) |
-| B2B Escritórios | R$ 112.560,40 | (18.752,40 − 4.011,00) ÷ 4.011,00 = **+367,5%** | R$ 57.675,40 (51,2%) |
-| **Total** | **R$ 765.578,40** | | **R$ 445.207,30 (58,2%)** |
+| Loja online | R$ 356.049,00 | (46.535,00 ÷ 29.601,00 − 1) × 100 = **+57,2%** | R$ 216.585,90 |
+| Clube Torra Viva (no arquivo: "Assinatura") | R$ 165.189,00 | (23.542,00 ÷ 14.299,00 − 1) × 100 = **+64,6%** | R$ 96.186,00 |
+| Cafeterias parceiras | R$ 131.780,00 | (16.186,00 ÷ 11.583,00 − 1) × 100 = **+39,7%** | R$ 74.760,00 |
+| B2B Escritórios | R$ 112.560,40 | (18.752,40 ÷ 4.011,00 − 1) × 100 = **+367,5%** | R$ 57.675,40 |
+| **Total** | **R$ 765.578,40** | | **R$ 445.207,30** |
 
-Como li a tabela: o crescimento compara o faturamento de setembro com o de janeiro. Margem é quanto sobra de cada R$ 100 vendidos depois de pagar o custo do café.
+Como ler o crescimento: divido o faturamento de setembro pelo de janeiro, tiro 1 e multiplico por 100.
+Lucro bruto é o faturamento menos o custo do produto, sem contar despesas como frete, salários e aluguel.
 
-**Recomendações para o último trimestre**
-1. **B2B Escritórios:** é o canal que mais cresce (mais de 4 vezes desde janeiro). Vale colocar mais esforço de vendas nele, mas olhando a margem, que é a menor (51,2%).
-2. **Loja online:** fatura e lucra mais que os outros e tem a melhor margem (60,8%). Precisa continuar recebendo investimento para não perder ritmo.
-3. **Clube Torra Viva:** cresceu 64,6% com margem boa (58,2%). Uma campanha de novos assinantes até dezembro faz sentido.
+**3 recomendações para o último trimestre**
 
-No arquivo, o Clube aparece com o nome "Assinatura".
+1. **B2B Escritórios:** é o canal que mais cresce (+367,5%). Vale colocar esforço de vendas da Marina para fechar novos contratos, mas a margem é a menor dos quatro (51,2% do faturamento vira lucro bruto). Antes de dar desconto, revise o preço.
+2. **Loja online:** traz quase metade do lucro bruto (R$ 216,6 mil de R$ 445,2 mil) e tem a melhor margem (60,8%). Proteja esse canal com campanhas de fim de ano no site e no Instagram.
+3. **Clube Torra Viva:** cresce mais que a loja (+64,6%) e tem margem boa (58,2%). Use os pedidos da loja online para convidar quem já compra a virar assinante.
+
+Obs.: o crescimento compara só dois meses (janeiro e setembro). O B2B começou com uma base pequena (R$ 4.011,00), por isso o percentual sai tão alto.
 

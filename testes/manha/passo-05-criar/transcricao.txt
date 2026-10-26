@@ -9,15 +9,14 @@ Se a pasta não tiver dados da empresa, a skill pergunta antes o nome da empresa
 Use a skill-creator se ela estiver disponível. No fim, me explique a skill em 5 linhas.
 
 ════════ resposta do Claude ════════
-Criei a skill em `.claude/skills/resposta-cliente/SKILL.md`. A `skill-creator` não estava disponível, então escrevi a skill sem ela, no mesmo formato da `eli5`.
+Criei a skill em `.claude/skills/resposta-cliente/SKILL.md`. A `skill-creator` não está disponível nesta máquina, então escrevi o arquivo direto. Ainda não testei a skill.
 
-Ela funciona assim:
+Como ela funciona, em 5 linhas:
+1. **Quando é usada:** quando você digita `/resposta-cliente` ou cola a mensagem de um cliente.
+2. **O que lê antes:** o `CLAUDE.md`, o `dados/politicas-atendimento.md` e os outros arquivos de `dados/` quando a mensagem cita produto ou cliente. Se não houver dados da empresa, faz uma pergunta só: o nome da empresa e o tom de voz.
+3. **O que entrega:** o tipo da mensagem e a urgência, depois a resposta pronta para copiar, com no máximo 80 palavras e no tom da Torra Viva.
+4. **Regra principal:** nunca promete prazo, desconto ou reembolso que não esteja escrito. O que falta vira `[confirmar: ...]`, e o que precisa de aprovação vira `[confirmar com a Helena: ...]`.
+5. **Em reclamação:** diz quem resolve (o atendimento, a Marina ou a Helena) e até quando, usando só os prazos que estão na política de atendimento.
 
-1. **Quando entra em ação:** quando você digita `/resposta-cliente` e cola a mensagem do cliente, ou pede ajuda para responder alguém.
-2. **Onde busca as informações:** no `CLAUDE.md`, em `dados/politicas-atendimento.md` e nos outros arquivos de `dados/` quando a mensagem fala de produto, preço ou cliente de empresa. Se a pasta não tiver dados da empresa, ela pergunta antes o nome e o tom de voz, numa pergunta só.
-3. **O que devolve:** o tipo da mensagem e a urgência, com o motivo. Depois, a resposta pronta para copiar, com no máximo 80 palavras.
-4. **Se for reclamação:** diz quem resolve (atendimento, Marina ou Helena), até quando, e 2 ou 3 próximos passos.
-5. **O que ela não faz:** prometer prazo, desconto ou reembolso que não esteja escrito. O que faltar aparece como `[confirmar: ...]` na própria resposta.
-
-Ainda não testei a skill. Faça `/clear` e teste as 3 mensagens de `passos/05-criar-uma-skill/mensagens-de-clientes.md`. Se ela não aparecer no `/`, feche com `/exit` e abra de novo com `claude`. Quando as 3 respostas saírem certas, eu marco o passo 5 em `progresso.md`.
+Próximo passo: digite `/clear` para abrir uma conversa nova e teste as 3 mensagens de `passos/05-criar-uma-skill/mensagens-de-clientes.md`. Se `/resposta-cliente` não aparecer, use `/exit` e abra o `claude` de novo.
 

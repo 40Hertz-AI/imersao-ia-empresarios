@@ -2,29 +2,23 @@
 Analisa minhas vendas.
 
 ════════ resposta do Claude ════════
-# Vendas da Torra Viva, jan a set de 2026 (dados fictícios de exemplo)
+# Vendas da Torra Viva · jan a set/2026 (dados fictícios de exemplo)
 
-**No geral**
-- Faturamento: **R$ 765.578,40**. Lucro bruto: **R$ 445.207,30**, ou seja, 58% do faturamento.
-- As vendas subiram de R$ 59.494 em janeiro para R$ 105.015 em setembro, uma alta de 76,5%.
-- O melhor mês foi agosto (R$ 113.768). Setembro caiu 7,7% em relação a agosto.
+**No total:** R$ 765.578 de faturamento e R$ 445.207 de lucro bruto (lucro bruto é o que sobra depois do custo do produto), com margem de 58%. O faturamento passou de R$ 59.494 em janeiro para R$ 105.015 em setembro, uma alta de 77%.
 
-**Por canal**
+| Canal | Faturamento | Lucro bruto | Margem | Jan → Set |
+|---|---|---|---|---|
+| Loja online | R$ 356.049 | R$ 216.586 | 60,8% | +57% |
+| Clube (assinatura) | R$ 165.189 | R$ 96.186 | 58,2% | +65% |
+| Cafeterias parceiras | R$ 131.780 | R$ 74.760 | 56,7% | +40% |
+| B2B Escritórios | R$ 112.560 | R$ 57.675 | 51,2% | +368% |
 
-| Canal | Faturamento | Lucro bruto (margem) | Jan → Set |
-|---|---|---|---|
-| Loja online | R$ 356.049,00 | R$ 216.585,90 (60,8%) | +57,2% |
-| Clube Torra Viva | R$ 165.189,00 | R$ 96.186,00 (58,2%) | +64,6% |
-| Cafeterias parceiras | R$ 131.780,00 | R$ 74.760,00 (56,7%) | +39,7% |
-| B2B Escritórios | R$ 112.560,40 | R$ 57.675,40 (51,2%) | +367,5% |
+**O que chama atenção:**
+- **O Clube é o produto que mais fatura** (R$ 165 mil). Cresceu todo mês, de 181 para 298 assinaturas.
+- **O B2B foi o canal que mais cresceu**, mas tem a menor margem. O Blend Escritório caiu de R$ 98 para cerca de R$ 86 o kg e tem margem de 48%, a menor de todos os produtos.
+- **O Kit Degustação teve picos em maio e agosto** (136 e 129 unidades; nos outros meses ficou perto de 40). [confirmar: o motivo, talvez datas comemorativas]
+- **O Etiópia Yirgacheffe**, lançado em junho, subiu de 62 para 151 pacotes em setembro. A margem dele é de 51,5%, menor que a dos outros cafés de 250 g (perto de 62%).
+- **Setembro caiu 7,7% em relação a agosto**, principalmente porque o Kit Degustação voltou ao normal.
 
-**O que chama atenção**
-- **B2B Escritórios** foi o canal que mais cresceu (de R$ 4.011 para R$ 18.752 por mês), mas tem a menor margem, porque o Blend Escritório sai por cerca de R$ 86 o kg.
-- **O Clube** cresceu todo mês, de 181 para 298 assinaturas. É receita que se repete.
-- O **Kit Degustação** dispara em maio e agosto (136 e 129 unidades, contra uns 40 nos outros meses). [confirmar: deve ser Dia das Mães e Dia dos Pais]
-- O **Etiópia Yirgacheffe** entrou em junho e mais que dobrou até setembro (62 → 151 pacotes).
-- Os produtos que mais faturam: Clube, Mantiqueira 250 g e Espresso da Casa 1 kg.
-
----
-Essa foi a resposta ao **prompt ruim** do Exemplo 3. Sem saber para que você quer a análise, saiu um resumo genérico. Agora digite `/clear` e cole o prompt bom de `passos/03-prompts-que-funcionam/INSTRUCOES.md` para comparar o foco e o formato.
+Este é o **prompt ruim do Exemplo 3** do passo 3. Para comparar, digite `/clear` e cole o prompt bom de `passos/03-prompts-que-funcionam/INSTRUCOES.md`. A resposta pronta para conferir está em `gabarito/03-prompts-que-funcionam/`.
 

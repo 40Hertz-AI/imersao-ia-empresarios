@@ -2,9 +2,10 @@
 Use a skill frontend-design para criar meu-trabalho/cartao-fidelidade.html: um cartão fidelidade digital da Torra Viva (10 carimbos; o 10º café é por nossa conta), num arquivo só, que funciona no celular. Clicar num carimbo marca e desmarca.
 
 ════════ resposta do Claude ════════
-Criei o cartão em `meu-trabalho/cartao-fidelidade.html`. Para abrir, dê dois cliques no arquivo. Testei numa tela do tamanho de um celular vazio, com 7 carimbos e com os 10.
+O cartão está pronto em `meu-trabalho/cartao-fidelidade.html` e abre com dois cliques.
 
-- **Visual:** cartão de papel kraft (o papel pardo de saco de café) sobre fundo vinho. Cada carimbo sai numa cor de torra, do grão verde ao café escuro, e o 10º é uma xícara.
-- **Clique:** marca o carimbo com a data do dia e desmarca no clique seguinte. Os carimbos ficam salvos no próprio navegador, então continuam lá quando a página é aberta de novo. Tem um botão "Zerar cartão", que pede confirmação.
-- **Faltou informação:** a validade e onde resgatar o café não estão em `dados/`, então deixei `[confirmar: regras do cartão fidelidade]` no rodapé, junto com o aviso de dados fictícios.
+- **Como ficou:** um cartão de papel kraft sobre fundo verde. Cada café vazio aparece como um grão tracejado. Ao tocar, entra um carimbo vermelho torto com a data do dia. O 10º espaço vem marcado "por nossa conta".
+- **Como funciona:** tocar marca e desmarca o carimbo. Embaixo, o cartão avisa quantos cafés faltam. Os carimbos ficam guardados no próprio navegador, então continuam lá quando a página é aberta de novo. O botão "Começar cartão novo" pede confirmação antes de apagar tudo.
+- **Teste:** tirei fotos da tela em tamanho de celular. Elas mostraram um erro: o aviso de "faltam X cafés" não aparecia. Corrigi, e com 4 carimbos a página mostrou certo "Faltam 5 cafés".
+- O rodapé avisa que a Torra Viva é fictícia. As fontes vêm do aparelho, então o visual pode mudar um pouco de um celular para outro.
 

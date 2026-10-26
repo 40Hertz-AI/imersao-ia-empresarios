@@ -5,19 +5,18 @@ Tarefa: escreva a legenda do post que anuncia o lote novo.
 Formato: primeira linha com até 10 palavras que dê vontade de ler o resto, 3 parágrafos curtos, uma pergunta para o seguidor responder nos comentários, 5 hashtags e no máximo 2 emojis.
 
 ════════ resposta do Claude ════════
-Esse café tem cheiro de flor. E gosto de limão. 🍋
+**Chegou café com cheiro de flor e limão.** ☕
 
-Chegou lote novo do Etiópia Yirgacheffe. Fizemos uma torra clara para deixar o grão mostrar o que tem: notas florais e de limão-siciliano, do primeiro gole ao último.
+O lote novo do Etiópia Yirgacheffe chegou à torrefação. Fizemos uma torra clara, para não esconder o que esse grão tem de diferente.
 
-Se você costuma tomar café mais encorpado e achocolatado, esse vai te tirar do lugar. É outro tipo de xícara, e é para isso que vale provar.
+Na xícara aparecem notas florais e de limão-siciliano 🍋. É um café leve e aromático, bem diferente do que a gente costuma tomar no dia a dia. Vale provar com calma, sem açúcar, pelo menos no primeiro gole.
 
-O pacote de 250 g custa R$ 68. Torrado esta semana, na sua xícara na próxima. Já está na loja: torraviva.exemplo ☕
+O pacote de 250 g custa R$ 68 e já está na loja online (link na bio, torraviva.exemplo). Torrado esta semana, na sua xícara na próxima.
 
-Como você vai passar o seu primeiro Yirgacheffe: coado, prensa francesa ou outro método? Conta aqui nos comentários.
+Você já provou algum café com nota de fruta cítrica? Conta aqui nos comentários como foi.
 
-#CafeEspecial #Yirgacheffe #CafeEtiope #TorraClara #TorraViva
+#TorraViva #CafeEspecial #Etiopia #Yirgacheffe #TorraClara
 
 ---
-
-A legenda segue o formato pedido. A primeira linha tem 10 palavras, e há 3 parágrafos, 1 pergunta, 5 hashtags e 2 emojis. Usei só as informações que você me passou e a frase de promessa da marca. Por isso não citei produtor, região nem altitude. Se quiser, salvo a legenda em `meu-trabalho/prompts.md`, que é o arquivo do passo 3.
+A legenda usa só as informações do seu prompt. A sugestão de provar sem açúcar é uma dica de preparo, não uma informação sobre o café, e você pode tirar se preferir.
 

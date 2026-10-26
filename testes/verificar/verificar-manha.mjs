@@ -105,8 +105,11 @@ const navegador = await chromium.launch({ executablePath: CHROME, headless: true
   const md = ler(f);
   anota("passo-02", "meu-trabalho/resumo-vendas.md existe", !!md);
   anota("passo-02", "tem o aviso de dados fictícios", /dados fict[ií]cios de exemplo/i.test(md));
+  // nenhuma das 5 perguntas pede o total de jan a set: vale o total ou os 9 meses certos (que somam o total)
+  const meses = Object.values(CERTOS.fat_mes).map(brl);
+  anota("passo-02", `faturamento total ${brl(CERTOS.faturamento_total)} (ou os 9 meses certos)`,
+    md.includes(brl(CERTOS.faturamento_total)) || meses.every((v) => md.includes(v)), `${meses.filter((v) => md.includes(v)).length} de 9 meses`);
   const deve = [
-    ["faturamento total", brl(CERTOS.faturamento_total)],
     ["melhor mês (agosto)", brl(CERTOS.fat_mes["2026-08"])],
     ["pior mês (fevereiro)", brl(CERTOS.fat_mes["2026-02"])],
     ["crescimento do B2B", "367,5"],

@@ -2,20 +2,21 @@
 Leia os arquivos .csv da pasta dados/ e me diga, em poucas linhas, o que tem em cada um.
 
 ════════ resposta do Claude ════════
-A pasta `dados/` não existe em `/tmp/vazia-manha-passo-02`. Esse diretório está vazio e não encontrei nenhum arquivo `.csv` dentro dele.
+Não encontrei a pasta `dados/`. O diretório de trabalho (`/tmp/vazia-manha-passo-02`) está vazio e também não há nenhum arquivo `.csv` nos subdiretórios.
 
-Você pode me passar o caminho certo da pasta, ou copiar os arquivos para `dados/` aqui? Assim que estiverem lá, eu leio e resumo cada um.
+A pasta pode estar em outro lugar ou ainda não ter sido copiada para cá. Se me passar o caminho certo, ou colocar os arquivos aqui, eu leio e resumo cada um.
 
 ════════ mensagem 2 do aluno ════════
 Qual produto mais faturou de janeiro a setembro? E qual vendeu mais unidades?
 
 ════════ resposta do Claude ════════
-Ainda não consigo responder, porque não tenho os dados. O diretório `/tmp/vazia-manha-passo-02` continua vazio e não há nenhum `.csv` em `/tmp`.
+Ainda não consigo responder, porque não tenho os dados. O diretório de trabalho continua vazio, e procurei uma pasta `dados/` e arquivos `.csv` no sistema todo (incluindo `/tmp` e `/home`) sem achar nada.
 
-Para calcular o faturamento e as unidades por produto de janeiro a setembro, preciso que você:
+Para eu descobrir qual produto mais faturou e qual vendeu mais unidades de janeiro a setembro, preciso de uma destas opções:
 
-- coloque os arquivos em `dados/` aqui, ou
-- me passe o caminho onde eles estão.
+- copiar os CSVs para `/tmp/vazia-manha-passo-02/dados/`;
+- me passar o caminho onde eles estão;
+- ou colar o conteúdo aqui no chat.
 
-Com os arquivos em mãos, somo o faturamento e as quantidades de cada produto no período e digo qual ficou em primeiro em cada critério.
+Com os arquivos em mãos, somo o faturamento e as unidades por produto nesse período e trago os dois resultados.
 
