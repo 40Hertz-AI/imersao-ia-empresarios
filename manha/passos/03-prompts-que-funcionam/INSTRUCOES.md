@@ -1,6 +1,5 @@
 # Passo 3 · Prompts que funcionam: Papel, Contexto, Tarefa e Formato
 
-**Tempo:** 20 min.
 **O que você vai fazer:** mandar o mesmo pedido de dois jeitos, um vago e um bem montado, e comparar as respostas. No fim, escrever um prompt seu.
 
 **A ideia:** a IA não lê a sua mente. Um prompt bom tem 4 partes:
@@ -80,7 +79,7 @@ Formato: até 60 palavras, sem preço, sem "Prezado", citando a indicação e te
 
 ---
 
-## Agora é a sua vez (5 min)
+## Agora é a sua vez
 
 Pense num texto que você escreve toda semana no seu trabalho. Peça:
 

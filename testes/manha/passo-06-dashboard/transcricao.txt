@@ -1,0 +1,26 @@
+════════ mensagem 1 do aluno ════════
+Crie meu-trabalho/dashboard-vendas.html e publique como artifact: um painel das vendas da Torra Viva de janeiro a setembro de 2026, num arquivo só, com os dados de dados/vendas-mensais.csv e dados/clientes-b2b.csv embutidos no próprio HTML (para abrir sem internet).
+Mostre: 4 números grandes (faturamento total, lucro bruto, melhor mês e clientes B2B ativos em setembro), um gráfico de faturamento por mês, um gráfico por canal, a tabela dos 5 produtos que mais faturaram e um filtro por canal que atualiza tudo.
+Desenhe os gráficos com SVG, sem biblioteca de fora. Use a skill frontend-design no acabamento. Escreva "Dados fictícios de exemplo" no topo.
+
+════════ resposta do Claude ════════
+Criei o painel em `meu-trabalho/dashboard-vendas.html`. Não deu para publicar como Artifact: essa ferramenta não está disponível nesta sessão (pode ser o plano, o login ou a versão do Claude Code). O arquivo abre com dois cliques, até sem internet.
+
+**Os números do painel** (batem com o "Confira" do passo 6):
+- Faturamento total: R$ 765.578,40
+- Lucro bruto: R$ 445.207
+- Melhor mês: agosto
+- Clientes B2B ativos em setembro: 12
+
+**O que tem na página:**
+- O aviso "Dados fictícios de exemplo" no topo e no rodapé.
+- Os dois CSV vão copiados dentro do próprio arquivo.
+- Gráfico por mês em colunas, com uma cor para cada canal.
+- Gráfico por canal: clicar numa barra também filtra.
+- A tabela dos 5 produtos que mais faturaram.
+- O filtro por canal atualiza tudo, exceto o número de clientes B2B, que só existe para esse canal. Com outro canal escolhido, ele fica cinza com um aviso.
+
+Abri a página no navegador e conferi no computador e no celular. No filtro "B2B Escritórios" a tabela mostra 3 produtos, porque esse canal só vende 3, e a página avisa isso. O canal "Assinatura" do CSV aparece com o nome "Clube Torra Viva".
+
+Não marquei o passo 6 em `progresso.md`: ainda faltam a calculadora e a apresentação. Para a próxima página, comece uma conversa nova com `/clear`.
+

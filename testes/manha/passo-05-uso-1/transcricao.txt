@@ -4,21 +4,19 @@
 ## 1 · Reclamação (WhatsApp, cliente do Clube) Oi, pedi 2 pacotes do Mantiqueira na segunda e até agora nada. Ninguém responde o WhatsApp. Se não chegar até sexta vou cancelar o Clube.
 
 ════════ resposta do Claude ════════
-**1. Classificação**
-- **Tipo:** reclamação
-- **Urgência:** alta. Ameaça cancelar o Clube e diz que ninguém responde no WhatsApp (o prazo de resposta é de até 4 horas úteis).
+**Tipo:** reclamação · **Urgência:** alta
+A cliente ameaça cancelar o Clube e diz que ninguém respondeu no WhatsApp, mas a regra é responder em até 4 horas úteis.
 
-**2. Resposta pronta para copiar**
+**Resposta para copiar** (59 palavras):
+> Oi! Desculpa a demora pra responder aqui, isso não devia ter acontecido. Seu pedido dos 2 pacotes do Mantiqueira está [confirmar: status do envio], com previsão de chegada em [confirmar: data de entrega]. Se a previsão passar de sexta, te aviso antes e a gente resolve junto. Me manda o número do pedido? Assim acompanho de perto até chegar.
 
-> Oi, [confirmar: nome do cliente]! Desculpa a demora pra te responder, isso não devia ter acontecido. Já estou olhando seu pedido dos 2 pacotes de Mantiqueira feito na segunda. Me passa o número do pedido ou o e-mail da compra? Ainda hoje te digo em que pé ele está e o código de rastreio, se já tiver saído. Seu pedido está em: [confirmar: status e data de envio do pedido].
+**Por dentro:**
+- Quem resolve: o atendimento, porque é pedido avulso de cliente do Clube. Se a ideia for mandar mais rápido que o prazo escrito, a Helena precisa aprovar antes.
+- Até quando: já passou do prazo de resposta de 4 horas úteis. Responder agora.
+- O que fazer:
+  1. Achar o pedido e ver se a data bate com o ciclo da loja: torra na terça ou quinta, envio em até 2 dias úteis depois da torra e entrega em 2 dias úteis (Mogi e região) ou de 3 a 8 dias úteis (outras cidades, pelos Correios).
+  2. Se estiver atrasado, avisar a cliente e oferecer uma solução, que precisa passar pela Helena: [confirmar com a Helena: envio mais rápido ou outra compensação].
+  3. Descobrir por que o WhatsApp ficou sem resposta.
 
-*(71 palavras. Não promete entrega até sexta porque as políticas não garantem esse prazo.)*
-
-**3. O que fazer por dentro**
-- **Quem resolve:** o atendimento (é cliente do Clube). Se for preciso garantir entrega até sexta e o prazo normal não der, só com aprovação da Helena.
-- **Até quando:** responder em até 4 horas úteis (WhatsApp, de segunda a sexta, das 8h às 18h). Como ele já está esperando, vale responder agora.
-- **Passos:**
-  1. Achar o pedido e ver qual Mantiqueira ele comprou (250 g ou 1 kg), se foi na torra de terça e se já foi enviado. Pela regra, sai em até 2 dias úteis depois da torra. A entrega leva até 2 dias úteis na região de Mogi e de 3 a 8 dias úteis pelos Correios.
-  2. Mandar status e rastreio. Se o pedido passou do prazo escrito, chamar a Helena antes de oferecer qualquer compensação.
-  3. Se ele ainda quiser cancelar o Clube: dá para cancelar sem multa até o dia 20, e vale para o mês seguinte. Hoje é dia 25, então o cancelamento só vale a partir de dezembro.
+**Pontos a confirmar:** status do envio · data de entrega · número do pedido · cidade da cliente · qual Mantiqueira foi pedido (Clássico 250 g ou 1 kg) · se "segunda" é hoje (26/10) ou 19/10 · solução para o atraso (com a Helena)
 

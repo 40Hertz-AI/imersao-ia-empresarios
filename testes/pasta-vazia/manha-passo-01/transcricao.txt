@@ -2,17 +2,18 @@
 O que você consegue fazer nesta pasta?
 
 ════════ resposta do Claude ════════
-A pasta `/tmp/vazia-manha-passo-01` está vazia: não tem arquivos e também não é um repositório git. Então não há nada aqui para analisar ainda, mas dá para começar algo do zero. Por exemplo, posso:
+A pasta `/tmp/vazia-manha-passo-01` está vazia. Não tem arquivos e também não é um repositório git. Então ainda não há código para eu analisar, revisar ou executar.
 
-- **Criar um projeto novo** (um script em Python, uma API em Node, um site estático, uma ferramenta de linha de comando etc.), com a estrutura de pastas, as dependências e os testes.
-- **Iniciar um repositório git** (`git init`) e fazer os commits enquanto trabalhamos.
-- **Escrever e rodar scripts** para automatizar tarefas, processar dados ou gerar arquivos.
-- **Fazer análises e gráficos** a partir de dados que você trouxer para cá.
-- **Baixar ou clonar código** de algum lugar para revisar, depurar ou modificar.
-- **Pesquisar na web** documentação ou referências para o que você quiser construir.
-- **Criar um app com a API do Claude**, como um chatbot, um agente ou um classificador de texto.
+Mesmo assim, dá para começar algo do zero aqui. Por exemplo, eu posso:
 
-Também posso configurar o próprio Claude Code (permissões, hooks, status line, atalhos) ou agendar tarefas recorrentes.
+- **Criar um projeto novo:** um script em Python, Node ou Bash, uma API, um site simples, uma ferramenta de linha de comando etc. Monto a estrutura, escrevo o código e rodo para testar.
+- **Iniciar um repositório git** e fazer os commits conforme o trabalho avança.
+- **Trazer conteúdo de fora:** clonar um repositório, baixar arquivos ou buscar documentação na web.
+- **Analisar dados:** se você colocar arquivos CSV, JSON ou de log aqui, eu processo, resumo e faço gráficos.
+- **Automatizar tarefas:** scripts para rodar sozinhos ou tarefas agendadas.
+- **Configurar o Claude Code:** permissões, hooks, um `CLAUDE.md` para o projeto e atalhos.
 
-O que você tem em mente? Se me disser o objetivo, já começo a montar a estrutura.
+Quando já houver código na pasta, também posso revisar, procurar bugs, refatorar, escrever testes e fazer análises de segurança.
+
+O que você quer fazer? Se me disser a ideia, já começo.
 

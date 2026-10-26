@@ -1,6 +1,6 @@
 # Exemplo 3 · Análise de vendas
 
-> Gerado de verdade pelo Claude Code (modelo Opus) nesta pasta, com o prompt do passo, em 25/10/2026. **Dados fictícios de exemplo.** O seu resultado vai sair diferente nas palavras; o que importa é chegar no mesmo tipo de entrega.
+> Gerado de verdade pelo Claude Code (modelo Opus) nesta pasta, com o prompt do passo, em 26/10/2026. **Dados fictícios de exemplo.** O seu resultado vai sair diferente nas palavras; o que importa é chegar no mesmo tipo de entrega.
 
 ## ❌ Prompt ruim
 
@@ -12,31 +12,25 @@ Analisa minhas vendas.
 
 **Claude:**
 
-# Vendas da Torra Viva, jan a set de 2026 (dados fictícios de exemplo)
+# Vendas da Torra Viva · jan a set/2026 (dados fictícios de exemplo)
 
-**No geral**
-- Faturamento: **R$ 765.578,40**. Lucro bruto: **R$ 445.207,30**, ou seja, 58% do faturamento.
-- As vendas subiram de R$ 59.494 em janeiro para R$ 105.015 em setembro, uma alta de 76,5%.
-- O melhor mês foi agosto (R$ 113.768). Setembro caiu 7,7% em relação a agosto.
+**No total:** R$ 765.578 de faturamento e R$ 445.207 de lucro bruto (lucro bruto é o que sobra depois do custo do produto), com margem de 58%. O faturamento passou de R$ 59.494 em janeiro para R$ 105.015 em setembro, uma alta de 77%.
 
-**Por canal**
+| Canal | Faturamento | Lucro bruto | Margem | Jan → Set |
+|---|---|---|---|---|
+| Loja online | R$ 356.049 | R$ 216.586 | 60,8% | +57% |
+| Clube (assinatura) | R$ 165.189 | R$ 96.186 | 58,2% | +65% |
+| Cafeterias parceiras | R$ 131.780 | R$ 74.760 | 56,7% | +40% |
+| B2B Escritórios | R$ 112.560 | R$ 57.675 | 51,2% | +368% |
 
-| Canal | Faturamento | Lucro bruto (margem) | Jan → Set |
-|---|---|---|---|
-| Loja online | R$ 356.049,00 | R$ 216.585,90 (60,8%) | +57,2% |
-| Clube Torra Viva | R$ 165.189,00 | R$ 96.186,00 (58,2%) | +64,6% |
-| Cafeterias parceiras | R$ 131.780,00 | R$ 74.760,00 (56,7%) | +39,7% |
-| B2B Escritórios | R$ 112.560,40 | R$ 57.675,40 (51,2%) | +367,5% |
+**O que chama atenção:**
+- **O Clube é o produto que mais fatura** (R$ 165 mil). Cresceu todo mês, de 181 para 298 assinaturas.
+- **O B2B foi o canal que mais cresceu**, mas tem a menor margem. O Blend Escritório caiu de R$ 98 para cerca de R$ 86 o kg e tem margem de 48%, a menor de todos os produtos.
+- **O Kit Degustação teve picos em maio e agosto** (136 e 129 unidades; nos outros meses ficou perto de 40). [confirmar: o motivo, talvez datas comemorativas]
+- **O Etiópia Yirgacheffe**, lançado em junho, subiu de 62 para 151 pacotes em setembro. A margem dele é de 51,5%, menor que a dos outros cafés de 250 g (perto de 62%).
+- **Setembro caiu 7,7% em relação a agosto**, principalmente porque o Kit Degustação voltou ao normal.
 
-**O que chama atenção**
-- **B2B Escritórios** foi o canal que mais cresceu (de R$ 4.011 para R$ 18.752 por mês), mas tem a menor margem, porque o Blend Escritório sai por cerca de R$ 86 o kg.
-- **O Clube** cresceu todo mês, de 181 para 298 assinaturas. É receita que se repete.
-- O **Kit Degustação** dispara em maio e agosto (136 e 129 unidades, contra uns 40 nos outros meses). [confirmar: deve ser Dia das Mães e Dia dos Pais]
-- O **Etiópia Yirgacheffe** entrou em junho e mais que dobrou até setembro (62 → 151 pacotes).
-- Os produtos que mais faturam: Clube, Mantiqueira 250 g e Espresso da Casa 1 kg.
-
----
-Essa foi a resposta ao **prompt ruim** do Exemplo 3. Sem saber para que você quer a análise, saiu um resumo genérico. Agora digite `/clear` e cole o prompt bom de `passos/03-prompts-que-funcionam/INSTRUCOES.md` para comparar o foco e o formato.
+Este é o **prompt ruim do Exemplo 3** do passo 3. Para comparar, digite `/clear` e cole o prompt bom de `passos/03-prompts-que-funcionam/INSTRUCOES.md`. A resposta pronta para conferir está em `gabarito/03-prompts-que-funcionam/`.
 
 
 ## ✅ Prompt bom
@@ -52,22 +46,24 @@ Formato: uma tabela (canal | faturamento jan a set | crescimento jan → set em 
 
 **Claude:**
 
-**Torra Viva · canais de venda, janeiro a setembro de 2026** (dados fictícios de exemplo)
+**Vendas por canal, janeiro a setembro de 2026** (dados fictícios de exemplo, `dados/vendas-mensais.csv`)
 
-| Canal | Faturamento jan a set | Crescimento jan → set em % | Lucro bruto (margem) |
+| Canal | Faturamento jan a set | Crescimento jan → set em % | Lucro bruto |
 |---|---|---|---|
-| Loja online | R$ 356.049,00 | (46.535,00 − 29.601,00) ÷ 29.601,00 = **+57,2%** | R$ 216.585,90 (60,8%) |
-| Assinatura (Clube Torra Viva) | R$ 165.189,00 | (23.542,00 − 14.299,00) ÷ 14.299,00 = **+64,6%** | R$ 96.186,00 (58,2%) |
-| Cafeterias parceiras | R$ 131.780,00 | (16.186,00 − 11.583,00) ÷ 11.583,00 = **+39,7%** | R$ 74.760,00 (56,7%) |
-| B2B Escritórios | R$ 112.560,40 | (18.752,40 − 4.011,00) ÷ 4.011,00 = **+367,5%** | R$ 57.675,40 (51,2%) |
-| **Total** | **R$ 765.578,40** | | **R$ 445.207,30 (58,2%)** |
+| Loja online | R$ 356.049,00 | (46.535,00 ÷ 29.601,00 − 1) × 100 = **+57,2%** | R$ 216.585,90 |
+| Clube Torra Viva (no arquivo: "Assinatura") | R$ 165.189,00 | (23.542,00 ÷ 14.299,00 − 1) × 100 = **+64,6%** | R$ 96.186,00 |
+| Cafeterias parceiras | R$ 131.780,00 | (16.186,00 ÷ 11.583,00 − 1) × 100 = **+39,7%** | R$ 74.760,00 |
+| B2B Escritórios | R$ 112.560,40 | (18.752,40 ÷ 4.011,00 − 1) × 100 = **+367,5%** | R$ 57.675,40 |
+| **Total** | **R$ 765.578,40** | | **R$ 445.207,30** |
 
-Como li a tabela: o crescimento compara o faturamento de setembro com o de janeiro. Margem é quanto sobra de cada R$ 100 vendidos depois de pagar o custo do café.
+Como ler o crescimento: divido o faturamento de setembro pelo de janeiro, tiro 1 e multiplico por 100.
+Lucro bruto é o faturamento menos o custo do produto, sem contar despesas como frete, salários e aluguel.
 
-**Recomendações para o último trimestre**
-1. **B2B Escritórios:** é o canal que mais cresce (mais de 4 vezes desde janeiro). Vale colocar mais esforço de vendas nele, mas olhando a margem, que é a menor (51,2%).
-2. **Loja online:** fatura e lucra mais que os outros e tem a melhor margem (60,8%). Precisa continuar recebendo investimento para não perder ritmo.
-3. **Clube Torra Viva:** cresceu 64,6% com margem boa (58,2%). Uma campanha de novos assinantes até dezembro faz sentido.
+**3 recomendações para o último trimestre**
 
-No arquivo, o Clube aparece com o nome "Assinatura".
+1. **B2B Escritórios:** é o canal que mais cresce (+367,5%). Vale colocar esforço de vendas da Marina para fechar novos contratos, mas a margem é a menor dos quatro (51,2% do faturamento vira lucro bruto). Antes de dar desconto, revise o preço.
+2. **Loja online:** traz quase metade do lucro bruto (R$ 216,6 mil de R$ 445,2 mil) e tem a melhor margem (60,8%). Proteja esse canal com campanhas de fim de ano no site e no Instagram.
+3. **Clube Torra Viva:** cresce mais que a loja (+64,6%) e tem margem boa (58,2%). Use os pedidos da loja online para convidar quem já compra a virar assinante.
+
+Obs.: o crescimento compara só dois meses (janeiro e setembro). O B2B começou com uma base pequena (R$ 4.011,00), por isso o percentual sai tão alto.
 

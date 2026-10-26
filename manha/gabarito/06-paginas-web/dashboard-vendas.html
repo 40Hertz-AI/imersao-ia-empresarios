@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Torra Viva · Painel de vendas jan a set 2026 (dados fictícios de exemplo)</title>
+<style>
+  :root {
+    color-scheme: light;
+    --page: #eceee6;          /* verde-cru: a cor do grão antes da torra */
+    --surface: #fdfdfa;
+    --ink: #2a1c15;           /* torra escura */
+    --ink-2: #5e524a;
+    --ink-3: #847a72;
+    --rule: #dcddd3;
+    --head-bg: #2a1c15;
+    --head-ink: #f3efe4;
+    --head-ink-2: #c9bfae;
+    --focus: #5c4fbf;
+    --c-loja: #b4472b;
+    --c-clube: #e0a526;
+    --c-cafe: #1d8a5c;
+    --c-b2b: #5c4fbf;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --page: #17110e;
+      --surface: #211915;
+      --ink: #f1ebe2;
+      --ink-2: #c4b8ab;
+      --ink-3: #998d81;
+      --rule: #3a2f29;
+      --head-bg: #0f0b09;
+      --head-ink: #f1ebe2;
+      --head-ink-2: #b3a796;
+      --focus: #a49cf0;
+      --c-loja: #cf4a52;
+      --c-clube: #c08a12;
+      --c-cafe: #1f9068;
+      --c-b2b: #7d72e0;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--page);
+    color: var(--ink);
+    font: 16px/1.5 var(--sans);
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 3px; }
+
+  /* Cabeçalho: o rótulo do pacote */
+  .topo { background: var(--head-bg); color: var(--head-ink); }
+  .topo-in { max-width: 1180px; margin: 0 auto; padding: 22px 28px 34px; }
+  .aviso {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin: 0 0 26px; padding: 5px 12px 5px 10px;
+    border: 1px solid #e0a52699; border-radius: 999px;
+    color: #f3d58e; font-size: 14px; font-weight: 600;
+  }
+  .aviso::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #e0a526; }
+  .marca { margin: 0 0 6px; font-size: 15px; color: var(--head-ink-2); letter-spacing: .01em; }
+  h1 {
+    margin: 0; font-family: var(--serif); font-weight: 600;
+    font-size: clamp(34px, 5.4vw, 60px); line-height: 1.02; letter-spacing: -.015em;
+    max-width: 16ch;
+  }
+  .sub { margin: 14px 0 0; color: var(--head-ink-2); max-width: 62ch; }
+
+  /* Filtro */
+  .filtro-wrap { max-width: 1180px; margin: -22px auto 0; padding: 0 28px; position: relative; }
+  .filtro {
+    display: flex; flex-wrap: wrap; gap: 4px; padding: 5px;
+    background: var(--surface); border-radius: 12px;
+    box-shadow: 0 1px 0 var(--rule), 0 8px 24px -14px #2a1c1566;
+    width: fit-content; max-width: 100%;
+  }
+  .filtro legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .filtro button {
+    appearance: none; border: 0; background: transparent; color: var(--ink-2);
+    font: 600 15px/1 var(--sans); padding: 11px 14px; border-radius: 8px; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .filtro button:hover { color: var(--ink); background: color-mix(in srgb, var(--rule) 55%, transparent); }
+  .filtro button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+  .sw { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+
+  main { max-width: 1180px; margin: 0 auto; padding: 28px 28px 56px; }
+
+  /* Números grandes */
+  .numeros {
+    display: grid; grid-template-columns: 1.75fr 1fr 1fr 1fr; gap: 0;
+    background: var(--surface); border-radius: 14px; overflow: hidden;
+  }
+  .num { padding: 22px 24px 24px; border-left: 1px solid var(--rule); min-width: 0; }
+  .num:first-child { border-left: 0; }
+  .num h2 { margin: 0 0 8px; font: 500 15px/1.3 var(--sans); color: var(--ink-2); }
+  .num .v { font: 650 34px/1.05 var(--sans); letter-spacing: -.02em; white-space: nowrap; }
+  .num.hero .v { font-size: clamp(36px, 3.7vw, 48px); }
+  .num .d { margin-top: 8px; font-size: 14px; color: var(--ink-3); }
+  .num.fora .v { color: var(--ink-3); }
+
+  /* Gráficos */
+  .grade { display: grid; grid-template-columns: 1.75fr 1fr; gap: 20px; margin-top: 20px; }
+  .bloco { background: var(--surface); border-radius: 14px; padding: 22px 24px 18px; min-width: 0; }
+  .bloco h2 { margin: 0; font: 600 22px/1.2 var(--serif); }
+  .bloco .nota { margin: 4px 0 14px; font-size: 14px; color: var(--ink-2); }
+  .legenda { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0 0 8px; padding: 0; list-style: none; font-size: 14px; color: var(--ink-2); }
+  .legenda li { display: inline-flex; align-items: center; gap: 6px; }
+  svg { display: block; width: 100%; height: auto; overflow: visible; }
+  svg text { font-family: var(--sans); fill: var(--ink-2); }
+  .eixo { font-size: 12px; fill: var(--ink-3); }
+  .grid-l { stroke: var(--rule); stroke-width: 1; }
+  .rot { font-size: 13px; font-weight: 600; fill: var(--ink); }
+  .mk { cursor: pointer; }
+  .mk:focus { outline: none; }
+  .mk:focus-visible .hit { stroke: var(--focus); stroke-width: 2; }
+  .canal-g { cursor: pointer; }
+  .canal-g .bar { transition: opacity .2s; }
+  .canal-g.apagado .bar { opacity: .22; }
+  .canal-g:focus { outline: none; }
+  .canal-g:focus-visible .hit { stroke: var(--focus); stroke-width: 2; }
+
+  /* Tabela */
+  .tab-bloco { margin-top: 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th { text-align: left; font-weight: 500; color: var(--ink-2); font-size: 14px; padding: 8px 10px; border-bottom: 1px solid var(--rule); }
+  td { padding: 12px 10px; border-bottom: 1px solid var(--rule); vertical-align: middle; }
+  tr:last-child td { border-bottom: 0; }
+  .r { text-align: right; }
+  .pos { width: 2.2em; color: var(--ink-3); font-weight: 600; }
+  .prod { font-weight: 600; }
+  .prod small { display: block; font-weight: 400; color: var(--ink-3); font-size: 13px; }
+  .part { width: 32%; }
+  .part-bar { display: flex; align-items: center; gap: 10px; }
+  .part-bar span.t { height: 8px; border-radius: 0 4px 4px 0; background: var(--ink-2); min-width: 2px; }
+  .part-bar b { font-weight: 500; color: var(--ink-2); font-size: 14px; min-width: 3.5em; }
+
+  details { margin-top: 12px; font-size: 14px; color: var(--ink-2); }
+  summary { cursor: pointer; width: fit-content; padding: 4px 0; }
+  details table { margin-top: 8px; font-size: 14px; }
+
+  .tip {
+    position: fixed; z-index: 10; pointer-events: none; opacity: 0;
+    background: var(--ink); color: var(--surface); border-radius: 8px;
+    padding: 10px 12px; font-size: 13px; line-height: 1.45; min-width: 180px;
+    box-shadow: 0 10px 24px -10px #0008; transition: opacity .12s;
+  }
+  .tip.on { opacity: 1; }
+  .tip strong { display: block; font-size: 14px; margin-bottom: 4px; }
+  .tip .ln { display: flex; justify-content: space-between; gap: 14px; }
+  .tip .ln span:first-child { display: inline-flex; align-items: center; gap: 6px; }
+  .tip .tot { border-top: 1px solid color-mix(in srgb, var(--surface) 30%, transparent); margin-top: 4px; padding-top: 4px; font-weight: 650; }
+
+  footer { max-width: 1180px; margin: 0 auto; padding: 0 28px 40px; font-size: 13px; color: var(--ink-3); }
+
+  @media (max-width: 960px) {
+    .numeros { grid-template-columns: 1fr 1fr; }
+    .num:nth-child(3) { border-left: 0; }
+    .num:nth-child(n+3) { border-top: 1px solid var(--rule); }
+    .grade { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .topo-in, main, footer, .filtro-wrap { padding-left: 16px; padding-right: 16px; }
+    .numeros { grid-template-columns: 1fr; }
+    .num { border-left: 0; border-top: 1px solid var(--rule); }
+    .num:first-child { border-top: 0; }
+    .filtro button { padding: 10px 10px; font-size: 14px; }
+    .part { display: none; }
+    .bloco { padding: 18px 16px 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="topo-in">
+    <p class="aviso">Dados fictícios de exemplo</p>
+    <p class="marca">Torra Viva Cafés Especiais, Mogi das Cruzes</p>
+    <h1>Vendas de janeiro a setembro de 2026</h1>
+    <p class="sub" id="sub">Todos os canais. Escolha um canal abaixo e o painel inteiro mostra só ele.</p>
+  </div>
+</header>
+
+<div class="filtro-wrap">
+  <fieldset class="filtro" id="filtro" style="border:0;margin:0">
+    <legend>Filtrar por canal</legend>
+  </fieldset>
+</div>
+
+<main>
+  <section class="numeros" aria-label="Números do período">
+    <div class="num hero"><h2>Faturamento total</h2><div class="v" id="k-fat"></div><div class="d" id="k-fat-d"></div></div>
+    <div class="num"><h2>Lucro bruto</h2><div class="v" id="k-luc"></div><div class="d" id="k-luc-d"></div></div>
+    <div class="num"><h2>Melhor mês</h2><div class="v" id="k-mes"></div><div class="d" id="k-mes-d"></div></div>
+    <div class="num" id="k-b2b-box"><h2>Clientes B2B ativos em setembro</h2><div class="v" id="k-b2b"></div><div class="d" id="k-b2b-d"></div></div>
+  </section>
+
+  <div class="grade">
+    <section class="bloco">
+      <h2>Faturamento por mês</h2>
+      <p class="nota" id="mes-nota"></p>
+      <ul class="legenda" id="mes-leg"></ul>
+      <div id="g-mes"></div>
+      <details>
+        <summary>Ver os números do gráfico</summary>
+        <table id="t-mes"></table>
+      </details>
+    </section>
+    <section class="bloco">
+      <h2>Faturamento por canal</h2>
+      <p class="nota">Toque numa barra para filtrar por ela.</p>
+      <div id="g-canal"></div>
+    </section>
+  </div>
+
+  <section class="bloco tab-bloco">
+    <h2>Os 5 produtos que mais faturaram</h2>
+    <p class="nota" id="top-nota"></p>
+    <table id="t-top"></table>
+  </section>
+</main>
+
+<footer>Dados fictícios de exemplo, criados para a aula. A Torra Viva é uma empresa inventada. Fontes embutidas: vendas-mensais.csv e clientes-b2b.csv.</footer>
+
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+<!-- Dados embutidos (cópia de dados/vendas-mensais.csv e dados/clientes-b2b.csv) -->
+<script type="text/plain" id="csv-vendas">
+# Torra Viva Cafés Especiais · dados fictícios de exemplo
+mes,codigo,produto,categoria,canal,quantidade,preco_unitario,faturamento,custo,lucro_bruto
+2026-01,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,285,42.00,11970.00,4560.00,7410.00
+2026-01,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,214,38.00,8132.00,3103.00,5029.00
+2026-01,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,36,46.00,1656.00,720.00,936.00
+2026-01,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,130,35.00,4550.00,1625.00,2925.00
+2026-01,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,37,89.00,3293.00,1332.00,1961.00
+2026-01,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,181,79.00,14299.00,5973.00,8326.00
+2026-01,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,67,129.00,8643.00,3752.00,4891.00
+2026-01,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,21,140.00,2940.00,1260.00,1680.00
+2026-01,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,8,98.00,784.00,360.00,424.00
+2026-01,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,25,129.08,3227.00,1500.00,1727.00
+2026-02,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,244,42.00,10248.00,3904.00,6344.00
+2026-02,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,187,38.00,7106.00,2711.50,4394.50
+2026-02,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,32,46.00,1472.00,640.00,832.00
+2026-02,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,110,35.00,3850.00,1375.00,2475.00
+2026-02,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,29,89.00,2581.00,1044.00,1537.00
+2026-02,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,186,79.00,14694.00,6138.00,8556.00
+2026-02,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,59,129.00,7611.00,3304.00,4307.00
+2026-02,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,17,140.00,2380.00,1020.00,1360.00
+2026-02,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,8,98.00,784.00,360.00,424.00
+2026-02,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,42,127.83,5369.00,2520.00,2849.00
+2026-03,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,309,42.00,12978.00,4944.00,8034.00
+2026-03,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,220,38.00,8360.00,3190.00,5170.00
+2026-03,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,40,46.00,1840.00,800.00,1040.00
+2026-03,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,146,35.00,5110.00,1825.00,3285.00
+2026-03,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,37,89.00,3293.00,1332.00,1961.00
+2026-03,TV-007,Cold Brew 300 ml,Bebida pronta,Loja online,146,16.00,2336.00,846.80,1489.20
+2026-03,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,197,79.00,15563.00,6501.00,9062.00
+2026-03,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,70,129.00,9030.00,3920.00,5110.00
+2026-03,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,21,140.00,2940.00,1260.00,1680.00
+2026-03,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,40,88.45,3537.80,1800.00,1737.80
+2026-03,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,42,127.83,5369.00,2520.00,2849.00
+2026-04,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,300,42.00,12600.00,4800.00,7800.00
+2026-04,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,228,38.00,8664.00,3306.00,5358.00
+2026-04,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,39,46.00,1794.00,780.00,1014.00
+2026-04,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,139,35.00,4865.00,1737.50,3127.50
+2026-04,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,44,89.00,3916.00,1584.00,2332.00
+2026-04,TV-007,Cold Brew 300 ml,Bebida pronta,Loja online,126,16.00,2016.00,730.80,1285.20
+2026-04,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,211,79.00,16669.00,6963.00,9706.00
+2026-04,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,79,129.00,10191.00,4424.00,5767.00
+2026-04,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,27,140.00,3780.00,1620.00,2160.00
+2026-04,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,76,86.01,6536.60,3420.00,3116.60
+2026-04,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,42,127.83,5369.00,2520.00,2849.00
+2026-04,TV-104,Cerrado Doce 1 kg,Café 1 kg,B2B Escritórios,10,121.60,1216.00,540.00,676.00
+2026-05,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,362,42.00,15204.00,5792.00,9412.00
+2026-05,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,243,38.00,9234.00,3523.50,5710.50
+2026-05,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,46,46.00,2116.00,920.00,1196.00
+2026-05,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,163,35.00,5705.00,2037.50,3667.50
+2026-05,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,136,89.00,12104.00,4896.00,7208.00
+2026-05,TV-007,Cold Brew 300 ml,Bebida pronta,Loja online,100,16.00,1600.00,580.00,1020.00
+2026-05,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,229,79.00,18091.00,7557.00,10534.00
+2026-05,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,86,129.00,11094.00,4816.00,6278.00
+2026-05,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,30,140.00,4200.00,1800.00,2400.00
+2026-05,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,76,86.01,6536.60,3420.00,3116.60
+2026-05,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,42,127.83,5369.00,2520.00,2849.00
+2026-05,TV-104,Cerrado Doce 1 kg,Café 1 kg,B2B Escritórios,22,121.60,2675.20,1188.00,1487.20
+2026-06,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,335,42.00,14070.00,5360.00,8710.00
+2026-06,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,236,38.00,8968.00,3422.00,5546.00
+2026-06,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,43,46.00,1978.00,860.00,1118.00
+2026-06,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,170,35.00,5950.00,2125.00,3825.00
+2026-06,TV-003,Etiópia Yirgacheffe 250 g,Café 250 g,Loja online,62,68.00,4216.00,2046.00,2170.00
+2026-06,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,46,89.00,4094.00,1656.00,2438.00
+2026-06,TV-007,Cold Brew 300 ml,Bebida pronta,Loja online,75,16.00,1200.00,435.00,765.00
+2026-06,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,246,79.00,19434.00,8118.00,11316.00
+2026-06,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,92,129.00,11868.00,5152.00,6716.00
+2026-06,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,28,140.00,3920.00,1680.00,2240.00
+2026-06,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,76,86.01,6536.60,3420.00,3116.60
+2026-06,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,46,128.89,5929.00,2760.00,3169.00
+2026-06,TV-104,Cerrado Doce 1 kg,Café 1 kg,B2B Escritórios,22,121.60,2675.20,1188.00,1487.20
+2026-07,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,353,42.00,14826.00,5648.00,9178.00
+2026-07,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,249,38.00,9462.00,3610.50,5851.50
+2026-07,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,43,46.00,1978.00,860.00,1118.00
+2026-07,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,162,35.00,5670.00,2025.00,3645.00
+2026-07,TV-003,Etiópia Yirgacheffe 250 g,Café 250 g,Loja online,99,68.00,6732.00,3267.00,3465.00
+2026-07,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,43,89.00,3827.00,1548.00,2279.00
+2026-07,TV-007,Cold Brew 300 ml,Bebida pronta,Loja online,71,16.00,1136.00,411.80,724.20
+2026-07,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,262,79.00,20698.00,8646.00,12052.00
+2026-07,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,103,129.00,13287.00,5768.00,7519.00
+2026-07,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,33,140.00,4620.00,1980.00,2640.00
+2026-07,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,89,85.67,7624.40,4005.00,3619.40
+2026-07,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,46,128.89,5929.00,2760.00,3169.00
+2026-07,TV-104,Cerrado Doce 1 kg,Café 1 kg,B2B Escritórios,22,121.60,2675.20,1188.00,1487.20
+2026-08,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,394,42.00,16548.00,6304.00,10244.00
+2026-08,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,283,38.00,10754.00,4103.50,6650.50
+2026-08,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,46,46.00,2116.00,920.00,1196.00
+2026-08,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,173,35.00,6055.00,2162.50,3892.50
+2026-08,TV-003,Etiópia Yirgacheffe 250 g,Café 250 g,Loja online,121,68.00,8228.00,3993.00,4235.00
+2026-08,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,129,89.00,11481.00,4644.00,6837.00
+2026-08,TV-007,Cold Brew 300 ml,Bebida pronta,Loja online,102,16.00,1632.00,591.60,1040.40
+2026-08,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,281,79.00,22199.00,9273.00,12926.00
+2026-08,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,110,129.00,14190.00,6160.00,8030.00
+2026-08,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,35,140.00,4900.00,2100.00,2800.00
+2026-08,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,89,85.67,7624.40,4005.00,3619.40
+2026-08,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,46,128.89,5929.00,2760.00,3169.00
+2026-08,TV-104,Cerrado Doce 1 kg,Café 1 kg,B2B Escritórios,17,124.24,2112.00,918.00,1194.00
+2026-09,TV-001,Mantiqueira Clássico 250 g,Café 250 g,Loja online,328,42.00,13776.00,5248.00,8528.00
+2026-09,TV-002,Cerrado Doce 250 g,Café 250 g,Loja online,240,38.00,9120.00,3480.00,5640.00
+2026-09,TV-004,Descafeinado Suave 250 g,Café 250 g,Loja online,42,46.00,1932.00,840.00,1092.00
+2026-09,TV-005,Drip Bag Mantiqueira (caixa com 10),Prático,Loja online,148,35.00,5180.00,1850.00,3330.00
+2026-09,TV-003,Etiópia Yirgacheffe 250 g,Café 250 g,Loja online,151,68.00,10268.00,4983.00,5285.00
+2026-09,TV-006,Kit Degustação (3 × 100 g),Presente,Loja online,43,89.00,3827.00,1548.00,2279.00
+2026-09,TV-007,Cold Brew 300 ml,Bebida pronta,Loja online,152,16.00,2432.00,881.60,1550.40
+2026-09,TV-201,"Clube Torra Viva (assinatura mensal, 2 × 250 g)",Assinatura,Assinatura,298,79.00,23542.00,9834.00,13708.00
+2026-09,TV-101,Espresso da Casa 1 kg,Café 1 kg,Cafeterias parceiras,94,129.00,12126.00,5264.00,6862.00
+2026-09,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,Cafeterias parceiras,29,140.00,4060.00,1740.00,2320.00
+2026-09,TV-102,Blend Escritório 1 kg,Café 1 kg,B2B Escritórios,95,86.45,8212.40,4275.00,3937.40
+2026-09,TV-103,Mantiqueira Clássico 1 kg,Café 1 kg,B2B Escritórios,67,125.79,8428.00,4020.00,4408.00
+2026-09,TV-104,Cerrado Doce 1 kg,Café 1 kg,B2B Escritórios,17,124.24,2112.00,918.00,1194.00
+</script>
+<script type="text/plain" id="csv-b2b">
+# Torra Viva Cafés Especiais · dados fictícios de exemplo
+id,empresa,segmento,cidade,funcionarios,cafe_do_plano,kg_mes,contrato,valor_mensal,cliente_desde,status,status_desde,nps,observacao
+B01,Contábil Horizonte,Contabilidade,Mogi das Cruzes,18,Blend Escritório,8,mensal,784.00,2025-08,ativo,,9,Pede nota fiscal até o dia 5.
+B02,Clínica Bem Viver,Saúde,Suzano,32,Mantiqueira Clássico,14,anual,1764.00,2025-11,ativo,,10,Elogiou o café na pesquisa de satisfação.
+B03,Agência Faro Digital,Marketing,São Paulo,24,Mantiqueira Clássico,11,mensal,1463.00,2026-01,ativo,,8,Quer conhecer o Etiópia para as reuniões com clientes.
+B04,Rocha & Lima Advogados,Jurídico,São Paulo,40,Mantiqueira Clássico,17,anual,2142.00,2026-02,ativo,,9,
+B05,Coworking Ponto de Encontro,Coworking,Mogi das Cruzes,60,Blend Escritório,26,anual,2165.80,2026-03,ativo,,7,Pediu orçamento para incluir chás.
+B06,Imobiliária Casa Certa,Imobiliário,Guarulhos,12,Blend Escritório,6,mensal,743.00,2026-03,pausado,2026-07,6,Pausou o plano durante a reforma do escritório; volta em novembro.
+B07,Fala Mundo Idiomas,Educação,Mogi das Cruzes,22,Cerrado Doce,10,mensal,1216.00,2026-04,ativo,,8,
+B08,TechNorte Sistemas,Tecnologia,São Paulo,85,Blend Escritório,36,anual,2998.80,2026-04,ativo,,9,Maior cliente em kg.
+B09,Laboratório Vida Clara,Saúde,Suzano,28,Cerrado Doce,12,mensal,1459.20,2026-05,cancelado,2026-08,4,Cancelou depois de duas entregas atrasadas em julho.
+B10,Traço Livre Arquitetura,Arquitetura,São Paulo,9,Mantiqueira Clássico,4,mensal,715.00,2026-06,ativo,,10,
+B11,Construtora Alicerce,Construção,Arujá,45,Blend Escritório,19,anual,1675.80,2026-07,ativo,,8,
+B12,Prumo Consultoria,Consultoria,São Paulo,15,Cerrado Doce,7,mensal,1016.00,2026-08,ativo,,9,
+B13,Sorriso Pleno Odontologia,Saúde,Mogi das Cruzes,14,Blend Escritório,6,mensal,743.00,2026-09,ativo,,,Cliente novo: ainda sem pesquisa de satisfação.
+B14,Hotel Serra Azul,Hotelaria,Mogi das Cruzes,50,Mantiqueira Clássico,21,anual,2499.00,2026-09,ativo,,,Cliente novo: ainda sem pesquisa de satisfação.
+</script>
+
+<script>
+(function () {
+  // ---------- Leitura dos CSV ----------
+  function parseCSV(txt) {
+    var linhas = txt.trim().split(/\r?\n/).filter(function (l) { return l && l.charAt(0) !== '#'; });
+    function campos(l) {
+      var out = [], cur = '', q = false;
+      for (var i = 0; i < l.length; i++) {
+        var ch = l[i];
+        if (q) {
+          if (ch === '"' && l[i + 1] === '"') { cur += '"'; i++; }
+          else if (ch === '"') q = false;
+          else cur += ch;
+        } else if (ch === '"') q = true;
+        else if (ch === ',') { out.push(cur); cur = ''; }
+        else cur += ch;
+      }
+      out.push(cur);
+      return out;
+    }
+    var cab = campos(linhas[0]);
+    return linhas.slice(1).map(function (l) {
+      var c = campos(l), o = {};
+      cab.forEach(function (k, i) { o[k] = c[i] === undefined ? '' : c[i]; });
+      return o;
+    });
+  }
+  var vendas = parseCSV(document.getElementById('csv-vendas').textContent).map(function (r) {
+    r.quantidade = +r.quantidade; r.faturamento = +r.faturamento; r.custo = +r.custo; r.lucro_bruto = +r.lucro_bruto;
+    return r;
+  });
+  var b2b = parseCSV(document.getElementById('csv-b2b').textContent);
+
+  // ---------- Canais (a cor segue o canal, sempre a mesma) ----------
+  var CANAIS = [
+    { id: 'Loja online',          nome: 'Loja online',          cor: 'var(--c-loja)' },
+    { id: 'Assinatura',           nome: 'Clube Torra Viva',     cor: 'var(--c-clube)' },
+    { id: 'Cafeterias parceiras', nome: 'Cafeterias parceiras', cor: 'var(--c-cafe)' },
+    { id: 'B2B Escritórios',      nome: 'B2B Escritórios',      cor: 'var(--c-b2b)' }
+  ];
+  var canalPor = {}; CANAIS.forEach(function (c) { canalPor[c.id] = c; });
+  var MESES = ['2026-01','2026-02','2026-03','2026-04','2026-05','2026-06','2026-07','2026-08','2026-09'];
+  var NOME_MES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro'];
+  var CURTO = ['jan','fev','mar','abr','mai','jun','jul','ago','set'];
+
+  var brl = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+  var brl0 = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+  var pct = new Intl.NumberFormat('pt-BR', { style: 'percent', maximumFractionDigits: 1 });
+  var int = new Intl.NumberFormat('pt-BR');
+  function mil(v) { return v >= 1000 ? 'R$ ' + int.format(Math.round(v / 1000)) + ' mil' : brl0.format(v); }
+
+  var filtro = 'todos';
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(tag, at, pai) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in at) e.setAttribute(k, at[k]);
+    if (pai) pai.appendChild(e);
+    return e;
+  }
+  function soma(arr, k) { return arr.reduce(function (s, r) { return s + r[k]; }, 0); }
+  function linhasFiltradas() { return filtro === 'todos' ? vendas : vendas.filter(function (r) { return r.canal === filtro; }); }
+  function canaisAtivos() { return filtro === 'todos' ? CANAIS : [canalPor[filtro]]; }
+
+  // ---------- Tooltip ----------
+  var tip = document.getElementById('tip');
+  function mostraTip(html, x, y) {
+    tip.innerHTML = html; tip.classList.add('on');
+    var w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = Math.min(window.innerWidth - w - 8, Math.max(8, x + 14));
+    var top = y - h - 12; if (top < 8) top = y + 18;
+    tip.style.left = left + 'px'; tip.style.top = top + 'px';
+  }
+  function escondeTip() { tip.classList.remove('on'); }
+  function ligaTip(g, htmlFn) {
+    g.addEventListener('pointermove', function (e) { mostraTip(htmlFn(), e.clientX, e.clientY); });
+    g.addEventListener('pointerleave', escondeTip);
+    g.addEventListener('focus', function () { var b = g.getBoundingClientRect(); mostraTip(htmlFn(), b.left + b.width / 2, b.top); });
+    g.addEventListener('blur', escondeTip);
+  }
+  function sw(cor) { return '<i class="sw" style="background:' + cor + '"></i>'; }
+
+  // ---------- Filtro ----------
+  var fs = document.getElementById('filtro');
+  [{ id: 'todos', nome: 'Todos os canais' }].concat(CANAIS).forEach(function (c) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.dataset.id = c.id;
+    b.innerHTML = (c.cor ? sw(c.cor) : '') + c.nome;
+    b.addEventListener('click', function () { setFiltro(c.id); });
+    fs.appendChild(b);
+  });
+  function setFiltro(id) { filtro = (filtro === id && id !== 'todos') ? 'todos' : id; render(); }
+
+  // ---------- Números grandes ----------
+  function renderNumeros(rows) {
+    var fat = soma(rows, 'faturamento'), luc = soma(rows, 'lucro_bruto');
+    var total = soma(vendas, 'faturamento');
+    document.getElementById('k-fat').textContent = brl.format(fat);
+    document.getElementById('k-fat-d').textContent = filtro === 'todos'
+      ? 'Nove meses, os 4 canais somados'
+      : pct.format(fat / total) + ' do faturamento de todos os canais';
+    document.getElementById('k-luc').textContent = brl0.format(luc);
+    document.getElementById('k-luc-d').textContent = 'Margem bruta de ' + pct.format(luc / fat);
+
+    var porMes = MESES.map(function (m) { return soma(rows.filter(function (r) { return r.mes === m; }), 'faturamento'); });
+    var iMax = porMes.indexOf(Math.max.apply(null, porMes));
+    var nm = NOME_MES[iMax];
+    document.getElementById('k-mes').textContent = nm.charAt(0).toUpperCase() + nm.slice(1);
+    document.getElementById('k-mes-d').textContent = brl0.format(porMes[iMax]) + ' faturados no mês';
+
+    // Ativo em setembro: já era cliente até 2026-09 e não estava pausado nem cancelado nessa data
+    var ativos = b2b.filter(function (c) {
+      if (c.cliente_desde > '2026-09') return false;
+      if (c.status === 'ativo') return true;
+      return c.status_desde && c.status_desde > '2026-09';
+    });
+    var pausados = b2b.filter(function (c) { return c.status === 'pausado'; }).length;
+    var cancel = b2b.filter(function (c) { return c.status === 'cancelado'; }).length;
+    document.getElementById('k-b2b').textContent = ativos.length;
+    var fora = filtro !== 'todos' && filtro !== 'B2B Escritórios';
+    document.getElementById('k-b2b-box').classList.toggle('fora', fora);
+    document.getElementById('k-b2b-d').textContent = fora
+      ? 'Número do canal B2B Escritórios, não muda com este filtro'
+      : 'De ' + b2b.length + ' empresas que já assinaram: ' + pausados + ' pausada, ' + cancel + ' cancelada';
+  }
+
+  // ---------- Gráfico por mês (colunas empilhadas por canal) ----------
+  function renderMes(rows) {
+    var box = document.getElementById('g-mes'); box.innerHTML = '';
+    var cs = canaisAtivos();
+    var dados = MESES.map(function (m, i) {
+      var partes = cs.map(function (c) {
+        return { c: c, v: soma(rows.filter(function (r) { return r.mes === m && r.canal === c.id; }), 'faturamento') };
+      });
+      return { m: m, i: i, partes: partes, tot: partes.reduce(function (s, p) { return s + p.v; }, 0) };
+    });
+    var maxV = Math.max.apply(null, dados.map(function (d) { return d.tot; }));
+    var passo = [5000, 10000, 20000, 25000, 50000].find(function (p) { return maxV / p <= 5; }) || 50000;
+    var topo = Math.ceil(maxV * 1.08 / passo) * passo;
+
+    var W = Math.max(320, box.clientWidth || 640), H = 300;
+    var m = { t: 24, r: 8, b: 30, l: 62 };
+    var iw = W - m.l - m.r, ih = H - m.t - m.b;
+    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'Colunas com o faturamento de cada mês, de janeiro a setembro de 2026' }, box);
+    function y(v) { return m.t + ih - (v / topo) * ih; }
+    for (var t = 0; t <= topo; t += passo) {
+      el('line', { x1: m.l, x2: W - m.r, y1: y(t), y2: y(t), class: 'grid-l' }, svg);
+      el('text', { x: m.l - 10, y: y(t) + 4, 'text-anchor': 'end', class: 'eixo' }, svg).textContent = t === 0 ? '0' : mil(t);
+    }
+    var banda = iw / MESES.length, bw = Math.min(28, banda * 0.62);
+    var iMax = dados.reduce(function (a, d, i) { return d.tot > dados[a].tot ? i : a; }, 0);
+
+    dados.forEach(function (d) {
+      var cx = m.l + banda * d.i + banda / 2, x0 = cx - bw / 2;
+      var g = el('g', { class: 'mk', tabindex: '0', role: 'img', 'aria-label': NOME_MES[d.i] + ': ' + brl.format(d.tot) }, svg);
+      el('rect', { class: 'hit', x: cx - banda / 2 + 2, y: m.t, width: banda - 4, height: ih, rx: 6, fill: 'transparent' }, g);
+      var base = y(0);
+      var vis = d.partes.filter(function (p) { return p.v > 0; });
+      vis.forEach(function (p, k) {
+        var h = (p.v / topo) * ih;
+        var gap = k < vis.length - 1 ? 2 : 0; // 2px de respiro entre os pedaços
+        var yTop = base - h;
+        var hh = Math.max(0, h - gap);
+        if (k === vis.length - 1) {
+          var r = Math.min(4, hh);
+          el('path', { d: 'M' + x0 + ',' + base + 'V' + (yTop + r) + 'Q' + x0 + ',' + yTop + ' ' + (x0 + r) + ',' + yTop +
+            'H' + (x0 + bw - r) + 'Q' + (x0 + bw) + ',' + yTop + ' ' + (x0 + bw) + ',' + (yTop + r) + 'V' + base + 'Z', fill: p.c.cor }, g);
+        } else {
+          el('rect', { x: x0, y: yTop + gap, width: bw, height: hh, fill: p.c.cor }, g);
+        }
+        base = yTop;
+      });
+      el('text', { x: cx, y: H - 8, 'text-anchor': 'middle', class: 'eixo' }, g).textContent = CURTO[d.i];
+      if (d.i === iMax || (d.i === dados.length - 1 && (banda >= 64 || iMax < dados.length - 2))) {
+        el('text', { x: cx, y: y(d.tot) - 8, 'text-anchor': 'middle', class: 'rot' }, g).textContent = mil(d.tot);
+      }
+      ligaTip(g, function () {
+        var nm = NOME_MES[d.i];
+        var h = '<strong>' + nm.charAt(0).toUpperCase() + nm.slice(1) + ' de 2026</strong>';
+        if (d.partes.length > 1) {
+          d.partes.slice().reverse().forEach(function (p) {
+            h += '<div class="ln"><span>' + sw(p.c.cor) + p.c.nome + '</span><span>' + brl0.format(p.v) + '</span></div>';
+          });
+          h += '<div class="ln tot"><span>Total</span><span>' + brl.format(d.tot) + '</span></div>';
+        } else {
+          h += '<div class="ln"><span>' + sw(d.partes[0].c.cor) + d.partes[0].c.nome + '</span><span>' + brl.format(d.tot) + '</span></div>';
+        }
+        return h;
+      });
+    });
+
+    // legenda, nota e tabela
+    document.getElementById('mes-leg').innerHTML = cs.length > 1
+      ? cs.slice().map(function (c) { return '<li>' + sw(c.cor) + c.nome + '</li>'; }).join('') : '';
+    var pri = dados[0].tot, ult = dados[dados.length - 1].tot;
+    document.getElementById('mes-nota').textContent = (cs.length > 1 ? 'Cada coluna soma os 4 canais. ' : 'Só ' + cs[0].nome + '. ') +
+      (pri > 0 ? 'Setembro faturou ' + pct.format(ult / pri - 1) + ' a mais que janeiro.' : '');
+    var tb = '<thead><tr><th>Mês</th>' + cs.map(function (c) { return '<th class="r">' + c.nome + '</th>'; }).join('') +
+      (cs.length > 1 ? '<th class="r">Total</th>' : '') + '</tr></thead><tbody>';
+    dados.forEach(function (d) {
+      tb += '<tr><td>' + NOME_MES[d.i] + '</td>' + d.partes.map(function (p) { return '<td class="r">' + brl.format(p.v) + '</td>'; }).join('') +
+        (cs.length > 1 ? '<td class="r"><b>' + brl.format(d.tot) + '</b></td>' : '') + '</tr>';
+    });
+    document.getElementById('t-mes').innerHTML = tb + '</tbody>';
+  }
+
+  // ---------- Gráfico por canal (barras deitadas) ----------
+  function renderCanal() {
+    var box = document.getElementById('g-canal'); box.innerHTML = '';
+    var total = soma(vendas, 'faturamento');
+    var dados = CANAIS.map(function (c) {
+      var rs = vendas.filter(function (r) { return r.canal === c.id; });
+      return { c: c, v: soma(rs, 'faturamento'), l: soma(rs, 'lucro_bruto') };
+    });
+    var maxV = Math.max.apply(null, dados.map(function (d) { return d.v; }));
+    var W = Math.max(280, box.clientWidth || 360), linha = 66, H = linha * dados.length + 4;
+    var labW = 140; // espaço do valor à direita da barra
+    var iw = W - labW;
+    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'Barras com o faturamento de cada canal no período' }, box);
+    dados.forEach(function (d, i) {
+      var y0 = i * linha;
+      var g = el('g', { class: 'canal-g' + (filtro !== 'todos' && filtro !== d.c.id ? ' apagado' : ''), tabindex: '0', role: 'button',
+        'aria-pressed': String(filtro === d.c.id), 'aria-label': d.c.nome + ': ' + brl.format(d.v) + '. Filtrar por este canal' }, svg);
+      el('rect', { class: 'hit', x: 0, y: y0 + 2, width: W, height: linha - 6, rx: 8, fill: 'transparent' }, g);
+      el('text', { x: 0, y: y0 + 22, class: 'rot' }, g).textContent = d.c.nome;
+      var w = Math.max(4, (d.v / maxV) * iw), by = y0 + 32, bh = 20, r = 4;
+      el('path', { class: 'bar', fill: d.c.cor, d: 'M0,' + by + 'H' + (w - r) + 'Q' + w + ',' + by + ' ' + w + ',' + (by + r) +
+        'V' + (by + bh - r) + 'Q' + w + ',' + (by + bh) + ' ' + (w - r) + ',' + (by + bh) + 'H0Z' }, g);
+      var t = el('text', { x: w + 8, y: by + 15, class: 'eixo', style: 'font-size:13px' }, g);
+      t.textContent = mil(d.v) + ' (' + pct.format(d.v / total) + ')';
+      g.addEventListener('click', function () { setFiltro(d.c.id); });
+      g.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setFiltro(d.c.id); } });
+      ligaTip(g, function () {
+        return '<strong>' + d.c.nome + '</strong>' +
+          '<div class="ln"><span>Faturamento</span><span>' + brl.format(d.v) + '</span></div>' +
+          '<div class="ln"><span>Lucro bruto</span><span>' + brl.format(d.l) + '</span></div>' +
+          '<div class="ln"><span>Parte do total</span><span>' + pct.format(d.v / total) + '</span></div>';
+      });
+    });
+  }
+
+  // ---------- Top 5 produtos ----------
+  function renderTop(rows) {
+    var mapa = {};
+    rows.forEach(function (r) {
+      var p = mapa[r.codigo] || (mapa[r.codigo] = { nome: r.produto, cat: r.categoria, q: 0, v: 0, canais: {} });
+      p.q += r.quantidade; p.v += r.faturamento; p.canais[r.canal] = true;
+    });
+    var lista = Object.keys(mapa).map(function (k) { return mapa[k]; }).sort(function (a, b) { return b.v - a.v; }).slice(0, 5);
+    var fat = soma(rows, 'faturamento');
+    var maxV = lista.length ? lista[0].v : 1;
+    document.getElementById('top-nota').textContent = (filtro === 'todos' ? 'Somando todos os canais.' : 'Só no canal ' + canalPor[filtro].nome + '.') +
+      (lista.length < 5 ? ' Este canal vende só ' + lista.length + ' produtos.' : '') + ' A barra mostra a parte de cada produto no faturamento.';
+    var h = '<thead><tr><th class="pos">#</th><th>Produto</th><th class="r">Unidades</th><th class="r">Faturamento</th><th class="part">Parte do faturamento</th></tr></thead><tbody>';
+    lista.forEach(function (p, i) {
+      var canais = Object.keys(p.canais).map(function (c) { return canalPor[c].nome; }).join(' e ');
+      h += '<tr><td class="pos">' + (i + 1) + '</td><td class="prod">' + p.nome + '<small>' + canais + '</small></td>' +
+        '<td class="r">' + int.format(p.q) + '</td><td class="r"><b>' + brl.format(p.v) + '</b></td>' +
+        '<td class="part"><div class="part-bar"><span class="t" style="width:' + (p.v / maxV * 70) + '%"></span><b>' + pct.format(p.v / fat) + '</b></div></td></tr>';
+    });
+    document.getElementById('t-top').innerHTML = h + '</tbody>';
+  }
+
+  function render() {
+    fs.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.id === filtro)); });
+    document.getElementById('sub').textContent = filtro === 'todos'
+      ? 'Todos os canais. Escolha um canal abaixo e o painel inteiro mostra só ele.'
+      : 'Mostrando só ' + canalPor[filtro].nome + '. Toque em "Todos os canais" para voltar.';
+    var rows = linhasFiltradas();
+    renderNumeros(rows); renderMes(rows); renderCanal(); renderTop(rows);
+    escondeTip();
+  }
+
+  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(render, 120); });
+  render();
+})();
+</script>
+</body>
+</html>

@@ -105,8 +105,11 @@ const navegador = await chromium.launch({ executablePath: CHROME, headless: true
   const md = ler(f);
   anota("passo-02", "meu-trabalho/resumo-vendas.md existe", !!md);
   anota("passo-02", "tem o aviso de dados fictícios", /dados fict[ií]cios de exemplo/i.test(md));
+  // nenhuma das 5 perguntas pede o total de jan a set: vale o total ou os 9 meses certos (que somam o total)
+  const meses = Object.values(CERTOS.fat_mes).map(brl);
+  anota("passo-02", `faturamento total ${brl(CERTOS.faturamento_total)} (ou os 9 meses certos)`,
+    md.includes(brl(CERTOS.faturamento_total)) || meses.every((v) => md.includes(v)), `${meses.filter((v) => md.includes(v)).length} de 9 meses`);
   const deve = [
-    ["faturamento total", brl(CERTOS.faturamento_total)],
     ["melhor mês (agosto)", brl(CERTOS.fat_mes["2026-08"])],
     ["pior mês (fevereiro)", brl(CERTOS.fat_mes["2026-02"])],
     ["crescimento do B2B", "367,5"],
@@ -151,25 +154,14 @@ for (const t of ["passo-04-margem", "passo-04-arquivo"]) {
   }
 }
 
-// ------------------------------------------------------------ passo 6
-{
-  const md = ler(arq("passo-06", "meu-trabalho/design-system.md"));
-  anota("passo-06", "design-system.md existe", !!md);
-  const hex = new Set((md.match(/#[0-9A-Fa-f]{6}\b/g) || []).map((h) => h.toUpperCase()));
-  anota("passo-06", "tem as cores da imagem (Cereja #C23B22 e Folha #234B3F)", hex.has("#C23B22") && hex.has("#234B3F"), `${hex.size} cores`);
-  anota("passo-06", "tem bloco :root", /:root\s*{/.test(md));
-  anota("passo-06", "tem fontes do Google Fonts", /Bricolage|Albert|fonts\.google/i.test(md));
-}
-
-// ------------------------------------------------------------ passo 7: calculadora
-{
-  const f = arq("passo-07-calculadora", "meu-trabalho/calculadora-orcamento.html");
-  anota("passo-07-calculadora", "arquivo existe", existe(f));
+// ------------------------------------------------------------ passo 6: calculadora (Claude Code e plano B no claude.ai)
+async function confereCalculadora(teste, f) {
+  anota(teste, "arquivo existe", existe(f));
   if (existe(f)) {
-    await validaHtml("passo-07-calculadora", f);
+    await validaHtml(teste, f);
     const { pagina, erros } = await abre(navegador, f);
     const temFuncao = await pagina.evaluate(() => typeof window.calcularOrcamento === "function");
-    anota("passo-07-calculadora", "expõe calcularOrcamento()", temFuncao);
+    anota(teste, "expõe calcularOrcamento()", temFuncao);
     if (temFuncao) {
       let ok = 0; const detalhes = [];
       for (const c of CASOS) {
@@ -186,35 +178,38 @@ for (const t of ["passo-04-margem", "passo-04-arquivo"]) {
         if (!errados.length) ok++;
         else detalhes.push(`${c.pessoas}p ${c.cafe} ${c.anual ? "anual" : "mensal"}${c.maquina ? "" : " sem máq."}: ${errados.map((k) => `${k} ${r ? r[k] : "?"}≠${e[k]}`).join(", ")}`);
       }
-      anota("passo-07-calculadora", `contas certas em ${ok} de ${CASOS.length} casos`, ok === CASOS.length, detalhes.join(" | "));
+      anota(teste, `contas certas em ${ok} de ${CASOS.length} casos`, ok === CASOS.length, detalhes.join(" | "));
     }
     // a tela muda quando o número de pessoas muda
     const campo = await pagina.$("input[type=number]");
     const antes = await pagina.evaluate(() => document.body.innerText);
     if (campo) { await campo.fill("60"); await campo.dispatchEvent("input"); await campo.dispatchEvent("change"); await pagina.waitForTimeout(400); }
     const depois = await pagina.evaluate(() => document.body.innerText);
-    anota("passo-07-calculadora", "o resultado na tela muda ao trocar o número de pessoas", !!campo && antes !== depois);
-    anota("passo-07-calculadora", "aviso de dados fictícios na página", /dados fict[ií]cios de exemplo/i.test(depois));
-    anota("passo-07-calculadora", "sem erro de JavaScript", erros.length === 0, erros.slice(0, 2).join(" | "));
-    await pagina.screenshot({ path: path.join(PRINTS, "calculadora.png"), fullPage: true });
+    anota(teste, "o resultado na tela muda ao trocar o número de pessoas", !!campo && antes !== depois);
+    anota(teste, "aviso de dados fictícios na página", /dados fict[ií]cios de exemplo/i.test(depois));
+    anota(teste, "sem erro de JavaScript", erros.length === 0, erros.slice(0, 2).join(" | "));
+    await pagina.screenshot({ path: path.join(PRINTS, `${teste}.png`), fullPage: true });
     await pagina.close();
   }
 }
+await confereCalculadora("passo-06-calculadora", arq("passo-06-calculadora", "meu-trabalho/calculadora-orcamento.html"));
+await confereCalculadora("passo-06-claudeai-calculadora",
+  path.join(AQUI, "..", "pasta-vazia", "manha-passo-06-claudeai-calculadora", "arquivos", "calculadora-orcamento.html"));
 
-// ------------------------------------------------------------ passo 7: dashboard
+// ------------------------------------------------------------ passo 6: dashboard
 {
-  const f = arq("passo-07-dashboard", "meu-trabalho/dashboard-vendas.html");
-  anota("passo-07-dashboard", "arquivo existe", existe(f));
+  const f = arq("passo-06-dashboard", "meu-trabalho/dashboard-vendas.html");
+  anota("passo-06-dashboard", "arquivo existe", existe(f));
   if (existe(f)) {
-    await validaHtml("passo-07-dashboard", f);
+    await validaHtml("passo-06-dashboard", f);
     const { pagina, erros } = await abre(navegador, f, 1440, 900);
     const texto = await pagina.evaluate(() => document.body.innerText);
     const total = brl(CERTOS.faturamento_total);
-    anota("passo-07-dashboard", `faturamento total ${total}`, texto.includes(total) || texto.includes(total.replace(/,\d\d$/, "")) || /765(\.|,)?\d?\s*mil/i.test(texto));
-    anota("passo-07-dashboard", "melhor mês: agosto", /agosto|ago/i.test(texto));
-    anota("passo-07-dashboard", "12 clientes B2B ativos em setembro", /\b12\b/.test(texto));
-    anota("passo-07-dashboard", "gráficos em SVG ou canvas", (await pagina.$$("svg, canvas")).length >= 2);
-    anota("passo-07-dashboard", "aviso de dados fictícios", /dados fict[ií]cios de exemplo/i.test(texto));
+    anota("passo-06-dashboard", `faturamento total ${total}`, texto.includes(total) || texto.includes(total.replace(/,\d\d$/, "")) || /765(\.|,)?\d?\s*mil/i.test(texto));
+    anota("passo-06-dashboard", "melhor mês: agosto", /agosto|ago/i.test(texto));
+    anota("passo-06-dashboard", "12 clientes B2B ativos em setembro", /\b12\b/.test(texto));
+    anota("passo-06-dashboard", "gráficos em SVG ou canvas", (await pagina.$$("svg, canvas")).length >= 2);
+    anota("passo-06-dashboard", "aviso de dados fictícios", /dados fict[ií]cios de exemplo/i.test(texto));
     const sel = await pagina.$("select");
     let filtrou = false;
     if (sel) {
@@ -227,22 +222,22 @@ for (const t of ["passo-04-margem", "passo-04-arquivo"]) {
     }
     const texto2 = await pagina.evaluate(() => document.body.innerText);
     filtrou = texto2 !== texto && (texto2.includes(brl(112560.4)) || /112[.,]?5/.test(texto2));
-    anota("passo-07-dashboard", "filtro B2B mostra R$ 112.560,40", filtrou);
-    anota("passo-07-dashboard", "sem erro de JavaScript", erros.length === 0, erros.slice(0, 2).join(" | "));
+    anota("passo-06-dashboard", "filtro B2B mostra R$ 112.560,40", filtrou);
+    anota("passo-06-dashboard", "sem erro de JavaScript", erros.length === 0, erros.slice(0, 2).join(" | "));
     await pagina.screenshot({ path: path.join(PRINTS, "dashboard.png"), fullPage: true });
     await pagina.close();
   }
 }
 
-// ------------------------------------------------------------ passo 7: apresentação
+// ------------------------------------------------------------ passo 6: apresentação
 {
-  const f = arq("passo-07-apresentacao", "meu-trabalho/apresentacao.html");
-  anota("passo-07-apresentacao", "arquivo existe", existe(f));
+  const f = arq("passo-06-apresentacao", "meu-trabalho/apresentacao.html");
+  anota("passo-06-apresentacao", "arquivo existe", existe(f));
   if (existe(f)) {
-    await validaHtml("passo-07-apresentacao", f);
+    await validaHtml("passo-06-apresentacao", f);
     const { pagina, erros } = await abre(navegador, f, 1280, 720);
     const n = await pagina.evaluate(() => document.querySelectorAll("section.slide, .slide, section[data-slide], .slides > section, main > section").length);
-    anota("passo-07-apresentacao", "6 slides", n === 6, `${n} encontrados`);
+    anota("passo-06-apresentacao", "6 slides", n === 6, `${n} encontrados`);
     await pagina.screenshot({ path: path.join(PRINTS, "apresentacao-1.png") });
     const visivel = () => pagina.evaluate(() => document.body.innerText.slice(0, 400));
     const a = await visivel();
@@ -251,38 +246,20 @@ for (const t of ["passo-04-margem", "passo-04-arquivo"]) {
     await pagina.screenshot({ path: path.join(PRINTS, "apresentacao-2.png") });
     const shot1 = fs.readFileSync(path.join(PRINTS, "apresentacao-1.png"));
     const shot2 = fs.readFileSync(path.join(PRINTS, "apresentacao-2.png"));
-    anota("passo-07-apresentacao", "seta → muda de slide", a !== b || !shot1.equals(shot2));
+    anota("passo-06-apresentacao", "seta → muda de slide", a !== b || !shot1.equals(shot2));
     const texto = await pagina.evaluate(() => document.body.textContent);
-    anota("passo-07-apresentacao", "rodapé de dados fictícios", /dados fict[ií]cios de exemplo/i.test(texto));
-    anota("passo-07-apresentacao", "sem erro de JavaScript", erros.length === 0, erros.slice(0, 2).join(" | "));
+    anota("passo-06-apresentacao", "rodapé de dados fictícios", /dados fict[ií]cios de exemplo/i.test(texto));
+    anota("passo-06-apresentacao", "sem erro de JavaScript", erros.length === 0, erros.slice(0, 2).join(" | "));
     await pagina.close();
   }
 }
 
-// ------------------------------------------------------------ passo 8: animação (plano B)
-{
-  const f = arq("passo-08", "meu-trabalho/animacao-torra-viva.html");
-  anota("passo-08", "arquivo existe", existe(f));
-  if (existe(f)) {
-    await validaHtml("passo-08", f);
-    const { pagina, erros } = await abre(navegador, f, 540, 960);
-    // tira um print em 4 momentos (a página já está rodando desde o load)
-    const t0 = Date.now(); const prints = [];
-    for (const s of [1.5, 7, 13, 18]) {
-      const espera = s * 1000 - (Date.now() - t0);
-      if (espera > 0) await pagina.waitForTimeout(espera);
-      const p = path.join(PRINTS, `animacao-${String(s).replace(".", "_")}s.png`);
-      await pagina.screenshot({ path: p });
-      prints.push(fs.readFileSync(p));
-    }
-    const diferentes = new Set(prints.map((b) => b.toString("base64"))).size;
-    anota("passo-08", "a tela muda ao longo dos 20 s (4 prints)", diferentes >= 3, `${diferentes} quadros diferentes`);
-    const texto = await pagina.evaluate(() => document.body.textContent);
-    anota("passo-08", "aviso de dados fictícios", /dados fict[ií]cios de exemplo/i.test(texto));
-    anota("passo-08", "respeita prefers-reduced-motion", /prefers-reduced-motion/.test(ler(f)));
-    anota("passo-08", "sem erro de JavaScript", erros.length === 0, erros.slice(0, 2).join(" | "));
-    await pagina.close();
-  }
+// ------------------------------------------------------------ passo 6: sem design system, e a resposta aponta o arquivo
+for (const [t, nome] of [["passo-06-calculadora", "calculadora-orcamento.html"], ["passo-06-dashboard", "dashboard-vendas.html"], ["passo-06-apresentacao", "apresentacao.html"]]) {
+  const html = ler(arq(t, "meu-trabalho/" + nome));
+  anota(t, "não depende de design-system.md", !!html && !/design-system\.md/i.test(html));
+  const r = (ler(path.join(PROVAS, t, "transcricao.txt")).split("resposta do Claude")[1] || "");
+  anota(t, "a resposta aponta o arquivo em meu-trabalho/", r.includes("meu-trabalho/" + nome));
 }
 
 // ------------------------------------------------------------ skills extras

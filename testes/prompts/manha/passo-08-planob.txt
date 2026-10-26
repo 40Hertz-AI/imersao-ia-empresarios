@@ -1,6 +1,0 @@
-Crie meu-trabalho/animacao-torra-viva.html: uma animação de 20 segundos em HTML e CSS, num arquivo só, em formato vertical 9:16 que cabe inteira na tela, rodando em loop.
-Cena 1 (0 a 4 s): o nome "Torra Viva" aparece, com grãos de café caindo (desenhados em CSS ou SVG).
-Cena 2 (4 a 10 s): um gráfico de barras que sobe mês a mês com o faturamento do canal B2B Escritórios de janeiro a setembro de 2026, tirado de dados/vendas-mensais.csv (some as linhas do canal em cada mês), e uma frase curta dizendo quanto ele cresceu.
-Cena 3 (10 a 16 s): três frases, uma de cada vez: "Torrado esta semana", "Entregue todo mês", "Máquina emprestada, sem custo".
-Cena 4 (16 a 20 s): "Peça o orçamento do seu escritório" e @torraviva.exemplo.
-Use as cores e fontes de meu-trabalho/design-system.md. Sem fotos e sem biblioteca de fora. Escreva pequeno, num canto: "dados fictícios de exemplo". Respeite quem prefere menos movimento (prefers-reduced-motion).

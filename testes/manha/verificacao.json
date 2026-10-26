@@ -18,9 +18,9 @@
    "detalhe": ""
   },
   {
-   "nome": "faturamento total: 765.578,40",
+   "nome": "faturamento total 765.578,40 (ou os 9 meses certos)",
    "ok": true,
-   "detalhe": ""
+   "detalhe": "9 de 9 meses"
   },
   {
    "nome": "melhor mês (agosto): 113.768,40",
@@ -121,7 +121,7 @@
   {
    "nome": "mensagem de WhatsApp com até 60 palavras e sem preço",
    "ok": true,
-   "detalhe": "58 palavras"
+   "detalhe": "55 palavras"
   }
  ],
  "passo-04-margem": [
@@ -176,29 +176,54 @@
    "detalhe": ""
   }
  ],
- "passo-06": [
+ "passo-06-calculadora": [
   {
-   "nome": "design-system.md existe",
+   "nome": "arquivo existe",
    "ok": true,
    "detalhe": ""
   },
   {
-   "nome": "tem as cores da imagem (Cereja #C23B22 e Folha #234B3F)",
+   "nome": "HTML válido (calculadora-orcamento.html)",
    "ok": true,
-   "detalhe": "9 cores"
+   "detalhe": "0 erros"
   },
   {
-   "nome": "tem bloco :root",
+   "nome": "expõe calcularOrcamento()",
    "ok": true,
    "detalhe": ""
   },
   {
-   "nome": "tem fontes do Google Fonts",
+   "nome": "contas certas em 10 de 10 casos",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "o resultado na tela muda ao trocar o número de pessoas",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "aviso de dados fictícios na página",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "sem erro de JavaScript",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "não depende de design-system.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "a resposta aponta o arquivo em meu-trabalho/",
    "ok": true,
    "detalhe": ""
   }
  ],
- "passo-07-calculadora": [
+ "passo-06-claudeai-calculadora": [
   {
    "nome": "arquivo existe",
    "ok": true,
@@ -235,7 +260,7 @@
    "detalhe": ""
   }
  ],
- "passo-07-dashboard": [
+ "passo-06-dashboard": [
   {
    "nome": "arquivo existe",
    "ok": true,
@@ -280,9 +305,19 @@
    "nome": "sem erro de JavaScript",
    "ok": true,
    "detalhe": ""
+  },
+  {
+   "nome": "não depende de design-system.md",
+   "ok": true,
+   "detalhe": ""
+  },
+  {
+   "nome": "a resposta aponta o arquivo em meu-trabalho/",
+   "ok": true,
+   "detalhe": ""
   }
  ],
- "passo-07-apresentacao": [
+ "passo-06-apresentacao": [
   {
    "nome": "arquivo existe",
    "ok": true,
@@ -312,36 +347,14 @@
    "nome": "sem erro de JavaScript",
    "ok": true,
    "detalhe": ""
-  }
- ],
- "passo-08": [
+  },
   {
-   "nome": "arquivo existe",
+   "nome": "não depende de design-system.md",
    "ok": true,
    "detalhe": ""
   },
   {
-   "nome": "HTML válido (animacao-torra-viva.html)",
-   "ok": true,
-   "detalhe": "0 erros"
-  },
-  {
-   "nome": "a tela muda ao longo dos 20 s (4 prints)",
-   "ok": true,
-   "detalhe": "4 quadros diferentes"
-  },
-  {
-   "nome": "aviso de dados fictícios",
-   "ok": true,
-   "detalhe": ""
-  },
-  {
-   "nome": "respeita prefers-reduced-motion",
-   "ok": true,
-   "detalhe": ""
-  },
-  {
-   "nome": "sem erro de JavaScript",
+   "nome": "a resposta aponta o arquivo em meu-trabalho/",
    "ok": true,
    "detalhe": ""
   }

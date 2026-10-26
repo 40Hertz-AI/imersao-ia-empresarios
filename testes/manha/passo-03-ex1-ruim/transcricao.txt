@@ -2,26 +2,27 @@
 Escreve um e-mail avisando que o preço vai subir.
 
 ════════ resposta do Claude ════════
-**Assunto:** Um aviso sobre o preço dos nossos cafés
+Seu pedido não diz qual cliente, quanto o preço sobe nem a partir de quando. Por isso deixei esses pontos marcados com `[confirmar: ...]`.
+
+---
+
+**Assunto:** Novo preço do café a partir de [confirmar: data]
 
 Olá, [confirmar: nome do cliente],
 
-Queremos te avisar com antecedência: a partir de [confirmar: data], o preço dos cafés da Torra Viva vai subir [confirmar: percentual ou novos valores].
+Queremos te avisar com antecedência: a partir de **[confirmar: data]**, o preço dos nossos cafés vai subir **[confirmar: percentual ou novos valores]**.
 
-O motivo é simples: o café verde, que é o grão cru que compramos dos pequenos produtores do Sul de Minas e do Cerrado Mineiro, ficou mais caro [confirmar: motivo do reajuste]. A gente segurou o preço o quanto deu. Para continuar pagando bem quem planta e entregando café torrado na semana, precisamos fazer esse ajuste.
+O motivo é que o café verde (o grão cru, antes da torra) que compramos de pequenos produtores do Sul de Minas e do Cerrado Mineiro ficou mais caro. A gente segurou o preço o quanto deu e não vai mexer na qualidade nem no frescor: o café continua torrado esta semana e chegando na sua xícara na próxima.
 
-O que não muda: o café continua sendo torrado esta semana e chegando na sua xícara na próxima, com o mesmo cuidado de sempre.
+[confirmar: existe alguma condição especial, como manter o preço atual para quem renovar ou comprar até certa data?]
 
-[confirmar: existe alguma condição para quem fechar antes do reajuste? Ex.: renovar o contrato e manter o preço atual]
+Se tiver qualquer dúvida, é só responder este e-mail.
 
-Se tiver qualquer dúvida, é só responder este e-mail ou chamar no WhatsApp [confirmar: número].
-
-Obrigado por estar com a gente.
-
+Um abraço,
 [confirmar: quem assina], Torra Viva Cafés Especiais
 torraviva.exemplo
 
 ---
 
-Seu pedido não dizia o cliente, a data, o percentual, o motivo nem quem assina. Por isso deixei os `[confirmar: ...]`, e o e-mail saiu genérico. Esse é o "prompt ruim" do Exemplo 1 do passo 3. Agora digite `/clear` e cole o prompt bom de `passos/03-prompts-que-funcionam/INSTRUCOES.md` para comparar.
+O e-mail ficou genérico e cheio de lacunas porque o prompt era vago. É isso que o passo 3 quer mostrar. Agora digite `/clear` e cole o prompt "bom" do Exemplo 1 em `passos/03-prompts-que-funcionam/INSTRUCOES.md` para comparar os dois.
 

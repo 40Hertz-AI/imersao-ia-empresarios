@@ -2,25 +2,23 @@
 Faz um post sobre café.
 
 ════════ resposta do Claude ════════
-Aqui está o post, feito só com o que o `CLAUDE.md` diz sobre a Torra Viva:
+Aqui está um post para o Instagram da Torra Viva, só com o que já sei da empresa:
 
 ---
 
-**Seu café foi torrado quando?**
+**Seu café tem data de torra?**
 
-Tem café que passa meses na prateleira antes de chegar na sua xícara. Aqui é diferente: torramos esta semana para você tomar na próxima.
+Café torrado perde aroma com o tempo. Por isso a gente torra toda semana, em pequenos lotes, aqui em Mogi das Cruzes.
 
-Nossos grãos vêm de pequenos produtores do Sul de Minas e do Cerrado Mineiro. Torramos em Mogi das Cruzes, em lotes pequenos, e despachamos logo em seguida.
+Os grãos vêm de pequenos produtores do Sul de Minas e do Cerrado Mineiro. A Helena, nossa mestre de torra, acompanha cada lote para tirar o melhor de cada grão, sem pressa e sem mistério.
 
-Café fresco tem mais aroma e mais sabor. É só isso.
+Torrado esta semana, na sua xícara na próxima. ☕
 
-Pede pela loja online ou entra no Clube Torra Viva e recebe todo mês: torraviva.exemplo
+E você, já olhou a data de torra do café que tem em casa? Conta aqui nos comentários.
 
-E você, olha a data de torra no pacote antes de comprar? ☕
-
-#cafeespecial #cafefresco #torrefacao #suldeminas #torraviva
+#cafeespecial #torraviva #cafedeprodutor #suldeminas #cerradomineiro
 
 ---
 
-O pedido foi vago, então fiz um post genérico sobre a empresa. Não sei de qual café, qual canal, qual formato nem qual objetivo. Agora digite `/clear` e cole o prompt bom do Exemplo 2 em `passos/03-.../INSTRUCOES.md`. Depois compare as duas respostas.
+Pedi pouca informação e recebi um texto genérico. Não sei qual café ele divulga, quem é o público nem qual é o formato. Agora digite `/clear` e cole o prompt bom do Exemplo 2, que está em `passos/03-prompts-que-funcionam/INSTRUCOES.md`, para comparar as duas respostas.
 

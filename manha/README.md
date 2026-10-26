@@ -1,6 +1,6 @@
 # Imersão IA para empresários · Manhã
 
-Esta pasta é o seu projeto da manhã. Você aprende o Claude Code em **8 passos**, usando uma empresa de mentira: a **Torra Viva Cafés Especiais**, uma torrefação de cafés especiais. Os dados dela são **fictícios de exemplo**, criados para a aula.
+Esta pasta é o seu projeto da manhã. Você aprende o Claude Code em **6 passos**, usando uma empresa de mentira: a **Torra Viva Cafés Especiais**, uma torrefação de cafés especiais. Os dados dela são **fictícios de exemplo**, criados para a aula.
 
 As skills já estão dentro da pasta (em `.claude/skills/`) e funcionam assim que você abre a pasta no Claude Code. Cada passo tem uma pasta em `passos/` com as instruções e os prompts prontos para copiar, e o resultado pronto em `gabarito/`.
 
@@ -45,18 +45,16 @@ Sem terminal? Use o **app do Claude** no computador: aba **Code** → escolha a 
 
 ---
 
-## Os 8 passos
+## Os 6 passos
 
-| # | Passo | O que você faz | Tempo |
-|---|---|---|---|
-| 1 | [Abrir a pasta](passos/01-abrir-a-pasta/INSTRUCOES.md) | Instala, abre esta pasta e faz a primeira pergunta | 15 min |
-| 2 | [Google Drive e planilhas](passos/02-google-drive-e-planilhas/INSTRUCOES.md) | Sobe a planilha da Torra Viva, conecta o Drive e pergunta aos dados | 20 min |
-| 3 | [Prompts que funcionam](passos/03-prompts-que-funcionam/INSTRUCOES.md) | Compara prompt ruim × prompt com Papel, Contexto, Tarefa e Formato | 20 min |
-| 4 | [Usar uma skill pronta](passos/04-usar-uma-skill-pronta/INSTRUCOES.md) | `/eli5` explica um conceito de negócio | 10 min |
-| 5 | [Criar uma skill](passos/05-criar-uma-skill/INSTRUCOES.md) | Cria a `/resposta-cliente` e testa com mensagens de clientes | 20 min |
-| 6 | [Design system](passos/06-design-system/INSTRUCOES.md) | Um print vira o manual visual da marca | 15 min |
-| 7 | [Páginas web](passos/07-paginas-web/INSTRUCOES.md) | Calculadora de orçamento, dashboard de vendas e apresentação, mais os Artifacts do claude.ai | 30 min |
-| 8 | [Animação](passos/08-claude-motion/INSTRUCOES.md) | Vídeo curto no Claude Motion ou, no plano B, em HTML | 15 min |
+| # | Passo | O que você faz |
+|---|---|---|
+| 1 | [Abrir a pasta](passos/01-abrir-a-pasta/INSTRUCOES.md) | Instala, abre esta pasta e faz a primeira pergunta |
+| 2 | [Google Drive e planilhas](passos/02-google-drive-e-planilhas/INSTRUCOES.md) | Sobe a planilha da Torra Viva, conecta o Drive e pergunta aos dados |
+| 3 | [Prompts que funcionam](passos/03-prompts-que-funcionam/INSTRUCOES.md) | Compara prompt ruim × prompt com Papel, Contexto, Tarefa e Formato |
+| 4 | [Usar uma skill pronta](passos/04-usar-uma-skill-pronta/INSTRUCOES.md) | `/eli5` explica um conceito de negócio |
+| 5 | [Criar uma skill](passos/05-criar-uma-skill/INSTRUCOES.md) | Cria a `/resposta-cliente` e testa com mensagens de clientes |
+| 6 | [Páginas web com Artifacts](passos/06-paginas-web/INSTRUCOES.md) | Calculadora de orçamento, dashboard de vendas e apresentação: arquivos em `meu-trabalho/` e Artifacts no claude.ai |
 
 **Como cada passo funciona:** abra o `INSTRUCOES.md` do passo (dois cliques, ou peça ao Claude `abra as instruções do passo 3`), **copie e cole** os prompts, confira o resultado e compare com o `gabarito/` do mesmo passo. Marque o passo em `progresso.md`.
 
@@ -70,7 +68,7 @@ Perdeu o fio? Pergunte ao Claude: `o que falta?`
 imersao-manha/
 ├── README.md          este guia
 ├── CLAUDE.md          as regras e o contexto da Torra Viva que o Claude lê sozinho
-├── progresso.md       o checklist dos 8 passos
+├── progresso.md       o checklist dos 6 passos
 ├── .claude/skills/    as skills da manhã (já funcionando)
 ├── dados/             vendas, produtos, clientes e regras de orçamento (fictícios) + a planilha .xlsx
 ├── passos/            as instruções de cada passo, com os prompts
@@ -82,9 +80,9 @@ imersao-manha/
 
 | Skill | O que faz | Usada no passo |
 |---|---|---|
-| `eli5` | Explica qualquer assunto como se você tivesse 5 anos | 4 e 6 |
-| `frontend-design` | Deixa páginas e apresentações com visual de designer | 7 |
-| `humanizer` | Tira a "cara de IA" do texto | 7 |
+| `eli5` | Explica qualquer assunto como se você tivesse 5 anos | 4 |
+| `frontend-design` | Deixa páginas e apresentações com visual de designer | 6 |
+| `humanizer` | Tira a "cara de IA" do texto | 6 |
 | `find-skills` | Procura uma skill pronta na internet quando você tem uma ideia | extra |
 | `grill-me` (+ `grilling`) | Te entrevista antes de começar um trabalho, para afinar o plano | extra |
 | `skill-creator` | Ajuda a criar uma skill nova | 5 (vem com a conta do Claude, se estiver ligada) |
@@ -100,7 +98,7 @@ Não aparece a `skill-creator`? Digite `/skills`. Se faltar, ligue em claude.ai 
 
 ## Terminou? Vá além
 
-- Refaça o passo 7 com os dados da **sua** empresa: troque os arquivos de `dados/` por uma planilha sua (exportada em CSV).
+- Refaça o passo 6 com os dados da **sua** empresa: troque os arquivos de `dados/` por uma planilha sua (exportada em CSV).
 - Crie uma skill para a tarefa que você mais repete no trabalho.
 - À tarde, em outra pasta, a IA trabalha na sua empresa de verdade.
 
@@ -116,6 +114,6 @@ As skills vêm de projetos abertos, com a licença original dentro de cada pasta
 - `humanizer`: [blader/humanizer](https://github.com/blader/humanizer) (MIT)
 - `eli5`: escrita para esta imersão
 
-A Torra Viva Cafés Especiais, os clientes e todos os números são fictícios. A imagem `passos/06-design-system/referencia-design.png` foi desenhada para a aula.
+A Torra Viva Cafés Especiais, os clientes e todos os números são fictícios.
 
 Material da imersão com Lucas Santana · Instagram [@lucasantanas_](https://www.instagram.com/lucasantanas_/)

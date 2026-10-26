@@ -1,6 +1,6 @@
 # Exemplo 2 · Post para o Instagram
 
-> Gerado de verdade pelo Claude Code (modelo Opus) nesta pasta, com o prompt do passo, em 25/10/2026. **Dados fictícios de exemplo.** O seu resultado vai sair diferente nas palavras; o que importa é chegar no mesmo tipo de entrega.
+> Gerado de verdade pelo Claude Code (modelo Opus) nesta pasta, com o prompt do passo, em 26/10/2026. **Dados fictícios de exemplo.** O seu resultado vai sair diferente nas palavras; o que importa é chegar no mesmo tipo de entrega.
 
 ## ❌ Prompt ruim
 
@@ -12,27 +12,25 @@ Faz um post sobre café.
 
 **Claude:**
 
-Aqui está o post, feito só com o que o `CLAUDE.md` diz sobre a Torra Viva:
+Aqui está um post para o Instagram da Torra Viva, só com o que já sei da empresa:
 
 ---
 
-**Seu café foi torrado quando?**
+**Seu café tem data de torra?**
 
-Tem café que passa meses na prateleira antes de chegar na sua xícara. Aqui é diferente: torramos esta semana para você tomar na próxima.
+Café torrado perde aroma com o tempo. Por isso a gente torra toda semana, em pequenos lotes, aqui em Mogi das Cruzes.
 
-Nossos grãos vêm de pequenos produtores do Sul de Minas e do Cerrado Mineiro. Torramos em Mogi das Cruzes, em lotes pequenos, e despachamos logo em seguida.
+Os grãos vêm de pequenos produtores do Sul de Minas e do Cerrado Mineiro. A Helena, nossa mestre de torra, acompanha cada lote para tirar o melhor de cada grão, sem pressa e sem mistério.
 
-Café fresco tem mais aroma e mais sabor. É só isso.
+Torrado esta semana, na sua xícara na próxima. ☕
 
-Pede pela loja online ou entra no Clube Torra Viva e recebe todo mês: torraviva.exemplo
+E você, já olhou a data de torra do café que tem em casa? Conta aqui nos comentários.
 
-E você, olha a data de torra no pacote antes de comprar? ☕
-
-#cafeespecial #cafefresco #torrefacao #suldeminas #torraviva
+#cafeespecial #torraviva #cafedeprodutor #suldeminas #cerradomineiro
 
 ---
 
-O pedido foi vago, então fiz um post genérico sobre a empresa. Não sei de qual café, qual canal, qual formato nem qual objetivo. Agora digite `/clear` e cole o prompt bom do Exemplo 2 em `passos/03-.../INSTRUCOES.md`. Depois compare as duas respostas.
+Pedi pouca informação e recebi um texto genérico. Não sei qual café ele divulga, quem é o público nem qual é o formato. Agora digite `/clear` e cole o prompt bom do Exemplo 2, que está em `passos/03-prompts-que-funcionam/INSTRUCOES.md`, para comparar as duas respostas.
 
 
 ## ✅ Prompt bom
@@ -48,19 +46,18 @@ Formato: primeira linha com até 10 palavras que dê vontade de ler o resto, 3 p
 
 **Claude:**
 
-Esse café tem cheiro de flor. E gosto de limão. 🍋
+**Chegou café com cheiro de flor e limão.** ☕
 
-Chegou lote novo do Etiópia Yirgacheffe. Fizemos uma torra clara para deixar o grão mostrar o que tem: notas florais e de limão-siciliano, do primeiro gole ao último.
+O lote novo do Etiópia Yirgacheffe chegou à torrefação. Fizemos uma torra clara, para não esconder o que esse grão tem de diferente.
 
-Se você costuma tomar café mais encorpado e achocolatado, esse vai te tirar do lugar. É outro tipo de xícara, e é para isso que vale provar.
+Na xícara aparecem notas florais e de limão-siciliano 🍋. É um café leve e aromático, bem diferente do que a gente costuma tomar no dia a dia. Vale provar com calma, sem açúcar, pelo menos no primeiro gole.
 
-O pacote de 250 g custa R$ 68. Torrado esta semana, na sua xícara na próxima. Já está na loja: torraviva.exemplo ☕
+O pacote de 250 g custa R$ 68 e já está na loja online (link na bio, torraviva.exemplo). Torrado esta semana, na sua xícara na próxima.
 
-Como você vai passar o seu primeiro Yirgacheffe: coado, prensa francesa ou outro método? Conta aqui nos comentários.
+Você já provou algum café com nota de fruta cítrica? Conta aqui nos comentários como foi.
 
-#CafeEspecial #Yirgacheffe #CafeEtiope #TorraClara #TorraViva
+#TorraViva #CafeEspecial #Etiopia #Yirgacheffe #TorraClara
 
 ---
-
-A legenda segue o formato pedido. A primeira linha tem 10 palavras, e há 3 parágrafos, 1 pergunta, 5 hashtags e 2 emojis. Usei só as informações que você me passou e a frase de promessa da marca. Por isso não citei produtor, região nem altitude. Se quiser, salvo a legenda em `meu-trabalho/prompts.md`, que é o arquivo do passo 3.
+A legenda usa só as informações do seu prompt. A sugestão de provar sem açúcar é uma dica de preparo, não uma informação sobre o café, e você pode tirar se preferir.
 

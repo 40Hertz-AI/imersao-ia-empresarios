@@ -47,19 +47,19 @@ for i, t in enumerate(textos, start=1):
     grava(f"passo-05-uso-{i}", f"/resposta-cliente {t}")
 grava("passo-05-vazia", f"/resposta-cliente {textos[1]}\n\n(Se a skill precisar perguntar algo, responda você mesmo como se fosse o aluno Jorge, dono da Padaria Pão Quente, em Campinas: tom simpático e direto, trata o cliente por você. A padaria faz café da manhã para empresas, mas ainda não tem tabela de preços.)")
 
-b = blocos("06-design-system")
-grava("passo-06", b[0])
+b = blocos("06-paginas-web")
+grava("passo-06-calculadora", b[0])
+grava("passo-06-dashboard", b[1])
+grava("passo-06-apresentacao", b[2])
+# plano B (claude.ai): o começo do prompt, até os dois-pontos, troca pelo bloco do INSTRUCOES; os anexos ficam em anexos/
+inicio, _, resto = b[0].partition(":")
+assert inicio.startswith("Crie meu-trabalho/calculadora-orcamento.html") and b[3].endswith(":")
+grava("passo-06-claudeai-calculadora",
+      "(Simulação do claude.ai: os arquivos que o aluno anexou à conversa estão na pasta anexos/. "
+      "Salve o artifact como calculadora-orcamento.html nesta pasta, que é o que o aluno baixaria em Export → HTML.)\n\n"
+      + b[3] + resto)
 
-b = blocos("07-paginas-web")
-grava("passo-07-calculadora", b[0])
-grava("passo-07-dashboard", b[1])
-grava("passo-07-apresentacao", b[2])
-
-b = blocos("08-claude-motion")
-grava("passo-08-motion-prompt", b[0])
-grava("passo-08-planob", b[1])
-
-# skills que já vêm na pasta (fora dos 8 passos)
+# skills que já vêm na pasta (fora dos 6 passos)
 grava("skill-find-skills", "/find-skills Quero uma skill que crie apresentações em PowerPoint (.pptx). Procure e me diga as 3 melhores opções, com quem fez e quantas instalações. Não instale nada.")
 grava("skill-frontend-design", "Use a skill frontend-design para criar meu-trabalho/cartao-fidelidade.html: um cartão fidelidade digital da Torra Viva (10 carimbos; o 10º café é por nossa conta), num arquivo só, que funciona no celular. Clicar num carimbo marca e desmarca.")
 grava("skill-frontend-design-vazia", "/frontend-design Crie cartao-fidelidade.html: um cartão fidelidade digital para uma padaria de bairro (10 carimbos; o 10º pão é por conta da casa), num arquivo só, que funciona no celular. Clicar num carimbo marca e desmarca.")

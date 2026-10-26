@@ -1,6 +1,5 @@
 # Passo 2 · Ligar o Claude ao Google Drive e perguntar à planilha
 
-**Tempo:** 20 min.
 **O que você vai fazer:** subir a planilha da Torra Viva no Google Planilhas, conectar o Google Drive ao Claude e fazer perguntas aos dados. Sem conexão? O plano B lê os arquivos da própria pasta.
 
 **A ideia:** o conector (o nome técnico é MCP) é o cabo USB da IA: liga o Claude às ferramentas que você já usa. Com ele, o Claude lê e cria arquivos no seu Google Drive.
@@ -9,7 +8,7 @@ Os dados são **fictícios**, criados para a aula: vendas de janeiro a setembro 
 
 ---
 
-## 1. Levar a planilha para o Google (5 min)
+## 1. Levar a planilha para o Google
 
 1. Abra [sheets.new](https://sheets.new) no navegador (cria uma planilha em branco na sua conta Google).
 2. **Arquivo → Importar → Fazer upload** → arraste o arquivo `dados/torra-viva.xlsx` desta pasta.
@@ -17,7 +16,7 @@ Os dados são **fictícios**, criados para a aula: vendas de janeiro a setembro 
 4. Clique no título "Planilha sem título" e renomeie para **Torra Viva (dados fictícios)**.
 5. Confira as abas embaixo: Sobre, Vendas, Produtos, Clientes B2B, Orçamento.
 
-## 2. Conectar o Google Drive ao Claude (5 min)
+## 2. Conectar o Google Drive ao Claude
 
 1. Abra [claude.ai](https://claude.ai) → clique no seu nome (canto inferior esquerdo) → **Configurações** → **Conectores**.
 2. Ache **Google Drive** → **Conectar** → entre com a mesma conta Google da planilha → **Permitir**.
@@ -25,7 +24,7 @@ Os dados são **fictícios**, criados para a aula: vendas de janeiro a setembro 
 
 Conta Google da empresa bloqueada pelo administrador? Use a pessoal.
 
-## 3. Perguntar à planilha (10 min)
+## 3. Perguntar à planilha
 
 Uma pergunta por vez, na mesma conversa:
 

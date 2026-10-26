@@ -6,21 +6,25 @@ Na Torra Viva, acreditamos que o café é muito mais do que uma bebida: é uma v
 ════════ resposta do Claude ════════
 **Rascunho**
 
-> Na Torra Viva, a gente gosta de café e cuida de cada etapa. Os grãos são escolhidos com cuidado, torrados com atenção e enviados com carinho, para que a sua xícara fique boa todo dia. Vem provar.
+> Na Torra Viva, a gente gosta de café e cuida de cada etapa. Escolhemos os grãos com cuidado, torramos com atenção e mandamos até você. É isso que a gente faz todo dia.
 
-**O que ainda soa como IA no rascunho**
+**O que ainda soava como IA no rascunho**
 
-- "escolhidos, torrados e enviados" continua uma lista de três itens com o mesmo ritmo.
-- "com cuidado / com atenção / com carinho" ainda enfeita sem dizer nada concreto.
-- "Vem provar." é uma frase solta no fim, que repete o convite do original.
+- "É isso que a gente faz todo dia" é uma frase de fechamento que só repete o que já foi dito. Cortei.
+- "Escolhemos, torramos e mandamos" é uma lista de três. Mantive porque são de fato as três etapas do processo.
+- Do texto original saíram:
+  - as duas frases do tipo "não é apenas X, é Y";
+  - o travessão;
+  - as listas de três adjetivos ("única, inesquecível e transformadora");
+  - "meticulosamente";
+  - os exageros "jornada sensorial", "estilo de vida" e "revolução";
+  - o convite final "Venha fazer parte".
 
 **Versão final**
 
-> Na Torra Viva, a gente escolhe os grãos com cuidado e torra com atenção antes de mandar para você. Gostamos de café e queremos que o seu seja bom de tomar todo dia. Prove e conte para a gente o que achou.
+> Na Torra Viva, a gente escolhe cada grão com cuidado, torra com atenção e manda o café até você. Gostamos do que fazemos e queremos que ele chegue bom na sua xícara.
 
-Tirei "muito mais do que uma bebida", "jornada sensorial", "Não é apenas café, é um estilo de vida", "revolução", a lista "única, inesquecível e transformadora" e o travessão. Também tirei o "meticulosamente", palavra típica de texto de IA.
+O texto ficou curto porque o original tinha pouca informação concreta. Se quiser mais conteúdo, o `CLAUDE.md` tem fatos reais da empresa (fictícia) que dá para usar:
 
-O texto ficou curto porque o original quase não tinha fatos. O `CLAUDE.md` traz dois fatos reais da Torra Viva (fictícia). Se quiser usar:
-
-> Na Torra Viva, o café vem de pequenos produtores do Sul de Minas e do Cerrado Mineiro. A gente torra em Mogi das Cruzes e manda rápido: torrado esta semana, na sua xícara na próxima.
+> Compramos café de pequenos produtores do Sul de Minas e do Cerrado Mineiro e torramos aqui em Mogi das Cruzes. Torrado esta semana, na sua xícara na próxima.
 

@@ -4,7 +4,7 @@ Imersão com Lucas Santana, 27/10/2026. São duas pastas, uma para cada parte do
 
 | Parte | Pasta | Baixar | O que tem |
 |---|---|---|---|
-| Manhã | [`manha/`](manha/) | [imersao-manha.zip](https://ia-para-empresarios-v2.vercel.app/downloads/imersao-manha.zip) | 8 passos com os prompts prontos, os dados fictícios da Torra Viva Cafés Especiais, as skills da manhã e o gabarito de cada passo |
+| Manhã | [`manha/`](manha/) | [imersao-manha.zip](https://ia-para-empresarios-v2.vercel.app/downloads/imersao-manha.zip) | 6 passos com os prompts prontos, os dados fictícios da Torra Viva Cafés Especiais, as skills da manhã e o gabarito de cada passo |
 | Tarde | [`tarde/`](tarde/) | [imersao-tarde.zip](https://ia-para-empresarios-v2.vercel.app/downloads/imersao-tarde.zip) | O cérebro da empresa (6 skills da trilha, mais `/sobre-mim`, `/sugerir-automacoes` e o Impeccable) e o exemplo pronto Forno da Vila |
 
 ## Como usar

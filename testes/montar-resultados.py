@@ -52,12 +52,12 @@ def cel(v, testes, texto):
     return s
 
 
-CORRIGIDO = """Rodar de novo até passar. Tudo abaixo foi corrigido e o teste refeito, menos o último item (cosmético).
+CORRIGIDO = """Rodar de novo até passar. Tudo abaixo foi corrigido. O teste foi refeito em todos os itens, menos o 11 (cosmético) e o 12 (só a conferência mudou, e a verificação rodou de novo).
 
 1. **Teste sem isolamento (1ª rodada da manhã):** na pasta vazia, o Claude procurou no disco, achou o material em `/workspace` e usou (passo 6). Os testes passaram a rodar dentro do `bwrap`; a rodada inteira da manhã foi refeita.
 2. **Pasta de teste reaproveitada:** o harness reusava a pasta de uma rodada anterior quando ela já existia (apareceram arquivos `-anterior`). Agora todo teste sem `--dir` começa numa pasta nova, e a prova também começa limpa.
 3. **Harness editado durante o lote:** o bash lê o script aos poucos; a edição quebrou o pós-processamento do passo 8. Passo 8 refeito; o harness passou a ser trocado só com `mv`.
-4. **Apresentação do passo 7:** o rodapé sobrepunha o texto em 1280 × 720 (slides 1 e 3). O prompt do aluno ganhou "cabe numa tela de notebook (1280 × 720) sem nada sobreposto"; refeito e conferido em 1280 × 720 e 1366 × 657.
+4. **Apresentação do passo 7 (hoje passo 6):** o rodapé sobrepunha o texto em 1280 × 720 (slides 1 e 3). O prompt do aluno ganhou "cabe numa tela de notebook (1280 × 720) sem nada sobreposto"; refeito e conferido em 1280 × 720 e 1366 × 657.
 5. **`/impeccable` na pasta vazia:** abriu dois subagentes em segundo plano e o `claude -p` terminou antes do relatório (no Claude Code normal, o aviso chega depois). O prompt do teste pede tudo na mesma resposta; refeito.
 6. **`frontend-design` da tarde:** o teste recebeu o prompt do `/criar-pagina` por engano; refeito com `/frontend-design`.
 7. **`/criar-pagina` na trilha:** o aviso de design do Impeccable (hook no fim da resposta) fez a última mensagem virar um relatório de design, sem o fechamento da fase. Entrou `hook.quiet` no `.impeccable/config.json` e uma regra no `CLAUDE.md` da tarde; refeito (`tarde/criar-pagina-de-novo`): fecha no formato da fase, com a linha "Ajuste de design".
@@ -65,6 +65,7 @@ CORRIGIDO = """Rodar de novo até passar. Tudo abaixo foi corrigido e o teste re
 9. **Fechamento fora da pasta da aula:** o `/criar-pagina` na pasta vazia sugeria `/criar-conteudo`, que não existia lá. Corrigido e refeito.
 10. **Capa do relatório:** a frase da capa dizia "2 de 6 fases" enquanto o menu já mostrava 4. A contagem saiu da frase; `/instalar` refeito (`tarde/instalar-revisado`).
 11. **Posts de 1 lâmina** mostravam a barrinha "1 / 1" embaixo (`display:flex` vence o atributo `hidden`). Uma linha de CSS no esqueleto da lâmina e no exemplo; teste não refeito (fora da lâmina, não aparece no relatório nem no print).
+12. **Conferência do passo 2 mais rígida que o pedido (rodada de 26/10):** o verificador exigia o total de janeiro a setembro (R$ 765.578,40) no `resumo-vendas.md`, mas nenhuma das 5 perguntas pede esse total. Nesta rodada o resumo trouxe os 9 meses, todos certos, sem o total. A conferência passou a aceitar o total ou os 9 meses certos (que somam o total). O material do aluno não mudou.
 
 """
 
@@ -72,9 +73,8 @@ DEPENDE = """| O quê | Onde | Por que não deu para testar aqui | Plano B na au
 |---|---|---|---|
 | **Login Google e conector Google Drive** (claude.ai → Configurações → Conectores) | Manhã, passo 2 | Precisa da conta Google de cada aluno e de autorizar o conector; os testes rodaram sem conectores para não escrever em conta real | O plano B do passo 2 lê os mesmos dados dos CSV da pasta (testado: números 100% certos). Conta da empresa bloqueada: usar a pessoal |
 | **Importar o .xlsx no Google Planilhas** | Manhã, passo 2 | Precisa de conta Google | O `.xlsx` foi gerado com openpyxl e abre no Excel/LibreOffice; se o import falhar, usar o plano B |
-| **Claude Motion** | Manhã, passo 8 | Beta só nos planos **Team e Enterprise** (ajuda oficial da Anthropic, out/2026); no Pro e no Max não aparece | Plano B testado: animação em HTML/CSS feita no Claude Code, gravada com a gravação de tela do Windows (Win+Alt+R) ou do Mac (Cmd+Shift+5) |
-| **Artifacts do claude.ai** (Docs, Slides, Dashboard) | Manhã, passo 7 (parte 4) | É a interface web do claude.ai; Dashboards está em beta nos planos pagos e os nomes dos botões podem mudar | As três páginas do Claude Code (testadas) cobrem o mesmo; se a opção Dashboard não aparecer, pedir "um artifact interativo em HTML" |
-| **Dribbble** | Manhã, passo 6 | Site de terceiros; pode pedir login ou bloquear | A imagem própria `passos/06-design-system/referencia-design.png` (testada) |
+| **Artifact do Claude Code** (a página publicada no claude.ai) | Manhã, passo 6 | Pela doc oficial (code.claude.com/docs/en/artifacts), o Artifact fica desligado no `claude -p` e exige login com conta do claude.ai (Pro, Max, Team ou Enterprise). Os testes rodam com `-p` e não publicam nada em conta real | O arquivo em `meu-trabalho/` sai sempre (testado nas 3 páginas); sem Artifact, o Claude avisa em 1 linha e segue (testado). Abrir com dois cliques |
+| **claude.ai** (plano B do passo 6: anexar, painel do Artifact, título → Export → HTML) | Manhã, passo 6 | Interface web com login | O prompt com o começo trocado rodou numa pasta só com os anexos (calculadora certa em 10 de 10 casos). O caminho principal é o Claude Code |
 | **Internet para o Impeccable** | Tarde (`/impeccable` e a conferência automática de HTML) | Testado aqui com internet: na primeira vez ele baixa o motor (~21 MB) do GitHub do projeto. Em Wi-Fi lento, o download pode passar dos 5 s do hook e falhar em silêncio até completar | O `/instalar` já dispara o download em segundo plano no começo da tarde. Sem internet, as skills seguem sem o Impeccable (a regra está no CLAUDE.md da tarde). Se travar: apagar `.claude/settings.json` da pasta desliga os hooks |
 | **Busca na web** | Tarde (`/mapear-empresa`, `/mapear-concorrentes`, `/criar-conteudo`) | Testado com internet | Sem internet, as fases marcam `[a confirmar]`; dá para seguir com a memória do `/instalar` |
 | **Node.js** | `find-skills` (manhã) e o print de conferência do `/criar-pagina` (`npx playwright --channel chrome`, usa o Chrome do computador) | Testado com Node 20 | Sem Node: instalar skill pelo professor; no `/criar-pagina`, a skill pede ao dono para olhar a página no navegador |
@@ -83,7 +83,7 @@ DEPENDE = """| O quê | Onde | Por que não deu para testar aqui | Plano B na au
 
 # (passo/skill, [testes aula], texto aula, [pastas aula], [testes vazia], texto vazia, [pastas vazia], resultado)
 MANHA = [
-    ("1 · Abrir a pasta", ["passo-01"], "Respondeu o que dá para fazer, citando a Torra Viva, os dados e os 8 passos", ["manha/passo-01"],
+    ("1 · Abrir a pasta", ["passo-01"], "Respondeu o que dá para fazer, citando a Torra Viva, os dados, as páginas do passo 6 e as skills", ["manha/passo-01"],
      [], "Pasta sem nada: diz que está vazia e oferece o que dá para fazer", ["pasta-vazia/manha-passo-01"], "passou"),
     ("2 · Google Drive e planilhas (plano B: CSV)", ["passo-02"], "6 mensagens seguidas; todos os números batem com o cálculo direto dos CSV (`scripts/respostas-certas.py`)", ["manha/passo-02"],
      [], "Sem `dados/`: avisa que não achou os CSV e não inventa número", ["pasta-vazia/manha-passo-02"], "passou · conector do Drive não testado (externo)"),
@@ -93,12 +93,11 @@ MANHA = [
      [], "Só a skill: explica o conceito no mesmo formato", ["pasta-vazia/manha-passo-04-eli5"], "passou"),
     ("5 · Criar skill `/resposta-cliente`", ["passo-05-criar", "passo-05-uso-1", "passo-05-uso-2", "passo-05-uso-3"], "Criou a skill (sem skill-creator) e respondeu as 3 mensagens; orçamento de 30 pessoas com a conta certa; `[confirmar]` no que as políticas não dizem", ["manha/passo-05-criar", "manha/passo-05-uso-1", "manha/passo-05-uso-2", "manha/passo-05-uso-3"],
      [], "Só a skill, outra empresa: fez a pergunta única (nome e tom) e respondeu sem inventar preço", ["pasta-vazia/manha-passo-05-resposta-cliente"], "passou"),
-    ("6 · Design system a partir de imagem", ["passo-06"], "Leu o PNG e tirou as 6 cores certas, as 2 fontes e o `:root`, com contraste conferido", ["manha/passo-06"],
-     [], "Sem a imagem: não inventa o design system e pede a imagem ou uma descrição", ["pasta-vazia/manha-passo-06"], "passou"),
-    ("7 · Páginas web", ["passo-07-calculadora", "passo-07-dashboard", "passo-07-apresentacao"], "Calculadora com a conta certa em 10 de 10 casos; dashboard com totais e filtro certos; apresentação de 6 slides que cabe em 1280 × 720", ["manha/passo-07-calculadora", "manha/passo-07-dashboard", "manha/passo-07-apresentacao"],
-     [], "Sem `orcamento.csv` e sem design system: não inventa regra de preço e pergunta como seguir", ["pasta-vazia/manha-passo-07-calculadora"], "passou · Artifacts do claude.ai não testados (externo)"),
-    ("8 · Animação (plano B do Claude Motion)", ["passo-08"], "Animação HTML/CSS de 20 s, 9:16, com os números do B2B tirados do CSV e `prefers-reduced-motion`", ["manha/passo-08"],
-     [], "Sem dados e sem design system: pergunta como seguir", ["pasta-vazia/manha-passo-08"], "passou · Claude Motion não testado (só Team/Enterprise)"),
+    ("6 · Páginas web com Artifacts", ["passo-06-calculadora", "passo-06-dashboard", "passo-06-apresentacao", "passo-06-claudeai-calculadora"],
+     "Calculadora com a conta certa em 10 de 10 casos; dashboard com totais e filtro certos; apresentação de 6 slides que cabe em 1280 × 720; nenhuma usa `design-system.md`. Sem Artifact no `-p`, as 3 respostas avisaram em 1 linha e apontaram o arquivo em `meu-trabalho/` (regra nova do CLAUDE.md). Plano B do claude.ai simulado (pasta só com os anexos e o começo do prompt trocado): calculadora certa em 10 de 10 casos",
+     ["manha/passo-06-calculadora", "manha/passo-06-dashboard", "manha/passo-06-apresentacao"],
+     [], "Sem `orcamento.csv`: não inventa regra de preço, avisa que não há como publicar o Artifact e pergunta como seguir", ["pasta-vazia/manha-passo-06-calculadora", "pasta-vazia/manha-passo-06-claudeai-calculadora"],
+     "passou · a publicação do Artifact e o claude.ai de verdade não foram testados (o `-p` desliga o Artifact; o claude.ai é externo)"),
     ("skill `find-skills`", ["skill-find-skills"], "Buscou com `npx skills find` e listou 3 opções com autor e instalações, sem instalar", ["manha/skill-find-skills"],
      [], "Só a skill: o mesmo resultado", ["pasta-vazia/manha-find-skills"], "passou · precisa de Node e internet"),
     ("skill `frontend-design`", ["skill-frontend-design"], "Cartão fidelidade da Torra Viva; o carimbo marca e desmarca", ["manha/skill-frontend-design"],
@@ -113,7 +112,7 @@ TARDE = [
      ["instalar"], "Pasta sem a estrutura: criou `memoria/`, `marca/`, `controle/` e pulou o RESULTADO.html, avisando", ["pasta-vazia/tarde-instalar"]),
     ("`/mapear-empresa`", ["mapear-empresa"], "3 frentes de pesquisa na internet; 4 arquivos com fonte; 5 blocos do relatório", ["tarde/mapear-empresa"],
      ["mapear-empresa"], "Sem `/instalar`: fez a pergunta única, gravou a memória e pesquisou", ["pasta-vazia/tarde-mapear-empresa"]),
-    ("`/marca`", ["marca"], "Leu um print (o mockup do passo 6) e montou a marca com as cores dele", ["tarde/marca"],
+    ("`/marca`", ["marca"], "Leu um print (o mockup `testes/insumos/referencia-design.png`) e montou a marca com as cores dele", ["tarde/marca"],
      ["marca"], "Sem site nem logo: sugeriu cores e fontes marcadas `[sugestão]`, com contraste conferido", ["pasta-vazia/tarde-marca"]),
     ("`/mapear-concorrentes`", ["mapear-concorrentes"], "Concorrentes, força digital, mapa 2x2 e espaços vazios no relatório", ["tarde/mapear-concorrentes"],
      ["mapear-concorrentes"], "Sem memória: perguntou o mínimo e pesquisou concorrentes reais da cidade", ["pasta-vazia/tarde-mapear-concorrentes"]),
@@ -143,7 +142,8 @@ L = ["# Resultados dos testes",
      "- Dentro do `bwrap`, que esconde o resto do disco: o Claude só enxerga a pasta do teste (na 1ª rodada, sem isso, ele achou o material em outra pasta; a rodada foi descartada).",
      "- Na pasta vazia, `DO_NOT_TRACK=1` (lá não existe o `.impeccable/config.json`).",
      "- As conferências automáticas estão em `verificar/` (`verificar-manha.mjs`, `verificar-tarde.mjs`): abrem os HTML no Chrome, testam a calculadora contra as regras do `orcamento.csv` calculadas à parte, contam lâminas, conferem números contra `scripts/respostas-certas.py` etc. Resultado em `manha/verificacao.json`, `tarde/verificacao.json` e `pasta-vazia/verificacao-tarde.json`; prints em `manha/prints/` e `tarde/prints/`.",
-     "- Os tempos abaixo foram medidos com até 10 testes rodando juntos: com a API disputada, os testes longos levaram mais que levariam para um aluno sozinho.",
+     "- Os tempos abaixo foram medidos com vários testes rodando juntos (até 7 na manhã e até 10 na tarde): com a API disputada, os testes longos levam mais que levariam para um aluno sozinho.",
+     "- **Manhã:** rodada inteira de novo em 26/10/2026, com a trilha de 6 passos (saíram o design system e o Claude Motion; o passo 6 virou páginas web com Artifacts). **Tarde:** rodada de 25/10/2026; nada da tarde mudou desde então, só o caminho do print do teste do `/marca`.",
      "",
      "Em cada prova: `prompt-N.txt` (o que o aluno mandou), `transcricao.txt` (stdout), `arquivos-gerados.txt` (lista) e `arquivos/` (cópia do que foi criado ou alterado), mais `info.txt` (tempo e código de saída).",
      "",

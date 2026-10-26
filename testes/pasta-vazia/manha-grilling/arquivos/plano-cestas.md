@@ -1,25 +1,29 @@
 # Plano: cestas de café da manhã para empresas (Padaria do Jorge, Campinas)
 
-## Decidido / fatos
-- **Ponto de partida:** a padaria já faz cestas para presente.
-- **Logística:** 1 carro de entrega.
+## Decidido
 - **Início:** dezembro.
 
-## Risco identificado
-- Dezembro também é o pico das cestas de presente. Com um carro só, as entregas de empresa (manhã cedo) e as de presente vão disputar o mesmo veículo.
+## Fatos conhecidos
+- Já faz cestas para presente (ponto de partida para produção e montagem).
+- Tem 1 carro de entrega.
 
-## Em aberto ("não sei")
-| # | Questão | Recomendação sugerida |
-|---|---------|------------------------|
-| 1 | Cliente-alvo | Escritórios pequenos/médios próximos à padaria |
-| 2 | Mesma cesta de presente ou produto novo | Adaptar a cesta de presente |
-| 3 | Entregas possíveis por manhã (7h–9h) | Limitar a 2–3 até medir |
-| 4 | Preço | Por pessoa: custo (insumos + embalagem + entrega) + margem |
-| 6 | Prioridade empresa × presente em dezembro | Manhãs só para empresas; presentes após 10h |
-| 7 | Raio de entrega | Até ~20 min de carro |
-| 8 | Antecedência e pedido mínimo | 48h e mínimo de 10 pessoas |
-| 9 | Método de precificação | Custear a cesta de presente atual como base |
-| 10 | Teste em novembro | Sim, com 1–2 empresas conhecidas |
+## Em aberto (Jorge respondeu "não sei")
+| # | Pergunta | Recomendação (ainda não aceita) |
+|---|----------|--------------------------------|
+| Q1 | Pedido avulso ou contrato recorrente? | Começar com pedidos avulsos sob encomenda |
+| Q2 | Quantas entregas cabem numa manhã com 1 carro, e em que raio? | Limite de 3–4 entregas até 9h, raio de ~20 min |
+| Q3 | Como definir o preço? | Preço por pessoa = custo da cesta + embalagem + entrega + margem, com pedido mínimo |
+| Q4 | Em dezembro, as cestas para empresas competem com as de presente? | Poucas vagas para empresas; prioridade às cestas de presente |
+| Q5 | Fazer piloto antes de divulgar? | 1–2 entregas de teste em novembro |
+| Q6 | Quanto custa hoje montar uma cesta de presente? | Levantar o custo item por item |
+| Q7 | Há empresas interessadas? | Sondar 3–5 empresas próximas |
 
-## Próximo passo crítico
-Definir o preço (itens 4 e 9). Sem preço, não há como vender antes de dezembro.
+## Riscos
+- O preço é desconhecido e o custo também, então não dá para calcular a margem.
+- Um carro só, num mês de pico de cestas de presente, pode virar gargalo.
+- Faltam ~5 semanas para dezembro.
+
+## Próximos passos sugeridos
+1. Calcular o custo de uma cesta atual (Q6) e, com ele, o preço (Q3).
+2. Fazer uma entrega de teste cronometrada (Q2, Q5).
+3. Conversar com algumas empresas próximas (Q1, Q7).

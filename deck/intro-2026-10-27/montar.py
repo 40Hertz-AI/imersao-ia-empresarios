@@ -4,7 +4,6 @@
 Uso: python3 montar.py <base.pdf> <novos.pdf> <slides.html> <saida.pdf>
 A ordem do deck está em ORDEM, abaixo. ("orig", N) = página N do PDF base (deck v3,
 75 páginas, commit fb89580); ("novo", "ID") = slide de slides.html com data-id="ID".
-Os horários nos comentários seguem a agenda de 27/10/2026 (9h00-18h00).
 """
 import re
 import sys
@@ -44,60 +43,54 @@ INTRO = [
     ("novo", "22"),  # promessa + 5 fases (substitui p8)
     ("orig", 13),    # vídeo GPT-6 Astra (opcional)
 ]
-# Manhã (10h00-12h30): teoria demonstrada, intervalo, trilha de 8 passos com a
-# Torra Viva e fechamento. Comentários "pág. NN" = página no PDF anterior, de 94.
+# Manhã: teoria demonstrada (fases 1 a 4), a pasta abre a parte prática, trilha de 6 passos com a
+# Torra Viva e almoço. Sem horários no deck. Comentários "pág. NN" = página no PDF anterior, de 102.
 MANHA = [
-    ("novo", "m00"),  # 10h00 a manhã: teoria, intervalo, trilha, fechamento
-    ("novo", "m01"),  # Fase 1: o modelo (refeita: rodapé "só eu mostro"; antes pág. 32)
-    ("orig", 15),     # 10h00 A1 · o que é um LLM
+    ("novo", "m01"),  # Fase 1: o modelo (rodapé "só eu mostro")
+    ("orig", 15),     # o que é um LLM
     ("orig", 16),     # próxima palavra
     ("orig", 17),     # como um LLM aprende
     ("orig", 18),     # respostas diferentes
     ("orig", 19),     # quem está na frente
     ("orig", 20),     # inteligência x custo
-    ("novo", "m02"),  # 10h08 A2 · prompt: Papel, Contexto, Tarefa, Formato
+    ("novo", "m02a"), # prompt: as 4 partes (era a pág. 40, dividida em duas)
+    ("novo", "m02b"), # prompt ruim x prompt bom, lado a lado
     ("orig", 21),     # o LLM é só o motor
     ("orig", 22),     # Claude Code = o Claude com acesso a uma pasta
-    ("novo", "m03"),  # 10h18 A4 · Fase 2: MCP (refeita; antes pág. 42)
+    ("novo", "m03"),  # Fase 2: MCP
     ("orig", 25),     # MCP é o cabo USB da IA
     ("novo", "m04"),  # ao vivo: do Drive para a resposta
-    ("novo", "m05"),  # 10h25 A5 · Fase 3: skills (refeita; antes pág. 48)
+    ("novo", "m05"),  # Fase 3: skills
     ("orig", 31),     # skill é um arquivo
     ("orig", 32),     # 3 jeitos de ter uma skill
     ("orig", 33),     # ao vivo: onde achar skills
-    ("orig", 34),     # ao vivo: primeiro procure
-    ("novo", "m06"),  # ao vivo: as skills já vieram na pasta, /eli5 (antes pág. 53)
-    ("orig", 43),     # 10h33 A3 · Fase 4: contexto ("só eu explico")
+    ("novo", "m06"),  # ao vivo: as skills já vieram na pasta, /eli5
+    ("orig", 43),     # Fase 4: contexto
     ("orig", 44),     # a IA não é burra, ela não tem contexto
-    ("novo", "m08"),  # a pasta é a sala de reunião (imersao-manha)
-    ("novo", "m07"),  # mesma pergunta, duas respostas (Torra Viva; antes pág. 63)
+    ("novo", "m07"),  # mesma pergunta, duas respostas (Torra Viva)
     ("orig", 47),     # janela de contexto
-    ("novo", "m09"),  # 10h45 intervalo
-    ("novo", "m10"),  # 10h55 a trilha: 8 passos
-    ("novo", "m11"),  # 10h55 passo 1 · abrir a pasta (antes pág. 41)
-    ("novo", "m12"),  # 11h00 passo 2 · a planilha da Torra Viva (antes pág. 45)
+    ("novo", "m08"),  # a pasta imersao-manha: abre a parte prática
+    ("novo", "m10"),  # sua vez: a trilha de 6 passos
+    ("novo", "m11"),  # passo 1 · abrir a pasta
+    ("novo", "m12"),  # passo 2 · a planilha da Torra Viva
     ("orig", 26),     # passo 2 · façam junto: conectar o Google Drive
-    ("novo", "m13"),  # passo 2 · pergunte à planilha (antes pág. 46)
-    ("novo", "m14"),  # passo 2 · plano B sem Google (antes pág. 47)
-    ("novo", "m15"),  # 11h08 passo 3 · prompts
-    ("novo", "m16"),  # 11h18 passo 4 · /eli5
-    ("novo", "m17"),  # 11h23 passo 5 · /resposta-cliente
-    ("novo", "m18"),  # 11h31 passo 6 · design system
-    ("novo", "m19"),  # 11h40 passo 7 · páginas web
-    ("novo", "m20"),  # 12h00 passo 8 · animação (Motion ou plano B em HTML)
-    ("novo", "m21"),  # 12h12 fechamento e checkpoint
-    ("orig", 46),     # 12h28 vocês deram contexto a manhã inteira (ponte)
-    ("novo", "m22"),  # 12h30 almoço, até 13h30 (antes pág. 66)
+    ("novo", "m13"),  # passo 2 · pergunte à planilha
+    ("novo", "m15"),  # passo 3 · prompts
+    ("novo", "m16"),  # passo 4 · /eli5
+    ("novo", "m17"),  # passo 5 · /resposta-cliente
+    ("novo", "m19"),  # passo 6 · três páginas web com Artifacts
+    ("orig", 46),     # vocês deram contexto a manhã inteira (ponte)
+    ("novo", "m22"),  # almoço
 ]
-# Tarde (13h30-18h00). Do "orquestradores" (orig 64) em diante, sem mudança de conteúdo:
-# só o Café da tarde (orig 69) sobe para o intervalo das 15h25.
+# Tarde. Do "orquestradores" (orig 64) em diante, sem mudança de conteúdo:
+# só o Café da tarde (orig 69) sobe para o intervalo entre os blocos B e C.
 TARDE = [
-    ("orig", 49),     # 13h30 como foi a primeira parte?
-    ("novo", "t01"),  # 13h30 abertura: 3 empresas da sala
+    ("orig", 49),     # como foi a primeira parte?
+    ("novo", "t01"),  # abertura: 3 empresas da sala
     ("orig", 50),     # case GCC (plano B da abertura)
     ("orig", 51),     # case Miss Wise
     ("orig", 52),     # case Meng
-    ("orig", 54),     # 13h40 Fase 5: agentes
+    ("orig", 54),     # Fase 5: agentes
     ("orig", 55),     # harness = arreio
     ("orig", 56),     # harness = tudo numa pasta
     ("orig", 57),     # a pasta cerebro-da-empresa
@@ -105,13 +98,13 @@ TARDE = [
     ("orig", 59),     # a empresa em 6 fases
     ("orig", 60),     # baixar e abrir
     ("orig", 4),      # previsibilidade
-    ("novo", "t02"),  # 13h40-14h45 bloco A: fases 1 a 3 (antes pág. 80)
-    ("novo", "t03"),  # 14h45-15h25 bloco B: página com o Impeccable (antes pág. 81)
-    ("orig", 69),     # 15h25-15h35 café da tarde (antes pág. 88)
-    ("novo", "t04"),  # 15h35-16h10 bloco C: conteúdo em HTML (antes pág. 82)
-    ("novo", "t05"),  # 16h10-16h35 bloco D: /sobre-mim
-    ("novo", "t06"),  # 16h35-17h05 bloco E: /sugerir-automacoes
-    ("orig", 64),     # 17h05 vocês acabaram de virar orquestradores
+    ("novo", "t02"),  # bloco A: fases 1 a 3
+    ("novo", "t03"),  # bloco B: página com o Impeccable
+    ("orig", 69),     # café da tarde
+    ("novo", "t04"),  # bloco C: conteúdo em HTML
+    ("novo", "t05"),  # bloco D: /sobre-mim
+    ("novo", "t06"),  # bloco E: /sugerir-automacoes
+    ("orig", 64),     # vocês acabaram de virar orquestradores
     ("orig", 65),
     ("orig", 66),
     ("orig", 67),
@@ -131,12 +124,13 @@ SAIRAM = {
     23,                  # façam junto: abrindo o Claude Code -> passo 1 (m11)
     27, 28, 29,          # Lanchonete Bom Pedaço -> passo 2 da Torra Viva (m12, m13, m14)
     35, 36, 37,          # skills na pasta, duas sessões, ELI5 -> m06 e passo 4 (m16)
-    38, 39, 40, 41,      # sessão 2 (entrevista, design system, apresentação, MCP) -> passos 6 e 7
+    38, 39, 40, 41,      # sessão 2 (entrevista, design system, apresentação, MCP) -> passo 6 (páginas web)
     42,                  # resumir-reuniao com arquivo da lanchonete -> passo 5 (m17)
     45,                  # mesma pergunta com a lanchonete -> m07
     48,                  # almoço sem horário -> m22
     53,                  # vídeo de agentes (citava Higgsfield): fora
     61, 62, 63,          # blocos A, B e C antigos -> t02, t03, t04
+    34,                  # ao vivo: primeiro procure, alguém já fez (saiu em 26/10)
 }
 
 

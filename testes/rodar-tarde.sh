@@ -21,7 +21,7 @@ trilha() {
   rm -rf "$d"
   $R tarde instalar aula $P/instalar-aula.txt --dir "$d" --preparar "true" 2>/dev/null || true
   $R tarde mapear-empresa aula $P/mapear-empresa-aula.txt --dir "$d"
-  $R tarde marca aula $P/marca-aula.txt --dir "$d" --preparar "mkdir -p marca && cp '$REPO/manha/passos/06-design-system/referencia-design.png' marca/print-site.png"
+  $R tarde marca aula $P/marca-aula.txt --dir "$d" --preparar "mkdir -p marca && cp '$REPO/testes/insumos/referencia-design.png' marca/print-site.png"
   $R tarde mapear-concorrentes aula $P/mapear-concorrentes-aula.txt --dir "$d"
   $R tarde criar-oferta aula $P/criar-oferta-aula.txt --dir "$d"
   $R tarde criar-pagina aula $P/criar-pagina-aula.txt --dir "$d"

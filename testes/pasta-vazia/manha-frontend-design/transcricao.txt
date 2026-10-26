@@ -2,19 +2,19 @@
 /frontend-design Crie cartao-fidelidade.html: um cartão fidelidade digital para uma padaria de bairro (10 carimbos; o 10º pão é por conta da casa), num arquivo só, que funciona no celular. Clicar num carimbo marca e desmarca.
 
 ════════ resposta do Claude ════════
-Criei o `cartao-fidelidade.html`, um arquivo só, feito primeiro para o celular. Testei no Chrome em modo headless numa tela de celular (390px de largura), com o cartão pela metade e com o cartão completo, e os dois casos ficaram certos.
+Criei o arquivo **`cartao-fidelidade.html`**. É um arquivo só e funciona no celular. Testei no Chrome headless numa tela de 390px de largura com 5, 9 e 10 carimbos marcados, e conferi os screenshots.
 
-**Ideia visual:** o cartão imita o saco de papel pardo do pão francês. A borda de cima tem o corte em zigue-zague e tudo é impresso numa cor só, o azul-anil da tinta de carimbo de caixa. O nome "Nova Aurora" usa uma fonte grossa com serifa quadrada, com cara de letreiro impresso em saco. O campo "Nome" usa uma letra que parece escrita a caneta.
-
-**O que se destaca:** o carimbo. Cada um é um pão francês dentro de um anel duplo. A tinta sai falhada e com a borda tremida, como borracha de verdade, e cada carimbo cai num ângulo diferente. Quando você toca, ele "bate" no papel e o celular vibra de leve. Tocar de novo apaga o carimbo.
+**O conceito:** o cartão tem a cara do saco de pão da padaria. O fundo é papel kraft com a borda de cima serrilhada, e o nome da padaria aparece impresso em verde de gráfica, numa fonte com serifas grossas. Os carimbos têm cor de tinta violeta de almofada, como os de borracha. Cada um sai num ângulo diferente, com falhas na tinta, e mostra o nome da padaria em volta de um pão francês e a data em que foi batido.
 
 **Como funciona:**
-- Os carimbos 1 a 9 ficam numa grade 3×3. O 10º ocupa a linha inteira com a frase "Esse é por conta da casa".
-- Uma frase embaixo da grade acompanha o progresso: "Faltam 5 carimbos…", depois "Cartão cheio. Seu próximo pão é por conta da casa." e, por fim, "Pão da casa entregue." Quando o pão da casa é marcado, aparece o botão **Começar cartão novo**.
-- Os carimbos, os ângulos de cada um e o nome ficam salvos no navegador, então nada se perde ao fechar a página.
-- Os carimbos são botões de verdade: funcionam pelo teclado com o contorno de foco visível, e o leitor de tela anuncia algo como "Carimbo 3, marcado". A animação é desligada para quem pede menos movimento no sistema.
+- Os carimbos 1 a 9 ficam numa grade 3×3. O 10º é uma faixa larga embaixo, "Este é da casa", e fica destacado em verde quando os nove anteriores estão marcados.
+- Tocar num espaço marca o carimbo e tocar de novo desmarca. Ao marcar, o carimbo "bate" com uma animação curta e, no Android, o celular vibra de leve.
+- A mensagem embaixo acompanha o progresso: "Faltam 4 carimbos…", depois "Cartão cheio! Mostre no balcão…" e, por fim, "Pão da casa entregue". Quando o pão da casa é marcado, aparece o botão **Começar cartão novo**.
+- Os carimbos ficam salvos no próprio aparelho (via localStorage), então continuam lá quando a pessoa reabre a página.
+- Acessibilidade: cada espaço é um botão que informa se está marcado e anuncia a data do carimbo. O foco do teclado fica visível. Para quem desativa animações no sistema, a animação do carimbo é desligada.
 
-Ajustes que fiz depois de olhar as capturas de tela: o número agora some quando o carimbo cobre o espaço (antes ficava borrado por baixo), e escureci o texto impresso para ficar mais fácil de ler.
-
-Você pode trocar o nome da padaria, o endereço e os horários (6h e 16h) direto no HTML. As fontes vêm do Google Fonts. Sem internet, a página usa fontes parecidas do próprio aparelho e continua funcionando.
+**O que você precisa saber:**
+- **Qualquer pessoa pode marcar os próprios carimbos.** Você pediu que um toque marque e desmarque, então nada impede o cliente de completar o cartão sozinho. Se a padaria precisar de controle, dá para exigir um código do caixa.
+- **Os dados são fictícios.** O nome "Panificadora Estrela da Vila", o endereço e os horários fui eu que inventei. Troque pelos dados reais da padaria.
+- **Fontes sem internet:** as fontes vêm do Google Fonts. Sem conexão, o navegador usa fontes parecidas no lugar.
 

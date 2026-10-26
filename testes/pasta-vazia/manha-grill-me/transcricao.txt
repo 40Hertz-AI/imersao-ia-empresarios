@@ -2,23 +2,18 @@
 /grill-me Quero abrir uma segunda loja da minha padaria. Responda você mesmo, como se fosse o dono, o Jorge, a cada rodada de perguntas, usando só isto que ele sabe: a padaria fica em Campinas e fatura bem de manhã; ele pensa num bairro a 5 km; tem R$ 150 mil guardados; o padeiro-chefe toparia treinar uma equipe nova; não sabe quanto custa o aluguel no bairro novo. O que ele não souber, ele diz "não sei". Faça no máximo 2 rodadas e, no fim, salve o plano em plano-segunda-loja.md.
 
 ════════ resposta do Claude ════════
-Fiz as 2 rodadas de perguntas (9 no total), respondendo como o Jorge só com o que ele sabia, e salvei o plano em `plano-segunda-loja.md`.
+Fiz as 2 rodadas, respondendo eu mesmo como o Jorge, e salvei o plano em `plano-segunda-loja.md`.
 
-O plano ainda não está completo. Como as rodadas eram no máximo 2, várias perguntas ficaram em aberto e o arquivo lista todas elas. O Jorge também não confirmou que o plano está de acordo. Salvei mesmo assim porque você pediu para salvar no fim.
+**Ainda não dá para decidir se vale abrir a loja.** O Jorge respondeu "não sei" para a maioria das perguntas. As maiores lacunas são o aluguel no bairro e se lá tem movimento de manhã.
 
-**O que ficou decidido:**
-- **Horário:** a loja nova repete o forte da atual, a manhã.
-- **Local:** o bairro a 5 km continua como alvo, mas só depois de conferir o movimento.
-- **Dinheiro:** dos R$ 150 mil, até R$ 100 mil vão para montar a loja e R$ 50 mil ficam de reserva. É um ponto de partida, a rever depois da pesquisa de aluguel.
-- **Equipe:** o padeiro-chefe treina a equipe nova antes da inauguração.
+O plano traz:
+- **O que já se sabe:** a padaria vende bem de manhã, o bairro fica a 5 km, ele tem R$ 150 mil guardados e o padeiro-chefe topa treinar uma equipe nova.
+- **O que falta descobrir** e como, em uma tabela.
+- **Minhas sugestões**, que o Jorge ainda não aprovou:
+  - começar como um ponto de venda abastecido pela loja atual, sem forno próprio, focado na manhã;
+  - investir até R$ 100 mil e guardar R$ 50 mil para cobrir os primeiros meses;
+  - pagar de aluguel no máximo uns 10% do que a loja deve faturar.
+- **Próximos passos:** pesquisar 3 pontos comerciais no bairro, contar o movimento das 6h às 9h por uma semana e pedir orçamentos.
 
-**O que ainda falta resolver:**
-- **Formato da loja:** se ela vai ter produção própria ou só vender o que vem da loja atual. Sugeri só vender, com um forno para terminar os pães, porque custa menos.
-- **Aluguel:** o valor no bairro novo e o teto que o Jorge aceita pagar.
-- **Movimento:** se o bairro tem gente passando de manhã. O Jorge topou contar o movimento em 3 manhãs de dias úteis.
-- **Orçamento:** se R$ 100 mil bastam para montar a loja.
-- **Treinamento:** quanto tempo o padeiro-chefe vai treinar a equipe.
-- **Quando desistir:** sugeri não abrir se o aluguel ou o movimento não fecharem a conta, e rever a decisão se a reserva cair abaixo de R$ 20 mil. O Jorge ainda não confirmou.
-
-**Próximo passo:** pesquisar o aluguel de 3 imóveis e fazer a contagem de movimento. Com esses números, dá para fechar o orçamento e decidir se a loja abre.
+A conversa parou no limite de 2 rodadas. Por isso, a decisão sobre fazer pão na loja nova e a meta para a loja se pagar ficaram em aberto. O jeito certo é voltar a elas quando o Jorge tiver esses números.
 

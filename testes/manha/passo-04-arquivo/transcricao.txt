@@ -2,19 +2,21 @@
 /eli5 dados/orcamento.csv
 
 ════════ resposta do Claude ════════
-**Em uma frase:** este arquivo é a receita que a Torra Viva segue para calcular quanto custa mandar café todo mês para um escritório. Os dados são fictícios, de exemplo.
+**Em uma frase:** esse arquivo é a receita que a Torra Viva segue para saber quanto cobrar de um escritório pelo café do mês (dados fictícios de exemplo).
 
-**Pensa assim:** é como fazer as compras do mês para uma casa. Você conta quantas pessoas tomam café, quanto cada uma bebe e quantos dias a casa fica cheia. Daí sai quantos pacotes comprar. Comprando muito, ganha desconto.
-*Onde a comparação falha:* em casa ninguém te empresta a cafeteira. Aqui, quem compra 8 kg ou mais por mês recebe a máquina emprestada, sem pagar nada.
+**Pensa assim:** é como calcular o lanche de uma festa. Você conta os convidados, quanto cada um come e por quantos dias, e compra os pacotes. Se compra muito, ganha desconto. Se o pedido é grande, a entrega sai de graça.
+*Onde a comparação falha:* festa é uma vez só, e o orçamento se repete todo mês.
 
 **Como funciona, passo a passo:**
-1. Conta o café: pessoas × 2 xícaras × 10 g × 21 dias. O resultado vira kg e sobe para o pacote inteiro mais próximo.
-2. Multiplica pelo preço do café escolhido, que vai de R$ 98 a R$ 140 o kg.
-3. Tira o desconto: 5%, 10% ou 15% conforme o volume, e mais 5% se o contrato for de 1 ano.
-4. Soma a máquina (R$ 120 de aluguel abaixo de 8 kg) e o frete (R$ 35, que sai de graça a partir de R$ 600 de café).
-5. Divide o total pelo número de xícaras e chega no custo de cada cafezinho.
+1. **Quanto café:** pessoas × 2 xícaras × 10 g × 21 dias úteis. O total vira kg e é arredondado para cima, porque o café vem em pacotes de 1 kg.
+2. **Quanto custa:** os kg vezes o preço do café escolhido (R$ 98, R$ 128 ou R$ 140 o kg).
+3. **Desconto:** 5%, 10% ou 15% conforme o volume (a partir de 10, 20 ou 40 kg). Com contrato de 12 meses, somam-se mais 5%.
+4. **Máquina e frete:** a partir de 8 kg a máquina vai emprestada sem custo. Abaixo disso, o aluguel é R$ 120. O frete custa R$ 35 e sai grátis se o café com desconto passar de R$ 600.
+5. **Resultado:** soma tudo e divide pelo número de xícaras para achar o custo de cada xícara.
 
-**Por que isso importa:** com a regra escrita, qualquer pessoa da equipe faz o mesmo orçamento, sempre com o mesmo resultado. O orçamento vale por 15 dias.
+**Por que isso importa:** com a regra escrita, qualquer pessoa da equipe faz o mesmo orçamento, sem chute.
 
-**Quer ir um nível acima?** No passo 7, esta receita vira uma calculadora de orçamento numa página web.
+**Quer ir um nível acima?** No passo 6 essa receita vira uma calculadora em página web.
+
+Marquei o passo 4 como feito. O próximo é o passo 5: `passos/05-criar-uma-skill/INSTRUCOES.md` (sugiro `/clear` antes).
 

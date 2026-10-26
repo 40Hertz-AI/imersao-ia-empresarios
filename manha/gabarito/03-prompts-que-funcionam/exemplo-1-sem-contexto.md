@@ -1,6 +1,6 @@
 # Exemplo 1 numa pasta vazia (sem o CLAUDE.md da Torra Viva)
 
-> Gerado de verdade pelo Claude Code (modelo Opus) nesta pasta, com o prompt do passo, em 25/10/2026. **Dados fictícios de exemplo.** O seu resultado vai sair diferente nas palavras; o que importa é chegar no mesmo tipo de entrega.
+> Gerado de verdade pelo Claude Code (modelo Opus) nesta pasta, com o prompt do passo, em 26/10/2026. **Dados fictícios de exemplo.** O seu resultado vai sair diferente nas palavras; o que importa é chegar no mesmo tipo de entrega.
 
 Aqui o Claude não sabe nada da empresa. O prompt ruim vira um modelo genérico com campos para preencher; o bom funciona igual, porque leva o contexto dentro dele.
 
@@ -14,35 +14,37 @@ Escreve um e-mail avisando que o preço vai subir.
 
 **Claude:**
 
-Aqui vai um modelo. Os campos entre colchetes ficam para você preencher.
+Segue um modelo. Os dados entre colchetes precisam ser preenchidos:
 
 ---
 
 **Assunto:** Atualização de preços a partir de [data]
 
-Olá, [nome do cliente],
+Olá, [Nome],
 
-Obrigado por estar com a gente. Queremos avisar com antecedência que, a partir de **[data de vigência]**, o preço de **[produto/serviço/plano]** passará de **R$ [valor atual]** para **R$ [novo valor]**.
+Obrigado por continuar com a [Empresa].
 
-O reajuste é necessário por causa de [motivo: aumento dos custos de insumos e operação / investimentos em melhorias no serviço / correção inflacionária]. Com ele, vamos continuar oferecendo [principal benefício: a mesma qualidade, suporte ágil, novas funcionalidades etc.].
+Gostaríamos de avisar que, a partir de **[data de vigência]**, o preço de **[produto/serviço/plano]** passará de **[valor atual]** para **[novo valor]**.
+
+O reajuste é necessário por causa de [motivo, por exemplo: aumento dos custos operacionais / novos recursos incluídos / correção pela inflação do período]. Nosso compromisso com a qualidade do atendimento e do serviço que você já conhece continua o mesmo.
 
 **O que muda para você:**
-- O novo valor vale para [cobranças/pedidos] a partir de [data].
-- Até lá, tudo continua pelo preço atual.
-- [Opcional: Se você renovar ou fechar seu pedido até [data], garante o valor atual por mais [período].]
+- Até [data], tudo continua como está.
+- A partir de [data], a cobrança será feita com o novo valor, sem que você precise fazer nada.
+- [Opcional: quem renovar ou fechar plano anual até [data] mantém o valor atual por mais [período].]
 
-Se tiver qualquer dúvida, é só responder este e-mail ou falar com a gente pelo [telefone/WhatsApp/canal de atendimento].
+Se tiver alguma dúvida ou quiser conversar sobre o seu plano, é só responder a este e-mail ou falar com a gente pelo [telefone/WhatsApp/canal].
 
 Obrigado pela confiança.
 
-Um abraço,
+Atenciosamente,
 [Seu nome]
-[Cargo] | [Empresa]
+[Cargo] – [Empresa]
 [Contato]
 
 ---
 
-Se você me disser o produto, quanto vai subir, a data e para quem é o e-mail (clientes antigos, B2B, assinantes), eu ajusto o tom e o texto.
+Se você me contar o produto, quanto o preço vai subir, a data e quem vai receber (clientes finais, empresas ou parceiros), eu ajusto o tom e o texto para o seu caso.
 
 
 ## ✅ Prompt bom
@@ -62,13 +64,13 @@ Formato: assunto + corpo de até 150 palavras, sem jargão, com uma chamada clar
 
 Olá, pessoal da Clínica Bem Viver!
 
-Antes de tudo, obrigada pela nota 10 na última pesquisa. Ficamos muito felizes de fazer parte do dia a dia dos 32 funcionários de vocês desde novembro de 2025.
+Antes de tudo, obrigada pela nota 10 na nossa última pesquisa. Ver a equipe de vocês satisfeita com o nosso café desde novembro do ano passado é o que motiva a gente.
 
-Quero avisar com antecedência: a partir de 01/12/2026, o preço do quilo vai subir 6%. O motivo é que o grão cru, que compramos antes de torrar, ficou mais caro.
+Quero avisar com antecedência: a partir de 01/12/2026, o preço do quilo vai subir 6%. Isso acontece porque o grão cru, que compramos dos produtores antes de torrar, ficou mais caro.
 
-A boa notícia é que, se vocês renovarem o contrato anual do plano Mantiqueira Clássico até 30/11, o preço atual fica garantido por mais 12 meses.
+Mas vocês podem escapar desse aumento. Se renovarem o contrato anual do plano Mantiqueira Clássico até 30/11, o preço atual fica garantido por mais 12 meses. O café continua o mesmo, e o preço também.
 
-**Para renovar, é só responder a este e-mail com "quero renovar" até 30/11.** Eu cuido do resto.
+**Para renovar, é só responder a este e-mail com "Quero renovar" até 30/11.** Eu cuido do resto.
 
 Um abraço,
 Marina, Torra Viva

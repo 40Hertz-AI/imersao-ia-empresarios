@@ -2,33 +2,35 @@
 Escreve um e-mail avisando que o preço vai subir.
 
 ════════ resposta do Claude ════════
-Aqui vai um modelo. Os campos entre colchetes ficam para você preencher.
+Segue um modelo. Os dados entre colchetes precisam ser preenchidos:
 
 ---
 
 **Assunto:** Atualização de preços a partir de [data]
 
-Olá, [nome do cliente],
+Olá, [Nome],
 
-Obrigado por estar com a gente. Queremos avisar com antecedência que, a partir de **[data de vigência]**, o preço de **[produto/serviço/plano]** passará de **R$ [valor atual]** para **R$ [novo valor]**.
+Obrigado por continuar com a [Empresa].
 
-O reajuste é necessário por causa de [motivo: aumento dos custos de insumos e operação / investimentos em melhorias no serviço / correção inflacionária]. Com ele, vamos continuar oferecendo [principal benefício: a mesma qualidade, suporte ágil, novas funcionalidades etc.].
+Gostaríamos de avisar que, a partir de **[data de vigência]**, o preço de **[produto/serviço/plano]** passará de **[valor atual]** para **[novo valor]**.
+
+O reajuste é necessário por causa de [motivo, por exemplo: aumento dos custos operacionais / novos recursos incluídos / correção pela inflação do período]. Nosso compromisso com a qualidade do atendimento e do serviço que você já conhece continua o mesmo.
 
 **O que muda para você:**
-- O novo valor vale para [cobranças/pedidos] a partir de [data].
-- Até lá, tudo continua pelo preço atual.
-- [Opcional: Se você renovar ou fechar seu pedido até [data], garante o valor atual por mais [período].]
+- Até [data], tudo continua como está.
+- A partir de [data], a cobrança será feita com o novo valor, sem que você precise fazer nada.
+- [Opcional: quem renovar ou fechar plano anual até [data] mantém o valor atual por mais [período].]
 
-Se tiver qualquer dúvida, é só responder este e-mail ou falar com a gente pelo [telefone/WhatsApp/canal de atendimento].
+Se tiver alguma dúvida ou quiser conversar sobre o seu plano, é só responder a este e-mail ou falar com a gente pelo [telefone/WhatsApp/canal].
 
 Obrigado pela confiança.
 
-Um abraço,
+Atenciosamente,
 [Seu nome]
-[Cargo] | [Empresa]
+[Cargo] – [Empresa]
 [Contato]
 
 ---
 
-Se você me disser o produto, quanto vai subir, a data e para quem é o e-mail (clientes antigos, B2B, assinantes), eu ajusto o tom e o texto.
+Se você me contar o produto, quanto o preço vai subir, a data e quem vai receber (clientes finais, empresas ou parceiros), eu ajusto o tom e o texto para o seu caso.
 

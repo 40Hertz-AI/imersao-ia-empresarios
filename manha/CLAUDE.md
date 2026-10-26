@@ -25,9 +25,9 @@ Esta pasta é o projeto de uma pessoa aprendendo o Claude Code. Ela segue o `REA
 | `passos/0N-.../INSTRUCOES.md` | O que fazer em cada passo, com o prompt pronto |
 | `gabarito/0N-.../` | O resultado pronto de cada passo, para comparar |
 | `meu-trabalho/` | Onde vai tudo o que a pessoa criar |
-| `progresso.md` | O checklist dos 8 passos |
+| `progresso.md` | O checklist dos 6 passos |
 
-## A trilha (8 passos)
+## A trilha (6 passos)
 
 | # | Passo | Fica pronto |
 |---|---|---|
@@ -36,9 +36,7 @@ Esta pasta é o projeto de uma pessoa aprendendo o Claude Code. Ela segue o `REA
 | 3 | Prompts que funcionam | `meu-trabalho/prompts.md` |
 | 4 | Usar uma skill pronta (`/eli5`) | a explicação na conversa |
 | 5 | Criar uma skill | `.claude/skills/resposta-cliente/SKILL.md` |
-| 6 | Design system | `meu-trabalho/design-system.md` |
-| 7 | Páginas web | `meu-trabalho/calculadora-orcamento.html`, `dashboard-vendas.html`, `apresentacao.html` |
-| 8 | Animação (Claude Motion ou plano B) | o MP4 do Motion ou `meu-trabalho/animacao-torra-viva.html` |
+| 6 | Páginas web com Artifacts | `meu-trabalho/calculadora-orcamento.html`, `dashboard-vendas.html`, `apresentacao.html` (e os Artifacts no claude.ai) |
 
 Quando a pessoa perguntar "o que falta?" ou "e agora?": ler `progresso.md`, ver quais arquivos de `meu-trabalho/` existem, dizer em 1 linha o próximo passo e apontar o `passos/0N-.../INSTRUCOES.md`. Quando um passo ficar pronto, marcar `[x]` nele em `progresso.md`.
 
@@ -48,5 +46,6 @@ Quando a pessoa perguntar "o que falta?" ou "e agora?": ler `progresso.md`, ver 
 - **Não inventar.** Número, nome ou fato que não está em `dados/`, neste arquivo ou no que a pessoa disse não entra. Faltou informação: escrever `[confirmar: ...]`.
 - **CSV:** a primeira linha de cada `.csv` é o aviso `# ... dados fictícios de exemplo`; o cabeçalho vem na linha 2. Valores com ponto decimal (42.00).
 - **Nunca alterar `dados/` nem `gabarito/`.** Resultado vai para arquivo novo em `meu-trabalho/`.
-- **Páginas e apresentações:** HTML num arquivo só (CSS e JavaScript dentro), que abre com dois cliques, com as cores e fontes de `meu-trabalho/design-system.md` se ele existir. Para o acabamento visual, usar a skill `frontend-design`.
+- **Páginas e apresentações:** HTML num arquivo só (CSS, JavaScript e dados dentro, sem imagem nem biblioteca de fora), que abre com dois cliques. Para o acabamento visual, usar a skill `frontend-design`.
+- **Artifact:** quando a pessoa pedir "publique como artifact", salvar o arquivo no caminho pedido em `meu-trabalho/` e publicar esse mesmo arquivo. Se não der para publicar (plano, login ou versão do Claude Code), dizer em 1 linha que a página está em `meu-trabalho/` e abre com dois cliques, e seguir.
 - Um assunto por conversa: se a pessoa mudar de passo no meio, sugerir `/clear` (conversa nova).

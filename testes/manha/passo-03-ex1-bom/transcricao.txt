@@ -5,18 +5,22 @@ Tarefa: escreva o e-mail avisando o reajuste e oferecendo a renovação.
 Formato: assunto + corpo de até 150 palavras, sem jargão, com uma chamada clara no fim. Assine "Marina, Torra Viva".
 
 ════════ resposta do Claude ════════
-**Assunto:** Seu café vai ter reajuste em dezembro. Veja como manter o preço atual
+**Assunto:** Clínica Bem Viver: mantenha o preço atual do café por mais 12 meses
 
-Olá, pessoal da Clínica Bem Viver,
+Olá, [confirmar: nome do contato na clínica],
 
-Antes de tudo, obrigada pela nota 10 na última pesquisa. É muito bom fazer parte do café de vocês desde novembro de 2025.
+Obrigada pela nota 10 na última pesquisa. Ficamos muito contentes em saber que o café está agradando a equipe da Bem Viver.
 
-Quero avisar com antecedência: a partir de 01/12/2026, o preço do kg vai subir 6%. O motivo é o café verde, o grão cru que compramos dos produtores antes da torra, que ficou mais caro.
+Quero avisar com antecedência: a partir de 01/12/2026, o preço do kg vai subir 6%. O motivo é o café verde, que é o grão cru que compramos dos produtores antes da torra. Ele ficou mais caro.
 
-Vocês podem ficar fora desse reajuste. Se renovarem o contrato anual do plano Mantiqueira Clássico até 30/11, o preço atual fica valendo por mais 12 meses. O resto continua como está.
+Vocês podem ficar fora desse aumento. Se renovarem o contrato anual do Mantiqueira Clássico até 30/11, o preço atual fica valendo por mais 12 meses.
 
-**Quer garantir o preço atual? Responda este e-mail com "renovar" até 30/11 e eu cuido do resto.**
+Querem garantir? É só responder este e-mail com "quero renovar" até 30/11 que eu cuido do resto.
 
 Um abraço,
 Marina, Torra Viva
+
+---
+
+O corpo tem cerca de 100 palavras. Como você não passou o nome do contato, deixei a marcação `[confirmar: ...]` para preencher.
 

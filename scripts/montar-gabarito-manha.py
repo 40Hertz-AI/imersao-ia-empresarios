@@ -41,7 +41,7 @@ def copia(origem, destino):
     shutil.copy2(origem, destino)
 
 
-CAB = "> Gerado de verdade pelo Claude Code (modelo Opus) nesta pasta, com o prompt do passo, em 25/10/2026. **Dados fictícios de exemplo.** O seu resultado vai sair diferente nas palavras; o que importa é chegar no mesmo tipo de entrega.\n"
+CAB = "> Gerado de verdade pelo Claude Code (modelo Opus) nesta pasta, com o prompt do passo, em 26/10/2026. **Dados fictícios de exemplo.** O seu resultado vai sair diferente nas palavras; o que importa é chegar no mesmo tipo de entrega.\n"
 
 if G.exists():
     for f in G.iterdir():
@@ -59,9 +59,7 @@ O resultado pronto de cada passo, **gerado de verdade** pelo Claude Code com os 
 | 3 | `03-prompts-que-funcionam/`: os 4 exemplos, ruim e bom, com as respostas, e o exemplo 1 numa pasta sem contexto |
 | 4 | `04-usar-uma-skill-pronta/`: a `/eli5` explicando um conceito e um arquivo |
 | 5 | `05-criar-uma-skill/`: a skill `resposta-cliente` pronta e as respostas às 3 mensagens |
-| 6 | `06-design-system/design-system.md`: o design system tirado da imagem de referência |
-| 7 | `07-paginas-web/`: a calculadora, o dashboard e a apresentação (abra no navegador) |
-| 8 | `08-claude-motion/animacao-torra-viva.html`: a animação do plano B |
+| 6 | `06-paginas-web/`: a calculadora, o dashboard e a apresentação (abra no navegador) |
 
 Todos os números são **dados fictícios de exemplo**.
 """, encoding="utf-8")
@@ -106,22 +104,9 @@ txt += ["## A mesma skill numa pasta vazia, para outra empresa\n",
 (d / "exemplo-de-uso.md").write_text("\n".join(txt), encoding="utf-8")
 
 # 6
-d = G / "06-design-system"; d.mkdir(parents=True, exist_ok=True)
-copia(T / "passo-06/arquivos/meu-trabalho/design-system.md", d / "design-system.md")
-
-# 7
-d = G / "07-paginas-web"; d.mkdir(parents=True, exist_ok=True)
-for teste, f in [("passo-07-calculadora", "calculadora-orcamento.html"), ("passo-07-dashboard", "dashboard-vendas.html"), ("passo-07-apresentacao", "apresentacao.html")]:
+d = G / "06-paginas-web"; d.mkdir(parents=True, exist_ok=True)
+for teste, f in [("passo-06-calculadora", "calculadora-orcamento.html"), ("passo-06-dashboard", "dashboard-vendas.html"), ("passo-06-apresentacao", "apresentacao.html")]:
     copia(T / teste / "arquivos/meu-trabalho" / f, d / f)
-
-# 8
-d = G / "08-claude-motion"; d.mkdir(parents=True, exist_ok=True)
-copia(T / "passo-08/arquivos/meu-trabalho/animacao-torra-viva.html", d / "animacao-torra-viva.html")
-(d / "LEIA-ME.md").write_text("""# Passo 8 · Gabarito
-
-- `animacao-torra-viva.html`: a animação do **plano B**, feita no Claude Code com o prompt do passo. Abra no Chrome, em tela cheia.
-- O caminho A (Claude Motion, no claude.ai) não foi testado aqui: ele só existe nos planos Team e Enterprise, em beta. O prompt está em `passos/08-claude-motion/INSTRUCOES.md`.
-""", encoding="utf-8")
 
 # o gabarito não pode apontar para pastas de teste
 for f in G.rglob("*"):

@@ -2,11 +2,16 @@
 Me grelhe (grill me) sobre este plano antes de eu começar: quero oferecer cestas de café da manhã para empresas na minha padaria em Campinas. Responda você mesmo, como se fosse o dono, o Jorge, a cada rodada, usando só isto: ele já faz cestas para presente; tem 1 carro de entrega; quer começar em dezembro; não sabe o preço que vai cobrar. O que ele não souber, ele diz "não sei". No máximo 2 rodadas; no fim, salve as decisões em plano-cestas.md.
 
 ════════ resposta do Claude ════════
-Fiz as duas rodadas e salvei o resultado em `/tmp/vazia-manha-grilling/plano-cestas.md`.
+Fiz as 2 rodadas e salvei o plano em `plano-cestas.md`. A única decisão tomada é **começar em dezembro**. Todo o resto continua em aberto, porque o Jorge respondeu "não sei" a todas as outras perguntas.
 
-O plano tem pouca coisa decidida. Só três pontos estão firmes, e todos vieram dos fatos que você deu: o produto parte das cestas de presente, existe 1 carro de entrega e o início é em dezembro. As outras 9 perguntas ficaram em "não sei". Cada uma está no arquivo com a minha recomendação.
+**O que está em aberto:**
+- Pedido avulso ou contrato recorrente.
+- Quantas entregas o único carro faz numa manhã, e em que raio de Campinas.
+- O preço, e também o custo de uma cesta hoje.
+- Se as cestas para empresas vão disputar produção e entrega com as cestas de presente em dezembro, que é o mês de pico delas.
+- Se vale fazer um teste antes e se já existe alguma empresa interessada.
 
-**O maior risco:** dezembro também é o pico das cestas de presente. Com um carro só, as entregas para empresas, que precisam chegar de manhã cedo, vão disputar o carro com as entregas de Natal.
+No arquivo, cada item tem a minha recomendação, marcada como "ainda não aceita". Ele também lista os riscos e uma ordem para os próximos passos.
 
-**Antes de começar:** defina o preço. Uma forma é calcular quanto custa uma cesta de presente atual e usar isso como base. Sem preço, não dá para oferecer o serviço às empresas a tempo de dezembro.
+**O principal problema:** sem saber quanto custa uma cesta hoje, o Jorge não consegue chegar a um preço. Com 1 carro e o mês de pico das cestas de presente, a quantidade de entregas que ele aguenta é o limite. E faltam umas 5 semanas para dezembro. Antes de divulgar, ele precisa calcular o custo de uma cesta e cronometrar uma entrega de teste.
 

@@ -4,31 +4,26 @@
 Na Padaria Pão Quente, acreditamos que o pão é muito mais do que um alimento: é uma verdadeira experiência de afeto. Cada fornada é cuidadosamente preparada, meticulosamente assada e entregue com paixão. Não é apenas pão — é um estilo de vida. Venha fazer parte dessa revolução!
 
 ════════ resposta do Claude ════════
-## Rascunho
+**Rascunho**
 
-> Na Padaria Pão Quente, o pão é feito com carinho. Cada fornada é preparada e assada com atenção e entregue com o mesmo cuidado. Venha provar!
+> Na Padaria Pão Quente, a gente faz pão com carinho. Cada fornada é preparada com cuidado e assada com atenção antes de chegar até você. Venha conhecer.
 
-## Padrões que ainda restavam
+**O que ainda soa artificial no rascunho**
 
-- "preparada e assada com atenção e entregue com o mesmo cuidado" ainda repete a estrutura em três partes do original (§6). Os três verbos dizem a mesma coisa.
-- O tom continua genérico. Sem detalhes concretos, o texto serviria para qualquer padaria.
+- "Com carinho", "com cuidado" e "com atenção" seguidos repetem a mesma ideia três vezes, o mesmo ritmo de três itens do original ("cuidadosamente preparada, meticulosamente assada e entregue com paixão").
+- "Venha conhecer" ainda é uma frase de efeito curta no final, só que mais discreta que "Venha fazer parte dessa revolução!".
+- O texto continua genérico. Qualquer padaria poderia usar essas frases, porque o original não diz nada concreto sobre a sua.
 
-O que foi cortado do original:
-- "muito mais do que um alimento" e "Não é apenas pão, é um estilo de vida" são contrastes do tipo "não é X, é Y" (§1).
-- "uma verdadeira experiência de afeto" é frase de efeito (§3).
-- "meticulosamente" está na lista de palavras típicas de IA (§12).
-- O travessão foi substituído (§8).
-- "revolução" exagera a importância de uma padaria de bairro (§13).
+**Versão final**
 
-## Versão final
+> Na Padaria Pão Quente, a gente faz pão com carinho. Cada fornada é preparada e assada com cuidado, e é com gosto que ela chega até você. Passe aqui para provar.
 
-> Na Padaria Pão Quente, a gente faz pão com carinho. Cada fornada é preparada e assada com atenção, do jeito que gostamos de servir. Passe aqui para provar.
+**O que mudei**
 
-O texto original quase não tem fatos. Por isso a versão final ficou curta, e eu não quis inventar nada. Ela ficaria bem mais viva com detalhes reais, por exemplo:
-- os pães mais pedidos (pão francês, de fermentação natural, broa…)
-- os horários das fornadas ("pão saindo às 6h e às 16h")
-- há quanto tempo a padaria existe, ou quem faz os pães
-- o bairro ou a rua
+- **Contrastes forçados:** tirei "muito mais do que um alimento: é uma verdadeira experiência de afeto" e "Não é apenas pão — é um estilo de vida". Os dois inventam uma comparação para o pão parecer maior.
+- **Exagero:** cortei "revolução" e "estilo de vida", que prometem mais do que uma padaria entrega.
+- **Palavras típicas de IA:** tirei "meticulosamente" e a enumeração em três partes.
+- **Travessão:** saiu junto com a frase em que estava.
 
-Se você me passar alguns desses detalhes, eu reescrevo o texto com eles.
+O texto ficou honesto, mas ainda é curto e genérico porque o original não tem detalhes concretos. Ele ganharia muito com fatos que só você sabe. Por exemplo: que horas sai a primeira fornada, qual pão é o mais pedido, há quanto tempo a padaria existe ou se a receita é de família. Se você me passar alguns desses, eu reescrevo usando eles.
 

@@ -1,5 +1,0 @@
-Crie meu-trabalho/apresentacao.html: uma apresentação de 6 slides com os resultados da Torra Viva de janeiro a setembro de 2026, para a reunião com a equipe.
-Use os dados da pasta dados/ (sem inventar número) e meu-trabalho/design-system.md, com a skill frontend-design no visual e a humanizer no texto.
-Um arquivo só. Passa de slide com as setas do teclado e com clique, e mostra o número do slide. Tudo cabe numa tela de notebook (1280 × 720) sem nada sobreposto.
-Slides: 1) título; 2) os números do período; 3) o canal que mais cresceu; 4) os clientes B2B: quem entrou, quem saiu e por quê; 5) 3 ações para o último trimestre; 6) obrigado.
-Rodapé em todos os slides: "Dados fictícios de exemplo".
