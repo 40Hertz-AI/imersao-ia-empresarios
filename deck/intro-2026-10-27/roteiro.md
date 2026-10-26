@@ -8,7 +8,7 @@ Pontos de controle: **9h15**, **9h25**, **9h40** e **9h55**. A Fase 1 passa a co
 |---|---|---|---|---|
 | 9h00 | 1 | 01 Capa | Bom dia. Antes de abrir qualquer IA, a gente vai entender que jogo mudou. A primeira hora é para isso. | – |
 | 9h01 | 2 | Quem sou | (60 s) Passo 100% do meu tempo colocando IA para trabalhar dentro de empresa. | – |
-| 9h02 | 3 | 02 Sem internet? | Ninguém aqui decidiu adotar internet; um dia ela virou condição para existir. Com IA é igual, só que mais rápido. Pergunta para a sala: como vocês usam IA hoje? Anotar 3 respostas e voltar nelas às 16h45. | – |
+| 9h02 | 3 | 02 Sem internet? | Ninguém aqui decidiu adotar internet; um dia ela virou condição para existir. Com IA é igual, só que mais rápido. Pergunta para a sala: como vocês usam IA hoje? Anotar 3 respostas e voltar nelas às 17h05, no fechamento (pág. 92). | – |
 | 9h05 | 4 | 03 Kodak, Blockbuster, Nokia | A Kodak criou a câmera digital em 1975 e pediu recuperação judicial em 2012. A Blockbuster faliu em 2010. A Nokia vendeu a divisão de celulares à Microsoft em 2013. Todos viram a tecnologia; nenhum mudou o modelo a tempo. ⚠️ Não citar "a Blockbuster recusou comprar a Netflix por US$ 50 mi" sem conferir a fonte. | Histórico público; Microsoft News Center, 03/09/2013 (**conferir antes da aula**) |
 | 9h08 | 5 | 04 Cada virada | Agora a mudança não é na máquina nem na conexão, é no trabalho em si. | Slide original do deck |
 | 9h10 | 6 | 05 100 mi + 53% | Não é hype de bolha de tecnologia: é a adoção mais rápida da história medida. O Stanford AI Index 2026 mostra 53% de adoção da IA generativa em 3 anos, mais rápido que PC e internet. | UBS via Reuters, fev/2023; Stanford AI Index 2026 |
@@ -37,9 +37,27 @@ Pontos de controle: **9h15**, **9h25**, **9h40** e **9h55**. A Fase 1 passa a co
 | 9h52 | 29 | 21 Ganho medido | Ganho é maior onde o trabalho é estruturado e mensurável. É por aí que vamos começar à tarde. | Stanford AI Index 2026, Economia |
 | **9h55** | 30 | 22 A promessa + 5 fases | Todo orquestrador precisa entender o motor. Vamos abrir o capô: o que é um LLM. A maioria aqui está na fase 1. | – |
 | 9h57 | 31 | Vídeo GPT-6 Astra (opcional) | (2:30) No fim do dia vocês vão entender cada peça disso. Pular se a hora estourar. | OpenAI, 03/09/2026 |
-| 10h00 | 32 | Fase 1: o modelo | Começa a Fase 1. | – |
+| 10h00 | 32 | A manhã (m00) | Primeiro eu mostro, depois vocês fazem. Começa a Fase 1 (pág. 33). | – |
+
+## Depois das 10h (mapa do deck de 102 páginas)
+
+Horários de 27/10/2026. A lista completa, página a página, está em `README.md` ("Ordem final").
+
+| Horário | Págs. | Bloco |
+|---|---|---|
+| 10h00–10h45 | 32–56 | Teoria demonstrada (só o Lucas no computador): Fase 1 modelo e prompt (33–42), Fase 2 MCP (43–45), Fase 3 skills (46–51), Fase 4 contexto e a pasta (52–56) |
+| 10h45–10h55 | 57 | Intervalo |
+| 10h55–12h12 | 58–69 | Trilha prática com a Torra Viva: visão geral (58) e passos 1 a 8 (59–69) |
+| 12h12–12h30 | 70–71 | Checkpoint da manhã e ponte para a tarde |
+| 12h30–13h30 | 72 | Almoço |
+| 13h30–13h40 | 73–77 | Como foi a primeira parte, 3 empresas da sala (74) e os cases como plano B (75–77) |
+| 13h40–14h45 | 78–86 | Fase 5, harness, a pasta da tarde, previsibilidade e o Bloco A (fases 1 a 3) |
+| 14h45–15h25 | 87 | Bloco B: página com /criar-pagina e /impeccable critique |
+| 15h25–15h35 | 88 | Café da tarde |
+| 15h35–17h05 | 89–91 | Blocos C (/criar-conteudo em HTML), D (/sobre-mim) e E (/sugerir-automacoes) |
+| 17h05–18h00 | 92–102 | "Vocês acabaram de virar orquestradores" até "A IA executa. Você lidera." (sem mudança) |
 
 ## Tarde
 
-- Pág. 79, **Previsibilidade** (antes pág. 4): entra imediatamente antes de "BLOCO A · /mapear-empresa" (pág. 80). Fala sugerida: "Sem clareza, não existe previsibilidade. É isso que o /mapear-empresa vai começar a dar para vocês."
-- Retomar o número anotado no slide 10 ("quantas pessoas a sua empresa precisaria se nascesse hoje?") no fechamento da tarde.
+- Pág. 85, **Previsibilidade** (original p4): entra imediatamente antes do "Bloco A · O cérebro da empresa: fases 1 a 3" (pág. 86). Fala sugerida: "Sem clareza, não existe previsibilidade. É isso que o /mapear-empresa vai começar a dar para vocês."
+- Às 17h05 (pág. 92), retomar o número anotado no slide 10 ("quantas pessoas a sua empresa precisaria se nascesse hoje?", pág. 11) e as 3 respostas da pág. 3.
