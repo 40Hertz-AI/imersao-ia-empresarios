@@ -14,7 +14,6 @@ INTRO = [
     ("orig", 1),     # 01 capa
     ("orig", 2),     # ruptura: sem internet
     ("orig", 3),     # ruptura silenciosa (plataformas)
-    ("novo", "05a"), # contexto: como a IA chegou e como as novas empresas estão chegando (novo em 26/10)
     ("novo", "05"),  # 100 mi + selo Stanford 53% (substitui p12)
     ("novo", "08"),  # Lovable
     ("novo", "09"),  # Base44
