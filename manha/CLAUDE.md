@@ -35,7 +35,7 @@ Esta pasta é o projeto de uma pessoa aprendendo o Claude Code. Ela segue o `REA
 | 3 | Prompts que funcionam | `meu-trabalho/prompts.md` |
 | 4 | Usar uma skill pronta (`/eli5`) | a explicação na conversa |
 | 5 | Criar uma skill | `.claude/skills/resposta-cliente/SKILL.md` |
-| 6 | Páginas web com Artifacts | `meu-trabalho/calculadora-orcamento.html`, `dashboard-vendas.html`, `apresentacao.html` (e os Artifacts no claude.ai) |
+| 6 | Páginas web com Artifacts | três Artifacts no claude.ai: a calculadora (também em `meu-trabalho/calculadora-orcamento.html`), o dashboard (tipo Dashboard) e a apresentação (tipo Slides) |
 
 Quando a pessoa perguntar "o que falta?" ou "e agora?": ler `progresso.md`, ver quais arquivos de `meu-trabalho/` existem, dizer em 1 linha o próximo passo e apontar o `passos/0N-.../INSTRUCOES.md`. Quando um passo ficar pronto, marcar `[x]` nele em `progresso.md`.
 
@@ -45,6 +45,7 @@ Quando a pessoa perguntar "o que falta?" ou "e agora?": ler `progresso.md`, ver 
 - **Não inventar.** Número, nome ou fato que não está em `dados/`, neste arquivo ou no que a pessoa disse não entra. Faltou informação: escrever `[confirmar: ...]`.
 - **CSV:** a primeira linha de cada `.csv` é o aviso `# ... dados fictícios de exemplo`; o cabeçalho vem na linha 2. Valores com ponto decimal (42.00).
 - **Nunca alterar `dados/`.** Resultado vai para arquivo novo em `meu-trabalho/`.
-- **Páginas e apresentações:** HTML num arquivo só (CSS, JavaScript e dados dentro, sem imagem nem biblioteca de fora), que abre com dois cliques. Para o acabamento visual, usar a skill `frontend-design`.
-- **Artifact:** quando a pessoa pedir para publicar como artifact (ou "no artefato"), salvar o arquivo em `meu-trabalho/` (no caminho pedido; sem caminho, com o nome da tabela da trilha: `calculadora-orcamento.html`, `dashboard-vendas.html` ou `apresentacao.html`) e publicar esse mesmo arquivo. Uma apresentação passa de slide com as setas e com clique, mostra o número do slide e cabe em 1280 × 720. Se não der para publicar (plano, login ou versão do Claude Code), dizer em 1 linha que a página está em `meu-trabalho/` e abre com dois cliques, e seguir.
+- **Páginas:** HTML num arquivo só (CSS, JavaScript e dados dentro, sem imagem nem biblioteca de fora), que abre com dois cliques. Para o acabamento visual, usar a skill `frontend-design`.
+- **Artifact com tipo:** quando a pessoa pedir um tipo dos Artifacts (Slides, Dashboard), criar o Artifact desse tipo e seguir as instruções dele, sem design system e sem arquivo em `meu-trabalho/`. O tipo não existe na conta ou não deu para publicar? Dizer em 1 linha e fazer a página em HTML num arquivo só em `meu-trabalho/` (`dashboard-vendas.html` ou `apresentacao.html`).
+- **Artifact sem tipo:** quando a pessoa pedir para publicar como artifact (ou "no artefato"), salvar o arquivo em `meu-trabalho/` (no caminho pedido; sem caminho, `calculadora-orcamento.html` para a calculadora) e publicar esse mesmo arquivo. Se não der para publicar (plano, login ou versão do Claude Code), dizer em 1 linha que a página está em `meu-trabalho/` e abre com dois cliques, e seguir.
 - Um assunto por conversa: se a pessoa mudar de passo no meio, sugerir `/clear` (conversa nova).

@@ -7,4 +7,4 @@
 - [ ] 3 · Prompts que funcionam · `passos/03-prompts-que-funcionam/` · `meu-trabalho/prompts.md` com 1 prompt ruim e o mesmo prompt bom
 - [ ] 4 · Usar uma skill pronta · `passos/04-usar-uma-skill-pronta/` · `/eli5` explicou um conceito
 - [ ] 5 · Criar uma skill · `passos/05-criar-uma-skill/` · `/resposta-cliente` funcionando
-- [ ] 6 · Páginas web com Artifacts · `passos/06-paginas-web/` · calculadora, dashboard e apresentação em `meu-trabalho/` (e os Artifacts no claude.ai)
+- [ ] 6 · Páginas web com Artifacts · `passos/06-paginas-web/` · calculadora, dashboard e apresentação como Artifacts no claude.ai

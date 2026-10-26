@@ -54,7 +54,7 @@ Sem terminal? Use o **app do Claude** no computador: aba **Code** → escolha a 
 | 3 | [Prompts que funcionam](passos/03-prompts-que-funcionam/INSTRUCOES.md) | Compara prompt ruim × prompt com Papel, Contexto, Tarefa e Formato |
 | 4 | [Usar uma skill pronta](passos/04-usar-uma-skill-pronta/INSTRUCOES.md) | `/eli5` explica um conceito de negócio |
 | 5 | [Criar uma skill](passos/05-criar-uma-skill/INSTRUCOES.md) | Cria a `/resposta-cliente` e testa com mensagens de clientes |
-| 6 | [Páginas web com Artifacts](passos/06-paginas-web/INSTRUCOES.md) | Calculadora de orçamento, dashboard de vendas e apresentação: arquivos em `meu-trabalho/` e Artifacts no claude.ai |
+| 6 | [Páginas web com Artifacts](passos/06-paginas-web/INSTRUCOES.md) | Calculadora de orçamento, dashboard de vendas e apresentação como Artifacts no claude.ai (o dashboard e os slides com os tipos prontos) |
 
 **Como cada passo funciona:** abra o `INSTRUCOES.md` do passo (dois cliques, ou peça ao Claude `abra as instruções do passo 3`), **copie e cole** os prompts, e confira o resultado. Marque o passo em `progresso.md`.
 
