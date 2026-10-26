@@ -162,8 +162,8 @@ Regras de todas as seções:
 | `cliente` | 2 | Persona em cartão forte + anti-cliente · jornada em `.etapas` com `perde` · dores em `.abas` (uma aba por dor, com `.citacao` e `.fonte`) · gatilhos e objeções · bastidor |
 | `diagnostico` | 2 | Gargalos em tabela (confirma ou não o problema do dono) · oportunidades em cartões, ★ na mais forte · bastidor |
 | `concorrentes` | 3 | `.mapa` com `data-nota` e `.vazio` · `.barras` de força digital · tabela com linha `nos` · espaços vazios em cartões · bastidor |
-| `voce` | 4 | `<h2>` com o papel em 1 frase · `.ficha` com papel e decisões, a semana e com quem fala · tabela dos processos (processo, gatilho, tempo, frequência, dor principal) · bastidor sobre o mapa como memória. Sem salário, senha nem dado pessoal de cliente |
-| `automacoes` | 5 | `<h2>` com a ideia central · as 3 primeiras em `.grade g3` (o que é, tipo, impacto/esforço e o próximo passo em `<code>`) · tabela com todas as sugestões · bastidor sobre skill, rotina e conexão |
+| `voce` | 4 | `<h2>` com o papel em 1 frase · `.ficha` com papel e decisões, a semana e com quem fala · tabela dos processos (processo, gatilho, tempo, frequência, dor principal) · `.botao` para abrir `entregas/mapa-<nome>.html` (os fluxos desenhados) · bastidor sobre o mapa como memória. Sem salário, senha nem dado pessoal de cliente |
+| `automacoes` | 5 | `<h2>` com a ideia central · as 3 primeiras em `.grade g3` (o que é, tipo, impacto/esforço e o próximo passo em `<code>`) · tabela com todas as sugestões (tipo em selo) · `.botao` para a página do mapa · bastidor sobre os recursos do Claude usados |
 | `oferta` | 6 | `.destaque` com a proposta de valor · mecanismo em `.etapas` · principal × entrada em `.g2` · garantia · selo "hipótese a validar" · bastidor |
 | `pagina` | 7 | `.abas`: "No celular" (`.molduras` + `.celular`), "No computador" (`.navegador`), "Formulário de pedido" · botões para abrir · bastidor |
 | `conteudo` | 8 | `.molduras`: o `.post` com uma `.slide html` por lâmina do carrossel e, no `.lado`, a `.rosca` dos pilares e os botões `.botao` para abrir o carrossel e os 2 posts · calendário em tabela com selo de formato · bastidor |

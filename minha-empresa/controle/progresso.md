@@ -7,7 +7,7 @@
 - [ ] 1 · Instalar · `/instalar` → `memoria/` + `RESULTADO.html`
 - [ ] 2 · Mapear a empresa · `/mapear-empresa` → `pesquisa/empresa.md`, `mercado.md`, `cliente.md`, `diagnostico.md`
 - [ ] 3 · Concorrentes · `/mapear-concorrentes` → `pesquisa/concorrentes.md`
-- [ ] 4 · Seu trabalho · `/sobre-mim` → `memoria/sobre-mim.md` + `memoria/falta-trazer.md`
+- [ ] 4 · Seu trabalho · `/sobre-mim` → `memoria/sobre-mim.md` + `memoria/falta-trazer.md` + `entregas/mapa-<nome>.html`
 - [ ] 5 · Automações · `/sugerir-automacoes` → `entregas/sugestoes.md`
 
 **Depois do almoço**

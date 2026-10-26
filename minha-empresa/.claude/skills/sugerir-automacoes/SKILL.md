@@ -1,11 +1,11 @@
 ---
 name: sugerir-automacoes
-description: Use quando a pessoa pedir /sugerir-automacoes ou perguntar o que a IA pode fazer por ela. Lê a pasta (e o mapa do /sobre-mim, se houver) e sugere automações, rotinas, skills novas, conexões e comandos do Claude Code, priorizados por impacto e esforço, cada um com o próximo passo concreto. Funciona em qualquer pasta, com ou sem mapa.
+description: Use quando a pessoa pedir /sugerir-automacoes ou perguntar o que a IA pode fazer por ela. Lê a pasta (e o mapa do /sobre-mim, se houver) e sugere o que usar do Claude (app, projetos, Artifacts, skills, rotinas agendadas, conectores, plugins, Claude no navegador e Claude Code), priorizados por impacto e esforço, cada um com o próximo passo concreto. Funciona em qualquer pasta, com ou sem mapa.
 ---
 
 # /sugerir-automacoes: o que a IA pode fazer por você
 
-Transforma o que a pasta sabe sobre o trabalho da pessoa num plano prático. Tudo o que sugerir precisa dar para fazer **no Claude Code, com esta pasta**: skills, comandos, arquivos de contexto, conexões (MCP, o "cabo" que liga o Claude a outras ferramentas) e rotinas que a pessoa dispara.
+Transforma o que a pasta sabe sobre o trabalho da pessoa num plano prático. Cada sugestão usa a ferramenta do Claude que melhor resolve aquele passo, não só o Claude Code. A pessoa sai sabendo **o que** a IA faz e **com qual recurso**.
 
 **Duração:** uns 5 a 10 minutos com o mapa pronto; uns 5 minutos a mais sem ele.
 
@@ -42,13 +42,19 @@ Para cada oportunidade, escolher **um tipo**:
 
 | Tipo | Quando usar | Exemplo |
 |---|---|---|
-| Skill nova | Tarefa que se repete sempre do mesmo jeito | /proposta, /resumo-reuniao, /relatorio-semanal |
-| Rotina | Algo com gatilho de tempo (toda segunda, fim do mês) que a pessoa dispara com 1 comando | "Toda segunda: /relatorio-semanal" |
-| Conexão | O dado está em outro lugar (Drive, Sheets, e-mail) | Conectar o Google Drive para ler a planilha de vendas |
-| Contexto | Falta um documento para a IA acertar | Trazer a tabela de preços para a pasta |
-| Comando pronto | Pedido avulso que já funciona hoje | Um prompt para colar |
+| Prompt pronto | Pedido avulso que já funciona hoje, no app ou no Claude Code | Um prompt para colar |
+| Projeto (claude.ai) | Conversas sobre o mesmo assunto que precisam sempre dos mesmos documentos e instruções | Projeto "Cobrança" com a política de crédito e o modelo de e-mail |
+| Contexto | Falta um documento para a IA acertar | Trazer a tabela de preços para a pasta ou para o projeto |
+| Skill | Tarefa que se repete sempre do mesmo jeito | /proposta, /triagem-curriculos, /relatorio-semanal |
+| Artifact | Algo para ver ou usar no navegador e compartilhar: página, painel, calculadora, formulário | Painel do relatório mensal; guia de dúvidas para os funcionários |
+| Rotina agendada | Tarefa com hora marcada (toda terça 8h, dia 5 do mês) que pode rodar sozinha e deixar o resultado pronto para revisar | Toda terça 8h: lista de cobranças com os rascunhos de e-mail |
+| Conector | O dado está em outro serviço (Gmail, Google Drive, Agenda, Notion, CRM) | Ligar o Google Drive no claude.ai para ler a planilha de vendas |
+| Plugin | Pacote pronto de skills e conectores de uma área (vendas, marketing, finanças, RH) | Instalar o plugin da área e usar as skills dele |
+| Claude no navegador | O trabalho é clicar em sites ou sistemas web sem conector: pesquisar, copiar dados, preencher | Abrir o Instagram de 5 concorrentes e resumir os posts da semana |
 
-**Impacto** (1 a 3): tempo poupado segundo o que a pessoa disse (tempo × frequência) e tamanho da dor. **Esforço** (1 a 3): 1 = funciona hoje com um prompt; 2 = criar uma skill ou trazer um arquivo; 3 = precisa de conexão nova ou de outra pessoa. Tempo poupado só com números ditos pela pessoa e sempre com a palavra `estimativa`; sem números, `[a confirmar]`.
+Variar os tipos: num plano de 10, usar pelo menos 4 tipos diferentes, sempre o que encaixa no passo (não forçar).
+
+**Impacto** (1 a 3): tempo poupado segundo o que a pessoa disse (tempo × frequência) e tamanho da dor. **Esforço** (1 a 3): 1 = funciona hoje com um prompt ou um conector de 1 clique no claude.ai; 2 = criar uma skill, um projeto, um Artifact, uma rotina ou trazer um arquivo; 3 = precisa de acesso de outra pessoa (TI, chave de sistema) ou de algo pago. Tempo poupado só com números ditos pela pessoa e sempre com a palavra `estimativa`; sem números, `[a confirmar]`.
 
 ## 4 · Gravar
 
@@ -65,7 +71,7 @@ Para cada uma: o que é · qual processo resolve · tipo · impacto/esforço · 
 ## Todas as sugestões
 | # | Sugestão | Processo | Tipo | Impacto | Esforço | Próximo passo |
 
-## Rotinas da semana   (dia · comando · o que entrega)
+## Rotinas agendadas   (quando · o que roda · o que deixa pronto para revisar)
 ## Skills para criar    (nome · o que faz · arquivos que lê)
 ## Conexões e arquivos que faltam
 ## O que continua com você (e por quê)
@@ -75,11 +81,13 @@ Regras:
 - No máximo 10 sugestões. Primeiro impacto alto e esforço baixo.
 - Todo "próximo passo" é executável na hora: um comando (`/nome`), um prompt entre aspas ou "coloque o arquivo X na pasta".
 - Não sugerir skill que já existe na pasta; se ela resolve, sugerir usá-la.
-- Não prometer automação que rode sozinha. Se algo pedir agendamento ou sistema externo, dizer isso e marcar esforço 3.
+- Rotina agendada entrega **rascunho para revisar**, nunca executa sozinha o que tem efeito fora (enviar, publicar, pagar, bloquear cliente).
+- Claude no navegador: dizer que a pessoa assiste e aprova cada envio; nunca senha, pagamento ou dado de cartão.
 - Não sugerir nada que envie mensagem, publique ou pague sem a pessoa revisar.
 
 **Na pasta do cérebro da empresa** (fase 5 de 8), se existirem:
-- `RESULTADO.html`: trocar os blocos `automacoes`, `proximos` e `atualizado` seguindo `controle/componentes.md` e as regras do `CLAUDE.md` (só o trecho entre `INICIO` e `FIM`, sem ler o arquivo inteiro).
+- **Página do mapa** (`mapa-<primeiro-nome>.html`, do `/sobre-mim`): se existir, preencher entre `<!-- INICIO:plano -->` e `<!-- FIM:plano -->` a seção "O que a IA pode fazer por você" (as 3 primeiras em cartões, a tabela com o tipo em selo, as rotinas agendadas), no mesmo visual da página.
+- `RESULTADO.html`: trocar os blocos `automacoes` (com o botão para a página do mapa, se existir), `proximos` e `atualizado` seguindo `controle/componentes.md` e as regras do `CLAUDE.md` (só o trecho entre `INICIO` e `FIM`, sem ler o arquivo inteiro).
 - `controle/progresso.md`: marcar a fase 5 com `[x]` e a data.
 
 ## 5 · Fechar

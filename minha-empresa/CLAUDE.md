@@ -44,8 +44,8 @@ Esta pasta é o cérebro da empresa: a memória, a pesquisa e tudo o que a IA pr
 | 1 | `/instalar` | `memoria/` + `marca/marca.md` | Capa e Ficha |
 | 2 | `/mapear-empresa` | `pesquisa/empresa.md`, `mercado.md`, `cliente.md`, `diagnostico.md` + `marca/marca.md` | Raio-X, Identidade, Mercado, Cliente, Diagnóstico |
 | 3 | `/mapear-concorrentes` | `pesquisa/concorrentes.md` | Concorrentes |
-| 4 | `/sobre-mim` | `memoria/sobre-mim.md` + `memoria/falta-trazer.md` (o mapa do trabalho do dono) | Seu trabalho |
-| 5 | `/sugerir-automacoes` | `entregas/sugestoes.md` (automações, rotinas e skills, por impacto e esforço) | Automações |
+| 4 | `/sobre-mim` | `memoria/sobre-mim.md` + `memoria/falta-trazer.md` + `entregas/mapa-<nome>.html` (o mapa do trabalho, com os fluxos desenhados) | Seu trabalho |
+| 5 | `/sugerir-automacoes` | `entregas/sugestoes.md` + o plano na página do mapa (o que usar do Claude, por impacto e esforço) | Automações |
 | 6 | `/criar-oferta` | `entregas/oferta.md` | Oferta |
 | 7 | `/criar-pagina` | `entregas/pagina-de-vendas.html` + `.md` + `formulario.html` | Página de vendas |
 | 8 | `/criar-conteudo` | `entregas/conteudo.md` + `entregas/posts/*.html` (carrossel e 2 posts, só HTML, com o botão "Gerar prompt de imagem") | Conteúdo |

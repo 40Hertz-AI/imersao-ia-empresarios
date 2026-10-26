@@ -47,7 +47,8 @@ Resposta vaga: pedir **um exemplo real da última vez**, uma vez só, e seguir. 
 ## 4 · Contexto e conexões (2 perguntas)
 
 8. "Quais documentos, planilhas ou modelos você usa sempre e poderiam ficar nesta pasta (ex.: tabela de preços, modelo de proposta, relatório do mês)?"
-9. "Onde estão os seus dados hoje: Google Drive, planilhas, e-mail, sistema da empresa, WhatsApp?"
+9. "Onde estão os seus dados hoje: Google Drive, planilhas, e-mail, sistema da empresa, WhatsApp? E que sites ou sistemas você abre no navegador todo dia?"
+10. "Você já usa alguma IA no trabalho? Para quê?" ("nada" é resposta boa)
 
 ## 5 · Gravar
 
@@ -80,24 +81,26 @@ flowchart LR
 (um diagrama por processo, só se houver 3 passos ou mais)
 
 ## Documentos que deveriam estar na pasta   (da pergunta 8, com onde estão hoje)
-## Onde estão os dados / conexões possíveis (da pergunta 9)
+## Onde estão os dados / conexões possíveis (da pergunta 9: inclui sites e sistemas do navegador)
+## O que já usa de IA                     (da pergunta 10)
 ## A confirmar
 ````
 
 Também:
 - **Lista do que falta trazer** (`falta-trazer.md`, ao lado do mapa): checklist da pergunta 8 (`- [ ] <documento> · onde está hoje`). Se já existir, só acrescentar itens novos.
 - **CLAUDE.md:** se existir, acrescentar no fim (sem mexer no resto) uma seção curta `## Quem trabalha aqui` → "Antes de ajudar <nome>, leia <caminho do mapa>." Se a seção já existir, só atualizar o caminho. Se não existir CLAUDE.md, criar um mínimo com essa seção e 1 linha dizendo para que serve a pasta.
+- **Página do mapa** (`mapa-<primeiro-nome>.html`, em `entregas/` se existir, senão ao lado do mapa): o mesmo mapa para ver no navegador, com a skill `frontend-design` e as cores e fontes de `marca/marca.md` (sem marca: visual sóbrio). Topo com nome, papel e a frase · a semana · com quem fala · a tabela de processos · **o fluxo de cada processo desenhado** em HTML e CSS (caixas ligadas por setas, losango para decisão, sim/não nos ramos; no celular, de cima para baixo) · documentos e dados. Sem biblioteca de fora (abre sem internet). Deixar no fim `<!-- INICIO:plano -->` e `<!-- FIM:plano -->` vazios: o `/sugerir-automacoes` preenche.
 - Usar as palavras da pessoa. Não somar horas que ela não disse.
 - Nunca gravar senha, salário de terceiros ou dados pessoais de clientes (nome completo, telefone, documento).
 
 **Na pasta do cérebro da empresa** (fase 4 de 8), se existirem:
-- `RESULTADO.html`: trocar os blocos `voce`, `proximos` e `atualizado` seguindo `controle/componentes.md` e as regras do `CLAUDE.md` (só o trecho entre `INICIO` e `FIM`, sem ler o arquivo inteiro).
+- `RESULTADO.html`: trocar os blocos `voce` (com o botão para a página do mapa), `proximos` e `atualizado` seguindo `controle/componentes.md` e as regras do `CLAUDE.md` (só o trecho entre `INICIO` e `FIM`, sem ler o arquivo inteiro).
 - `controle/progresso.md`: marcar a fase 4 com `[x]` e a data.
 
 ## 6 · Fechar
 
 ```
-✓ Mapa do seu trabalho → <caminho do mapa>
+✓ Mapa do seu trabalho → <caminho do mapa> · para ver: <caminho da página do mapa>
 <papel em 1 linha> · <N> processos mapeados · maior dor: <dor>
 Abra o RESULTADO.html (ou atualize a página): a seção Seu trabalho apareceu.
 Falta trazer: <3 primeiros itens>
