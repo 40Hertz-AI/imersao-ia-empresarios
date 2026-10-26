@@ -84,7 +84,7 @@ MANHA = [
     ("novo", "m22"),  # almoço
 ]
 # Tarde. Do "orquestradores" (orig 64) em diante, sem mudança de conteúdo:
-# só o Café da tarde (orig 69) sobe para o intervalo entre os blocos B e C.
+# só o Café da tarde (orig 69) entra entre o Apolo (orig 68) e o FDE (orig 70).
 TARDE = [
     ("orig", 49),     # como foi a primeira parte?
     ("novo", "t01"),  # abertura: 3 empresas da sala
@@ -94,7 +94,6 @@ TARDE = [
     ("orig", 60),     # baixar e abrir
     ("novo", "t02"),  # bloco A: fases 1 a 3
     ("novo", "t03"),  # bloco B: página com o /criar-pagina
-    ("orig", 69),     # café da tarde
     ("novo", "t04"),  # bloco C: conteúdo em HTML
     ("novo", "t05"),  # bloco D: /sobre-mim
     ("orig", 64),     # vocês acabaram de virar orquestradores
@@ -102,6 +101,7 @@ TARDE = [
     ("orig", 66),
     ("orig", 67),
     ("orig", 68),     # Apolo · receita previsível
+    ("orig", 69),     # café da tarde (depois do Apolo, antes do FDE)
     ("orig", 70),     # FDE
     ("orig", 71),
     ("orig", 72),

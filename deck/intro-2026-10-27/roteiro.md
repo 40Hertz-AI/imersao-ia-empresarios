@@ -8,7 +8,7 @@ Sem horários: o deck não mostra agenda. Pontos de controle do ritmo: págs. 9,
 |---|---|---|---|
 | 1 | 01 Capa | Bom dia. Antes de abrir qualquer IA, a gente vai entender que jogo mudou. A primeira hora é para isso. | – |
 | 2 | Quem sou | (60 s) Passo 100% do meu tempo colocando IA para trabalhar dentro de empresa. | – |
-| 3 | 02 Sem internet? | Ninguém aqui decidiu adotar internet; um dia ela virou condição para existir. Com IA é igual, só que mais rápido. Pergunta para a sala: como vocês usam IA hoje? Anotar 3 respostas e voltar nelas no fechamento (pág. 79). | – |
+| 3 | 02 Sem internet? | Ninguém aqui decidiu adotar internet; um dia ela virou condição para existir. Com IA é igual, só que mais rápido. Pergunta para a sala: como vocês usam IA hoje? Anotar 3 respostas e voltar nelas no fechamento (pág. 78). | – |
 | 4 | Previsibilidade (original p4) | Sem clareza, não existe previsibilidade. Negócio, clientes, processos, pessoas, concorrentes: quem não enxerga isso com clareza fica mais lento que o mercado, e a IA potencializa quem enxerga. À tarde, o /mapear-empresa começa a dar essa clareza. | Slide original do deck |
 | 5 | 03 Kodak, Blockbuster, Nokia | A Kodak criou a câmera digital em 1975 e pediu recuperação judicial em 2012. A Blockbuster faliu em 2010. A Nokia vendeu a divisão de celulares à Microsoft em 2013. Todos viram a tecnologia; nenhum mudou o modelo a tempo. ⚠️ Não citar "a Blockbuster recusou comprar a Netflix por US$ 50 mi" sem conferir a fonte. | Histórico público; Microsoft News Center, 03/09/2013 (**conferir antes da aula**) |
 | 6 | 04 Cada virada | Agora a mudança não é na máquina nem na conexão, é no trabalho em si. | Slide original do deck |
@@ -56,10 +56,11 @@ Sem horários. A lista completa, página a página, está em `README.md` ("Ordem
 | 68–69 | Como foi a primeira parte e 3 empresas da sala (69) |
 | 70–74 | Harness numa pasta, a pasta da tarde, a empresa em 6 fases, baixar e abrir e o Bloco A (fases 1 a 3) |
 | 75 | Bloco B: página com /criar-pagina |
-| 76 | Café da tarde |
-| 77–78 | Blocos C (/criar-conteudo em HTML) e D (/sobre-mim) |
-| 79–89 | "Vocês acabaram de virar orquestradores" até "A IA executa. Você lidera." (sem mudança) |
+| 76–77 | Blocos C (/criar-conteudo em HTML) e D (/sobre-mim) |
+| 78–82 | "Vocês acabaram de virar orquestradores" até o Apolo (receita previsível em 90 dias) |
+| 83 | Café da tarde |
+| 84–89 | FDE até "A IA executa. Você lidera." (sem mudança) |
 
 ## Tarde
 
-- Na pág. 79 ("Vocês acabaram de virar orquestradores"), retomar o número anotado no slide 10 ("quantas pessoas a sua empresa precisaria se nascesse hoje?", pág. 12) e as 3 respostas da pág. 3.
+- Na pág. 78 ("Vocês acabaram de virar orquestradores"), retomar o número anotado no slide 10 ("quantas pessoas a sua empresa precisaria se nascesse hoje?", pág. 12) e as 3 respostas da pág. 3.

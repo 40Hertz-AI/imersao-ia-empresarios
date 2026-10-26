@@ -117,14 +117,14 @@ Para editar um slide: mude `slides.html`, rode `build.sh` e confira os prints (`
 | 73 | Façam junto: baixar e abrir. | original p60 |
 | 74 | Bloco A: o cérebro da empresa, fases 1 a 3 (/instalar, /mapear-empresa, /mapear-concorrentes) | **novo t02** |
 | 75 | Bloco B: a página, /criar-pagina | **novo t03** |
-| 76 | Pausa: café da tarde | original p69 |
-| 77 | Bloco C: conteúdo só em HTML (/criar-conteudo) | **novo t04** |
-| 78 | Bloco D: agora, você (/sobre-mim) | **novo t05** |
-| 79 | Vocês acabaram de virar orquestradores. | original p64 |
-| 80 | O cérebro da empresa: se o seu melhor operador sair amanhã, o que vai embora com ele? | original p65 |
-| 81 | Quem monta o cérebro da empresa agora sai na frente. | original p66 |
-| 82 | Onde a IA muda o jogo hoje: comece pela receita. | original p67 |
-| 83 | Apolo: receita previsível em 90 dias. | original p68 |
+| 76 | Bloco C: conteúdo só em HTML (/criar-conteudo) | **novo t04** |
+| 77 | Bloco D: agora, você (/sobre-mim) | **novo t05** |
+| 78 | Vocês acabaram de virar orquestradores. | original p64 |
+| 79 | O cérebro da empresa: se o seu melhor operador sair amanhã, o que vai embora com ele? | original p65 |
+| 80 | Quem monta o cérebro da empresa agora sai na frente. | original p66 |
+| 81 | Onde a IA muda o jogo hoje: comece pela receita. | original p67 |
+| 82 | Apolo: receita previsível em 90 dias. | original p68 |
+| 83 | Pausa: café da tarde | original p69 |
 | 84 | FDE: Forward Deployed Engineer. | original p70 |
 | 85 | Os quatro lados do FDE. | original p71 |
 | 86 | A empresa AI-native. | original p72 |
@@ -134,7 +134,7 @@ Para editar um slide: mude `slides.html`, rode `build.sh` e confira os prints (`
 
 Saíram do PDF base: p7, p8 e p12 (viraram os slides 13, 22 e 05); p14, p24 e p30 (divisores das fases 1 a 3 com "Façam junto", refeitos com "só eu mostro"); p23 (abrindo o Claude Code, virou o passo 1); p27 a p29 (Lanchonete Bom Pedaço, viraram o passo 2 da Torra Viva); p35 a p42 (sessões de skills da manhã antiga e a skill de reunião com arquivo da lanchonete, substituídas pela trilha de passos); p45 (mesma pergunta com a lanchonete); p48 (almoço sem horário); p34 (ao vivo: "primeiro procure, alguém já fez", saiu em 26/10); p53 (vídeo de agentes que citava Higgsfield); p61 a p63 (blocos A, B e C antigos da tarde); p50 a p52 (cases plano B), p54 e p55 (Fase 5 e harness = arreio) e p58 (CLAUDE.md é a regra da casa), que saíram em 26/10. A lista com o motivo de cada uma está em `SAIRAM`, em `montar.py`.
 
-Slides novos que saíram em 26/10 (pedido do Lucas): a agenda da manhã (m00), o intervalo (m09), o plano B do passo 2 (m14), o design system (m18), o Motion (m20) e o checkpoint (m21). Na tarde, saiu o Bloco E (t06, /sugerir-automacoes), o Bloco B ficou só com o /criar-pagina (sem Impeccable) e a previsibilidade (p4) subiu para a introdução, logo depois da pág. 3. O prompt (m02) virou dois: as 4 partes (m02a) e ruim × bom lado a lado (m02b).
+Slides novos que saíram em 26/10 (pedido do Lucas): a agenda da manhã (m00), o intervalo (m09), o plano B do passo 2 (m14), o design system (m18), o Motion (m20) e o checkpoint (m21). Na tarde, saiu o Bloco E (t06, /sugerir-automacoes), o Bloco B ficou só com o /criar-pagina (sem Impeccable) e a previsibilidade (p4) subiu para a introdução, logo depois da pág. 3, e o café da tarde foi para depois do Apolo. O prompt (m02) virou dois: as 4 partes (m02a) e ruim × bom lado a lado (m02b).
 
 ## Dados: regras seguidas
 
