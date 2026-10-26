@@ -11,7 +11,7 @@ O deck original (v3, 75 páginas, gerado pelo Chromium com Geist) tem a fonte HT
 
 | Arquivo | O que é |
 |---|---|
-| `slides.html` | Os 44 slides novos, um `<section class="slide">` por página, 1280×720 px CSS (= 960×540 pt). `data-id`: número do slide no roteiro da introdução; `m01`–`m22` (manhã; o prompt é `m02a`) e `t01`–`t10` (a pasta minha-empresa, antes e depois do almoço) |
+| `slides.html` | Os 46 slides novos, um `<section class="slide">` por página, 1280×720 px CSS (= 960×540 pt). `data-id`: número do slide no roteiro da introdução; `m01`–`m22` (manhã; o prompt é `m02a`) e `t01`–`t10` (a pasta minha-empresa, antes e depois do almoço) |
 | `montar.py` | Monta o PDF final com pypdf. A ordem do deck inteiro está na lista `ORDEM` |
 | `build.sh` | Faz tudo: pega o PDF base no git, imprime `slides.html` com o Chrome headless e chama `montar.py` |
 | `roteiro.md` | Falas do palestrante da introdução, com página, slide e fonte (as falas não vão nos slides), e o mapa do resto do dia |
@@ -116,11 +116,11 @@ Para editar um slide: mude `slides.html`, rode `build.sh` e confira os prints (`
 | 68 | Bloco E: a página (/criar-pagina, fase 7) | **novo t03** |
 | 69 | Bloco F: conteúdo em HTML, com o botão "Gerar prompt de imagem" (/criar-conteudo, fase 8) | **novo t04** |
 | 70 | Vocês acabaram de virar orquestradores. | original p64 |
-| 71 | O cérebro da empresa: se o seu melhor operador sair amanhã, o que vai embora com ele? | original p65 |
+| 71 | O cérebro da empresa: se o seu melhor funcionário sair amanhã, o que vai embora com ele? | **novo t12** (réplica do original p65, que dizia "operador") |
 | 72 | Quem monta o cérebro da empresa agora sai na frente. | original p66 |
 | 73 | Onde a IA muda o jogo hoje: comece pela receita. | original p67 |
 | 74 | Apolo: receita previsível em 90 dias. | original p68 |
-| 75 | Pausa: café da tarde (último slide) | original p69 |
+| 75 | Encerramento: como foi a sua experiência na imersão? Muito obrigado! (último slide) | **novo t11** (era original p69, café da tarde) |
 
 Saíram do PDF base: p12 (virou o slide 05); p5 e p6 (7% e 16,3%, saíram em 26/10); p14, p24 e p30 (divisores das fases 1 a 3 com "Façam junto", refeitos com "só eu mostro"); p23 (abrindo o Claude Code, virou o passo 1); p27 a p29 (Lanchonete Bom Pedaço, viraram o passo 2 da Torra Viva); p35 a p42 (sessões de skills da manhã antiga e a skill de reunião com arquivo da lanchonete, substituídas pela trilha de passos); p45 (mesma pergunta com a lanchonete); p48 (almoço sem horário); p34 (ao vivo: "primeiro procure, alguém já fez", saiu em 26/10); p53 (vídeo de agentes que citava Higgsfield); p61 a p63 (blocos A, B e C antigos da tarde); p50 a p52 (cases plano B), p54 e p55 (Fase 5 e harness = arreio) e p58 (CLAUDE.md é a regra da casa), que saíram em 26/10. A lista com o motivo de cada uma está em `SAIRAM`, em `montar.py`.
 
@@ -129,6 +129,8 @@ Slides novos que saíram em 26/10 (pedido do Lucas): Kodak/Blockbuster/Nokia (03
 Segunda rodada de 26/10 (pedido do Lucas): de manhã os alunos não fazem a prática, só o Lucas mostra na pasta `torra-viva` (os slides de passo viraram "Ao vivo"). O m02b saiu (o exemplo já é o passo 3) e o m02a foi para logo antes do passo 3. Saíram a ponte (p46) e, no fim, o FDE até "A IA executa. Você lidera." (p70 a p75): o café da tarde é o último slide. A pasta, as fases e o baixar e abrir (p57, p59, p60) viraram t08, t09 e t10 com a pasta `minha-empresa` em 8 fases, e subiram para antes do almoço com os Blocos A (fases 1 a 3), B (/sobre-mim) e C (/sugerir-automacoes, o t06 de volta). Depois do almoço: Blocos D (/criar-oferta, t07, novo), E (/criar-pagina) e F (/criar-conteudo).
 
 Terceira rodada de 26/10 (pedido do Lucas), na introdução: saíram o "hoje vocês saem do chat" (p8, repetia a promessa), o "cada virada" (p11), as empresas desta era (07), o arquiteto de fluxos (12) e a IA como primeiro recurso (12b). A previsibilidade (p4) e o processos e pessoas (p7) desceram para depois do abismo (17), e o "quem sou" (p9) para logo antes da promessa (22). O slide novo do contexto (05a), que entrou nessa rodada, também saiu. Deck com 75 páginas.
+
+No fim, o café da tarde (p69) virou o encerramento (t11): "Como foi a sua experiência na imersão? Muito obrigado!", com a mesma imagem. A pág. 71 (original p65) foi refeita como t12 para trocar "operador" por "funcionário".
 
 ## Dados: regras seguidas
 

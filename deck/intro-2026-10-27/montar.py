@@ -91,11 +91,11 @@ TARDE = [
     ("novo", "t03"),  # bloco E: /criar-pagina (fase 7)
     ("novo", "t04"),  # bloco F: /criar-conteudo, com o prompt de imagem (fase 8)
     ("orig", 64),     # vocês acabaram de virar orquestradores
-    ("orig", 65),
+    ("novo", "t12"),  # o cérebro da empresa: "melhor funcionário" (réplica do orig 65, que dizia "operador")
     ("orig", 66),
     ("orig", 67),
     ("orig", 68),     # Apolo · receita previsível
-    ("orig", 69),     # café da tarde: último slide
+    ("novo", "t11"),  # encerramento: como foi a sua experiência? Muito obrigado! (substitui o café da tarde, orig 69)
 ]
 ORDEM = INTRO + MANHA + TARDE
 # Páginas do PDF base que saíram (com o que as substitui):
@@ -120,6 +120,8 @@ SAIRAM = {
     57, 59, 60,          # pasta cerebro-da-empresa, 6 fases e baixar e abrir -> t08, t09, t10 (minha-empresa)
     8,                   # hoje vocês saem do chat (saiu em 26/10, 3ª rodada: repetia o título da promessa)
     11,                  # cada virada mudou como se trabalha (saiu em 26/10, 3ª rodada)
+    65,                  # "se o seu melhor operador sair amanhã" -> t12, com "funcionário" (26/10, 3ª rodada)
+    69,                  # café da tarde -> t11, encerramento (26/10, 3ª rodada)
     70, 71, 72, 73, 74, 75,  # FDE, quatro lados, AI-native, escada, depoimentos e fecho (saíram em 26/10)
 }
 
