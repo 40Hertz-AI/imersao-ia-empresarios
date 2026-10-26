@@ -1,5 +1,5 @@
-Crie meu-trabalho/calculadora-orcamento.html: uma calculadora de orçamento de café para escritório da Torra Viva, num arquivo só (HTML, CSS e JavaScript juntos).
+Crie meu-trabalho/calculadora-orcamento.html e publique como artifact: uma calculadora de orçamento de café para escritório da Torra Viva, num arquivo só (HTML, CSS e JavaScript juntos).
 Campos: número de pessoas, xícaras por pessoa por dia (padrão 2), dias úteis no mês (padrão 21), café (Blend Escritório, Mantiqueira Clássico ou Cerrado Doce), contrato anual (sim ou não) e máquina de café (sim ou não).
 Siga as regras de dados/orcamento.csv, na ordem em que estão escritas, e mostre a conta de cada linha: kg por mês, valor do café, desconto, máquina, frete, total do mês e custo por xícara. O resultado muda na hora, a cada alteração.
-Use as cores e fontes de meu-trabalho/design-system.md e a skill frontend-design no acabamento. Escreva no rodapé "Dados fictícios de exemplo".
+Use a skill frontend-design no acabamento. Escreva no rodapé "Dados fictícios de exemplo".
 Para dar para testar, deixe a conta numa função calcularOrcamento({pessoas, xicaras, dias, cafe, anual, maquina}) que devolve {kg, valorCafe, descontoPct, cafeComDesconto, maquina, frete, total, custoPorXicara}.

@@ -1,6 +1,5 @@
 # Passo 4 · Usar uma skill pronta: `/eli5`
 
-**Tempo:** 10 min.
 **O que você vai fazer:** usar a skill `eli5`, que já vem nesta pasta, para entender um conceito de negócio.
 
 **A ideia:** skill é um arquivo que ensina o Claude a fazer uma tarefa sempre do mesmo jeito. Em cima, **quando usar**; embaixo, **como fazer**. Você ensina uma vez e ele repete sempre. As skills desta pasta ficam em `.claude/skills/` (no Mac, a pasta é escondida: **Cmd+Shift+.** mostra).

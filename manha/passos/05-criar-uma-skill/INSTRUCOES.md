@@ -1,13 +1,12 @@
 # Passo 5 · Criar uma skill: `/resposta-cliente`
 
-**Tempo:** 20 min.
 **O que você vai fazer:** criar uma skill que lê a mensagem de um cliente da Torra Viva e devolve a resposta pronta, no tom da empresa e dentro das regras de atendimento.
 
 **A ideia:** se você faz a mesma tarefa toda semana, ela pode virar uma skill. Você explica uma vez e depois só digita `/resposta-cliente`.
 
 ---
 
-## 1. Criar a skill (5 min)
+## 1. Criar a skill
 
 Cole no Claude Code:
 
@@ -31,7 +30,7 @@ O Claude pede licença para criar o arquivo: aceite.
 Digite `/` e procure **resposta-cliente**. Não apareceu? `/exit`, depois `claude` de novo.
 Abra `.claude/skills/resposta-cliente/SKILL.md` e leia: em cima o **quando usar**, embaixo o **como fazer**.
 
-## 3. Testar com mensagens de clientes (10 min)
+## 3. Testar com mensagens de clientes
 
 Conversa nova (`/clear`) e teste as 3 mensagens de `mensagens-de-clientes.md` (nesta pasta). Por exemplo:
 
@@ -41,7 +40,7 @@ Conversa nova (`/clear`) e teste as 3 mensagens de `mensagens-de-clientes.md` (n
 
 Confira: ele prometeu só o que está em `dados/politicas-atendimento.md`? Marcou `[confirmar: ...]` o que não sabia?
 
-## 4. Melhorar (5 min)
+## 4. Melhorar
 
 Achou algo para mudar? Peça, por exemplo:
 

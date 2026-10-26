@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Desenha a imagem de referência do passo 6 (design system).
+"""Desenha a imagem de referência que o teste do /marca da tarde usa como "print do site".
 
 É um mockup próprio, feito do zero com PIL, no estilo de um "shot" do Dribbble:
 uma janela de navegador com a página de uma torrefação e, embaixo, a paleta e as
-fontes. Serve de plano B para quem não puder (ou não quiser) usar um print do Dribbble.
+fontes. Era o plano B do antigo passo 6 da manhã (design system), que saiu da trilha em 26/10/2026;
+hoje só o teste da tarde usa (testes/rodar-tarde.sh).
 
-Saída: manha/passos/06-design-system/referencia-design.png
+Saída: testes/insumos/referencia-design.png
 Uso:   python3 scripts/gerar-mockup-design.py
 """
 from pathlib import Path
@@ -13,7 +14,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 RAIZ = Path(__file__).resolve().parent.parent
-SAIDA = RAIZ / "manha" / "passos" / "06-design-system" / "referencia-design.png"
+SAIDA = RAIZ / "testes" / "insumos" / "referencia-design.png"
 FONTES = Path("/usr/share/fonts/truetype/sand-box/google")
 
 FOLHA = "#234B3F"     # verde da folha do cafeeiro (fundo do shot)

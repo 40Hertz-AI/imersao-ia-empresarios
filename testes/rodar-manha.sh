@@ -41,20 +41,14 @@ passo5() {
 }
 corre passo-05 passo5
 
-# passo 6, e os passos 7 e 8 com o design system que o passo 6 gerou
-passo6e7() {
-  $R manha passo-06 aula $P/passo-06.txt
-  local ds="mkdir -p meu-trabalho && cp /tmp/teste-manha-passo-06/meu-trabalho/design-system.md meu-trabalho/"
-  for t in calculadora dashboard apresentacao; do
-    $R manha passo-07-$t aula $P/passo-07-$t.txt --preparar "$ds" &
-  done
-  $R manha passo-08 aula $P/passo-08-planob.txt --preparar "$ds" &
-  wait
-}
-corre passo-06-07-08 passo6e7
-corre passo-06-vazia $R manha passo-06 vazia $P/passo-06.txt
-corre passo-07-vazia $R manha passo-07-calculadora vazia $P/passo-07-calculadora.txt
-corre passo-08-vazia $R manha passo-08 vazia $P/passo-08-planob.txt
+# passo 6: as três páginas, cada uma numa conversa nova (no -p o artifact fica desligado: vale o arquivo em meu-trabalho/)
+for t in calculadora dashboard apresentacao; do
+  corre passo-06-$t $R manha passo-06-$t aula $P/passo-06-$t.txt
+done
+corre passo-06-vazia $R manha passo-06-calculadora vazia $P/passo-06-calculadora.txt
+# plano B do passo 6 (claude.ai): pasta só com os "anexos" e o começo do prompt trocado, como manda o INSTRUCOES
+corre passo-06-claudeai $R manha passo-06-claudeai-calculadora vazia $P/passo-06-claudeai-calculadora.txt \
+  --preparar "mkdir -p anexos && cp '$PWD/manha/CLAUDE.md' '$PWD/manha/dados/orcamento.csv' anexos/"
 
 # skills que já vêm na pasta
 corre skill-find-skills $R manha skill-find-skills aula $P/skill-find-skills.txt
