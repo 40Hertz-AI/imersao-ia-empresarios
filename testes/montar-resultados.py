@@ -58,9 +58,7 @@ CORRIGIDO = """Rodar de novo até passar. Tudo abaixo foi corrigido. O teste foi
 2. **Pasta de teste reaproveitada:** o harness reusava a pasta de uma rodada anterior quando ela já existia (apareceram arquivos `-anterior`). Agora todo teste sem `--dir` começa numa pasta nova, e a prova também começa limpa.
 3. **Harness editado durante o lote:** o bash lê o script aos poucos; a edição quebrou o pós-processamento do passo 8. Passo 8 refeito; o harness passou a ser trocado só com `mv`.
 4. **Apresentação do passo 7 (hoje passo 6):** o rodapé sobrepunha o texto em 1280 × 720 (slides 1 e 3). O prompt do aluno ganhou "cabe numa tela de notebook (1280 × 720) sem nada sobreposto"; refeito e conferido em 1280 × 720 e 1366 × 657.
-5. **`/impeccable` na pasta vazia:** abriu dois subagentes em segundo plano e o `claude -p` terminou antes do relatório (no Claude Code normal, o aviso chega depois). O prompt do teste pede tudo na mesma resposta; refeito.
 6. **`frontend-design` da tarde:** o teste recebeu o prompt do `/criar-pagina` por engano; refeito com `/frontend-design`.
-7. **`/criar-pagina` na trilha:** o aviso de design do Impeccable (hook no fim da resposta) fez a última mensagem virar um relatório de design, sem o fechamento da fase. Entrou `hook.quiet` no `.impeccable/config.json` e uma regra no `CLAUDE.md` da tarde; refeito (`tarde/criar-pagina-de-novo`): fecha no formato da fase, com a linha "Ajuste de design".
 8. **Frase inferida como fala de cliente:** a crítica do `/impeccable` achou na página uma frase marcada `(inferida)` na pesquisa apresentada como citação. O `/criar-pagina` agora proíbe; no teste refeito, nenhuma frase inferida aparece na página.
 9. **Fechamento fora da pasta da aula:** o `/criar-pagina` na pasta vazia sugeria `/criar-conteudo`, que não existia lá. Corrigido e refeito.
 10. **Capa do relatório:** a frase da capa dizia "2 de 6 fases" enquanto o menu já mostrava 4. A contagem saiu da frase; `/instalar` refeito (`tarde/instalar-revisado`).
@@ -75,7 +73,6 @@ DEPENDE = """| O quê | Onde | Por que não deu para testar aqui | Plano B na au
 | **Importar o .xlsx no Google Planilhas** | Manhã, passo 2 | Precisa de conta Google | O `.xlsx` foi gerado com openpyxl e abre no Excel/LibreOffice; se o import falhar, usar o plano B |
 | **Artifact do Claude Code** (a página publicada no claude.ai) | Manhã, passo 6 | Pela doc oficial (code.claude.com/docs/en/artifacts), o Artifact fica desligado no `claude -p` e exige login com conta do claude.ai (Pro, Max, Team ou Enterprise). Os testes rodam com `-p` e não publicam nada em conta real | O arquivo em `meu-trabalho/` sai sempre (testado nas 3 páginas); sem Artifact, o Claude avisa em 1 linha e segue (testado). Abrir com dois cliques |
 | **claude.ai** (plano B do passo 6: anexar, painel do Artifact, título → Export → HTML) | Manhã, passo 6 | Interface web com login | O prompt com o começo trocado rodou numa pasta só com os anexos (calculadora certa em 10 de 10 casos). O caminho principal é o Claude Code |
-| **Internet para o Impeccable** | Tarde (`/impeccable` e a conferência automática de HTML) | Testado aqui com internet: na primeira vez ele baixa o motor (~21 MB) do GitHub do projeto. Em Wi-Fi lento, o download pode passar dos 5 s do hook e falhar em silêncio até completar | O `/instalar` já dispara o download em segundo plano no começo da tarde. Sem internet, as skills seguem sem o Impeccable (a regra está no CLAUDE.md da tarde). Se travar: apagar `.claude/settings.json` da pasta desliga os hooks |
 | **Busca na web** | Tarde (`/mapear-empresa`, `/mapear-concorrentes`, `/criar-conteudo`) | Testado com internet | Sem internet, as fases marcam `[a confirmar]`; dá para seguir com a memória do `/instalar` |
 | **Node.js** | `find-skills` (manhã) e o print de conferência do `/criar-pagina` (`npx playwright --channel chrome`, usa o Chrome do computador) | Testado com Node 20 | Sem Node: instalar skill pelo professor; no `/criar-pagina`, a skill pede ao dono para olhar a página no navegador |
 | **Google Fonts e mapa do Google** | Páginas e posts | Carregam da internet | Sem internet, as páginas abrem com fontes do sistema e o mapa mostra o fundo desenhado com o nome da cidade |
@@ -122,8 +119,6 @@ TARDE = [
      ["criar-pagina"], "Sem marca e sem oferta: marca `[sugestão]` e oferta mínima anotada no topo da copy", ["pasta-vazia/tarde-criar-pagina"]),
     ("`/criar-conteudo` (só HTML)", ["criar-conteudo", "criar-conteudo-forno"], "Carrossel de 7 lâminas + 2 posts em HTML, `?n=` funcionando, relatório com as lâminas em iframe; nenhum PNG, nenhum Playwright. Rodou também sobre o Forno da Vila (virou o exemplo novo)", ["tarde/criar-conteudo", "tarde/criar-conteudo-forno"],
      ["criar-conteudo"], "Sem nada: perguntou o mínimo, sugeriu a marca e entregou carrossel e posts em HTML", ["pasta-vazia/tarde-criar-conteudo"]),
-    ("`/impeccable` (sem plugin)", ["impeccable"], "Crítica da página de vendas sem alterar arquivo; `impeccable telemetry status` = off pelo `.impeccable/config.json`", ["tarde/impeccable"],
-     ["impeccable"], "Só a skill (com os scripts dela): crítica completa com o detector", ["pasta-vazia/tarde-impeccable"]),
     ("`/sobre-mim`", ["sobre-mim"], "Entrevista respondida como a Helena; mapa em `memoria/sobre-mim.md` (usou a pasta da aula), `falta-trazer.md` e seção no CLAUDE.md", ["tarde/sobre-mim"],
      ["sobre-mim"], "Pasta vazia: criou `contexto/` e um CLAUDE.md mínimo", ["pasta-vazia/tarde-sobre-mim"]),
     ("`/sugerir-automacoes`", ["sugerir-automacoes"], "Leu o mapa do `/sobre-mim` e gravou 10 sugestões com impacto, esforço e próximo passo", ["tarde/sugerir-automacoes"],
@@ -140,7 +135,6 @@ L = ["# Resultados dos testes",
      "- `--setting-sources project,local`: sem os plugins e skills globais desta máquina (o aluno não tem). Por isso a `skill-creator` não estava disponível: o passo 5 foi testado no caso mais difícil.",
      "- `--strict-mcp-config`: sem conectores (Drive, Notion...). Nenhum teste escreveu em conta real.",
      "- Dentro do `bwrap`, que esconde o resto do disco: o Claude só enxerga a pasta do teste (na 1ª rodada, sem isso, ele achou o material em outra pasta; a rodada foi descartada).",
-     "- Na pasta vazia, `DO_NOT_TRACK=1` (lá não existe o `.impeccable/config.json`).",
      "- As conferências automáticas estão em `verificar/` (`verificar-manha.mjs`, `verificar-tarde.mjs`): abrem os HTML no Chrome, testam a calculadora contra as regras do `orcamento.csv` calculadas à parte, contam lâminas, conferem números contra `scripts/respostas-certas.py` etc. Resultado em `manha/verificacao.json`, `tarde/verificacao.json` e `pasta-vazia/verificacao-tarde.json`; prints em `manha/prints/` e `tarde/prints/`.",
      "- Os tempos abaixo foram medidos com vários testes rodando juntos (até 7 na manhã e até 10 na tarde): com a API disputada, os testes longos levam mais que levariam para um aluno sozinho.",
      "- **Manhã:** rodada inteira de novo em 26/10/2026, com a trilha de 6 passos (saíram o design system e o Claude Motion; o passo 6 virou páginas web com Artifacts). **Tarde:** rodada de 25/10/2026; nada da tarde mudou desde então, só o caminho do print do teste do `/marca`.",
@@ -154,7 +148,7 @@ L = ["# Resultados dos testes",
 for nome, ta, xa, pa, tv, xv, pv, res in MANHA:
     L.append(f"| {nome} | {cel(VM, ta, xa)} ({', '.join(tempo(p) for p in pa[:1])}) | {xv} | {res} | {' · '.join('`' + p + '`' for p in pa + pv)} |")
 L += ["", "## Tarde", "",
-      "Na pasta da aula, a trilha rodou **inteira e em sequência numa pasta só**, como a aluna faria no dia: `/instalar` → `/mapear-empresa` → `/marca` (com um print) → `/mapear-concorrentes` → `/criar-oferta` → `/criar-pagina` → `/criar-conteudo` → `/impeccable`. A empresa é a Torra Viva (fictícia; o site não existe, então a pesquisa da empresa volta vazia e vira `[a confirmar]`, e a de mercado, cliente e concorrentes é real). Os extras rodaram em outra pasta da aula. Na pasta vazia, a empresa é a Padaria Trigo Azul (fictícia, Campinas).",
+      "Na pasta da aula, a trilha rodou **inteira e em sequência numa pasta só**, como a aluna faria no dia: `/instalar` → `/mapear-empresa` → `/marca` (com um print) → `/mapear-concorrentes` → `/criar-oferta` → `/criar-pagina` → `/criar-conteudo`. A empresa é a Torra Viva (fictícia; o site não existe, então a pesquisa da empresa volta vazia e vira `[a confirmar]`, e a de mercado, cliente e concorrentes é real). Os extras rodaram em outra pasta da aula. Na pasta vazia, a empresa é a Padaria Trigo Azul (fictícia, Campinas).",
       "",
       "| Skill | Teste na pasta da aula | Teste na pasta vazia | Resultado | Caminho da prova |",
       "|---|---|---|---|---|"]

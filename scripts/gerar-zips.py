@@ -4,7 +4,7 @@
 A pasta de cima se chama imersao-manha/ e imersao-tarde/, como nos ZIPs anteriores. Fica de fora tudo o que
 não está dentro de manha/ e tarde/ (testes/, scripts/...). Datas fixas e ordem fixa: o ZIP sai igual se nada
 mudou (para saber se o material do ar foi atualizado, compare o hash do ZIP baixado do ar, não o do disco).
-As permissões Unix vão junto (o launcher do Impeccable precisa do bit de execução no Mac).
+As permissões Unix vão junto.
 
 Uso: python3 scripts/gerar-zips.py
 """

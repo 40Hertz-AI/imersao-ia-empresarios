@@ -30,8 +30,6 @@ grava("mapear-concorrentes-aula", "/mapear-concorrentes")
 grava("criar-oferta-aula", "/criar-oferta")
 grava("criar-pagina-aula", "/criar-pagina")
 grava("criar-conteudo-aula", "/criar-conteudo")
-grava("impeccable-aula", "/impeccable critique entregas/pagina-de-vendas.html. Só a crítica: não altere nenhum arquivo. Faça tudo nesta resposta, sem deixar nada rodando em segundo plano (este teste roda sem ninguém para receber o aviso depois).")
-grava("impeccable-aula-telemetria", "Rode no terminal `sh .claude/skills/impeccable/scripts/impeccable telemetry status` e me mostre a saída exata.")
 grava("criar-conteudo-forno", "/criar-conteudo")
 
 SOBRE_HELENA = """Responda você mesmo, como se fosse a aluna Helena, a cada pergunta da entrevista, usando só isto que ela sabe (vá até o fim, sem esperar por mim):
@@ -79,6 +77,5 @@ Responda você mesmo, como se fosse o aluno Jorge, a cada pergunta da entrevista
 grava("sugerir-automacoes-vazia", """/sugerir-automacoes
 
 (Se perguntar se quero rodar /sobre-mim antes, escolha as perguntas rápidas e responda você mesmo como se fosse o aluno Jorge, sem esperar por mim: dono da Padaria Trigo Azul, fictícia, em Campinas. As tarefas que mais tomam tempo: responder pedidos de café da manhã para empresas no WhatsApp (20 minutos cada, 5 por semana, calcula no celular e anota no caderno) e fazer as compras da semana (2 horas toda segunda, liga para 3 fornecedores). Os dados estão no WhatsApp e num caderno; não usa planilha.)""")
-grava("impeccable-vazia", "/impeccable critique pagina.html. Só a crítica: não altere nenhum arquivo. Faça tudo nesta resposta, sem deixar nada rodando em segundo plano (este teste roda sem ninguém para receber o aviso depois).")
 grava("frontend-design-vazia", "/frontend-design Crie pagina.html: a página do café da manhã para empresas da Padaria Trigo Azul (fictícia), no bairro Cambuí, em Campinas: R$ 35 por pessoa, pedido pelo WhatsApp (19) 90000-0000 (fictício) com data, número de pessoas e endereço. Um arquivo só, que funciona no celular.")
 print(sorted(p.name for p in SAIDA.glob("*.txt")))

@@ -1,1 +1,0 @@
-/impeccable critique pagina.html. Só a crítica: não altere nenhum arquivo. Faça tudo nesta resposta, sem deixar nada rodando em segundo plano (este teste roda sem ninguém para receber o aviso depois).

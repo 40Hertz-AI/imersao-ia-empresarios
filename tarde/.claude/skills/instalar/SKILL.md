@@ -10,7 +10,6 @@ Primeiro contato da pessoa com a pasta. **Uma pergunta por mensagem, no máximo 
 ## Antes (em silêncio)
 
 - Se `memoria/empresa.md` já tiver conteúdo: perguntar "Já tem memória aqui. Recomeço ou só completo o que falta?" (não conta como pergunta da entrevista).
-- Se existir `.claude/skills/impeccable/scripts/impeccable`: rodar em segundo plano `sh .claude/skills/impeccable/scripts/impeccable engine-probe` (prepara o Impeccable, a skill de design; baixa uns 20 MB uma vez só). No Windows sem `sh`: `.claude\skills\impeccable\scripts\impeccable.cmd engine-probe`. Falhou ou sem internet: seguir sem avisar.
 - **Pasta fora da aula** (sem `memoria/`, `marca/` ou `controle/`): criar só o que falta, com os campos de "Arquivos que esta fase cria", lá embaixo. Não avisar nada no começo.
 
 ## As 7 perguntas (uma por vez, nesta ordem)

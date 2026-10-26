@@ -37,7 +37,7 @@ Sem site? Arraste um print do Instagram ou o logo para a conversa e digite `/mar
 |---|---|---|
 | `/sobre-mim` | Entrevista sobre o **seu** trabalho: rotina, processos, ferramentas, dores. Grava o mapa em `memoria/sobre-mim.md` | 15 min |
 | `/sugerir-automacoes` | Lê a pasta (e o mapa do `/sobre-mim`) e sugere automações, rotinas e skills por impacto e esforço, cada uma com o próximo passo | 5 a 10 min |
-| `/impeccable` | Skill de design: revisa e melhora a página ou os posts. Ex.: `/impeccable critique entregas/pagina-de-vendas.html` | 5 min |
+| `/frontend-design` | Skill de design: melhora o visual da página ou dos posts. Ex.: `/frontend-design melhore entregas/pagina-de-vendas.html sem trocar as cores da marca` | 5 min |
 
 **Os posts são HTML.** Abra `entregas/posts/carrossel-1.html` no navegador e passe as lâminas com as setas. Para postar: abra cada lâmina sozinha (`carrossel-1.html?n=1`, `?n=2`...) em tela cheia e tire um print (Windows: **Win+Shift+S**; Mac: **Cmd+Shift+4**).
 
@@ -63,12 +63,10 @@ controle/             em que fase você está + o modelo do relatório
 dados/                solte aqui planilhas e PDFs                    (privado)
 RESULTADO.html        o relatório da empresa (nasce no /instalar)
 exemplo-forno-da-vila/  o exemplo pronto, só para consulta
-.claude/              as skills (e os agentes e a configuração do Impeccable)
-.impeccable/          configuração do Impeccable (telemetria desligada)
-licencas/             licenças de terceiros (Impeccable)
+.claude/              as skills
 ```
 
-No Mac, as pastas que começam com ponto (`.claude`, `.impeccable`) ficam escondidas no Finder (**Cmd+Shift+.** mostra). Elas estão lá, e o Claude Code as encontra sozinho.
+No Mac, as pastas que começam com ponto (como `.claude`) ficam escondidas no Finder (**Cmd+Shift+.** mostra). Elas estão lá, e o Claude Code as encontra sozinho.
 
 **Privacidade:** `memoria/numeros.md` e `dados/` ficam só no seu computador e não aparecem no `RESULTADO.html`. Não suba esta pasta preenchida para lugar público.
 
@@ -87,7 +85,6 @@ No Mac, as pastas que começam com ponto (`.claude`, `.impeccable`) ficam escond
 
 ## Créditos e licenças
 
-- **Impeccable**: skill de design de **Paul Bakaus**, licença Apache 2.0 ([github.com/pbakaus/impeccable](https://github.com/pbakaus/impeccable), [impeccable.style](https://impeccable.style)). Vem dentro da pasta, sem plugin: a skill em `.claude/skills/impeccable/`, os agentes em `.claude/agents/impeccable-*.md` e a conferência automática de HTML em `.claude/settings.json`. Licença e avisos em `licencas/impeccable/` (`LICENSE` e `NOTICE.md`). Gerada sem alterações a partir do repositório original (versão 4.7.1, motor 0.1.17). A telemetria está desligada em `.impeccable/config.json` (`"telemetry": false`). Na primeira vez, ela baixa o motor (uns 20 MB) do GitHub do projeto.
 - `frontend-design`: [anthropics/skills](https://github.com/anthropics/skills) (Apache 2.0), licença dentro da pasta da skill.
 - `instalar`, `mapear-empresa`, `mapear-concorrentes`, `criar-oferta`, `criar-pagina`, `criar-conteudo`, `marca`, `sobre-mim` e `sugerir-automacoes`: escritas para esta imersão.
 

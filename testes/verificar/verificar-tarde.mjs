@@ -170,12 +170,6 @@ for (const [teste, pasta] of [["criar-conteudo", TRILHA], ["criar-conteudo-forno
   anota("aula", teste, "não rodou Playwright nem gerou PNG", !/playwright|\.png/i.test(lista("aula", teste)) );
 }
 {
-  const t = fala("aula", "impeccable");
-  anota("aula", "impeccable", "fez a crítica da página", /critique|crítica|nota|score|heur/i.test(t) && t.length > 800);
-  anota("aula", "impeccable", "telemetria desligada pelo .impeccable/config.json", /telemetry: off \("telemetry": false in \.impeccable\/config\.json\)/.test(t));
-  anota("aula", "impeccable", "não alterou a página", !lista("aula", "impeccable").includes("entregas/pagina-de-vendas.html"));
-}
-{
   const s = ler(arq("aula", "sobre-mim", "memoria/sobre-mim.md"));
   anota("aula", "sobre-mim", "gravou memoria/sobre-mim.md (usou a pasta memoria/ da aula)", !!s);
   anota("aula", "sobre-mim", "mapa com processos, gatilho e diagrama", /Mapa de processos/.test(s) && /Gatilho/i.test(s) && /flowchart/.test(s));
@@ -203,7 +197,6 @@ for (const [teste, pasta] of [["criar-conteudo", TRILHA], ["criar-conteudo-forno
     const inferidas = [...cli.matchAll(/"([^"]{15,})"[^\n]*\(inferida\)/g)].map((m) => m[1].slice(0, 30));
     const usadas = inferidas.filter((f) => pag.includes(f));
     anota("aula", "criar-pagina-de-novo", "frase (inferida) da pesquisa não aparece como citação na página", usadas.length === 0, usadas.join(" | "));
-    anota("aula", "criar-pagina-de-novo", "telemetria continua desligada no config", /"telemetry": false/.test(ler("/tmp/teste-tarde-criar-pagina-de-novo/.impeccable/config.json")));
   }
 }
 
@@ -227,8 +220,6 @@ for (const [s, arqs] of Object.entries(vazias)) {
 }
 await confereLaminas("vazia", "criar-conteudo", "/tmp/vazia-tarde-criar-conteudo");
 {
-  const t = fala("vazia", "impeccable");
-  anota("vazia", "impeccable", "fez a crítica da página", t.length > 800 && /crítica|nota|heur|critique/i.test(t));
   const f = arq("vazia", "frontend-design", "pagina.html");
   anota("vazia", "frontend-design", "criou pagina.html", existe(f));
   if (existe(f)) {

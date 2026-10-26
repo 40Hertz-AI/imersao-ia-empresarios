@@ -26,7 +26,6 @@ trilha() {
   $R tarde criar-oferta aula $P/criar-oferta-aula.txt --dir "$d"
   $R tarde criar-pagina aula $P/criar-pagina-aula.txt --dir "$d"
   $R tarde criar-conteudo aula $P/criar-conteudo-aula.txt --dir "$d"
-  $R tarde impeccable aula $P/impeccable-aula.txt $P/impeccable-aula-telemetria.txt --dir "$d"
 }
 corre trilha trilha
 
@@ -47,8 +46,6 @@ corre extras extras
 for s in instalar mapear-empresa mapear-concorrentes criar-oferta criar-pagina criar-conteudo marca sobre-mim sugerir-automacoes; do
   corre $s-vazia $R tarde $s vazia $P/$s-vazia.txt --skills $s
 done
-corre impeccable-vazia $R tarde impeccable vazia $P/impeccable-vazia.txt --skills impeccable \
-  --preparar "cp '$REPO/tarde/exemplo-forno-da-vila/entregas/pagina-de-vendas.html' pagina.html"
 corre frontend-design-vazia $R tarde frontend-design vazia $P/criar-pagina-vazia.txt --skills frontend-design
 wait
 echo "tarde: todos os testes terminaram"
