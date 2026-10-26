@@ -9,8 +9,8 @@ Material público e portal do **treinamento de IA para empresários** da 40 Hert
 |---|---|---|
 | `site/` | Portal do aluno, em HTML estático | Sim |
 | `site/downloads/` | ZIPs das pastas e guias. **Tudo aqui é público** | Não: são gerados por script |
-| `manha/`, `tarde/` | Pastas dos alunos (projetos do Claude Code com skills em `.claude/skills/`) | **Não.** São espelho de uma fonte privada e a próxima publicação sobrescreve |
-| `scripts/` | Geradores: dados fictícios da Torra Viva, mockup de referência (teste do `/marca`), respostas certas, gabarito da manhã e os ZIPs (`scripts/gerar-zips.py`) | Sim |
+| `manha/`, `tarde/` | Pastas dos alunos (projetos do Claude Code com skills em `.claude/skills/`) | Sim. Depois, rode os testes e regere os ZIPs (ver Regras) |
+| `scripts/` | Geradores: dados fictícios da Torra Viva, mockup de referência (teste do `/marca`), respostas certas do passo 2 e os ZIPs (`scripts/gerar-zips.py`) | Sim |
 | `testes/` | Testes de cada passo e skill com `claude -p` (harness, prompts, provas e `RESULTADOS.md`). Não vão nos ZIPs | Sim |
 
 ## Deploy

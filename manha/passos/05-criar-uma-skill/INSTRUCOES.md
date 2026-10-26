@@ -52,10 +52,7 @@ Teste de novo. É assim que uma skill fica boa: usar, ajustar, usar.
 
 ## Resultado esperado
 
-- A skill em `.claude/skills/resposta-cliente/SKILL.md`.
-- A skill pronta, gerada com este mesmo prompt, está em `gabarito/05-criar-uma-skill/resposta-cliente/SKILL.md`, e as respostas às 3 mensagens em `gabarito/05-criar-uma-skill/exemplo-de-uso.md`.
-
-Quer usar a do gabarito? Copie a pasta `gabarito/05-criar-uma-skill/resposta-cliente/` para `.claude/skills/`.
+A skill em `.claude/skills/resposta-cliente/SKILL.md`.
 
 **O que reparar:** a skill usou os arquivos da pasta (contexto) sem você colar nada · uma regra escrita ("nunca prometer o que não está escrito") vale para todas as respostas · primeiro procure uma skill pronta, depois crie.
 

@@ -89,7 +89,6 @@ Me ajude a montar um prompt com Papel, Contexto, Tarefa e Formato para esta tare
 
 ## Resultado esperado
 
-- As respostas dos 4 exemplos, ruim e bom, estão em `gabarito/03-prompts-que-funcionam/` (geradas de verdade, nesta pasta).
 - O seu prompt em `meu-trabalho/prompts.md`.
 
 **O que reparar:** o prompt ruim gera um texto genérico, que você teria de reescrever · o bom já sai pronto para usar · o **Formato** é a parte que as pessoas mais esquecem.

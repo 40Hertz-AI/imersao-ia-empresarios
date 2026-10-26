@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Calcula, direto dos CSVs, as respostas certas do passo 2 (e os números que os testes conferem).
 
-Saída: manha/gabarito/02-google-drive-e-planilhas/respostas-certas.md e testes/manha/numeros-certos.json
+Saída: testes/manha/respostas-certas.md e testes/manha/numeros-certos.json
 Uso:   python3 scripts/respostas-certas.py
 """
 import csv
@@ -93,7 +93,7 @@ for c in atencao:
         linhas.append(f"- **{c['empresa']}** (ativo, NPS {c['nps']}, a nota mais baixa entre os ativos). Observação na planilha: {c['observacao']}")
 linhas.append("")
 
-saida = RAIZ / "manha" / "gabarito" / "02-google-drive-e-planilhas" / "respostas-certas.md"
+saida = RAIZ / "testes" / "manha" / "respostas-certas.md"
 saida.parent.mkdir(parents=True, exist_ok=True)
 saida.write_text("\n".join(linhas), encoding="utf-8")
 

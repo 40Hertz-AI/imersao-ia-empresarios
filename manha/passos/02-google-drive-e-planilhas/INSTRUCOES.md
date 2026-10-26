@@ -68,8 +68,6 @@ Salve essas respostas em meu-trabalho/resumo-vendas.md, com "Dados fictícios de
 - Com o Google: o Doc **Resumo Torra Viva** no seu Drive.
 - No plano B: o arquivo `meu-trabalho/resumo-vendas.md`.
 
-As respostas certas (calculadas direto dos dados) estão em `gabarito/02-google-drive-e-planilhas/respostas-certas.md`. A resposta que o Claude deu no teste está em `gabarito/02-google-drive-e-planilhas/resumo-vendas.md`.
-
 **O que reparar:** ele pede permissão antes de mexer no seu Drive · conecte só o que você precisa · ele lê a planilha e cria um arquivo novo, sem alterar o original · confira 1 número na planilha com os seus olhos.
 
 ✅ **Pronto quando:** o resumo está no Drive (ou em `meu-trabalho/`). Marque o passo 2 em `progresso.md`.

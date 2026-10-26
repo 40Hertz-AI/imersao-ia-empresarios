@@ -40,7 +40,7 @@ Conversa nova (`/clear`) antes de cada um, para ver que o jeito de explicar é s
 
 ## Resultado esperado
 
-Uma explicação curta com as 5 partes, na mesma ordem, sem palavra difícil. As respostas prontas estão em `gabarito/04-usar-uma-skill-pronta/`.
+Uma explicação curta com as 5 partes, na mesma ordem, sem palavra difícil.
 
 **O que reparar:** o assunto muda, o formato fica · você não explicou nada ao Claude sobre como responder: a skill explicou · há milhares de skills prontas em [skills.sh](https://skills.sh) (olhe quem fez e quantas pessoas instalaram antes de confiar).
 

@@ -23,7 +23,6 @@ Esta pasta é o projeto de uma pessoa aprendendo o Claude Code. Ela segue o `REA
 |---|---|
 | `dados/` | Dados fictícios de exemplo: `vendas-mensais.csv`, `produtos.csv`, `clientes-b2b.csv`, `orcamento.csv` (regras do orçamento para escritório), `politicas-atendimento.md` e `torra-viva.xlsx` (tudo junto, para subir no Google Planilhas) |
 | `passos/0N-.../INSTRUCOES.md` | O que fazer em cada passo, com o prompt pronto |
-| `gabarito/0N-.../` | O resultado pronto de cada passo, para comparar |
 | `meu-trabalho/` | Onde vai tudo o que a pessoa criar |
 | `progresso.md` | O checklist dos 6 passos |
 
@@ -45,7 +44,7 @@ Quando a pessoa perguntar "o que falta?" ou "e agora?": ler `progresso.md`, ver 
 - **Dados fictícios.** Tudo em `dados/` é inventado para a aula. Ao usar esses números num texto, página ou apresentação, escrever "dados fictícios de exemplo" em algum lugar visível.
 - **Não inventar.** Número, nome ou fato que não está em `dados/`, neste arquivo ou no que a pessoa disse não entra. Faltou informação: escrever `[confirmar: ...]`.
 - **CSV:** a primeira linha de cada `.csv` é o aviso `# ... dados fictícios de exemplo`; o cabeçalho vem na linha 2. Valores com ponto decimal (42.00).
-- **Nunca alterar `dados/` nem `gabarito/`.** Resultado vai para arquivo novo em `meu-trabalho/`.
+- **Nunca alterar `dados/`.** Resultado vai para arquivo novo em `meu-trabalho/`.
 - **Páginas e apresentações:** HTML num arquivo só (CSS, JavaScript e dados dentro, sem imagem nem biblioteca de fora), que abre com dois cliques. Para o acabamento visual, usar a skill `frontend-design`.
 - **Artifact:** quando a pessoa pedir "publique como artifact", salvar o arquivo no caminho pedido em `meu-trabalho/` e publicar esse mesmo arquivo. Se não der para publicar (plano, login ou versão do Claude Code), dizer em 1 linha que a página está em `meu-trabalho/` e abre com dois cliques, e seguir.
 - Um assunto por conversa: se a pessoa mudar de passo no meio, sugerir `/clear` (conversa nova).

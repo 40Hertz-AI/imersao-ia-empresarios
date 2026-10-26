@@ -2,7 +2,7 @@
 
 Esta pasta é o seu projeto da manhã. Você aprende o Claude Code em **6 passos**, usando uma empresa de mentira: a **Torra Viva Cafés Especiais**, uma torrefação de cafés especiais. Os dados dela são **fictícios de exemplo**, criados para a aula.
 
-As skills já estão dentro da pasta (em `.claude/skills/`) e funcionam assim que você abre a pasta no Claude Code. Cada passo tem uma pasta em `passos/` com as instruções e os prompts prontos para copiar, e o resultado pronto em `gabarito/`.
+As skills já estão dentro da pasta (em `.claude/skills/`) e funcionam assim que você abre a pasta no Claude Code. Cada passo tem uma pasta em `passos/` com as instruções e os prompts prontos para copiar.
 
 ---
 
@@ -56,7 +56,7 @@ Sem terminal? Use o **app do Claude** no computador: aba **Code** → escolha a 
 | 5 | [Criar uma skill](passos/05-criar-uma-skill/INSTRUCOES.md) | Cria a `/resposta-cliente` e testa com mensagens de clientes |
 | 6 | [Páginas web com Artifacts](passos/06-paginas-web/INSTRUCOES.md) | Calculadora de orçamento, dashboard de vendas e apresentação: arquivos em `meu-trabalho/` e Artifacts no claude.ai |
 
-**Como cada passo funciona:** abra o `INSTRUCOES.md` do passo (dois cliques, ou peça ao Claude `abra as instruções do passo 3`), **copie e cole** os prompts, confira o resultado e compare com o `gabarito/` do mesmo passo. Marque o passo em `progresso.md`.
+**Como cada passo funciona:** abra o `INSTRUCOES.md` do passo (dois cliques, ou peça ao Claude `abra as instruções do passo 3`), **copie e cole** os prompts, e confira o resultado. Marque o passo em `progresso.md`.
 
 Perdeu o fio? Pergunte ao Claude: `o que falta?`
 
@@ -72,7 +72,6 @@ imersao-manha/
 ├── .claude/skills/    as skills da manhã (já funcionando)
 ├── dados/             vendas, produtos, clientes e regras de orçamento (fictícios) + a planilha .xlsx
 ├── passos/            as instruções de cada passo, com os prompts
-├── gabarito/          o resultado pronto de cada passo
 └── meu-trabalho/      onde ficam os arquivos que você criar
 ```
 

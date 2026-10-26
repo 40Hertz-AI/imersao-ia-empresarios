@@ -94,7 +94,7 @@ O que você consegue fazer nesta pasta?
 
 ## Resultado esperado
 
-Em poucas linhas, ele diz que a pasta é da aula com a **Torra Viva** (empresa fictícia), cita os dados em `dados/`, os 6 passos e as skills que já vêm prontas. A resposta pronta está em `gabarito/01-abrir-a-pasta/resposta.md`.
+Em poucas linhas, ele diz que a pasta é da aula com a **Torra Viva** (empresa fictícia), cita os dados em `dados/`, os 6 passos e as skills que já vêm prontas.
 
 Teste também: digite `/` e veja a lista de comandos. As skills da pasta (`eli5`, `frontend-design`, `humanizer`...) aparecem ali.
 

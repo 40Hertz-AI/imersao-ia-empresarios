@@ -85,7 +85,7 @@ Repare: no claude.ai, o Claude só sabe o que você anexou. Na pasta, ele já li
 
 ## Resultado esperado
 
-Três arquivos em `meu-trabalho/`: `calculadora-orcamento.html`, `dashboard-vendas.html` e `apresentacao.html`, e três Artifacts no claude.ai. Os prontos estão em `gabarito/06-paginas-web/`.
+Três arquivos em `meu-trabalho/`: `calculadora-orcamento.html`, `dashboard-vendas.html` e `apresentacao.html`, e três Artifacts no claude.ai.
 
 **O que reparar:** a calculadora seguiu regras que estão num arquivo (`orcamento.csv`), não na sua cabeça · o mesmo pedido virou um arquivo na pasta e uma página no claude.ai · mudou a regra? Mude o CSV e peça para atualizar a calculadora.
 
