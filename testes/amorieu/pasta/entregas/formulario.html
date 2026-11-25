@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pedir orçamento · Amorieu Doces</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--vinho:#8D4F57;--rosa:#9E5F66;--creme:#FDF9F6;--choco:#3A2D2A;--rosinha:#F9ECEA;--areia:#F2E7DC;--ouro:#C9A961;--titulo:'Cormorant Garamond',Georgia,serif;--texto:'Jost',system-ui,sans-serif;--curva:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;height:100%}
+body{background:var(--creme);color:var(--choco);font:400 17px/1.55 var(--texto);display:flex;flex-direction:column}
+.topo{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px}
+.topo b{font:600 22px var(--titulo);color:var(--vinho);white-space:nowrap}
+.topo span{font-size:14px;color:#6f5d58}
+.prog{height:4px;background:var(--areia);margin:0 20px;border-radius:2px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--rosa);transition:width .3s var(--curva)}
+form{flex:1;display:flex;flex-direction:column;justify-content:center;padding:24px 20px 32px;max-width:560px;width:100%;margin:0 auto}
+.passo{animation:entra .28s var(--curva)}
+@keyframes entra{from{opacity:0;transform:translateY(10px)}}
+.n{font-size:14px;color:#6f5d58;margin:0 0 6px}
+label.q,legend.q{display:block;font:600 clamp(26px,6vw,34px)/1.15 var(--titulo);color:var(--vinho);margin:0 0 18px;padding:0}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+input[type=text],input[type=date],input[type=number],select{width:100%;font:inherit;font-size:19px;color:var(--choco);background:#fff;border:1.5px solid #d9c6bf;border-radius:10px;padding:13px 14px}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid var(--ouro);outline-offset:2px}
+.opcoes{display:grid;gap:10px}
+.opcoes label{display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid #d9c6bf;border-radius:10px;padding:13px 14px;cursor:pointer}
+.opcoes input{accent-color:var(--rosa);width:18px;height:18px;margin:0}
+.opcoes label:has(input:checked){border-color:var(--rosa);background:var(--rosinha)}
+.erro{color:#a1323a;font-size:15px;margin:10px 0 0;min-height:1.2em}
+.acoes{display:flex;gap:10px;margin-top:22px;align-items:center}
+button{font:500 17px var(--texto);border-radius:999px;padding:13px 24px;cursor:pointer;border:0}
+.ir{background:var(--rosa);color:#fff}
+.ir:hover{background:var(--vinho)}
+.volta{background:none;color:var(--choco);text-decoration:underline;padding:13px 8px}
+.dica{font-size:14px;color:#6f5d58;margin-left:auto}
+.resumo{list-style:none;margin:0;padding:0;border-top:1px solid #e6d8d1}
+.resumo li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #e6d8d1}
+.resumo span{color:#6f5d58}
+.resumo button{background:none;color:var(--rosa);text-decoration:underline;padding:0;font-size:15px}
+.ok{font-size:15px;color:#6f5d58;margin-top:14px}
+noscript p{padding:20px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="topo"><b>Amorieu Doces</b><span>Orçamento pelo WhatsApp</span></div>
+<div class="prog" aria-hidden="true"><i id="barra"></i></div>
+<noscript><p>Para pedir sem o formulário, chame no WhatsApp: <a href="https://wa.me/5511974647928">(11) 97464-7928</a>.</p></noscript>
+<form id="f" novalidate>
+  <div class="passo" data-campo="festa">
+    <fieldset><legend class="q">É para qual festa?</legend>
+    <div class="opcoes">
+      <label><input type="radio" name="festa" value="Casamento"> Casamento</label>
+      <label><input type="radio" name="festa" value="Aniversário"> Aniversário</label>
+      <label><input type="radio" name="festa" value="Chá de bebê"> Chá de bebê</label>
+      <label><input type="radio" name="festa" value="Outra festa"> Outra festa</label>
+    </div></fieldset>
+  </div>
+  <div class="passo" data-campo="data" hidden>
+    <label class="q" for="data">Qual a data da festa?</label>
+    <input type="date" id="data" name="data">
+  </div>
+  <div class="passo" data-campo="cidade" hidden>
+    <fieldset><legend class="q">Em que cidade?</legend>
+    <div class="opcoes">
+      <label><input type="radio" name="cidade" value="Mogi das Cruzes"> Mogi das Cruzes</label>
+      <label><input type="radio" name="cidade" value="Suzano"> Suzano</label>
+      <label><input type="radio" name="cidade" value="Itaquaquecetuba"> Itaquaquecetuba</label>
+      <label><input type="radio" name="cidade" value="São Paulo"> São Paulo (festas grandes)</label>
+      <label><input type="radio" name="cidade" value="Outra cidade"> Outra cidade</label>
+    </div></fieldset>
+  </div>
+  <div class="passo" data-campo="convidados" hidden>
+    <label class="q" for="convidados">Quantos convidados, mais ou menos?</label>
+    <input type="number" id="convidados" name="convidados" inputmode="numeric" min="1" max="2000" placeholder="Ex.: 150">
+  </div>
+  <div class="passo" data-campo="buffet" hidden>
+    <fieldset><legend class="q">O buffet já inclui algum docinho?</legend>
+    <div class="opcoes">
+      <label><input type="radio" name="buffet" value="Sim"> Sim, inclui alguns</label>
+      <label><input type="radio" name="buffet" value="Não"> Não inclui</label>
+      <label><input type="radio" name="buffet" value="Ainda não sei"> Ainda não sei</label>
+    </div></fieldset>
+  </div>
+  <div class="passo" data-campo="degustacao" hidden>
+    <fieldset><legend class="q">Quer provar antes com a caixa-degustação?</legend>
+    <div class="opcoes">
+      <label><input type="radio" name="degustacao" value="Quero a caixa-degustação"> Quero, 12 brigadeiros com os sabores da mesa</label>
+      <label><input type="radio" name="degustacao" value="Agora não"> Agora não</label>
+    </div></fieldset>
+  </div>
+  <div class="passo" data-campo="nome" hidden>
+    <label class="q" for="nome">E o seu nome?</label>
+    <input type="text" id="nome" name="nome" autocomplete="given-name" placeholder="Como a Júlia te chama">
+  </div>
+  <div class="passo" data-campo="resumo" hidden>
+    <p class="q" style="font:600 30px/1.15 var(--titulo);color:var(--vinho);margin:0 0 14px">Confere se está certinho</p>
+    <ul class="resumo" id="resumo"></ul>
+    <p class="ok">Ao enviar, o WhatsApp abre com a mensagem pronta. A Júlia responde com o total por escrito.</p>
+  </div>
+  <p class="erro" id="erro" role="alert"></p>
+  <div class="acoes">
+    <button type="button" class="volta" id="volta" hidden>Voltar</button>
+    <button type="submit" class="ir" id="ir">Continuar</button>
+    <span class="dica" id="dica">ou aperte Enter</span>
+  </div>
+</form>
+<script>
+(()=>{
+const WA='5511974647928';
+const f=document.getElementById('f'),passos=[...f.querySelectorAll('.passo')],barra=document.getElementById('barra'),
+  erro=document.getElementById('erro'),ir=document.getElementById('ir'),volta=document.getElementById('volta'),dica=document.getElementById('dica');
+const nomes={festa:'Festa',data:'Data',cidade:'Cidade',convidados:'Convidados',buffet:'Buffet inclui docinho',degustacao:'Degustação',nome:'Nome'};
+const hoje=new Date();hoje.setMinutes(hoje.getMinutes()-hoje.getTimezoneOffset());
+f.data.min=hoje.toISOString().slice(0,10);
+let i=0,revisando=false;
+const val=c=>{const el=f.elements[c];return el?(el.value||'').trim():''};
+const br=d=>d.split('-').reverse().join('/');
+function valida(c){
+  const v=val(c);
+  if(c==='resumo')return '';
+  if(!v)return c==='nome'?'Escreva seu nome para a Júlia saber com quem fala.':'Escolha ou preencha uma resposta para continuar.';
+  if(c==='data'&&v<f.data.min)return 'A data precisa ser de hoje em diante.';
+  if(c==='convidados'&&!(+v>0))return 'Escreva só o número de convidados, por exemplo 150.';
+  return '';
+}
+function mostra(n){
+  passos[i].hidden=true;i=n;const p=passos[i];p.hidden=false;erro.textContent='';
+  const c=p.dataset.campo,fim=c==='resumo';
+  barra.style.width=(i/(passos.length-1)*100)+'%';
+  volta.hidden=i===0;ir.textContent=fim?'Enviar pelo WhatsApp':'Continuar';dica.hidden=fim;
+  if(fim){revisando=false;montaResumo()}
+  const foco=p.querySelector('input:checked,input,select');if(foco&&n>0)foco.focus({preventScroll:true});
+}
+function montaResumo(){
+  const ul=document.getElementById('resumo');ul.innerHTML='';
+  passos.slice(0,-1).forEach((p,k)=>{
+    const c=p.dataset.campo,li=document.createElement('li'),t=document.createElement('div'),b=document.createElement('button');
+    let v=val(c);if(c==='data')v=br(v);
+    t.innerHTML='<span></span><br><b></b>';t.querySelector('span').textContent=nomes[c];t.querySelector('b').textContent=v;
+    b.type='button';b.textContent='Mudar';b.onclick=()=>{revisando=true;mostra(k)};
+    li.append(t,b);ul.append(li);
+  });
+}
+f.addEventListener('submit',e=>{
+  e.preventDefault();
+  const c=passos[i].dataset.campo,msg=valida(c);
+  if(msg){erro.textContent=msg;return}
+  if(c!=='resumo'){mostra(revisando?passos.length-1:i+1);return}
+  const texto=`Olá, Amorieu! Quero um orçamento.\nNome: ${val('nome')}\nFesta: ${val('festa')}\nData: ${br(val('data'))}\nCidade: ${val('cidade')}\nConvidados: ${val('convidados')}\nO buffet inclui docinho: ${val('buffet')}\nDegustação: ${val('degustacao')}`;
+  window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(texto),'_blank','noopener');
+});
+f.addEventListener('change',e=>{if(e.target.type==='radio')setTimeout(()=>f.requestSubmit(),180)});
+volta.onclick=()=>mostra(i-1);
+})();
+</script>
+</body>
+</html>

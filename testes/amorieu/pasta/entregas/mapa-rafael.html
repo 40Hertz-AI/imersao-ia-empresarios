@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa do trabalho do Rafael</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap">
+<style>
+:root{
+  --creme:#FDF9F6; --vinho:#8D4F57; --rosa:#9E5F66; --choco:#3A2D2A;
+  --rosa-claro:#F9ECEA; --areia:#F2E7DC; --ouro:#C9A961;
+  --linha:#E4D5CC; --suave:#6E5A55;
+  --titulo:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --texto:"Jost",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--creme);color:var(--choco);font:400 17px/1.6 var(--texto)}
+a{color:var(--vinho)}
+:focus-visible{outline:2px solid var(--vinho);outline-offset:3px}
+.pagina{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--titulo);font-weight:600;line-height:1.1;margin:0}
+h2{font-size:2.1rem;color:var(--vinho);margin-bottom:.4em}
+h3{font-size:1.5rem}
+p{margin:0 0 .8em;max-width:68ch}
+section{padding:56px 0;border-top:1px solid var(--linha)}
+
+/* topo */
+.topo{padding:64px 0 48px;display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:end}
+.topo img{width:120px;display:block;margin-bottom:32px}
+.topo h1{font-size:clamp(3rem,8vw,5.6rem);color:var(--choco);letter-spacing:-.01em}
+.topo .papel{font-family:var(--titulo);font-style:italic;font-size:1.6rem;color:var(--vinho);margin:.2em 0 .8em}
+.topo .frase{font-size:1.1rem;max-width:46ch}
+.decide{background:var(--rosa-claro);border-left:3px solid var(--vinho);padding:20px 24px;border-radius:2px 10px 10px 2px}
+.decide h3{color:var(--vinho);margin-bottom:.4em;font-size:1.3rem}
+.decide ul{margin:0;padding-left:1.1em}
+.decide li{margin:.3em 0}
+
+/* semana */
+.semana{display:grid;grid-template-columns:1fr 3fr 1fr;gap:8px}
+.dia{background:var(--areia);padding:18px 20px;border-radius:10px}
+.dia b{display:block;font-family:var(--titulo);font-size:1.35rem;font-weight:600}
+.dia span{color:var(--suave);font-size:.92rem}
+.dia.sexta{background:var(--vinho);color:var(--creme)}
+.dia.sexta span{color:#F3DDD9}
+
+/* pessoas */
+.pessoas{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.pessoas div{border-top:2px solid var(--vinho);padding-top:12px}
+.pessoas b{font-family:var(--titulo);font-size:1.3rem;display:block}
+.pessoas p{font-size:.95rem;color:var(--suave);margin:0}
+
+/* tabela */
+.tabela{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:.95rem}
+th{text-align:left;font-weight:500;color:var(--vinho);border-bottom:2px solid var(--vinho);padding:10px 12px}
+td{border-bottom:1px solid var(--linha);padding:12px;vertical-align:top}
+td:first-child{font-family:var(--titulo);font-size:1.15rem;font-weight:600}
+
+/* fluxo */
+.processo{margin-top:40px}
+.processo>p{color:var(--suave)}
+.fluxo-wrap{overflow-x:auto;padding:12px 0 20px;-webkit-overflow-scrolling:touch}
+.fluxo{list-style:none;margin:0;padding:0;display:flex;align-items:center;width:max-content}
+.fluxo>li{display:flex;align-items:center}
+.fluxo>li:not(:last-child)::after,.ramo .rotulo::after{
+  content:"";display:block;width:34px;height:10px;flex:none;
+  background:
+    linear-gradient(var(--vinho) 0 0) left center/calc(100% - 8px) 2px no-repeat,
+    conic-gradient(from -135deg at 100% 50%,var(--vinho) 90deg,transparent 0) right center/8px 10px no-repeat
+}
+.no{background:#fff;border:1.5px solid var(--linha);border-radius:10px;padding:12px 14px;width:158px;font-size:.92rem;line-height:1.35}
+.no small{display:block;color:var(--suave);font-size:.8rem;margin-top:4px}
+.no.ponta{background:var(--vinho);border-color:var(--vinho);color:var(--creme);border-radius:999px;text-align:center;padding:12px 18px}
+.no.ponta small{color:#F3DDD9}
+.no.dor{border:1.5px dashed var(--ouro);background:#FFFBF2}
+.no.dor::after{content:"dor";display:inline-block;margin-top:6px;font-size:.75rem;color:#7A6224;background:#F5EBCF;border-radius:999px;padding:1px 8px}
+.decisao{display:flex;align-items:center}
+.losango{width:118px;height:118px;flex:none;display:grid;place-items:center;position:relative}
+.losango::before{content:"";position:absolute;inset:14px;background:var(--rosa-claro);border:1.5px solid var(--vinho);transform:rotate(45deg);border-radius:6px}
+.losango span{position:relative;text-align:center;font-size:.85rem;line-height:1.25;max-width:84px;font-weight:500}
+.ramos{display:flex;flex-direction:column;gap:14px;padding-left:12px;border-left:2px solid var(--vinho);margin-left:4px}
+.ramo{display:flex;align-items:center}
+.rotulo{display:flex;align-items:center;font-size:.85rem;font-weight:500;color:var(--vinho);gap:6px}
+
+
+/* docs */
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.lista{list-style:none;margin:0;padding:0}
+.lista li{padding:12px 0;border-bottom:1px solid var(--linha)}
+.lista b{font-weight:500}
+.lista span{display:block;color:var(--suave);font-size:.92rem}
+.confirmar{background:var(--areia);border-radius:10px;padding:24px 28px}
+.confirmar ul{margin:0;padding-left:1.1em}
+.confirmar li{margin:.35em 0}
+footer{padding:32px 0 56px;color:var(--suave);font-size:.88rem;border-top:1px solid var(--linha)}
+
+@media (max-width:760px){
+  .pagina{padding:0 16px}
+  .topo{grid-template-columns:1fr;gap:28px;padding-top:40px}
+  .semana{grid-template-columns:1fr}
+  .pessoas{grid-template-columns:1fr 1fr}
+  .duas{grid-template-columns:1fr;gap:32px}
+  section{padding:40px 0}
+  .fluxo-wrap{overflow:visible}
+  .fluxo{flex-direction:column;align-items:stretch;width:100%}
+  .fluxo>li{flex-direction:column;align-items:center}
+  .fluxo>li:not(:last-child)::after{width:10px;height:30px;background:
+    linear-gradient(var(--vinho) 0 0) center top/2px calc(100% - 8px) no-repeat,
+    conic-gradient(from 135deg at 50% 100%,var(--vinho) 90deg,transparent 0) center bottom/10px 8px no-repeat}
+  .no{width:min(100%,300px);text-align:center}
+  .decisao{flex-direction:column;width:100%}
+  .ramos{flex-direction:row;border-left:0;border-top:2px solid var(--vinho);padding:12px 0 0;margin:0;width:100%;gap:10px}
+  .ramo{flex:1;flex-direction:column;align-items:stretch}
+  .ramo .no{width:100%}
+  .ramo .rotulo::after{display:none}
+  .rotulo{justify-content:center;margin-bottom:6px}
+}
+@media (max-width:420px){.pessoas{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="pagina">
+
+<header class="topo">
+  <div>
+    <img src="../marca/logo.png" alt="Amorieu Doces">
+    <h1>Rafael</h1>
+    <p class="papel">Gerente comercial da Amorieu Doces</p>
+    <p class="frase">Lidera as vendedoras Bia e Lu, monta as propostas para empresas e cerimoniais e fecha o relatório de vendas toda sexta.</p>
+  </div>
+  <div class="decide">
+    <h3>O que ele decide sozinho</h3>
+    <ul>
+      <li>Desconto até 8%</li>
+      <li>Quais clientes cada vendedora atende</li>
+    </ul>
+    <p style="margin:.8em 0 0;font-size:.92rem;color:var(--suave)">Acima de 8% de desconto, quem aprova é o diretor.</p>
+  </div>
+</header>
+
+<section aria-labelledby="t-semana">
+  <h2 id="t-semana">A semana</h2>
+  <div class="semana">
+    <div class="dia"><b>Segunda</b>8h: reunião de vendas com o time e reunião com o diretor</div>
+    <div class="dia"><b>Terça a quinta</b>Visita empresas e cerimoniais e faz propostas<br><span>Umas 10 propostas por semana</span></div>
+    <div class="dia sexta"><b>Sexta</b>Relatório de vendas e previsão do mês<br><span>À tarde, umas 3 horas</span></div>
+  </div>
+</section>
+
+<section aria-labelledby="t-pessoas">
+  <h2 id="t-pessoas">Com quem fala</h2>
+  <div class="pessoas">
+    <div><b>Bia e Lu</b><p>WhatsApp, o dia todo</p></div>
+    <div><b>Clientes</b><p>WhatsApp, e-mail e visita</p></div>
+    <div><b>Financeiro</b><p>Sobre cliente bloqueado</p></div>
+    <div><b>Diretor</b><p>Reunião na segunda</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="t-proc">
+  <h2 id="t-proc">Os 2 processos que mais pesam</h2>
+  <div class="tabela"><table>
+    <thead><tr><th>Processo</th><th>Começa quando</th><th>Ferramentas</th><th>Entrega</th><th>Tempo</th><th>Frequência</th><th>Dor principal</th></tr></thead>
+    <tbody>
+      <tr><td>Proposta para cliente novo</td><td>A vendedora manda no WhatsApp que o cliente quer cotação</td><td>Excel, PowerPoint, WhatsApp, Omie</td><td>Proposta em PDF para a vendedora levar</td><td>45 min cada</td><td>~10 por semana</td><td>Montar item por item e não saber quais propostas estão paradas</td></tr>
+      <tr><td>Relatório semanal e previsão</td><td>Sexta à tarde</td><td>Omie, Excel, Pipedrive</td><td>Resumo com gráficos para o diretor</td><td>~3 horas</td><td>1 por semana</td><td>Pipedrive sempre desatualizado e tudo montado na mão</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="processo">
+    <h3>Proposta para cliente novo</h3>
+    <p>Empresa que compra kit de fim de ano ou cerimonial de casamento. As caixas tracejadas são onde dói.</p>
+    <div class="fluxo-wrap">
+      <ol class="fluxo" aria-label="Fluxo da proposta para cliente novo">
+        <li><div class="no ponta">Vendedora pede cotação<small>WhatsApp, com a lista do mês</small></div></li>
+        <li><div class="no">Abre a tabela de preços<small>Excel</small></div></li>
+        <li><div class="no dor">Monta a cotação item por item<small>Excel</small></div></li>
+        <li class="decisao">
+          <div class="losango"><span>Desconto acima de 8%?</span></div>
+          <div class="ramos">
+            <div class="ramo"><span class="rotulo">sim</span><div class="no">Diretor aprova</div></div>
+            <div class="ramo"><span class="rotulo">não</span><div class="no">Rafael decide</div></div>
+          </div>
+        </li>
+        <li><div class="no">Põe no modelo e gera o PDF<small>PowerPoint</small></div></li>
+        <li><div class="no">Manda para a vendedora levar<small>WhatsApp</small></div></li>
+        <li class="decisao">
+          <div class="losango"><span>Cliente aceita?</span></div>
+          <div class="ramos">
+            <div class="ramo"><span class="rotulo">sim</span><div class="no ponta">Vendedora cadastra no Omie</div></div>
+            <div class="ramo"><span class="rotulo">não responde</span><div class="no dor">Cobrar em 3 dias<small>Muitas vezes esquece</small></div></div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="processo">
+    <h3>Relatório semanal de vendas e previsão</h3>
+    <p>Tudo montado na mão, juntando três lugares.</p>
+    <div class="fluxo-wrap">
+      <ol class="fluxo" aria-label="Fluxo do relatório semanal">
+        <li><div class="no ponta">Sexta à tarde</div></li>
+        <li><div class="no">Exporta as vendas da semana<small>Omie</small></div></li>
+        <li><div class="no">Cruza com a meta de cada vendedora<small>Excel</small></div></li>
+        <li><div class="no dor">Olha o funil de propostas<small>Pipedrive, atualizado mal</small></div></li>
+        <li><div class="no">Faz os gráficos</div></li>
+        <li><div class="no ponta">Resumo para o diretor</div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="t-docs">
+  <div class="duas">
+    <div>
+      <h2 id="t-docs">Documentos para trazer</h2>
+      <ul class="lista">
+        <li><b>Tabela de preços</b><span>Excel</span></li>
+        <li><b>Modelo de proposta</b><span>PowerPoint</span></li>
+        <li><b>Planilha de metas por vendedora</b><span>Excel</span></li>
+        <li><b>Objeções e respostas</b><span>Hoje só na cabeça do Rafael</span></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Onde estão os dados</h2>
+      <ul class="lista">
+        <li><b>Omie</b><span>Sistema de gestão: vendas e cadastro de clientes</span></li>
+        <li><b>Pipedrive</b><span>Funil de propostas</span></li>
+        <li><b>Excel e Google Drive</b><span>Planilhas e modelos</span></li>
+        <li><b>Gmail e WhatsApp</b><span>Conversa com clientes e com o time</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="t-conf">
+  <div class="confirmar">
+    <h2 id="t-conf">Falta confirmar</h2>
+    <ul>
+      <li>Se o resumo de sexta vai por e-mail ou é apresentado na segunda.</li>
+      <li>Por onde fala com o financeiro e o que acontece com cliente bloqueado.</li>
+      <li>Onde ficam hoje a tabela de preços, o modelo e a planilha de metas.</li>
+      <li>Se já usa alguma IA no trabalho.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- INICIO:plano -->
+<style>
+.plano .intro{font-size:1.1rem;max-width:60ch}
+.tres{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:t}
+.tres li{counter-increment:t;background:#fff;border:1.5px solid var(--linha);border-radius:10px;padding:24px;display:flex;flex-direction:column}
+.tres li:first-child{border-color:var(--vinho)}
+.tres li::before{content:counter(t);font-family:var(--titulo);font-size:3.2rem;line-height:.9;color:var(--vinho);margin-bottom:12px}
+.tres h3{font-size:1.4rem;margin-bottom:.4em}
+.tres p{font-size:.95rem}
+.tres .ie{color:var(--suave);font-size:.88rem;margin:auto 0 10px}
+.tres code,.plano td code{font:500 .85rem/1.45 var(--texto);background:var(--rosa-claro);color:var(--vinho);padding:2px 6px;border-radius:4px}
+.tres .passo{background:var(--areia);border-radius:8px;padding:12px 14px;font-size:.9rem;margin:0}
+.tipo{display:inline-block;font-size:.8rem;font-weight:500;border-radius:999px;padding:2px 10px;background:var(--areia);color:var(--choco);white-space:nowrap}
+.tipo.skill{background:var(--vinho);color:var(--creme)}
+.tipo.rotina{background:#F5EBCF;color:#7A6224}
+.tipo.contexto{background:var(--rosa-claro);color:var(--vinho)}
+.nota{display:inline-block;min-width:1.6em;text-align:center;font-weight:500}
+.plano h3.sub{margin:48px 0 14px;color:var(--vinho)}
+.rotinas{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.rotinas div{border-left:3px solid var(--ouro);padding:4px 0 4px 18px}
+.rotinas b{font-family:var(--titulo);font-size:1.3rem;display:block}
+.rotinas p{font-size:.95rem;margin:.3em 0 0}
+.fica{color:var(--suave);font-size:.95rem;margin-top:24px}
+@media (max-width:760px){.tres,.rotinas{grid-template-columns:1fr}}
+</style>
+<section class="plano" aria-labelledby="t-plano">
+  <h2 id="t-plano">O que a IA pode fazer por você</h2>
+  <p class="intro">A IA monta a cotação e a proposta a partir da tabela de preços, guarda cada proposta numa lista que avisa quais estão paradas e deixa o relatório de sexta pronto para você só revisar.</p>
+
+  <ol class="tres">
+    <li>
+      <h3>Trazer os 3 documentos</h3>
+      <p>Tabela de preços, modelo de proposta e planilha de metas em <code>dados/</code>. Sem eles a IA chuta o preço; com eles, acerta.</p>
+      <p class="ie"><span class="tipo contexto">Contexto</span> impacto 3, esforço 1</p>
+      <p class="passo">Solte os 3 arquivos em <code>dados/</code> e peça: "Leia os arquivos e me diga o que falta para montar uma proposta."</p>
+    </li>
+    <li>
+      <h3>Skill /proposta</h3>
+      <p>Você cola a lista da vendedora; a IA faz a cotação, aplica o desconto até 8% (acima, avisa que precisa do diretor), monta a proposta e registra numa lista.</p>
+      <p class="ie"><span class="tipo skill">Skill</span> impacto 3, esforço 2. De ~7h30 para ~2h30 por semana (estimativa)</p>
+      <p class="passo">"Crie a skill /proposta e teste com a última cotação que a Bia me mandou."</p>
+    </li>
+    <li>
+      <h3>Skill /relatorio-semanal</h3>
+      <p>Vendas do Omie, metas e funil do Pipedrive viram uma página com gráficos e o resumo para o diretor.</p>
+      <p class="ie"><span class="tipo skill">Skill</span> impacto 3, esforço 2. De ~3h para ~1h por semana (estimativa)</p>
+      <p class="passo">Exporte o Omie para <code>dados/vendas-semana.xlsx</code> e peça a skill.</p>
+    </li>
+  </ol>
+
+  <h3 class="sub">Todas as sugestões</h3>
+  <div class="tabela"><table>
+    <thead><tr><th>Sugestão</th><th>Resolve</th><th>Tipo</th><th>Impacto</th><th>Esforço</th></tr></thead>
+    <tbody>
+      <tr><td>Trazer os 3 documentos</td><td>Proposta e relatório</td><td><span class="tipo contexto">Contexto</span></td><td><span class="nota">3</span></td><td><span class="nota">1</span></td></tr>
+      <tr><td>/proposta</td><td>Cotação item por item</td><td><span class="tipo skill">Skill</span></td><td><span class="nota">3</span></td><td><span class="nota">2</span></td></tr>
+      <tr><td>/relatorio-semanal</td><td>As 3 horas de sexta</td><td><span class="tipo skill">Skill</span></td><td><span class="nota">3</span></td><td><span class="nota">2</span></td></tr>
+      <tr><td>Propostas paradas</td><td>A cobrança de 3 dias que se esquece</td><td><span class="tipo rotina">Rotina agendada</span></td><td><span class="nota">3</span></td><td><span class="nota">2</span></td></tr>
+      <tr><td>Lista de objeções</td><td>O que hoje só está na sua cabeça</td><td><span class="tipo">Prompt pronto</span></td><td><span class="nota">2</span></td><td><span class="nota">1</span></td></tr>
+      <tr><td>Google Drive e Gmail</td><td>Achar documentos e responder clientes</td><td><span class="tipo">Conector</span></td><td><span class="nota">2</span></td><td><span class="nota">1</span></td></tr>
+      <tr><td>Cotador para a Bia e a Lu</td><td>Menos pedidos de cotação para você</td><td><span class="tipo">Artifact</span></td><td><span class="nota">2</span></td><td><span class="nota">2</span></td></tr>
+      <tr><td>Projeto Comercial Amorieu</td><td>Dúvidas do time sobre preço e desconto</td><td><span class="tipo">Projeto</span></td><td><span class="nota">2</span></td><td><span class="nota">2</span></td></tr>
+      <tr><td>Atualizar o Pipedrive</td><td>Funil desatualizado</td><td><span class="tipo">Claude no navegador</span></td><td><span class="nota">2</span></td><td><span class="nota">2</span></td></tr>
+      <tr><td>Kits de fim de ano</td><td>Empresas que já compraram, até 10/11</td><td><span class="tipo">Prompt pronto</span></td><td><span class="nota">2</span></td><td><span class="nota">1</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Rotinas que rodam sozinhas</h3>
+  <div class="rotinas">
+    <div><b>Dia útil, 8h</b><p>Lista as propostas sem resposta há 3 dias, por vendedora, com um rascunho de cobrança para cada cliente. Quem envia é a vendedora.</p></div>
+    <div><b>Sexta, 12h</b><p>Se a exportação do Omie estiver em dados/, roda o /relatorio-semanal e deixa a página e o resumo para você conferir antes de mandar.</p></div>
+  </div>
+  <p class="fica">Continua com você: desconto acima de 8%, negociação, as visitas e quem atende cada cliente. Nada é enviado sem você ou a vendedora revisar. O plano completo, com os prompts, está em entregas/sugestoes.md.</p>
+</section>
+<!-- FIM:plano -->
+
+<footer>Mapa feito na entrevista /sobre-mim em 26/10/2026. O texto completo está em memoria/sobre-mim.md.</footer>
+</div>
+</body>
+</html>

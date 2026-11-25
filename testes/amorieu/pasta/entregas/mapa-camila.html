@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa do trabalho da Camila</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --vinho:#8D4F57; --rosa:#9E5F66; --creme:#FDF9F6; --choco:#3A2D2A;
+  --rosa-claro:#F9ECEA; --areia:#F2E7DC; --ouro:#C9A961; --linha:#E4D3CB;
+  --titulo:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --texto:"Jost", "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--creme);color:var(--choco);font:400 17px/1.6 var(--texto)}
+.pagina{max-width:1120px;margin:0 auto;padding:56px 24px 80px}
+h1,h2,h3{font-family:var(--titulo);font-weight:600;color:var(--vinho);line-height:1.1;margin:0}
+h1{font-size:clamp(2.6rem,6vw,4.2rem);letter-spacing:-.01em}
+h2{font-size:clamp(1.8rem,3.4vw,2.4rem);margin-bottom:6px}
+h3{font-size:1.5rem}
+p{margin:0}
+.sub{max-width:60ch;color:#6B5650}
+a{color:var(--vinho)}
+:focus-visible{outline:2px solid var(--vinho);outline-offset:3px}
+
+/* topo */
+.topo{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;padding-bottom:40px;border-bottom:1px solid var(--linha)}
+.topo .papel{font-size:1.15rem;margin:10px 0 18px;color:var(--rosa)}
+.topo .frase{font-family:var(--titulo);font-style:italic;font-size:1.6rem;line-height:1.3;max-width:34ch}
+.topo img{width:120px;height:auto}
+.decide{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.decide span{padding:6px 14px;border-radius:999px;background:var(--rosa-claro);font-size:.92rem}
+.decide span.nao{background:transparent;border:1px dashed var(--rosa)}
+
+section{padding:56px 0 8px}
+.cabeca{margin-bottom:26px}
+
+/* semana */
+.semana{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.dia{background:var(--areia);padding:16px 16px 20px;border-radius:4px;min-height:140px}
+.dia.duplo{grid-column:span 2;background:var(--rosa-claro)}
+.dia b{display:block;font-family:var(--titulo);font-size:1.35rem;color:var(--vinho);margin-bottom:6px}
+.dia p{font-size:.95rem}
+.mes{margin-top:10px;display:flex;gap:14px;align-items:center;padding:14px 16px;border:1px solid var(--ouro);border-radius:4px;font-size:.95rem}
+.mes b{font-family:var(--titulo);font-size:1.35rem;color:var(--vinho);white-space:nowrap}
+
+/* pessoas */
+.pessoas{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px}
+.pessoa{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:14px 0;border-top:1px solid var(--linha)}
+.pessoa b{font-weight:500}
+.pessoa small{grid-column:1/-1;color:#6B5650;font-size:.92rem}
+.pessoa em{font-style:normal;font-size:.88rem;color:var(--rosa);text-align:right}
+
+/* tabela */
+.tabela{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.95rem;min-width:640px}
+th{font-weight:500;text-align:left;color:var(--rosa);padding:10px 12px;border-bottom:2px solid var(--vinho)}
+td{padding:14px 12px;border-bottom:1px solid var(--linha);vertical-align:top}
+td:first-child{font-family:var(--titulo);font-size:1.25rem;color:var(--vinho);font-weight:600}
+
+/* fluxos */
+.processo{margin-top:20px;padding:28px 24px;background:#fff;border:1px solid var(--linha);border-radius:6px}
+.processo + .processo{margin-top:24px}
+.processo header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-bottom:28px}
+.processo header p{color:#6B5650;font-size:.95rem}
+.dor{margin-top:28px;padding-left:16px;border-left:3px solid var(--vinho);font-size:.98rem}
+.dor b{color:var(--vinho);font-weight:500}
+
+.fluxo{display:flex;align-items:flex-start;list-style:none;margin:0;padding:0}
+.fluxo > li{display:flex;align-items:center;flex:0 1 auto}
+.no{padding:12px 14px;background:var(--rosa-claro);border-radius:6px;font-size:.92rem;line-height:1.35;width:104px}
+.no small{display:block;margin-top:4px;font-size:.8rem;color:var(--rosa)}
+.no.ponta{background:var(--vinho);color:#fff;border-radius:999px;text-align:center;width:auto;min-width:0;padding:12px 16px}
+.no.ponta small{color:var(--rosa-claro)}
+.no.fim{background:var(--choco)}
+.seta{position:relative;width:26px;height:2px;background:var(--vinho);flex:none;margin:0 2px}
+.seta::after{content:"";position:absolute;right:-1px;top:-4px;border:5px solid transparent;border-left:7px solid var(--vinho);border-right:0}
+.fluxo > li > .seta{align-self:center}
+.fluxo.juntar{align-items:center}
+.fluxo.juntar .alinha{min-height:0}
+.fluxo .alinha{min-height:140px;display:flex;align-items:center}
+
+/* decisão */
+.decisao{display:flex;flex-direction:column;align-items:center;width:230px}
+.losango{flex:none;width:96px;height:96px;transform:rotate(45deg);background:#fff;border:2px solid var(--vinho);display:grid;place-items:center;margin:22px 0 22px}
+.losango span{transform:rotate(-45deg);font-family:var(--titulo);font-weight:600;font-size:1.1rem;color:var(--vinho);text-align:center;line-height:1.05}
+.ramos{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%}
+.ramo{display:flex;flex-direction:column;align-items:center;text-align:center}
+.ramo .rotulo{font-size:.85rem;font-weight:500;color:var(--vinho);margin-bottom:2px}
+.desce{width:2px;height:22px;background:var(--vinho);position:relative;margin-bottom:6px}
+.desce::after{content:"";position:absolute;left:-4px;bottom:-1px;border:5px solid transparent;border-top:7px solid var(--vinho);border-bottom:0}
+.ramo .no{width:100%}
+.volta{margin-top:6px;font-size:.8rem;color:var(--rosa)}
+
+/* juntar fontes */
+.fontes{display:grid;grid-template-columns:1fr;gap:6px;border-right:2px solid var(--vinho);padding-right:14px}
+.fontes .no{width:170px;background:var(--areia)}
+
+.docs{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.docs ul{list-style:none;margin:0;padding:0}
+.docs li{padding:12px 0;border-top:1px solid var(--linha);display:flex;justify-content:space-between;gap:16px}
+.docs li span{color:#6B5650;font-size:.92rem;text-align:right}
+.docs li.falta span{color:var(--vinho)}
+.nota{margin-top:14px;font-size:.92rem;color:#6B5650}
+.rodape{margin-top:64px;font-size:.85rem;color:#8A7670}
+
+@media (max-width:1060px){
+  .processo{overflow-x:auto}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .pagina{padding:36px 16px 64px}
+  .topo{grid-template-columns:1fr}
+  .topo img{order:-1;width:96px}
+  .semana{grid-template-columns:1fr}
+  .dia.duplo{grid-column:auto}
+  .dia{min-height:0}
+  .pessoas,.docs{grid-template-columns:1fr;gap:0}
+  .docs{gap:28px}
+  .processo{padding:22px 16px;overflow:visible}
+  .fluxo{flex-direction:column;align-items:center}
+  .fluxo > li{flex-direction:column;align-items:center}
+  .fluxo .alinha{min-height:0}
+  .no,.fontes .no{width:240px;text-align:center}
+  .losango{margin:22px 0}
+  .seta{width:2px;height:22px;margin:3px 0}
+  .seta::after{right:auto;top:auto;left:-4px;bottom:-1px;border:5px solid transparent;border-top:7px solid var(--vinho);border-bottom:0}
+  .fontes{border-right:0;border-bottom:2px solid var(--vinho);padding:0 0 12px}
+  .decisao{width:280px}
+}
+</style>
+</head>
+<body>
+<main class="pagina">
+
+<header class="topo">
+  <div>
+    <h1>Camila</h1>
+    <p class="papel">Analista de marketing da Amorieu Doces</p>
+    <p class="frase">Cuido sozinha do marketing da Amorieu, com uma agência que faz os anúncios.</p>
+    <div class="decide">
+      <span>Decide: o que postar</span>
+      <span>Decide: o calendário do mês</span>
+      <span class="nao">Verba de anúncio fica com o diretor</span>
+    </div>
+  </div>
+  <img src="../marca/logo.png" alt="Amorieu Doces">
+</header>
+
+<section aria-labelledby="t-semana">
+  <div class="cabeca">
+    <h2 id="t-semana">A semana tem um ritmo fixo</h2>
+    <p class="sub">Planejar, criar, medir, publicar. E uma vez por mês o dia inteiro vai para o relatório.</p>
+  </div>
+  <div class="semana">
+    <div class="dia"><b>Segunda</b><p>Planeja os posts da semana.</p></div>
+    <div class="dia duplo"><b>Terça e quarta</b><p>Cria os posts no Canva e escreve as legendas.</p></div>
+    <div class="dia"><b>Quinta</b><p>Olha os resultados e fala com a agência.</p></div>
+    <div class="dia"><b>Sexta</b><p>Newsletter para os clientes e atualiza o site.</p></div>
+  </div>
+  <div class="mes"><b>Dia 5</b><span>Relatório mensal de marketing para o diretor. Um dia inteiro.</span></div>
+</section>
+
+<section aria-labelledby="t-pessoas">
+  <div class="cabeca">
+    <h2 id="t-pessoas">Quatro frentes pedem coisas a ela</h2>
+  </div>
+  <div class="pessoas">
+    <div class="pessoa"><b>Agência de anúncios</b><em>WhatsApp e reunião quinzenal</em><small>Faz os anúncios; conversa de quinta sobre resultados.</small></div>
+    <div class="pessoa"><b>Diretor</b><em>WhatsApp</em><small>Aprova campanhas e posts, decide a verba, recebe o relatório.</small></div>
+    <div class="pessoa"><b>Comercial</b><em>canal a confirmar</em><small>Pede material para proposta.</small></div>
+    <div class="pessoa"><b>Fornecedores de produto</b><em>canal a confirmar</em><small>Pedem fotos e fichas técnicas.</small></div>
+  </div>
+</section>
+
+<section aria-labelledby="t-processos">
+  <div class="cabeca">
+    <h2 id="t-processos">Dois processos levam a maior parte do tempo</h2>
+    <p class="sub">Os dois que ela escolheu como os que mais tomam tempo ou dão dor de cabeça.</p>
+  </div>
+  <div class="tabela">
+    <table>
+      <thead><tr><th>Processo</th><th>Começa quando</th><th>Tempo</th><th>Frequência</th><th>Dor principal</th></tr></thead>
+      <tbody>
+        <tr><td>Conteúdo do Instagram e do LinkedIn</td><td>Toda segunda</td><td>Umas 8 horas</td><td>Toda semana</td><td>Ficar sem ideia de tema e pesquisar concorrente na mão</td></tr>
+        <tr><td>Relatório mensal de marketing</td><td>Dia 5 do mês</td><td>Um dia inteiro</td><td>Uma vez por mês</td><td>Copiar número de 4 lugares e não saber quais leads viraram venda</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <article class="processo" aria-labelledby="t-p1">
+    <header>
+      <h3 id="t-p1">Conteúdo do Instagram e do LinkedIn</h3>
+      <p>4 posts por semana, umas 8 horas</p>
+    </header>
+    <ol class="fluxo" aria-label="Fluxo do conteúdo semanal">
+      <li><div class="alinha"><div class="no ponta">Segunda-feira</div></div><span class="seta" aria-hidden="true"></span></li>
+      <li><div class="alinha"><div class="no">Pensa nos 4 temas da semana</div></div><span class="seta" aria-hidden="true"></span></li>
+      <li><div class="alinha"><div class="no">Pesquisa 5 concorrentes<small>Instagram no navegador</small></div></div><span class="seta" aria-hidden="true"></span></li>
+      <li><div class="alinha"><div class="no">Escreve as legendas</div></div><span class="seta" aria-hidden="true"></span></li>
+      <li><div class="alinha"><div class="no">Faz as artes<small>Canva</small></div></div><span class="seta" aria-hidden="true"></span></li>
+      <li><div class="alinha"><div class="no">Manda ao diretor<small>WhatsApp</small></div></div><span class="seta" aria-hidden="true"></span></li>
+      <li>
+        <div class="decisao">
+          <div class="losango"><span>Diretor<br>aprova?</span></div>
+          <div class="ramos">
+            <div class="ramo"><span class="rotulo">sim</span><span class="desce" aria-hidden="true"></span><div class="no ponta fim">Agenda<small>Meta Business Suite</small></div></div>
+            <div class="ramo"><span class="rotulo">não</span><span class="desce" aria-hidden="true"></span><div class="no">Refaz o ajuste</div><p class="volta">↺ volta para o diretor</p></div>
+          </div>
+        </div>
+      </li>
+    </ol>
+    <p class="dor"><b>Onde dói:</b> ficar sem ideia de tema e abrir o Instagram de cada concorrente na mão.</p>
+  </article>
+
+  <article class="processo" aria-labelledby="t-p2">
+    <header>
+      <h3 id="t-p2">Relatório mensal de marketing</h3>
+      <p>Uma vez por mês, um dia inteiro</p>
+    </header>
+    <ol class="fluxo juntar" aria-label="Fluxo do relatório mensal">
+      <li><div class="alinha"><div class="no ponta">Dia 5 do mês</div></div><span class="seta" aria-hidden="true"></span></li>
+      <li>
+        <div class="fontes" aria-label="Copia os números de 4 lugares">
+          <div class="no">Números das redes<small>Meta Business Suite</small></div>
+          <div class="no">Números do site<small>Google Analytics</small></div>
+          <div class="no">Números dos anúncios<small>PDF da agência</small></div>
+          <div class="no">Leads do formulário<small>Planilha Google</small></div>
+        </div>
+        <span class="seta" aria-hidden="true"></span>
+      </li>
+      <li><div class="alinha"><div class="no">Junta tudo na apresentação<small>Google Slides</small></div></div><span class="seta" aria-hidden="true"></span></li>
+      <li><div class="alinha"><div class="no ponta fim">Apresenta ao diretor</div></div></li>
+    </ol>
+    <p class="dor"><b>Onde dói:</b> copiar número de 4 lugares e não saber quais leads viraram venda.</p>
+  </article>
+</section>
+
+<section aria-labelledby="t-docs">
+  <div class="cabeca">
+    <h2 id="t-docs">O que ela usa e onde está</h2>
+    <p class="sub">Os documentos podem vir para a pasta <code>dados/</code>. Com eles aqui, a IA trabalha com o que é dela.</p>
+  </div>
+  <div class="docs">
+    <div>
+      <h3>Documentos</h3>
+      <ul>
+        <li>Calendário editorial<span>Google Planilhas</span></li>
+        <li>Manual da marca<span>PDF</span></li>
+        <li>Fichas técnicas dos produtos<span>PDFs dos fornecedores</span></li>
+        <li>Modelo do relatório mensal<span>Google Slides</span></li>
+        <li class="falta">Lista de concorrentes<span>só na cabeça dela</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Onde estão os dados</h3>
+      <ul>
+        <li>Meta Business Suite<span>redes e agendamento</span></li>
+        <li>Google Analytics<span>site</span></li>
+        <li>Planilha de leads<span>Google Planilhas</span></li>
+        <li>RD Station<span>e-mail marketing</span></li>
+        <li>Canva e Google Drive<span>artes e arquivos</span></li>
+        <li>WhatsApp<span>agência e diretor</span></li>
+      </ul>
+      <p class="nota">IA no trabalho hoje: não sabe dizer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INICIO:plano -->
+<style>
+.top3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cartao{background:#fff;border:1px solid var(--linha);border-radius:6px;padding:24px 22px;display:flex;flex-direction:column;gap:10px}
+.cartao .num{font-family:var(--titulo);font-size:2.4rem;line-height:1;color:var(--ouro)}
+.cartao p{font-size:.95rem}
+.cartao .passo{margin-top:auto;padding-top:12px;border-top:1px solid var(--linha);font-size:.9rem}
+.cartao .passo code{display:block;margin-top:4px;color:var(--vinho);font-size:.92rem;white-space:normal}
+.tipo{display:inline-block;padding:3px 12px;border-radius:999px;background:var(--rosa-claro);color:var(--vinho);font-size:.82rem;font-weight:500;white-space:nowrap}
+.tipo.existe{background:var(--areia);color:var(--choco)}
+.nota-ie{font-size:.88rem;color:#6B5650}
+.plano table td:first-child{font-size:1.1rem}
+.rotinas{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:14px}
+.rotina{background:var(--areia);padding:16px;border-radius:4px}
+.rotina b{display:block;font-family:var(--titulo);font-size:1.3rem;color:var(--vinho);margin-bottom:6px}
+.rotina p{font-size:.92rem}
+.rotina small{display:block;margin-top:8px;color:var(--rosa);font-size:.85rem}
+.plano h3{margin:40px 0 4px}
+@media (max-width:760px){.top3,.rotinas{grid-template-columns:1fr}}
+</style>
+<section class="plano" aria-labelledby="t-plano">
+  <div class="cabeca">
+    <h2 id="t-plano">O que a IA pode fazer por você</h2>
+    <p class="sub">A IA pesquisa, rascunha e junta números; a Camila escolhe, ajusta e leva ao diretor. Impacto e esforço vão de 1 a 3.</p>
+  </div>
+
+  <div class="top3">
+    <article class="cartao">
+      <span class="num">1</span>
+      <h3>Pautas e legendas do mês</h3>
+      <span><span class="tipo existe">Skill que já existe</span></span>
+      <p>Pilares, 12 pautas, calendário de 4 semanas e posts com a marca. Acaba com o "sem ideia de tema" de segunda.</p>
+      <p class="nota-ie">Impacto 3, esforço 1</p>
+      <p class="passo">Próximo passo<code>/criar-conteudo</code></p>
+    </article>
+    <article class="cartao">
+      <span class="num">2</span>
+      <h3>Os 5 concorrentes em um resumo</h3>
+      <span><span class="tipo">Claude no navegador</span></span>
+      <p>O Claude abre o Instagram de cada um na sua aba, lê os posts da semana e diz o que ninguém está falando. Você assiste; ele só lê.</p>
+      <p class="nota-ie">Impacto 3, esforço 1</p>
+      <p class="passo">Próximo passo<code>Escrever os 5 @ em dados/concorrentes-instagram.md e colar o prompt de entregas/sugestoes.md</code></p>
+    </article>
+    <article class="cartao">
+      <span class="num">3</span>
+      <h3>Relatório mensal sem copiar número</h3>
+      <span><span class="tipo">Skill nova</span></span>
+      <p>Você solta os 4 arquivos do mês na pasta; a skill compara com o mês anterior e escreve os destaques e o texto de cada slide.</p>
+      <p class="nota-ie">Impacto 3, esforço 2</p>
+      <p class="passo">Próximo passo<code>Modelo do relatório e os 4 arquivos de outubro em dados/, depois criar /relatorio-mensal</code></p>
+    </article>
+  </div>
+
+  <h3>Todas as sugestões</h3>
+  <div class="tabela">
+    <table>
+      <thead><tr><th>Sugestão</th><th>Processo</th><th>Tipo</th><th>Impacto</th><th>Esforço</th></tr></thead>
+      <tbody>
+        <tr><td>Pautas, calendário e legendas</td><td>Conteúdo</td><td><span class="tipo existe">Skill que já existe</span></td><td>3</td><td>1</td></tr>
+        <tr><td>Resumo semanal dos concorrentes</td><td>Conteúdo</td><td><span class="tipo">Claude no navegador</span></td><td>3</td><td>1</td></tr>
+        <tr><td>Relatório a partir dos 4 arquivos</td><td>Relatório</td><td><span class="tipo">Skill</span></td><td>3</td><td>2</td></tr>
+        <tr><td>Concorrentes, calendário e modelo na pasta</td><td>Os dois</td><td><span class="tipo">Contexto</span></td><td>2</td><td>1</td></tr>
+        <tr><td>Google Drive ligado ao Claude</td><td>Os dois</td><td><span class="tipo">Conector</span></td><td>2</td><td>1</td></tr>
+        <tr><td>Rascunho da pauta toda segunda</td><td>Conteúdo</td><td><span class="tipo">Rotina agendada</span></td><td>2</td><td>2</td></tr>
+        <tr><td>Rascunho da newsletter toda sexta</td><td>Newsletter</td><td><span class="tipo">Rotina agendada</span></td><td>2</td><td>2</td></tr>
+        <tr><td>Projeto "Marketing Amorieu"</td><td>Comercial e fornecedores</td><td><span class="tipo">Projeto</span></td><td>2</td><td>2</td></tr>
+        <tr><td>Painel do relatório para o diretor</td><td>Relatório</td><td><span class="tipo">Artifact</span></td><td>2</td><td>2</td></tr>
+        <tr><td>Quais leads viraram venda</td><td>Relatório</td><td><span class="tipo">Prompt pronto</span></td><td>3</td><td>3</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Rotinas agendadas</h3>
+  <p class="sub">Rodam sozinhas e deixam rascunho. Nenhuma publica, agenda ou envia.</p>
+  <div class="rotinas">
+    <div class="rotina"><b>Segunda, 7h</b><p>Lê o calendário editorial e as datas da semana.</p><small>Deixa 4 temas com legenda</small></div>
+    <div class="rotina"><b>Sexta, 8h</b><p>Junta os posts da semana e as novidades do site.</p><small>Deixa o rascunho da newsletter</small></div>
+    <div class="rotina"><b>Dia 4, 18h</b><p>Lembra de soltar os 4 arquivos e roda o /relatorio-mensal.</p><small>Deixa o texto do relatório do dia 5</small></div>
+  </div>
+  <p class="nota">Detalhe, prompts e o que continua com você: <code>entregas/sugestoes.md</code>.</p>
+</section>
+<!-- FIM:plano -->
+
+<p class="rodape">Mapa feito com o /sobre-mim em 26/10/2026. O detalhe está em memoria/sobre-mim.md.</p>
+</main>
+</body>
+</html>

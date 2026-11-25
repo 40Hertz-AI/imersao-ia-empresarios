@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mesa de doces de casamento em Mogi das Cruzes · Amorieu Doces</title>
+<meta name="description" content="Brigadeiros gourmet e doces finos para casamento em Mogi, Suzano e Itaquá, com o total por escrito.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{--vinho:#8D4F57;--rosa:#9E5F66;--creme:#FDF9F6;--choco:#3A2D2A;--choco2:#2B201E;--rosinha:#F9ECEA;--areia:#F2E7DC;--ouro:#C9A961;--cinza:#6f5d58;--titulo:'Cormorant Garamond',Georgia,serif;--texto:'Jost',system-ui,sans-serif;--curva:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--creme);color:var(--choco);font:400 17px/1.6 var(--texto);overflow-x:hidden}
+h1,h2,h3{font-family:var(--titulo);font-weight:600;line-height:1.1;margin:0 0 .5em}
+h2{font-size:clamp(32px,6vw,48px);color:var(--vinho);max-width:18ch}
+h3{font-size:26px;color:var(--vinho)}
+p{margin:0 0 1em;max-width:62ch}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ouro);outline-offset:3px}
+.caixa{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+.botao{display:inline-block;background:var(--rosa);color:#fff;text-decoration:none;font:500 17px var(--texto);padding:14px 26px;border-radius:999px;border:0;cursor:pointer;transition:background .2s}
+.botao:hover{background:var(--vinho)}
+.botao.claro{background:transparent;color:var(--choco);box-shadow:inset 0 0 0 1.5px currentColor}
+.nota{font-size:14px;color:var(--cinza)}
+/* cabeçalho */
+header{position:fixed;inset:0 0 auto;z-index:9;transition:background .25s}
+header.cheio{background:rgba(43,32,30,.96)}
+header .caixa{display:flex;align-items:center;gap:20px;height:62px}
+.marca{font:700 26px var(--titulo);color:#fff;text-decoration:none}
+.marca small{font:500 11px var(--texto);letter-spacing:.3em;margin-left:6px;color:var(--ouro)}
+nav{display:none;gap:22px;margin-left:auto;font-size:15px}
+nav a{color:#efe3dc;text-decoration:none}
+header .botao{white-space:nowrap;margin-left:auto;padding:9px 18px;font-size:15px}
+@media(min-width:860px){nav{display:flex}header .botao{margin-left:0}}
+/* topo */
+.topo{background:var(--choco2);color:#f6ece6;padding:110px 0 64px;position:relative;overflow:hidden}
+.topo .caixa{display:grid;gap:40px;align-items:center}
+.topo h1{font-size:clamp(44px,10vw,84px);color:#fff;max-width:11ch;font-weight:500}
+.topo p{font-size:19px;color:#e7d8d1}
+.topo .botao{margin:6px 12px 10px 0}
+.topo .botao.claro{color:#f6ece6}
+.fita{position:absolute;top:0;bottom:0;right:21%;width:34px;background:linear-gradient(90deg,#b8964f,var(--ouro) 40%,#e2c98a 55%,var(--ouro) 70%,#b8964f);opacity:.9}
+.bombons{position:relative;width:100%;max-width:470px;justify-self:center}
+.bombons svg{width:100%;height:auto;display:block;filter:drop-shadow(0 24px 30px rgba(0,0,0,.45))}
+.js .entra{animation:sobe .7s var(--curva) both;animation-delay:calc(var(--i)*110ms)}
+.js .b{transform-box:fill-box;transform-origin:center;animation:pop .42s var(--curva) both;animation-delay:calc(300ms + var(--i)*55ms)}
+@keyframes sobe{from{opacity:0;transform:translateY(16px)}}
+@keyframes pop{from{opacity:0;transform:scale(.3)}}
+@media(min-width:860px){.topo{padding:150px 0 96px}.topo .caixa{grid-template-columns:1.1fr 1fr}.fita{right:23%}}
+@media(max-width:859px){.fita{right:auto;left:62%;top:auto;height:46%}}
+/* problema */
+.problema blockquote{margin:0;font:500 clamp(30px,6.4vw,56px)/1.12 var(--titulo);color:var(--choco);max-width:24ch}
+.problema blockquote::before{content:"“";display:block;font-size:1.6em;line-height:.6;color:var(--ouro)}
+.problema cite{display:block;font:400 15px var(--texto);color:var(--cinza);margin:18px 0 32px}
+/* como funciona */
+.como{background:var(--rosinha)}
+.etapas{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:14px;counter-reset:e}
+.etapas li{counter-increment:e;position:relative;padding:4px 0 4px 20px}
+.etapas li::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--ouro);transform-origin:top;transition:transform .5s var(--curva);transition-delay:calc(var(--i)*180ms)}
+.js .etapas:not(.visto) li::before{transform:scaleY(0)}
+.etapas button{all:unset;cursor:pointer;display:block;font:600 26px/1.2 var(--titulo);color:var(--vinho)}
+.etapas button::before{content:counter(e) ". "}
+.etapas button::after{content:" +";font:400 20px var(--texto);color:var(--rosa)}
+.etapas button[aria-expanded=true]::after{content:" –"}
+.etapas button:focus-visible{outline:3px solid var(--ouro)}
+.etapas p{margin:6px 0 0;animation:sobe .25s var(--curva)}
+@media(min-width:860px){.etapas{grid-template-columns:repeat(4,1fr);gap:24px}}
+/* planos */
+.planos{display:grid;gap:18px;margin-top:28px}
+.plano{background:#fff;border:1.5px solid #eadbd3;border-radius:16px;padding:24px;transition:border-color .25s,transform .25s var(--curva)}
+.plano.indicado{border-color:var(--rosa);transform:translateY(-4px)}
+.plano b{display:block;font:600 40px/1 var(--titulo);color:var(--choco);margin:8px 0 10px}
+.plano.grande{background:var(--choco2);color:#f2e6e0;border-color:var(--choco2)}
+.plano.grande h3,.plano.grande b{color:#fff}
+.plano.grande.indicado{border-color:var(--ouro)}
+@media(min-width:860px){.planos{grid-template-columns:1fr 1.3fr 1fr}}
+.conta{margin-top:40px;background:var(--areia);border-radius:16px;padding:24px}
+.conta label{font:600 26px var(--titulo);color:var(--vinho);display:block}
+.conta input{width:100%;accent-color:var(--rosa);margin:14px 0}
+.barra{height:14px;background:#fff;border-radius:7px;position:relative;margin:14px 0 8px}
+.barra i{position:absolute;inset:0 auto 0 0;border-radius:7px;background:var(--rosa);width:calc(var(--v)*1%);transition:width .5s var(--curva)}
+.barra s{position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--choco);left:calc(var(--m)*1%)}
+.js [data-desenha]:not(.visto) .barra i{width:0}
+.conta strong{font:600 34px var(--titulo);color:var(--choco)}
+.selo{display:inline-block;font-size:12px;background:#fff;border:1px solid var(--ouro);border-radius:999px;padding:1px 9px;color:var(--cinza);vertical-align:middle}
+/* provas */
+.provas{display:flex;flex-wrap:wrap;gap:20px 56px;margin-top:20px}
+.provas b{display:block;font:600 64px/1 var(--titulo);color:var(--vinho)}
+/* entrada */
+.entrada{background:var(--choco2);color:#efe3dc}
+.entrada h2{color:#fff}
+.entrada .caixa{display:grid;gap:32px;align-items:center}
+.entrada .preco{font:600 54px var(--titulo);color:var(--ouro);margin:0 0 .3em}
+@media(min-width:860px){.entrada .caixa{grid-template-columns:1fr 1fr}}
+/* pedido */
+.pedido iframe{width:100%;height:600px;border:1.5px solid #eadbd3;border-radius:16px;background:var(--creme);display:block;margin-top:24px}
+/* onde */
+.onde .caixa{display:grid;gap:28px}
+.mapa{position:relative;border-radius:16px;overflow:hidden;min-height:340px;background:var(--areia)}
+.mapa svg{position:absolute;inset:0;width:100%;height:100%}
+.mapa iframe{position:relative;width:100%;height:100%;min-height:340px;border:0}
+dl{margin:0}
+dt{font-weight:500;margin-top:14px}
+dd{margin:0;color:var(--cinza)}
+@media(min-width:860px){.onde .caixa{grid-template-columns:1fr 1.4fr}}
+/* perguntas */
+.faq{background:var(--rosinha)}
+details{border-bottom:1px solid #e3cfc8;max-width:760px}
+summary{cursor:pointer;font:600 26px var(--titulo);color:var(--vinho);padding:18px 0;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";float:right;font:400 24px var(--texto);color:var(--rosa)}
+details[open] summary::after{content:"–"}
+details[open] .resp{animation:sobe .25s var(--curva)}
+/* final */
+.final{text-align:left}
+.garantia{border:1.5px solid var(--ouro);border-radius:16px;padding:28px;margin-bottom:56px;max-width:760px}
+footer{background:var(--choco2);color:#cdbab2;padding:36px 0;font-size:15px}
+footer .caixa{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center}
+footer img{height:54px;border-radius:6px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header id="cab"><div class="caixa">
+  <a class="marca" href="#">Amorieu<small>DOCES</small></a>
+  <nav aria-label="Seções"><a href="#como">Como funciona</a><a href="#precos">Preços</a><a href="#onde">Onde atende</a><a href="#duvidas">Dúvidas</a></nav>
+  <a class="botao" href="#pedido">Pedir orçamento</a>
+</div></header>
+
+<main>
+<section class="topo">
+  <div class="fita" aria-hidden="true"></div>
+  <div class="caixa">
+    <div>
+      <h1 class="entra" style="--i:0">Sua mesa de casamento com preço claro, sem susto</h1>
+      <p class="entra" style="--i:1">Brigadeiros gourmet e doces finos para casamentos em Mogi, Suzano e Itaquá. Você diz quantos convidados, a Júlia manda o total por escrito.</p>
+      <div class="entra" style="--i:2"><a class="botao" href="#pedido">Pedir meu orçamento</a><a class="botao claro" href="#precos">Ver os preços</a></div>
+    </div>
+    <div class="bombons">
+      <svg viewBox="0 0 440 340" role="img" aria-label="Caixa de 12 brigadeiros vista de cima">
+        <defs>
+          <radialGradient id="ch" cx=".38" cy=".32" r=".75"><stop offset="0" stop-color="#7a4e3c"/><stop offset=".55" stop-color="#4a2c22"/><stop offset="1" stop-color="#2a1712"/></radialGradient>
+          <radialGradient id="rs" cx=".38" cy=".32" r=".75"><stop offset="0" stop-color="#f3c9c6"/><stop offset=".6" stop-color="#c98a8c"/><stop offset="1" stop-color="#8D4F57"/></radialGradient>
+          <radialGradient id="br" cx=".38" cy=".32" r=".75"><stop offset="0" stop-color="#fffaf3"/><stop offset=".6" stop-color="#efe1cf"/><stop offset="1" stop-color="#c9b39a"/></radialGradient>
+          <pattern id="gr" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="9" height="9" fill="url(#ch)"/><rect x="2" y="3" width="4" height="1.6" rx=".8" fill="#1e0f0b"/></pattern>
+        </defs>
+        <rect x="6" y="6" width="428" height="328" rx="22" fill="#F9ECEA"/>
+        <rect x="18" y="18" width="404" height="304" rx="14" fill="#f1dcd7" stroke="#C9A961" stroke-width="1.5"/>
+        <g id="covas"></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="problema"><div class="caixa">
+  <blockquote>Mando mensagem para alguns fornecedores, eles visualizam e não respondem.</blockquote>
+  <cite>Noiva no fórum da <a href="https://comunidade.casamentos.com.br/forum/pq-alguns-fornecedores-nao-respondem--t672449" target="_blank" rel="noopener">Casamentos.com.br</a></cite>
+  <p>Você organiza o casamento nas horas livres, pelo celular. Manda mensagem para cinco doceiras e fica esperando. Aqui você vê o preço antes de perguntar e recebe o total no mesmo dia.</p>
+</div></section>
+
+<section class="como" id="como"><div class="caixa">
+  <h2>Como funciona a Mesa Sem Susto</h2>
+  <p>Quatro passos, do primeiro “oi” à mesa montada. Toque em cada um para ver o detalhe.</p>
+  <ol class="etapas" data-desenha>
+    <li style="--i:0"><button type="button" aria-expanded="false">Total na hora</button><p>Você conta quantos convidados e a Júlia responde com o total em até 1 hora, no horário de atendimento.</p></li>
+    <li style="--i:1"><button type="button" aria-expanded="false">Prova antes</button><p>A caixa-degustação com os sabores da mesa chega antes de você fechar. Prove com o noivo, com a mãe, com quem opina.</p></li>
+    <li style="--i:2"><button type="button" aria-expanded="false">Tudo por escrito</button><p>Quantidade, sabores, data, entrega e montagem numa lista. Sem taxa surpresa no fechamento.</p></li>
+    <li style="--i:3"><button type="button" aria-expanded="false">Mesa conferida</button><p>A Júlia confirma na véspera e, no dia, você recebe a foto da mesa montada.</p></li>
+  </ol>
+</div></section>
+
+<section id="precos"><div class="caixa">
+  <h2>Os preços, sem precisar perguntar</h2>
+  <p>Sinal de 50% para segurar a data. PIX ou cartão.</p>
+  <div class="planos">
+    <div class="plano" data-plano="caixa"><h3>Caixa de 12 brigadeiros</h3><b>R$ 45</b><p>Brigadeiros gourmet. É também a caixa-degustação da mesa.</p></div>
+    <div class="plano grande" data-plano="mesa"><h3>Mesa de doces</h3><b>R$ 1.800</b><p>Cerca de 500 doces, entre brigadeiros gourmet e doces finos. Entrega e montagem, com a lista por escrito.</p></div>
+    <div class="plano" data-plano="bolo"><h3>Bolo de festa</h3><b>R$ 120 o kg</b><p>Para casamento, aniversário e chá de bebê.</p></div>
+  </div>
+  <div class="conta" data-desenha>
+    <label for="conv">Quantos doces eu preciso?</label>
+    <input type="range" id="conv" min="30" max="300" step="10" value="100" aria-describedby="res">
+    <div id="res" aria-live="polite">
+      <strong><span id="nc">100</span> convidados: <span id="nd">700 a 900</span> doces</strong>
+      <div class="barra" style="--v:33;--m:18.5"><i></i><s title="Mesa de 500 doces"></s></div>
+      <p class="nota">A linha escura marca a mesa de 500 doces. <span id="msg">Acima dela, a Júlia manda o total por escrito no orçamento.</span></p>
+    </div>
+    <p class="nota">Conta de 7 a 9 doces por convidado, a régua que as noivas usam no <a href="https://comunidade.casamentos.com.br/forum/orcamento-docinhos--t711663" target="_blank" rel="noopener">fórum</a>. <span class="selo">estimativa</span></p>
+  </div>
+</div></section>
+
+<section class="provas-s"><div class="caixa">
+  <h2>Quem já provou</h2>
+  <div class="provas" data-desenha>
+    <div><b class="num">4,7</b>nota no Google</div>
+    <div><b class="num">190</b>avaliações no Google</div>
+    <div><b class="num">13 mil</b>seguidores no Instagram</div>
+  </div>
+  <p class="nota">Nota e avaliações segundo o site <a href="https://amorieudoces.com.br/" target="_blank" rel="noopener">amorieudoces.com.br</a>. Instagram <a href="https://www.instagram.com/amorieudoces/" target="_blank" rel="noopener">@amorieudoces</a>.</p>
+</div></section>
+
+<section class="entrada"><div class="caixa">
+  <div>
+    <h2>Prove antes de fechar</h2>
+    <p>A caixa-degustação traz 12 brigadeiros com os sabores da sua mesa. Fechou o casamento? O valor da caixa sai do total.</p>
+    <p>Fechando casamento de 2027 até 30/11, a caixa é presente.</p>
+  </div>
+  <div>
+    <p class="preco">R$ 45</p>
+    <a class="botao" href="#pedido">Quero a caixa-degustação</a>
+  </div>
+</div></section>
+
+<section class="pedido" id="pedido"><div class="caixa">
+  <h2>Peça seu orçamento</h2>
+  <p>Sete perguntas rápidas. No fim, o WhatsApp abre com a mensagem pronta para a Júlia.</p>
+  <iframe src="formulario.html" title="Formulário de pedido de orçamento"></iframe>
+  <p class="nota">Prefere chamar direto? <a href="https://wa.me/5511974647928">WhatsApp (11) 97464-7928</a></p>
+</div></section>
+
+<section class="onde" id="onde"><div class="caixa">
+  <div>
+    <h2>Onde a Amorieu atende</h2>
+    <dl>
+      <dt>Loja</dt><dd>Rua João Cardoso de Siqueira Primo, 54, Vila Hélio, Centro, Mogi das Cruzes (SP)</dd>
+      <dt>Entrega</dt><dd>Mogi das Cruzes, Suzano e Itaquaquecetuba. Festas grandes, até São Paulo.</dd>
+      <dt>Horário da loja</dt><dd>Segunda a sexta, 10h às 19h30. Sábado, 10h às 19h.</dd>
+      <dt>Encomendas pelo WhatsApp</dt><dd>Segunda a sexta, 9h às 17h.</dd>
+    </dl>
+  </div>
+  <div class="mapa">
+    <svg viewBox="0 0 600 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="340" fill="#F2E7DC"/><path d="M0 230C120 200 200 260 320 220S520 150 600 170" stroke="#e3cfc0" stroke-width="18" fill="none"/><path d="M180 0L240 340M420 0L380 340M0 90L600 120" stroke="#fff" stroke-width="8"/><text x="300" y="185" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="44" fill="#8D4F57">Mogi das Cruzes</text></svg>
+    <iframe src="https://www.google.com/maps?q=Rua%20Jo%C3%A3o%20Cardoso%20de%20Siqueira%20Primo%2C%2054%2C%20Mogi%20das%20Cruzes%20SP&amp;output=embed" loading="lazy" title="Mapa da loja da Amorieu em Mogi das Cruzes"></iframe>
+  </div>
+</div></section>
+
+<section class="faq" id="duvidas"><div class="caixa">
+  <h2>Dúvidas de quem está orçando</h2>
+  <details><summary>Achei caro.</summary><div class="resp"><p>Aqui o total já é o final: doces, entrega e montagem, sem taxa depois. Se quiser, a Júlia monta uma mesa mista, com tradicionais e finos, e o valor desce.</p></div></details>
+  <details><summary>Vou orçar em outros lugares.</summary><div class="resp"><p>Pode! Você recebe tudo por escrito para comparar com calma. Só lembre: a data fica segura com o sinal de 50%.</p></div></details>
+  <details><summary>Minha mãe (ou sogra) vai fazer os doces.</summary><div class="resp"><p>Que lindo. Ela merece curtir a festa sem passar a noite enrolando docinho. Peça a caixa-degustação e decidam juntas.</p></div></details>
+</div></section>
+
+<section class="final"><div class="caixa">
+  <div class="garantia">
+    <h3>Garantia Mesa Conferida</h3>
+    <p>A lista do que vem vai por escrito. Na véspera, a Júlia confirma horário e endereço. No dia, você recebe a foto da mesa montada. Faltou algum doce da lista? A Amorieu devolve o valor proporcional.</p>
+  </div>
+  <h2>Conte quantos convidados. O resto a gente monta.</h2>
+  <a class="botao" href="#pedido">Pedir meu orçamento</a>
+</div></section>
+</main>
+
+<footer><div class="caixa">
+  <img src="../marca/logo.png" alt="Amorieu Doces">
+  <span>Amorieu Doces, Mogi das Cruzes (SP)</span>
+  <a href="https://wa.me/5511974647928">WhatsApp (11) 97464-7928</a>
+  <a href="https://www.instagram.com/amorieudoces/">@amorieudoces</a>
+</div></footer>
+
+<script>
+(()=>{
+const calmo=matchMedia('(prefers-reduced-motion: reduce)').matches;
+// caixa de brigadeiros: 4 colunas, 3 linhas
+const g=document.getElementById('covas'),ns='http://www.w3.org/2000/svg',sab=['gr','rs','br','ch','br','gr','ch','rs','ch','rs','gr','br'];
+sab.forEach((s,k)=>{const x=82+(k%4)*92,y=78+Math.floor(k/4)*92;
+  const c=document.createElementNS(ns,'circle');c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',40);c.setAttribute('fill','#e7cdc6');g.append(c);
+  const b=document.createElementNS(ns,'circle');b.setAttribute('cx',x);b.setAttribute('cy',y);b.setAttribute('r',31);b.setAttribute('fill','url(#'+s+')');b.setAttribute('class','b');b.style.setProperty('--i',k);g.append(b);
+  if(s==='ch'){const o=document.createElementNS(ns,'circle');o.setAttribute('cx',x-6);o.setAttribute('cy',y-9);o.setAttribute('r',5);o.setAttribute('fill','#C9A961');o.setAttribute('class','b');o.style.setProperty('--i',k+2);g.append(o)}});
+// cabeçalho ganha fundo ao rolar
+const cab=document.getElementById('cab'),rola=()=>cab.classList.toggle('cheio',scrollY>40);addEventListener('scroll',rola,{passive:true});rola();
+// etapas: abrir detalhe
+document.querySelectorAll('.etapas button').forEach(b=>{const p=b.nextElementSibling;p.hidden=true;
+  b.onclick=()=>{const a=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',!a);p.hidden=a}});
+// quantos doces
+const r=document.getElementById('conv'),bar=document.querySelector('.barra'),MAX=2700,MESA=500;
+const fmt=n=>n.toLocaleString('pt-BR');
+function calc(){const n=+r.value,lo=n*7,hi=n*9;
+  document.getElementById('nc').textContent=n;document.getElementById('nd').textContent=fmt(lo)+' a '+fmt(hi);
+  bar.style.setProperty('--v',hi/MAX*100);bar.style.setProperty('--m',MESA/MAX*100);
+  const cabe=hi<=MESA;document.querySelector('[data-plano=mesa]').classList.toggle('indicado',cabe);
+  document.getElementById('msg').textContent=cabe?'A mesa de 500 doces dá conta da sua festa.':'Passou da mesa de 500 doces: a Júlia manda o total por escrito no orçamento.'}
+r.addEventListener('input',calc);calc();
+// números que contam
+function conta(b){const alvo=b.textContent,m=alvo.match(/[\d.]+(,\d+)?/);if(!m)return;
+  const dec=(m[0].split(',')[1]||'').length,n=parseFloat(m[0].replace(/\./g,'').replace(',','.'));let t0;
+  requestAnimationFrame(function p(t){t0??=t;const k=Math.min(1,(t-t0)/1100),e=1-(1-k)**3;
+    b.textContent=alvo.replace(m[0],(n*e).toLocaleString('pt-BR',{minimumFractionDigits:dec,maximumFractionDigits:dec}));
+    if(k<1)requestAnimationFrame(p);else b.textContent=alvo})}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('visto');
+  if(!calmo)e.target.querySelectorAll('.num').forEach(conta);io.unobserve(e.target)}),{threshold:.25});
+document.querySelectorAll('[data-desenha]').forEach(el=>io.observe(el));
+})();
+</script>
+</body>
+</html>

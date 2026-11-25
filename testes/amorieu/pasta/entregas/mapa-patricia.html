@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa da Patrícia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --vinho:#8D4F57; --rosa:#9E5F66; --creme:#FDF9F6; --choco:#3A2D2A;
+  --rosa-claro:#F9ECEA; --areia:#F2E7DC; --ouro:#C9A961;
+  --linha:#E3D3C6; --suave:#6E5A55;
+  --titulo:'Cormorant Garamond', Georgia, serif;
+  --texto:'Jost', system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--creme);color:var(--choco);font:400 17px/1.6 var(--texto)}
+.pagina{max-width:1080px;margin:0 auto;padding:56px 24px 80px}
+h1,h2,h3{font-family:var(--titulo);font-weight:600;line-height:1.1;margin:0;color:var(--vinho)}
+h1{font-size:clamp(44px,7vw,76px);letter-spacing:-.01em}
+h2{font-size:clamp(30px,4vw,40px);margin-bottom:6px}
+h3{font-size:24px;color:var(--choco)}
+p{margin:0}
+a{color:var(--vinho)}
+:focus-visible{outline:3px solid var(--ouro);outline-offset:3px}
+
+/* topo */
+.topo{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;padding-bottom:36px;border-bottom:1px solid var(--linha)}
+.topo .papel{font-size:19px;color:var(--suave);margin-top:10px}
+.topo .frase{font-family:var(--titulo);font-size:clamp(22px,2.6vw,28px);line-height:1.35;max-width:30ch;margin-top:22px}
+.topo img{width:120px;height:auto}
+.decide{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.decide span{background:var(--rosa-claro);border-radius:999px;padding:6px 14px;font-size:15px}
+.decide span.acima{background:transparent;border:1px dashed var(--rosa)}
+
+section{margin-top:64px}
+.intro{color:var(--suave);max-width:62ch;margin-bottom:24px}
+
+/* semana: tira de calendário */
+.semana{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--linha);border-radius:14px;overflow:hidden;background:#fff}
+.dia{padding:16px 16px 20px;border-right:1px solid var(--linha);min-height:132px}
+.dia:last-child{border-right:0}
+.dia b{display:block;font-family:var(--titulo);font-size:22px;color:var(--vinho);margin-bottom:6px}
+.dia p{font-size:15px}
+.dia.cobranca{background:var(--rosa-claro)}
+.dia small{display:block;margin-top:8px;color:var(--suave);font-size:13px}
+.mes{margin-top:12px;display:flex;gap:16px;align-items:center;background:var(--choco);color:var(--creme);border-radius:14px;padding:14px 18px}
+.mes b{font-family:var(--titulo);font-size:22px;color:var(--ouro);white-space:nowrap}
+
+/* pessoas */
+.pessoas{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:2px;background:var(--linha);border:1px solid var(--linha);border-radius:14px;overflow:hidden}
+.pessoa{background:var(--creme);padding:16px 18px}
+.pessoa b{display:block;font-weight:600}
+.pessoa p{font-size:15px;color:var(--suave)}
+.pessoa .canal{color:var(--choco);margin-top:6px}
+
+/* tabela */
+.tabela{overflow-x:auto;border:1px solid var(--linha);border-radius:14px;background:#fff}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:15px}
+th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--linha)}
+th{font-weight:600;background:var(--areia)}
+tr:last-child td{border-bottom:0}
+td.dor{color:var(--vinho)}
+
+/* fluxos */
+.processo{margin-top:40px;padding:28px 24px 30px;background:#fff;border:1px solid var(--linha);border-radius:18px}
+.processo header{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline;margin-bottom:22px}
+.processo header p{color:var(--suave);font-size:15px}
+.linha{display:flex;align-items:flex-start;gap:0;margin:0;padding:0;list-style:none}
+.linha + .linha{margin-top:26px;padding-top:26px;border-top:1px dashed var(--linha)}
+.linha > li{display:flex;align-items:flex-start}
+.linha > li + li::before{content:"";flex:0 0 28px;height:2px;background:var(--rosa);margin-top:34px;position:relative}
+.no{width:150px;min-height:70px;padding:10px 12px;border:1.5px solid var(--choco);border-radius:10px;background:var(--creme);font-size:14.5px;line-height:1.35}
+.no small{display:block;color:var(--suave);font-size:12.5px;margin-top:4px}
+.no.gatilho{border-radius:999px;background:var(--vinho);border-color:var(--vinho);color:#fff;text-align:center;display:flex;flex-direction:column;justify-content:center;width:120px}
+.no.gatilho small{color:var(--rosa-claro)}
+.no.fim{background:var(--areia);border-style:double;border-width:4px}
+.no.doi{border-color:var(--vinho);background:var(--rosa-claro);box-shadow:inset 4px 0 0 var(--vinho)}
+.no .tag{display:inline-block;margin-top:6px;font-size:12px;color:var(--vinho);font-weight:600}
+.decisao{display:flex;flex-direction:column;align-items:center;width:170px}
+.losango{width:86px;height:86px;transform:rotate(45deg);border:1.5px solid var(--vinho);background:var(--rosa-claro);display:grid;place-items:center;margin:6px 0 10px}
+.losango span{transform:rotate(-45deg);font-size:12.5px;line-height:1.2;text-align:center;width:96px;font-weight:500}
+.ramos{display:grid;gap:6px;width:100%}
+.ramo{font-size:13.5px;line-height:1.35;padding:6px 8px;border-left:3px solid var(--rosa);background:var(--creme)}
+.ramo b{color:var(--vinho)}
+.ramo.nao{border-left-color:var(--choco)}
+.legenda{display:flex;flex-wrap:wrap;gap:18px;margin-top:20px;font-size:14px;color:var(--suave)}
+.legenda i{display:inline-block;width:16px;height:12px;vertical-align:-1px;margin-right:6px;border:1.5px solid var(--choco);border-radius:3px}
+.legenda i.d{border-color:var(--vinho);background:var(--rosa-claro);box-shadow:inset 3px 0 0 var(--vinho)}
+.legenda i.l{transform:rotate(45deg);border-color:var(--vinho);width:11px;height:11px;border-radius:0}
+
+/* documentos e dados */
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.lista{list-style:none;margin:0;padding:0;border-top:1px solid var(--linha)}
+.lista li{padding:12px 0;border-bottom:1px solid var(--linha);display:flex;justify-content:space-between;gap:12px}
+.lista li span{color:var(--suave);font-size:14px;text-align:right}
+.confirmar{margin-top:28px;background:var(--areia);border-radius:14px;padding:18px 20px;font-size:15px}
+.confirmar ul{margin:8px 0 0;padding-left:20px}
+footer{margin-top:64px;color:var(--suave);font-size:14px}
+
+@media (max-width:820px){
+  .pagina{padding:36px 16px 64px}
+  .topo{grid-template-columns:1fr}
+  .topo img{order:-1;width:90px}
+  .semana{grid-template-columns:1fr}
+  .dia{border-right:0;border-bottom:1px solid var(--linha);min-height:0}
+  .dia:last-child{border-bottom:0}
+  .mes{flex-direction:column;align-items:flex-start;gap:4px}
+  .duas{grid-template-columns:1fr}
+  .processo{padding:22px 16px}
+  .linha{flex-direction:column;align-items:center}
+  .linha > li{flex-direction:column;align-items:center}
+  .linha > li + li::before{flex:0 0 24px;width:2px;height:24px;margin:0}
+  .no,.no.gatilho,.decisao{width:min(280px,100%)}
+}
+@media (min-width:821px) and (max-width:1060px){
+  .linha{flex-wrap:wrap;row-gap:18px}
+}
+</style>
+</head>
+<body>
+<main class="pagina">
+
+  <header class="topo">
+    <div>
+      <h1>Patrícia</h1>
+      <p class="papel">Coordenadora financeira da Amorieu Doces, Mogi das Cruzes</p>
+      <p class="frase">Pago as contas da semana, cobro quem está atrasado, concilio os bancos e entrego o fechamento do mês para o diretor.</p>
+      <div class="decide">
+        <span>Decide sozinha: prorrogar boleto até 15 dias</span>
+        <span>Decide sozinha: a ordem dos pagamentos da semana</span>
+        <span class="acima">Acima disso, o Roberto aprova</span>
+      </div>
+    </div>
+    <img src="../marca/logo.png" alt="Amorieu Doces">
+  </header>
+
+  <section aria-labelledby="t-semana">
+    <h2 id="t-semana">A semana</h2>
+    <p class="intro">Três dos cinco dias giram em torno de cobrança e conciliação.</p>
+    <div class="semana">
+      <div class="dia"><b>Segunda</b><p>Contas a pagar da semana e fluxo de caixa</p></div>
+      <div class="dia cobranca"><b>Terça</b><p>Cobrança de inadimplentes e conciliação bancária</p><small>Começa a cobrança</small></div>
+      <div class="dia cobranca"><b>Quarta</b><p>Cobrança e conciliação</p></div>
+      <div class="dia cobranca"><b>Quinta</b><p>Cobrança e conciliação</p><small>Cobrança: umas 5 h na semana</small></div>
+      <div class="dia"><b>Sexta</b><p>Relatório e reunião com o diretor</p></div>
+    </div>
+    <div class="mes"><b>Dia 1 a 5</b><p>Fechamento mensal: uns 2 dias inteiros de trabalho</p></div>
+  </section>
+
+  <section aria-labelledby="t-pessoas">
+    <h2 id="t-pessoas">Com quem fala</h2>
+    <p class="intro">Quase tudo passa por e-mail e WhatsApp.</p>
+    <div class="pessoas">
+      <div class="pessoa"><b>Roberto, diretor</b><p>Relatório e aprovações</p><p class="canal">Reunião na sexta e WhatsApp</p></div>
+      <div class="pessoa"><b>Vendedores</b><p>Cliente atrasado</p><p class="canal">WhatsApp</p></div>
+      <div class="pessoa"><b>Contabilidade externa</b><p>Arquivos do mês</p><p class="canal">E-mail</p></div>
+      <div class="pessoa"><b>Empresas com kit em atraso</b><p>Cobrança</p><p class="canal">E-mail e telefone</p></div>
+      <div class="pessoa"><b>2 assistentes do financeiro</b><p>Tarefas a confirmar</p><p class="canal">A confirmar</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-proc">
+    <h2 id="t-proc">Os processos que mais tomam tempo</h2>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Processo</th><th>Começa</th><th>Ferramentas</th><th>Entrega</th><th>Tempo</th><th>Dor principal</th></tr></thead>
+        <tbody>
+          <tr><td><b>Cobrança de inadimplentes</b></td><td>Toda terça</td><td>Omie, Excel, Word, Gmail, telefone, WhatsApp</td><td>E-mails enviados, follow-up, cliente bloqueado</td><td>Umas 5 h por semana</td><td class="dor">Escrever e-mail um por um e esquecer de voltar no cliente que prometeu</td></tr>
+          <tr><td><b>Fechamento mensal e relatório</b></td><td>Dia 1 do mês</td><td>Itaú, Sicoob, Inter, Omie, Excel, Gmail</td><td>DRE e resumo em PDF para o Roberto; notas para a contabilidade</td><td>Uns 2 dias por mês</td><td class="dor">Conciliar na mão o que não bate e montar o resumo do zero</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <article class="processo" aria-labelledby="t-p1">
+      <header><h3 id="t-p1">1. Cobrança de inadimplentes</h3><p>Toda terça · umas 5 h por semana</p></header>
+      <ol class="linha">
+        <li><div class="no gatilho">Terça<small>começa</small></div></li>
+        <li><div class="no">Tirar relatório de títulos vencidos<small>Omie</small></div></li>
+        <li><div class="no">Exportar para Excel<small>Excel</small></div></li>
+        <li><div class="no">Separar por faixa: até 15, 15 a 30, mais de 30 dias<small>Excel</small></div></li>
+        <li><div class="no doi">Escrever um e-mail por cliente<small>Word + Gmail</small><span class="tag">Dor: um por um</span></div></li>
+      </ol>
+      <ol class="linha">
+        <li><div class="decisao"><div class="losango"><span>Mais de 30 dias?</span></div><div class="ramos"><div class="ramo"><b>Sim:</b> ligar</div><div class="ramo nao"><b>Não:</b> só o e-mail</div></div></div></li>
+        <li><div class="no">Anotar na planilha de follow-up<small>Excel</small></div></li>
+        <li><div class="decisao"><div class="losango"><span>Prometeu pagar?</span></div><div class="ramos"><div class="ramo"><b>Sim:</b> anotar a data</div></div></div></li>
+        <li><div class="no doi">Voltar no cliente na data<small>Planilha</small><span class="tag">Dor: esquece</span></div></li>
+        <li><div class="decisao"><div class="losango"><span>Pagou em 30 dias?</span></div><div class="ramos"><div class="ramo nao"><b>Não:</b> segue para o bloqueio</div></div></div></li>
+        <li><div class="no fim">Avisar o vendedor e bloquear no Omie<small>WhatsApp + Omie</small></div></li>
+      </ol>
+      <div class="legenda"><span><i></i>passo</span><span><i class="d"></i>onde dói</span><span><i class="l"></i>decisão</span></div>
+    </article>
+
+    <article class="processo" aria-labelledby="t-p2">
+      <header><h3 id="t-p2">2. Fechamento mensal e relatório para a diretoria</h3><p>Dia 1 do mês · uns 2 dias inteiros</p></header>
+      <ol class="linha">
+        <li><div class="no gatilho">Dia 1<small>do mês</small></div></li>
+        <li><div class="no">Baixar extratos: Itaú, Sicoob, Inter<small>OFX ou Excel</small></div></li>
+        <li><div class="decisao"><div class="losango"><span>Bateu no Omie?</span></div><div class="ramos"><div class="ramo"><b>Sim:</b> segue</div><div class="ramo nao"><b>Não:</b> conciliar na mão</div></div></div></li>
+        <li><div class="no">Montar o DRE gerencial<small>Excel, modelo</small></div></li>
+        <li><div class="no doi">Resumo de 1 página<small>faturamento, despesas, caixa, inadimplência</small><span class="tag">Dor: do zero todo mês</span></div></li>
+        <li><div class="no fim">PDF por e-mail para o Roberto<small>Gmail</small></div></li>
+      </ol>
+      <ol class="linha">
+        <li><div class="no gatilho">Dia 1<small>em paralelo</small></div></li>
+        <li><div class="no">Separar as notas</div></li>
+        <li><div class="no fim">Mandar para a contabilidade<small>E-mail</small></div></li>
+      </ol>
+      <div class="legenda"><span><i></i>passo</span><span><i class="d"></i>onde dói</span><span><i class="l"></i>decisão</span></div>
+    </article>
+  </section>
+
+  <section aria-labelledby="t-docs">
+    <div class="duas">
+      <div>
+        <h2 id="t-docs">Documentos para trazer</h2>
+        <p class="intro">Solte em <code>dados/</code> para a IA trabalhar com eles.</p>
+        <ul class="lista">
+          <li>Modelo de e-mail de cobrança <span>Word</span></li>
+          <li>Planilha de follow-up de cobrança <span>Excel</span></li>
+          <li>Modelo do DRE gerencial <span>Excel</span></li>
+          <li>Política de crédito <span>PDF, 2 páginas</span></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Onde estão os dados</h2>
+        <p class="intro">Cada um é uma porta possível para a IA.</p>
+        <ul class="lista">
+          <li>Omie <span>ERP, no navegador</span></li>
+          <li>Itaú, Sicoob, Inter <span>internet banking</span></li>
+          <li>Excel <span>no computador</span></li>
+          <li>Gmail e Google Drive <span>da empresa</span></li>
+          <li>WhatsApp <span>diretor e vendedores</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="confirmar">
+      <b>A confirmar</b>
+      <ul>
+        <li>O que fazem as 2 assistentes do financeiro.</li>
+        <li>Os 30 dias do bloqueio contam da promessa ou do vencimento?</li>
+        <li>Se já usa alguma IA no trabalho.</li>
+      </ul>
+    </div>
+  </section>
+
+<!-- INICIO:plano -->
+  <style>
+  .top3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .carta{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:22px 20px;display:flex;flex-direction:column;gap:10px}
+  .carta .n{font-family:var(--titulo);font-size:40px;line-height:1;color:var(--ouro)}
+  .carta p{font-size:15px;color:var(--suave)}
+  .carta .passo{margin-top:auto;background:var(--rosa-claro);border-radius:10px;padding:10px 12px;font-size:14px;color:var(--choco)}
+  .carta .passo code{font-size:13px}
+  .tipo{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:500;background:var(--areia);color:var(--choco);white-space:nowrap}
+  .tipo.skill{background:var(--vinho);color:#fff}
+  .tipo.prompt{background:var(--rosa-claro);color:var(--vinho)}
+  .tipo.rotina{background:var(--choco);color:var(--creme)}
+  .ie{font-size:13.5px;color:var(--suave)}
+  .ie b{color:var(--vinho)}
+  .rotinas{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .rotina{display:flex;gap:16px;align-items:center;background:var(--choco);color:var(--creme);border-radius:14px;padding:14px 18px}
+  .rotina b{font-family:var(--titulo);font-size:22px;color:var(--ouro);white-space:nowrap}
+  .rotina p{font-size:15px}
+  .com-voce{margin-top:20px;font-size:15px;color:var(--suave)}
+  @media (max-width:820px){.top3,.rotinas{grid-template-columns:1fr}.rotina{flex-direction:column;align-items:flex-start;gap:4px}}
+  </style>
+  <section aria-labelledby="t-plano">
+    <h2 id="t-plano">O que a IA pode fazer por você</h2>
+    <p class="intro">A IA escreve os e-mails, lembra de quem prometeu pagar e acha o que não bate na conciliação. Você revisa, liga, negocia e decide quem bloquear.</p>
+    <div class="top3">
+      <article class="carta">
+        <span class="n">1</span>
+        <h3>E-mails de cobrança da semana em um pedido</h3>
+        <p>Resolve o "um por um" da cobrança.</p>
+        <p><span class="tipo prompt">Prompt pronto</span> <span class="ie">impacto <b>3</b> · esforço <b>1</b></span></p>
+        <div class="passo">Export de vencidos do Omie em <code>dados/vencidos.xlsx</code> e o prompt de <code>entregas/sugestoes.md</code></div>
+      </article>
+      <article class="carta">
+        <span class="n">2</span>
+        <h3>Conciliação dos 3 bancos antes de 1/11</h3>
+        <p>Lista o que não bateu e o lançamento provável de cada diferença.</p>
+        <p><span class="tipo prompt">Prompt pronto</span> <span class="ie">impacto <b>3</b> · esforço <b>1</b></span></p>
+        <div class="passo">Extratos de outubro e export do Omie em <code>dados/</code> e o prompt de <code>entregas/sugestoes.md</code></div>
+      </article>
+      <article class="carta">
+        <span class="n">3</span>
+        <h3>Skill /cobranca-semana</h3>
+        <p>Rascunhos no seu modelo, lista de ligação e quem prometeu pagar e a data passou.</p>
+        <p><span class="tipo skill">Skill</span> <span class="ie">impacto <b>3</b> · esforço <b>2</b></span></p>
+        <div class="passo">"Crie a skill /cobranca-semana e teste com os vencidos desta semana"</div>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-todas">
+    <h2 id="t-todas">Todas as sugestões</h2>
+    <p class="intro">Impacto e esforço de 1 a 3. Primeiro o que dá mais resultado com menos trabalho.</p>
+    <div class="tabela">
+      <table>
+        <thead><tr><th>#</th><th>Sugestão</th><th>Processo</th><th>Tipo</th><th>Impacto</th><th>Esforço</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>E-mails de cobrança da semana em um pedido</td><td>Cobrança</td><td><span class="tipo prompt">Prompt pronto</span></td><td>3</td><td>1</td></tr>
+          <tr><td>2</td><td>Conciliação dos 3 bancos x Omie</td><td>Fechamento</td><td><span class="tipo prompt">Prompt pronto</span></td><td>3</td><td>1</td></tr>
+          <tr><td>3</td><td>/cobranca-semana</td><td>Cobrança</td><td><span class="tipo skill">Skill</span></td><td>3</td><td>2</td></tr>
+          <tr><td>4</td><td>Trazer os 4 documentos para a pasta</td><td>Os dois</td><td><span class="tipo">Contexto</span></td><td>3</td><td>1</td></tr>
+          <tr><td>5</td><td>/resumo-do-mes: resumo de 1 página para o Roberto</td><td>Fechamento</td><td><span class="tipo skill">Skill</span></td><td>3</td><td>2</td></tr>
+          <tr><td>6</td><td>Ligar Google Drive e Gmail no claude.ai</td><td>Os dois</td><td><span class="tipo">Conector</span></td><td>2</td><td>1</td></tr>
+          <tr><td>7</td><td>Toda terça 8h: cobrança pronta para revisar</td><td>Cobrança</td><td><span class="tipo rotina">Rotina agendada</span></td><td>3</td><td>2</td></tr>
+          <tr><td>8</td><td>Projeto "Cobrança Amorieu" para as assistentes</td><td>Cobrança</td><td><span class="tipo">Projeto</span></td><td>2</td><td>2</td></tr>
+          <tr><td>9</td><td>Guia da política de crédito para os vendedores</td><td>Cobrança</td><td><span class="tipo">Artifact</span></td><td>2</td><td>2</td></tr>
+          <tr><td>10</td><td>Plugin de finanças</td><td>Fechamento</td><td><span class="tipo">Plugin</span></td><td>2</td><td>1</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="rotinas">
+      <div class="rotina"><b>Terça, 8h</b><p>Rascunhos de cobrança, lista de ligação e promessas vencidas, prontos para você revisar</p></div>
+      <div class="rotina"><b>Dia 1, 8h</b><p>Tabela do que não bateu entre os bancos e o Omie, com o lançamento provável</p></div>
+    </div>
+    <p class="com-voce">Continua com você: ligar e negociar, prorrogar e bloquear, enviar cada e-mail e lançar no Omie. Nenhuma rotina envia ou bloqueia sozinha.</p>
+  </section>
+<!-- FIM:plano -->
+
+  <footer>Mapa feito na entrevista <code>/sobre-mim</code> em 26/10/2026. Detalhe em <code>memoria/sobre-mim.md</code>.</footer>
+</main>
+</body>
+</html>

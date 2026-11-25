@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa da Juliana, RH da Amorieu Doces</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --vinho: #8D4F57;
+    --rosa: #9E5F66;
+    --creme: #FDF9F6;
+    --choco: #3A2D2A;
+    --rosa-claro: #F9ECEA;
+    --areia: #F2E7DC;
+    --ouro: #C9A961;
+    --suave: #6E5A55;
+    --titulo: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --texto: "Jost", "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--creme); color: var(--choco); font-family: var(--texto); font-size: 17px; line-height: 1.55; }
+  a { color: var(--vinho); }
+  :focus-visible { outline: 3px solid var(--ouro); outline-offset: 3px; }
+  .miolo { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+  header { padding: 56px 0 40px; border-bottom: 1px solid var(--areia); }
+  header .marca { display: flex; align-items: center; gap: 12px; color: var(--suave); font-size: 15px; margin-bottom: 28px; }
+  header .marca img { height: 40px; width: auto; }
+  h1 { font-family: var(--titulo); font-weight: 600; font-size: clamp(40px, 7vw, 68px); line-height: 1.02; margin: 0 0 6px; color: var(--vinho); letter-spacing: -0.01em; }
+  .papel { font-size: 19px; margin: 0 0 18px; color: var(--suave); }
+  .frase { font-family: var(--titulo); font-size: clamp(22px, 3vw, 28px); line-height: 1.3; max-width: 34ch; margin: 0; }
+
+  section { padding: 48px 0; border-bottom: 1px solid var(--areia); }
+  h2 { font-family: var(--titulo); font-weight: 600; font-size: clamp(28px, 4vw, 38px); line-height: 1.1; margin: 0 0 8px; }
+  .nota { color: var(--suave); margin: 0 0 28px; max-width: 62ch; }
+
+  /* semana */
+  .semana { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; background: var(--areia); border: 2px solid var(--areia); border-radius: 14px; overflow: hidden; }
+  .dia { background: #fff; padding: 16px 14px 18px; }
+  .dia b { display: block; font-family: var(--titulo); font-size: 22px; color: var(--vinho); margin-bottom: 4px; }
+  .dia p { margin: 0; font-size: 15px; }
+  .faixa-mes { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 15px; }
+  .faixa-mes span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--ouro); margin-right: 8px; vertical-align: 1px; }
+
+  /* com quem fala */
+  .gente { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 0; }
+  .gente div { border-top: 3px solid var(--rosa-claro); padding-top: 12px; }
+  .gente dt { font-weight: 600; }
+  .gente dd { margin: 2px 0 0; color: var(--suave); font-size: 15px; }
+
+  /* tabela */
+  .tabela-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--areia); background: #fff; }
+  table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--areia); }
+  th { background: var(--rosa-claro); font-weight: 600; color: var(--vinho); }
+  tr:last-child td { border-bottom: 0; }
+  td:first-child { font-weight: 600; }
+
+  /* fluxo: o elemento que importa */
+  .processo { margin-top: 40px; }
+  .processo:first-of-type { margin-top: 0; }
+  .processo h3 { font-family: var(--titulo); font-size: 28px; font-weight: 600; margin: 0 0 4px; color: var(--vinho); }
+  .processo .sub { margin: 0 0 20px; color: var(--suave); font-size: 15px; }
+  .fluxo { list-style: none; margin: 0; padding: 8px 4px 20px; display: flex; align-items: stretch; overflow-x: auto; scrollbar-color: var(--areia) transparent; }
+  .fluxo > li { flex: 0 0 auto; display: flex; align-items: center; }
+  .fluxo > li + li::before { content: ""; flex: 0 0 28px; height: 2px; background: var(--ouro); margin: 0 2px; position: relative; }
+  .fluxo > li + li { position: relative; }
+  .fluxo > li + li::after { content: ""; position: absolute; left: 24px; top: 50%; width: 0; height: 0; border: 6px solid transparent; border-left-color: var(--ouro); transform: translateY(-50%); }
+  .caixa { width: 168px; min-height: 104px; background: #fff; border: 1.5px solid var(--areia); border-radius: 12px; padding: 12px 14px; font-size: 15px; line-height: 1.35; }
+  .caixa small { display: block; color: var(--suave); font-size: 13px; margin-top: 6px; }
+  .caixa .n { font-family: var(--titulo); font-size: 20px; color: var(--ouro); font-weight: 700; display: block; line-height: 1; margin-bottom: 4px; }
+  .caixa.inicio, .caixa.fim { border-radius: 999px; background: var(--vinho); color: #fff; border-color: var(--vinho); display: flex; flex-direction: column; justify-content: center; text-align: center; min-height: 80px; padding: 12px 20px; }
+  .caixa.inicio small, .caixa.fim small { color: #F3DADD; }
+  .caixa.dor { border-color: var(--rosa); background: var(--rosa-claro); }
+  .caixa.dor .tag { display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 600; color: var(--vinho); }
+  .decisao { display: flex; align-items: center; gap: 14px; }
+  .losango { width: 104px; height: 104px; flex: 0 0 104px; display: grid; place-items: center; position: relative; }
+  .losango::before { content: ""; position: absolute; inset: 15px; background: var(--areia); border: 1.5px solid var(--ouro); transform: rotate(45deg); border-radius: 8px; }
+  .losango span { position: relative; text-align: center; font-size: 14px; font-weight: 600; line-height: 1.2; max-width: 80px; }
+  .ramos { display: flex; flex-direction: column; gap: 12px; }
+  .ramo { display: flex; align-items: center; gap: 8px; }
+  .ramo .rot { font-size: 13px; font-weight: 600; width: 34px; color: var(--vinho); }
+  .ramo .rot.nao { color: var(--suave); }
+  .ramo .caixa { min-height: 0; width: 190px; }
+  .ramo .caixa.volta { border-style: dashed; border-color: var(--ouro); background: transparent; }
+
+  /* documentos e dados */
+  .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .lista { list-style: none; margin: 0; padding: 0; }
+  .lista li { padding: 10px 0; border-bottom: 1px solid var(--areia); display: flex; justify-content: space-between; gap: 16px; }
+  .lista li span { color: var(--suave); font-size: 15px; text-align: right; }
+  .confirmar { background: var(--rosa-claro); border-radius: 14px; padding: 20px 24px; }
+  .confirmar h2 { font-size: 26px; }
+  .confirmar ul { margin: 8px 0 0; padding-left: 20px; }
+
+  footer { padding: 32px 0 56px; color: var(--suave); font-size: 14px; }
+
+  @media (max-width: 760px) {
+    header { padding-top: 36px; }
+    .semana { grid-template-columns: 1fr; }
+    .gente { grid-template-columns: 1fr 1fr; }
+    .duas { grid-template-columns: 1fr; gap: 32px; }
+    .fluxo { flex-direction: column; align-items: stretch; overflow: visible; padding: 0; }
+    .fluxo > li { flex-direction: column; align-items: stretch; }
+    .fluxo > li + li::before { flex: 0 0 24px; width: 2px; height: 24px; margin: 2px auto; }
+    .fluxo > li + li::after { left: 50%; top: 20px; border-left-color: transparent; border-top-color: var(--ouro); transform: translateX(-50%); }
+    .caixa, .ramo .caixa { width: 100%; min-height: 0; }
+    .decisao { flex-direction: column; align-items: stretch; }
+    .losango { margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="miolo">
+    <div class="marca"><img src="../marca/logo.png" alt="Amorieu Doces"> Mapa do trabalho, 26/10/2026</div>
+    <h1>Juliana</h1>
+    <p class="papel">Analista de RH da Amorieu Doces, a única do setor</p>
+    <p class="frase">Recruta, admite, fecha o ponto e responde as dúvidas de uns 25 funcionários entre loja, produção e escritório.</p>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="miolo">
+    <h2>A semana</h2>
+    <p class="nota">Decide sozinha quem passa da triagem e as datas de entrevista. Contratação e salário ficam com o gestor da área e o diretor.</p>
+    <div class="semana">
+      <div class="dia"><b>Segunda</b><p>Reunião com os gestores sobre vagas abertas</p></div>
+      <div class="dia"><b>Terça</b><p>Triagem, entrevistas e admissões</p></div>
+      <div class="dia"><b>Quarta</b><p>Triagem, entrevistas e admissões</p></div>
+      <div class="dia"><b>Quinta</b><p>Triagem, entrevistas e admissões</p></div>
+      <div class="dia"><b>Sexta</b><p>Ponto e pendências da folha</p></div>
+    </div>
+    <div class="faixa-mes">
+      <span>Do dia 20 ao 25: fecha o ponto e manda para a contabilidade</span>
+      <span>Todo dia: umas 15 dúvidas no WhatsApp, uns 40 min</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="miolo">
+    <h2>Com quem fala</h2>
+    <p class="nota">O WhatsApp está em quase tudo. É por ali que chegam as interrupções.</p>
+    <dl class="gente">
+      <div><dt>Gestores das áreas</dt><dd>WhatsApp e reunião</dd></div>
+      <div><dt>Candidatos</dt><dd>WhatsApp e e-mail</dd></div>
+      <div><dt>Contabilidade</dt><dd>E-mail</dd></div>
+      <div><dt>Funcionários</dt><dd>WhatsApp: férias, holerite e benefício</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section>
+  <div class="miolo">
+    <h2>Os 2 processos que mais tomam tempo</h2>
+    <p class="nota">Tempo e frequência do jeito que a Juliana contou.</p>
+    <div class="tabela-wrap"><table>
+      <thead><tr><th>Processo</th><th>Começa quando</th><th>Ferramentas</th><th>Tempo</th><th>Frequência</th><th>O que mais pesa</th></tr></thead>
+      <tbody>
+        <tr><td>Recrutamento e seleção</td><td>Gestor pede a vaga no WhatsApp</td><td>Word, LinkedIn, Indeed, WhatsApp, e-mail</td><td>umas 8 h por vaga</td><td>umas 4 vagas por mês</td><td>Ler 100 currículos e escrever a descrição da vaga do zero</td></tr>
+        <tr><td>Dúvidas dos funcionários</td><td>Mensagem no WhatsApp</td><td>WhatsApp, regulamento em PDF, e-mail</td><td>uns 40 min por dia</td><td>umas 15 por dia</td><td>A mesma pergunta repetida e a interrupção o dia todo</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section>
+  <div class="miolo">
+    <h2>Como cada processo anda</h2>
+    <p class="nota">As caixas rosadas são onde a Juliana disse que mais dói.</p>
+
+    <div class="processo">
+      <h3>Recrutamento e seleção</h3>
+      <p class="sub">De 60 a 100 currículos por vaga de confeiteira, atendente ou auxiliar de produção.</p>
+      <ol class="fluxo">
+        <li><div class="caixa inicio">Gestor pede a vaga<small>WhatsApp</small></div></li>
+        <li><div class="caixa dor"><span class="n">1</span>Escreve a descrição da vaga<small>Word</small><span class="tag">Dói: do zero</span></div></li>
+        <li><div class="caixa"><span class="n">2</span>Publica a vaga<small>LinkedIn e Indeed</small></div></li>
+        <li><div class="caixa dor"><span class="n">3</span>Lê um por um e separa uns 10<small>60 a 100 currículos</small><span class="tag">Dói: 100 currículos</span></div></li>
+        <li><div class="caixa"><span class="n">4</span>Chama e entrevista<small>WhatsApp e roteiro no Word</small></div></li>
+        <li><div class="caixa"><span class="n">5</span>Parecer curto e os 3 melhores ao gestor</div></li>
+        <li>
+          <div class="decisao">
+            <div class="losango"><span>Gestor aprova?</span></div>
+            <div class="ramos">
+              <div class="ramo"><span class="rot">sim</span><div class="caixa fim">Começa a admissão<small>checklist no Word</small></div></div>
+              <div class="ramo"><span class="rot nao">não</span><div class="caixa volta">Volta para a triagem (passo 3)</div></div>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="processo">
+      <h3>Dúvidas dos funcionários</h3>
+      <p class="sub">Férias, holerite, vale-transporte, plano de saúde e atestado, o dia todo.</p>
+      <ol class="fluxo">
+        <li><div class="caixa inicio">Chega a pergunta<small>WhatsApp</small></div></li>
+        <li><div class="caixa dor"><span class="n">1</span>Procura a resposta no regulamento<small>PDF de 20 páginas</small><span class="tag">Dói: pergunta repetida</span></div></li>
+        <li>
+          <div class="decisao">
+            <div class="losango"><span>Achou?</span></div>
+            <div class="ramos">
+              <div class="ramo"><span class="rot">sim</span><div class="caixa fim">Responde no WhatsApp</div></div>
+              <div class="ramo"><span class="rot nao">não</span><div class="caixa">Pergunta à contabilidade por e-mail e depois responde</div></div>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="miolo duas">
+    <div>
+      <h2>Documentos para trazer</h2>
+      <p class="nota">Com eles na pasta, a IA escreve no padrão da Amorieu.</p>
+      <ul class="lista">
+        <li>Regulamento interno<span>PDF de 20 páginas</span></li>
+        <li>Modelos de descrição de vaga<span>Word</span></li>
+        <li>Roteiro de entrevista<span>Word</span></li>
+        <li>Checklist de admissão<span>Word</span></li>
+        <li>Planilha de vagas abertas<span>Google Planilhas</span></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Onde estão os dados</h2>
+      <p class="nota">Sistemas que a Juliana usa no dia a dia.</p>
+      <ul class="lista">
+        <li>LinkedIn e Indeed<span>vagas e currículos</span></li>
+        <li>Gmail<span>candidatos e contabilidade</span></li>
+        <li>Google Drive<span>documentos e planilhas</span></li>
+        <li>WhatsApp<span>gestores, candidatos e equipe</span></li>
+        <li>Tangerino<span>ponto</span></li>
+        <li>Holerites<span>PDF da contabilidade</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="miolo">
+    <div class="confirmar">
+      <h2>Falta confirmar</h2>
+      <ul>
+        <li>Se já usa alguma IA no trabalho.</li>
+        <li>Quanto tempo tomam a reunião de segunda e o fechamento do ponto.</li>
+        <li>O passo a passo da admissão e do fechamento do ponto.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- INICIO:plano -->
+<style>
+  .plano .tres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
+  .plano .card { background: #fff; border: 1.5px solid var(--areia); border-radius: 14px; padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; }
+  .plano .card.primeiro { border-color: var(--rosa); background: var(--rosa-claro); }
+  .plano .card .n { font-family: var(--titulo); font-size: 34px; line-height: 1; color: var(--ouro); font-weight: 700; }
+  .plano .card h3 { font-family: var(--titulo); font-size: 25px; font-weight: 600; line-height: 1.15; margin: 0; color: var(--vinho); }
+  .plano .card p { margin: 0; font-size: 15px; }
+  .plano .medida { font-size: 14px; color: var(--suave); }
+  .plano .passo { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--areia); font-size: 14px; }
+  .plano .passo b { display: block; color: var(--vinho); margin-bottom: 2px; }
+  .plano code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13px; background: var(--areia); padding: 1px 6px; border-radius: 6px; }
+  .plano .tipo { display: inline-block; font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--areia); color: var(--choco); white-space: nowrap; }
+  .plano .tipo.skill { background: var(--vinho); color: #fff; }
+  .plano .tipo.projeto { background: var(--rosa-claro); color: var(--vinho); border: 1px solid var(--rosa); }
+  .plano .tipo.rotina { background: #F5EBD3; color: #6B5320; }
+  .plano .pontos { letter-spacing: 2px; color: var(--ouro); white-space: nowrap; }
+  .plano .pontos i { font-style: normal; color: var(--areia); }
+  .plano h3.bloco { font-family: var(--titulo); font-size: 28px; font-weight: 600; margin: 40px 0 12px; color: var(--vinho); }
+  .plano .rotinas { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .plano .rotina-item { border-top: 3px solid var(--ouro); padding-top: 12px; }
+  .plano .rotina-item b { font-family: var(--titulo); font-size: 22px; color: var(--vinho); display: block; }
+  .plano .rotina-item p { margin: 4px 0 0; font-size: 15px; }
+  .plano .comvoce { margin-top: 40px; }
+  @media (max-width: 760px) {
+    .plano .tres, .plano .rotinas { grid-template-columns: 1fr; }
+  }
+</style>
+<section class="plano" id="plano">
+  <div class="miolo">
+    <h2>O que a IA pode fazer por você</h2>
+    <p class="nota">A IA lê os currículos e escreve a vaga; o regulamento passa a responder as dúvidas repetidas. Você fica com a entrevista, a decisão e a conversa com as pessoas. Em jogo, pelo que você contou: umas 32 h por mês em vagas e umas 13 h em dúvidas (estimativa).</p>
+
+    <div class="tres">
+      <article class="card primeiro">
+        <span class="n">1</span>
+        <h3>Triagem de currículos</h3>
+        <p>Compara os 60 a 100 currículos com a vaga e devolve uma tabela com motivo e sugestão de 10. Quem decide quem passa é você.</p>
+        <p class="medida"><span class="tipo skill">Skill</span> Impacto 3 · Esforço 2</p>
+        <p class="passo"><b>Comece assim</b>No Claude Code: <code>Cria a skill /triagem-curriculos</code></p>
+      </article>
+      <article class="card">
+        <span class="n">2</span>
+        <h3>Projeto "Dúvidas do RH"</h3>
+        <p>Com o regulamento dentro. Cola a pergunta do WhatsApp e recebe a resposta pronta, com a página. Você revisa e envia.</p>
+        <p class="medida"><span class="tipo projeto">Projeto</span> Impacto 3 · Esforço 2</p>
+        <p class="passo"><b>Comece assim</b>Em claude.ai, crie o projeto e suba o regulamento. Instruções em <code>entregas/sugestoes.md</code></p>
+      </article>
+      <article class="card">
+        <span class="n">3</span>
+        <h3>Descrição de vaga em 2 minutos</h3>
+        <p>Cola a mensagem do gestor e sai o texto para LinkedIn e Indeed, com o que faltar marcado para confirmar.</p>
+        <p class="medida"><span class="tipo">Prompt pronto</span> Impacto 2 · Esforço 1</p>
+        <p class="passo"><b>Comece assim</b>Prompt pronto em <code>entregas/sugestoes.md</code></p>
+      </article>
+    </div>
+
+    <div class="tabela-wrap"><table>
+      <thead><tr><th>Sugestão</th><th>Processo</th><th>Tipo</th><th>Impacto</th><th>Esforço</th><th>Próximo passo</th></tr></thead>
+      <tbody>
+        <tr><td>Triagem de currículos com tabela e motivo</td><td>Recrutamento</td><td><span class="tipo skill">Skill</span></td><td class="pontos">●●●</td><td class="pontos">●●<i>●</i></td><td><code>Cria a skill /triagem-curriculos</code></td></tr>
+        <tr><td>Projeto "Dúvidas do RH" com o regulamento</td><td>Dúvidas</td><td><span class="tipo projeto">Projeto</span></td><td class="pontos">●●●</td><td class="pontos">●●<i>●</i></td><td>Criar no claude.ai e colar as instruções</td></tr>
+        <tr><td>Descrição de vaga a partir da mensagem do gestor</td><td>Recrutamento</td><td><span class="tipo">Prompt pronto</span></td><td class="pontos">●●<i>●</i></td><td class="pontos">●<i>●●</i></td><td>Colar o prompt</td></tr>
+        <tr><td>Trazer regulamento, modelos de vaga, roteiro e checklist</td><td>Os dois</td><td><span class="tipo">Contexto</span></td><td class="pontos">●●●</td><td class="pontos">●<i>●●</i></td><td>Coloque o regulamento em <code>dados/regulamento.pdf</code></td></tr>
+        <tr><td>Guia de dúvidas da Amorieu para mandar o link no WhatsApp</td><td>Dúvidas</td><td><span class="tipo">Artifact</span></td><td class="pontos">●●●</td><td class="pontos">●●<i>●</i></td><td>Depois do regulamento: "Monta um guia de dúvidas como Artifact"</td></tr>
+        <tr><td>Parecer e comparativo dos 3 finalistas</td><td>Recrutamento</td><td><span class="tipo skill">Skill</span></td><td class="pontos">●●<i>●</i></td><td class="pontos">●●<i>●</i></td><td><code>Cria a skill /parecer-finalistas</code></td></tr>
+        <tr><td>Resumo das vagas abertas para a reunião de segunda</td><td>Reunião com gestores</td><td><span class="tipo rotina">Rotina agendada</span></td><td class="pontos">●●<i>●</i></td><td class="pontos">●●<i>●</i></td><td><code>/schedule</code> toda segunda 7h30</td></tr>
+        <tr><td>Ligar Google Drive e Gmail</td><td>Recrutamento e contabilidade</td><td><span class="tipo">Conector</span></td><td class="pontos">●●<i>●</i></td><td class="pontos">●<i>●●</i></td><td>claude.ai, Configurações, Conectores</td></tr>
+        <tr><td>Publicar a vaga no LinkedIn e no Indeed</td><td>Recrutamento</td><td><span class="tipo">Claude no navegador</span></td><td class="pontos">●<i>●●</i></td><td class="pontos">●<i>●●</i></td><td>Você assiste e aprova antes de publicar</td></tr>
+        <tr><td>Mensagens prontas para candidatos</td><td>Recrutamento e admissão</td><td><span class="tipo">Prompt pronto</span></td><td class="pontos">●●<i>●</i></td><td class="pontos">●<i>●●</i></td><td>Colar o prompt de <code>entregas/sugestoes.md</code></td></tr>
+      </tbody>
+    </table></div>
+
+    <h3 class="bloco">Rotinas agendadas</h3>
+    <div class="rotinas">
+      <div class="rotina-item"><b>Toda segunda, 7h30</b><p>Lê a planilha de vagas abertas e deixa o resumo para a reunião: vaga, gestor, etapa, dias em aberto e o que travou.</p></div>
+      <div class="rotina-item"><b>Dia 20, 8h</b><p>Deixa o checklist do fechamento do ponto e o rascunho do e-mail para a contabilidade. O passo a passo ainda falta confirmar.</p></div>
+    </div>
+
+    <div class="confirmar comvoce">
+      <h2>O que continua com você</h2>
+      <ul>
+        <li>Decidir quem passa na triagem: a IA sugere com motivo, a decisão é sua.</li>
+        <li>Entrevistar, e conversar nos casos delicados (atestado, conflito, desligamento).</li>
+        <li>Enviar qualquer resposta: a IA rascunha, você confere e manda.</li>
+        <li>Currículos ficam em <code>dados/</code> e saem da pasta quando a vaga fecha.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- FIM:plano -->
+</main>
+
+<footer><div class="miolo">Feito a partir da entrevista /sobre-mim. O detalhe está em memoria/sobre-mim.md.</div></footer>
+</body>
+</html>

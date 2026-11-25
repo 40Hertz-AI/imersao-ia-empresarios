@@ -1,0 +1,64 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amorieu Doces · post 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--marca:#8D4F57;--destaque:#9E5F66;--fundo:#FDF9F6;--texto:#3A2D2A;--rosa:#F9ECEA;--areia:#F2E7DC;--ouro:#C9A961;--t:'Cormorant Garamond',serif;--c:'Jost',sans-serif;--s:1}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:#1d1d1d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;overflow:hidden;font-family:var(--c)}
+.palco{width:1080px;height:1350px;zoom:var(--s)}
+.lamina{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--fundo);color:var(--texto);padding:110px 96px 170px;display:flex;flex-direction:column}
+.lamina[hidden]{display:none}
+.lamina h2{font-family:var(--t);font-weight:500;font-size:96px;line-height:1.02;letter-spacing:-.02em}
+.lamina p{font-size:40px;line-height:1.35}
+.rodape{position:absolute;left:96px;right:96px;bottom:64px;display:flex;justify-content:space-between;font-size:28px;font-weight:500}
+.controles{display:flex;align-items:center;gap:16px;color:#eee;font:600 16px/1 var(--c)}
+.controles button{font:inherit;width:44px;height:44px;border-radius:50%;border:1px solid #666;background:#2a2a2a;color:#fff;cursor:pointer}
+.controles button:disabled{opacity:.3;cursor:default}
+.controles button:focus-visible{outline:2px solid var(--ouro);outline-offset:2px}
+.nav{display:flex;align-items:center;gap:16px}
+.nav[hidden]{display:none}
+.controles .gerar{width:auto;border-radius:22px;padding:0 18px}
+.caixa{margin:auto;max-width:640px;width:calc(100% - 32px);border:0;border-radius:12px;padding:24px;font:16px/1.5 var(--c)}
+.caixa::backdrop{background:rgba(0,0,0,.6)}
+.caixa textarea{width:100%;height:220px;margin:12px 0;font:15px/1.5 var(--c);padding:12px}
+.caixa button{font:600 15px/1 var(--c);padding:12px 18px;border-radius:8px;border:1px solid #999;background:#fff;cursor:pointer;margin-right:8px}
+body.so{background:var(--fundo)} body.so .controles{display:none}
+
+.guia{background:var(--areia)}
+.guia h2{font-size:104px;max-width:820px}
+.guia .numero{margin:auto 0;font-family:var(--t);font-weight:600;font-size:340px;line-height:.85;color:var(--marca);letter-spacing:-.03em}
+.guia .apoio{max-width:820px}
+.guia .salve{margin-top:48px;display:flex;align-items:center;gap:20px;font-size:38px;font-weight:500;color:var(--marca)}
+</style></head><body>
+<div class="palco">
+  <section class="lamina guia" data-prompt="Crie uma imagem vertical 4:5 (1080 × 1350 px) para um post de Instagram da Amorieu Doces, confeitaria de brigadeiros gourmet, bolos e mesas de doces em Mogi das Cruzes (SP). Cena: muitos brigadeiros gourmet em forminhas, alinhados em fileiras sobre bandejas numa bancada de confeitaria, vistos de cima, com espaço livre na parte de cima para o texto. Estilo: fotografia de confeitaria elegante, luz natural suave, clima de chocolateria clássica, em rosa antigo e marrom chocolate. Cores: rosa vinho (#8D4F57), rosa antigo (#9E5F66), creme (#FDF9F6), marrom chocolate (#3A2D2A), rosa claro (#F9ECEA), areia (#F2E7DC) e detalhes em ouro (#C9A961). Texto na imagem, exatamente assim, em português: &quot;Quantos docinhos por convidado? 7 a 9&quot;, sem logos, sem marca d'água e sem nenhuma outra palavra.">
+    <h2>Quantos docinhos por convidado?</h2>
+    <p class="numero">7 a 9</p>
+    <p class="apoio">A conta que as noivas fazem. Com 150 convidados, de 1.050 a 1.350.</p>
+    <p class="salve"><svg width="30" height="40" viewBox="0 0 30 40" aria-hidden="true"><path d="M3 3h24v34L15 28 3 37z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>Salve para a sua conta.</p>
+    <div class="rodape"><span>@amorieudoces</span><span>amorieudoces.com.br</span></div>
+  </section>
+
+</div>
+<div class="controles"><span class="nav"><button type="button" aria-label="Lâmina anterior">&#8249;</button><span class="conta"></span><button type="button" aria-label="Próxima lâmina">&#8250;</button></span><button type="button" class="gerar">Gerar prompt de imagem</button></div>
+<dialog class="caixa"><b>Prompt de imagem desta lâmina</b><br>Cole no ChatGPT (ou outro gerador de imagem) para criar a imagem.<textarea readonly></textarea><button type="button" class="copiar">Copiar</button><button type="button" class="fechar">Fechar</button></dialog>
+<script>
+// Uma lâmina por vez, do tamanho da janela. ?n=3 mostra só a lâmina 3, sem botões (relatório e print).
+const n=+new URLSearchParams(location.search).get('n'), ls=[...document.querySelectorAll('.lamina')];
+const [ant,prox]=document.querySelectorAll('.nav button'), conta=document.querySelector('.conta');
+let i=Math.min(Math.max((n||1)-1,0),ls.length-1);
+if(n) document.body.classList.add('so');
+if(ls.length<2) document.querySelector('.nav').hidden=true;
+function mostra(){ ls.forEach((l,k)=>l.hidden=k!==i); conta.textContent=(i+1)+' / '+ls.length; ant.disabled=i===0; prox.disabled=i===ls.length-1; }
+function escala(){ const folga=n?0:80; document.documentElement.style.setProperty('--s',Math.min(1,innerWidth/1080,(innerHeight-folga)/1350)); }
+ant.onclick=()=>{ if(i>0){i--;mostra();} }; prox.onclick=()=>{ if(i<ls.length-1){i++;mostra();} };
+addEventListener('keydown',e=>{ if(caixa.open) return; if(e.key==='ArrowRight') prox.click(); if(e.key==='ArrowLeft') ant.click(); });
+// Gerar prompt de imagem: mostra e copia o data-prompt da lâmina atual.
+const caixa=document.querySelector('.caixa'), txt=caixa.querySelector('textarea');
+function copia(){ txt.select(); document.execCommand('copy'); }
+document.querySelector('.gerar').onclick=()=>{ txt.value=ls[i].dataset.prompt; caixa.showModal(); copia(); };
+caixa.querySelector('.copiar').onclick=copia; caixa.querySelector('.fechar').onclick=()=>caixa.close();
+addEventListener('resize',escala); escala(); mostra();
+</script></body></html>

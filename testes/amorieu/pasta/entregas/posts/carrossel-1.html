@@ -1,0 +1,152 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amorieu Doces · carrossel 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--marca:#8D4F57;--destaque:#9E5F66;--fundo:#FDF9F6;--texto:#3A2D2A;--rosa:#F9ECEA;--areia:#F2E7DC;--ouro:#C9A961;--t:'Cormorant Garamond',serif;--c:'Jost',sans-serif;--s:1}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:#1d1d1d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;overflow:hidden;font-family:var(--c)}
+.palco{width:1080px;height:1350px;zoom:var(--s)}
+.lamina{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--fundo);color:var(--texto);padding:110px 96px 170px;display:flex;flex-direction:column}
+.lamina[hidden]{display:none}
+.lamina h2{font-family:var(--t);font-weight:500;font-size:96px;line-height:1.02;letter-spacing:-.02em}
+.lamina p{font-size:40px;line-height:1.35}
+.rodape{position:absolute;left:96px;right:96px;bottom:64px;display:flex;justify-content:space-between;font-size:28px;font-weight:500}
+.controles{display:flex;align-items:center;gap:16px;color:#eee;font:600 16px/1 var(--c)}
+.controles button{font:inherit;width:44px;height:44px;border-radius:50%;border:1px solid #666;background:#2a2a2a;color:#fff;cursor:pointer}
+.controles button:disabled{opacity:.3;cursor:default}
+.controles button:focus-visible{outline:2px solid var(--ouro);outline-offset:2px}
+.nav{display:flex;align-items:center;gap:16px}
+.nav[hidden]{display:none}
+.controles .gerar{width:auto;border-radius:22px;padding:0 18px}
+.caixa{margin:auto;max-width:640px;width:calc(100% - 32px);border:0;border-radius:12px;padding:24px;font:16px/1.5 var(--c)}
+.caixa::backdrop{background:rgba(0,0,0,.6)}
+.caixa textarea{width:100%;height:220px;margin:12px 0;font:15px/1.5 var(--c);padding:12px}
+.caixa button{font:600 15px/1 var(--c);padding:12px 18px;border-radius:8px;border:1px solid #999;background:#fff;cursor:pointer;margin-right:8px}
+body.so{background:var(--fundo)} body.so .controles{display:none}
+
+/* forminha: disco com borda recortada, a assinatura do sistema */
+.forminha circle.borda{stroke-linecap:round}
+
+/* 1 · gancho */
+.gancho{background:var(--marca);color:var(--fundo)}
+.gancho h2{font-size:124px;line-height:1;margin-top:40px;max-width:860px}
+.gancho .forminha{position:absolute;right:-170px;bottom:-170px;width:560px;height:560px}
+.gancho .rodape span:last-child{color:var(--texto)} /* o contador cai sobre a forminha dourada */
+.arraste{margin-top:auto;display:flex;align-items:center;gap:20px;font-size:36px;font-weight:500}
+
+/* 2–3 · problema */
+.cena h2{font-size:88px}
+.cena.areia{background:var(--areia)}
+.conversa{margin-top:auto;background:var(--rosa);border-radius:40px;padding:56px 48px;display:flex;flex-direction:column;gap:28px}
+.balao{align-self:flex-end;max-width:640px;background:var(--fundo);border-radius:32px 32px 6px 32px;padding:32px 36px;font-size:38px;line-height:1.3}
+.visto{align-self:flex-end;display:flex;align-items:center;gap:12px;font-size:36px;color:var(--marca)}
+.vazio{width:420px;height:120px;border:4px dashed var(--destaque);border-radius:32px 32px 32px 6px;opacity:.55}
+.nota{margin:auto auto 0;width:760px;background:var(--fundo);padding:56px 60px 40px;font-size:40px;position:relative}
+.nota::after{content:"";position:absolute;left:0;right:0;bottom:-30px;height:30px;background:linear-gradient(-45deg,transparent 15px,var(--fundo) 0) 0 0/30px 30px repeat-x,linear-gradient(45deg,transparent 15px,var(--fundo) 0) 0 0/30px 30px repeat-x}
+.nota div{display:flex;justify-content:space-between;padding:18px 0;border-bottom:3px dotted #c9b9a8}
+.nota div b{font-weight:500;color:var(--marca)}
+.nota .total{border:0;font-family:var(--t);font-size:64px;font-weight:600;padding-top:28px}
+
+/* 4–5 · método */
+.metodo h2{font-size:88px}
+.metodo.rosa{background:var(--rosa)}
+.lista{list-style:none;padding:0;margin-top:auto;margin-bottom:auto;display:flex;flex-direction:column;gap:64px}
+.lista li{display:grid;grid-template-columns:120px 1fr;column-gap:32px;align-items:start}
+.lista .num{font-family:var(--t);font-size:150px;line-height:.8;color:var(--marca);font-weight:600}
+.lista h3{font-family:var(--t);font-weight:600;font-size:72px;line-height:1.05}
+.lista p{margin-top:14px;font-size:38px}
+
+/* 6 · virada */
+.virada{background:var(--texto);color:var(--fundo);align-items:center;text-align:center}
+.virada .selo{margin-top:20px;width:520px;height:520px}
+.virada h2{margin-top:auto;font-size:84px;max-width:860px}
+
+/* 7 · chamada */
+.chamada{text-align:center;align-items:center;justify-content:center}
+.chamada .pre{font-family:var(--t);font-size:88px;font-style:italic}
+.chamada .palavra{font-family:var(--t);font-weight:600;font-size:300px;line-height:.9;color:var(--destaque);letter-spacing:.02em;margin:10px 0 40px}
+.chamada p{max-width:760px}
+</style></head><body>
+<div class="palco">
+
+  <section class="lamina gancho" data-prompt="Crie uma imagem vertical 4:5 (1080 × 1350 px) para um post de Instagram da Amorieu Doces, confeitaria de brigadeiros gourmet, bolos e mesas de doces em Mogi das Cruzes (SP). Cena: uma mesa de doces de casamento vista de perto, com brigadeiros gourmet em forminhas sobre bandejas, flores claras ao fundo e espaço livre na metade de cima para o texto. Estilo: fotografia de confeitaria elegante, luz natural suave, clima de chocolateria clássica, em rosa antigo e marrom chocolate. Cores: rosa vinho (#8D4F57), rosa antigo (#9E5F66), creme (#FDF9F6), marrom chocolate (#3A2D2A), rosa claro (#F9ECEA), areia (#F2E7DC) e detalhes em ouro (#C9A961). Texto na imagem, exatamente assim, em português: &quot;Antes de fechar os docinhos do casamento, faça estas 4 perguntas.&quot;, sem logos, sem marca d'água e sem nenhuma outra palavra.">
+    <h2>Antes de fechar os docinhos do casamento, faça estas 4 perguntas.</h2>
+    <svg class="forminha" viewBox="0 0 560 560" aria-hidden="true"><circle cx="280" cy="280" r="250" fill="#C9A961"/><circle class="borda" cx="280" cy="280" r="250" fill="none" stroke="#C9A961" stroke-width="36" stroke-dasharray="0 52.36"/><circle cx="280" cy="280" r="180" fill="none" stroke="#8D4F57" stroke-width="3" stroke-dasharray="2 14" stroke-linecap="round"/></svg>
+    <span class="arraste">Arraste <svg width="90" height="30" viewBox="0 0 90 30" aria-hidden="true"><path d="M2 15h82M70 3l14 12-14 12" fill="none" stroke="currentColor" stroke-width="3"/></svg></span>
+    <div class="rodape"><span>@amorieudoces</span><span>1/7</span></div>
+  </section>
+
+  <section class="lamina cena" data-prompt="Crie uma imagem vertical 4:5 (1080 × 1350 px) para um post de Instagram da Amorieu Doces, confeitaria de brigadeiros gourmet, bolos e mesas de doces em Mogi das Cruzes (SP). Cena: um celular deitado sobre uma mesa, ao lado de um caderno de planejamento de casamento e de uma caneta, com uma conversa de mensagem enviada e sem resposta na tela, sem rosto de pessoa. Estilo: fotografia de confeitaria elegante, luz natural suave, clima de chocolateria clássica, em rosa antigo e marrom chocolate. Cores: rosa vinho (#8D4F57), rosa antigo (#9E5F66), creme (#FDF9F6), marrom chocolate (#3A2D2A), rosa claro (#F9ECEA), areia (#F2E7DC) e detalhes em ouro (#C9A961). Texto na imagem, exatamente assim, em português: &quot;Você pede orçamento. Eles visualizam e não respondem.&quot;, sem logos, sem marca d'água e sem nenhuma outra palavra.">
+    <h2>Você pede orçamento. Eles visualizam e não respondem.</h2>
+    <div class="conversa" aria-label="Conversa sem resposta">
+      <div class="balao">Oi! Quanto fica a mesa de doces para 150 convidados?</div>
+      <div class="visto"><svg width="46" height="26" viewBox="0 0 46 26" aria-hidden="true"><path d="M2 14l8 8L26 4M18 20l2 2L44 4" fill="none" stroke="currentColor" stroke-width="3.5"/></svg>Visualizada às 21:47</div>
+      <div class="vazio" aria-hidden="true"></div>
+    </div>
+    <div class="rodape"><span>@amorieudoces</span><span>2/7</span></div>
+  </section>
+
+  <section class="lamina cena areia" data-prompt="Crie uma imagem vertical 4:5 (1080 × 1350 px) para um post de Instagram da Amorieu Doces, confeitaria de brigadeiros gourmet, bolos e mesas de doces em Mogi das Cruzes (SP). Cena: um orçamento em papel sobre a mesa, com linhas em branco e pontos de interrogação, ao lado de alguns docinhos em forminhas e uma caneta. Estilo: fotografia de confeitaria elegante, luz natural suave, clima de chocolateria clássica, em rosa antigo e marrom chocolate. Cores: rosa vinho (#8D4F57), rosa antigo (#9E5F66), creme (#FDF9F6), marrom chocolate (#3A2D2A), rosa claro (#F9ECEA), areia (#F2E7DC) e detalhes em ouro (#C9A961). Texto na imagem, exatamente assim, em português: &quot;Ou mandam “a partir de”, e o total só aparece no fim.&quot;, sem logos, sem marca d'água e sem nenhuma outra palavra.">
+    <h2>Ou mandam “a partir de”, e o total só aparece no fim.</h2>
+    <div class="nota" aria-label="Orçamento incompleto">
+      <div><span>Mesa de doces</span><b>a partir de</b></div>
+      <div><span>Entrega</span><b>?</b></div>
+      <div><span>Montagem</span><b>?</b></div>
+      <div class="total"><span>Total</span><b>?</b></div>
+    </div>
+    <div class="rodape"><span>@amorieudoces</span><span>3/7</span></div>
+  </section>
+
+  <section class="lamina metodo" data-prompt="Crie uma imagem vertical 4:5 (1080 × 1350 px) para um post de Instagram da Amorieu Doces, confeitaria de brigadeiros gourmet, bolos e mesas de doces em Mogi das Cruzes (SP). Cena: uma caixinha de degustação aberta com brigadeiros gourmet de vários sabores, duas mãos sem rosto pegando um docinho cada. Estilo: fotografia de confeitaria elegante, luz natural suave, clima de chocolateria clássica, em rosa antigo e marrom chocolate. Cores: rosa vinho (#8D4F57), rosa antigo (#9E5F66), creme (#FDF9F6), marrom chocolate (#3A2D2A), rosa claro (#F9ECEA), areia (#F2E7DC) e detalhes em ouro (#C9A961). Texto na imagem, exatamente assim, em português: &quot;Pergunte antes de fechar&quot;, sem logos, sem marca d'água e sem nenhuma outra palavra.">
+    <h2>Pergunte antes de fechar</h2>
+    <ol class="lista">
+      <li><span class="num">1</span><div><h3>Qual o total para os meus convidados?</h3><p>Com entrega e montagem.</p></div></li>
+      <li><span class="num">2</span><div><h3>Posso provar antes de fechar?</h3><p>A família prova junto.</p></div></li>
+    </ol>
+    <div class="rodape"><span>@amorieudoces</span><span>4/7</span></div>
+  </section>
+
+  <section class="lamina metodo rosa" data-prompt="Crie uma imagem vertical 4:5 (1080 × 1350 px) para um post de Instagram da Amorieu Doces, confeitaria de brigadeiros gourmet, bolos e mesas de doces em Mogi das Cruzes (SP). Cena: uma lista escrita à mão sobre a bancada, ao lado de bandejas com docinhos sendo organizados para uma festa. Estilo: fotografia de confeitaria elegante, luz natural suave, clima de chocolateria clássica, em rosa antigo e marrom chocolate. Cores: rosa vinho (#8D4F57), rosa antigo (#9E5F66), creme (#FDF9F6), marrom chocolate (#3A2D2A), rosa claro (#F9ECEA), areia (#F2E7DC) e detalhes em ouro (#C9A961). Texto na imagem, exatamente assim, em português: &quot;O que vem, por escrito?&quot;, sem logos, sem marca d'água e sem nenhuma outra palavra.">
+    <ol class="lista" start="3">
+      <li><span class="num">3</span><div><h3>O que vem, por escrito?</h3><p>Quantidade, sabores, data e horário.</p></div></li>
+      <li><span class="num">4</span><div><h3>Quem confirma a entrega na véspera?</h3><p>Para você dormir tranquila.</p></div></li>
+    </ol>
+    <div class="rodape"><span>@amorieudoces</span><span>5/7</span></div>
+  </section>
+
+  <section class="lamina virada" data-prompt="Crie uma imagem vertical 4:5 (1080 × 1350 px) para um post de Instagram da Amorieu Doces, confeitaria de brigadeiros gourmet, bolos e mesas de doces em Mogi das Cruzes (SP). Cena: uma mesa de doces de casamento pronta e iluminada, com brigadeiros gourmet em forminhas, um bolo ao centro e flores, sobre fundo marrom chocolate. Estilo: fotografia de confeitaria elegante, luz natural suave, clima de chocolateria clássica, em rosa antigo e marrom chocolate. Cores: rosa vinho (#8D4F57), rosa antigo (#9E5F66), creme (#FDF9F6), marrom chocolate (#3A2D2A), rosa claro (#F9ECEA), areia (#F2E7DC) e detalhes em ouro (#C9A961). Texto na imagem, exatamente assim, em português: &quot;Na Amorieu, o orçamento vem com o total, por escrito, antes de você decidir.&quot;, sem logos, sem marca d'água e sem nenhuma outra palavra.">
+    <svg class="selo" viewBox="0 0 520 520" role="img" aria-label="Selo Mesa Sem Susto"><circle cx="260" cy="260" r="225" fill="#C9A961"/><circle class="borda" cx="260" cy="260" r="225" fill="none" stroke="#C9A961" stroke-width="34" stroke-dasharray="0 47.12" stroke-linecap="round"/><circle cx="260" cy="260" r="180" fill="none" stroke="#3A2D2A" stroke-width="3" stroke-dasharray="2 13" stroke-linecap="round"/><text x="260" y="240" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="500" font-size="76" fill="#3A2D2A">Mesa</text><text x="260" y="320" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="500" font-size="76" fill="#3A2D2A">Sem Susto</text></svg>
+    <h2>Na Amorieu, o orçamento vem com o total, por escrito, antes de você decidir.</h2>
+    <div class="rodape"><span>@amorieudoces</span><span>6/7</span></div>
+  </section>
+
+  <section class="lamina chamada" data-prompt="Crie uma imagem vertical 4:5 (1080 × 1350 px) para um post de Instagram da Amorieu Doces, confeitaria de brigadeiros gourmet, bolos e mesas de doces em Mogi das Cruzes (SP). Cena: um único brigadeiro gourmet em forminha, em destaque no centro, sobre fundo creme liso com muito espaço livre. Estilo: fotografia de confeitaria elegante, luz natural suave, clima de chocolateria clássica, em rosa antigo e marrom chocolate. Cores: rosa vinho (#8D4F57), rosa antigo (#9E5F66), creme (#FDF9F6), marrom chocolate (#3A2D2A), rosa claro (#F9ECEA), areia (#F2E7DC) e detalhes em ouro (#C9A961). Texto na imagem, exatamente assim, em português: &quot;Comente MESA&quot;, sem logos, sem marca d'água e sem nenhuma outra palavra.">
+    <span class="pre">Comente</span>
+    <span class="palavra">MESA</span>
+    <p>e a Júlia te manda o total para o seu número de convidados.</p>
+    <div class="rodape"><span>@amorieudoces</span><span>7/7</span></div>
+  </section>
+
+</div>
+<div class="controles"><span class="nav"><button type="button" aria-label="Lâmina anterior">&#8249;</button><span class="conta"></span><button type="button" aria-label="Próxima lâmina">&#8250;</button></span><button type="button" class="gerar">Gerar prompt de imagem</button></div>
+<dialog class="caixa"><b>Prompt de imagem desta lâmina</b><br>Cole no ChatGPT (ou outro gerador de imagem) para criar a imagem.<textarea readonly></textarea><button type="button" class="copiar">Copiar</button><button type="button" class="fechar">Fechar</button></dialog>
+<script>
+// Uma lâmina por vez, do tamanho da janela. ?n=3 mostra só a lâmina 3, sem botões (relatório e print).
+const n=+new URLSearchParams(location.search).get('n'), ls=[...document.querySelectorAll('.lamina')];
+const [ant,prox]=document.querySelectorAll('.nav button'), conta=document.querySelector('.conta');
+let i=Math.min(Math.max((n||1)-1,0),ls.length-1);
+if(n) document.body.classList.add('so');
+if(ls.length<2) document.querySelector('.nav').hidden=true;
+function mostra(){ ls.forEach((l,k)=>l.hidden=k!==i); conta.textContent=(i+1)+' / '+ls.length; ant.disabled=i===0; prox.disabled=i===ls.length-1; }
+function escala(){ const folga=n?0:80; document.documentElement.style.setProperty('--s',Math.min(1,innerWidth/1080,(innerHeight-folga)/1350)); }
+ant.onclick=()=>{ if(i>0){i--;mostra();} }; prox.onclick=()=>{ if(i<ls.length-1){i++;mostra();} };
+addEventListener('keydown',e=>{ if(caixa.open) return; if(e.key==='ArrowRight') prox.click(); if(e.key==='ArrowLeft') ant.click(); });
+// Gerar prompt de imagem: mostra e copia o data-prompt da lâmina atual.
+const caixa=document.querySelector('.caixa'), txt=caixa.querySelector('textarea');
+function copia(){ txt.select(); document.execCommand('copy'); }
+document.querySelector('.gerar').onclick=()=>{ txt.value=ls[i].dataset.prompt; caixa.showModal(); copia(); };
+caixa.querySelector('.copiar').onclick=copia; caixa.querySelector('.fechar').onclick=()=>caixa.close();
+addEventListener('resize',escala); escala(); mostra();
+</script></body></html>
